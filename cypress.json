@@ -1,0 +1,8 @@
+{
+  "baseUrl": "https://www.teaswap.art",
+  "pluginsFile": false,
+  "fixturesFolder": false,
+  "supportFile": "cypress/support/index.js",
+  "video": false,
+  "defaultCommandTimeout": 10000
+}
