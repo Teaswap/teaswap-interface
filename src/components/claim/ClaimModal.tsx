@@ -100,7 +100,7 @@ export default function ClaimModal() {
             <CardNoise />
             <CardSection gap="md">
               <RowBetween>
-                <TYPE.white fontWeight={500}>{t('claim')} TSA</TYPE.white>
+                <TYPE.white fontWeight={500}>{t('claim')} Airdrop</TYPE.white>
                 <CloseIcon onClick={toggleClaimModal} style={{ zIndex: 99 }} color="white" />
               </RowBetween>
               <TYPE.white fontWeight={700} fontSize={36}>
@@ -150,7 +150,7 @@ export default function ClaimModal() {
               mt="1rem"
               onClick={onClaim}
             >
-              {t('claim')} TSA
+              {t('claim')} Airdrop
             </ButtonPrimary>
           </AutoColumn>
         </ContentWrapper>
