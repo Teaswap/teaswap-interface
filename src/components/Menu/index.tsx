@@ -132,7 +132,7 @@ export default function Menu() {
           </MenuItem>
           {account && (
             <ButtonPrimary onClick={openClaimModal} padding="8px 16px" width="100%" borderRadius="0px" mt="0.5rem">
-              {t('Claim')} TSA
+              {t('Claim')} AirDrops
             </ButtonPrimary>
           )}
         </MenuFlyout>

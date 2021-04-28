@@ -108,7 +108,7 @@ export default function AddressClaimModal({ isOpen, onDismiss }: { isOpen: boole
                 <CloseIcon width="20" height="20" onClick={wrappedOnDismiss} style={{ zIndex: 99 }} stroke="white" />
               </RowBetween>
               <TYPE.white fontWeight={700} fontSize={24}>
-                {unclaimedAmount?.toFixed(0, { groupSeparator: ',' } ?? '-')} TSA
+                {unclaimedAmount?.toFixed(0, { groupSeparator: ',' } ?? '-')} Reward Tokens
               </TYPE.white>
             </CardSection>
             <Break />
@@ -130,7 +130,7 @@ export default function AddressClaimModal({ isOpen, onDismiss }: { isOpen: boole
               mt="1rem"
               onClick={onClaim}
             >
-              {t('claim')} TSA
+              {t('claim')} SATO
             </ButtonPrimary>
           </AutoColumn>
         </ContentWrapper>
