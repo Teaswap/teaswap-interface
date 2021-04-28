@@ -12,7 +12,7 @@ const CarouselBox = () => {
         margin: '0 auto',
         marginTop: '20px'
       }}
-      autoplay={false}
+      autoplay={true}
       wrapAround={true}
       defaultControlsConfig={{
         nextButtonText: '>',

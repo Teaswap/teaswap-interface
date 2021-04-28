@@ -29,7 +29,7 @@ const StyledFooter = styled.footer`
   display: flex;
   justify-content: center;
   width: 100%;
-  background: #474747;
+  background: #7f7f7f;
   ${({ theme }) => theme.mediaWidth.upToExtraSmall`
     padding-bottom: 40px;
   `}

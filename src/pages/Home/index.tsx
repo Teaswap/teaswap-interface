@@ -9,7 +9,6 @@ import { MEDIA_QUERY } from '../../constants/style';
 import { CardSection, HomeCard} from '../../components/earn/styled'
 
 import smallLogo from '../../assets/images/logo.png'
-import HomeImg from '../../assets/images/Homeimg.jpeg'
 
 const PageWrapper = styled(HomeGrid)`
   max-width: 1024px;
@@ -35,13 +34,18 @@ export default function Home() {
     <>
       <PageWrapper>
         <HomeImageDiv>
-          <img width="100%" src={HomeImg} alt="Home" />
+          <video width="383" height="570" controls>
+            <source src={process.env.PUBLIC_URL + '/1619572185498999.mp4'} type="video/mp4" />
+            <p>Your browser doesn't support HTML5 video. Here is
+            a <a href={process.env.PUBLIC_URL + '/1619572185498999.mp4'}>link to the video</a> instead.</p>
+          </video>
         </HomeImageDiv>
         <HomeCard>
           <CardSection>
             <AutoColumn gap="md">
               <RowBetween style={{ marginTop: 16,justifyContent:"center" }}  >
-                <TYPE.darkGray letterSpacing="3px" fontSize={18} fontWeight="bold" textAlign="center" alignSelf="center" >{t('INSPIRING CREATIVITY.')}
+                <TYPE.darkGray letterSpacing="3px" fontSize={16} fontFamily="lulo-clean-w01-one-bold" textAlign="center" alignSelf="center" >
+                  {t('INSPIRING CREATIVITY.')}
                   <br/>
                   {t('NFT FOR GOOD.')}
                 </TYPE.darkGray>

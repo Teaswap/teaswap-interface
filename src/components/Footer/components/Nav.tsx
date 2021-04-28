@@ -4,24 +4,28 @@ import styled from 'styled-components'
 const Nav: React.FC = () => {
   return (
     <StyledNav>
-      <StyledLink target="_blank" href="https://www.teaswap.art/staking">
-        STAKING
+       <StyledLink target="_blank" href="/swap">
+        Swap
       </StyledLink>
-      <StyledLink style={{padding:"0 2px"}}> | </StyledLink>
+      <StyledLink style={{padding:"0 2px"}}>  </StyledLink>
+      <StyledLink target="_blank" href="/staking">
+        Stake
+      </StyledLink>
+      <StyledLink style={{padding:"0 2px"}}>  </StyledLink>
       <StyledLink target="_blank" href="https://teaswap.myshopify.com/">
-        SHOP
+        Shop
       </StyledLink>
-      <StyledLink style={{padding:"0 2px"}}> | </StyledLink>
+      <StyledLink style={{padding:"0 2px"}}>  </StyledLink>
       <StyledLink target="_blank" href="https://www.teaswap.live/info">
-        INFO
+        Info
       </StyledLink>
-      <StyledLink style={{padding:"0 2px"}}> | </StyledLink>
+      <StyledLink style={{padding:"0 2px"}}>  </StyledLink>
       <StyledLink target="_blank" href={'https://www.teaswap.live/news'}>
-        NEWS
+        News
       </StyledLink>
-      <StyledLink style={{padding:"0 2px"}}> | </StyledLink>
+      <StyledLink style={{padding:"0 2px"}}>  </StyledLink>
       <StyledLink target="_blank" href={'mailto:support@teaswap.art'}>
-        CONTACT
+        Contact
       </StyledLink>
       {/* <StyledLink target="_blank" href="https://t.me/bestswap_com">
         Announcement
