@@ -34,7 +34,8 @@ export default function Home() {
     <>
       <PageWrapper>
         <HomeImageDiv>
-          <video width="383" height="570" controls>
+          {/* <img width="383" src={process.env.PUBLIC_URL + '/TSA_compressed.gif'} /> */}
+          <video autoPlay={true} loop={true} width="450" controls>
             <source src={process.env.PUBLIC_URL + '/1619572185498999.mp4'} type="video/mp4" />
             <p>Your browser doesn't support HTML5 video. Here is
             a <a href={process.env.PUBLIC_URL + '/1619572185498999.mp4'}>link to the video</a> instead.</p>
@@ -44,7 +45,7 @@ export default function Home() {
           <CardSection>
             <AutoColumn gap="md">
               <RowBetween style={{ marginTop: 16,justifyContent:"center" }}  >
-                <TYPE.darkGray letterSpacing="3px" fontSize={16} fontFamily="lulo-clean-w01-one-bold" textAlign="center" alignSelf="center" >
+                <TYPE.darkGray letterSpacing="1px" fontSize={16} fontFamily="lulo-clean-w01-one-bold" textAlign="center" alignSelf="center" >
                   {t('INSPIRING CREATIVITY.')}
                   <br/>
                   {t('NFT FOR GOOD.')}

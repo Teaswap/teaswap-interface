@@ -2,13 +2,18 @@ import React from 'react';
 import Carousel from 'nuka-carousel';
 import styled from 'styled-components';
 
+const preBtnSty = {
+  backgroundColor: "rgba(0, 0, 0, 0.2)",
+  width: '40px',
+  height: '40px',
+  borderRadius: '20px' 
+}
 
 const CarouselBox = () => {
   return (
     <Carousel
       style={{
         width: '100%',
-        maxWidth: '1400px',
         margin: '0 auto',
         marginTop: '20px'
       }}
@@ -21,6 +26,8 @@ const CarouselBox = () => {
           fill: 'white',
           margin: '0 5px',
         },
+        prevButtonStyle: preBtnSty,
+        nextButtonStyle: preBtnSty
       }}
     >
       <img src={process.env.PUBLIC_URL + '/nft_banner1.png'} alt="" />
@@ -29,7 +36,6 @@ const CarouselBox = () => {
       <img src={process.env.PUBLIC_URL + '/homepage-banner3.jpg'} alt="" />
       <img src={process.env.PUBLIC_URL + '/homepage-banner4.jpg'} alt="" />
       <img src={process.env.PUBLIC_URL + '/homepage-banner5.png'} alt="" />
-      {/* <img src={process.env.PUBLIC_URL + '/homepage-banner6.jpg'} alt="" /> */}
 
     </Carousel>
   );
