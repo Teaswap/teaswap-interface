@@ -8,7 +8,7 @@ import { MEDIA_QUERY } from '../../constants/style';
 
 import { CardSection, HomeCard} from '../../components/earn/styled'
 
-import smallLogo from '../../assets/images/logo.png'
+import smallLogo from '../../assets/images/home_page_logo.png'
 
 const PageWrapper = styled(HomeGrid)`
   max-width: 1024px;
@@ -35,7 +35,7 @@ export default function Home() {
       <PageWrapper>
         <HomeImageDiv>
           {/* <img width="383" src={process.env.PUBLIC_URL + '/TSA_compressed.gif'} /> */}
-          <video autoPlay={true} loop={true} width="450" controls>
+          <video autoPlay={true} loop={true} width="100%" controls>
             <source src={process.env.PUBLIC_URL + '/1619572185498999.mp4'} type="video/mp4" />
             <p>Your browser doesn't support HTML5 video. Here is
             a <a href={process.env.PUBLIC_URL + '/1619572185498999.mp4'}>link to the video</a> instead.</p>
@@ -51,7 +51,7 @@ export default function Home() {
                   {t('NFT FOR GOOD.')}
                 </TYPE.darkGray>
               </RowBetween>
-              <RowBetween style={{ marginTop: 16,justifyContent:"center" }}>
+              {/* <RowBetween style={{ marginTop: 16,justifyContent:"center" }}>
                 <TYPE.green fontSize={24} fontFamily="Times" fontStyle="italic" textAlign="center" alignSelf="center" >
                   {t(
                     'Why'
@@ -61,9 +61,9 @@ export default function Home() {
                     'The Art of  TEAsWAP ?'
                   )}
                 </TYPE.green>
-              </RowBetween>
+              </RowBetween> */}
               <RowBetween style={{ justifyContent:"center" }}  >
-                <img height="48px" style={{ marginTop: 0 }} src={smallLogo} alt="Home" />
+                <img height="160px" style={{ marginTop: 0 }} src={smallLogo} alt="Home" />
               </RowBetween>
               <RowBetween style={{ justifyContent:"center" }}>
                 <TYPE.darkGray fontSize={14} >{t('The Art of TEAsWAP ("TSA") is where we bring together creators, collectors, curators, influencers, brokers, wallets, auctioneers around the world to the NFT digital space.')}</TYPE.darkGray>
