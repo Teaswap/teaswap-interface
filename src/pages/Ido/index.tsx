@@ -30,10 +30,11 @@ import { BIG_INT_ZERO } from '../../constants'
 import BuyingModal from '../../components/ido/BuyingModal'
 import ClaimIdoRewardModal from '../../components/earn/ClaimRewardModal'
 import ConTitle from '../../components/Content/Title'
+import IncubatorBox from '../../components/general/IncubatorBox'
 
 const PageWrapper = styled(AutoColumn)`
-  max-width: 640px
   width: 100%;
+  margin-top: -70px;
 `
 
 const Box = styled(ColumnCenter)`
@@ -166,8 +167,8 @@ const Index = ()=>{
 
   return (
     <PageWrapper gap="lg" justify="center">
-
-      <ConTitle con="CaoJun limited edition NFT series" />
+      <IncubatorBox />
+      <ConTitle con="CaoJun NFT Collections" />
 
       {idoInfo && (
 

@@ -13,6 +13,7 @@ import { useTranslation } from 'react-i18next';
 import { setErrorMessage } from '../../redux/slices/cartSlice/cartSlice'
 import { InputComponent } from '../Input'
 import { findNonSerializableValue } from '@reduxjs/toolkit'
+import { ButtonPrimary } from '../Button';
 const ProductInfoContainer = styled.div``;
 const ProductName = styled.div`
   width:  100%;
@@ -255,19 +256,19 @@ export const ProductInfo = ({ product }) => {
               onChange={(e) => setBidValue(e.target.value)}
             />
             <TwoButton>
-              <ActionButton
+              <ButtonPrimary
                 onClick={()=>
                   handleAddProduct(product.id, isSelectQuantity, user.userId, bidValue)
                 }
               >
                 {t('Confirm')}
-              </ActionButton>
-              <ActionButton
-                $bg={'red'}
+              </ButtonPrimary>
+              <ButtonPrimary
+                style={{marginLeft: '20px'}}
                 onClick={handleCloseBiding}
               >
                 {t('Cancel')}
-              </ActionButton>
+              </ButtonPrimary>
             </TwoButton>
           </Form>
         </Modal>

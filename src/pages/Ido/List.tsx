@@ -10,87 +10,105 @@ import GridImg3 from '../../assets/images/grid_img3.jpeg'
 import MediumImg from '../../assets/images/read_medium.jpeg'
 import { ExternalLink } from '../../theme'
 
+
+import EndedImg from '../../assets/images/sign/ended.jpg'
+import NewImg from '../../assets/images/sign/new.webp'
+import ComingImg from '../../assets/images/sign/coming.webp'
+
 import IncubatorBox from '../../components/general/IncubatorBox'
 import { ButtonPrimary } from '../../components/Button'
 
 const List = ()=>{
 
+  const products = [
+    {
+      image: GridImg1,
+      Learn: "https://www.caojunnft.com/",
+      author: "Cao Jun NFTs",
+      medium: "",
+      info: "CaoJun limited edition NFT series . The record price for CaoJun  artist at auction is $1,309,063 USD .",
+      joinUs: "/iro/bnb/0x5f99ACF13CAff815DD9cB4A415c0fB34e9F4545b/0x4aE03f6eaa8A21Ee3aeD47b97D5F44d2E2996d8a",
+      sign: NewImg
+    },
+    {
+      image: GridImg1,
+      Learn: "https://www.caojunnft.com/",
+      author: "Cao Jun NFTs",
+      medium: "",
+      info: "CaoJun limited edition NFT series . The record price for CaoJun  artist at auction is $1,309,063 USD .",
+      joinUs: "/iro/bnb/0x5f99ACF13CAff815DD9cB4A415c0fB34e9F4545b/0x4aE03f6eaa8A21Ee3aeD47b97D5F44d2E2996d8a",
+      sign: ComingImg
+    },
+    {
+      image: GridImg2,
+      Learn: "https://www.caojunnft.com/",
+      author: "Gus Bawab NFTs",
+      medium: "",
+      info: "We are proud that his work “Persistence” found its way to the Elysee, the French presidential Palace in 2016.",
+      joinUs: "/",
+      sign: EndedImg
+    },
+    {
+      image: GridImg3,
+      Learn: "/",
+      author: "The Art of TEAsWAP",
+      medium: "https://teaswap-art.medium.com/tsa-airdrop-phase-1-f255e5be3f4f",
+      info: "TSA is where we bring together creators, collectors, curators, influencers, brokers, wallets, auctioneers around the world to the NFT digital space.",
+      joinUs: "/",
+      sign: EndedImg
+    }
+  ]
+
   return (
     <PageWrapper >
+      <IncubatorBox />
       <PageWrapper2 >
         <ConTitle con="NFT Incubator"></ConTitle>
         <ConSubTitle con='Initial Art Offering ("IRO")'></ConSubTitle>
         <ConSubTitle con="Bring together creators and collectors in NFT digital world !"></ConSubTitle>
         <Grids>
-          <Grid>
-            <img height="172px" src={GridImg1}/>
-            <Learn>
-              <ExternalLink href="https://www.caojunnft.com/">
+          {products.map((v) => {
+            return (
+              <Grid>
+                <img  width="100%" src={v.image}/>
                 <Learn>
-                  {"Learn >"}
+                  <ExternalLink href={v.Learn}>
+                    <Learn>
+                      {"Learn >"}
+                    </Learn>
+                  </ExternalLink>
                 </Learn>
-              </ExternalLink>
-            </Learn>
-            <Read>
-              <span>{"Cao Jun NFTs"}</span>
-              <span>
-                {"Read"}
-                <StyledLink>
-                  <img style={{marginLeft: "10px"}} width="22px" height="18px" src={MediumImg} />
+                <Read>
+                  <span>{v.author}</span>
+                  <span>
+                    {"Read"}
+                    <StyledLink href={v.medium}>
+                      <img style={{marginLeft: "10px"}} width="22px" height="18px" src={MediumImg} />
+                    </StyledLink>
+                  </span>
+                </Read>
+                <Spe></Spe>
+                <Info>{v.info}</Info>
+                <StyledLink href={v.joinUs}>
+                  <JoinUs>
+                    {"Join Us"}
+                  </JoinUs>
                 </StyledLink>
-              </span>
-            </Read>
-            <Spe></Spe>
-            <Info>{"CaoJun limited edition NFT series . The record price for CaoJun  artist at auction is $1,309,063 USD ."}</Info>
-            <StyledLink href="/iro/bnb/0x5f99ACF13CAff815DD9cB4A415c0fB34e9F4545b/0x4aE03f6eaa8A21Ee3aeD47b97D5F44d2E2996d8a">
-              <JoinUs>
-                {"Join Us"}
-              </JoinUs>
-            </StyledLink>
-          </Grid>
-          <Grid>
-            <img height="172px" src={GridImg2}/>
-            <Learn>{"Learn >"}</Learn>
-            <Read>
-              <span>{"Gus Bawab NFTs"}</span>
-              <span>
-                {"Read"}
-                <StyledLink>
-                  <img style={{marginLeft: "10px"}} width="22px" height="18px" src={MediumImg} />
-                </StyledLink>
-              </span>
-            </Read>
-            <Spe></Spe>
-            <Info>{"We are proud that his work “Persistence” found its way to the Elysee, the French presidential Palace in 2016."}</Info>
-            <StyledLink href="#">
-              <JoinUs>
-                  {"Join Us"}
-              </JoinUs>
-            </StyledLink>
-          </Grid>
-          <Grid>
-            <img height="172px" src={GridImg3}/>
-            <Learn>{"Learn >"}</Learn>
-            <Read>
-              <span>{"The Art of TEAsWAP"}</span>
-              <span>
-                {"Read"}
-                <StyledLink href="https://teaswap-art.medium.com/tsa-airdrop-phase-1-f255e5be3f4f">
-                  <img style={{marginLeft: "10px"}} width="22px" height="18px" src={MediumImg} />
-                </StyledLink>
-              </span>
-            </Read>
-            <Spe></Spe>
-            <Info>{"TSA is where we bring together creators, collectors, curators, influencers, brokers, wallets, auctioneers around the world to the NFT digital space."}</Info>
-            <StyledLink href="#">
-              <JoinUs>
-                {"Join Us"}
-              </JoinUs>
-            </StyledLink>
-          </Grid>
+                <img 
+                  style={{
+                    position: 'absolute',
+                    top: '15px',
+                    right: '5px'
+                  }}
+                  width="50"
+                  src={v.sign}
+                  />
+              </Grid>
+            )
+          })
+          }
         </Grids>
       </PageWrapper2>
-      <IncubatorBox />
     </PageWrapper>
   )
 };
@@ -98,28 +116,27 @@ export default List;
 
 const PageWrapper = styled(ColumnCenter)`
   text-align: center;
-  max-width: 1400px;
   width: 100%;
 `
 
 const PageWrapper2 = styled(ColumnCenter)`
   text-align: center;
-  max-width: 1040px;
   width: 100%;
+  padding-top: 30px;
 `
 const Grids = styled(ColumnCenter)`
   text-align: center;
-  width: 100%;
+  width: 90%;
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: flex-start;
   margin-top: 10px;
 `
 
 const Grid = styled(ColumnCenter)`
   text-align: center;
-  width: 330px;
+  width: 450px;
   display: flex;
   padding: 15px;
   justify-content: flex-start;
@@ -131,6 +148,7 @@ const Grid = styled(ColumnCenter)`
   overflow: hidden;
   transform: translateZ(0);
   margin: 0px;
+  margin-left: 30px;
   align-items: flex-start;
 `
 
@@ -148,7 +166,7 @@ const Read = styled(ColumnCenter)`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  width: 287px;
+  width: 100%;
   margin-top: 14px;
 `
 
