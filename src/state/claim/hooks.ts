@@ -7,6 +7,7 @@ import { useMerkleDistributorContract } from '../../hooks/useContract'
 import { useSingleCallResult } from '../multicall/hooks'
 import { calculateGasMargin, isAddress } from '../../utils'
 import { useTransactionAdder } from '../transactions/hooks'
+import {BASE_URL} from "../../constants/unit";
 
 interface UserClaimData {
   index: number
@@ -29,7 +30,7 @@ function fetchClaim(account: string, chainId: ChainId): Promise<UserClaimData | 
 
   return (CLAIM_PROMISES[key] =
     CLAIM_PROMISES[key] ??
-    fetch(`https://gentle-frost-9e74.uniswap.workers.dev/${chainId}/${formatted}`)
+    fetch(BASE_URL+`/users/claimdata/${formatted}`)
       .then(res => {
         if (res.status === 200) {
           return res.json()
@@ -112,7 +113,7 @@ export function useClaimCallback(
         .claim(...args, { value: null, gasLimit: calculateGasMargin(estimatedGasLimit) })
         .then((response: TransactionResponse) => {
           addTransaction(response, {
-            summary: `Claimed ${unClaimedAmount?.toSignificant(4)} TSA`,
+            summary: `Claimed ${unClaimedAmount?.toSignificant(4)} Airdrop Token`,
             claim: { recipient: account }
           })
           return response.hash
