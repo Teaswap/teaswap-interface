@@ -104,7 +104,7 @@ export default function ClaimModal() {
                 <CloseIcon onClick={toggleClaimModal} style={{ zIndex: 99 }} color="white" />
               </RowBetween>
               <TYPE.white fontWeight={700} fontSize={36}>
-                {unclaimedAmount?.toFixed(0, { groupSeparator: ',' } ?? '-')} TSA
+                {unclaimedAmount?.toFixed(0, { groupSeparator: ',' } ?? '-')} SATO
               </TYPE.white>
             </CardSection>
             <Break />
@@ -112,7 +112,7 @@ export default function ClaimModal() {
               {userClaimData?.flags?.isSOCKS && (
                 <RowBetween>
                   <TYPE.subHeader color="white">{t('socks')}</TYPE.subHeader>
-                  <TYPE.subHeader color="white">{SOCKS_AMOUNT} TSA</TYPE.subHeader>
+                  <TYPE.subHeader color="white">{SOCKS_AMOUNT} SATO</TYPE.subHeader>
                 </RowBetween>
               )}
               {userClaimData?.flags?.isLP &&
@@ -131,7 +131,7 @@ export default function ClaimModal() {
               {userClaimData?.flags?.isUser && (
                 <RowBetween>
                   <TYPE.subHeader color="white">{t('user')}</TYPE.subHeader>
-                  <TYPE.subHeader color="white">{USER_AMOUNT} TSA</TYPE.subHeader>
+                  <TYPE.subHeader color="white">{USER_AMOUNT} SATO</TYPE.subHeader>
                 </RowBetween>
               )}
             </CardSection>
@@ -140,7 +140,7 @@ export default function ClaimModal() {
             <TYPE.subHeader fontWeight={500}>
               {t('as-a-member-of-the-uniswap-community-you-may-claim-best-to-be-used-for-voting-and-governance')}
               <br /> <br />
-              <ExternalLink href="https://uniswap.org/blog/uni">{t('readMoreAboutBest')}</ExternalLink>
+              <ExternalLink href="https://www.teaswap.live/info">{t('readMoreAboutBest')}</ExternalLink>
             </TYPE.subHeader>
             <ButtonPrimary
               disabled={!isAddress(account ?? '')}
@@ -177,7 +177,7 @@ export default function ClaimModal() {
               </TYPE.largeHeader>
               {!claimConfirmed && (
                 <Text fontSize={36} color={'#fe2500'} fontWeight={800}>
-                  {unclaimedAmount?.toFixed(0, { groupSeparator: ',' } ?? '-')} TSA
+                  {unclaimedAmount?.toFixed(0, { groupSeparator: ',' } ?? '-')} SATO
                 </Text>
               )}
             </AutoColumn>
