@@ -41,12 +41,12 @@ const  TitleSection = styled.div`
 const HomePageProducts = styled.div`
   margin: 0px 0;
   width: 100%;
-  max-width: 1400px;
+  // max-width: 1400px;
 `;
 
 const BtnSection = styled.div`
-  width: 95%;
-  max-width: 1400px;
+  width: 100%;
+  // max-width: 1400px;
   display: flex;
   justify-content: flex-end;
 `;
@@ -113,8 +113,8 @@ const HomePage = () => {
 
   return (
     <Page>
-      <Navbar />
       <CarouselBox />
+      <Navbar />
       <TitleSection>
         <ConTitle con="NFT Marketplace" />
         <ConSubTitle con="The New Way to Own Art" />

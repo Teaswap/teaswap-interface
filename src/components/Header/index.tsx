@@ -349,9 +349,9 @@ export default function Header() {
           <StyledExternalLink id={`Gallery-nav-link`} href={'https://www.teaswap.live/tsanft-gallery'}>
             {t('TSA Collections')}
           </StyledExternalLink>
-          <StyledNavLink id={`swap-nav-link`} to={'/swap'}>
+          {/* <StyledNavLink id={`swap-nav-link`} to={'/swap'}>
             {t('Swap')}
-          </StyledNavLink>
+          </StyledNavLink> */}
 
           {/*<StyledNavLink*/}
           {/*  id={`pool-nav-link`}*/}
