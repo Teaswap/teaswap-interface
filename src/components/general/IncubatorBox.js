@@ -17,7 +17,7 @@ const IncubatorBox = () => {
       style={{
         width: '100%',
         margin: '0 auto',
-        marginTop: '10px'
+        marginTop: '20px'
       }}
       autoplay={false}
       wrapAround={true}
@@ -33,7 +33,9 @@ const IncubatorBox = () => {
       }}
     >
       {/* <ExternalLink href="https://docs.google.com/forms/d/e/1FAIpQLSfA-dOW15tyN6dfyZScvcEmT3lC13K9ThFBTruiFD0wOVsoUQ/viewform"> */}
-      <img width="100%" src={process.env.PUBLIC_URL + '/Teaswap1.webp'} alt="" />
+      <img onClick={() => {
+        window.open("https://docs.google.com/forms/d/e/1FAIpQLSfA-dOW15tyN6dfyZScvcEmT3lC13K9ThFBTruiFD0wOVsoUQ/viewform")
+      }} width="100%" src={process.env.PUBLIC_URL + '/Teaswap1.webp'} alt="" />
       {/* </ExternalLink> */}
     </Carousel>
   );

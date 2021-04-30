@@ -22,7 +22,7 @@ const Title = styled.p`
   font-size: ${FONT.lg};
   width: 30%;
   padding: ${DISTANCE.xs};
-  border-bottom: solid 1px ${COLOR.text_2};
+  border-bottom: solid 1px ${COLOR.cccccc};
 `;
 const Message = styled.p`
   color: #835858;
@@ -60,13 +60,13 @@ const Table = styled.table`
   min-width: 500px;
   table-layout: fixed;
   border-collapse: collapse;
-  border-bottom: solid 1px ${COLOR.text_2};
+  border-bottom: solid 1px ${COLOR.cccccc};
 `;
 const NameContainer = styled.tr``;
 const Name = styled.th`
   font-size: ${FONT.md};
   color: ${COLOR.black};
-  border-bottom: solid 1px ${COLOR.text_2};
+  border-bottom: solid 1px ${COLOR.cccccc};
   padding: ${DISTANCE.sm};
 `;
 const ContentContainer = styled.tr``;
@@ -102,7 +102,7 @@ const PayTitle = styled.p`
   padding: ${DISTANCE.xs};
   margin-top: 74px;
   width: 90%;
-  border-bottom: solid 1px ${COLOR.text_2};
+  border-bottom: solid 1px ${COLOR.cccccc};
 `;
 const PayTable = styled.table`
   width: 90%;
@@ -130,7 +130,7 @@ const FullTrack = styled.div`
   z-index: 1;
 `;
 const Line = styled.div`
-  border: solid 1px ${COLOR.text_2};
+  border: solid 1px ${COLOR.cccccc};
   height: 68px;
   margin-bottom: 7px;
 `;
@@ -205,7 +205,7 @@ const OrderButtonSection = styled.div`
 const Button = styled.div`
   padding: 5px 10px;
   border-radius: 4px;
-  border: solid 1px ${COLOR.text_2};
+  border: solid 1px ${COLOR.cccccc};
   background-color: ${COLOR.text_2};
   color: ${COLOR.bg_primary};
   margin: 0px ${(props) => (props.$margin === 0 ? 0 : 20)}px;

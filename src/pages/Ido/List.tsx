@@ -2,7 +2,6 @@ import React from 'react'
 import { ColumnCenter } from '../../components/Column'
 import styled from 'styled-components'
 import ConTitle from '../../components/Content/Title'
-import ConSubTitle from '../../components/Content/SubTitle'
 
 import GridImg1 from '../../assets/images/IMG_6362_JPG.jpeg'
 import GridImg2 from '../../assets/images/grid_img2.jpeg'
@@ -63,9 +62,7 @@ const List = ()=>{
     <PageWrapper >
       <IncubatorBox />
       <PageWrapper2 >
-        <ConTitle con="NFT Incubator"></ConTitle>
-        <ConSubTitle con='Initial Art Offering ("IRO")'></ConSubTitle>
-        <ConSubTitle con="Bring together creators and collectors in NFT digital world !"></ConSubTitle>
+        <ConTitle con='Initial Art Offering ("IRO")' />
         <Grids>
           {products.map((v) => {
             return (
@@ -116,6 +113,7 @@ export default List;
 
 const PageWrapper = styled(ColumnCenter)`
   text-align: center;
+  margin-top: -40px;
   width: 100%;
 `
 
@@ -136,7 +134,7 @@ const Grids = styled(ColumnCenter)`
 
 const Grid = styled(ColumnCenter)`
   text-align: center;
-  width: 450px;
+  width: 380px;
   display: flex;
   padding: 15px;
   justify-content: flex-start;

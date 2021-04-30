@@ -9,7 +9,7 @@ export const TextBox = styled.div`
   justify-content: center;
   padding: 4px 12px;
   border: 1px solid rgba(255, 255, 255, 0.4);
-      border-radius: 0px;
+  border-radius: 0px;
   width: fit-content;
   justify-self: flex-end;
 `
@@ -33,7 +33,7 @@ export const CardBGImage = styled.span<{ desaturate?: boolean }>`
   width: 1000px;
   height: 600px;
   position: absolute;
-      border-radius: 0px;
+  border-radius: 0px;
   opacity: 0.4;
   top: -40px;
   left: -40px;
@@ -60,7 +60,7 @@ export const CardBGImageSmaller = styled.span<{ desaturate?: boolean }>`
 export const CardNoise = styled.span`
   background-size: cover;
   mix-blend-mode: overlay;
-      border-radius: 0px;
+  border-radius: 0px;
   width: 100%;
   height: 100%;
   opacity: 0.15;

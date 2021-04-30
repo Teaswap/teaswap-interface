@@ -24,7 +24,7 @@ const SellerProductTitle = styled.div`
   padding-bottom: ${DISTANCE.sm};
   font-size: ${FONT.lg};
   color: ${COLOR.text_2};
-  border-bottom: 1px solid ${COLOR.text_2};
+  border-bottom: 1px solid ${COLOR.cccccc};
   display: flex;
   justify-content: space-between;
 `;

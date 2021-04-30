@@ -23,7 +23,7 @@ const ProductsWrap = styled.div`
 `;
 
 const ProductContainer = styled.div`
-  width: ${(props) => props.$height || '450px'};
+  width: ${(props) => props.$height || '380px'};
   border-width: 0 0 0 0;
   border-style: solid solid solid solid;
   border-color: rgba(176, 169, 134, 1) rgba(176, 169, 134, 1) rgba(176, 169, 134, 1) rgba(176, 169, 134, 1);
@@ -42,7 +42,7 @@ const ProductContainer = styled.div`
 `;
 
 const Placeholder = styled.div`
-  width: ${(props) => props.$width || '450px'};
+  width: ${(props) => props.$width || '380px'};
   margin: ${(props) => props.$margin || '0 20px'};
 `;
 

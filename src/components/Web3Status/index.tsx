@@ -43,10 +43,12 @@ const Web3StatusGeneric = styled(ButtonSecondary)`
   ${({ theme }) => theme.flexRowNoWrap}
   width: 100%;
   align-items: center;
-  padding: 0.5rem;
+  padding: 0.285rem 0.3rem;
   border-radius: 0px;
   cursor: pointer;
   user-select: none;
+  font-size: 14px;
+  margin-top: 1px;
   :focus {
     outline: none;
   }
@@ -63,42 +65,35 @@ const Web3StatusError = styled(Web3StatusGeneric)`
 `
 
 const Web3StatusConnect = styled(Web3StatusGeneric)<{ faded?: boolean }>`
-  background-color: ${({ theme }) => theme.bg2};
   border: none;
-  color: ${({ theme }) => theme.green};
+  color: ${({ theme }) => theme.gray};
   font-weight: 500;
 
   :hover,
   :focus {
-    border: 1px solid ${({ theme }) => darken(0.05, theme.primary4)};
-    color: #000000;
+    border: 1px solid ${({ theme }) => theme.darkGray};
   }
 
   ${({ faded }) =>
     faded &&
     css`
-      background-color: ${({ theme }) => theme.bg2};
-      border: 1px solid ${({ theme }) => theme.green};
+      border: 1px solid ${({ theme }) => theme.lightGray};
       color: #000000;
-
       :hover,
       :focus {
-        border: 1px solid ${darken(0.05, '#949494')};
-        color: ${darken(0.05, '#000000')};
+        border: 1px solid ${darken(0.05, "#474747")};
       }
     `}
 `
 
 const Web3StatusConnected = styled(Web3StatusGeneric)`
   background-color: #ffffff;
-  border: 1px solid ${({ theme }) => theme.gray};
+  border: 1px solid ${({ theme }) => theme.lightGray};
   color: ${({ theme }) => theme.gray};
   font-weight: 500;
   :hover,
   :focus {
-    color: #ffffff;
-    background-color: ${({theme }) => theme.gray};
-    border: 1px solid ${({ theme }) => theme.gray};
+    border: 1px solid ${({ theme }) => theme.darkGray};
   }
 `
 

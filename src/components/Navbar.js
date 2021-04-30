@@ -19,11 +19,9 @@ const NavbarContainer = styled.div`
   position: relative;
   left: 0;
   width: 100%;
-  // max-width: 1400px;
   margin: 0 auto;
   height: ${(props) => (props.$size === 'sm' ? '65px' : '135px')};
-  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.2);
-  background: #fff;
+  background: #fcfcfc;
   padding: 25px 0;
   z-index: 99;
   ${MEDIA_QUERY.lg} {

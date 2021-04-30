@@ -34,7 +34,7 @@ export default function Home() {
     <>
       <PageWrapper>
         <HomeImageDiv>
-          <img width="383" src={process.env.PUBLIC_URL + '/TSA_compressed.gif'} />
+          <img width="100%" src={process.env.PUBLIC_URL + '/TSA_compressed.gif'} />
           {/* <video autoPlay={true} loop={true} width="100%" controls>
             <source src={process.env.PUBLIC_URL + '/1619572185498999.mp4'} type="video/mp4" />
             <p>Your browser doesn't support HTML5 video. Here is

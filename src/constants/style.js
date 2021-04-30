@@ -13,7 +13,10 @@ export const COLOR = {
   bg_mask: '#c7c1c178',
   btn_primary: '#6dd0cd',
   btn_secondary: '#dea8a8',
-  btn_grey: '#7f7f7f'
+  btn_grey: '#7f7f7f',
+  gray: '#7f7f7f',
+  cccccc: '#cccccc',
+  dark_gray: '#474747'
 };
 
 export const FONT = {

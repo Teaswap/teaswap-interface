@@ -19,7 +19,7 @@ import ConSubTitle from '../../components/Content/SubTitle';
 
 const Page = styled.div`
   height: fit-content;
-  top: -80px;
+  margin-top: -40px;
   position: relative;
 `;
 
@@ -41,12 +41,10 @@ const  TitleSection = styled.div`
 const HomePageProducts = styled.div`
   margin: 0px 0;
   width: 100%;
-  // max-width: 1400px;
 `;
 
 const BtnSection = styled.div`
   width: 100%;
-  // max-width: 1400px;
   display: flex;
   justify-content: flex-end;
 `;
@@ -114,11 +112,9 @@ const HomePage = () => {
   return (
     <Page>
       <CarouselBox />
-      <Navbar />
+      {/* <Navbar /> */}
       <TitleSection>
-        <ConTitle con="NFT Marketplace" />
-        <ConSubTitle con="The New Way to Own Art" />
-        <ConSubTitle con="Brings together creators and collectors in NFT digital world !" />
+        <ConTitle con="The New Way to Own Art" />
       </TitleSection>
       {/*<Snowfall color='#e8f2f7' />*/}
       <Section>

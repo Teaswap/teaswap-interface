@@ -39,7 +39,7 @@ const Avatar = styled.img`
 
 const InfoContainer = styled.div`
   width: 55%;
-  border-right: 1px solid ${COLOR.text_2};
+  border-right: 1px solid ${COLOR.cccccc};
   padding-right: 40px;
   align-self: center;
   min-width: max-content;
