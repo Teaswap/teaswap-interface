@@ -10,13 +10,14 @@ const ProductCategoryItem = styled.li`
   display: flex;
   align-items: center;
   cursor: pointer;
+  font-size: 14px;
   & p {
     padding: 0;
     margin-left: -5px;
-    color: ${COLOR.black};
+    color: ${COLOR.gray};
     min-width: fit-content;
     &:hover {
-      color: ${COLOR.hover};
+      color: ${COLOR.dark_gray};
     }
     ${MEDIA_QUERY.md} {
       margin-top: 6px;

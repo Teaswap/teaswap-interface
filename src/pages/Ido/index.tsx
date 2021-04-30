@@ -30,21 +30,34 @@ import { BIG_INT_ZERO } from '../../constants'
 import BuyingModal from '../../components/ido/BuyingModal'
 import ClaimIdoRewardModal from '../../components/earn/ClaimRewardModal'
 import ConTitle from '../../components/Content/Title'
+import IncubatorBox from '../../components/general/IncubatorBox'
+import ConSubTitle from '../../components/Content/SubTitle'
 
 const PageWrapper = styled(AutoColumn)`
-  max-width: 640px
   width: 100%;
+  margin-top: -70px;
+`
+
+const AuthorInfo = styled(ColumnCenter)`
+  width: 900px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+`
+
+const Author = styled(ColumnCenter)`
+  width: 355px;
 `
 
 const Box = styled(ColumnCenter)`
-  max-width: 355px;
-  width: 100%;
+  width: 355px;
   border-color: rgba(176, 169, 134, 1) rgba(176, 169, 134, 1) rgba(176, 169, 134, 1) rgba(176, 169, 134, 1);
   border-radius: 0 0 0 0;
   box-shadow: 0 4px 10px 0 rgb(0 0 0 / 65%);
   overflow: hidden;
   transform: translateZ(0);
   margin: 0px;
+  margin-left: 40px;
 `
 
 const PositionInfo = styled(AutoColumn)<{ dim: any }>`
@@ -166,8 +179,8 @@ const Index = ()=>{
 
   return (
     <PageWrapper gap="lg" justify="center">
-
-      <ConTitle con="CaoJun limited edition NFT series" />
+      <IncubatorBox />
+      <ConTitle con="CaoJun NFT Collections" />
 
       {idoInfo && (
 
@@ -193,7 +206,11 @@ const Index = ()=>{
         </TYPE.mediumHeader>
         <DoubleCurrencyLogo currency0={currencyA ?? undefined} currency1={currencyB ?? undefined} size={24} /> */}
       {/* </RowBetween> */}
-      <Box>
+      <AuthorInfo>
+        <Author>
+          <ConSubTitle con="CaoJun Limited Edition NFT Series" />
+        </Author>
+        <Box>
           <PoolData>
             <AutoColumn gap="sm">
               <TYPE.darkGray style={{ margin: 0 }}>{t('Total Supply')}</TYPE.darkGray>
@@ -258,112 +275,113 @@ const Index = ()=>{
           </VoteCard>
         )}
 
-        <PositionInfo gap="lg" justify="center" dim={showAddLiquidityButton}>
-          <BottomSection gap="lg" justify="center">
-            <StyledDataCard disabled={disableTop} showBackground={!showAddLiquidityButton}>
-              <CardSection>
+          <PositionInfo gap="lg" justify="center" dim={showAddLiquidityButton}>
+            <BottomSection gap="lg" justify="center">
+              <StyledDataCard disabled={disableTop} showBackground={!showAddLiquidityButton}>
+                <CardSection>
+                  <CardBGImage desaturate />
+                  <CardNoise />
+                  <AutoColumn gap="md">
+                    <RowBetween>
+                      <TYPE.white fontWeight={600}>{t('Your Token Paid')}</TYPE.white>
+                    </RowBetween>
+                    <RowBetween style={{ alignItems: 'baseline' }}>
+                      <TYPE.white fontSize={28} fontWeight={600}>
+                        {idoInfo?.makeAmount?.toSignificant(6) ?? '-'}
+                      </TYPE.white>
+                      <TYPE.white>
+                        {currencyA?.symbol}
+                      </TYPE.white>
+                    </RowBetween>
+                  </AutoColumn>
+                </CardSection>
+              </StyledDataCard>
+              <StyledBottomCard dim={idoInfo?.makeAmount?.equalTo(JSBI.BigInt(0))}>
                 <CardBGImage desaturate />
                 <CardNoise />
-                <AutoColumn gap="md">
+                <AutoColumn gap="sm">
                   <RowBetween>
-                    <TYPE.white fontWeight={600}>{t('Your Token Paid')}</TYPE.white>
+                    <div>
+                      <TYPE.black>{t('Your Unclaimed')} {currencyB?.symbol}</TYPE.black>
+                    </div>
+                    {idoInfo?.earnedAmount && JSBI.notEqual(BIG_INT_ZERO, idoInfo?.earnedAmount?.raw) && (
+                      <ButtonEmpty
+                        padding="8px"
+                        borderRadius="0px"
+                        width="fit-content"
+                        onClick={() => setShowClaimRewardModal(true)}
+                      >
+                        {t('Total Earned')}
+                      </ButtonEmpty>
+                    )}
                   </RowBetween>
                   <RowBetween style={{ alignItems: 'baseline' }}>
-                    <TYPE.white fontSize={28} fontWeight={600}>
-                      {idoInfo?.makeAmount?.toSignificant(6) ?? '-'}
-                    </TYPE.white>
-                    <TYPE.white>
-                      {currencyA?.symbol}
-                    </TYPE.white>
+                    <TYPE.largeHeader fontSize={28} fontWeight={600}>
+                      <CountUp
+                        key={countUpAmount}
+                        isCounting
+                        decimalPlaces={4}
+                        start={parseFloat(countUpAmountPrevious)}
+                        end={parseFloat(countUpAmount)}
+                        thousandsSeparator={','}
+                        duration={1}
+                      />
+                    </TYPE.largeHeader>
+                    <TYPE.black fontSize={16} fontWeight={500}>
+                      <span role="img" aria-label="wizard-icon" style={{ marginRight: '8px ' }}>
+                        ⚡
+                      </span>
+                      {idoInfo?.claimedAmount
+                        ?.toSignificant(4, { groupSeparator: ',' }) ?? '-'}
+                      {currencyB?.symbol}
+                    </TYPE.black>
                   </RowBetween>
                 </AutoColumn>
-              </CardSection>
-            </StyledDataCard>
-            <StyledBottomCard dim={idoInfo?.makeAmount?.equalTo(JSBI.BigInt(0))}>
-              <CardBGImage desaturate />
-              <CardNoise />
-              <AutoColumn gap="sm">
-                <RowBetween>
-                  <div>
-                    <TYPE.black>{t('Your Unclaimed')} {currencyB?.symbol}</TYPE.black>
-                  </div>
-                  {idoInfo?.earnedAmount && JSBI.notEqual(BIG_INT_ZERO, idoInfo?.earnedAmount?.raw) && (
-                    <ButtonEmpty
+              </StyledBottomCard>
+            </BottomSection>
+            {/* <TYPE.main style={{ textAlign: 'center' }} fontSize={14}>
+              <span role="img" aria-label="wizard-icon" style={{ marginRight: '8px' }}>
+                ⭐️
+              </span>
+              {t('when-you-withdraw-the-contract-will-automagically-claim-best-on-your-behalf')}
+            </TYPE.main> */}
+
+            {!showAddLiquidityButton && (
+              <DataRow style={{ marginBottom: '1rem' }}>
+                <ButtonPrimary padding="8px" borderRadius="0px" width="266px" onClick={()=>{
+                  if (account) {
+                        console.log(showStakingModal)
+                        setShowStakingModal(true)
+                        console.log(showStakingModal)
+                      } else {
+                        toggleWalletModal()
+                      }
+                }}>
+                  {idoInfo?.makeAmount?.greaterThan(JSBI.BigInt(0)) ? 'Buy' : 'Participate'}
+                </ButtonPrimary>
+
+                {idoInfo?.earnedAmount?.subtract(idoInfo?.claimedAmount).greaterThan(JSBI.BigInt(0)) && (
+                  <>
+                    <ButtonPrimary
                       padding="8px"
                       borderRadius="0px"
-                      width="fit-content"
+                      width="160px"
                       onClick={() => setShowClaimRewardModal(true)}
                     >
-                      {t('Total Earned')}
-                    </ButtonEmpty>
-                  )}
-                </RowBetween>
-                <RowBetween style={{ alignItems: 'baseline' }}>
-                  <TYPE.largeHeader fontSize={28} fontWeight={600}>
-                    <CountUp
-                      key={countUpAmount}
-                      isCounting
-                      decimalPlaces={4}
-                      start={parseFloat(countUpAmountPrevious)}
-                      end={parseFloat(countUpAmount)}
-                      thousandsSeparator={','}
-                      duration={1}
-                    />
-                  </TYPE.largeHeader>
-                  <TYPE.black fontSize={16} fontWeight={500}>
-                    <span role="img" aria-label="wizard-icon" style={{ marginRight: '8px ' }}>
-                      ⚡
-                    </span>
-                    {idoInfo?.claimedAmount
-                      ?.toSignificant(4, { groupSeparator: ',' }) ?? '-'}
-                    {currencyB?.symbol}
-                  </TYPE.black>
-                </RowBetween>
-              </AutoColumn>
-            </StyledBottomCard>
-          </BottomSection>
-          {/* <TYPE.main style={{ textAlign: 'center' }} fontSize={14}>
-            <span role="img" aria-label="wizard-icon" style={{ marginRight: '8px' }}>
-              ⭐️
-            </span>
-            {t('when-you-withdraw-the-contract-will-automagically-claim-best-on-your-behalf')}
-          </TYPE.main> */}
-
-          {!showAddLiquidityButton && (
-            <DataRow style={{ marginBottom: '1rem' }}>
-              <ButtonPrimary padding="8px" borderRadius="0px" width="266px" onClick={()=>{
-                if (account) {
-                      console.log(showStakingModal)
-                      setShowStakingModal(true)
-                      console.log(showStakingModal)
-                    } else {
-                      toggleWalletModal()
-                    }
-              }}>
-                {idoInfo?.makeAmount?.greaterThan(JSBI.BigInt(0)) ? 'Buy' : 'Participate'}
-              </ButtonPrimary>
-
-              {idoInfo?.earnedAmount?.subtract(idoInfo?.claimedAmount).greaterThan(JSBI.BigInt(0)) && (
-                <>
-                  <ButtonPrimary
-                    padding="8px"
-                    borderRadius="0px"
-                    width="160px"
-                    onClick={() => setShowClaimRewardModal(true)}
-                  >
-                    {t('withdraw')}
-                  </ButtonPrimary>
-                </>
-              )}
-            </DataRow>
-          )}
-          {!userLiquidityUnstaked ? null : userLiquidityUnstaked.equalTo('0') ? null : (
-            <TYPE.main>
-              {userLiquidityUnstaked.toSignificant(6)} {t('tokensAvailable')}
-            </TYPE.main>
-          )}
-        </PositionInfo>
-      </Box>
+                      {t('withdraw')}
+                    </ButtonPrimary>
+                  </>
+                )}
+              </DataRow>
+            )}
+            {!userLiquidityUnstaked ? null : userLiquidityUnstaked.equalTo('0') ? null : (
+              <TYPE.main>
+                {userLiquidityUnstaked.toSignificant(6)} {t('tokensAvailable')}
+              </TYPE.main>
+            )}
+          </PositionInfo>
+        </Box>
+      </AuthorInfo>
       
     </PageWrapper>
   )

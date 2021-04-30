@@ -46,6 +46,7 @@ export interface Colors {
   yellow2: Color
   blue1: Color,
   subtitle: Color,
+  lightGray: Color,
   gray: Color,
   darkGray: Color
 }

@@ -37,7 +37,7 @@ const Container = styled.p`
 const OrderContent = styled(Link)`
   font-size: ${FONT.md};
   color: ${COLOR.text_2};
-  border-bottom: solid 1px ${COLOR.text_2};
+  border-bottom: solid 1px ${COLOR.cccccc};
   padding: ${DISTANCE.sm};
   cursor: pointer;
   &:hover:nth-child(1) {
@@ -56,14 +56,14 @@ const NameContainer = styled.tr``;
 const Name = styled.th`
   font-size: ${FONT.md};
   color: ${COLOR.black};
-  border-bottom: solid 1px ${COLOR.text_2};
+  border-bottom: solid 1px ${COLOR.cccccc};
   padding: ${DISTANCE.sm};
 `;
 const ContentContainer = styled.tr``;
 const Content = styled.td`
   font-size: ${FONT.md};
   color: ${COLOR.text_2};
-  border-bottom: solid 1px ${COLOR.text_2};
+  border-bottom: solid 1px ${COLOR.cccccc};
   padding: ${DISTANCE.sm};
   cursor: pointer;
   &:hover:nth-child(1) {

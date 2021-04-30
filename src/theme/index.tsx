@@ -84,6 +84,7 @@ export function colors(darkMode: boolean): Colors {
     yellow2: '#F3841E',
     blue1: '#2172E5',
     subtitle: '#474747',
+    lightGray: '#cccccc',
     gray: '#7f7f7f',
     darkGray: '#474747'
 

@@ -21,7 +21,7 @@ const InputWrapper = styled.div`
   padding: 3px ${DISTANCE.xs};
   width: 100%;
   border-radius: 25px;
-  border: 1px solid ${COLOR.text_2};
+  border: 1px solid ${COLOR.cccccc};
   font-size: ${FONT.sm};
 `;
 

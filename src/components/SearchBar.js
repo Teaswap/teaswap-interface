@@ -14,9 +14,11 @@ const SearchBarContainer = styled.div`
   width: 500px;
   height: 32px;
   border-radius: 0px;
-  background: ${COLOR.bg_secondary};
   margin-left: 140px;
   box-shadow: ${EFFECT.shadowLight};
+  :hover{
+    border: 1px solid #474747;
+  }
   & div {
     display: flex;
     align-items: center;

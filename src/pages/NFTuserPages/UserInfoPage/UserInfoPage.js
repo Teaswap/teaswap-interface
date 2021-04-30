@@ -82,7 +82,7 @@ const UserInfoPage = () => {
       if (!result.data) return navigate('/nft');
       if (result.data.is_vendor)
         return navigate(`/nft/users/vendor/${result.data.userId}`);
-    });
+    }) ;
   }, []);
 
   return (

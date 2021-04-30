@@ -14,6 +14,7 @@ import {
 } from '../../../components/userSystem';
 import { ThickNavPage } from '../../../components/Page';
 import {useTranslation} from 'react-i18next';
+import { ButtonPrimary } from '../../../components/Button';
 
 const Wrapper = styled.div`
   width: 50vw;
@@ -121,12 +122,12 @@ const ApplyForVendorPage = () => {
               <CheckImage>
                 <Title>{t('Apply for Artist needs more Information')}</Title>
                 <TwoButton>
-                  <ActionButton $margin={0} onClick={handleCheck}>
+                  <ButtonPrimary onClick={handleCheck}>
                     {t('OK')}
-                  </ActionButton>
-                  <ActionButton $bg={'red'} $margin={0} onClick={handleCancel}>
+                  </ButtonPrimary>
+                  <ButtonPrimary style={{marginLeft: "20px"}} onClick={handleCancel}>
                     {t('Cancel')}
-                  </ActionButton>
+                  </ButtonPrimary>
                 </TwoButton>
               </CheckImage>
             </WrapperMask>

@@ -6,7 +6,7 @@ export const JoinButton = styled.button`
   margin: 10px 0 40px;
   border-radius: 0px;
   padding: 12px 0;
-  border: 1px solid ${COLOR.text_2};
+  border: 1px solid ${COLOR.cccccc};
   width: 70%;
   text-align: center;
   color: ${COLOR.text_2};

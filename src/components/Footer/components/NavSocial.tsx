@@ -15,7 +15,7 @@ const NavSocial: React.FC = () => {
         <img src={twitterIcon} width="21" height="21" />
       </StyledLink>
       <StyledLink style={{padding:"0 4px"}}> </StyledLink>
-      <StyledLink target="_blank" href="https://www.tumblr.com/">
+      <StyledLink target="_blank" href="https://t.me/icashrewards123">
         <img src={telegramIcon} width="21" height="21" />
       </StyledLink>
       <StyledLink style={{padding:"0 4px"}}> </StyledLink>

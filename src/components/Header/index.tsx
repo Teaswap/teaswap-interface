@@ -44,7 +44,6 @@ const HeaderFrame = styled.div`
   padding-top: 18px;
   padding-bottom: 18px;
   background-color: #fff;
-  box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.67);
   z-index: 2;
   ${({ theme }) => theme.mediaWidth.upToMedium`
     grid-template-columns: 1fr;
@@ -346,7 +345,7 @@ export default function Header() {
           {/* <StyledNavLink id={`Incubator-nav-link`} to={'/iro/bnb/0x5f99ACF13CAff815DD9cB4A415c0fB34e9F4545b/0x4aE03f6eaa8A21Ee3aeD47b97D5F44d2E2996d8a'}>
             {t('NFT Incubator')}
           </StyledNavLink> */}
-          <StyledExternalLink id={`Gallery-nav-link`} href={'https://www.teaswap.live/tsanft-gallery'}>
+          <StyledExternalLink id={`Gallery-nav-link`} href={'https://www.teaswap.live/tsacollection '}>
             {t('TSA Collections')}
           </StyledExternalLink>
           {/* <StyledNavLink id={`swap-nav-link`} to={'/swap'}>

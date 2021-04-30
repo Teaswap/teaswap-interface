@@ -40,7 +40,7 @@ export const InfoTitle = styled.div`
   padding-bottom: ${DISTANCE.sm};
   font-size: ${FONT.lg};
   color: ${COLOR.text_2};
-  border-bottom: 1px solid ${COLOR.text_2};
+  border-bottom: 1px solid ${COLOR.cccccc};
 
   ${MEDIA_QUERY} {
     margin: 20px 0;
@@ -74,7 +74,7 @@ export const InfoItem = styled.div`
   display: flex;
   padding-bottom: ${DISTANCE.sm};
   &:not(:last-child) {
-    border-bottom: 1px solid ${COLOR.text_2};
+    border-bottom: 1px solid ${COLOR.cccccc};
   }
 `;
 

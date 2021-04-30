@@ -23,7 +23,7 @@ const ProductsWrap = styled.div`
 `;
 
 const ProductContainer = styled.div`
-  width: ${(props) => props.$height || '250px'};
+  width: ${(props) => props.$height || '380px'};
   border-width: 0 0 0 0;
   border-style: solid solid solid solid;
   border-color: rgba(176, 169, 134, 1) rgba(176, 169, 134, 1) rgba(176, 169, 134, 1) rgba(176, 169, 134, 1);
@@ -38,18 +38,17 @@ const ProductContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  
+  padding-bottom: 40px; 
 `;
 
 const Placeholder = styled.div`
-  width: ${(props) => props.$width || '250px'};
+  width: ${(props) => props.$width || '380px'};
   margin: ${(props) => props.$margin || '0 20px'};
 `;
 
 const ProductPicture = styled.img`
   position: relative;
-  width: ${(props) => props.$width || '250px'};
-  height: ${(props) => props.$height || '250px'};
+  width: ${(props) => props.$width || '100%'};
   transition: opacity 0.2s;
   cursor: pointer;
 `;
