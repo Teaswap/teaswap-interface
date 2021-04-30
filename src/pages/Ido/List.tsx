@@ -120,11 +120,13 @@ const PageWrapper = styled(ColumnCenter)`
 const PageWrapper2 = styled(ColumnCenter)`
   text-align: center;
   width: 100%;
+  margin: 0 auto;
+  max-width: 1700px;
   padding-top: 30px;
 `
 const Grids = styled(ColumnCenter)`
   text-align: center;
-  width: 90%;
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
