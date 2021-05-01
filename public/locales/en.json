@@ -362,6 +362,7 @@
   "unlockingVotes": "Unlocking Votes",
   "submittingVote": "Submitting Vote",
   "errorConnecting": "Error connecting",
+  "Initialing": "Initializing",
   "please-connect-to-the-appropriate-ethereum-network": "Please connect to the appropriate Ethereum network.",
   "error-connecting-try-refreshing-the-page": "Error connecting. Try refreshing the page.",
   "back": "Back",

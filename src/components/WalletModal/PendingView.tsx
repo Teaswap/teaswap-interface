@@ -82,7 +82,7 @@ export default function PendingView({
         <LoadingWrapper>
           {error ? (
             <ErrorGroup>
-              <div>Error connecting.</div>
+              <div>Initializing...</div>
               <ErrorButton
                 onClick={() => {
                   setPendingError(false)

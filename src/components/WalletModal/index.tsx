@@ -297,7 +297,7 @@ export default function WalletModal({
           <CloseIcon onClick={toggleWalletModal}>
             <CloseColor />
           </CloseIcon>
-          <HeaderRow>{error instanceof UnsupportedChainIdError ? t('wrongNetwork') : t('errorConnecting')}</HeaderRow>
+          <HeaderRow>{error instanceof UnsupportedChainIdError ? t('wrongNetwork') : t('Initialing')}</HeaderRow>
           <ContentWrapper>
             {error instanceof UnsupportedChainIdError ? (
               <h5>{t('please-connect-to-the-appropriate-ethereum-network')}</h5>

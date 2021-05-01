@@ -311,6 +311,7 @@
   "error": "错误",
   "error-connecting-try-refreshing-the-page": "连接错误。\n尝试刷新页面。",
   "errorConnecting": "连接错误",
+  "Initialing": "初始化钱包",
   "find-a-token-by-searching-for-its-name-or-symbol-or-by-pasting-its-address-below": "通过搜索令牌的名称或符号或在下面粘贴地址来查找令牌。",
   "foundByAddress": "通过地址找到",
   "hasArrived": "已经到达",
