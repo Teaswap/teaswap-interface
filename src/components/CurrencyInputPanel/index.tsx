@@ -25,7 +25,6 @@ const CurrencySelect = styled.button<{ selected: boolean }>`
   height: 2.2rem;
   font-size: 20px;
   font-weight: 500;
-  background-color: ${({ selected, theme }) => (selected ? theme.bg1 : theme.green)};
   color: ${({ selected, theme }) => (selected ? theme.text1 : theme.white)};
   border-radius: 0px;
   box-shadow: ${({ selected }) => (selected ? 'none' : '0px 6px 10px rgba(0, 0, 0, 0.075)')};
@@ -81,7 +80,7 @@ const InputPanel = styled.div<{ hideInput?: boolean }>`
 const Container = styled.div<{ hideInput: boolean }>`
   border-radius: ${({ hideInput }) => (hideInput ? '0px' : '0px')};
   border: 1px solid ${({ theme }) => theme.bg2};
-  background-color: #f5f3f3;
+  background-color: #fafafa;
 `
 
 const StyledTokenName = styled.span<{ active?: boolean }>`

@@ -336,7 +336,7 @@ export default function Header() {
             {t('Home')}
           </StyledNavLink>
           <StyledNavLink id={`NFT-nav-link`} to={'/nft'} >
-            {t('NFT Marketplace')}
+            {t('NFT Broadway')}
             {/* <span>↗</span> */}
           </StyledNavLink>
           <StyledNavLink id={`Incubator-nav-link`} to={'/iro'}>

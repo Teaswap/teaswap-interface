@@ -50,7 +50,7 @@ import Loader from '../../components/Loader'
 import { filterTokens } from '../../components/SearchModal/filtering'
 import { useAllTokens } from '../../hooks/Tokens'
 
-import SwapLogo from '../../assets/images/TEAsWAP.jpeg'
+// import SwapLogo from '../../assets/images/TEAsWAP.jpeg'
 
 export default function Swap() {
   const loadedUrlParams = useDefaultsFromURLSearch()
@@ -292,7 +292,8 @@ export default function Swap() {
         tokens={urlLoadedTokens}
         onConfirm={handleConfirmTokenWarning}
       />
-      <img width="150" style={{marginTop: '-10px'}} src={SwapLogo} />
+      <img width="100%" style={{marginTop: '-40px'}} src={process.env.PUBLIC_URL + '/swap_banner.webp'} />
+      
       <AppBody>
         <SwapPoolTabs active={'swap'} />
         <Wrapper id="swap-page">
