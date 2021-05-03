@@ -8,6 +8,7 @@ import { abi as TSARouterABI  } from "../constants/abis/TSAswapRouter.json";
 import { ROUTER_ADDRESS } from '../constants'
 import { ChainId, JSBI, Percent, Token, CurrencyAmount, Currency, ETHER } from '@teaswap/uniswap-sdk'
 import { TokenAddressMap } from '../state/lists/hooks'
+// import {abi as IFO_ABI} from "../state/stake/hooks";
 
 // returns the checksummed address if the address is valid, otherwise returns false
 export function isAddress(value: any): string | false {
@@ -108,6 +109,12 @@ export function getRouterContract(chainId: number, library: Web3Provider, accoun
 export function getTSARouterContract(chainId: number, library: Web3Provider, account?: string): Contract {
   return getContract(ROUTER_ADDRESS, TSARouterABI, library, account)
 }
+
+// export function getIDOContract(address:string, library: Web3Provider, account?: string): Contract {
+//   return getContract(address, IFO_ABI, library, account)
+// }export function getIDOContract(address:string, library: Web3Provider, account?: string): Contract {
+//   return getContract(address, IFO_ABI, library, account)
+// }
 
 export function escapeRegExp(string: string): string {
   return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') // $& means the whole matched string

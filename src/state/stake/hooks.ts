@@ -52,7 +52,7 @@ export const IFO_REWARDS_INFO: {
   [ChainId.BSC_MAINNET]: [
     {
       tokens: [PAYABLEETH[ChainId.BSC_MAINNET], UNI[ChainId.BSC_MAINNET]],
-      idoAddress: '0x4aE03f6eaa8A21Ee3aeD47b97D5F44d2E2996d8a'
+      idoAddress: '0x9e647AFF1e8f82Ca8aB30e4B019297774d1bec8e'
     }
 
   ]
@@ -94,13 +94,15 @@ export interface IdoInfo {
   // the amount of reward token earned by the active account, or undefined if no account
   earnedAmount: TokenAmount
   claimedAmount:TokenAmount
+  unclaimAmount:TokenAmount
   // the total amount of token staked in the contract
-  totalmakeAmount: TokenAmount
+  totalsupplayAmount: TokenAmount
   // the amount of token distributed per second to all LPs, constant
   totalSoldAmount: TokenAmount
   // the current amount of token distributed to the active account per second.
   // equivalent to percent of total supply * reward rate
   price: TokenAmount
+  rate: TokenAmount
   // when the period ends
   periodFinish: Date | undefined
   // calculates a hypothetical amount of token distributed to the active account per second.
@@ -290,7 +292,7 @@ export function useDerivedStakeInfo(
 export function useDerivedIdoInfo(
   typedValue: string,
   makeToken: Token,
-  userLiquidityUnstaked: TokenAmount | undefined
+  userLiquidityUnstaked: TokenAmount| CurrencyAmount | undefined
 ): {
   parsedAmount?: CurrencyAmount
   error?: string
@@ -375,15 +377,21 @@ export function useIdoInfo(idoAddress?:string | null): IdoInfo[] {
   const balances = useMultipleContractSingleData(idoAddresses, IDO_ABI_INTERFACE, 'balanceOf', accountArg)
   const earnedAmounts = useMultipleContractSingleData(idoAddresses, IDO_ABI_INTERFACE, 'earned', accountArg)
   const claimedAmounts = useMultipleContractSingleData(idoAddresses, IDO_ABI_INTERFACE, 'rewardPaid', accountArg)
+  const unclaimAmounts = useMultipleContractSingleData(idoAddresses, IDO_ABI_INTERFACE, 'rewards', accountArg)
   const totalSupplies = useMultipleContractSingleData(idoAddresses, IDO_ABI_INTERFACE, 'totalSupply')
+  const totalMake = useMultipleContractSingleData(idoAddresses, IDO_ABI_INTERFACE, 'totalMake')
 
   // tokens per second, constants
   const price = useMultipleContractSingleData(
     idoAddresses,
     IDO_ABI_INTERFACE,
-    'rewardPerToken',
-    undefined,
-    NEVER_RELOAD
+    'price'
+  )
+
+  const rate = useMultipleContractSingleData(
+      idoAddresses,
+      IDO_ABI_INTERFACE,
+      'rewardRate'
   )
 
 
@@ -403,12 +411,14 @@ export function useIdoInfo(idoAddress?:string | null): IdoInfo[] {
       // these two are dependent on account
       const balanceState = balances[index]
       const earnedAmountState = earnedAmounts[index]
-
+      const totalMakeState = totalMake[index]
       // these get fetched regardless of account
       const totalSupplyState = totalSupplies[index]
-      const rewardRateState = price[index]
+      const rewardRateState = rate[index]
+      const priceState = price[index]
       const periodFinishState = periodFinishes[index]
       const claimedAmountState = claimedAmounts[index]
+      const unclaimAmountState = unclaimAmounts[index]
 
       if (
         // these may be undefined if not logged in
@@ -420,7 +430,15 @@ export function useIdoInfo(idoAddress?:string | null): IdoInfo[] {
         rewardRateState &&
         !rewardRateState.loading &&
         periodFinishState &&
-        !periodFinishState.loading
+        !periodFinishState.loading &&
+        priceState &&
+        !priceState.loading &&
+        rewardRateState &&
+        !rewardRateState.loading &&
+        claimedAmountState &&
+        !claimedAmountState.loading &&
+          totalMakeState &&
+          !totalMakeState.loading
       ) {
         if (
           balanceState?.error ||
@@ -443,12 +461,15 @@ export function useIdoInfo(idoAddress?:string | null): IdoInfo[] {
         // const stakedAmount = new TokenAmount(dummyPair.liquidityToken, JSBI.BigInt(balanceState?.result?.[0] ?? 0))
         // const totalStakedAmount = new TokenAmount(dummyPair.liquidityToken, JSBI.BigInt(totalSupplyState.result?.[0]))
         const makeAmount = new TokenAmount(tokens[0], JSBI.BigInt(balanceState?.result?.[0] ?? 0))
-        const totalmakeAmount = new TokenAmount(tokens[0], JSBI.BigInt(totalSupplyState.result?.[0]))
+        const unclaimAmount = new TokenAmount(tokens[1],JSBI.BigInt(unclaimAmountState?.result?.[0]))
+        const totalsupplayAmount = new TokenAmount(tokens[0], JSBI.BigInt(totalSupplyState.result?.[0]))
 
-
-        const priceAmount = new TokenAmount(tokens[1], JSBI.BigInt(rewardRateState.result?.[0]))
+        const priceAmount = new TokenAmount(tokens[0], JSBI.BigInt(priceState.result?.[0]))
+        const rateAmount = new TokenAmount(tokens[1], JSBI.BigInt(rewardRateState.result?.[0]))
         const rewardPaidAmount = new TokenAmount(tokens[1],JSBI.BigInt(claimedAmountState.result?.[0]))
-        const totalSoldAmount = new TokenAmount(tokens[1], JSBI.multiply(JSBI.BigInt(rewardRateState.result?.[0]),JSBI.BigInt(totalSupplyState.result?.[0])))
+        // const totalMakeAmout = new TokenAmount(tokens[0],JSBI.BigInt(totalMakeState.result?.[0]))
+        const totalSoldAmount = new TokenAmount(tokens[1], JSBI.divide(JSBI.multiply(JSBI.BigInt(rewardRateState.result?.[0]),JSBI.BigInt(totalMakeState.result?.[0])),JSBI.BigInt('1000000000000000000'))  )
+
         //
         // const getHypotheticalRewardRate = (
         //   stakedAmount: TokenAmount,
@@ -477,12 +498,14 @@ export function useIdoInfo(idoAddress?:string | null): IdoInfo[] {
           // stakedAmount: stakedAmount,
           // totalStakedAmount: totalStakedAmount,
           makeAmount: makeAmount,
+          unclaimAmount: unclaimAmount,
           claimedAmount:rewardPaidAmount,
-          totalmakeAmount: totalmakeAmount,
+          totalsupplayAmount: totalsupplayAmount,
           totalSoldAmount: totalSoldAmount,
           // the current amount of token distributed to the active account per second.
           // equivalent to percent of total supply * reward rate
-          price: priceAmount
+          price: priceAmount,
+          rate: rateAmount
         })
       }
       return memo

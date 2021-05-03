@@ -10,7 +10,7 @@ import { TYPE, CloseIcon } from '../../theme'
 import { ButtonConfirmed, ButtonError } from '../Button'
 import ProgressCircles from '../ProgressSteps'
 import CurrencyInputPanel from '../CurrencyInputPanel'
-import { TokenAmount } from '@teaswap/uniswap-sdk'
+import {CurrencyAmount, TokenAmount} from '@teaswap/uniswap-sdk'
 // import { useActiveWeb3React } from '../../hooks'
 import { maxAmountSpend } from '../../utils/maxAmountSpend'
 import { useIdoContract } from '../../hooks/useContract'
@@ -21,6 +21,7 @@ import { IdoInfo, useDerivedIdoInfo } from '../../state/stake/hooks'
 import { TransactionResponse } from '@ethersproject/providers'
 import { useTransactionAdder } from '../../state/transactions/hooks'
 import { LoadingView, SubmittedView } from '../ModalViews'
+import {ZERO_ADDRESS} from "../../constants";
 
 // const HypotheticalRewardRate = styled.div<{ dim: boolean }>`
 //   display: flex;
@@ -40,7 +41,7 @@ interface idoModalProps {
   isOpen: boolean
   onDismiss: () => void
   idoInfo: IdoInfo
-  userLiquidityUnstaked: TokenAmount | undefined
+  userLiquidityUnstaked: TokenAmount| CurrencyAmount | undefined
 }
 
 export default function BuyingModal({ isOpen, onDismiss, idoInfo, userLiquidityUnstaked }: idoModalProps) {
@@ -51,6 +52,7 @@ export default function BuyingModal({ isOpen, onDismiss, idoInfo, userLiquidityU
   const [typedValue, setTypedValue] = useState('')
   const { parsedAmount, error } = useDerivedIdoInfo(typedValue, idoInfo.makeAmount.token, userLiquidityUnstaked)
   // const parsedAmountWrapped = wrappedCurrencyAmount(parsedAmount, chainId)
+
 
   const [approvalSubmitted, setApprovalSubmitted] = useState<boolean>(false)
 
@@ -71,6 +73,8 @@ export default function BuyingModal({ isOpen, onDismiss, idoInfo, userLiquidityU
   // approval data for stake
   // const stakeTokenContract = useTokenContract(stakingInfo.tokens[0].address)
 
+
+
  const [approval, approveCallback] = useApproveCallback(parsedAmount, idoInfo.idoAddress)
 
   useEffect(() => {
@@ -82,26 +86,40 @@ export default function BuyingModal({ isOpen, onDismiss, idoInfo, userLiquidityU
 
   // const isArgentWallet = useIsArgentWallet()
   const idoContract = useIdoContract(idoInfo.idoAddress)
-  async function onStake() {
+  async function onBuy() {
     setAttempting(true)
     if (idoContract && parsedAmount) {
-      if (approval === ApprovalState.APPROVED) {
-        idoContract.stake(`0x${parsedAmount.raw.toString(16)}`, { gasLimit: 350000 })
-          .then((response: TransactionResponse) => {
-            addTransaction(response, {
-              summary: t('buy')
-            })
-            setHash(response.hash)
-          })
-          .catch((error: any) => {
-            setAttempting(false)
-            console.log(error)
-          })
-      }
-      else {
-        setAttempting(false)
-        throw new Error(t('attempting-to-stake-without-approval-or-a-signature-please-contact-support'))
-      }
+        if (idoInfo.tokens[0].address===ZERO_ADDRESS){
+            idoContract.buywithBNB({gasLimit: 350000, value:`0x${parsedAmount.raw.toString(16)}`})
+                .then((response: TransactionResponse) => {
+                    addTransaction(response, {
+                        summary: t('buy')
+                    })
+                    setHash(response.hash)
+                })
+                .catch((error: any) => {
+                    setAttempting(false)
+                    console.log(error)
+                })
+        }else{
+            if (approval === ApprovalState.APPROVED) {
+                idoContract.buy(`0x${parsedAmount.raw.toString(16)}`, { gasLimit: 350000 })
+                    .then((response: TransactionResponse) => {
+                        addTransaction(response, {
+                            summary: t('buy')
+                        })
+                        setHash(response.hash)
+                    })
+                    .catch((error: any) => {
+                        setAttempting(false)
+                        console.log(error)
+                    })
+            }
+            else {
+                setAttempting(false)
+                throw new Error(t('attempting-to-stake-without-approval-or-a-signature-please-contact-support'))
+            }
+        }
     }
   }
 
@@ -196,12 +214,15 @@ export default function BuyingModal({ isOpen, onDismiss, idoInfo, userLiquidityU
   //     })
   // }
 
+
+    console.log(approval)
+    console.log(error)
   return (
     <Modal isOpen={isOpen} onDismiss={wrappedOnDismiss} maxHeight={90}>
       {!attempting && !hash && (
         <ContentWrapper gap="lg">
           <RowBetween>
-            <TYPE.mediumHeader>{t('deposit')}</TYPE.mediumHeader>
+            <TYPE.mediumHeader>{t('buy')}</TYPE.mediumHeader>
             <CloseIcon onClick={wrappedOnDismiss} />
           </RowBetween>
           <CurrencyInputPanel
@@ -241,7 +262,7 @@ export default function BuyingModal({ isOpen, onDismiss, idoInfo, userLiquidityU
             <ButtonError
               disabled={!!error || ( approval !== ApprovalState.APPROVED)}
               error={!!error && !!parsedAmount}
-              onClick={onStake}
+              onClick={onBuy}
             >
               {error ?? t('buy')}
             </ButtonError>
@@ -252,7 +273,7 @@ export default function BuyingModal({ isOpen, onDismiss, idoInfo, userLiquidityU
       {attempting && !hash && (
         <LoadingView onDismiss={wrappedOnDismiss}>
           <AutoColumn gap="12px" justify={'center'}>
-            <TYPE.largeHeader>{t('depositingLiquidity')}</TYPE.largeHeader>
+            <TYPE.largeHeader>{t('IRO Buying')}</TYPE.largeHeader>
             <TYPE.body fontSize={20}>{parsedAmount?.toSignificant(4)} {idoInfo.tokens[0].symbol}</TYPE.body>
           </AutoColumn>
         </LoadingView>

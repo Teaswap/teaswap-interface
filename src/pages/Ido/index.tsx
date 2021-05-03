@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 
-import { JSBI} from '@teaswap/uniswap-sdk'
+import {ETHER, JSBI} from '@teaswap/uniswap-sdk'
 import { useParams } from 'react-router-dom'
 // import DoubleCurrencyLogo from '../../components/DoubleLogo'
 import { useCurrency } from '../../hooks/Tokens'
@@ -16,7 +16,7 @@ import { CardSection, DataCard, CardNoise, CardBGImage } from '../../components/
 import { ButtonPrimary, ButtonEmpty } from '../../components/Button'
 import { useIdoInfo } from '../../state/stake/hooks'
 // import ClaimRewardModal from '../../components/earn/ClaimRewardModal'
-import { useTokenBalance } from '../../state/wallet/hooks'
+import {useETHBalances, useTokenBalance} from '../../state/wallet/hooks'
 import { useActiveWeb3React } from '../../hooks'
 // import { useColor } from '../../hooks/useColor'
 import { CountUp } from 'use-count-up'
@@ -124,7 +124,9 @@ const Index = ()=>{
   const idoInfo = useIdoInfo(params.idoAddress)?.[0]
 
   // detect existing unstaked LP position to show add button if none found
-  const userLiquidityUnstaked = useTokenBalance(account ?? undefined, idoInfo?.makeAmount?.token)
+  const userETHBlance = useETHBalances(account ? [account] : [])?.[account ?? '']
+  const userTokenAmount = useTokenBalance(account ?? undefined, idoInfo?.makeAmount?.token)
+  const userLiquidityUnstaked = currencyA===ETHER? userETHBlance : userTokenAmount
   const showAddLiquidityButton = Boolean(idoInfo?.makeAmount?.equalTo('0') && userLiquidityUnstaked?.equalTo('0'))
 
   // toggle for staking modal and unstaking modal
@@ -155,7 +157,7 @@ const Index = ()=>{
   //   )
   // }
 
-  const countUpAmount = idoInfo?.earnedAmount?.toFixed(6) ?? '0'
+  const countUpAmount = idoInfo?.unclaimAmount?.toFixed(4) ?? '0'
   const countUpAmountPrevious = usePrevious(countUpAmount) ?? '0'
 
   // get the USD value of staked WETH
@@ -219,20 +221,34 @@ const Index = ()=>{
               {/*    ? `$${valueOfTotalStakedAmountInUSDC.toFixed(0, { groupSeparator: ',' })}`*/}
               {/*    : `${valueOfTotalStakedAmountInWETH?.toSignificant(4, { groupSeparator: ',' }) ?? '-'} BNB`}*/}
               {/*</TYPE.darkGray>*/}
-              <TYPE.darkGray fontSize={24} fontWeight={500}>
-                {idoInfo?.totalmakeAmount
-                  ? `${idoInfo?.totalmakeAmount.toFixed(0, { groupSeparator: ',' })} ${currencyA?.symbol}`
-                  : `${idoInfo?.totalmakeAmount?.toSignificant(4, { groupSeparator: ',' }) ?? '-'} ${currencyA?.symbol}`}
-              </TYPE.darkGray>
+              <RowBetween style={{ alignItems: 'baseline' }}>
+                <TYPE.darkGray fontSize={24} fontWeight={500}>
+                  {idoInfo?.totalsupplayAmount
+                    ? `${idoInfo?.totalsupplayAmount.toFixed(0, { groupSeparator: ',' })} ${currencyB?.symbol}`
+                    : `${idoInfo?.totalsupplayAmount?.toSignificant(4, { groupSeparator: ',' }) ?? '-'} ${currencyB?.symbol}`}
+                </TYPE.darkGray>
+                <TYPE.gray>
+                  {idoInfo?.totalSoldAmount?.toSignificant(2, { groupSeparator: ',' }) ?? '-'} {t('sold')}
+                </TYPE.gray>
+              </RowBetween>
             </AutoColumn>
           </PoolData>
           <PoolData>
             <AutoColumn gap="sm">
+              <TYPE.darkGray style={{ margin: 0 }}>{t('price')}</TYPE.darkGray>
+              <TYPE.darkGray fontSize={24} fontWeight={500}>
+                1 {currencyB?.symbol} {t('need')} {''}
+                {idoInfo?.price
+                  ? `${idoInfo?.price.toFixed(4, { groupSeparator: ',' })} ${currencyA?.symbol} `
+                    :`${idoInfo?.price?.toSignificant(4, { groupSeparator: ',' }) ?? '-'} ${currencyA?.symbol} `}
+              </TYPE.darkGray>
               <TYPE.darkGray style={{ margin: 0 }}>{t('Rate')}</TYPE.darkGray>
               <TYPE.darkGray fontSize={24} fontWeight={500}>
-                {idoInfo?.price
-                  ?.toFixed(0, { groupSeparator: ',' }) ?? '-' }{":1 "}
-                {currencyA?.symbol}{':'}{currencyB?.symbol}
+                1 {currencyA?.symbol} {t('buy')} {''}
+                {idoInfo?.rate
+                    ? `${idoInfo?.rate.toFixed(2, { groupSeparator: ',' })} ${currencyB?.symbol} `
+                    :`${idoInfo?.rate?.toSignificant(4, { groupSeparator: ',' }) ?? '-'} ${currencyB?.symbol} `}
+
               </TYPE.darkGray>
             </AutoColumn>
           </PoolData>
@@ -287,7 +303,7 @@ const Index = ()=>{
                     </RowBetween>
                     <RowBetween style={{ alignItems: 'baseline' }}>
                       <TYPE.white fontSize={28} fontWeight={600}>
-                        {idoInfo?.makeAmount?.toSignificant(6) ?? '-'}
+                        {idoInfo?.makeAmount?.toSignificant(4) ?? '-'}
                       </TYPE.white>
                       <TYPE.white>
                         {currencyA?.symbol}
@@ -304,14 +320,14 @@ const Index = ()=>{
                     <div>
                       <TYPE.black>{t('Your Unclaimed')} {currencyB?.symbol}</TYPE.black>
                     </div>
-                    {idoInfo?.earnedAmount && JSBI.notEqual(BIG_INT_ZERO, idoInfo?.earnedAmount?.raw) && (
+                    {idoInfo?.unclaimAmount && JSBI.notEqual(BIG_INT_ZERO, idoInfo?.unclaimAmount?.raw) && (
                       <ButtonEmpty
                         padding="8px"
                         borderRadius="0px"
                         width="fit-content"
                         onClick={() => setShowClaimRewardModal(true)}
                       >
-                        {t('Total Earned')}
+                        {t('claim')}
                       </ButtonEmpty>
                     )}
                   </RowBetween>
@@ -329,10 +345,10 @@ const Index = ()=>{
                     </TYPE.largeHeader>
                     <TYPE.black fontSize={16} fontWeight={500}>
                       <span role="img" aria-label="wizard-icon" style={{ marginRight: '8px ' }}>
-                        ⚡
+                        ⚡ {t('Total Earned')}
                       </span>
-                      {idoInfo?.claimedAmount
-                        ?.toSignificant(4, { groupSeparator: ',' }) ?? '-'}
+                      {idoInfo?.earnedAmount
+                        ?.toSignificant(2, { groupSeparator: ',' }) ?? '-'}
                       {currencyB?.symbol}
                     </TYPE.black>
                   </RowBetween>
@@ -357,20 +373,20 @@ const Index = ()=>{
                         toggleWalletModal()
                       }
                 }}>
-                  {idoInfo?.makeAmount?.greaterThan(JSBI.BigInt(0)) ? 'Buy' : 'Participate'}
+                  {idoInfo?.makeAmount?.greaterThan(JSBI.BigInt(0)) ? t('Buy Again') : t('Participate')}
                 </ButtonPrimary>
 
                 {idoInfo?.earnedAmount?.subtract(idoInfo?.claimedAmount).greaterThan(JSBI.BigInt(0)) && (
-                  <>
+
                     <ButtonPrimary
-                      padding="8px"
+                        marginTop="5px"
+                        padding="8px"
                       borderRadius="0px"
                       width="160px"
                       onClick={() => setShowClaimRewardModal(true)}
                     >
-                      {t('withdraw')}
+                      {t('claim')}
                     </ButtonPrimary>
-                  </>
                 )}
               </DataRow>
             )}

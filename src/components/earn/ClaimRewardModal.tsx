@@ -189,7 +189,7 @@ export default function ClaimIdoRewardModal({ isOpen, onDismiss, idoInfo }: IdoM
             </AutoColumn>
           )}
           <TYPE.subHeader style={{ textAlign: 'center' }}>
-            {t('when-you-claim-without-withdrawing-your-liquidity-remains-in-the-mining-pool')}
+            {t('You can claim the coin you participated here')}
           </TYPE.subHeader>
           <ButtonError disabled={!!error} error={!!error && !!idoInfo?.makeAmount} onClick={onClaimReward}>
             {error ?? 'Claim'}
@@ -200,7 +200,7 @@ export default function ClaimIdoRewardModal({ isOpen, onDismiss, idoInfo }: IdoM
         <LoadingView onDismiss={wrappedOnDismiss}>
           <AutoColumn gap="12px" justify={'center'}>
             <TYPE.body fontSize={20}>
-              {t('claiming')} {idoInfo?.earnedAmount?.subtract(idoInfo.claimedAmount).toSignificant(6)} {idoInfo.tokens[1]}
+              {t('claiming')} {idoInfo?.unclaimAmount?.toSignificant(4)} {idoInfo.tokens[1]}
             </TYPE.body>
           </AutoColumn>
         </LoadingView>
@@ -209,7 +209,7 @@ export default function ClaimIdoRewardModal({ isOpen, onDismiss, idoInfo }: IdoM
         <SubmittedView onDismiss={wrappedOnDismiss} hash={hash}>
           <AutoColumn gap="12px" justify={'center'}>
             <TYPE.largeHeader>{t('transactionSubmitted')}</TYPE.largeHeader>
-            <TYPE.body fontSize={20}>{t('claimed')} TSA!</TYPE.body>
+            <TYPE.body fontSize={20}>{t('claimed')} {idoInfo?.tokens[1].symbol}</TYPE.body>
           </AutoColumn>
         </SubmittedView>
       )}
