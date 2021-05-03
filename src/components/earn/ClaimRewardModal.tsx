@@ -200,7 +200,7 @@ export default function ClaimIdoRewardModal({ isOpen, onDismiss, idoInfo }: IdoM
         <LoadingView onDismiss={wrappedOnDismiss}>
           <AutoColumn gap="12px" justify={'center'}>
             <TYPE.body fontSize={20}>
-              {t('claiming')} {idoInfo?.unclaimAmount?.toSignificant(4)} {idoInfo.tokens[1]}
+              {t('claiming')} {idoInfo?.unclaimAmount?.toSignificant(4)} {idoInfo?.tokens[1].symbol}
             </TYPE.body>
           </AutoColumn>
         </LoadingView>
