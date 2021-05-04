@@ -19,7 +19,7 @@ import ConSubTitle from '../../components/Content/SubTitle';
 
 const Page = styled.div`
   height: fit-content;
-  margin-top: -40px;
+  margin-top: -80px;
   position: relative;
 `;
 

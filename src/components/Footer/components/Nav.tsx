@@ -45,7 +45,7 @@ const StyledNav = styled.nav`
 const StyledLink = styled.a`
   color: ${({ theme }) => theme.bg2};
   text-decoration: none;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 500;
   line-height: 34px;
 `

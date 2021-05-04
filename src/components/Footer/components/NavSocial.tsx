@@ -19,7 +19,7 @@ const NavSocial: React.FC = () => {
         <img src={telegramIcon} width="21" height="21" />
       </StyledLink>
       <StyledLink style={{padding:"0 4px"}}> </StyledLink>
-      <StyledLink target="_blank" href="https://www.instagram.com/artteaswap/">
+      <StyledLink target="_blank" href="https://www.instagram.com/tsa.nft/">
         <img src={insgramIcon} width="21" height="21" />
       </StyledLink>
       <StyledLink style={{padding:"0 4px"}}> </StyledLink>
