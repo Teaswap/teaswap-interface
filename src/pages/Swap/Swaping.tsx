@@ -295,6 +295,7 @@ export default function Swap() {
       <img width="100%" style={{marginTop: '-40px'}} src={process.env.PUBLIC_URL + '/swap_banner.webp'} />
       
       <AppBody>
+        <img width="131" style={{alignSelf: "center"}} src={process.env.PUBLIC_URL + '/0039.webp'} />
         <SwapPoolTabs active={'swap'} />
         <Wrapper id="swap-page">
           <ConfirmSwapModal
