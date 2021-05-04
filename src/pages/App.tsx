@@ -12,11 +12,11 @@ import { ApplicationModal } from '../state/application/actions'
 import { useModalOpen, useToggleModal } from '../state/application/hooks'
 import DarkModeQueryParamReader from '../theme/DarkModeQueryParamReader'
 import AddLiquidity from './AddLiquidity'
-import {
-  RedirectDuplicateTokenIds,
-  RedirectOldAddLiquidityPathStructure,
-  RedirectToAddLiquidity
-} from './AddLiquidity/redirects'
+// import {
+//   RedirectDuplicateTokenIds,
+//   RedirectOldAddLiquidityPathStructure,
+//   RedirectToAddLiquidity
+// } from './AddLiquidity/redirects'
 import Manage from './Earn/Manage'
 import Home from './Home'
 import Earn from './Earn'
@@ -188,13 +188,12 @@ export default function App() {
               <Route path="/iro/:currencyIdA/:currencyIdB/:idoAddress" element={<Ido />}/>
               <Route path="/iro" element={<IdoList />}/>
               <Route path="/vote" element={<Vote/>}/>
-              <Route path="/create" element={<RedirectToAddLiquidity/>}/>
               <Route path="/add" element={<AddLiquidity/>}/>
-              <Route path="/add/:currencyIdA" element={<RedirectOldAddLiquidityPathStructure/>}/>
-              <Route path="/add/:currencyIdA/:currencyIdB" element={<RedirectDuplicateTokenIds/>}/>
+              <Route path="/add/:currencyIdA" element={<AddLiquidity/>}/>
+              <Route path="/add/:currencyIdA/:currencyIdB" element={<AddLiquidity/>}/>
               <Route path="/create" element={<AddLiquidity/>}/>
-              <Route path="/create/:currencyIdA" element={<RedirectOldAddLiquidityPathStructure/>}/>
-              <Route path="/create/:currencyIdA/:currencyIdB" element={<RedirectDuplicateTokenIds/>}/>
+              <Route path="/create/:currencyIdA" element={<AddLiquidity/>}/>
+              <Route path="/create/:currencyIdA/:currencyIdB" element={<AddLiquidity/>}/>
               <Route path="/remove/:tokens" element={<RedirectOldRemoveLiquidityPathStructure/>}/>
               {/*<Route path="/remove/:currencyIdA/:currencyIdB" element={<RemoveLiquidity/>}/>*/}
               <Route path="/staking/:currencyIdA/:currencyIdB/:stakingRewardAddress" element={<Manage/>}/>
