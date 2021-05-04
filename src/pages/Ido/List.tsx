@@ -113,7 +113,7 @@ export default List;
 
 const PageWrapper = styled(ColumnCenter)`
   text-align: center;
-  margin-top: -40px;
+  margin-top: -80px;
   width: 100%;
 `
 

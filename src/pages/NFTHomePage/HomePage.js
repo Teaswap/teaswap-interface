@@ -19,7 +19,7 @@ import ConSubTitle from '../../components/Content/SubTitle';
 
 const Page = styled.div`
   height: fit-content;
-  margin-top: -40px;
+  margin-top: -80px;
   position: relative;
 `;
 
@@ -118,13 +118,6 @@ const HomePage = () => {
       </TitleSection>
       {/*<Snowfall color='#e8f2f7' />*/}
       <Section>
-      <BtnSection>
-        <StyledLink href="https://docs.google.com/forms/d/e/1FAIpQLSeGoEA3tuWG-S1NwUyCylmvCwTjALEbh-eVOqoQXHDp3pEmTA/viewform">
-          <JoinUs>
-            Mint Artworks
-          </JoinUs>
-        </StyledLink>
-      </BtnSection>
         {/* <Title $isLarge>{t('NEW POST')}</Title> */}
         <HomePageProducts>
           <Products
