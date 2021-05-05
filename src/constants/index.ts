@@ -72,7 +72,7 @@ export const UNI: { [chainId in ChainId]: Token } = {
 // TODO: specify merkle distributor for mainnet
 export const MERKLE_DISTRIBUTOR_ADDRESS: { [chainId in ChainId]?: string } = {
   [ChainId.MAINNET]: '0x090D4613473dEE047c3f2706764f49E0821D256e',
-  [ChainId.BSC_MAINNET]:'0x0e9F4359D05706EDC13752Eea0b3f4276A1a6cF3'
+  [ChainId.BSC_MAINNET]:'0x2E58e25C3D0A89D8490e2581ba3e0346586cb804'
 }
 
 export const USDT_TSA_LP = new Token(
