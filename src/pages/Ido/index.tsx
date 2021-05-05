@@ -222,14 +222,14 @@ const Index = ()=>{
           <img src={process.env.PUBLIC_URL + '/cjainft.webp'} width="150" height="110" style={{marginBottom: '60px'}}/>
           <ConSubTitle con="CaoJun Limited Edition NFT Series" />
           <ol>
-            <li>{t('Key points for CaoJun NFT Collectibles Initial Art Offering ("CJAI IRO")')}</li>
-            <li>{t('Total Edition of CaoJunNFT Collectibles : 600')}</li>
-            <li>{t('Total TSA released for CJAI : 15,000,000')}</li>
-            <li>{t('1 $TSA = 0.00008 BNB')}</li>
-            <li>{t('List TSA Token on TEAswap, BakerySwap and SwapAll for trading and liquidity farming;')}</li>
-            <li>{t('Able to stake TSA to earn CJAI, Deposit TSA-BNB BLP to earn TSA, Deposit TSA-BUSD to earn TSA, and Deposit TSA-USDT BLP to earn TSA.')}</li>
-            <li>{t('TSA can be convertible & tradeable into CaoJunNFT.')}</li>
-            <li>{t('100,000 TSA can be exchanged with 1 CaoJun NFT, and 1 CaoJunNFT can be converted into one exclusive CaoJun limited edition of digital collectible ("CaoJun Digital Collectible")')}</li>
+            <li>Key points for CaoJun NFT Collectibles Initial Art Offering ("CJAI IRO")</li>
+            <li>Total Edition of CaoJunNFT Collectibles : 600</li>
+            <li>Total TSA released for CJAI : 15,000,000</li>
+            <li>1 $TSA = 0.00008 BNB</li>
+            <li>List TSA Token on TEAswap, BakerySwap and SwapAll for trading and liquidity farming;</li>
+            <li>Able to stake TSA to earn CJAI, Deposit TSA-BNB BLP to earn TSA, Deposit TSA-BUSD to earn TSA, and Deposit TSA-USDT BLP to earn TSA.</li>
+            <li>TSA can be convertible & tradeable into CaoJunNFT.</li>
+            <li>100,000 TSA can be exchanged with 1 CaoJun NFT, and 1 CaoJunNFT can be converted into one exclusive CaoJun limited edition of digital collectible ("CaoJun Digital Collectible")</li>
             <li>No minimum: Users can buy fractions of $TSA Offering Details : https://www.caojunnft.com</li>
           </ol>
         </Author>
