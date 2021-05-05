@@ -9,7 +9,7 @@ import { useParams } from 'react-router-dom'
 // import DoubleCurrencyLogo from '../../components/DoubleLogo'
 import { useCurrency } from '../../hooks/Tokens'
 import { useWalletModalToggle } from '../../state/application/hooks'
-import { TYPE } from '../../theme'
+import { ExternalLink, TYPE } from '../../theme'
 
 import { RowBetween } from '../../components/Row'
 import { CardSection, DataCard, CardNoise, CardBGImage } from '../../components/earn/styled'
@@ -46,7 +46,13 @@ const AuthorInfo = styled(ColumnCenter)`
 `
 
 const Author = styled(ColumnCenter)`
-  width: 355px;
+  width: 455px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  color: #7f7f7f;
+  font-size: 13px;
 `
 
 const Box = styled(ColumnCenter)`
@@ -58,6 +64,7 @@ const Box = styled(ColumnCenter)`
   transform: translateZ(0);
   margin: 0px;
   margin-left: 40px;
+  margin-top: 55px;
 `
 
 const PositionInfo = styled(AutoColumn)<{ dim: any }>`
@@ -102,6 +109,8 @@ const VoteCard = styled(DataCard)`
 const DataRow = styled(ColumnCenter)`
   justify-content: center;
 `
+
+
 const Index = ()=>{
 
 
@@ -210,7 +219,19 @@ const Index = ()=>{
       {/* </RowBetween> */}
       <AuthorInfo>
         <Author>
+          <img src={process.env.PUBLIC_URL + '/cjainft.webp'} width="150" height="110" style={{marginBottom: '60px'}}/>
           <ConSubTitle con="CaoJun Limited Edition NFT Series" />
+          <ol>
+            <li>Key points for CaoJun NFT Collectibles Initial Art Offering ("CJAI IRO")</li>
+            <li>Total Edition of CaoJunNFT Collectibles : 600</li>
+            <li>Total TSA released for CJAI : 15,000,000</li>
+            <li>1 $TSA = 0.00008 BNB</li>
+            <li>List TSA Token on TEAswap, BakerySwap and SwapAll for trading and liquidity farming;</li>
+            <li>Able to stake TSA to earn CJAI, Deposit TSA-BNB BLP to earn TSA, Deposit TSA-BUSD to earn TSA, and Deposit TSA-USDT BLP to earn TSA.</li>
+            <li>TSA can be convertible & tradeable into CaoJunNFT.</li>
+            <li>100,000 TSA can be exchanged with 1 CaoJun NFT, and 1 CaoJunNFT can be converted into one exclusive CaoJun limited edition of digital collectible ("CaoJun Digital Collectible")</li>
+            <li>No minimum: Users can buy fractions of $TSA Offering Details : https://www.caojunnft.com</li>
+          </ol>
         </Author>
         <Box>
           <PoolData>
@@ -398,8 +419,27 @@ const Index = ()=>{
           </PositionInfo>
         </Box>
       </AuthorInfo>
+
+      <IframeComponent iframe={iframe} />
+      <div style={{color: "#474747"}}>
+      ** Converting into one exclusive CaoJun NFT limited edition of digital collectible  or original collectibles ? 
+        <ExternalLink href={"https://docs.google.com/forms/d/e/1FAIpQLSfKQ5ESZ_843cjHGBwKuObT79bfjUPQ3XHOJpy9vw2VFbAZVA/viewform"}>
+          Submit Now .
+        </ExternalLink>
+      </div>
       
     </PageWrapper>
   )
 };
+
+function IframeComponent(props: any) {
+  return (
+    <div
+      dangerouslySetInnerHTML={{ __html: props.iframe ? props.iframe : "" }}
+    />
+  );
+}
+
+const iframe = '<iframe frameborder="0" allowfullscreen="1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" title="YouTube video player" width="849" height="521" style="margin-top: 30px;" src="https://www.youtube.com/embed/xa8OBoVx2yk?autoplay=0&amp;mute=0&amp;controls=1&amp;loop=0&amp;origin=https%3A%2F%2Fwww.teaswap.live&amp;playsinline=1&amp;enablejsapi=1&amp;widgetid=1" id="widget2"></iframe>'; 
+
 export default Index;

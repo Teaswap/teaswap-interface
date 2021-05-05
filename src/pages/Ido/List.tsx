@@ -4,8 +4,8 @@ import styled from 'styled-components'
 import ConTitle from '../../components/Content/Title'
 
 import GridImg1 from '../../assets/images/IMG_6362_JPG.jpeg'
-import GridImg2 from '../../assets/images/grid_img2.jpeg'
-import GridImg3 from '../../assets/images/grid_img3.jpeg'
+import GridImg2 from '../../assets/images/grid_img2.webp'
+import GridImg3 from '../../assets/images/grid_img3.webp'
 import MediumImg from '../../assets/images/read_medium.jpeg'
 import { ExternalLink } from '../../theme'
 
@@ -30,32 +30,32 @@ const List = ()=>{
       sign: NewImg
     },
     {
-      image: GridImg1,
-      Learn: "https://www.caojunnft.com/",
-      author: "Cao Jun NFTs",
-      medium: "",
-      info: "CaoJun limited edition NFT series . The record price for CaoJun  artist at auction is $1,309,063 USD .",
-      joinUs: "/iro/bnb/0x5f99ACF13CAff815DD9cB4A415c0fB34e9F4545b/0x9e647AFF1e8f82Ca8aB30e4B019297774d1bec8e",
-      sign: ComingImg
-    },
-    {
       image: GridImg2,
       Learn: "https://www.caojunnft.com/",
       author: "Gus Bawab NFTs",
       medium: "",
       info: "We are proud that his work “Persistence” found its way to the Elysee, the French presidential Palace in 2016.",
-      joinUs: "/",
-      sign: EndedImg
+      joinUs: "#",
+      sign: ComingImg
     },
     {
       image: GridImg3,
-      Learn: "/",
+      Learn: "https://www.caojunnft.com/",
       author: "The Art of TEAsWAP",
-      medium: "https://teaswap-art.medium.com/tsa-airdrop-phase-1-f255e5be3f4f",
+      medium: "",
       info: "TSA is where we bring together creators, collectors, curators, influencers, brokers, wallets, auctioneers around the world to the NFT digital space.",
-      joinUs: "/",
+      joinUs: "#",
       sign: EndedImg
-    }
+    },
+    // {
+    //   image: GridImg3,
+    //   Learn: "/",
+    //   author: "The Art of TEAsWAP",
+    //   medium: "https://teaswap-art.medium.com/tsa-airdrop-phase-1-f255e5be3f4f",
+    //   info: "TSA is where we bring together creators, collectors, curators, influencers, brokers, wallets, auctioneers around the world to the NFT digital space.",
+    //   joinUs: "#",
+    //   sign: EndedImg
+    // }
   ]
 
   return (
