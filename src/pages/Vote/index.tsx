@@ -142,13 +142,13 @@ export default function Vote() {
                   )}
                 </TYPE.white>
               </RowBetween>
-              <ExternalLink
+              {/* <ExternalLink
                 style={{ color: 'white', textDecoration: 'underline' }}
                 href="https://uniswap.org/blog/uni"
                 target="_blank"
               >
                 <TYPE.white fontSize={14}>{t('read-more-about-bestswap-governance')}</TYPE.white>
-              </ExternalLink>
+              </ExternalLink> */}
             </AutoColumn>
           </CardSection>
           <CardBGImage />

@@ -11,9 +11,9 @@ const Footer: React.FC = () => {
     <StyledFooter>
       <StyledFooterInner>
         <StyledFooterItem style={{ marginBottom: 20, width: '150px', textAlign: 'left' }}>
-          <img height="30px" style={{ marginTop: -8 }} src={Logo} alt="logo" />
+          <img height="30px" style={{ marginTop: -8 }} width="86" src={Logo} alt="logo" />
           <StyledFooterItemTitle>© 2021 TEAsWAP</StyledFooterItemTitle>
-          <StyledLink  target="_blank" href={'mailto:support@teaswap.art'}>support@teaswap.art</StyledLink>
+          {/* <StyledLink  target="_blank" href={'mailto:support@teaswap.art'}>support@teaswap.art</StyledLink> */}
         </StyledFooterItem>
         <StyledFooterItem>
           <Nav />
@@ -40,7 +40,7 @@ const StyledFooterInner = styled.div`
   justify-content: space-between;
   max-width: 1200px;
   width: 100%;
-  padding: 11px 15px 34px;
+  padding: 60px 15px 54px;
   box-sizing: border-box;
 `
 
@@ -59,15 +59,15 @@ const StyledFooterItemTitle = styled.span`
   min-width: 100px;
   margin-top: 22px;
 `
-const StyledLink = styled.a`
-  color: ${({ theme }) => theme.bg2};
-  text-decoration: none;
-  font-size: 10px;
-  font-weight: 
-  font-weight: 500;
-  @media (max-width: 540px) {
-    padding-right: 16px;
-  }
-`
+// const StyledLink = styled.a`
+//   color: ${({ theme }) => theme.bg2};
+//   text-decoration: none;
+//   font-size: 10px;
+//   font-weight: 
+//   font-weight: 500;
+//   @media (max-width: 540px) {
+//     padding-right: 16px;
+//   }
+// `
 
 export default Footer

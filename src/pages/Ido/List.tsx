@@ -35,7 +35,7 @@ const List = ()=>{
       author: "Cao Jun NFTs",
       medium: "",
       info: "CaoJun limited edition NFT series . The record price for CaoJun  artist at auction is $1,309,063 USD .",
-      joinUs: "/iro/bnb/0x5f99ACF13CAff815DD9cB4A415c0fB34e9F4545b/0x9e647AFF1e8f82Ca8aB30e4B019297774d1bec8e",
+      joinUs: "#",
       sign: ComingImg
     },
     {
@@ -44,7 +44,7 @@ const List = ()=>{
       author: "Gus Bawab NFTs",
       medium: "",
       info: "We are proud that his work “Persistence” found its way to the Elysee, the French presidential Palace in 2016.",
-      joinUs: "/",
+      joinUs: "#",
       sign: EndedImg
     },
     {
@@ -53,7 +53,7 @@ const List = ()=>{
       author: "The Art of TEAsWAP",
       medium: "https://teaswap-art.medium.com/tsa-airdrop-phase-1-f255e5be3f4f",
       info: "TSA is where we bring together creators, collectors, curators, influencers, brokers, wallets, auctioneers around the world to the NFT digital space.",
-      joinUs: "/",
+      joinUs: "#",
       sign: EndedImg
     }
   ]
