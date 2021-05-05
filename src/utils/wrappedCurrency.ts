@@ -1,8 +1,8 @@
 import { ChainId, Currency, CurrencyAmount, ETHER, Token, TokenAmount, WETH } from '@teaswap/uniswap-sdk'
-import { PAYABLEETH } from '../constants'
+// import { PAYABLEETH } from '../constants'
 
 export function wrappedCurrency(currency: Currency | undefined, chainId: ChainId | undefined): Token | undefined {
-  return chainId && currency === ETHER ? PAYABLEETH[chainId] : currency instanceof Token ? currency : undefined
+  return chainId && currency === ETHER ? WETH[chainId] : currency instanceof Token ? currency : undefined
 }
 
 export function wrappedCurrencyAmount(

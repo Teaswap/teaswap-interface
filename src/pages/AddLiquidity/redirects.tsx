@@ -1,5 +1,5 @@
 import React from 'react'
-import { Navigate } from 'react-router-dom'
+import {Navigate} from 'react-router-dom'
 // import AddLiquidity from './index'
 
 export function RedirectToAddLiquidity() {
@@ -22,6 +22,8 @@ export function RedirectToAddLiquidity() {
 // }
 
 export const RedirectOldAddLiquidityPathStructure: React.FC = (): JSX.Element => {
+  // const params = useParams();
+  // const currencyIdA = params.currencyIdA
   return <Navigate to='/add' />;
 };
 
