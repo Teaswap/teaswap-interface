@@ -3,7 +3,7 @@
   "timestamp": "2021-04-12T05:05:10.290Z",
   "version": {
     "major": 1,
-    "minor": 11,
+    "minor": 12,
     "patch": 26
   },
   "tags": {},
@@ -636,6 +636,54 @@
       "decimals": 6,
       "chainId": 56,
       "logoURI": "https://tokens.bscswap.com/images/0xA8c2B8eec3d368C0253ad3dae65a5F2BBB89c929.png"
+    },
+    {
+      "name": "CAR",
+      "address": "0x176a25637e5078519230a4d80a7a47350940264a",
+      "symbol": "CAR",
+      "decimals": 18,
+      "chainId": 56,
+      "logoURI": "https://www.teaswap.art/default-token-list/images/0x176a25637e5078519230a4d80a7a47350940264a.png"
+    },
+    {
+      "name": "SOCCER",
+      "address": "0x338d44d19c8d45ed9771b8d2b95d988f0e42187f",
+      "symbol": "SOCCER",
+      "decimals": 18,
+      "chainId": 56,
+      "logoURI": "https://www.teaswap.art/default-token-list/images/0x338d44d19c8d45ed9771b8d2b95d988f0e42187f.png"
+    },
+    {
+      "name": "POKER",
+      "address": "0x82caa54ec9aaf213ff611af63d4b650accff53ae",
+      "symbol": "POKER",
+      "decimals": 18,
+      "chainId": 56,
+      "logoURI": "https://www.teaswap.art/default-token-list/images/0x82caa54ec9aaf213ff611af63d4b650accff53ae.png"
+    },
+    {
+      "name": "Pet Token",
+      "address": "0x4d4e595d643dc61ea7fcbf12e4b1aaa39f9975b8",
+      "symbol": "PET",
+      "decimals": 18,
+      "chainId": 56,
+      "logoURI": "https://www.teaswap.art/default-token-list/images/0x4d4e595d643dc61ea7fcbf12e4b1aaa39f9975b8.png"
+    },
+    {
+      "name": "Weapon Token",
+      "address": "0x3664d30a612824617e3cf6935d6c762c8b476eda",
+      "symbol": "WEAPON",
+      "decimals": 18,
+      "chainId": 56,
+      "logoURI": "https://www.teaswap.art/default-token-list/images/0x3664d30a612824617e3cf6935d6c762c8b476eda.png"
+    },
+    {
+      "name": "Binance-Peg Token Club",
+      "address": "0xca0a9df6a8cad800046c1ddc5755810718b65c44",
+      "symbol": "TCT",
+      "decimals": 18,
+      "chainId": 56,
+      "logoURI": "https://www.teaswap.art/default-token-list/images/0xca0a9df6a8cad800046c1ddc5755810718b65c44.png"
     },
     {
       "name": "TEAsWAP.ART",
