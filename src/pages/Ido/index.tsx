@@ -65,6 +65,7 @@ const Box = styled(ColumnCenter)`
   margin: 0px;
   margin-left: 40px;
   margin-top: 55px;
+  padding-bottom: 20px;
 `
 
 const PositionInfo = styled(AutoColumn)<{ dim: any }>`
@@ -80,7 +81,7 @@ const BottomSection = styled(AutoColumn)`
 `
 
 const StyledDataCard = styled(DataCard)<{ bgColor?: any; showBackground?: any }>`
-  background: radial-gradient(76.02% 75.41% at 1.84% 0%, #7f7f7f 0%, #7f7f7f 100%);
+  background-color: #B3B3B3;
   z-index: 2;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 `
@@ -102,7 +103,7 @@ const PoolData = styled(DataCard)`
 `
 
 const VoteCard = styled(DataCard)`
-  background: radial-gradient(76.02% 75.41% at 1.84% 0%,#60a7ac 0%, #60a7ac 100%);
+  // background: radial-gradient(76.02% 75.41% at 1.84% 0%,#60a7ac 0%, #60a7ac 100%);
   overflow: hidden;
 `
 
@@ -131,6 +132,7 @@ const Index = ()=>{
   // const [, stakingTokenPair] = usePair(tokenA, tokenB)
   // const stakingInfo = useStakingInfo(stakingTokenPair)?.[0]
   const idoInfo = useIdoInfo(params.idoAddress)?.[0]
+  console.log('idoInfo', idoInfo)
 
   // detect existing unstaked LP position to show add button if none found
   const userETHBlance = useETHBalances(account ? [account] : [])?.[account ?? '']
@@ -256,7 +258,7 @@ const Index = ()=>{
           </PoolData>
           <PoolData>
             <AutoColumn gap="sm">
-              <TYPE.darkGray style={{ margin: 0 }}>{t('price')}</TYPE.darkGray>
+              <TYPE.darkGray style={{ margin: 0 }}>{t('Price')}</TYPE.darkGray>
               <TYPE.darkGray fontSize={24} fontWeight={500}>
                 1 {currencyB?.symbol} {t('need')} {''}
                 {idoInfo?.price
@@ -403,7 +405,7 @@ const Index = ()=>{
                         marginTop="5px"
                         padding="8px"
                       borderRadius="0px"
-                      width="160px"
+                      width="266px"
                       onClick={() => setShowClaimRewardModal(true)}
                     >
                       {t('claim')}

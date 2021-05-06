@@ -7,23 +7,23 @@ const Nav: React.FC = () => {
        <StyledLink target="_blank" href="/swap">
         Swap
       </StyledLink>
-      <StyledLink style={{padding:"0 2px"}}>  </StyledLink>
+      <StyledLinkSep />
       <StyledLink target="_blank" href="/staking">
         Stake
       </StyledLink>
-      <StyledLink style={{padding:"0 2px"}}>  </StyledLink>
+      <StyledLinkSep />
       <StyledLink target="_blank" href="https://teaswap.myshopify.com/">
         Shop
       </StyledLink>
-      <StyledLink style={{padding:"0 2px"}}>  </StyledLink>
+      <StyledLinkSep />
       <StyledLink target="_blank" href="https://www.teaswap.live/info">
         Info
       </StyledLink>
-      <StyledLink style={{padding:"0 2px"}}>  </StyledLink>
+      <StyledLinkSep />
       <StyledLink target="_blank" href={'https://www.teaswap.live/news'}>
         News
       </StyledLink>
-      <StyledLink style={{padding:"0 2px"}}>  </StyledLink>
+      <StyledLinkSep />
       <StyledLink target="_blank" href={'mailto:support@teaswap.art'}>
         Contact
       </StyledLink>
@@ -48,6 +48,9 @@ const StyledLink = styled.a`
   font-size: 13px;
   font-weight: 500;
   line-height: 34px;
+`
+const StyledLinkSep = styled.span`
+  padding: 0 12px;
 `
 
 export default Nav
