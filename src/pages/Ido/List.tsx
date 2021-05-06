@@ -130,7 +130,7 @@ const Grids = styled(ColumnCenter)`
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
-  justify-content: flex-start;
+  justify-content: center;
   margin-top: 10px;
 `
 
