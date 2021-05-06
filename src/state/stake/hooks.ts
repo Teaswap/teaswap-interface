@@ -1,7 +1,7 @@
 import { ChainId, CurrencyAmount, JSBI, Token, TokenAmount } from '@teaswap/uniswap-sdk'
 import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
-import { UNI, BUSD, SATO, PAYABLEETH } from '../../constants'
+import {UNI, BUSD, PAYABLEETH, CJAI} from '../../constants'
 import { IDO_ABI_INTERFACE, STAKING_REWARDS_INTERFACE } from '../../constants/abis/staking-rewards'
 import { useActiveWeb3React } from '../../hooks'
 import { NEVER_RELOAD, useMultipleContractSingleData } from '../multicall/hooks'
@@ -20,9 +20,13 @@ export const STAKING_REWARDS_INFO: {
   }[]
 } = {
   [ChainId.BSC_MAINNET]: [
+    // {
+    //   tokens: [UNI[ChainId.BSC_MAINNET], UNI[ChainId.BSC_MAINNET]],
+    //   stakingRewardAddress: '0x288107De029DadFA70E6501aE71cb88c10E990AA'
+    // },
     {
-      tokens: [UNI[ChainId.BSC_MAINNET], UNI[ChainId.BSC_MAINNET]],
-      stakingRewardAddress: '0x288107De029DadFA70E6501aE71cb88c10E990AA'
+      tokens: [PAYABLEETH[ChainId.BSC_MAINNET], UNI[ChainId.BSC_MAINNET]],
+      stakingRewardAddress: '0xb71fa06476fC11dd160A2D6B06A5B5797C03a096'
     },
     // {
     //   tokens: [USDT_TSA_LP, UNI[ChainId.BSC_MAINNET]],
@@ -37,8 +41,8 @@ export const STAKING_REWARDS_INFO: {
       stakingRewardAddress: '0x9684C8285A81F97C9482446feA11b4D9aec72f36'
     },
     {
-      tokens: [UNI[ChainId.BSC_MAINNET], SATO],
-      stakingRewardAddress: '0x79d7558386d8B08a8D5A1985ABaCcc5E2b6794a0'
+      tokens: [UNI[ChainId.BSC_MAINNET], CJAI],
+      stakingRewardAddress: '0x261f94f98327b17649eda469c958deaac4c479d5'
     }
   ]
 }
@@ -260,7 +264,7 @@ export function useTotalUniEarned(): TokenAmount | undefined {
 export function useDerivedStakeInfo(
   typedValue: string,
   stakingToken: Token,
-  userLiquidityUnstaked: TokenAmount | undefined
+  userLiquidityUnstaked: TokenAmount|CurrencyAmount | undefined
 ): {
   parsedAmount?: CurrencyAmount
   error?: string

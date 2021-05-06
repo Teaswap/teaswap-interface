@@ -10,7 +10,7 @@ import { TYPE, CloseIcon } from '../../theme'
 import { ButtonConfirmed, ButtonError } from '../Button'
 import ProgressCircles from '../ProgressSteps'
 import CurrencyInputPanel from '../CurrencyInputPanel'
-import { TokenAmount } from '@teaswap/uniswap-sdk'
+import {CurrencyAmount, TokenAmount} from '@teaswap/uniswap-sdk'
 import { useActiveWeb3React } from '../../hooks'
 import { maxAmountSpend } from '../../utils/maxAmountSpend'
 import { useStakingContract } from '../../hooks/useContract'
@@ -40,7 +40,7 @@ interface StakingModalProps {
   isOpen: boolean
   onDismiss: () => void
   stakingInfo: StakingInfo
-  userLiquidityUnstaked: TokenAmount | undefined
+  userLiquidityUnstaked: TokenAmount|CurrencyAmount | undefined
 }
 
 export default function StakingModal({ isOpen, onDismiss, stakingInfo, userLiquidityUnstaked }: StakingModalProps) {
@@ -51,7 +51,8 @@ export default function StakingModal({ isOpen, onDismiss, stakingInfo, userLiqui
   const [typedValue, setTypedValue] = useState('')
   const { parsedAmount, error } = useDerivedStakeInfo(typedValue, stakingInfo.stakedAmount.token, userLiquidityUnstaked)
   const parsedAmountWrapped = wrappedCurrencyAmount(parsedAmount, chainId)
-
+  console.log(parsedAmount?.raw)
+  console.log(parsedAmount?.currency.symbol)
   const [approvalSubmitted, setApprovalSubmitted] = useState<boolean>(false)
 
 
@@ -257,7 +258,7 @@ export default function StakingModal({ isOpen, onDismiss, stakingInfo, userLiqui
 
             <TYPE.black>
               {hypotheticalRewardRate.multiply((60 * 60 * 24 * 7).toString()).toSignificant(4, { groupSeparator: ',' })}{' '}
-              {stakingInfo.tokens[0].symbol} / week
+              {stakingInfo.tokens[1].symbol} / week
             </TYPE.black>
           </HypotheticalRewardRate>
 
@@ -272,7 +273,7 @@ export default function StakingModal({ isOpen, onDismiss, stakingInfo, userLiqui
               {t('approve')}
             </ButtonConfirmed>
             <ButtonError
-              disabled={!!error || (signatureData === null && approval !== ApprovalState.APPROVED)}
+              disabled={!!error || ( approval !== ApprovalState.APPROVED)}
               error={!!error && !!parsedAmount}
               onClick={onStake}
             >
