@@ -22,7 +22,7 @@ import Home from './Home'
 import Earn from './Earn'
 import Pool from './Pool'
 import PoolFinder from './PoolFinder'
-// import RemoveLiquidity from './RemoveLiquidity'
+import RemoveLiquidity from './RemoveLiquidity'
 import { RedirectOldRemoveLiquidityPathStructure } from './RemoveLiquidity/redirects'
 // import Swap from './Swap'
 import Swaping from './Swap/Swaping'
@@ -195,7 +195,7 @@ export default function App() {
               <Route path="/create/:currencyIdA" element={<AddLiquidity/>}/>
               <Route path="/create/:currencyIdA/:currencyIdB" element={<AddLiquidity/>}/>
               <Route path="/remove/:tokens" element={<RedirectOldRemoveLiquidityPathStructure/>}/>
-              {/*<Route path="/remove/:currencyIdA/:currencyIdB" element={<RemoveLiquidity/>}/>*/}
+              <Route path="/remove/:currencyIdA/:currencyIdB" element={<RemoveLiquidity/>}/>
               <Route path="/staking/:currencyIdA/:currencyIdB/:stakingRewardAddress" element={<Manage/>}/>
               <Route path="/vote/:id" element={<VotePage/>}/>
               <Route element={<RedirectPathToHomeOnly/>}/>

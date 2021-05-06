@@ -137,8 +137,8 @@ export default function AddressClaimModal({ isOpen, onDismiss }: { isOpen: boole
       )}
       {(attempting || claimConfirmed) && (
         <ConfirmOrLoadingWrapper activeBG={true}>
-          <CardNoise />
-          <CardBGImageSmaller desaturate />
+          {/*<CardNoise />*/}
+          <CardBGImageSmaller />
           <RowBetween>
             <div />
             <CloseIcon onClick={wrappedOnDismiss} style={{ zIndex: 99 }} stroke="black" />
