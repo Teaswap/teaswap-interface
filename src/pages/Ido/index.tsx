@@ -262,8 +262,8 @@ const Index = ()=>{
               <TYPE.darkGray fontSize={24} fontWeight={500}>
                 1 {currencyB?.symbol} {t('need')} {''}
                 {idoInfo?.price
-                  ? `${idoInfo?.price.toFixed(4, { groupSeparator: ',' })} ${currencyA?.symbol} `
-                    :`${idoInfo?.price?.toSignificant(4, { groupSeparator: ',' }) ?? '-'} ${currencyA?.symbol} `}
+                  ? `${idoInfo?.price.toFixed(6, { groupSeparator: ',' })} ${currencyA?.symbol} `
+                    :`${idoInfo?.price?.toSignificant(6, { groupSeparator: ',' }) ?? '-'} ${currencyA?.symbol} `}
               </TYPE.darkGray>
               <TYPE.darkGray style={{ margin: 0 }}>{t('Rate')}</TYPE.darkGray>
               <TYPE.darkGray fontSize={24} fontWeight={500}>
