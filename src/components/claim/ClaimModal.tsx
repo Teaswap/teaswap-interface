@@ -157,8 +157,8 @@ export default function ClaimModal() {
       )}
       {(attempting || claimConfirmed) && (
         <ConfirmOrLoadingWrapper activeBG={true}>
-          <CardNoise />
-          <CardBGImageSmaller desaturate />
+          {/*<CardNoise />*/}
+          <CardBGImageSmaller />
           <RowBetween>
             <div />
             <CloseIcon onClick={toggleClaimModal} style={{ zIndex: 99 }} stroke="black" />
