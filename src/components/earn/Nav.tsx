@@ -38,6 +38,8 @@ const StyledNav = styled.nav`
   display: flex;
   justify-content: flex-start;
   width: 100%;
+  max-width: 1600px;
+  margin:0 auto;
 `
 
 const StyledLink = styled.a`

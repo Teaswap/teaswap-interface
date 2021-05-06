@@ -2,6 +2,7 @@ import React from 'react'
 import { ColumnCenter } from '../../components/Column'
 import styled from 'styled-components'
 import ConTitle from '../../components/Content/Title'
+import {MEDIA_QUERY} from '../../constants/style';
 
 import GridImg1 from '../../assets/images/IMG_6362_JPG.jpeg'
 import GridImg2 from '../../assets/images/grid_img2.webp'
@@ -115,6 +116,9 @@ const PageWrapper = styled(ColumnCenter)`
   text-align: center;
   margin-top: -80px;
   width: 100%;
+  ${MEDIA_QUERY.sm} {
+    margin-top: -40px;
+  }
 `
 
 const PageWrapper2 = styled(ColumnCenter)`
@@ -150,6 +154,9 @@ const Grid = styled(ColumnCenter)`
   margin: 0px;
   margin-left: 30px;
   align-items: flex-start;
+  ${MEDIA_QUERY.sm} {
+    margin-left: 0;
+  }
 `
 
 const Learn = styled.span`

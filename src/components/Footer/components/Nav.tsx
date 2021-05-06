@@ -40,6 +40,7 @@ const StyledNav = styled.nav`
   justify-content: flex-end;
   width: 100%;
   margin-right: 20px;
+  flex-wrap: wrap;
 `
 
 const StyledLink = styled.a`

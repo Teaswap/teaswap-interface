@@ -1,6 +1,6 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next'
-import { AutoColumn, ColumnCenter } from '../../components/Column'
+import {  ColumnCenter } from '../../components/Column'
 import styled from 'styled-components'
 import { STAKING_REWARDS_INFO, useStakingInfo } from '../../state/stake/hooks'
 import PoolCardNew from '../../components/earn/PoolCardNew'
@@ -8,26 +8,35 @@ import PoolCardNew from '../../components/earn/PoolCardNew'
 import Loader from '../../components/Loader'
 import { useActiveWeb3React } from '../../hooks'
 
-import TeasWap from '../../assets/images/TEAsWAP.jpeg'
+import TeasWap from '../../assets/images/faa61f_faff7044587944099ebc3fbd12e65b7c_mv2.webp'
 import ConSubTitle from '../../components/Content/SubTitle'
 
 import Nav from '../../components/earn/Nav'
 
-const PageWrapper = styled(AutoColumn)`
+const PageWrapper = styled.div`
+  width: 100%;
+  text-align: center;
+  display: flex;
+  justify-content; center;
+  flex-wrap: wrap;
 `
 
 const TopSection = styled(ColumnCenter)`
-  max-width: 720px;
   width: 100%;
   text-align: center;
+  margin: 0 auto;
+  margin-top: -80px;
 `
 
 const PoolSection = styled.div`
-  display: flex;
   width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+  margin-top: 30px;
+  display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: center;
 `
 
 export default function Earn() {
@@ -44,15 +53,15 @@ export default function Earn() {
   const stakingRewardsExist = Boolean(typeof chainId === 'number' && (STAKING_REWARDS_INFO[chainId]?.length ?? 0) > 0)
 
   return (
-    <PageWrapper gap="lg" justify="center">
+    <PageWrapper >
+      <img src={TeasWap} width="100%" style={{marginBottom: '20px', marginTop: '-20px'}} />
       <TopSection >
-        <img src={TeasWap} width="210px" height="108px" style={{marginBottom: '20px', marginTop: '-20px'}} />
-        <ConSubTitle con={"An amazing yield farm on Binance Smart Chain."} />
         <ConSubTitle con={"Coming Soon !"} />
+        <ConSubTitle con={"An amazing yield farm on Binance Smart Chain."} />
       </TopSection>
       <Nav />
       
-      <AutoColumn gap="lg" style={{ width: '1040px'}}>
+      {/* <AutoColumn gap="lg" style={{ width: '1040px'}}> */}
         {/* <DataRow style={{ alignItems: 'baseline' }}>
           <TYPE.mediumHeader style={{ marginTop: '0.5rem', color: '#000000' }}>
             {t('participatingPools')}
@@ -73,7 +82,7 @@ export default function Earn() {
             })
           )}
         </PoolSection>
-      </AutoColumn>
+      {/* </AutoColumn> */}
     </PageWrapper>
   )
 }
