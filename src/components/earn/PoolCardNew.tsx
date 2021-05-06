@@ -28,6 +28,7 @@ import { usePair } from '../../data/Reserves'
 // `
 import tokenTSAIcon from '../../assets/images/tokenTSA.webp'
 import tokenSATOIcon from '../../assets/images/tokenSATO.webp'
+import { MEDIA_QUERY } from '../../constants/style'
 
 const Title = styled.span`
   color: #7f7f7f;
@@ -37,7 +38,8 @@ const Title = styled.span`
 
 const Wrapper = styled(AutoColumn)<{ showBackground: boolean; bgColor: any }>`
   text-align: center;
-  width: 330px;
+  max-width: 330px;
+  width: 100%;
   display: flex;
   padding: 15px;
   flex-direction: column;
@@ -51,6 +53,11 @@ const Wrapper = styled(AutoColumn)<{ showBackground: boolean; bgColor: any }>`
   transform: translateZ(0);
   margin: 0px;
   align-items: center;
+  margin-right: 20px;
+  margin-top: 30px;
+  ${MEDIA_QUERY.sm} {
+    margin-right: 0;
+  }
 `
 
 // const TopSection = styled.div`

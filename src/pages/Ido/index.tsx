@@ -30,23 +30,27 @@ import { BIG_INT_ZERO } from '../../constants'
 import BuyingModal from '../../components/ido/BuyingModal'
 import ClaimIdoRewardModal from '../../components/earn/ClaimRewardModal'
 import ConTitle from '../../components/Content/Title'
-import IncubatorBox from '../../components/general/IncubatorBox'
+// import IncubatorBox from '../../components/general/IncubatorBox'
 import ConSubTitle from '../../components/Content/SubTitle'
+import { MEDIA_QUERY } from '../../constants/style'
 
-const PageWrapper = styled(AutoColumn)`
+const PageWrapper = styled.div`
   width: 100%;
   margin-top: -70px;
+  text-align: center;
 `
 
 const AuthorInfo = styled(ColumnCenter)`
-  width: 900px;
+  max-width: 900px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  flex-wrap: wrap;
+  margin: 0 auto;
 `
 
 const Author = styled(ColumnCenter)`
-  width: 455px;
+  max-width: 455px;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -56,7 +60,7 @@ const Author = styled(ColumnCenter)`
 `
 
 const Box = styled(ColumnCenter)`
-  width: 355px;
+  max-width: 355px;
   border-color: rgba(176, 169, 134, 1) rgba(176, 169, 134, 1) rgba(176, 169, 134, 1) rgba(176, 169, 134, 1);
   border-radius: 0 0 0 0;
   box-shadow: 0 4px 10px 0 rgb(0 0 0 / 65%);
@@ -66,6 +70,9 @@ const Box = styled(ColumnCenter)`
   margin-left: 40px;
   margin-top: 55px;
   padding-bottom: 20px;
+  ${MEDIA_QUERY.sm} {
+    margin-left: 0;
+  }
 `
 
 const PositionInfo = styled(AutoColumn)<{ dim: any }>`
@@ -191,8 +198,10 @@ const Index = ()=>{
 
 
   return (
-    <PageWrapper gap="lg" justify="center">
-      <IncubatorBox />
+    <PageWrapper>
+      <img onClick={() => {
+        window.open("https://docs.google.com/forms/d/e/1FAIpQLSfA-dOW15tyN6dfyZScvcEmT3lC13K9ThFBTruiFD0wOVsoUQ/viewform")
+      }} width="100%" src={process.env.PUBLIC_URL + '/incubator_banner.png'} alt="" />
       <ConTitle con="CaoJun NFT Collections" />
 
       {idoInfo && (
@@ -223,7 +232,7 @@ const Index = ()=>{
         <Author>
           <img src={process.env.PUBLIC_URL + '/cjainft.webp'} width="150" height="110" style={{marginBottom: '60px'}}/>
           <ConSubTitle con="CaoJun Limited Edition NFT Series" />
-          <ol>
+          <ol style={{fontSize: '15px', textAlign: 'left'}}>
             <li>Key points for CaoJun NFT Collectibles Initial Art Offering ("CJAI IRO")</li>
             <li>Total Edition of CaoJunNFT Collectibles : 600</li>
             <li>Total TSA released for CJAI : 15,000,000</li>
@@ -423,7 +432,10 @@ const Index = ()=>{
       </AuthorInfo>
 
       <IframeComponent iframe={iframe} />
-      <div style={{color: "#474747"}}>
+      <div style={{
+        color: "#474747",
+        marginTop: '50px'
+      }}>
       ** Converting into one exclusive CaoJun NFT limited edition of digital collectible  or original collectibles ? 
         <ExternalLink href={"https://docs.google.com/forms/d/e/1FAIpQLSfKQ5ESZ_843cjHGBwKuObT79bfjUPQ3XHOJpy9vw2VFbAZVA/viewform"}>
           Submit Now .
@@ -434,14 +446,28 @@ const Index = ()=>{
   )
 };
 
+const IframeDiv = styled.div`
+  width: 100%;
+  max-width: 849px;
+  width: 100%;
+  height: 521px;
+  margin:0 auto;
+  margin-top: 60px;
+  @media (max-width: 500px) {
+    height: 220px;
+    margin-top: 40px;
+  } 
+`
+
+
 function IframeComponent(props: any) {
   return (
-    <div
+    <IframeDiv
       dangerouslySetInnerHTML={{ __html: props.iframe ? props.iframe : "" }}
     />
   );
 }
 
-const iframe = '<iframe frameborder="0" allowfullscreen="1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" title="YouTube video player" width="849" height="521" style="margin-top: 30px;" src="https://www.youtube.com/embed/xa8OBoVx2yk?autoplay=0&amp;mute=0&amp;controls=1&amp;loop=0&amp;origin=https%3A%2F%2Fwww.teaswap.live&amp;playsinline=1&amp;enablejsapi=1&amp;widgetid=1" id="widget2"></iframe>'; 
+const iframe = '<iframe frameborder="0" allowfullscreen="1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" title="YouTube video player" style="margin-top: 30px; width: 100%; height: 100%; " src="https://www.youtube.com/embed/xa8OBoVx2yk?autoplay=0&amp;mute=0&amp;controls=1&amp;loop=0&amp;origin=https%3A%2F%2Fwww.teaswap.live&amp;playsinline=1&amp;enablejsapi=1&amp;widgetid=1" id="widget2"></iframe>'; 
 
 export default Index;
