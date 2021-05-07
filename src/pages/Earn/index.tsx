@@ -56,7 +56,6 @@ export default function Earn() {
     <PageWrapper >
       <img src={TeasWap} width="100%" style={{marginBottom: '20px', marginTop: '-20px'}} />
       <TopSection >
-        <ConSubTitle con={"Coming Soon !"} />
         <ConSubTitle con={"An amazing yield farm on Binance Smart Chain."} />
       </TopSection>
       <Nav />
