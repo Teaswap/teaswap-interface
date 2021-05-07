@@ -84,7 +84,7 @@ import {
 } from './NFTadminPages';
 import Ido from './Ido'
 import IdoList from './Ido/List'
-import '../i18n'
+import Mint from './Mint'
 // import Farms from './Farms'
 // import { UseWalletProvider } from "use-wallet"
 // import FarmsProvider from '../contexts/Farms/Farms'
@@ -186,6 +186,7 @@ export default function App() {
               <Route path="/find" element={<PoolFinder/>}/>
               <Route path="/pool" element={<Pool/>}/>
               <Route path="/staking" element={<Earn/>}/>
+              <Route path="/mint" element={<Mint />}/>
               <Route path="/iro/:currencyIdA/:currencyIdB/:idoAddress" element={<Ido />}/>
               <Route path="/iro" element={<IdoList />}/>
               <Route path="/vote" element={<Vote/>}/>

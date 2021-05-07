@@ -348,9 +348,9 @@ export default function Header() {
           <StyledExternalLink id={`Gallery-nav-link`} href={'https://www.teaswap.live/tsacollection '}>
             {t('TSA Collections')}
           </StyledExternalLink>
-          <StyledExternalLink href="https://docs.google.com/forms/d/e/1FAIpQLSeGoEA3tuWG-S1NwUyCylmvCwTjALEbh-eVOqoQXHDp3pEmTA/viewform">
+          <StyledNavLink to="/mint">
             {t('Mint Artworks')}
-          </StyledExternalLink>
+          </StyledNavLink>
 
           {/* <StyledNavLink id={`swap-nav-link`} to={'/swap'}>
             {t('Swap')}
