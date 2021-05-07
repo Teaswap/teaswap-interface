@@ -215,7 +215,7 @@ const Manage = ()=>{
             {/*</TYPE.body>*/}
             <TYPE.body fontSize={24} fontWeight={500}>
               {stakingInfo?.totalStakedAmount
-                ? `${stakingInfo?.totalStakedAmount.toFixed(0, { groupSeparator: ',' })} ${currencyA?.symbol}`
+                ? `${stakingInfo?.totalStakedAmount.toFixed(4, { groupSeparator: ',' })} ${currencyA?.symbol}`
                 : `${stakingInfo?.totalStakedAmount?.toSignificant(4, { groupSeparator: ',' }) ?? '-'} ${currencyA?.symbol}`}
             </TYPE.body>
           </AutoColumn>
