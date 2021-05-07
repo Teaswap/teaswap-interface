@@ -12,20 +12,7 @@ import { Break } from './styled'
 import { unwrappedToken } from '../../utils/wrappedCurrency'
 import { useTotalSupply } from '../../data/TotalSupply'
 import { usePair } from '../../data/Reserves'
-// import useUSDCPrice from '../../utils/useUSDCPrice'
 
-// const StatContainer = styled.div`
-//   display: flex;
-//   justify-content: space-between;
-//   flex-direction: column;
-//   gap: 12px;
-//   margin-bottom: 1rem;
-//   margin-right: 1rem;
-//   margin-left: 1rem;
-//   ${({ theme }) => theme.mediaWidth.upToSmall`
-//   display: none;
-// `};
-// `
 import tokenTSAIcon from '../../assets/images/tokenTSA.webp'
 import tokenSATOIcon from '../../assets/images/tokenSATO.webp'
 import { MEDIA_QUERY } from '../../constants/style'
@@ -133,6 +120,7 @@ export default function PoolCard({ stakingInfo }: { stakingInfo: StakingInfo }) 
   const currency1 = unwrappedToken(token1)
 
   let tokenIcon = tokenTSAIcon
+  console.log('token', stakingInfo.tokens)
 
   if (token1.address == '0xF6E6892325a74383A70570F1EBea9A476483a611') {
     tokenIcon = tokenSATOIcon
