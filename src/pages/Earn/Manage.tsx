@@ -345,7 +345,7 @@ const Manage = ()=>{
 
         {!showAddLiquidityButton && (
           <DataRow style={{ marginBottom: '1rem' }}>
-            <ButtonPrimary padding="8px" borderRadius="0px" width="160px" onClick={()=>{
+            <ButtonPrimary padding="8px" borderRadius="0px" width="300px" onClick={()=>{
               if (account) {
                     console.log(showStakingModal)
                     setShowStakingModal(true)
@@ -362,7 +362,7 @@ const Manage = ()=>{
                 <ButtonPrimary
                   padding="8px"
                   borderRadius="0px"
-                  width="160px"
+                  width="300px"
                   onClick={() => setShowUnstakingModal(true)}
                 >
                   {t('withdraw')}
