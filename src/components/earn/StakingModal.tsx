@@ -10,7 +10,7 @@ import { TYPE, CloseIcon } from '../../theme'
 import { ButtonConfirmed, ButtonError } from '../Button'
 import ProgressCircles from '../ProgressSteps'
 import CurrencyInputPanel from '../CurrencyInputPanel'
-import {CurrencyAmount, TokenAmount} from '@teaswap/uniswap-sdk'
+import {ChainId, CurrencyAmount, TokenAmount} from '@teaswap/uniswap-sdk'
 import { useActiveWeb3React } from '../../hooks'
 import { maxAmountSpend } from '../../utils/maxAmountSpend'
 import { useStakingContract } from '../../hooks/useContract'
@@ -21,6 +21,7 @@ import { wrappedCurrencyAmount } from '../../utils/wrappedCurrency'
 import { TransactionResponse } from '@ethersproject/providers'
 import { useTransactionAdder } from '../../state/transactions/hooks'
 import { LoadingView, SubmittedView } from '../ModalViews'
+import {PAYABLEETH, ZERO_ADDRESS} from "../../constants";
 
 const HypotheticalRewardRate = styled.div<{ dim: boolean }>`
   display: flex;
@@ -100,17 +101,32 @@ export default function StakingModal({ isOpen, onDismiss, stakingInfo, userLiqui
     setAttempting(true)
     if (stakingContract && parsedAmount && deadline) {
       if (approval === ApprovalState.APPROVED) {
-        stakingContract.stake(`0x${parsedAmount.raw.toString(16)}`, { gasLimit: 350000 })
-          .then((response: TransactionResponse) => {
-            addTransaction(response, {
-              summary: t('depositLiquidity')
-            })
-            setHash(response.hash)
-          })
-          .catch((error: any) => {
-            setAttempting(false)
-            console.log(error)
-          })
+        if(stakingInfo.stakedAmount.token.address===ZERO_ADDRESS||stakingInfo.stakedAmount.token===PAYABLEETH[ChainId.BSC_MAINNET]){
+          stakingContract.stakeBNB({ gasLimit: 350000, value:`0x${parsedAmount.raw.toString(16)}` })
+              .then((response: TransactionResponse) => {
+                addTransaction(response, {
+                  summary: t('depositLiquidity')
+                })
+                setHash(response.hash)
+              })
+              .catch((error: any) => {
+                setAttempting(false)
+                console.log(error)
+              })
+        }else{
+          stakingContract.stake(`0x${parsedAmount.raw.toString(16)}`, { gasLimit: 350000 })
+              .then((response: TransactionResponse) => {
+                addTransaction(response, {
+                  summary: t('depositLiquidity')
+                })
+                setHash(response.hash)
+              })
+              .catch((error: any) => {
+                setAttempting(false)
+                console.log(error)
+              })
+        }
+
       } else if (signatureData) {
         stakingContract
           .stakeWithPermit(

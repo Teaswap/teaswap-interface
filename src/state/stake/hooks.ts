@@ -26,8 +26,10 @@ export const STAKING_REWARDS_INFO: {
     // },
     {
       tokens: [PAYABLEETH[ChainId.BSC_MAINNET], UNI[ChainId.BSC_MAINNET]],
-      stakingRewardAddress: '0xb71fa06476fC11dd160A2D6B06A5B5797C03a096'
+      stakingRewardAddress: '0xfE93a00Cf957ba4DC84dF48AC698505e7E17F631'
     },
+
+    // 0xb71fa06476fC11dd160A2D6B06A5B5797C03a096
     // {
     //   tokens: [USDT_TSA_LP, UNI[ChainId.BSC_MAINNET]],
     //   stakingRewardAddress: '0xbD1308B84f0648aa89B7AcB1039767d52CF4Dc17'
