@@ -112,6 +112,16 @@ export const SATO = new Token(
   'SATO',
   'Super Algorithmic Token'
 )
+
+export const CJAI = new Token(
+    ChainId.BSC_MAINNET,
+    '0x26c1a317c4cdea9408bf9a82b4c7645bffdfea21',
+    18,
+    'CJAI',
+    'CaoJunNFT'
+)
+
+
 export const B_USDT = new Token(
   ChainId.BSC_MAINNET,
   '0x55d398326f99059fF775485246999027B3197955',
