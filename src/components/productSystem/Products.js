@@ -76,7 +76,7 @@ const ProductPrice = styled.div`
   margin-bottom: 10px;
 `;
 
-const StyledLink = styled.a`
+const StyledLink = styled(NavLink)`
   text-decoration: none;
   cursor: pointer;
   font-weight: 500;
@@ -107,7 +107,7 @@ const Product = ({ product, onLoad, loaded, $width, $height, $margin }) => {
 
   return (
     <ProductContainer $width={$width} $height={$height} $margin={$margin}>
-      <StyledLink href={`/nft/products/${product.id}`}>
+      <StyledLink to={`/nft/products/${product.id}`}>
         <ProductPicture
           src={product.picture_url}
           style={{ opacity: loaded ? 1 : 0 }}
@@ -117,14 +117,14 @@ const Product = ({ product, onLoad, loaded, $width, $height, $margin }) => {
         />
       </StyledLink>
       <ProductName>
-        <StyledLink href={`/nft/products/${product.id}`}>
+        <StyledLink to={`/nft/products/${product.id}`}>
           <TYPE.gray fontSize={15}>
             {product.name}
           </TYPE.gray>
         </StyledLink>
       </ProductName>
       <VendorName>
-        {/* <StyledLink href={`/nft/products/vendor/${product.User.id}`}> */}
+        {/* <StyledLink to={`/nft/products/vendor/${product.User.id}`}> */}
           <TYPE.darkGray fontSize={14}>
             {product.info}
           </TYPE.darkGray>

@@ -129,6 +129,7 @@ const Index = ()=>{
 // }: RouteComponentProps<{ currencyIdA: string; currencyIdB: string }>) {
   const { account } = useActiveWeb3React()
   const { t } = useTranslation()
+  console.log('changeLanguage',t('tokensAvailable'))
   const params = useParams()
 
   // get currencies and pair
@@ -230,18 +231,16 @@ const Index = ()=>{
       {/* </RowBetween> */}
       <AuthorInfo>
         <Author>
-          <img src={process.env.PUBLIC_URL + '/cjainft.webp'} width="150" height="110" style={{marginBottom: '60px'}}/>
-          <ConSubTitle con="CaoJun Limited Edition NFT Series" />
+          <img src={process.env.PUBLIC_URL + '/cjainft.png'} width="150" style={{marginBottom: '60px', marginTop: "40px"}}/>
+          <ConSubTitle con="CaoJun Limited Edition of NFT Collectibles" />
+          <div>Key terms for CaoJun Art Institute ("CJAI") NFT Collectibles & Initial Art Offering ("IRO"):</div>
           <ol style={{fontSize: '15px', textAlign: 'left'}}>
-            <li>Key points for CaoJun NFT Collectibles Initial Art Offering ("CJAI IRO")</li>
-            <li>Total Edition of CaoJunNFT Collectibles : 600</li>
-            <li>Total TSA released for CJAI : 15,000,000</li>
+            <li>​Total Edition of CaoJunNFT Collectibles released: 600</li>
+            <li>Total TSA released for CJAI IRO: 15,000,000</li>
             <li>1 $TSA = 0.00008 BNB</li>
-            <li>List TSA Token on TEAswap, BakerySwap and SwapAll for trading and liquidity farming;</li>
-            <li>Able to stake TSA to earn CJAI, Deposit TSA-BNB BLP to earn TSA, Deposit TSA-BUSD to earn TSA, and Deposit TSA-USDT BLP to earn TSA.</li>
-            <li>TSA can be convertible & tradeable into CaoJunNFT.</li>
-            <li>100,000 TSA can be exchanged with 1 CaoJun NFT, and 1 CaoJunNFT can be converted into one exclusive CaoJun limited edition of digital collectible ("CaoJun Digital Collectible")</li>
-            <li>No minimum: Users can buy fractions of $TSA Offering Details : https://www.caojunnft.com</li>
+            <li>List TSA Token on TeaSwap, BakerySwap and SwapAll for trading and liquidity farming;</li>
+            <li>Able to stake TSA to earn CJAI and ICASH, Deposit TSA-BNB BLP to earn TSA, Deposit TSA-BUSD to earn TSA, and Deposit TSA-USDT BLP to earn TSA.</li>
+            <li>100,000 $TSA can be exchanged with 1 CaoJun NFT, and 1 CaoJun NFT can be converted into one exclusive CaoJun Limited Edition of NFT Collectible ("CaoJun NFT Collectible").</li>
           </ol>
         </Author>
         <Box>

@@ -17,9 +17,13 @@ import ComingImg from '../../assets/images/sign/coming.webp'
 
 import IncubatorBox from '../../components/general/IncubatorBox'
 import { ButtonPrimary } from '../../components/Button'
+import { useTranslation } from 'react-i18next'
+
+import { NavLink } from 'react-router-dom'
 
 const List = ()=>{
-
+  const { t } = useTranslation()
+  console.log(t('tokensAvailable'), useTranslation())
   const products = [
     {
       image: GridImg1,
@@ -65,9 +69,9 @@ const List = ()=>{
       <PageWrapper2 >
         <ConTitle con='Initial Art Offering ("IRO")' />
         <Grids>
-          {products.map((v) => {
+          {products.map((v, i) => {
             return (
-              <Grid>
+              <Grid key={i}>
                 <img  width="100%" src={v.image}/>
                 <Learn>
                   <ExternalLink href={v.Learn}>
@@ -80,14 +84,14 @@ const List = ()=>{
                   <span>{v.author}</span>
                   <span>
                     {"Read"}
-                    <StyledLink href={v.medium}>
+                    <StyledLink to={v.medium}>
                       <img style={{marginLeft: "10px"}} width="22px" height="18px" src={MediumImg} />
                     </StyledLink>
                   </span>
                 </Read>
                 <Spe></Spe>
                 <Info>{v.info}</Info>
-                <StyledLink href={v.joinUs}>
+                <StyledLink to={v.joinUs}>
                   <JoinUs>
                     {"Join Us"}
                   </JoinUs>
@@ -177,7 +181,7 @@ const Read = styled(ColumnCenter)`
   margin-top: 14px;
 `
 
-const StyledLink = styled.a`
+const StyledLink = styled(NavLink)`
   text-decoration: none;
   cursor: pointer;
   font-weight: 500;

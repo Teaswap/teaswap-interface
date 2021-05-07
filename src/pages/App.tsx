@@ -84,6 +84,7 @@ import {
 } from './NFTadminPages';
 import Ido from './Ido'
 import IdoList from './Ido/List'
+import '../i18n'
 // import Farms from './Farms'
 // import { UseWalletProvider } from "use-wallet"
 // import FarmsProvider from '../contexts/Farms/Farms'
