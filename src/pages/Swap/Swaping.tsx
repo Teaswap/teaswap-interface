@@ -49,6 +49,7 @@ import styled from 'styled-components'
 
 import { filterTokens } from '../../components/SearchModal/filtering'
 import { useAllTokens } from '../../hooks/Tokens'
+import { MEDIA_QUERY } from '../../constants/style'
 
 // import SwapLogo from '../../assets/images/TEAsWAP.jpeg'
 
@@ -292,7 +293,9 @@ export default function Swap() {
         tokens={urlLoadedTokens}
         onConfirm={handleConfirmTokenWarning}
       />
-      <img width="100%" style={{marginTop: '-80px'}} src={process.env.PUBLIC_URL + '/swap_banner.webp'} />
+      <Banner>
+        <img width="100%" src={process.env.PUBLIC_URL + '/swap_banner.webp'} />
+      </Banner>
       
       <BodyWrapper>
         <img width="131" style={{alignSelf: "center"}} src={process.env.PUBLIC_URL + '/0039.webp'} />
@@ -514,4 +517,11 @@ export const BodyWrapper = styled.div`
     0px 24px 32px rgba(0, 0, 0, 0.01);
       border-radius: 0px;
   padding: 1rem;
+`
+
+export const Banner = styled.div`
+  margin-top: -80px;
+  ${MEDIA_QUERY.sm} {
+    margin-top: -30px;
+  }
 `

@@ -107,6 +107,7 @@ const PoolData = styled(DataCard)`
   border: 1px solid ${({ theme }) => theme.bg4};
   padding: 1rem;
   z-index: 1;
+  text-align: left;
 `
 
 const VoteCard = styled(DataCard)`
@@ -203,8 +204,7 @@ const Index = ()=>{
       <img onClick={() => {
         window.open("https://docs.google.com/forms/d/e/1FAIpQLSfA-dOW15tyN6dfyZScvcEmT3lC13K9ThFBTruiFD0wOVsoUQ/viewform")
       }} width="100%" src={process.env.PUBLIC_URL + '/incubator_banner.png'} alt="" />
-      <ConTitle con="CaoJun NFT Collections" />
-
+      <ConTitle con="CaoJun NFT Collectibles" />
       {idoInfo && (
 
           <BuyingModal
@@ -231,9 +231,9 @@ const Index = ()=>{
       {/* </RowBetween> */}
       <AuthorInfo>
         <Author>
-          <img src={process.env.PUBLIC_URL + '/cjainft.png'} width="150" style={{marginBottom: '60px', marginTop: "40px"}}/>
+          <img src={process.env.PUBLIC_URL + '/cjainft.png'} width="150" style={{marginBottom: '40px', marginTop: "40px"}}/>
           <ConSubTitle con="CaoJun Limited Edition of NFT Collectibles" />
-          <div>Key terms for CaoJun Art Institute ("CJAI") NFT Collectibles & Initial Art Offering ("IRO"):</div>
+          <div>Key terms for CJAI NFT Collectibles & Initial Art Offering ("IRO"):</div>
           <ol style={{fontSize: '15px', textAlign: 'left'}}>
             <li>​Total Edition of CaoJunNFT Collectibles released: 600</li>
             <li>Total TSA released for CJAI IRO: 15,000,000</li>
@@ -246,7 +246,7 @@ const Index = ()=>{
         <Box>
           <PoolData>
             <AutoColumn gap="sm">
-              <TYPE.darkGray style={{ margin: 0 }}>{t('Total Supply')}</TYPE.darkGray>
+              <TYPE.darkGray style={{ margin: 0 }}>{t('totalSupply')}</TYPE.darkGray>
               {/*<TYPE.darkGray fontSize={24} fontWeight={500}>*/}
               {/*  {valueOfTotalStakedAmountInUSDC*/}
               {/*    ? `$${valueOfTotalStakedAmountInUSDC.toFixed(0, { groupSeparator: ',' })}`*/}
