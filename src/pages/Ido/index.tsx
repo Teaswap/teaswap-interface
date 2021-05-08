@@ -47,6 +47,8 @@ const AuthorInfo = styled(ColumnCenter)`
   justify-content: space-between;
   flex-wrap: wrap;
   margin: 0 auto;
+  margin-top: 80px;
+  align-items: flex-start;
 `
 
 const Author = styled(ColumnCenter)`
@@ -68,7 +70,6 @@ const Box = styled(ColumnCenter)`
   transform: translateZ(0);
   margin: 0px;
   margin-left: 40px;
-  margin-top: 55px;
   padding-bottom: 20px;
   ${MEDIA_QUERY.sm} {
     margin-left: 0;
@@ -231,7 +232,7 @@ const Index = ()=>{
       {/* </RowBetween> */}
       <AuthorInfo>
         <Author>
-          <img src={process.env.PUBLIC_URL + '/cjainft.png'} width="150" style={{marginBottom: '40px', marginTop: "40px"}}/>
+          <img src={process.env.PUBLIC_URL + '/cjainft.png'} width="150" style={{marginBottom: '40px'}}/>
           <ConSubTitle con="CaoJun Limited Edition of NFT Collectibles" />
           <div>Key terms for CJAI NFT Collectibles & Initial Art Offering ("IRO"):</div>
           <ol style={{fontSize: '15px', textAlign: 'left'}}>

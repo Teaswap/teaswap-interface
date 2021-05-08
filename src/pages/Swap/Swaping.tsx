@@ -520,6 +520,7 @@ export const BodyWrapper = styled.div`
 `
 
 export const Banner = styled.div`
+  width: 100%;
   margin-top: -80px;
   ${MEDIA_QUERY.sm} {
     margin-top: -30px;
