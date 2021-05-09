@@ -46,10 +46,10 @@ export default function UnstakingModal({ isOpen, onDismiss, stakingInfo }: Staki
     if (stakingContract && stakingInfo?.stakedAmount) {
       setAttempting(true)
       await stakingContract
-        .exit({ gasLimit: 300000 })
+        .withdraw(`0x${stakingInfo?.stakedAmount.raw.toString(16)}`,{ gasLimit: 300000 })
         .then((response: TransactionResponse) => {
           addTransaction(response, {
-            summary: `Withdraw deposited liquidity`
+            summary: `Withdraw deposited token`
           })
           setHash(response.hash)
         })
@@ -57,6 +57,24 @@ export default function UnstakingModal({ isOpen, onDismiss, stakingInfo }: Staki
           setAttempting(false)
           console.log(error)
         })
+    }
+  }
+
+  async function onHarvest() {
+    if (stakingContract && stakingInfo?.stakedAmount) {
+      setAttempting(true)
+      await stakingContract
+          .getReward({ gasLimit: 300000 })
+          .then((response: TransactionResponse) => {
+            addTransaction(response, {
+              summary: `Harvest`
+            })
+            setHash(response.hash)
+          })
+          .catch((error: any) => {
+            setAttempting(false)
+            console.log(error)
+          })
     }
   }
 
@@ -95,8 +113,11 @@ export default function UnstakingModal({ isOpen, onDismiss, stakingInfo }: Staki
           <TYPE.subHeader style={{ textAlign: 'center' }}>
             {t('when-you-withdraw-your-best-is-claimed-and-your-liquidity-is-removed-from-the-mining-pool')}
           </TYPE.subHeader>
+          <ButtonError disabled={!!error} error={!!error && !!stakingInfo?.earnedAmount} onClick={onHarvest}>
+            {error ?? t('Harvest')}
+          </ButtonError>
           <ButtonError disabled={!!error} error={!!error && !!stakingInfo?.stakedAmount} onClick={onWithdraw}>
-            {error ?? 'Withdraw & Claim'}
+            {error ?? t('Withdraw')}
           </ButtonError>
         </ContentWrapper>
       )}
@@ -106,6 +127,7 @@ export default function UnstakingModal({ isOpen, onDismiss, stakingInfo }: Staki
             <TYPE.body fontSize={20}>
               {t('withdrawing')} {stakingInfo?.stakedAmount?.toSignificant(4)} {stakingInfo?.tokens[0].symbol}
             </TYPE.body>
+            or
             <TYPE.body fontSize={20}>
               {t('claiming')} {stakingInfo?.earnedAmount?.toSignificant(4)} {stakingInfo?.tokens[1].symbol}
             </TYPE.body>
@@ -116,7 +138,8 @@ export default function UnstakingModal({ isOpen, onDismiss, stakingInfo }: Staki
         <SubmittedView onDismiss={wrappedOndismiss} hash={hash}>
           <AutoColumn gap="12px" justify={'center'}>
             <TYPE.largeHeader>{t('transactionSubmitted')}</TYPE.largeHeader>
-            <TYPE.body fontSize={20}>{t('withdrew')} {stakingInfo?.tokens[0].symbol}!</TYPE.body>
+            <TYPE.body fontSize={20}>{t('withdraw')} {stakingInfo?.tokens[0].symbol}!</TYPE.body>
+            or
             <TYPE.body fontSize={20}>{t('claimed')} {stakingInfo?.tokens[1].symbol}!</TYPE.body>
           </AutoColumn>
         </SubmittedView>
