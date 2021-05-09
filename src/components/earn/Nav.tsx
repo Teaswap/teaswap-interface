@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 import FlameImg from '../../assets/images/flame.jpeg'
+import { MEDIA_QUERY } from '../../constants/style'
 
 const Nav: React.FC = () => {
   return (
@@ -41,6 +42,10 @@ const StyledNav = styled.nav`
   width: 100%;
   max-width: 1600px;
   margin:0 auto;
+  flex-wrap: wrap;
+  ${MEDIA_QUERY.sm}{
+    margin-top: 10px;
+  }
 `
 
 const StyledLink = styled.a`

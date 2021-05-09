@@ -85,6 +85,7 @@ import {
 import Ido from './Ido'
 import IdoList from './Ido/List'
 import Mint from './Mint'
+import { MEDIA_QUERY } from '../constants/style'
 // import Farms from './Farms'
 // import { UseWalletProvider } from "use-wallet"
 // import FarmsProvider from '../contexts/Farms/Farms'
@@ -134,6 +135,9 @@ const BodyWrapper = styled.div`
 
 const Marginer = styled.div`
   margin-top: 5rem;
+  ${MEDIA_QUERY.sm} {
+    margin-top: 0.5rem;
+  }
 `
 
 function TopLevelModals() {
