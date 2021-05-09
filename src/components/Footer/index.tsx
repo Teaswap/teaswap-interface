@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import Nav from './components/Nav'
 import Logo from '../../assets/images/teaswap-logo.png'
 import NavSocial from './components/NavSocial'
+import { MEDIA_QUERY } from '../../constants/style'
 
 
 const Footer: React.FC = () => {
@@ -10,11 +11,11 @@ const Footer: React.FC = () => {
   return (
     <StyledFooter>
       <StyledFooterInner>
-        <StyledFooterItem style={{ marginBottom: 20, width: '150px', textAlign: 'left' }}>
+        <StyledFooterItemLeft style={{ marginBottom: 20, width: '150px', textAlign: 'left' }}>
           <img height="30px" style={{ marginTop: -8 }} width="86" src={Logo} alt="logo" />
           <StyledFooterItemTitle>© 2021 TEAsWAP</StyledFooterItemTitle>
           {/* <StyledLink  target="_blank" href={'mailto:support@teaswap.art'}>support@teaswap.art</StyledLink> */}
-        </StyledFooterItem>
+        </StyledFooterItemLeft>
         <StyledFooterItem>
           <Nav />
           <NavSocial />
@@ -32,7 +33,7 @@ const StyledFooter = styled.footer`
   background: #7f7f7f;
   ${({ theme }) => theme.mediaWidth.upToExtraSmall`
     padding-bottom: 40px;
-  `}
+  `} 
 `
 const StyledFooterInner = styled.div`
   align-items: flex-start;
@@ -44,6 +45,16 @@ const StyledFooterInner = styled.div`
   box-sizing: border-box;
 `
 
+const StyledFooterItemLeft = styled.section`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  margin: 10px 0;
+  ${MEDIA_QUERY.sm} {
+    display: none;
+  }
+`
 const StyledFooterItem = styled.section`
   display: flex;
   flex-direction: column;
@@ -51,6 +62,7 @@ const StyledFooterItem = styled.section`
   justify-content: center;
   margin: 10px 0;
 `
+
 const StyledFooterItemTitle = styled.span`
   font-size: 10px;
   font-weight: 500;

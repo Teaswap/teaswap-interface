@@ -8,10 +8,11 @@ import PoolCardNew from '../../components/earn/PoolCardNew'
 import Loader from '../../components/Loader'
 import { useActiveWeb3React } from '../../hooks'
 
-import TeasWap from '../../assets/images/faa61f_faff7044587944099ebc3fbd12e65b7c_mv2.webp'
 import ConSubTitle from '../../components/Content/SubTitle'
 
 import Nav from '../../components/earn/Nav'
+import { MEDIA_QUERY } from '../../constants/style'
+import StakeBox from '../../components/general/StakeBox'
 
 const PageWrapper = styled.div`
   width: 100%;
@@ -19,6 +20,10 @@ const PageWrapper = styled.div`
   display: flex;
   justify-content; center;
   flex-wrap: wrap;
+  margin-top: -80px;
+  ${MEDIA_QUERY.sm} {
+    margin-top: -30px;
+  }
 `
 
 const TopSection = styled(ColumnCenter)`
@@ -26,6 +31,11 @@ const TopSection = styled(ColumnCenter)`
   text-align: center;
   margin: 0 auto;
   margin-top: -80px;
+  z-index: 999;
+  ${MEDIA_QUERY.sm} {
+    margin-top: -30px;
+    font-size: 12px;
+  }
 `
 
 const PoolSection = styled.div`
@@ -54,9 +64,8 @@ export default function Earn() {
 
   return (
     <PageWrapper >
-      <img src={TeasWap} width="100%" style={{marginBottom: '20px', marginTop: '-20px'}} />
+      <StakeBox />
       <TopSection >
-        <ConSubTitle con={"Coming Soon !"} />
         <ConSubTitle con={"An amazing yield farm on Binance Smart Chain."} />
       </TopSection>
       <Nav />

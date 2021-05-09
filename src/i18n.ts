@@ -10,7 +10,7 @@ i18next
   .use(initReactI18next)
   .init({
     backend: {
-      loadPath: `./locales/{{lng}}.json`
+      loadPath: `${process.env.PUBLIC_URL}/locales/{{lng}}.json`
     },
     react: {
       useSuspense: true
@@ -24,6 +24,10 @@ i18next
 // setting to english by default
 // i18nextLng is default create
 const language = store.get('i18nextLng') || 'en'
-i18next.changeLanguage(language)
+i18next.changeLanguage(language).then(res=> {
+  console.log('changeLanguage then: ', res)
+}).catch(err=> {
+  console.error('changeLanguage catch: ', err)
+})
 
 export default i18next

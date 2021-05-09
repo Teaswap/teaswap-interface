@@ -7,22 +7,23 @@ const Nav: React.FC = () => {
   return (
     <StyledNav>
       <img src={FlameImg} width="30px" height="30px" />
+      <StyledLink style={{padding:"0 4px"}}> </StyledLink>
       <StyledLink target="_self" href="https://www.teaswap.art/staking">
         Hot
       </StyledLink>
-      <StyledLink style={{padding:"0 4px"}}> | </StyledLink>
+      <StyledLink style={{padding:"0 14px"}}> </StyledLink>
       <StyledLink>
         Earn TSA
       </StyledLink>
-      <StyledLink style={{padding:"0 4px"}}> | </StyledLink>
+      <StyledLink style={{padding:"0 14px"}}> </StyledLink>
       <StyledLink>
         TSA Staking
       </StyledLink>
-      <StyledLink style={{padding:"0 4px"}}> | </StyledLink>
+      <StyledLink style={{padding:"0 14px"}}> </StyledLink>
       <StyledLink>
         NFT Pool
       </StyledLink>
-      <StyledLink style={{padding:"0 4px"}}> | </StyledLink>
+      <StyledLink style={{padding:"0 14px"}}> </StyledLink>
       <StyledLink>
         Ended
       </StyledLink>
@@ -43,7 +44,7 @@ const StyledNav = styled.nav`
 `
 
 const StyledLink = styled.a`
-  color: #474747;
+  color: #7f7f7f;
   text-decoration: none;
   font-size: 16px;
   font-weight: 500;
@@ -55,16 +56,16 @@ const StyledLink = styled.a`
   :focus {
     outline: none;
     text-decoration: none;
-    color: #474747;
+    color: #7f7f7f;
   }
 
   :active {
     text-decoration: none;
-    color: #474747;
+    color: #7f7f7f;
   }
   :link {
     text-decoration: none;
-    color: #474747;
+    color: #7f7f7f;
   }
 `
 

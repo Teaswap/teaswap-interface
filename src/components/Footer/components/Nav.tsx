@@ -1,16 +1,17 @@
 import React from 'react'
 import styled from 'styled-components'
+import { NavLink } from 'react-router-dom'
 
 const Nav: React.FC = () => {
   return (
     <StyledNav>
-       <StyledLink target="_blank" href="/swap">
+       <StyledNavLink to="/swap">
         Swap
-      </StyledLink>
+      </StyledNavLink>
       <StyledLinkSep />
-      <StyledLink target="_blank" href="/staking">
+      <StyledNavLink to="/staking">
         Stake
-      </StyledLink>
+      </StyledNavLink>
       <StyledLinkSep />
       <StyledLink target="_blank" href="https://teaswap.myshopify.com/">
         Shop
@@ -42,7 +43,13 @@ const StyledNav = styled.nav`
   margin-right: 20px;
   flex-wrap: wrap;
 `
-
+const StyledNavLink = styled(NavLink)`
+  color: ${({ theme }) => theme.bg2};
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 34px;
+`
 const StyledLink = styled.a`
   color: ${({ theme }) => theme.bg2};
   text-decoration: none;

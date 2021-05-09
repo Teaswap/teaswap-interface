@@ -43,12 +43,13 @@ import { useExpertModeManager, useUserSlippageTolerance } from '../../state/user
 import { LinkStyledButton, TYPE } from '../../theme'
 import { maxAmountSpend } from '../../utils/maxAmountSpend'
 import { computeTradePriceBreakdown, warningSeverity } from '../../utils/prices'
-import AppBody from '../AppBody'
 import { ClickableText } from '../Pool/styleds'
 import Loader from '../../components/Loader'
+import styled from 'styled-components'
 
 import { filterTokens } from '../../components/SearchModal/filtering'
 import { useAllTokens } from '../../hooks/Tokens'
+import { MEDIA_QUERY } from '../../constants/style'
 
 // import SwapLogo from '../../assets/images/TEAsWAP.jpeg'
 
@@ -292,9 +293,11 @@ export default function Swap() {
         tokens={urlLoadedTokens}
         onConfirm={handleConfirmTokenWarning}
       />
-      <img width="100%" style={{marginTop: '-80px'}} src={process.env.PUBLIC_URL + '/swap_banner.webp'} />
+      <Banner>
+        <img width="100%" src={process.env.PUBLIC_URL + '/swap_banner.webp'} />
+      </Banner>
       
-      <AppBody>
+      <BodyWrapper>
         <img width="131" style={{alignSelf: "center"}} src={process.env.PUBLIC_URL + '/0039.webp'} />
         <SwapPoolTabs active={'swap'} />
         <Wrapper id="swap-page">
@@ -497,8 +500,29 @@ export default function Swap() {
             ) : null}
           </BottomGrouping>
         </Wrapper>
-      </AppBody>
+      </BodyWrapper>
       <AdvancedSwapDetailsDropdown trade={trade} />
     </>
   )
 }
+
+export const BodyWrapper = styled.div`
+  position: relative;
+  max-width: 450px;
+  width: 100%;
+  text-align: center;
+  margin-top: 20px;
+  background: ${({ theme }) => theme.bg1};
+  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.01), 0px 4px 8px rgba(0, 0, 0, 0.04), 0px 16px 24px rgba(0, 0, 0, 0.04),
+    0px 24px 32px rgba(0, 0, 0, 0.01);
+      border-radius: 0px;
+  padding: 1rem;
+`
+
+export const Banner = styled.div`
+  width: 100%;
+  margin-top: -80px;
+  ${MEDIA_QUERY.sm} {
+    margin-top: -30px;
+  }
+`
