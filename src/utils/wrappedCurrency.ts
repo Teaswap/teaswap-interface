@@ -11,6 +11,14 @@ export function wrappedStakeCurrency(currency: Currency | undefined, chainId: Ch
 }
 
 export function wrappedCurrencyAmount(
+    currencyAmount: CurrencyAmount | undefined,
+    chainId: ChainId | undefined
+): TokenAmount | undefined {
+  const token = currencyAmount && chainId ? wrappedCurrency(currencyAmount.currency, chainId) : undefined
+  return token && currencyAmount ? new TokenAmount(token, currencyAmount.raw) : undefined
+}
+
+export function wrappedStakeCurrencyAmount(
   currencyAmount: CurrencyAmount | undefined,
   chainId: ChainId | undefined
 ): TokenAmount | undefined {
