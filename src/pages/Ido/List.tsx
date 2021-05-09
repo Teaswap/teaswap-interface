@@ -28,9 +28,9 @@ const List = ()=>{
     {
       image: GridImg1,
       Learn: "https://www.caojunnft.com/",
-      author: "Cao Jun NFTs",
+      author: "Cao Jun NFT Collectibles",
       medium: "",
-      info: "CaoJun limited edition NFT series . The record price for CaoJun  artist at auction is $1,309,063 USD .",
+      info: "CaoJun limited edition of NFT Collectibles.",
       joinUs: "/iro/bnb/0x5f99ACF13CAff815DD9cB4A415c0fB34e9F4545b/0xE9703472deCeAd18ed42A16C8C5ea46c11b3a012",
       sign: NewImg
     },

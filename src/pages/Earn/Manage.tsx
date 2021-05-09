@@ -30,6 +30,7 @@ import { currencyId } from '../../utils/currencyId'
 import usePrevious from '../../hooks/usePrevious'
 // import useUSDCPrice from '../../utils/useUSDCPrice'
 import { BIG_INT_ZERO } from '../../constants'
+import { MEDIA_QUERY } from '../../constants/style'
 
 const PageWrapper = styled(AutoColumn)`
   max-width: 640px;
@@ -87,6 +88,13 @@ const DataRow = styled(RowBetween)`
     gap: 12px;
   `};
 `
+
+const WithdarBtn = styled(ButtonPrimary)`
+  ${MEDIA_QUERY.sm} {
+    margin-top: 20px;
+  }
+`
+
 const Manage = ()=>{
 
 
@@ -359,14 +367,14 @@ const Manage = ()=>{
 
             {stakingInfo?.stakedAmount?.greaterThan(JSBI.BigInt(0)) && (
               <>
-                <ButtonPrimary
+                <WithdarBtn
                   padding="8px"
                   borderRadius="0px"
                   width="300px"
                   onClick={() => setShowUnstakingModal(true)}
                 >
                   {t('withdraw')}
-                </ButtonPrimary>
+                </WithdarBtn>
               </>
             )}
           </DataRow>
