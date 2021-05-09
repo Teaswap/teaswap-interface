@@ -17,7 +17,7 @@ import { useStakingContract } from '../../hooks/useContract'
 import { useApproveCallback, ApprovalState} from '../../hooks/useApproveCallback'
 // import { splitSignature } from 'ethers/lib/utils'
 import { StakingInfo, useDerivedStakeInfo } from '../../state/stake/hooks'
-import { wrappedCurrencyAmount } from '../../utils/wrappedCurrency'
+import { wrappedStakeCurrencyAmount } from '../../utils/wrappedCurrency'
 import { TransactionResponse } from '@ethersproject/providers'
 import { useTransactionAdder } from '../../state/transactions/hooks'
 import { LoadingView, SubmittedView } from '../ModalViews'
@@ -51,7 +51,7 @@ export default function StakingModal({ isOpen, onDismiss, stakingInfo, userLiqui
   // track and parse user input
   const [typedValue, setTypedValue] = useState('')
   const { parsedAmount, error } = useDerivedStakeInfo(typedValue, stakingInfo.stakedAmount.token, userLiquidityUnstaked)
-  const parsedAmountWrapped = wrappedCurrencyAmount(parsedAmount, chainId)
+  const parsedAmountWrapped = wrappedStakeCurrencyAmount(parsedAmount, chainId)
   console.log(parsedAmount?.raw)
   console.log(parsedAmount?.currency.symbol)
   const [approvalSubmitted, setApprovalSubmitted] = useState<boolean>(false)
