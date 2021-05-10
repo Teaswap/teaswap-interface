@@ -221,7 +221,7 @@ export default function PoolCard({ stakingInfo }: { stakingInfo: StakingInfo }) 
               </span>
               {`${stakingInfo.rewardRate
                 ?.multiply(`${60 * 60 * 24 * 7}`)
-                ?.toSignificant(4, { groupSeparator: ',' })} ${token0.symbol} / week`}
+                ?.toSignificant(4, { groupSeparator: ',' })} ${token1.symbol} / week`}
             </TYPE.black>
           </BottomSection>
         </>
