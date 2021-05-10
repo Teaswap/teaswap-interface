@@ -232,17 +232,23 @@ const Index = ()=>{
       {/* </RowBetween> */}
       <AuthorInfo>
         <Author>
-          <img src={process.env.PUBLIC_URL + '/cjainft.png'} width="150" style={{marginBottom: '40px'}}/>
+          <img src={process.env.PUBLIC_URL + '/cjainft.png'} width="150" style={{marginBottom: '0px'}}/>
           <ConSubTitle con="CaoJun Limited Edition of NFT Collectibles" />
-          <div>Key terms for CJAI NFT Collectibles & Initial Art Offering ("IRO"):</div>
-          <ol style={{fontSize: '15px', textAlign: 'left'}}>
+          <div style={{lineHeight: '30px', fontSize: '15px'}}>Key terms for CJAI NFT Collectibles & Initial Art Offering ("IRO"): </div>
+          <ol style={{fontSize: '15px', textAlign: 'left', lineHeight: "28px"}}>
             <li>​Total Edition of CaoJunNFT Collectibles released: 600</li>
             <li>Total TSA released for CJAI IRO: 15,000,000</li>
             <li>1 $TSA = 0.00008 BNB</li>
             <li>List TSA Token on TeaSwap, BakerySwap and SwapAll for trading and liquidity farming;</li>
-            <li>Able to stake TSA to earn CJAI and ICASH, Deposit TSA-BNB BLP to earn TSA, Deposit TSA-BUSD to earn TSA, and Deposit TSA-USDT BLP to earn TSA.</li>
-            <li>100,000 $TSA can be exchanged with 1 CaoJun NFT, and 1 CaoJun NFT can be converted into one exclusive CaoJun Limited Edition of NFT Collectible ("CaoJun NFT Collectible").</li>
+            <li>Able to stake TSA to earn CJAI and iCASH, Deposit TSA-BNB BLP to earn TSA, Deposit TSA-BUSD to earn TSA, and Deposit TSA-USDT BLP to earn TSA.</li>
+            <li>100,000 $TSA can be exchanged with 1 CaoJun NFT, and 1 CaoJun NFT can be converted into one exclusive physical CaoJun Limited Edition of NFT Collectible ("CaoJun NFT Collectible"). The NFT and $TSA will be burned afterward.</li>
+            <li>No minimum: Users can buy fractions of $TSA Offering for CaoJun NFT Collectibles</li>
           </ol>
+          <div style={{lineHeight: '30px', fontSize: '15px'}}>  Details : 
+            <ExternalLink href="https://www.caojunnft.com">
+              https://www.caojunnft.com
+            </ExternalLink>
+          </div>
         </Author>
         <Box>
           <PoolData>
