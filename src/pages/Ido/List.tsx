@@ -31,7 +31,7 @@ const List = ()=>{
       author: "Cao Jun NFT Collectibles",
       medium: "",
       info: "CaoJun limited edition of NFT Collectibles.",
-      joinUs: "/iro/bnb/0x5f99ACF13CAff815DD9cB4A415c0fB34e9F4545b/0xE9703472deCeAd18ed42A16C8C5ea46c11b3a012",
+      joinUs: "/iro/bnb/0x5f99ACF13CAff815DD9cB4A415c0fB34e9F4545b/0xb222571f700a9f0A86a4e70A5dA16d9Da8b9E042",
       sign: NewImg
     },
     {

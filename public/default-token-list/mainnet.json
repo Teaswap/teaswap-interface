@@ -3,7 +3,7 @@
   "timestamp": "2021-04-12T05:05:10.290Z",
   "version": {
     "major": 1,
-    "minor": 12,
+    "minor": 13,
     "patch": 26
   },
   "tags": {},
@@ -684,6 +684,22 @@
       "decimals": 18,
       "chainId": 56,
       "logoURI": "https://www.teaswap.art/default-token-list/images/0xca0a9df6a8cad800046c1ddc5755810718b65c44.png"
+    },
+    {
+      "name": "SafeMoon",
+      "address": "0x8076c74c5e3f5852037f31ff0093eeb8c8add8d3",
+      "symbol": "SAFEMOON",
+      "decimals": 9,
+      "chainId": 56,
+      "logoURI": "https://www.teaswap.art/default-token-list/images/0x8076c74c5e3f5852037f31ff0093eeb8c8add8d3.png"
+    },
+    {
+      "name": "Shiba Inu",
+      "address": "0xf09a100c32d780f0a48754e43533f9fb374e85f9",
+      "symbol": "SHIB",
+      "decimals": 18,
+      "chainId": 56,
+      "logoURI": "https://www.teaswap.art/default-token-list/images/0xf09a100c32d780f0a48754e43533f9fb374e85f9.png"
     },
     {
       "name": "TEAsWAP.ART",
