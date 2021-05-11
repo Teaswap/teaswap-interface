@@ -122,7 +122,8 @@ const HomePage = () => {
         <HomePageProducts>
           <Products
             products={products}
-            handler={handleGetProductsMoreButton}
+            // handler={handleGetProductsMoreButton}
+            handler={()=>{}}
             productErrorMessage={productErrorMessage}
           />
         </HomePageProducts>

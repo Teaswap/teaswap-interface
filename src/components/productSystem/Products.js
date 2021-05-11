@@ -107,7 +107,7 @@ const Product = ({ product, onLoad, loaded, $width, $height, $margin }) => {
 
   return (
     <ProductContainer $width={$width} $height={$height} $margin={$margin}>
-      <StyledLink to={`/nft/products/${product.id}`}>
+      {/* <StyledLink to={`/nft/products/${product.id}`}> */}
         <ProductPicture
           src={product.picture_url}
           style={{ opacity: loaded ? 1 : 0 }}
@@ -115,13 +115,13 @@ const Product = ({ product, onLoad, loaded, $width, $height, $margin }) => {
           $width={$width}
           $height={$height}
         />
-      </StyledLink>
+      {/* </StyledLink> */}
       <ProductName>
-        <StyledLink to={`/nft/products/${product.id}`}>
+        {/* <StyledLink to={`/nft/products/${product.id}`}> */}
           <TYPE.gray fontSize={15}>
             {product.name}
           </TYPE.gray>
-        </StyledLink>
+        {/* </StyledLink> */}
       </ProductName>
       <VendorName>
         {/* <StyledLink to={`/nft/products/vendor/${product.User.id}`}> */}

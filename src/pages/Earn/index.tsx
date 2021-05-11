@@ -40,9 +40,9 @@ const TopSection = styled(ColumnCenter)`
 
 const PoolSection = styled.div`
   width: 100%;
-  max-width: 1600px;
+  max-width: 1060px;
   margin: 0 auto;
-  margin-top: 30px;
+  margin-top: 20px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
