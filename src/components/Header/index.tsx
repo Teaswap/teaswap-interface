@@ -15,9 +15,11 @@ import { useETHBalances, useAggregateUniBalance } from '../../state/wallet/hooks
 import { CardNoise } from '../earn/styled'
 import { CountUp } from 'use-count-up'
 import { TYPE, ExternalLink } from '../../theme'
+import {  useToggleModal } from '../../state/application/hooks'
+import { ApplicationModal } from '../../state/application/actions'
 
 import Settings from '../Settings'
-import Menu from '../Menu'
+// import Menu from '../Menu'
 
 import Row, { RowFixed } from '../Row'
 import Web3Status from '../Web3Status'
@@ -30,6 +32,7 @@ import Modal from '../Modal'
 import UniBalanceContent from './UniBalanceContent'
 import usePrevious from '../../hooks/usePrevious'
 import I18nSwitch from '../I18nSwitch'
+import { ButtonSecondary } from '../Button'
 
 const HeaderFrame = styled.div`
   display: flex;
@@ -195,6 +198,7 @@ const Title = styled.a`
   pointer-events: auto;
   justify-self: flex-start;
   margin-right: 24px;
+  padding:0 40px;
   ${({ theme }) => theme.mediaWidth.upToSmall`
     justify-self: center;
     margin-right: 0;
@@ -226,7 +230,7 @@ const StyledNavLink = styled(NavLink).attrs({
   text-decoration: none;
   color: ${({ theme }) => theme.gray};
   width: fit-content;
-  margin: 0 12px;
+  margin: 0 6px;
   font-weight: 500;
 
   &.${activeClassName} {
@@ -286,6 +290,41 @@ const StyledExternalLink = styled(ExternalLink).attrs({
     font-size: 14px;
   }
 `
+const Web3StatusGeneric = styled(ButtonSecondary)`
+  ${({ theme }) => theme.flexRowNoWrap}
+  width: 100%;
+  align-items: center;
+  padding: 0.285rem 0.3rem;
+  border-radius: 0px;
+  cursor: pointer;
+  user-select: none;
+  font-size: 14px;
+  margin-top: 1px;
+  :focus {
+    outline: none;
+  }
+`
+
+const Web3StatusConnected = styled(Web3StatusGeneric)`
+  background-color: #ffffff;
+  border: 1px solid ${({ theme }) => theme.lightGray};
+  color: ${({ theme }) => theme.gray};
+  font-weight: 500;
+  :hover,
+  :focus {
+    border: 1px solid ${({ theme }) => theme.darkGray};
+  }
+  height: 35px;
+  margin-left: 8px;
+`
+
+const HeaderRoot = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding-top: 30px;
+`
+
 
 const NETWORK_LABELS: { [chainId in ChainId]?: string } = {
   [ChainId.MAINNET]: 'ETH Mainnet',
@@ -317,139 +356,147 @@ export default function Header() {
 
   const countUpValue = aggregateBalance?.toFixed(0) ?? '0'
   const countUpValuePrevious = usePrevious(countUpValue) ?? '0'
+  const openClaimModal = useToggleModal(ApplicationModal.ADDRESS_CLAIM)
 
   return (
-    <HeaderFrame>
-      <ClaimModal />
-      <Modal isOpen={showUniBalanceModal} onDismiss={() => setShowUniBalanceModal(false)}>
-        <UniBalanceContent setShowUniBalanceModal={setShowUniBalanceModal} />
-      </Modal>
+    <HeaderRoot>
+      <Title href=".">
+        <UniIcon style={{ marginTop: 0 }}>
+          <img height="40px" style={{ marginTop: 0 }} src={isDark ? LogoDark : Logo} alt="logo" />
+        </UniIcon>
+      </Title>
+      <HeaderFrame>
+        <ClaimModal />
+        <Modal isOpen={showUniBalanceModal} onDismiss={() => setShowUniBalanceModal(false)}>
+          <UniBalanceContent setShowUniBalanceModal={setShowUniBalanceModal} />
+        </Modal>
 
-      <HeaderRow>
-        <Title href=".">
-          <UniIcon style={{ marginTop: 0 }}>
-            <img height="40px" style={{ marginTop: 0 }} src={isDark ? LogoDark : Logo} alt="logo" />
-          </UniIcon>
-        </Title>
-        <HeaderLinks style={{ marginTop: 6, fontSize: '14px' }}>
-          <StyledNavLink id={`swap-nav-link`} to={'/home'}>
-            {t('Home')}
-          </StyledNavLink>
-          <StyledNavLink id={`NFT-nav-link`} to={'/nft'} >
-            {t('NFT Broadway')}
-            {/* <span>↗</span> */}
-          </StyledNavLink>
-          <StyledNavLink id={`Incubator-nav-link`} to={'/iro'}>
-            {t('NFT Incubator')}
-          </StyledNavLink>
-          {/* <StyledNavLink id={`Incubator-nav-link`} to={'/iro/bnb/0x5f99ACF13CAff815DD9cB4A415c0fB34e9F4545b/0x4aE03f6eaa8A21Ee3aeD47b97D5F44d2E2996d8a'}>
-            {t('NFT Incubator')}
-          </StyledNavLink> */}
-          <StyledExternalLink id={`Gallery-nav-link`} href={'https://www.teaswap.live/tsacollection '}>
-            {t('TSA Collections')}
-          </StyledExternalLink>
-          <StyledNavLink to="/mint">
-            {t('Mint Artworks')}
-          </StyledNavLink>
 
-          {/* <StyledNavLink id={`swap-nav-link`} to={'/swap'}>
-            {t('Swap')}
-          </StyledNavLink> */}
+        <HeaderRow>
 
-          {/*<StyledNavLink*/}
-          {/*  id={`pool-nav-link`}*/}
-          {/*  to={'/pool'}*/}
-          {/*  // isActive={(match, { pathname }) =>*/}
-          {/*  //   Boolean(match) ||*/}
-          {/*  //   pathname.startsWith('/add') ||*/}
-          {/*  //   pathname.startsWith('/remove') ||*/}
-          {/*  //   pathname.startsWith('/create') ||*/}
-          {/*  //   pathname.startsWith('/find')*/}
-          {/*  // }*/}
-          {/*>*/}
-          {/*  {t('POOL')}*/}
-          {/*</StyledNavLink>*/}
-          {/* <StyledNavLink id={`stake-nav-link`} to={'/best'}>
-            BEST
-          </StyledNavLink>
-          <StyledNavLink id={`stake-nav-link`} to={'/vote'}>
-            Vote
-          </StyledNavLink> */}
-          {/*<StyledExternalLink id={`stake-nav-link`} href={'https://bsc.bestswap.com/staking/'}>*/}
-          {/*  {t('Farm')}*/}
-          {/*  /!* <span>↗</span> *!/*/}
-          {/*</StyledExternalLink>*/}
+          <HeaderLinks style={{ fontSize: '14px' }}>
+            <StyledNavLink id={`swap-nav-link`} to={'/home'}>
+              {t('Home')}
+            </StyledNavLink>
+            <StyledNavLink id={`NFT-nav-link`} to={'/nft'} >
+              {t('NFT Broadway')}
+              {/* <span>↗</span> */}
+            </StyledNavLink>
+            <StyledNavLink id={`Incubator-nav-link`} to={'/iro'}>
+              {t('NFT Incubator')}
+            </StyledNavLink>
+            {/* <StyledNavLink id={`Incubator-nav-link`} to={'/iro/bnb/0x5f99ACF13CAff815DD9cB4A415c0fB34e9F4545b/0x4aE03f6eaa8A21Ee3aeD47b97D5F44d2E2996d8a'}>
+              {t('NFT Incubator')}
+            </StyledNavLink> */}
+            <StyledExternalLink id={`Gallery-nav-link`} href={'https://www.teaswap.live/tsacollection '}>
+              {t('TSA Collections')}
+            </StyledExternalLink>
+            <StyledNavLink to="/mint">
+              {t('Mint Artworks')}
+            </StyledNavLink>
 
-          {/*<StyledExternalLink id={`stake-nav-link`} href={'https://www.binance.org/en/bridge'}>*/}
-          {/*  {t('BRIDGE')}*/}
-          {/*  /!* <span>↗</span> *!/*/}
-          {/*</StyledExternalLink>*/}
-          {/*<StyledExternalLink id={`stake-nav-link`} href={'https://bsc.bestswap.com/info'}>*/}
-          {/*  {t('INFO')}*/}
-          {/*  /!* <span>↗</span> *!/*/}
-          {/*</StyledExternalLink>*/}
-        </HeaderLinks>
-      </HeaderRow>
-      <HeaderControls style={{fontSize: '14px'}}>
-        <HeaderElement>
-          <HideSmall>
-            {chainId && NETWORK_LABELS[chainId] && (
-              <NetworkCard title={NETWORK_LABELS[chainId]} color="#0bafb6" >{NETWORK_LABELS[chainId]}</NetworkCard>
+            {/* <StyledNavLink id={`swap-nav-link`} to={'/swap'}>
+              {t('Swap')}
+            </StyledNavLink> */}
+
+            {/*<StyledNavLink*/}
+            {/*  id={`pool-nav-link`}*/}
+            {/*  to={'/pool'}*/}
+            {/*  // isActive={(match, { pathname }) =>*/}
+            {/*  //   Boolean(match) ||*/}
+            {/*  //   pathname.startsWith('/add') ||*/}
+            {/*  //   pathname.startsWith('/remove') ||*/}
+            {/*  //   pathname.startsWith('/create') ||*/}
+            {/*  //   pathname.startsWith('/find')*/}
+            {/*  // }*/}
+            {/*>*/}
+            {/*  {t('POOL')}*/}
+            {/*</StyledNavLink>*/}
+            {/* <StyledNavLink id={`stake-nav-link`} to={'/best'}>
+              BEST
+            </StyledNavLink>
+            <StyledNavLink id={`stake-nav-link`} to={'/vote'}>
+              Vote
+            </StyledNavLink> */}
+            {/*<StyledExternalLink id={`stake-nav-link`} href={'https://bsc.bestswap.com/staking/'}>*/}
+            {/*  {t('Farm')}*/}
+            {/*  /!* <span>↗</span> *!/*/}
+            {/*</StyledExternalLink>*/}
+
+            {/*<StyledExternalLink id={`stake-nav-link`} href={'https://www.binance.org/en/bridge'}>*/}
+            {/*  {t('BRIDGE')}*/}
+            {/*  /!* <span>↗</span> *!/*/}
+            {/*</StyledExternalLink>*/}
+            {/*<StyledExternalLink id={`stake-nav-link`} href={'https://bsc.bestswap.com/info'}>*/}
+            {/*  {t('INFO')}*/}
+            {/*  /!* <span>↗</span> *!/*/}
+            {/*</StyledExternalLink>*/}
+          </HeaderLinks>
+        </HeaderRow>
+        <HeaderControls style={{fontSize: '14px'}}>
+          <HeaderElement>
+            <HideSmall>
+              {chainId && NETWORK_LABELS[chainId] && (
+                <NetworkCard title={NETWORK_LABELS[chainId]} color="#0bafb6" >{NETWORK_LABELS[chainId]}</NetworkCard>
+              )}
+            </HideSmall>
+            {availableClaim && !showClaimPopup && (
+              <UNIWrapper onClick={toggleClaimModal}>
+                <UNIAmount active={!!account && !availableClaim} style={{ pointerEvents: 'auto' }}>
+                  <TYPE.gray padding="0 2px">
+                    {claimTxn && !claimTxn?.receipt ? <Dots>{t('claiming')} AirDrop</Dots> : `${t('claim')} AirDrop`}
+                  </TYPE.gray>
+                </UNIAmount>
+                <CardNoise />
+              </UNIWrapper>
             )}
-          </HideSmall>
-          {availableClaim && !showClaimPopup && (
-            <UNIWrapper onClick={toggleClaimModal}>
-              <UNIAmount active={!!account && !availableClaim} style={{ pointerEvents: 'auto' }}>
-                <TYPE.gray padding="0 2px">
-                  {claimTxn && !claimTxn?.receipt ? <Dots>{t('claiming')} AirDrop</Dots> : `${t('claim')} AirDrop`}
-                </TYPE.gray>
-              </UNIAmount>
-              <CardNoise />
-            </UNIWrapper>
-          )}
-          {!availableClaim && aggregateBalance && (
-            <UNIWrapper onClick={() => {
-              setShowUniBalanceModal(true)
-            }}>
-              <UNIAmount active={!!account && !availableClaim} style={{ pointerEvents: 'auto',color:'#7f7f7f' }}>
-                {account && (
-                  <HideSmall>
-                    <TYPE.gray
-                      style={{
-                        paddingRight: '.4rem'
-                      }}
-                    >
-                      <CountUp
-                        key={countUpValue}
-                        isCounting
-                        start={parseFloat(countUpValuePrevious)}
-                        end={parseFloat(countUpValue)}
-                        thousandsSeparator={','}
-                        duration={1}
-                      />
-                    </TYPE.gray>
-                  </HideSmall>
-                )}
-                TSA
-              </UNIAmount>
-              <CardNoise />
-            </UNIWrapper>
-          )}
-          <AccountElement active={!!account} style={{ pointerEvents: 'auto' }}>
-            {chainId && account && userEthBalance ? (
-              <BalanceText style={{ flexShrink: 0, color:"#7f7f7f"}} pl="0.75rem" pr="0.5rem" fontWeight={500}  >
-                {userEthBalance?.toSignificant(4)} {NETWORK_LABELS[chainId]!=="ETH Mainnet"?"BNB":"ETH"}
-              </BalanceText>
-            ) : null}
-            <Web3Status />
-          </AccountElement>
-        </HeaderElement>
-        <HeaderElementWrap>
-          <Settings />
-          <Menu />
-          <I18nSwitch />
-        </HeaderElementWrap>
-      </HeaderControls>
-    </HeaderFrame>
+            {!availableClaim && aggregateBalance && (
+              <UNIWrapper onClick={() => {
+                setShowUniBalanceModal(true)
+              }}>
+                <UNIAmount active={!!account && !availableClaim} style={{ pointerEvents: 'auto',color:'#7f7f7f' }}>
+                  {account && (
+                    <HideSmall>
+                      <TYPE.gray
+                        style={{
+                          paddingRight: '.4rem'
+                        }}
+                      >
+                        <CountUp
+                          key={countUpValue}
+                          isCounting
+                          start={parseFloat(countUpValuePrevious)}
+                          end={parseFloat(countUpValue)}
+                          thousandsSeparator={','}
+                          duration={1}
+                        />
+                      </TYPE.gray>
+                    </HideSmall>
+                  )}
+                  TSA
+                </UNIAmount>
+                <CardNoise />
+              </UNIWrapper>
+            )}
+            <AccountElement active={!!account} style={{ pointerEvents: 'auto' }}>
+              {chainId && account && userEthBalance ? (
+                <BalanceText style={{ flexShrink: 0, color:"#7f7f7f"}} pl="0.75rem" pr="0.5rem" fontWeight={500}  >
+                  {userEthBalance?.toSignificant(4)} {NETWORK_LABELS[chainId]!=="ETH Mainnet"?"BNB":"ETH"}
+                </BalanceText>
+              ) : null}
+              <Web3Status />
+            </AccountElement>
+          </HeaderElement>
+          <HeaderElementWrap>
+            {/* <Menu /> */}
+            <Web3StatusConnected onClick={openClaimModal}>
+              AirDrops
+            </Web3StatusConnected>
+            <Settings />
+            <I18nSwitch />
+          </HeaderElementWrap>
+        </HeaderControls>
+      </HeaderFrame>
+    </HeaderRoot>
   )
 }
