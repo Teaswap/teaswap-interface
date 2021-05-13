@@ -162,7 +162,7 @@ export default function PoolCard({ stakingInfo }: { stakingInfo: StakingInfo }) 
     <Wrapper showBackground={isStaking} bgColor={backgroundColor}>
       <img src={stakingInfo.iconUrl} width="103" height="103" />
       <Title>
-        {currency0.symbol}-{currency1.symbol}
+        {currency0.symbol}
       </Title>
       <Spe />
       <CoinRowBetween>
