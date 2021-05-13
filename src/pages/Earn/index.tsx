@@ -40,13 +40,20 @@ const TopSection = styled(ColumnCenter)`
 
 const PoolSection = styled.div`
   width: 100%;
-  max-width: 1600px;
+  max-width: 1060px;
   margin: 0 auto;
-  margin-top: 30px;
+  margin-top: 20px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
+`
+
+const NavAndPool = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding-top: 30px;
 `
 
 export default function Earn() {
@@ -68,7 +75,8 @@ export default function Earn() {
       <TopSection >
         <ConSubTitle con={"An amazing yield farm on Binance Smart Chain."} />
       </TopSection>
-      <Nav />
+      <NavAndPool>
+        <Nav />
       
       {/* <AutoColumn gap="lg" style={{ width: '1040px'}}> */}
         {/* <DataRow style={{ alignItems: 'baseline' }}>
@@ -91,6 +99,8 @@ export default function Earn() {
             })
           )}
         </PoolSection>
+      </NavAndPool>
+      
       {/* </AutoColumn> */}
     </PageWrapper>
   )

@@ -40,8 +40,9 @@ const StyledNav = styled.nav`
   display: flex;
   justify-content: flex-start;
   width: 100%;
-  max-width: 1600px;
+  max-width: 1060px;
   margin:0 auto;
+  // margin-top: 20px;
   flex-wrap: wrap;
   ${MEDIA_QUERY.sm}{
     margin-top: 10px;

@@ -172,7 +172,7 @@ export default function PoolCard({ stakingInfo }: { stakingInfo: StakingInfo }) 
       <img src={tokenIcon} width="103" height="103" />
       
       <Title>
-        {currency0.symbol + " to " + currency1.symbol}
+        {currency0.symbol}-{currency1.symbol}
       </Title>
       <Spe />
       <CoinRowBetween>

@@ -62,7 +62,7 @@ const Author = styled(ColumnCenter)`
 `
 
 const Box = styled(ColumnCenter)`
-  max-width: 355px;
+  max-width: 405px;
   border-color: rgba(176, 169, 134, 1) rgba(176, 169, 134, 1) rgba(176, 169, 134, 1) rgba(176, 169, 134, 1);
   border-radius: 0 0 0 0;
   box-shadow: 0 4px 10px 0 rgb(0 0 0 / 65%);
@@ -70,6 +70,7 @@ const Box = styled(ColumnCenter)`
   transform: translateZ(0);
   margin: 0px;
   margin-left: 40px;
+  margin-top: 40px;
   padding-bottom: 20px;
   ${MEDIA_QUERY.sm} {
     margin-left: 0;
