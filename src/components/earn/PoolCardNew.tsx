@@ -111,7 +111,7 @@ const Spe = styled.p`
 `
 
 const CoinRowBetween = styled(RowBetween)`
-  width: 250px;
+  width: 299px;
   margin-top: 16px;
   font-weight: bolder;
 `
@@ -177,22 +177,22 @@ export default function PoolCard({ stakingInfo }: { stakingInfo: StakingInfo }) 
           {currency1.symbol}
         </TYPE.black>
       </CoinRowBetween>
-      <RowBetween style={{width: '250px', marginTop: '24px'}}>
+      <RowBetween style={{width: '299px', marginTop: '24px'}}>
         <TYPE.black> {t('totalDeposited')}</TYPE.black>
         <TYPE.black fontWeight='bolder'>
           {stakingInfo.totalStakedAmount
-            ? `${stakingInfo.totalStakedAmount.toFixed(4, { groupSeparator: ',' })} ${currency0.symbol}`
-            : `${valueOfTotalStakedAmountInWETH?.toSignificant(4, { groupSeparator: ',' }) ?? '-'} ${currency0.symbol}`}
+            ? `${stakingInfo.totalStakedAmount.toFixed(4, { groupSeparator: ',' })} `
+            : `${valueOfTotalStakedAmountInWETH?.toSignificant(4, { groupSeparator: ',' }) ?? '-'} `}
         </TYPE.black>
       </RowBetween>
-      <RowBetween style={{width: '250px', marginTop: '24px'}}>
+      <RowBetween style={{width: '299px', marginTop: '24px'}}>
         <TYPE.black> {t('poolRate')} </TYPE.black>
         <TYPE.black fontWeight='bolder'>
           {`${stakingInfo.totalRewardRate
           ?.multiply(`${60 * 60 * 24 * 7}`)
           ?.toFixed(0, { groupSeparator: ',' })} ${token1.symbol} / week`}</TYPE.black>
       </RowBetween>
-        <RowBetween style={{width: '250px', marginTop: '24px'}}>
+        <RowBetween style={{width: '299px', marginTop: '24px'}}>
             <Countdown exactEnd={stakingInfo?.periodFinish} rewardsDuration={stakingInfo?.rewardsDuration} />
         </RowBetween>
 
