@@ -174,7 +174,7 @@
   "youAreCreatingAPool": "您正在创建一个池",
   "yourLiquidityDeposits": "您的流动资金存款",
   "yourUnclaimed": "您无人认领",
-  "best-v2-lp-tokens-are-required-once-youve-added-liquidity-to-the-symbolone-symboltwo-pool-you-can-stake-your-liquidity-tokens-on-this-page": "需要可抵押令牌。\n如果是流动性令牌，将流动性添加到{{symbolOne}}-{{symbolTwo}}池中后，您可以在此页面上投入流动性令牌。",
+  "best-v2-lp-tokens-are-required-once-youve-added-liquidity-to-the-symbolone-symboltwo-pool-you-can-stake-your-liquidity-tokens-on-this-page": "需要可抵押令牌。\n如果是流动性令牌，将流动性添加到{{symbolOne}}-{{symbolTwo}}池中后，您可以在此页面上投入流动性令牌。如果是非流动性令牌，则去swap交易得到",
   "a-minimum-threshhold-of-1-of-the-total-best-supply-is-required-to-submit-proposals": "提交建议书的最低门槛为TSA供给总量的1％",
   "allProposals": "所有提案",
   "account-analytics-and-accrued-fees": "帐户分析和应计费用",

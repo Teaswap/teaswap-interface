@@ -3,7 +3,7 @@
   "timestamp": "2021-04-12T05:05:10.290Z",
   "version": {
     "major": 1,
-    "minor": 13,
+    "minor": 14,
     "patch": 26
   },
   "tags": {},
@@ -700,6 +700,30 @@
       "decimals": 18,
       "chainId": 56,
       "logoURI": "https://www.teaswap.art/default-token-list/images/0xf09a100c32d780f0a48754e43533f9fb374e85f9.png"
+    },
+    {
+      "name": "Shih Tzu",
+      "address": "0x36ac9eaf028c175d62e086945862924e4ba7516f",
+      "symbol": "Shih",
+      "decimals": 18,
+      "chainId": 56,
+      "logoURI": "https://www.teaswap.art/default-token-list/images/0x36ac9eaf028c175d62e086945862924e4ba7516f.png"
+    },
+    {
+      "name": "iCashToken.io",
+      "address": "0x3668a68140a103947c83ef43333fe4711d59ba9f",
+      "symbol": "iCash",
+      "decimals": 18,
+      "chainId": 56,
+      "logoURI": "https://www.teaswap.art/default-token-list/images/0x3668a68140a103947c83ef43333fe4711d59ba9f.png"
+    },
+    {
+      "name": "DOGGY",
+      "address": "0x74926b3d118a63f6958922d3dc05eb9c6e6e00c6",
+      "symbol": "DOGGY",
+      "decimals": 18,
+      "chainId": 56,
+      "logoURI": "https://www.teaswap.art/default-token-list/images/0x74926b3d118a63f6958922d3dc05eb9c6e6e00c6.png"
     },
     {
       "name": "TEAsWAP.ART",

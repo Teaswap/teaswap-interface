@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useState } from 'react'
-import { STAKING_GENESIS, REWARDS_DURATION_DAYS } from '../../state/stake/hooks'
+import {REWARDS_DURATION_DAYS, STAKING_GENESIS} from '../../state/stake/hooks'
 import { TYPE } from '../../theme'
 
 const MINUTE = 60
@@ -7,12 +7,18 @@ const HOUR = MINUTE * 60
 const DAY = HOUR * 24
 const REWARDS_DURATION = DAY * REWARDS_DURATION_DAYS
 
-export function Countdown({ exactEnd }: { exactEnd?: Date }) {
+export function Countdown({ exactEnd, rewardsDuration }: { exactEnd?: Date,rewardsDuration?:number }) {
   // get end/beginning times
-  const end = useMemo(() => (exactEnd ? Math.floor(exactEnd.getTime() / 1000) : STAKING_GENESIS + REWARDS_DURATION), [
-    exactEnd
+
+  const duration = useMemo(() => (rewardsDuration ? rewardsDuration : REWARDS_DURATION), [
+    rewardsDuration
   ])
-  const begin = useMemo(() => end - REWARDS_DURATION, [end])
+
+  const end = useMemo(() => (exactEnd ? Math.floor(exactEnd.getTime() / 1000) : STAKING_GENESIS + duration), [
+    exactEnd,duration
+  ])
+
+  const begin = useMemo(() => end - duration, [end,duration])
 
   // get current time
   const [time, setTime] = useState(() => Math.floor(Date.now() / 1000))
@@ -28,6 +34,13 @@ export function Countdown({ exactEnd }: { exactEnd?: Date }) {
 
   const timeUntilGenesis = begin - time
   const timeUntilEnd = end - time
+
+  console.log(begin)
+  console.log(duration)
+  console.log(end)
+  console.log(time)
+  console.log(timeUntilGenesis)
+  console.log(timeUntilGenesis)
 
   let timeRemaining: number
   let message: string
@@ -54,11 +67,11 @@ export function Countdown({ exactEnd }: { exactEnd?: Date }) {
   const seconds = timeRemaining
 
   return (
-    <TYPE.black fontWeight={400} style={{ color: '#ffffff' }}>
+    <TYPE.black fontWeight={400} style={{ color: '#000000' }}>
       {message}{' '}
       {Number.isFinite(timeRemaining) && (
         <code>
-          {`${days}:${hours.toString().padStart(2, '0')}:${minutes
+          {`${days} Days ${hours.toString().padStart(2, '0')}:${minutes
             .toString()
             .padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`}
         </code>

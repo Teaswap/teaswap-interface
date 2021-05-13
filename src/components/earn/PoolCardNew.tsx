@@ -16,6 +16,7 @@ import { usePair } from '../../data/Reserves'
 import tokenTSAIcon from '../../assets/images/tokenTSA.webp'
 import tokenSATOIcon from '../../assets/images/tokenSATO.webp'
 import { MEDIA_QUERY } from '../../constants/style'
+import {Countdown} from "../../pages/Earn/Countdown";
 
 const Title = styled.span`
   color: #7f7f7f;
@@ -201,7 +202,11 @@ export default function PoolCard({ stakingInfo }: { stakingInfo: StakingInfo }) 
           ?.multiply(`${60 * 60 * 24 * 7}`)
           ?.toFixed(0, { groupSeparator: ',' })} ${token1.symbol} / week`}</TYPE.black>
       </RowBetween>
-      <StyledLink href={`/staking/${currencyId(currency0)}/${currencyId(currency1)}/${stakingInfo.stakingRewardAddress}`} >
+        <RowBetween style={{width: '250px', marginTop: '24px'}}>
+            <Countdown exactEnd={stakingInfo?.periodFinish} rewardsDuration={stakingInfo?.rewardsDuration} />
+        </RowBetween>
+
+        <StyledLink href={`/staking/${currencyId(currency0)}/${currencyId(currency1)}/${stakingInfo.stakingRewardAddress}`} >
         <SelectBtn> 
           {isStaking ? t('manage') : t('select')}
         </SelectBtn>
@@ -214,7 +219,6 @@ export default function PoolCard({ stakingInfo }: { stakingInfo: StakingInfo }) 
             <TYPE.black fontWeight={500}>
               <span>{t('yourRate')}</span>
             </TYPE.black>
-
             <TYPE.black style={{ textAlign: 'right' }} fontWeight={500}>
               <span role="img" aria-label="wizard-icon" style={{ marginRight: '0.5rem' }}>
                 ⚡

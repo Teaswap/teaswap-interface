@@ -173,7 +173,7 @@
   "when-you-withdraw-the-contract-will-automagically-claim-best-on-your-behalf": "When you withdraw, the contract will automagically claim reward token on your behalf!",
   "withdraw": "Withdraw",
   "tokensAvailable": "tokens available",
-  "best-v2-lp-tokens-are-required-once-youve-added-liquidity-to-the-symbolone-symboltwo-pool-you-can-stake-your-liquidity-tokens-on-this-page": "Stakable tokens are required. If the Token is LP Token, Once you've added liquidity to the {{ symbolOne }}-{{ symbolTwo }} pool you can stake your liquidity tokens on this page.",
+  "best-v2-lp-tokens-are-required-once-youve-added-liquidity-to-the-symbolone-symboltwo-pool-you-can-stake-your-liquidity-tokens-on-this-page": "Stakable tokens are required. If the Token is LP Token, Once you've added liquidity to the {{ symbolOne }}-{{ symbolTwo }} pool you can stake your liquidity tokens on this page. If Token is not LP Token, you can get it from swap",
   "migrate-v1-liquidity": "Migrate V1 Liquidity",
   "for-each-pool-shown-below-click-migrate-to-remove-your-liquidity-from-uniswap-v1-and-deposit-it-into-uniswap-v2": "For each pool shown below, click migrate to remove your liquidity from Uniswap V1 and deposit it into Uniswap\n          V2.",
   "connect-to-a-wallet-to-view-your-v1-liquidity": "Connect to a wallet to view your V1 liquidity.",

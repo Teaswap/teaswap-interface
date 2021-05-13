@@ -1,7 +1,7 @@
 import { ChainId, CurrencyAmount, JSBI, Token, TokenAmount } from '@teaswap/uniswap-sdk'
 import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
-import {UNI, BUSD, PAYABLEETH, CJAI} from '../../constants'
+import {UNI, BUSD, PAYABLEETH, CJAI, DOGE, SHIB, SHIH, ICASH, BAKE, BNB_BAKE_LP} from '../../constants'
 import { IDO_ABI_INTERFACE, STAKING_REWARDS_INTERFACE } from '../../constants/abis/staking-rewards'
 import { useActiveWeb3React } from '../../hooks'
 import { NEVER_RELOAD, useMultipleContractSingleData } from '../multicall/hooks'
@@ -34,13 +34,33 @@ export const STAKING_REWARDS_INFO: {
     //   tokens: [USDT_TSA_LP, UNI[ChainId.BSC_MAINNET]],
     //   stakingRewardAddress: '0xbD1308B84f0648aa89B7AcB1039767d52CF4Dc17'
     // },
-    // {
-    //   tokens: [ETH_TSA_LP, UNI[ChainId.BSC_MAINNET]],
-    //   stakingRewardAddress: '0x58567277734898E100B2bE80C5bB5BF82f053203'
-    // }
+    {
+      tokens: [BNB_BAKE_LP, UNI[ChainId.BSC_MAINNET]],
+      stakingRewardAddress: '0x7bA8Fd959814b0959573CB4830BF81dbf789396e'
+    },
     {
       tokens: [BUSD, UNI[ChainId.BSC_MAINNET]],
-      stakingRewardAddress: '0x9684C8285A81F97C9482446feA11b4D9aec72f36'
+      stakingRewardAddress: '0x7Cc95C5c821370960865aCf43DebbA42CeC22405'
+    },
+    {
+      tokens: [DOGE, UNI[ChainId.BSC_MAINNET]],
+      stakingRewardAddress:'0x96c51D3FAb14f27b5D9E45CDB43235d703B5e211'
+    },
+    {
+      tokens: [BAKE, UNI[ChainId.BSC_MAINNET]],
+      stakingRewardAddress:'0x727408110931e052F112af167722b5f63a0a7E44'
+    },
+    {
+      tokens: [SHIB, UNI[ChainId.BSC_MAINNET]],
+      stakingRewardAddress:'0xF22AF684c4389c7899777660D3ec29b9745C6222'
+    },
+    {
+      tokens: [UNI[ChainId.BSC_MAINNET],ICASH],
+      stakingRewardAddress:'0x26a346dDbb7ea083c85c696Cfa77F84C8bd4109d'
+    },
+    {
+      tokens: [UNI[ChainId.BSC_MAINNET],SHIH],
+      stakingRewardAddress:'0x667202a1Dc34EFA5f54580C8E69f8128573786f4'
     },
     {
       tokens: [UNI[ChainId.BSC_MAINNET], CJAI],
@@ -82,6 +102,7 @@ export interface StakingInfo {
   rewardRate: TokenAmount
   // when the period ends
   periodFinish: Date | undefined
+  rewardsDuration : number
   // calculates a hypothetical amount of token distributed to the active account per second.
   getHypotheticalRewardRate: (
     stakedAmount: TokenAmount,
@@ -144,6 +165,8 @@ export function useStakingInfo(stakingRewardAddress?:string | null): StakingInfo
   const earnedAmounts = useMultipleContractSingleData(rewardsAddresses, STAKING_REWARDS_INTERFACE, 'earned', accountArg)
   const totalSupplies = useMultipleContractSingleData(rewardsAddresses, STAKING_REWARDS_INTERFACE, 'totalSupply')
 
+  // const startTimes = useMultipleContractSingleData(rewardsAddresses, STAKING_REWARDS_INTERFACE, 'startTime')
+  const rewardsDurations = useMultipleContractSingleData(rewardsAddresses, STAKING_REWARDS_INTERFACE, 'rewardsDuration')
   // tokens per second, constants
   const rewardRates = useMultipleContractSingleData(
     rewardsAddresses,
@@ -172,6 +195,8 @@ export function useStakingInfo(stakingRewardAddress?:string | null): StakingInfo
       const totalSupplyState = totalSupplies[index]
       const rewardRateState = rewardRates[index]
       const periodFinishState = periodFinishes[index]
+      // const startTimeState = startTimes[index]
+      const rewardsDurationState = rewardsDurations[index]
 
       if (
         // these may be undefined if not logged in
@@ -183,14 +208,17 @@ export function useStakingInfo(stakingRewardAddress?:string | null): StakingInfo
         rewardRateState &&
         !rewardRateState.loading &&
         periodFinishState &&
-        !periodFinishState.loading
+        !periodFinishState.loading &&
+          rewardsDurationState &&
+          !rewardsDurationState.loading
       ) {
         if (
           balanceState?.error ||
           earnedAmountState?.error ||
           totalSupplyState.error ||
           rewardRateState.error ||
-          periodFinishState.error
+          periodFinishState.error||
+            rewardsDurationState.error
         ) {
           console.error('Failed to load staking rewards info')
           return memo
@@ -228,6 +256,8 @@ export function useStakingInfo(stakingRewardAddress?:string | null): StakingInfo
         const individualRewardRate = getHypotheticalRewardRate(stakedAmount, totalStakedAmount, totalRewardRate)
 
         const periodFinishMs = periodFinishState.result?.[0]?.mul(1000)?.toNumber()
+        // const startTimeMs = startTimeState.result?.[0]?.mul(1000)?.toNumber()
+        const rewardsDuration = rewardsDurationState.result?.[0]?.toNumber()
 
         memo.push({
           stakingRewardAddress: rewardsAddress,
@@ -238,6 +268,7 @@ export function useStakingInfo(stakingRewardAddress?:string | null): StakingInfo
           totalRewardRate: totalRewardRate,
           stakedAmount: stakedAmount,
           totalStakedAmount: totalStakedAmount,
+          rewardsDuration: rewardsDuration,
           getHypotheticalRewardRate
         })
       }

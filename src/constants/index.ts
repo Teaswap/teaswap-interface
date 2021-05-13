@@ -91,6 +91,14 @@ export const ETH_TSA_LP = new Token(
   'ETH_TSA_LP'
 )
 
+export const BNB_BAKE_LP = new Token(
+    ChainId.BSC_MAINNET,
+    '0xc2eed0f5a0dc28cfa895084bc0a9b8b8279ae492',
+    18,
+    'BNB_BAKE_BLP',
+    'BNB_BAKE_BakeryLP'
+)
+
 export const B_DAI = new Token(
   ChainId.BSC_MAINNET,
   '0x1AF3F329e8BE154074D8769D1FFa4eE058B1DBc3',
@@ -105,6 +113,47 @@ export const BUSD = new Token(
   'BUSD',
   'BUSD Token'
 )
+
+export const DOGE = new Token(
+    ChainId.BSC_MAINNET,
+    '0xba2ae424d960c26247dd6c32edc70b295c744c43',
+    8,
+    'DOGE',
+    'Binance-Peg Dogecoin'
+)
+
+export const SHIB = new Token(
+    ChainId.BSC_MAINNET,
+    '0xf09a100c32d780f0a48754e43533f9fb374e85f9',
+    18,
+    'SHIB',
+    'Shiba Inu'
+)
+
+export const SHIH = new Token(
+    ChainId.BSC_MAINNET,
+    '0x36ac9eaf028c175d62e086945862924e4ba7516f',
+    18,
+    'Shih',
+    'Shih Tzu'
+)
+
+export const BAKE = new Token(
+    ChainId.BSC_MAINNET,
+    '0xE02dF9e3e622DeBdD69fb838bB799E3F168902c5',
+    18,
+    'BAKE',
+    'BakeryToken'
+)
+
+export const ICASH = new Token(
+    ChainId.BSC_MAINNET,
+    '0x3668a68140a103947c83ef43333fe4711d59ba9f',
+    18,
+    'iCash',
+    'iCashToken.io'
+)
+
 export const SATO = new Token(
   ChainId.BSC_MAINNET,
   '0xf6e6892325a74383a70570f1ebea9a476483a611',

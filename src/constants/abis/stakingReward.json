@@ -21,6 +21,11 @@
           "internalType": "address",
           "name": "_irefAddress",
           "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_startTime",
+          "type": "uint256"
         }
       ],
       "stateMutability": "nonpayable",
@@ -543,6 +548,19 @@
           "internalType": "contract IERC20",
           "name": "",
           "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "startTime",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
         }
       ],
       "stateMutability": "view",

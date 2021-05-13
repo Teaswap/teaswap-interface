@@ -24,13 +24,14 @@ import { useColor } from '../../hooks/useColor'
 import { CountUp } from 'use-count-up'
 
 import { wrappedCurrency } from '../../utils/wrappedCurrency'
-import { currencyId } from '../../utils/currencyId'
+// import { currencyId } from '../../utils/currencyId'
 // import { useTotalSupply } from '../../data/TotalSupply'
 // import { usePair } from '../../data/Reserves'
 import usePrevious from '../../hooks/usePrevious'
 // import useUSDCPrice from '../../utils/useUSDCPrice'
 import { BIG_INT_ZERO } from '../../constants'
 import { MEDIA_QUERY } from '../../constants/style'
+import {Countdown} from "./Countdown";
 
 const PageWrapper = styled(AutoColumn)`
   max-width: 640px;
@@ -268,9 +269,9 @@ const Manage = ()=>{
                 borderRadius="0px"
                 width={'fit-content'}
                 as={Link}
-                to={`/add/${currencyA && currencyId(currencyA)}/${currencyB && currencyId(currencyB)}`}
+                to={currencyA?.symbol?.includes("BLP")?  `/add` : `/swap`}
               >
-                {`Add ${currencyA?.symbol}-${currencyB?.symbol} liquidity`}
+                {`GET ${currencyA?.symbol}`}
               </ButtonPrimary>
             </AutoColumn>
           </CardSection>
@@ -344,12 +345,14 @@ const Manage = ()=>{
             </AutoColumn>
           </StyledBottomCard>
         </BottomSection>
+
         <TYPE.main style={{ textAlign: 'center' }} fontSize={14}>
           <span role="img" aria-label="wizard-icon" style={{ marginRight: '8px' }}>
             ⭐️
           </span>
           {t('when-you-withdraw-the-contract-will-automagically-claim-best-on-your-behalf')}
         </TYPE.main>
+        <Countdown exactEnd={stakingInfo?.periodFinish} rewardsDuration={stakingInfo?.rewardsDuration} />
 
         {!showAddLiquidityButton && (
           <DataRow style={{ marginBottom: '1rem' }}>
