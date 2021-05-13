@@ -23,7 +23,7 @@ const ProductsWrap = styled.div`
 `;
 
 const ProductContainer = styled.div`
-  width: ${(props) => props.$height || '380px'};
+  width: ${(props) => props.$height || '311px'};
   border-width: 0 0 0 0;
   border-style: solid solid solid solid;
   border-color: rgba(176, 169, 134, 1) rgba(176, 169, 134, 1) rgba(176, 169, 134, 1) rgba(176, 169, 134, 1);
@@ -31,39 +31,45 @@ const ProductContainer = styled.div`
   box-shadow: 0 4px 10px 0 rgb(0 0 0 / 10%);
   overflow: hidden;
   transform: translateZ(0);
-  margin: 20px;
+  margin-top: 20px;
   font-size: 15px;
   color: #000000;
   font-weight: bold;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-bottom: 40px; 
+  padding-bottom: 20px; 
 `;
 
 const Placeholder = styled.div`
-  width: ${(props) => props.$width || '380px'};
+  width: ${(props) => props.$width || '311px'};
   margin: ${(props) => props.$margin || '0 20px'};
 `;
 
 const ProductPicture = styled.img`
   position: relative;
-  width: ${(props) => props.$width || '100%'};
+  height: 414px;
+  width: 100%;
+  object-fit: cover;
   transition: opacity 0.2s;
   cursor: pointer;
 `;
 
 const ProductName = styled.div`
-  width: 90%;
+  width: 95%;
+  font-size: 14px;
   text-align: left;
-  margin-top: ${DISTANCE.md};
+  margin-top: 10px;
   cursor: pointer;
+  color: #7f7f7f;
 }
 `;
 
 const VendorName = styled.div`
-  margin-top: ${DISTANCE.sm};
-  width: 90%;
+  margin-top: 10px;
+  width: 95%;
+  font-size: 13px;
+  color: #7f7f7f;
   text-align: left;
   cursor: pointer;
 
@@ -117,18 +123,13 @@ const Product = ({ product, onLoad, loaded, $width, $height, $margin }) => {
         />
       {/* </StyledLink> */}
       <ProductName>
-        {/* <StyledLink to={`/nft/products/${product.id}`}> */}
-          <TYPE.gray fontSize={15}>
-            {product.name}
-          </TYPE.gray>
-        {/* </StyledLink> */}
+        {product.title}
+        {(product.number) && (
+          ' | ' + product.number
+        )}
       </ProductName>
       <VendorName>
-        {/* <StyledLink to={`/nft/products/vendor/${product.User.id}`}> */}
-          <TYPE.darkGray fontSize={14}>
-            {product.info}
-          </TYPE.darkGray>
-        {/* </StyledLink> */}
+        {product.info}
       </VendorName>
       <ProductPrice>
         <TYPE.darkGray fontSize={14}>

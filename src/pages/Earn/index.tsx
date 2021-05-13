@@ -49,6 +49,13 @@ const PoolSection = styled.div`
   justify-content: center;
 `
 
+const NavAndPool = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding-top: 30px;
+`
+
 export default function Earn() {
   const { chainId } = useActiveWeb3React()
   const stakingInfos = useStakingInfo()
@@ -68,7 +75,8 @@ export default function Earn() {
       <TopSection >
         <ConSubTitle con={"An amazing yield farm on Binance Smart Chain."} />
       </TopSection>
-      <Nav />
+      <NavAndPool>
+        <Nav />
       
       {/* <AutoColumn gap="lg" style={{ width: '1040px'}}> */}
         {/* <DataRow style={{ alignItems: 'baseline' }}>
@@ -91,6 +99,8 @@ export default function Earn() {
             })
           )}
         </PoolSection>
+      </NavAndPool>
+      
       {/* </AutoColumn> */}
     </PageWrapper>
   )
