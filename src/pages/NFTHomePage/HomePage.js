@@ -351,7 +351,7 @@ const products2 = [
     window.scroll(0, 0);
     handleGetProducts(1);
     return () => {
-      dispatch(setProducts([]));
+      // dispatch(setProducts([]));
       dispatch(setErrorMessage(null));
     };
   }, [dispatch]);

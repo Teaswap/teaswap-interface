@@ -118,7 +118,8 @@ export interface StakingInfo {
     stakedAmount: TokenAmount,
     totalStakedAmount: TokenAmount,
     totalRewardRate: TokenAmount
-  ) => TokenAmount
+  ) => TokenAmount,
+  iconUrl: string
 }
 
 export interface IdoInfo {
@@ -268,10 +269,12 @@ export function useStakingInfo(stakingRewardAddress?:string | null): StakingInfo
         const periodFinishMs = periodFinishState.result?.[0]?.mul(1000)?.toNumber()
         // const startTimeMs = startTimeState.result?.[0]?.mul(1000)?.toNumber()
         const rewardsDuration = rewardsDurationState.result?.[0]?.toNumber()
+        console.log('info: ', info)
 
         memo.push({
           stakingRewardAddress: rewardsAddress,
           tokens: info[index].tokens,
+          iconUrl: info[index].iconUrl,
           periodFinish: periodFinishMs > 0 ? new Date(periodFinishMs) : undefined,
           earnedAmount: new TokenAmount(info[index].tokens[1], JSBI.BigInt(earnedAmountState?.result?.[0] ?? 0)),
           rewardRate: individualRewardRate,

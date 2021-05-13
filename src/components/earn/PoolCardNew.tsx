@@ -13,8 +13,6 @@ import { unwrappedToken } from '../../utils/wrappedCurrency'
 import { useTotalSupply } from '../../data/TotalSupply'
 import { usePair } from '../../data/Reserves'
 
-import tokenTSAIcon from '../../assets/images/tokenTSA.webp'
-import tokenSATOIcon from '../../assets/images/tokenSATO.webp'
 import { MEDIA_QUERY } from '../../constants/style'
 import {Countdown} from "../../pages/Earn/Countdown";
 
@@ -127,13 +125,6 @@ export default function PoolCard({ stakingInfo }: { stakingInfo: StakingInfo }) 
   const currency0 = unwrappedToken(token0)
   const currency1 = unwrappedToken(token1)
 
-  let tokenIcon = tokenTSAIcon
-  console.log('token', stakingInfo.tokens)
-
-  if (token1.address == '0xF6E6892325a74383A70570F1EBea9A476483a611') {
-    tokenIcon = tokenSATOIcon
-  }
-
   const isStaking = Boolean(stakingInfo.stakedAmount.greaterThan('0'))
 
   // const tokenIcon = stakingInfo.stakingRewardAddress == ''
@@ -169,8 +160,7 @@ export default function PoolCard({ stakingInfo }: { stakingInfo: StakingInfo }) 
 
   return (
     <Wrapper showBackground={isStaking} bgColor={backgroundColor}>
-      <img src={tokenIcon} width="103" height="103" />
-      
+      <img src={stakingInfo.iconUrl} width="103" height="103" />
       <Title>
         {currency0.symbol}-{currency1.symbol}
       </Title>

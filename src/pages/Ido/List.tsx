@@ -32,6 +32,7 @@ const List = ()=>{
       medium: "",
       info: "CaoJun limited edition of NFT Collectibles.",
       joinUs: "/iro/bnb/0x5f99ACF13CAff815DD9cB4A415c0fB34e9F4545b/0xb222571f700a9f0A86a4e70A5dA16d9Da8b9E042",
+      when: "When: XXXXXXX (05.24 16:00 UTC)",
       sign: NewImg
     },
     {
@@ -91,6 +92,9 @@ const List = ()=>{
                 </Read>
                 <Spe></Spe>
                 <Info>{v.info}</Info>
+                <div>
+                  {v.when && (v.when)}
+                </div>
                 <StyledLink to={v.joinUs}>
                   <JoinUs>
                     {"Join Us"}
