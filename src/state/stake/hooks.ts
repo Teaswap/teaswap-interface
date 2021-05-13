@@ -17,6 +17,7 @@ export const STAKING_REWARDS_INFO: {
   [chainId in ChainId]?: {
     tokens: [Token, Token]
     stakingRewardAddress: string
+    iconUrl: string
   }[]
 } = {
   [ChainId.BSC_MAINNET]: [
@@ -26,7 +27,8 @@ export const STAKING_REWARDS_INFO: {
     // },
     {
       tokens: [PAYABLEETH[ChainId.BSC_MAINNET], UNI[ChainId.BSC_MAINNET]],
-      stakingRewardAddress: '0xfE93a00Cf957ba4DC84dF48AC698505e7E17F631'
+      stakingRewardAddress: '0xfE93a00Cf957ba4DC84dF48AC698505e7E17F631',
+      iconUrl: "/bnb_icon.webp"
     },
     // 0xfE93a00Cf957ba4DC84dF48AC698505e7E17F631 stakeBNB()
     // 0xb71fa06476fC11dd160A2D6B06A5B5797C03a096 stake()
@@ -36,35 +38,43 @@ export const STAKING_REWARDS_INFO: {
     // },
     {
       tokens: [BNB_BAKE_LP, UNI[ChainId.BSC_MAINNET]],
-      stakingRewardAddress: '0x7bA8Fd959814b0959573CB4830BF81dbf789396e'
+      stakingRewardAddress: '0x7bA8Fd959814b0959573CB4830BF81dbf789396e',
+      iconUrl: "/blp_icon.webp"
     },
     {
       tokens: [BUSD, UNI[ChainId.BSC_MAINNET]],
-      stakingRewardAddress: '0x7Cc95C5c821370960865aCf43DebbA42CeC22405'
+      stakingRewardAddress: '0x7Cc95C5c821370960865aCf43DebbA42CeC22405',
+      iconUrl: "/busd_icon.webp"
     },
     {
       tokens: [DOGE, UNI[ChainId.BSC_MAINNET]],
-      stakingRewardAddress:'0x96c51D3FAb14f27b5D9E45CDB43235d703B5e211'
+      stakingRewardAddress:'0x96c51D3FAb14f27b5D9E45CDB43235d703B5e211',
+      iconUrl: "/doge_icon.webp"
     },
     {
       tokens: [BAKE, UNI[ChainId.BSC_MAINNET]],
-      stakingRewardAddress:'0x727408110931e052F112af167722b5f63a0a7E44'
+      stakingRewardAddress:'0x727408110931e052F112af167722b5f63a0a7E44',
+      iconUrl: "/bake_icon.webp"
     },
     {
       tokens: [SHIB, UNI[ChainId.BSC_MAINNET]],
-      stakingRewardAddress:'0xF22AF684c4389c7899777660D3ec29b9745C6222'
+      stakingRewardAddress:'0xF22AF684c4389c7899777660D3ec29b9745C6222',
+      iconUrl: "/shib_icon.webp"
     },
     {
       tokens: [UNI[ChainId.BSC_MAINNET],ICASH],
-      stakingRewardAddress:'0x26a346dDbb7ea083c85c696Cfa77F84C8bd4109d'
+      stakingRewardAddress:'0x26a346dDbb7ea083c85c696Cfa77F84C8bd4109d',
+      iconUrl: "/icash_icon.webp"
     },
     {
       tokens: [UNI[ChainId.BSC_MAINNET],SHIH],
-      stakingRewardAddress:'0x667202a1Dc34EFA5f54580C8E69f8128573786f4'
+      stakingRewardAddress:'0x667202a1Dc34EFA5f54580C8E69f8128573786f4',
+      iconUrl: "/shih_icon.webp"
     },
     {
       tokens: [UNI[ChainId.BSC_MAINNET], CJAI],
-      stakingRewardAddress: '0x261f94f98327b17649eda469c958deaac4c479d5'
+      stakingRewardAddress: '0x261f94f98327b17649eda469c958deaac4c479d5',
+      iconUrl: "/caojunnft_icon.webp"
     }
   ]
 }
