@@ -194,14 +194,6 @@ const HomePage = () => {
   ]
 const products2 = [
     {
-      picture_url: process.env.PUBLIC_URL + '/nft/tsa/1.gif',
-      title: "TSA Collections Club",
-      number: "",
-      info: "A Trusted Partner in NFT Exchange.",
-      mediaType: 1,
-      id: 1,
-    },
-    {
       picture_url: process.env.PUBLIC_URL + '/nft/tsa/2.jpeg',
       title: "The Very Best",
       number: "",
@@ -232,6 +224,14 @@ const products2 = [
       info: "Artist: Manuel Robbe",
       mediaType: 1,
       id: 5,
+    },
+    {
+      picture_url: process.env.PUBLIC_URL + '/nft/tsa/1.gif',
+      title: "TSA Collections Club",
+      number: "",
+      info: "A Trusted Partner in NFT Exchange.",
+      mediaType: 1,
+      id: 1,
     },
     {
       picture_url: process.env.PUBLIC_URL + '/nft/tsa/6.jpeg',
