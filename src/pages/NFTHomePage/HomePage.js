@@ -337,6 +337,14 @@ const products2 = [
       mediaType: 1,
       id: 19
     },
+    {
+      picture_url: process.env.PUBLIC_URL + '/nft/tsa/20.gif',
+      title: "Shih NFT Shop",
+      number: "",
+      info: "Creator: Eason Lin",
+      mediaType: 1,
+      id: 20
+    }
   ]
 
 
