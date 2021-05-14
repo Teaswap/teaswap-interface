@@ -40,7 +40,7 @@ const TopSection = styled(ColumnCenter)`
 
 const PoolSection = styled.div`
   width: 100%;
-  max-width: 1060px;
+  max-width: 1496px;
   margin: 0 auto;
   margin-top: 20px;
   display: flex;
@@ -94,7 +94,6 @@ export default function Earn() {
           ) : (
             stakingInfos?.map(stakingInfo => {
               // need to sort by added liquidity here
-              console.log('stakingInfo', JSON.stringify(stakingInfo))
               return <PoolCardNew key={stakingInfo.stakingRewardAddress} stakingInfo={stakingInfo} />
             })
           )}

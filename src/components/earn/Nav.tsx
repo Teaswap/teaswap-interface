@@ -40,7 +40,7 @@ const StyledNav = styled.nav`
   display: flex;
   justify-content: flex-start;
   width: 100%;
-  max-width: 1060px;
+  max-width: 1270px;
   margin:0 auto;
   // margin-top: 20px;
   flex-wrap: wrap;

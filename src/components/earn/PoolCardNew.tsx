@@ -25,7 +25,7 @@ const Title = styled.span`
 
 const Wrapper = styled(AutoColumn)<{ showBackground: boolean; bgColor: any }>`
   text-align: center;
-  max-width: 330px;
+  max-width: 380px;
   width: 100%;
   display: flex;
   padding: 15px;
@@ -40,7 +40,7 @@ const Wrapper = styled(AutoColumn)<{ showBackground: boolean; bgColor: any }>`
   transform: translateZ(0);
   margin: 0px;
   align-items: center;
-  margin-right: 20px;
+  margin-right: 40px;
   margin-top: 30px;
   ${MEDIA_QUERY.sm} {
     margin-right: 0;
