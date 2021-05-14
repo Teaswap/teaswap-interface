@@ -1,4 +1,4 @@
-import React, {  useState } from 'react'
+import React, {useEffect, useMemo, useState} from 'react'
 import { AutoColumn } from '../../components/Column'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
@@ -15,7 +15,7 @@ import { RowBetween } from '../../components/Row'
 import { CardSection, DataCard, CardNoise, CardBGImage } from '../../components/earn/styled'
 import { ButtonPrimary, ButtonEmpty } from '../../components/Button'
 import StakingModal from '../../components/earn/StakingModal'
-import { useStakingInfo } from '../../state/stake/hooks'
+import {STAKING_GENESIS, useStakingInfo} from '../../state/stake/hooks'
 import UnstakingModal from '../../components/earn/UnstakingModal'
 import {ClaimRewardModal} from '../../components/earn/ClaimRewardModal'
 import {useETHBalances, useTokenBalance} from '../../state/wallet/hooks'
@@ -174,6 +174,30 @@ const Manage = ()=>{
   //   }
   // }, [setShowStakingModal, account, toggleWalletModal])
 
+  const duration = useMemo(() => (stakingInfo?.rewardsDuration ? stakingInfo?.rewardsDuration : 100000), [
+    stakingInfo?.rewardsDuration
+  ])
+
+  const end = useMemo(() => (stakingInfo?.periodFinish ? stakingInfo?.periodFinish?.getTime()/1000 : STAKING_GENESIS + duration), [
+    stakingInfo?.periodFinish,duration
+  ])
+
+  const begin = useMemo(() => (end - duration), [end,duration])
+
+  // get current time
+  const [time, setTime] = useState(() => Math.floor(Date.now() / 1000))
+  useEffect((): (() => void) | void => {
+    // we only need to tick if rewards haven't ended yet
+    if (time <= end) {
+      const timeout = setTimeout(() => setTime(Math.floor(Date.now() / 1000)), 1000)
+      return () => {
+        clearTimeout(timeout)
+      }
+    }
+  }, [time, end])
+
+  const timeUntilGenesis = begin - time
+  const timeUntilEnd = end - time
 
 
   return (
@@ -364,7 +388,8 @@ const Manage = ()=>{
                   } else {
                     toggleWalletModal()
                   }
-            }}>
+            }}
+            disabled={timeUntilGenesis>=0||timeUntilEnd<=0} >
               {stakingInfo?.stakedAmount?.greaterThan(JSBI.BigInt(0)) ? 'Deposit' : 'Deposit Tokens'}
             </ButtonPrimary>
 

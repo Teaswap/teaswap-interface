@@ -1,11 +1,11 @@
-import React from 'react'
+import React, {useEffect, useMemo, useState} from 'react'
 import { AutoColumn } from '../Column'
 import { RowBetween } from '../Row'
 import styled from 'styled-components'
 import { useTranslation } from 'react-i18next'
 import { TYPE } from '../../theme'
 import { ETHER, JSBI, TokenAmount } from '@teaswap/uniswap-sdk'
-import { StakingInfo } from '../../state/stake/hooks'
+import {STAKING_GENESIS, StakingInfo} from '../../state/stake/hooks'
 import { useColor } from '../../hooks/useColor'
 import { currencyId } from '../../utils/currencyId'
 import { Break } from './styled'
@@ -145,8 +145,43 @@ export default function PoolCard({ stakingInfo }: { stakingInfo: StakingInfo }) 
 
   const totalSupplyOfStakingToken = useTotalSupply(stakingInfo.stakedAmount.token)
   const [, stakingTokenPair] = usePair(...stakingInfo.tokens)
+    const duration = useMemo(() => (stakingInfo?.rewardsDuration ? stakingInfo?.rewardsDuration : 100000), [
+        stakingInfo?.rewardsDuration
+    ])
 
-  // let returnOverMonth: Percent = new Percent('0')
+    const end = useMemo(() => (stakingInfo?.periodFinish ? stakingInfo?.periodFinish?.getTime()/1000 : STAKING_GENESIS + duration), [
+        stakingInfo?.periodFinish,duration
+    ])
+
+    const begin = useMemo(() => (end - duration), [end,duration])
+
+    // get current time
+    const [time, setTime] = useState(() => Math.floor(Date.now() / 1000))
+    useEffect((): (() => void) | void => {
+        // we only need to tick if rewards haven't ended yet
+        if (time <= end) {
+            const timeout = setTimeout(() => setTime(Math.floor(Date.now() / 1000)), 1000)
+            return () => {
+                clearTimeout(timeout)
+            }
+        }
+    }, [time, end])
+
+    const timeUntilGenesis = begin - time
+    const timeUntilEnd = end - time
+
+    // if(currency0.symbol===currency1.symbol){
+    //
+    //     console.log(begin)
+    //     console.log(duration)
+    //     console.log(end)
+    //     console.log(time)
+    //     console.log(timeUntilGenesis)
+    //     console.log(timeUntilGenesis)
+    // }
+
+
+    // let returnOverMonth: Percent = new Percent('0')
   let valueOfTotalStakedAmountInWETH: TokenAmount | undefined
   if (totalSupplyOfStakingToken && stakingTokenPair) {
     // take the total amount of LP tokens staked, multiply by ETH value of all LP tokens, divide by all LP tokens
@@ -206,8 +241,8 @@ export default function PoolCard({ stakingInfo }: { stakingInfo: StakingInfo }) 
             <Countdown exactEnd={stakingInfo?.periodFinish} rewardsDuration={stakingInfo?.rewardsDuration} />
         </RowBetween>
 
-        <StyledLink href={`/staking/${currencyId(currency0)}/${currencyId(currency1)}/${stakingInfo.stakingRewardAddress}`} >
-        <SelectBtn> 
+        <StyledLink href={((timeUntilGenesis <= 0 && timeUntilEnd > 0) || isStaking) ? `/staking/${currencyId(currency0)}/${currencyId(currency1)}/${stakingInfo.stakingRewardAddress}`:`#`} >
+        <SelectBtn>
           {isStaking ? t('manage') : t('select')}
         </SelectBtn>
       </StyledLink>

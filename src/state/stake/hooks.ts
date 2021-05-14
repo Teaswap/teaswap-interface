@@ -8,7 +8,7 @@ import { NEVER_RELOAD, useMultipleContractSingleData } from '../multicall/hooks'
 import { tryParseAmount } from '../swap/hooks'
 
 
-export const STAKING_GENESIS = 1600387200
+export const STAKING_GENESIS = 1620946800
 
 export const REWARDS_DURATION_DAYS = 60
 
@@ -21,10 +21,11 @@ export const STAKING_REWARDS_INFO: {
   }[]
 } = {
   [ChainId.BSC_MAINNET]: [
-    // {
-    //   tokens: [UNI[ChainId.BSC_MAINNET], UNI[ChainId.BSC_MAINNET]],
-    //   stakingRewardAddress: '0x288107De029DadFA70E6501aE71cb88c10E990AA'
-    // },
+    {
+      tokens: [UNI[ChainId.BSC_MAINNET], UNI[ChainId.BSC_MAINNET]],
+      stakingRewardAddress: '0x288107De029DadFA70E6501aE71cb88c10E990AA',
+      iconUrl: "/bnb_icon.webp"
+    },
     {
       tokens: [PAYABLEETH[ChainId.BSC_MAINNET], UNI[ChainId.BSC_MAINNET]],
       stakingRewardAddress: '0xfE93a00Cf957ba4DC84dF48AC698505e7E17F631',
