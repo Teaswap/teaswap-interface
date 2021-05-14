@@ -138,6 +138,22 @@ export const SHIH = new Token(
     'Shih Tzu'
 )
 
+export const DOGGY = new Token(
+    ChainId.BSC_MAINNET,
+    '0x74926b3d118a63f6958922d3dc05eb9c6e6e00c6',
+    18,
+    'DOGGY',
+    'DOGGY'
+)
+
+export const SAFEMOON = new Token(
+    ChainId.BSC_MAINNET,
+    '0x8076c74c5e3f5852037f31ff0093eeb8c8add8d3',
+    18,
+    'SAFEMOON',
+    'SafeMoon'
+)
+
 export const BAKE = new Token(
     ChainId.BSC_MAINNET,
     '0xE02dF9e3e622DeBdD69fb838bB799E3F168902c5',

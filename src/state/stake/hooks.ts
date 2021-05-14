@@ -1,7 +1,7 @@
 import { ChainId, CurrencyAmount, JSBI, Token, TokenAmount } from '@teaswap/uniswap-sdk'
 import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
-import {UNI, BUSD, PAYABLEETH, CJAI, DOGE, SHIB, SHIH, ICASH, BAKE, BNB_BAKE_LP} from '../../constants'
+import {UNI, BUSD, PAYABLEETH, CJAI, DOGE, SHIB, SHIH, ICASH, BAKE, BNB_BAKE_LP, DOGGY, SAFEMOON} from '../../constants'
 import { IDO_ABI_INTERFACE, STAKING_REWARDS_INTERFACE } from '../../constants/abis/staking-rewards'
 import { useActiveWeb3React } from '../../hooks'
 import { NEVER_RELOAD, useMultipleContractSingleData } from '../multicall/hooks'
@@ -22,9 +22,14 @@ export const STAKING_REWARDS_INFO: {
 } = {
   [ChainId.BSC_MAINNET]: [
     {
-      tokens: [UNI[ChainId.BSC_MAINNET], UNI[ChainId.BSC_MAINNET]],
-      stakingRewardAddress: '0x288107De029DadFA70E6501aE71cb88c10E990AA',
-      iconUrl: "/bnb_icon.webp"
+      tokens: [DOGGY, SHIH],
+      stakingRewardAddress: '0xb15C94cb098864951538cDbAb648CaaDf535f899',
+      iconUrl: "/doggy_icon.png"
+    },
+    {
+      tokens: [SAFEMOON, SHIH],
+      stakingRewardAddress: '0x39BaBd84e5815bDEFC26294aDA42b19427083721',
+      iconUrl: "/safemoon_icon.png"
     },
     {
       tokens: [PAYABLEETH[ChainId.BSC_MAINNET], UNI[ChainId.BSC_MAINNET]],
