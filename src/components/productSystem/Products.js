@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { COLOR, FONT, DISTANCE,EFFECT } from '../../constants/style';
+import { COLOR, FONT, DISTANCE,EFFECT, MEDIA_QUERY } from '../../constants/style';
 import { MoreButton, ErrorMessage } from '../../components/productSystem/';
 import useProduct from '../../hooks/productHooks/useProduct';
 import { NavLink } from 'react-router-dom';
@@ -20,6 +20,9 @@ const ProductsWrap = styled.div`
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: ${(props) => props.$justify || 'center'};
+  ${MEDIA_QUERY.sm}{
+    justify-content: center;
+  }
 `;
 
 const ProductContainer = styled.div`

@@ -95,7 +95,7 @@ export const BNB_BAKE_LP = new Token(
     ChainId.BSC_MAINNET,
     '0xc2eed0f5a0dc28cfa895084bc0a9b8b8279ae492',
     18,
-    'BNB_BAKE_BLP',
+    'BNB-BAKE BLP',
     'BNB_BAKE_BakeryLP'
 )
 

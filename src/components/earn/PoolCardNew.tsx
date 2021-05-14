@@ -13,8 +13,6 @@ import { unwrappedToken } from '../../utils/wrappedCurrency'
 import { useTotalSupply } from '../../data/TotalSupply'
 import { usePair } from '../../data/Reserves'
 
-import tokenTSAIcon from '../../assets/images/tokenTSA.webp'
-import tokenSATOIcon from '../../assets/images/tokenSATO.webp'
 import { MEDIA_QUERY } from '../../constants/style'
 import {Countdown} from "../../pages/Earn/Countdown";
 
@@ -27,7 +25,7 @@ const Title = styled.span`
 
 const Wrapper = styled(AutoColumn)<{ showBackground: boolean; bgColor: any }>`
   text-align: center;
-  max-width: 330px;
+  max-width: 380px;
   width: 100%;
   display: flex;
   padding: 15px;
@@ -42,7 +40,7 @@ const Wrapper = styled(AutoColumn)<{ showBackground: boolean; bgColor: any }>`
   transform: translateZ(0);
   margin: 0px;
   align-items: center;
-  margin-right: 20px;
+  margin-right: 40px;
   margin-top: 30px;
   ${MEDIA_QUERY.sm} {
     margin-right: 0;
@@ -113,7 +111,7 @@ const Spe = styled.p`
 `
 
 const CoinRowBetween = styled(RowBetween)`
-  width: 250px;
+  width: 299px;
   margin-top: 16px;
   font-weight: bolder;
 `
@@ -126,13 +124,6 @@ export default function PoolCard({ stakingInfo }: { stakingInfo: StakingInfo }) 
 
   const currency0 = unwrappedToken(token0)
   const currency1 = unwrappedToken(token1)
-
-  let tokenIcon = tokenTSAIcon
-  console.log('token', stakingInfo.tokens)
-
-  if (token1.address == '0xF6E6892325a74383A70570F1EBea9A476483a611') {
-    tokenIcon = tokenSATOIcon
-  }
 
   const isStaking = Boolean(stakingInfo.stakedAmount.greaterThan('0'))
 
@@ -204,10 +195,9 @@ export default function PoolCard({ stakingInfo }: { stakingInfo: StakingInfo }) 
 
   return (
     <Wrapper showBackground={isStaking} bgColor={backgroundColor}>
-      <img src={tokenIcon} width="103" height="103" />
-      
+      <img src={stakingInfo.iconUrl} width="103" height="103" />
       <Title>
-        {currency0.symbol}-{currency1.symbol}
+        {currency0.symbol}
       </Title>
       <Spe />
       <CoinRowBetween>
@@ -222,22 +212,22 @@ export default function PoolCard({ stakingInfo }: { stakingInfo: StakingInfo }) 
           {currency1.symbol}
         </TYPE.black>
       </CoinRowBetween>
-      <RowBetween style={{width: '250px', marginTop: '24px'}}>
+      <RowBetween style={{width: '299px', marginTop: '24px'}}>
         <TYPE.black> {t('totalDeposited')}</TYPE.black>
         <TYPE.black fontWeight='bolder'>
           {stakingInfo.totalStakedAmount
-            ? `${stakingInfo.totalStakedAmount.toFixed(4, { groupSeparator: ',' })} ${currency0.symbol}`
-            : `${valueOfTotalStakedAmountInWETH?.toSignificant(4, { groupSeparator: ',' }) ?? '-'} ${currency0.symbol}`}
+            ? `${stakingInfo.totalStakedAmount.toFixed(4, { groupSeparator: ',' })} `
+            : `${valueOfTotalStakedAmountInWETH?.toSignificant(4, { groupSeparator: ',' }) ?? '-'} `}
         </TYPE.black>
       </RowBetween>
-      <RowBetween style={{width: '250px', marginTop: '24px'}}>
+      <RowBetween style={{width: '299px', marginTop: '24px'}}>
         <TYPE.black> {t('poolRate')} </TYPE.black>
         <TYPE.black fontWeight='bolder'>
           {`${stakingInfo.totalRewardRate
           ?.multiply(`${60 * 60 * 24 * 7}`)
           ?.toFixed(0, { groupSeparator: ',' })} ${token1.symbol} / week`}</TYPE.black>
       </RowBetween>
-        <RowBetween style={{width: '250px', marginTop: '24px'}}>
+        <RowBetween style={{width: '299px', marginTop: '24px'}}>
             <Countdown exactEnd={stakingInfo?.periodFinish} rewardsDuration={stakingInfo?.rewardsDuration} />
         </RowBetween>
 

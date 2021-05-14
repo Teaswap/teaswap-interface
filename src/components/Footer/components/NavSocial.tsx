@@ -12,23 +12,23 @@ const NavSocial: React.FC = () => {
     <StyledNav>
 
       <StyledLink target="_blank" href="https://twitter.com/ArtTeaswap">
-        <img src={twitterIcon}  width="23" height="23" />
+        <img src={twitterIcon}  width="31" height="31" />
       </StyledLink>
       <StyledLink style={{padding:"0 4px"}}> </StyledLink>
       <StyledLink target="_blank" href="https://t.me/icashrewards123">
-        <img src={telegramIcon}  width="23" height="23" />
+        <img src={telegramIcon}  width="31" height="31" />
       </StyledLink>
       <StyledLink style={{padding:"0 4px"}}> </StyledLink>
       <StyledLink target="_blank" href="https://www.instagram.com/tsa.nft/">
-        <img src={insgramIcon}  width="23" height="23" />
+        <img src={insgramIcon}  width="31" height="31" />
       </StyledLink>
       <StyledLink style={{padding:"0 4px"}}> </StyledLink>
       <StyledLink target="_blank" href="https://icashrewards.ca/">
-        <img src={icashIcon}  width="23" height="23" />
+        <img src={icashIcon}  width="31" height="31" />
       </StyledLink>
       <StyledLink style={{padding:"0 4px"}}> </StyledLink>
       <StyledLink target="_blank" href="https://linktr.ee/teaswap">
-        <img src={linkTrIcon}  width="23" height="23" />
+        <img src={linkTrIcon}  width="31" height="31" />
       </StyledLink>
       <StyledLink style={{padding:"0 4px"}}> </StyledLink>
       {/* <StyledLink target="_blank" href="https://t.me/bestswap_com">
