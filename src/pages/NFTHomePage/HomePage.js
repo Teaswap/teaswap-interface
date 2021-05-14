@@ -29,7 +29,7 @@ const Section = styled.div`
   margin-top: 0;
   padding: 20px 0;
   height: auto;
-  max-width: 1000px;
+  max-width: 1320px;
 `;
 
 const  TitleSection = styled.div`
@@ -92,7 +92,7 @@ const JoinUs = styled.span`
 
 const Nav = styled.div`
   width: 100%;
-  max-width: 1000px;
+  max-width: 1320px;
   margin: 0 auto;
   text-align: left;
   display: flex;

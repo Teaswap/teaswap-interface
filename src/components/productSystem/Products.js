@@ -26,7 +26,7 @@ const ProductsWrap = styled.div`
 `;
 
 const ProductContainer = styled.div`
-  width: ${(props) => props.$height || '311px'};
+  width: ${(props) => props.$height || '380px'};
   border-width: 0 0 0 0;
   border-style: solid solid solid solid;
   border-color: rgba(176, 169, 134, 1) rgba(176, 169, 134, 1) rgba(176, 169, 134, 1) rgba(176, 169, 134, 1);
@@ -51,7 +51,7 @@ const Placeholder = styled.div`
 
 const ProductPicture = styled.img`
   position: relative;
-  height: 414px;
+  height: 450px;
   width: 100%;
   object-fit: cover;
   transition: opacity 0.2s;
