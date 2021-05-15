@@ -98,6 +98,7 @@ const Nav = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
+  padding:0 20px;
 `
 
 const NavItem = styled.div`

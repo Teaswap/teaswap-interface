@@ -27,11 +27,19 @@ const ProductsWrap = styled.div`
 
 const ProductContainer = styled.div`
   width: 30.333333%;
-  ${MEDIA_QUERY.md} {
+  ${MEDIA_QUERY.lg} {
     width: 45%;
+    margin: 0 2.5%;
+    margin-top: 30px;
+  }
+  ${MEDIA_QUERY.md} {
+    width: 60%;
+    margin: 0 20%;
+    margin-top: 30px;
   }
   ${MEDIA_QUERY.sm}{
     width: 100%;
+    margin-top: 30px;
   }
   margin: 0 1.5%;
   border-width: 0 0 0 0;
