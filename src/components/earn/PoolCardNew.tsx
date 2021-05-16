@@ -38,6 +38,7 @@ const Wrapper = styled(AutoColumn)<{ showBackground: boolean; bgColor: any }>`
   }
   ${MEDIA_QUERY.sm}{
     width: 100%;
+    margin: 0 0;
     margin-top: 30px;
   }
   margin: 0 1.5%;

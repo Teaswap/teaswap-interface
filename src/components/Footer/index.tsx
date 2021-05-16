@@ -42,6 +42,9 @@ const StyledFooterInner = styled.div`
   width: 90%;
   padding: 60px 15px 54px;
   box-sizing: border-box;
+  ${MEDIA_QUERY.sm} {
+    width: 98%;
+  }
 `
 
 const StyledFooterItemLeft = styled.section`
