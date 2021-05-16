@@ -1,7 +1,21 @@
 import { ChainId, CurrencyAmount, JSBI, Token, TokenAmount } from '@teaswap/uniswap-sdk'
 import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
-import {UNI, BUSD, PAYABLEETH, CJAI, DOGE, SHIB, SHIH, ICASH, BAKE, BNB_BAKE_LP, DOGGY, SAFEMOON} from '../../constants'
+import {
+  UNI,
+  BUSD,
+  PAYABLEETH,
+  CJAI,
+  DOGE,
+  SHIB,
+  SHIH,
+  ICASH,
+  BAKE,
+  BNB_BAKE_LP,
+  DOGGY,
+  SAFEMOON,
+  BNB_SHIH_LP
+} from '../../constants'
 import { IDO_ABI_INTERFACE, STAKING_REWARDS_INTERFACE } from '../../constants/abis/staking-rewards'
 import { useActiveWeb3React } from '../../hooks'
 import { NEVER_RELOAD, useMultipleContractSingleData } from '../multicall/hooks'
@@ -21,6 +35,16 @@ export const STAKING_REWARDS_INFO: {
   }[]
 } = {
   [ChainId.BSC_MAINNET]: [
+    {
+      tokens: [BNB_SHIH_LP, SHIH],
+      stakingRewardAddress: '0x5c26Af070A595d779aB14d2dA545409F9aDA598f',
+      iconUrl: "/shihbnb_icon.jpeg"
+    },
+    {
+      tokens: [SHIH, CJAI],
+      stakingRewardAddress: '0xA066432B6f34760b4420C0ff044e8e6D014bCa4b',
+      iconUrl: "/shih_icon.jpeg"
+    },
     {
       tokens: [DOGGY, SHIH],
       stakingRewardAddress: '0xb15C94cb098864951538cDbAb648CaaDf535f899',

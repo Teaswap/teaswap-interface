@@ -3,6 +3,7 @@ import React, { useMemo } from 'react'
 import styled from 'styled-components'
 
 import EthereumLogo from '../../assets/images/bnb.svg'
+import BLPLogo from '../../assets/images/blp_logo.png'
 import useHttpLocations from '../../hooks/useHttpLocations'
 import {  WrappedTokenInfo } from '../../state/lists/hooks'
 // import Logo from '../Logo'
@@ -17,6 +18,7 @@ const StyledEthereumLogo = styled.img<{ size: string }>`
   box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.075);
   border-radius: 24px;
 `
+
 
 // const StyledLogo = styled(Logo)<{ size: string }>`
 //   width: ${({ size }) => size};
@@ -39,6 +41,7 @@ export default function CurrencyLogo({
 
   const srcs: string[] = useMemo(() => {
     if (currency === ETHER) return []
+    if (currency?.symbol?.includes("BLP")) return []
 
     if (currency instanceof Token) {
       if (currency instanceof WrappedTokenInfo) {
@@ -50,6 +53,10 @@ export default function CurrencyLogo({
     return []
   }, [currency, uriLocations])
 
+  if (currency?.symbol?.includes("BLP")){
+    return <StyledEthereumLogo src={BLPLogo} size={size} style={style} />
+  }
+  
   if (currency === ETHER) {
     return <StyledEthereumLogo src={EthereumLogo} size={size} style={style} />
   }

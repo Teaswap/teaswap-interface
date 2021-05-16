@@ -104,7 +104,7 @@ export default function ClaimModal() {
                 <CloseIcon onClick={toggleClaimModal} style={{ zIndex: 99 }} color="white" />
               </RowBetween>
               <TYPE.white fontWeight={700} fontSize={36}>
-                {unclaimedAmount?.toFixed(0, { groupSeparator: ',' } ?? '-')} TSA
+                {unclaimedAmount?.toFixed(0, { groupSeparator: ',' } ?? '-')} SHIH
               </TYPE.white>
             </CardSection>
             <Break />
@@ -112,7 +112,7 @@ export default function ClaimModal() {
               {userClaimData?.flags?.isSOCKS && (
                 <RowBetween>
                   <TYPE.subHeader color="white">{t('socks')}</TYPE.subHeader>
-                  <TYPE.subHeader color="white">{SOCKS_AMOUNT} TSA</TYPE.subHeader>
+                  <TYPE.subHeader color="white">{SOCKS_AMOUNT} SHIH</TYPE.subHeader>
                 </RowBetween>
               )}
               {userClaimData?.flags?.isLP &&
@@ -124,14 +124,14 @@ export default function ClaimModal() {
                       {unclaimedAmount
                         .subtract(new TokenAmount(unclaimedAmount.token, nonLPAmount))
                         .toFixed(0, { groupSeparator: ',' })}{' '}
-                      TSA
+                      SHIH
                     </TYPE.subHeader>
                   </RowBetween>
                 )}
               {userClaimData?.flags?.isUser && (
                 <RowBetween>
                   <TYPE.subHeader color="white">{t('user')}</TYPE.subHeader>
-                  <TYPE.subHeader color="white">{USER_AMOUNT} TSA</TYPE.subHeader>
+                  <TYPE.subHeader color="white">{USER_AMOUNT} SHIH</TYPE.subHeader>
                 </RowBetween>
               )}
             </CardSection>
@@ -177,7 +177,7 @@ export default function ClaimModal() {
               </TYPE.largeHeader>
               {!claimConfirmed && (
                 <Text fontSize={36} color={'#fe2500'} fontWeight={800}>
-                  {unclaimedAmount?.toFixed(0, { groupSeparator: ',' } ?? '-')} TSA
+                  {unclaimedAmount?.toFixed(0, { groupSeparator: ',' } ?? '-')} SHIH
                 </Text>
               )}
             </AutoColumn>

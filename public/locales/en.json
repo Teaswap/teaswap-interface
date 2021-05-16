@@ -276,7 +276,7 @@
   "weeklyRewards": "Weekly Rewards",
   "depositingLiquidity": "Depositing Liquidity",
   "depositedLiquidity": "Deposited liquidity",
-  "when-you-withdraw-your-best-is-claimed-and-your-liquidity-is-removed-from-the-mining-pool": "When you withdraw, your TSA is claimed and your liquidity is removed from the mining pool.",
+  "when-you-withdraw-your-best-is-claimed-and-your-liquidity-is-removed-from-the-mining-pool": "When you withdraw, your your staked token is removed from the mining pool and will not earn more rewards.",
   "withdrawing": "Withdrawing",
   "withdrew": "Withdrew",
   "partners": "Partners",

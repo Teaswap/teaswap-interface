@@ -272,7 +272,7 @@
   "user": "用户",
   "weeklyRewards": "每周奖励",
   "when-you-claim-without-withdrawing-your-liquidity-remains-in-the-mining-pool": "当您要求不撤回资金时，您的流动资金仍留在采矿池中。",
-  "when-you-withdraw-your-best-is-claimed-and-your-liquidity-is-removed-from-the-mining-pool": "当您提款时，您的最佳权益被要求，并且您的流动性从采矿池中删除。",
+  "when-you-withdraw-your-best-is-claimed-and-your-liquidity-is-removed-from-the-mining-pool": "当您提款时，您的抵押币种从采矿池中删除，并且不再产生任何收益。",
   "You can claim the coin you participated here": "点击下方按钮，领取你参与的IRO项目代币",
   "withdrew": "撤回",
   "yourRate": "您的费率",

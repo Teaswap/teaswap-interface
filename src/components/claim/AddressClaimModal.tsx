@@ -130,7 +130,7 @@ export default function AddressClaimModal({ isOpen, onDismiss }: { isOpen: boole
               mt="1rem"
               onClick={onClaim}
             >
-              {t('claim')} TSA
+              {t('claim')} SHIH
             </ButtonPrimary>
           </AutoColumn>
         </ContentWrapper>
@@ -157,7 +157,7 @@ export default function AddressClaimModal({ isOpen, onDismiss }: { isOpen: boole
               </TYPE.largeHeader>
               {!claimConfirmed && (
                 <Text fontSize={36} color={'#fe2500'} fontWeight={800}>
-                  {unclaimedAmount?.toFixed(0, { groupSeparator: ',' } ?? '-')} TSA
+                  {unclaimedAmount?.toFixed(0, { groupSeparator: ',' } ?? '-')} SHIH
                 </Text>
               )}
               {parsedAddress && (
