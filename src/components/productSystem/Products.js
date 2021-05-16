@@ -39,6 +39,7 @@ const ProductContainer = styled.div`
   }
   ${MEDIA_QUERY.sm}{
     width: 100%;
+    margin: 0;
     margin-top: 30px;
   }
   margin: 0 1.5%;

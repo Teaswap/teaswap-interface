@@ -38,6 +38,9 @@ const PageWrapper = styled.div`
   width: 100%;
   margin-top: -70px;
   text-align: center;
+  ${MEDIA_QUERY.sm} {
+    margin-top: -30px;
+  }
 `
 
 const AuthorInfo = styled(ColumnCenter)`
@@ -49,6 +52,9 @@ const AuthorInfo = styled(ColumnCenter)`
   margin: 0 auto;
   margin-top: 80px;
   align-items: flex-start;
+  ${MEDIA_QUERY.sm} {
+    flex-direction: column-reverse;
+  }
 `
 
 const Author = styled(ColumnCenter)`
@@ -59,6 +65,9 @@ const Author = styled(ColumnCenter)`
   justify-content: flex-start;
   color: #7f7f7f;
   font-size: 13px;
+  ${MEDIA_QUERY.sm} {
+    margin-top: 30px;
+  }
 `
 
 const Box = styled(ColumnCenter)`
@@ -74,6 +83,7 @@ const Box = styled(ColumnCenter)`
   padding-bottom: 20px;
   ${MEDIA_QUERY.sm} {
     margin-left: 0;
+    margin-top: 0;
   }
 `
 
@@ -243,6 +253,7 @@ const Index = ()=>{
             <li>List TSA Token on TeaSwap, BakerySwap and SwapAll for trading and liquidity farming;</li>
             <li>Able to stake TSA to earn CJAI and iCASH, Deposit TSA-BNB BLP to earn TSA, Deposit TSA-BUSD to earn TSA, and Deposit TSA-USDT BLP to earn TSA.</li>
             <li>100,000 $TSA can be exchanged with 1 CaoJun NFT, and 1 CaoJun NFT can be converted into one exclusive physical CaoJun Limited Edition of NFT Collectible ("CaoJun NFT Collectible"). The NFT and $TSA will be burned afterward.</li>
+            <li>The CaoJun NFT will be available at the CaoJun NFT Collectibles (under NFT Broadway tab), and can only be purchased with $TSA</li>
             <li>No minimum: Users can buy fractions of $TSA Offering for CaoJun NFT Collectibles</li>
           </ol>
           <div style={{lineHeight: '30px', fontSize: '15px'}}>  Details : 
