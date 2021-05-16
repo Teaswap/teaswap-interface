@@ -42,6 +42,7 @@ const List = ()=>{
       medium: "",
       info: "We are proud that his work “Persistence” found its way to the Elysee, the French presidential Palace in 2016.",
       joinUs: "#",
+      when: "When: TBD",
       sign: ComingImg
     },
     {

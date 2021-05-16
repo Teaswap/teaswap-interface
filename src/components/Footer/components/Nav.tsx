@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { NavLink } from 'react-router-dom'
+import { MEDIA_QUERY } from '../../../constants/style'
 
 const Nav: React.FC = () => {
   return (
@@ -59,6 +60,9 @@ const StyledLink = styled.a`
 `
 const StyledLinkSep = styled.span`
   padding: 0 12px;
+  ${MEDIA_QUERY.sm} {
+    padding: 0 6px;
+  }
 `
 
 export default Nav

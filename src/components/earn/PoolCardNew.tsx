@@ -25,8 +25,23 @@ const Title = styled.span`
 
 const Wrapper = styled(AutoColumn)<{ showBackground: boolean; bgColor: any }>`
   text-align: center;
-  max-width: 380px;
-  width: 100%;
+  width: 30.3333333%;
+  ${MEDIA_QUERY.lg} {
+    width: 45%;
+    margin: 0 2.5%;
+    margin-top: 30px;
+  }
+  ${MEDIA_QUERY.md} {
+    width: 60%;
+    margin: 0 20%;
+    margin-top: 30px;
+  }
+  ${MEDIA_QUERY.sm}{
+    width: 100%;
+    margin: 0 0;
+    margin-top: 30px;
+  }
+  margin: 0 1.5%;
   display: flex;
   padding: 15px;
   flex-direction: column;
@@ -38,9 +53,7 @@ const Wrapper = styled(AutoColumn)<{ showBackground: boolean; bgColor: any }>`
   box-shadow: 0 4px 10px 0 rgb(0 0 0 / 65%);
   overflow: hidden;
   transform: translateZ(0);
-  margin: 0px;
   align-items: center;
-  margin-right: 40px;
   margin-top: 30px;
   ${MEDIA_QUERY.sm} {
     margin-right: 0;

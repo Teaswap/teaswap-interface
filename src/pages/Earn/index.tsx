@@ -40,13 +40,13 @@ const TopSection = styled(ColumnCenter)`
 
 const PoolSection = styled.div`
   width: 100%;
-  max-width: 1496px;
+  max-width: 1320px;
   margin: 0 auto;
   margin-top: 20px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-start;
 `
 
 const NavAndPool = styled.div`

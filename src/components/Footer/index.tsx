@@ -39,10 +39,12 @@ const StyledFooterInner = styled.div`
   align-items: flex-start;
   display: flex;
   justify-content: space-between;
-  max-width: 1200px;
-  width: 100%;
+  width: 90%;
   padding: 60px 15px 54px;
   box-sizing: border-box;
+  ${MEDIA_QUERY.sm} {
+    width: 98%;
+  }
 `
 
 const StyledFooterItemLeft = styled.section`

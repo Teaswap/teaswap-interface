@@ -19,14 +19,30 @@ const ProductsWrap = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: ${(props) => props.$justify || 'center'};
+  justify-content: flex-start;
   ${MEDIA_QUERY.sm}{
     justify-content: center;
   }
 `;
 
 const ProductContainer = styled.div`
-  width: ${(props) => props.$height || '311px'};
+  width: 30.333333%;
+  ${MEDIA_QUERY.lg} {
+    width: 45%;
+    margin: 0 2.5%;
+    margin-top: 30px;
+  }
+  ${MEDIA_QUERY.md} {
+    width: 60%;
+    margin: 0 20%;
+    margin-top: 30px;
+  }
+  ${MEDIA_QUERY.sm}{
+    width: 100%;
+    margin: 0;
+    margin-top: 30px;
+  }
+  margin: 0 1.5%;
   border-width: 0 0 0 0;
   border-style: solid solid solid solid;
   border-color: rgba(176, 169, 134, 1) rgba(176, 169, 134, 1) rgba(176, 169, 134, 1) rgba(176, 169, 134, 1);
@@ -51,7 +67,7 @@ const Placeholder = styled.div`
 
 const ProductPicture = styled.img`
   position: relative;
-  height: 414px;
+  height: 450px;
   width: 100%;
   object-fit: cover;
   transition: opacity 0.2s;
