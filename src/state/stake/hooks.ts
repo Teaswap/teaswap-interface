@@ -118,12 +118,13 @@ export const IFO_REWARDS_INFO: {
   [ChainId.BSC_MAINNET]: [
     {
       tokens: [PAYABLEETH[ChainId.BSC_MAINNET], UNI[ChainId.BSC_MAINNET]],
-      idoAddress: '0xb222571f700a9f0A86a4e70A5dA16d9Da8b9E042'
+      idoAddress: '0xF72ECaD992CebB0138aC13b616199f131F847b04'
     }
 
   ]
 }
 
+//0xb222571f700a9f0A86a4e70A5dA16d9Da8b9E042
 export interface StakingInfo {
   // the address of the reward contract
   stakingRewardAddress: string
@@ -173,6 +174,7 @@ export interface IdoInfo {
   rate: TokenAmount
   // when the period ends
   periodFinish: Date | undefined
+  rewardsDuration : number
   // calculates a hypothetical amount of token distributed to the active account per second.
 
 }
@@ -460,6 +462,8 @@ export function useIdoInfo(idoAddress?:string | null): IdoInfo[] {
   const unclaimAmounts = useMultipleContractSingleData(idoAddresses, IDO_ABI_INTERFACE, 'rewards', accountArg)
   const totalSupplies = useMultipleContractSingleData(idoAddresses, IDO_ABI_INTERFACE, 'totalSupply')
   const totalMake = useMultipleContractSingleData(idoAddresses, IDO_ABI_INTERFACE, 'totalMake')
+  const rewardsDurations = useMultipleContractSingleData(idoAddresses, IDO_ABI_INTERFACE, 'rewardsDuration')
+
 
   // tokens per second, constants
   const price = useMultipleContractSingleData(
@@ -499,6 +503,7 @@ export function useIdoInfo(idoAddress?:string | null): IdoInfo[] {
       const periodFinishState = periodFinishes[index]
       const claimedAmountState = claimedAmounts[index]
       const unclaimAmountState = unclaimAmounts[index]
+      const rewardsDurationState = rewardsDurations[index]
 
       if (
         // these may be undefined if not logged in
@@ -518,14 +523,17 @@ export function useIdoInfo(idoAddress?:string | null): IdoInfo[] {
         claimedAmountState &&
         !claimedAmountState.loading &&
           totalMakeState &&
-          !totalMakeState.loading
+          !totalMakeState.loading &&
+        rewardsDurationState &&
+        !rewardsDurationState.loading
       ) {
         if (
           balanceState?.error ||
           earnedAmountState?.error ||
           totalSupplyState.error ||
           rewardRateState.error ||
-          periodFinishState.error
+          periodFinishState.error ||
+            rewardsDurationState.error
         ) {
           console.error('Failed to load staking rewards info')
           return memo
@@ -567,10 +575,12 @@ export function useIdoInfo(idoAddress?:string | null): IdoInfo[] {
         // const individualRewardRate = getHypotheticalRewardRate(stakedAmount, totalStakedAmount, totalRewardRate)
 
         const periodFinishMs = periodFinishState.result?.[0]?.mul(1000)?.toNumber()
+        const rewardsDuration = rewardsDurationState.result?.[0].toNumber()
 
         memo.push({
           idoAddress: idoAddress,
           tokens: info[index].tokens,
+          rewardsDuration:rewardsDuration,
           periodFinish: periodFinishMs > 0 ? new Date(periodFinishMs) : undefined,
           earnedAmount: new TokenAmount(info[index].tokens[1], JSBI.BigInt(earnedAmountState?.result?.[0] ?? 0)),
           // rewardRate: individualRewardRate,

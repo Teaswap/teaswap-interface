@@ -56,7 +56,7 @@ export default function CurrencyLogo({
   if (currency?.symbol?.includes("BLP")){
     return <StyledEthereumLogo src={BLPLogo} size={size} style={style} />
   }
-  
+
   if (currency === ETHER) {
     return <StyledEthereumLogo src={EthereumLogo} size={size} style={style} />
   }

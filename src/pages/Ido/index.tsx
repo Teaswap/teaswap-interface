@@ -1,4 +1,4 @@
-import React, {  useState } from 'react'
+import React, {useEffect, useMemo, useState} from 'react'
 import { AutoColumn, ColumnCenter } from '../../components/Column'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
@@ -14,7 +14,7 @@ import { ExternalLink, TYPE } from '../../theme'
 import { RowBetween } from '../../components/Row'
 import { CardSection, DataCard, CardNoise, CardBGImage } from '../../components/earn/styled'
 import { ButtonPrimary, ButtonEmpty } from '../../components/Button'
-import { useIdoInfo } from '../../state/stake/hooks'
+import {STAKING_GENESIS, useIdoInfo} from '../../state/stake/hooks'
 // import ClaimRewardModal from '../../components/earn/ClaimRewardModal'
 import {useETHBalances, useTokenBalance} from '../../state/wallet/hooks'
 import { useActiveWeb3React } from '../../hooks'
@@ -22,8 +22,6 @@ import { useActiveWeb3React } from '../../hooks'
 import { CountUp } from 'use-count-up'
 
 // import { wrappedCurrency } from '../../utils/wrappedCurrency'
-import { currencyId } from '../../utils/currencyId'
-
 import usePrevious from '../../hooks/usePrevious'
 
 import { BIG_INT_ZERO } from '../../constants'
@@ -33,6 +31,7 @@ import ConTitle from '../../components/Content/Title'
 // import IncubatorBox from '../../components/general/IncubatorBox'
 import ConSubTitle from '../../components/Content/SubTitle'
 import { MEDIA_QUERY } from '../../constants/style'
+import {Countdown} from "../Earn/Countdown";
 
 const PageWrapper = styled.div`
   width: 100%;
@@ -208,7 +207,30 @@ const Index = ()=>{
   //     toggleWalletModal()
   //   }
   // }, [setShowStakingModal, account, toggleWalletModal])
+  const duration = useMemo(() => (idoInfo?.rewardsDuration ? idoInfo?.rewardsDuration : 100000), [
+    idoInfo?.rewardsDuration
+  ])
 
+  const end = useMemo(() => (idoInfo?.periodFinish ? idoInfo?.periodFinish?.getTime()/1000 : STAKING_GENESIS + duration), [
+    idoInfo?.periodFinish,duration
+  ])
+
+  const begin = useMemo(() => (end - duration), [end,duration])
+
+  // get current time
+  const [time, setTime] = useState(() => Math.floor(Date.now() / 1000))
+  useEffect((): (() => void) | void => {
+    // we only need to tick if rewards haven't ended yet
+    if (time <= end) {
+      const timeout = setTimeout(() => setTime(Math.floor(Date.now() / 1000)), 1000)
+      return () => {
+        clearTimeout(timeout)
+      }
+    }
+  }, [time, end])
+
+  const timeUntilGenesis = begin - time
+  const timeUntilEnd = end - time
 
 
   return (
@@ -309,30 +331,31 @@ const Index = ()=>{
             <CardSection>
               <AutoColumn gap="md">
                 <RowBetween>
-                  <TYPE.white fontWeight={600}>
-                    {t('step')} 1. {t('get-best-v2-liquidity-tokens')}
-                  </TYPE.white>
+                  <TYPE.black fontWeight={600}>
+                    {t('step')} 1. {t('get-best-v2-liquidity-tokens',{
+                    symbolOne: currencyA?.symbol
+                  })}
+                  </TYPE.black>
                 </RowBetween>
                 <RowBetween style={{ marginBottom: '1rem' }}>
-                  <TYPE.white fontSize={14}>
+                  <TYPE.black fontSize={14}>
                     {/* {`BEST-V2 LP tokens are required. Once you've added liquidity to the ${currencyA?.symbol}-${currencyB?.symbol} pool you can stake your liquidity tokens on this page.`} */}
                     {t(
                       'best-v2-lp-tokens-are-required-once-youve-added-liquidity-to-the-symbolone-symboltwo-pool-you-can-stake-your-liquidity-tokens-on-this-page',
                       {
-                        symbolOne: currencyA?.symbol,
-                        symbolTwo: currencyB?.symbol
+                        symbolOne: currencyA?.symbol
                       }
                     )}
-                  </TYPE.white>
+                  </TYPE.black>
                 </RowBetween>
                 <ButtonPrimary
                   padding="8px"
                   borderRadius="0px"
                   width={'fit-content'}
                   as={Link}
-                  to={`/add/${currencyA && currencyId(currencyA)}/${currencyB && currencyId(currencyB)}`}
+                  to={currencyA?.symbol?.includes("BLP")?  `/add` : `/swap`}
                 >
-                  {`Add ${currencyA?.symbol}-${currencyB?.symbol} liquidity`}
+                  {`Add ${currencyA?.symbol}`}
                 </ButtonPrimary>
               </AutoColumn>
             </CardSection>
@@ -422,7 +445,8 @@ const Index = ()=>{
                       } else {
                         toggleWalletModal()
                       }
-                }}>
+                }}
+                disabled={ timeUntilGenesis>0||timeUntilEnd<0 } >
                   {idoInfo?.makeAmount?.greaterThan(JSBI.BigInt(0)) ? t('Buy Again') : t('Participate')}
                 </ButtonPrimary>
 
@@ -440,6 +464,8 @@ const Index = ()=>{
                 )}
               </DataRow>
             )}
+            <Countdown exactEnd={idoInfo?.periodFinish} rewardsDuration={idoInfo?.rewardsDuration} />
+
             {!userLiquidityUnstaked ? null : userLiquidityUnstaked.equalTo('0') ? null : (
               <TYPE.main>
                 {userLiquidityUnstaked.toSignificant(6)} {t('tokensAvailable')}

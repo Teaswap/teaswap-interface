@@ -273,7 +273,9 @@ const Manage = ()=>{
             <AutoColumn gap="md">
               <RowBetween>
                 <TYPE.white fontWeight={600}>
-                  {t('step')} 1. {t('get-best-v2-liquidity-tokens')}
+                  {t('step')} 1. {t('get-best-v2-liquidity-tokens',{
+                  symbolOne: currencyA?.symbol
+                })}
                 </TYPE.white>
               </RowBetween>
               <RowBetween style={{ marginBottom: '1rem' }}>
@@ -282,8 +284,7 @@ const Manage = ()=>{
                   {t(
                     'best-v2-lp-tokens-are-required-once-youve-added-liquidity-to-the-symbolone-symboltwo-pool-you-can-stake-your-liquidity-tokens-on-this-page',
                     {
-                      symbolOne: currencyA?.symbol,
-                      symbolTwo: currencyB?.symbol
+                      symbolOne: currencyA?.symbol
                     }
                   )}
                 </TYPE.white>

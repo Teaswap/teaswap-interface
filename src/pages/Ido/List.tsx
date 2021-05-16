@@ -20,9 +20,25 @@ import { ButtonPrimary } from '../../components/Button'
 import { useTranslation } from 'react-i18next'
 
 import { NavLink } from 'react-router-dom'
+// import { useIdoInfo} from "../../state/stake/hooks";
+import {Countdown} from "../Earn/Countdown";
+// import {useActiveWeb3React} from "../../hooks";
+// import {RowBetween} from "../../components/Row";
 
 const List = ()=>{
-  const { t } = useTranslation()
+
+  // const { chainId } = useActiveWeb3React()
+  // const idoInfos = useIdoInfo()
+   const { t } = useTranslation()
+  //
+  // // const stakingRewardsExist = Boolean(typeof chainId === 'number' && (IFO_REWARDS_INFO[chainId]?.length ?? 0) > 0)
+  //
+  //
+  // const endreal =  idoInfos?.[0].periodFinish
+  // const durationreal = idoInfos?.[0].rewardsDuration
+  //
+  // const endfake = idoInfos?.[0].periodFinish
+  // const durationfake = 3600
   console.log(t('tokensAvailable'), useTranslation())
   const products = [
     {
@@ -31,8 +47,10 @@ const List = ()=>{
       author: "Cao Jun NFT Collectibles",
       medium: "",
       info: "CaoJun limited edition of NFT Collectibles.",
-      joinUs: "/iro/bnb/0x5f99ACF13CAff815DD9cB4A415c0fB34e9F4545b/0xb222571f700a9f0A86a4e70A5dA16d9Da8b9E042",
-      when: "When: XXXXXXX (05.24 16:00 UTC)",
+      joinUs: "/iro/bnb/0x5f99ACF13CAff815DD9cB4A415c0fB34e9F4545b/0xF72ECaD992CebB0138aC13b616199f131F847b04",
+      when: "When: 05.25 16:00 UTC",
+      end:new Date(1622217600000),
+      duration:259200,
       sign: NewImg
     },
     {
@@ -43,6 +61,8 @@ const List = ()=>{
       info: "We are proud that his work “Persistence” found its way to the Elysee, the French presidential Palace in 2016.",
       joinUs: "#",
       when: "When: TBD",
+      end:new Date(1721958400000),
+      duration:3600,
       sign: ComingImg
     },
     {
@@ -52,6 +72,8 @@ const List = ()=>{
       medium: "",
       info: "TSA is where we bring together creators, collectors, curators, influencers, brokers, wallets, auctioneers around the world to the NFT digital space.",
       joinUs: "#",
+      end:undefined,
+      duration:undefined,
       sign: EndedImg
     },
     // {
@@ -96,6 +118,7 @@ const List = ()=>{
                 <div>
                   {v.when && (v.when)}
                 </div>
+                <Countdown exactEnd={v.end} rewardsDuration={v.duration?v.duration:1000} />
                 <StyledLink to={v.joinUs}>
                   <JoinUs>
                     {"Join Us"}
