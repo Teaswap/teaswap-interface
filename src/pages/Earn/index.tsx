@@ -21,6 +21,7 @@ const PageWrapper = styled.div`
   justify-content; center;
   flex-wrap: wrap;
   margin-top: -80px;
+  padding-bottom: 30px;
   ${MEDIA_QUERY.sm} {
     margin-top: -30px;
   }

@@ -43,7 +43,7 @@ const PageWrapper = styled.div`
 `
 
 const AuthorInfo = styled(ColumnCenter)`
-  max-width: 900px;
+  max-width: 960px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -271,7 +271,6 @@ const Index = ()=>{
           <ol style={{fontSize: '15px', textAlign: 'left', lineHeight: "28px"}}>
             <li>​Total Edition of CaoJunNFT Collectibles released: 600</li>
             <li>Total TSA released for CJAI IRO: 15,000,000</li>
-            <li>1 $TSA = 0.00008 BNB</li>
             <li>List TSA Token on TeaSwap, BakerySwap and SwapAll for trading and liquidity farming;</li>
             <li>Able to stake TSA to earn CJAI and iCASH, Deposit TSA-BNB BLP to earn TSA, Deposit TSA-BUSD to earn TSA, and Deposit TSA-USDT BLP to earn TSA.</li>
             <li>100,000 $TSA can be exchanged with 1 CaoJun NFT, and 1 CaoJun NFT can be converted into one exclusive physical CaoJun Limited Edition of NFT Collectible ("CaoJun NFT Collectible"). The NFT and $TSA will be burned afterward.</li>
