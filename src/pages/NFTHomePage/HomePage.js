@@ -345,7 +345,24 @@ const products2 = [
       info: "Creator: Eason Lin",
       mediaType: 1,
       id: 20
+    },
+    {
+      picture_url: process.env.PUBLIC_URL + '/nft/tsa/21.gif',
+      title: "Broadway City",
+      number: "",
+      info: "Creator: Brad O'Donnell",
+      mediaType: 1,
+      id: 20
+    },
+    {
+      picture_url: process.env.PUBLIC_URL + '/nft/tsa/22.gif',
+      title: "Broadway-MediTeslation Studio",
+      number: "",
+      info: "Creator: ShatterBrainz-Gifl",
+      mediaType: 1,
+      id: 20
     }
+
   ]
 
 

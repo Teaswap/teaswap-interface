@@ -101,7 +101,7 @@ const StyledLink = styled.a`
   }
 `
 const SelectBtn = styled.span`
-  margin: 40px 0 37px 0;
+  margin: 40px 0 7px 0;
   width: 286px;
   height: 42px;
   color: rgb(51,51,51);
