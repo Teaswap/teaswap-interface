@@ -62,6 +62,7 @@ export const login = (user) => async (dispatch) => {
 export const bindWalletUser = (address,chainId) => async (dispatch) => {
   dispatch(setIsUserLoading(true));
   await bindWalletUserAPI(address,chainId).then((res) => checkToken(res, dispatch));
+  dispatch(setIsUserLoading(false));
   return getMe()(dispatch);
 };
 

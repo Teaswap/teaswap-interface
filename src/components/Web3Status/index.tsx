@@ -1,7 +1,7 @@
 import { AbstractConnector } from '@web3-react/abstract-connector'
 import { UnsupportedChainIdError, useWeb3React } from '@web3-react/core'
 import { darken } from 'polished'
-import React, { useMemo } from 'react'
+import React, {useEffect, useMemo} from 'react'
 import { Activity } from 'react-feather'
 import { useTranslation } from 'react-i18next'
 import styled, { css } from 'styled-components'
@@ -25,9 +25,9 @@ import Loader from '../Loader'
 
 import { RowBetween } from '../Row'
 import WalletModal from '../WalletModal'
-import useUser from '../../hooks/userHooks/useUser'
+// import useUser from '../../hooks/userHooks/useUser'
 import { useSelector } from 'react-redux'
-import { selectUserId } from '../../redux/slices/generalSlice/generalSlice'
+import {selectIsUserLoading, selectUserId} from '../../redux/slices/generalSlice/generalSlice'
 
 const IconWrapper = styled.div<{ size?: number }>`
   ${({ theme }) => theme.flexColumnNoWrap};
@@ -176,17 +176,26 @@ function Web3StatusInner() {
   const hasPendingTransactions = !!pending.length
   const hasSocks = useHasSocks()
   const toggleWalletModal = useWalletModalToggle()
-  const {handleSetwalletUser} = useUser()
+
   const { handleBind } = useLogin();
+  const isUserLoading = useSelector(selectIsUserLoading);
   const userId = useSelector(selectUserId);
 
-  if (account) {
-    if(!userId){
+  useEffect(() => {
+    if(account && !userId && !isUserLoading){
       handleBind(account,chainId);
-      handleSetwalletUser({address: account,chainId: chainId});
-
     }
+  }, [account]);
 
+
+    // const user = useMemo(() => {
+  //   handleGetMe().then((result) => {
+  //     if (!result || result.ok === 0 || !result.data) return undefined;
+  //     return result.data.userId
+  //   });
+  // }, []);
+
+  if (account) {
     return (
       <Web3StatusConnected id="web3-status-connected" onClick={toggleWalletModal}>
         {hasPendingTransactions ? (

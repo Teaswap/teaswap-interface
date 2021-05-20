@@ -7,9 +7,11 @@ import {
   selectErrorMessage,
   selectIsUserLoading,
   bindWalletUser,
-  setErrorMessage,
+  setErrorMessage, setUserId,
 } from '../../redux/slices/generalSlice/generalSlice';
 import { selectWalletUser } from '../../redux/slices/userSlice/userSlice'
+import {setUser} from "../../state/user/actions";
+import useUser from "./useUser";
 
 export default function useRegister() {
   const dispatch = useDispatch();
@@ -37,10 +39,14 @@ export default function useRegister() {
     });
   };
 
+  const {handleSetwalletUser} = useUser()
+
   const handleBind = (address,chainId) => {
     (bindWalletUser(address,chainId)(dispatch)).then((userId) => {
       if (!userId) {
         dispatch(setErrorMessage('使用者帳號或密碼錯誤'));
+      }else{
+        handleSetwalletUser({address: address,chainId: chainId});
       }
     });
   };
