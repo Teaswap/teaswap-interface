@@ -4,28 +4,28 @@ import styled from 'styled-components'
 import FlameImg from '../../assets/images/flame.jpeg'
 import { MEDIA_QUERY } from '../../constants/style'
 
-const Nav: React.FC = () => {
+const Nav = (props: any) => {
   return (
     <StyledNav>
       <img src={FlameImg} width="30px" height="30px" />
       <StyledLink style={{padding:"0 4px"}}> </StyledLink>
-      <StyledLink target="_self" href="https://www.teaswap.art/staking">
+      <StyledLink onClick={() => props.handleCatChange(0)}>
         Hot
       </StyledLink>
       <StyledLink style={{padding:"0 14px"}}> </StyledLink>
-      <StyledLink>
+      <StyledLink onClick={() => props.handleCatChange(1)}>
         Earn TSA
       </StyledLink>
       <StyledLink style={{padding:"0 14px"}}> </StyledLink>
-      <StyledLink>
+      <StyledLink onClick={() => props.handleCatChange(2)}>
         TSA Staking
       </StyledLink>
       <StyledLink style={{padding:"0 14px"}}> </StyledLink>
-      <StyledLink>
+      <StyledLink onClick={() => props.handleCatChange(3)}>
         NFT Pool
       </StyledLink>
       <StyledLink style={{padding:"0 14px"}}> </StyledLink>
-      <StyledLink>
+      <StyledLink onClick={() => props.handleCatChange(4)}>
         Ended
       </StyledLink>
       {/* <StyledLink target="_blank" href="https://t.me/bestswap_com">
@@ -49,30 +49,12 @@ const StyledNav = styled.nav`
   }
 `
 
-const StyledLink = styled.a`
+const StyledLink = styled.span`
   color: #7f7f7f;
   text-decoration: none;
   font-size: 16px;
   font-weight: 500;
-  :hover {
-    text-decoration: none;
-    color: #474747;
-  }
-
-  :focus {
-    outline: none;
-    text-decoration: none;
-    color: #7f7f7f;
-  }
-
-  :active {
-    text-decoration: none;
-    color: #7f7f7f;
-  }
-  :link {
-    text-decoration: none;
-    color: #7f7f7f;
-  }
+  cursor: pointer;
 `
 
 export default Nav

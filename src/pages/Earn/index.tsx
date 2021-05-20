@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { useTranslation } from 'react-i18next'
 import {  ColumnCenter } from '../../components/Column'
 import styled from 'styled-components'
@@ -13,6 +13,7 @@ import ConSubTitle from '../../components/Content/SubTitle'
 import Nav from '../../components/earn/Nav'
 import { MEDIA_QUERY } from '../../constants/style'
 import StakeBox from '../../components/general/StakeBox'
+// import { unwrappedToken } from '../../utils/wrappedCurrency'
 
 const PageWrapper = styled.div`
   width: 100%;
@@ -67,9 +68,13 @@ export default function Earn() {
   //   flex-direction: column;
   // `};
   // `
+  const [showCat, setShowCat] = useState(0)
+
+  function changeCate (cat: any) {
+    setShowCat(cat)
+  }
 
   const stakingRewardsExist = Boolean(typeof chainId === 'number' && (STAKING_REWARDS_INFO[chainId]?.length ?? 0) > 0)
-
   return (
     <PageWrapper >
       <StakeBox />
@@ -77,7 +82,7 @@ export default function Earn() {
         <ConSubTitle con={"An amazing yield farm on Binance Smart Chain."} />
       </TopSection>
       <NavAndPool>
-        <Nav />
+        <Nav handleCatChange={changeCate} />
       
       {/* <AutoColumn gap="lg" style={{ width: '1040px'}}> */}
         {/* <DataRow style={{ alignItems: 'baseline' }}>
@@ -94,6 +99,23 @@ export default function Earn() {
             <span style={{ color: '#ffffff' }}>{t('noActiveRewards')}</span>
           ) : (
             stakingInfos?.map(stakingInfo => {
+              console.log(stakingInfo, showCat)
+              switch(showCat) {
+                case 0:
+                  break;
+                case 1:
+                  if (stakingInfo.tokens[1].symbol != 'TSA') return;
+                  break;
+                case 2:
+                  if (stakingInfo.tokens[0].symbol != 'TSA') return;
+                  break;
+                case 3:
+                  if (stakingInfo.tokens[1].symbol != 'CJAI' || stakingInfo.tokens[0].symbol != 'TSA') return;
+                  break;
+                case 4:
+                  return;
+                  break;
+              }
               // need to sort by added liquidity here
               return <PoolCardNew key={stakingInfo.stakingRewardAddress} stakingInfo={stakingInfo} />
             })
