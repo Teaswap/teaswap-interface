@@ -110,11 +110,14 @@ export default function Earn() {
                   if (stakingInfo.tokens[0].symbol != 'TSA') return;
                   break;
                 case 3:
-                  if (stakingInfo.tokens[1].symbol != 'CJAI' || stakingInfo.tokens[0].symbol != 'TSA') return;
-                  break;
-                case 4:
+                  if (stakingInfo.tokens[0].symbol == 'TSA' && stakingInfo.tokens[1].symbol == 'CJAI') break;
+                  if (stakingInfo.tokens[0].symbol == 'CJAI' && stakingInfo.tokens[1].symbol == 'TSA') break;
+                  if (stakingInfo.tokens[0].symbol == 'Shih' && stakingInfo.tokens[1].symbol == 'CJAI') break;
                   return;
-                  break;
+                case 4 :
+                  let d = new Date().getTime()
+                  if(stakingInfo.periodFinish && d > new Date(stakingInfo.periodFinish).getTime()) break;
+                  return;
               }
               // need to sort by added liquidity here
               return <PoolCardNew key={stakingInfo.stakingRewardAddress} stakingInfo={stakingInfo} />
