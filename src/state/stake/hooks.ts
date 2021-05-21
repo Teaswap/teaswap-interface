@@ -38,7 +38,7 @@ export const STAKING_REWARDS_INFO: {
     {
       tokens:[BUSD_SHIH_LP, UNI[ChainId.BSC_MAINNET]],
       stakingRewardAddress: '0x1162f2D625Cb80f713e941d1aC3d7f0D34109aec',
-      iconUrl:"/shihbnb_icon.jpeg"
+      iconUrl:"/BUSD_shih.png"
     },
     {
       tokens: [BNB_SHIH_LP, SHIH],
