@@ -192,6 +192,14 @@ const HomePage = () => {
       mediaType: 1,
       id: 9,
     },
+    {
+      picture_url: process.env.PUBLIC_URL + '/nft/12.gif',
+      title: "CaoJun NFT Collectibles",
+      number: "Gateway to Nature",
+      info: 'Including CaoJun NFT | 0602',
+      mediaType: 1,
+      id: 10,
+    },
   ]
 const products2 = [
     {

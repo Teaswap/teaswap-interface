@@ -35,12 +35,12 @@ export function Countdown({ exactEnd, rewardsDuration }: { exactEnd?: Date,rewar
   const timeUntilGenesis = begin - time
   const timeUntilEnd = end - time
 
-  console.log(begin)
-  console.log(duration)
-  console.log(end)
-  console.log(time)
-  console.log(timeUntilGenesis)
-  console.log(timeUntilGenesis)
+  // console.log(begin)
+  // console.log(duration)
+  // console.log(end)
+  // console.log(time)
+  // console.log(timeUntilGenesis)
+  // console.log(timeUntilGenesis)
 
   let timeRemaining: number
   let message: string

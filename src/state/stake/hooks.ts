@@ -301,7 +301,6 @@ export function useStakingInfo(stakingRewardAddress?:string | null): StakingInfo
         const periodFinishMs = periodFinishState.result?.[0]?.mul(1000)?.toNumber()
         // const startTimeMs = startTimeState.result?.[0]?.mul(1000)?.toNumber()
         const rewardsDuration = rewardsDurationState.result?.[0]?.toNumber()
-        console.log('info: ', info)
 
         memo.push({
           stakingRewardAddress: rewardsAddress,
