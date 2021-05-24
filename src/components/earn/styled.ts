@@ -23,7 +23,7 @@ export const DataCard = styled(AutoColumn)<{ disabled?: boolean }>`
 
 export const HomeCard = styled(AutoColumn)<{ disabled?: boolean }>`
   border-radius: 0px;
-  max-width: 385px;
+  max-width: 413px;
   position: relative;
   overflow: hidden;
 `

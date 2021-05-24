@@ -364,7 +364,7 @@ const Manage = ()=>{
                   {stakingInfo?.rewardRate
                     ?.multiply((60 * 60 * 24 * 7).toString())
                     ?.toSignificant(4, { groupSeparator: ',' }) ?? '-'}
-                  {currencyB?.symbol} {' / week'}
+                  {' ' + currencyB?.symbol} {' / week'}
                 </TYPE.black>
               </RowBetween>
             </AutoColumn>
