@@ -165,7 +165,7 @@ export const DOGGY = new Token(
 export const SAFEMOON = new Token(
     ChainId.BSC_MAINNET,
     '0x8076c74c5e3f5852037f31ff0093eeb8c8add8d3',
-    18,
+    9,
     'SAFEMOON',
     'SafeMoon'
 )
