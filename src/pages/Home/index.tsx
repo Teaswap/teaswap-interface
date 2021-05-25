@@ -44,7 +44,6 @@ const AnnouncementText = styled(NavLink)`
 `
 
 const WhenText = styled.div`
-  font-family: worksans-extralight,work sans,sans-serif;
   color: #7a7a7a;
   font-size: 14px;
   line-height: 20px;
@@ -85,16 +84,16 @@ export default function Home() {
                 <img height="160px" style={{ marginTop: 0 }} src={smallLogo} alt="Home" />
               </RowBetween>
               <RowBetween style={{ justifyContent:"center" }}>
-                <TYPE.darkGray fontSize={14} >{t('The Art of TEAsWAP ("TSA") is where we bring together creators, collectors, curators, influencers, brokers, wallets, auctioneers around the world to the NFT digital space.')}</TYPE.darkGray>
+                <TYPE.darkGray fontSize={14} >{t('The Art of TEAsWAP ( "TSA" )  is your home for incredible NFT Art . Together, we invite you to log into the era of digital enlightenment.')}</TYPE.darkGray>
               </RowBetween>
               <RowBetween style={{ justifyContent:"center" }}>
-                <TYPE.darkGray fontSize={14} >{t('TEAsWAP is a multi-functional decentralized application (dApp) created on Binance Smart Chain (BSC) and Ethereum network, powered by the native TEAsWAP token (TSA).')}</TYPE.darkGray>
+                <TYPE.darkGray fontSize={14} >{t('TSA is a new cross -chain of NFTart Marketplace built on Binance Smart Chain (BSC) and Ethereum network, powered by the native governance token TSA.')}</TYPE.darkGray>
+              </RowBetween>
+              <RowBetween style={{ justifyContent:"center" }}>
+                <TYPE.darkGray fontSize={14} >{t('TSA brings together creators, collectors, curators, influencers, brokers, wallets, auctioneers around the world to the NFT digital space. TSA features NFT collections, NFT Broadway, and NFT Incubator.')}</TYPE.darkGray>
               </RowBetween>
               <RowBetween style={{ justifyContent:"center" }}>
                 <TYPE.darkGray fontSize={14} >{t('TSA has been created to give TSA community the power to influence decisions and incentivize active participation, like RARI from Rarible.')}</TYPE.darkGray>
-              </RowBetween>
-              <RowBetween style={{ justifyContent:"center" }}>
-                <TYPE.darkGray fontSize={14} >{t('TSA also provides yield farming opportunities for non-fungible tokens (NFTs) and  cryptocurrencies within TSA communities.')}</TYPE.darkGray>
               </RowBetween>
             </AutoColumn>
           </CardSection>
