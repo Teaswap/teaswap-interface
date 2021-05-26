@@ -5,6 +5,7 @@ import { TYPE } from '../../theme'
 import { RowBetween} from '../../components/Row'
 import { AutoColumn,HomeGrid } from '../../components/Column'
 import { MEDIA_QUERY } from '../../constants/style';
+import { NavLink } from 'react-router-dom'
 
 import { CardSection, HomeCard} from '../../components/earn/styled'
 
@@ -21,8 +22,31 @@ const PageWrapper = styled(HomeGrid)`
 `
 
 const HomeImageDiv = styled.div`
+  position: relative;
   max-width: 550px;
   width: 100%;
+`
+
+const HomeLearnMore = styled.div`
+  position: absolute;
+  width: 100%;
+  top: 5px;
+  left: 8px;
+`
+
+const AnnouncementText = styled(NavLink)`
+  color: rgb(71, 71, 71);
+  font-family: dancingscript,dancing script,cursive;
+  font-size: 39px;
+  text-decoration: none;
+  margin: 25px 0;
+  display: block;
+`
+
+const WhenText = styled.div`
+  color: #7a7a7a;
+  font-size: 14px;
+  line-height: 20px;
 `
 
 export default function Home() {
@@ -35,11 +59,16 @@ export default function Home() {
       <PageWrapper>
         <HomeImageDiv>
           <img width="100%" src={process.env.PUBLIC_URL + '/TSA_compressed.gif'} />
-          {/* <video autoPlay={true} loop={true} width="100%" controls>
-            <source src={process.env.PUBLIC_URL + '/1619572185498999.mp4'} type="video/mp4" />
-            <p>Your browser doesn't support HTML5 video. Here is
-            a <a href={process.env.PUBLIC_URL + '/1619572185498999.mp4'}>link to the video</a> instead.</p>
-          </video> */}
+          <HomeLearnMore>
+            <AnnouncementText to="/iro">Announcement</AnnouncementText>
+            <WhenText>TSA NFT Initial Art Offering ("IRO") </WhenText>
+            <WhenText>When: May 25, 2021 </WhenText>
+            <WhenText>Where: TSA NFT Incubator </WhenText>
+            <WhenText>Participate: $BNB  </WhenText>
+            <AnnouncementText to="/iro">
+              Learn Now !
+            </AnnouncementText>
+          </HomeLearnMore>
         </HomeImageDiv>
         <HomeCard>
           <CardSection>
@@ -51,31 +80,20 @@ export default function Home() {
                   {t('NFT FOR GOOD.')}
                 </TYPE.darkGray>
               </RowBetween>
-              {/* <RowBetween style={{ marginTop: 16,justifyContent:"center" }}>
-                <TYPE.green fontSize={24} fontFamily="Times" fontStyle="italic" textAlign="center" alignSelf="center" >
-                  {t(
-                    'Why'
-                  )}
-                  <br />
-                  {t(
-                    'The Art of  TEAsWAP ?'
-                  )}
-                </TYPE.green>
-              </RowBetween> */}
               <RowBetween style={{ justifyContent:"center" }}  >
                 <img height="160px" style={{ marginTop: 0 }} src={smallLogo} alt="Home" />
               </RowBetween>
               <RowBetween style={{ justifyContent:"center" }}>
-                <TYPE.darkGray fontSize={14} >{t('The Art of TEAsWAP ("TSA") is where we bring together creators, collectors, curators, influencers, brokers, wallets, auctioneers around the world to the NFT digital space.')}</TYPE.darkGray>
+                <TYPE.darkGray fontSize={14} >{t('The Art of TEAsWAP ( "TSA" )  is your home for incredible NFT Art . Together, we invite you to log into the era of digital enlightenment.')}</TYPE.darkGray>
               </RowBetween>
               <RowBetween style={{ justifyContent:"center" }}>
-                <TYPE.darkGray fontSize={14} >{t('TEAsWAP is a multi-functional decentralized application (dApp) created on Binance Smart Chain (BSC) and Ethereum network, powered by the native TEAsWAP token (TSA).')}</TYPE.darkGray>
+                <TYPE.darkGray fontSize={14} >{t('TSA is a new cross -chain of NFTart Marketplace built on Binance Smart Chain (BSC) and Ethereum network, powered by the native governance token TSA.')}</TYPE.darkGray>
+              </RowBetween>
+              <RowBetween style={{ justifyContent:"center" }}>
+                <TYPE.darkGray fontSize={14} >{t('TSA brings together creators, collectors, curators, influencers, brokers, wallets, auctioneers around the world to the NFT digital space. TSA features NFT collections, NFT Broadway, and NFT Incubator.')}</TYPE.darkGray>
               </RowBetween>
               <RowBetween style={{ justifyContent:"center" }}>
                 <TYPE.darkGray fontSize={14} >{t('TSA has been created to give TSA community the power to influence decisions and incentivize active participation, like RARI from Rarible.')}</TYPE.darkGray>
-              </RowBetween>
-              <RowBetween style={{ justifyContent:"center" }}>
-                <TYPE.darkGray fontSize={14} >{t('TSA also provides yield farming opportunities for non-fungible tokens (NFTs) and  cryptocurrencies within TSA communities.')}</TYPE.darkGray>
               </RowBetween>
             </AutoColumn>
           </CardSection>
