@@ -24,10 +24,10 @@ import Settings from '../Settings'
 import Row, { RowFixed } from '../Row'
 import Web3Status from '../Web3Status'
 import ClaimModal from '../claim/ClaimModal'
-import { useToggleSelfClaimModal, useShowClaimPopup } from '../../state/application/hooks'
+import {  useShowClaimPopup } from '../../state/application/hooks'
 import { useUserHasAvailableClaim } from '../../state/claim/hooks'
-import { useUserHasSubmittedClaim } from '../../state/transactions/hooks'
-import { Dots } from '../swap/styleds'
+// import { useUserHasSubmittedClaim } from '../../state/transactions/hooks'
+// import { Dots } from '../swap/styleds'
 import Modal from '../Modal'
 import UniBalanceContent from './UniBalanceContent'
 import usePrevious from '../../hooks/usePrevious'
@@ -343,11 +343,11 @@ export default function Header() {
   const userEthBalance = useETHBalances(account ? [account] : [])?.[account ?? '']
   const [isDark] = useDarkModeManager()
 
-  const toggleClaimModal = useToggleSelfClaimModal()
+  // const toggleClaimModal = useToggleSelfClaimModal()
 
   const availableClaim: boolean = useUserHasAvailableClaim(account)
 
-  const { claimTxn } = useUserHasSubmittedClaim(account ?? undefined)
+  // const { claimTxn } = useUserHasSubmittedClaim(account ?? undefined)
 
   const aggregateBalance: TokenAmount | undefined = useAggregateUniBalance()
 
@@ -441,14 +441,43 @@ export default function Header() {
               )}
             </HideSmall>
             {availableClaim && !showClaimPopup && (
-              <UNIWrapper onClick={toggleClaimModal}>
-                <UNIAmount active={!!account && !availableClaim} style={{ pointerEvents: 'auto' }}>
-                  <TYPE.gray padding="0 2px">
-                    {claimTxn && !claimTxn?.receipt ? <Dots>{t('claiming')} AirDrop</Dots> : `${t('claim')} AirDrop`}
-                  </TYPE.gray>
-                </UNIAmount>
-                <CardNoise />
-              </UNIWrapper>
+              // <UNIWrapper onClick={toggleClaimModal}>
+              //   <UNIAmount active={!!account && !availableClaim} style={{ pointerEvents: 'auto' }}>
+              //     <TYPE.gray padding="0 2px">
+              //       {claimTxn && !claimTxn?.receipt ? <Dots>{t('claiming')} AirDrop</Dots> : `${t('claim')} AirDrop`}
+              //     </TYPE.gray>
+              //   </UNIAmount>
+              //   <CardNoise />
+              // </UNIWrapper>
+
+                <UNIWrapper onClick={() => {
+                  setShowUniBalanceModal(true)
+                }}>
+                  <UNIAmount active={!!account && !availableClaim} style={{ pointerEvents: 'auto',color:'#7f7f7f' }}>
+                    {account && (
+                        <HideSmall>
+                          <TYPE.gray
+                              style={{
+                                paddingRight: '.4rem'
+                              }}
+                          >
+                            <CountUp
+                                key={countUpValue}
+                                isCounting
+                                start={parseFloat(countUpValuePrevious)}
+                                end={parseFloat(countUpValue)}
+                                thousandsSeparator={','}
+                                duration={1}
+                            />
+                          </TYPE.gray>
+                        </HideSmall>
+                    )}
+                    TSA
+                  </UNIAmount>
+                  <CardNoise />
+                </UNIWrapper>
+
+
             )}
             {!availableClaim && aggregateBalance && (
               <UNIWrapper onClick={() => {
