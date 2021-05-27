@@ -115,6 +115,14 @@ export const BUSD_SHIH_LP = new Token(
     'BUSD_SHIH_BakeryLP'
 )
 
+export const USDT_SHIH_LP = new Token(
+    ChainId.BSC_MAINNET,
+    '0x25b0d63f06ae5103a4710b009c7e26c8ca149e16',
+    18,
+    'USDT_SHIH BLP',
+    'USDT_SHIH_BakeryLP'
+)
+
 export const B_DAI = new Token(
   ChainId.BSC_MAINNET,
   '0x1AF3F329e8BE154074D8769D1FFa4eE058B1DBc3',
