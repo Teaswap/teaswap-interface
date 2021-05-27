@@ -11,8 +11,8 @@ import MediumImg from '../../assets/images/read_medium.jpeg'
 import { ExternalLink } from '../../theme'
 
 
-import EndedImg from '../../assets/images/sign/ended.jpg'
-import NewImg from '../../assets/images/sign/new.webp'
+import EndedImg from '../../assets/images/sign/ended.png'
+// import NewImg from '../../assets/images/sign/new.png'
 import ComingImg from '../../assets/images/sign/coming.webp'
 
 import IncubatorBox from '../../components/general/IncubatorBox'
@@ -47,11 +47,12 @@ const List = ()=>{
       author: "Cao Jun NFT Collectibles",
       medium: "",
       info: "CaoJun limited edition of NFT Collectibles.",
-      joinUs: "/iro/bnb/0x5f99ACF13CAff815DD9cB4A415c0fB34e9F4545b/0xF72ECaD992CebB0138aC13b616199f131F847b04",
+      // joinUs: "/iro/bnb/0x5f99ACF13CAff815DD9cB4A415c0fB34e9F4545b/0xF72ECaD992CebB0138aC13b616199f131F847b04",
+      joinUs: "#",
       when: "When: 05.25 16:00 UTC",
-      end:new Date(1622217600000),
+      end: undefined,
       duration:259200,
-      sign: NewImg
+      sign: EndedImg
     },
     {
       image: GridImg2,
