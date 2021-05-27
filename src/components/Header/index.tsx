@@ -519,7 +519,7 @@ export default function Header() {
           <HeaderElementWrap>
             {/* <Menu /> */}
             <Web3StatusConnected onClick={openClaimModal}>
-              AirDrop
+              Airdrop
             </Web3StatusConnected>
             <Settings />
             <I18nSwitch />

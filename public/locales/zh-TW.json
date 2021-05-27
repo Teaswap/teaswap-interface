@@ -178,7 +178,7 @@
   "dont-see-a-pool-you-joined": "看不到您加入的泳池嗎？",
   "edit": "編輯",
   "enter-a-token-address-to-find-liquidity": "輸入令牌地址以查找流動性",
-  "enter-an-address-to-trigger-a-best-claim-if-the-address-has-any-claimable-best-it-will-be-sent-to-them-on-submission": "輸入一個地址以觸發“最佳”聲明。\n如果地址有任何可索賠的最佳地址，它將被發送給他們\n              \n提交。",
+  "enter-an-address-to-trigger-a-best-claim-if-the-address-has-any-claimable-best-it-will-be-sent-to-them-on-submission": "如果您符合领取空投的要求，可以单击以下按钮领取奖励。 您需要使用符合要求的相同钱包地址才能连接到该网站。",
   "enterARecipient": "輸入收件人",
   "enterAValidSlippagePercentage": "輸入有效的滑點百分比",
   "enterAnAmount": "輸入金額",

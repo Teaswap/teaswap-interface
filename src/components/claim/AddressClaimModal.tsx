@@ -130,7 +130,7 @@ export default function AddressClaimModal({ isOpen, onDismiss }: { isOpen: boole
               mt="1rem"
               onClick={onClaim}
             >
-              {t('claim')} SHIH
+              {t('claim')} TSA
             </ButtonPrimary>
           </AutoColumn>
         </ContentWrapper>
