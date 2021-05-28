@@ -27,6 +27,7 @@ export default function URLWarning() {
   const toggleURLWarning = useURLWarningToggle()
   const showURLWarning = useURLWarningVisible()
   const { t } = useTranslation()
+  return null
 
   return isMobile ? (
     <PhishAlert isActive={showURLWarning}>

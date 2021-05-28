@@ -8,7 +8,7 @@ import {ETHER, JSBI} from '@teaswap/uniswap-sdk'
 import { useParams } from 'react-router-dom'
 // import DoubleCurrencyLogo from '../../components/DoubleLogo'
 import { useCurrency } from '../../hooks/Tokens'
-import { useWalletModalToggle } from '../../state/application/hooks'
+// import { useWalletModalToggle } from '../../state/application/hooks'
 import { ExternalLink, TYPE } from '../../theme'
 
 import { RowBetween } from '../../components/Row'
@@ -196,7 +196,7 @@ const Index = ()=>{
   // const valueOfTotalStakedAmountInUSDC =
   //   valueOfTotalStakedAmountInWETH && USDPrice?.quote(valueOfTotalStakedAmountInWETH)
 
-  const toggleWalletModal = useWalletModalToggle()
+  // const toggleWalletModal = useWalletModalToggle()
 
   // const handleDepositClick = useCallback(() => {
   //   if (account) {
@@ -397,7 +397,7 @@ const Index = ()=>{
                         padding="8px"
                         borderRadius="0px"
                         width="fit-content"
-                        onClick={() => setShowClaimRewardModal(true)}
+                        // onClick={() => setShowClaimRewardModal(true)}
                       >
                         {t('claim')}
                       </ButtonEmpty>
@@ -436,15 +436,16 @@ const Index = ()=>{
 
             {!showAddLiquidityButton && (
               <DataRow style={{ marginBottom: '1rem' }}>
-                <ButtonPrimary padding="8px" borderRadius="0px" width="266px" onClick={()=>{
-                  if (account) {
-                        console.log(showStakingModal)
-                        setShowStakingModal(true)
-                        console.log(showStakingModal)
-                      } else {
-                        toggleWalletModal()
-                      }
-                }}
+                <ButtonPrimary padding="8px" borderRadius="0px" width="266px" 
+                // onClick={()=>{
+                //   if (account) {
+                //         console.log(showStakingModal)
+                //         setShowStakingModal(true)
+                //         console.log(showStakingModal)
+                //       } else {
+                //         toggleWalletModal()
+                //       }
+                // }}
                 disabled={ timeUntilGenesis>0||timeUntilEnd<0 } >
                   {idoInfo?.makeAmount?.greaterThan(JSBI.BigInt(0)) ? t('Buy Again') : t('Participate')}
                 </ButtonPrimary>
@@ -456,7 +457,7 @@ const Index = ()=>{
                         padding="8px"
                       borderRadius="0px"
                       width="266px"
-                      onClick={() => setShowClaimRewardModal(true)}
+                      // onClick={() => setShowClaimRewardModal(true)}
                     >
                       {t('claim')}
                     </ButtonPrimary>
