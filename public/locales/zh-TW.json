@@ -344,7 +344,7 @@
   "welcomeToTeamUnicorn": "歡迎來到獨角獸團隊",
   "when-you-add-liquidity-you-are-given-pool-tokens-representing-your-position-these-tokens-automatically-earn-fees-proportional-to-your-share-of-the-pool-and-can-be-redeemed-at-any-time": "當您增加流動性時，將獲得代表您頭寸的資產池代幣。\n這些令牌會自動賺取與您在池中所佔份額成比例的費用，並且可以隨時兌換。",
   "when-you-claim-without-withdrawing-your-liquidity-remains-in-the-mining-pool": "當您要求不撤回資金時，您的流動資金仍留在採礦池中。",
-  "when-you-withdraw-the-contract-will-automagically-claim-best-on-your-behalf": "當您撤回合同時，合同將自動代表您要求TSA！",
+  "when-you-withdraw-the-contract-will-automagically-claim-best-on-your-behalf": "當您贖回時，智能合約將自動代表您取回獎勵。",
   "when-you-withdraw-your-best-is-claimed-and-your-liquidity-is-removed-from-the-mining-pool": "當您提款時，將獲得您的TSA，並且您的流動性從採礦池中刪除。",
   "withdraw": "收回",
   "withdrawing": "提現",
