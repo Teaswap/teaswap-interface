@@ -61,9 +61,9 @@ export default function Home() {
           <img width="100%" src={process.env.PUBLIC_URL + '/TSA_compressed.gif'} />
           <HomeLearnMore>
             <AnnouncementText to="/staking">Announcement</AnnouncementText>
-            <WhenText>New Staking Pools </WhenText>
-            <WhenText>When: May 26, 2021 </WhenText>
-            <WhenText>Where: TeaSwap Stake</WhenText>
+            <WhenText>TSA Incubator Program </WhenText>
+            <WhenText> When: June 16, 2021 </WhenText>
+            <WhenText>Where: TSA</WhenText>
             <AnnouncementText to="/staking">
               Learn Now !
             </AnnouncementText>
