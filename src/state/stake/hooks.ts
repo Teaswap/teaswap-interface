@@ -14,7 +14,7 @@ import {
   BNB_BAKE_LP,
   DOGGY,
   SAFEMOON,
-  BNB_SHIH_LP, BUSD_SHIH_LP, B_USDT, USDT_SHIH_LP
+  BNB_SHIH_LP, BUSD_SHIH_LP, B_USDT, USDT_SHIH_LP, BNB_BUSD_LP, BNB_ETH_LP, BNB_WBTC_LP
 } from '../../constants'
 import { IDO_ABI_INTERFACE, STAKING_REWARDS_INTERFACE } from '../../constants/abis/staking-rewards'
 import { useActiveWeb3React } from '../../hooks'
@@ -35,6 +35,26 @@ export const STAKING_REWARDS_INFO: {
   }[]
 } = {
   [ChainId.BSC_MAINNET]: [
+    {
+      tokens: [SHIH,UNI[ChainId.BSC_MAINNET]],
+      stakingRewardAddress:'0xB2919b8d401dEA262B1E62876Fa1B7aAc287B05E',
+      iconUrl: "/shih_TSA_icon.png"
+    },
+    {
+      tokens:[BNB_BUSD_LP, UNI[ChainId.BSC_MAINNET]],
+      stakingRewardAddress: '0x787B60d70b997Cdae2a4475aeCD4a94E3111c0F7',
+      iconUrl:"/BNB_BUSD.png"
+    },
+    {
+      tokens:[BNB_ETH_LP, UNI[ChainId.BSC_MAINNET]],
+      stakingRewardAddress: '0x870c010312AB1914eD3c21C3CdA51f7464f17c13',
+      iconUrl:"/BNB_ETH.png"
+    },
+    {
+      tokens:[BNB_WBTC_LP, UNI[ChainId.BSC_MAINNET]],
+      stakingRewardAddress: '0x72318628bBA4Bc395713eE9B0c96b19814d3AeC0',
+      iconUrl:"/BNB_WBTC.png"
+    },
     {
       tokens:[B_USDT, UNI[ChainId.BSC_MAINNET]],
       stakingRewardAddress: '0x7964E3aAC5D7E0F4b6d70d9758365fC935EeD17f',
