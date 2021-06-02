@@ -60,12 +60,11 @@ export default function Home() {
         <HomeImageDiv>
           <img width="100%" src={process.env.PUBLIC_URL + '/TSA_compressed.gif'} />
           <HomeLearnMore>
-            <AnnouncementText to="/iro">Announcement</AnnouncementText>
-            <WhenText>TSA NFT Initial Art Offering ("IRO") </WhenText>
-            <WhenText>When: May 25, 2021 </WhenText>
-            <WhenText>Where: TSA NFT Incubator </WhenText>
-            <WhenText>Participate: $BNB  </WhenText>
-            <AnnouncementText to="/iro">
+            <AnnouncementText to="/staking">Announcement</AnnouncementText>
+            <WhenText>New Staking Pools </WhenText>
+            <WhenText>When: May 26, 2021 </WhenText>
+            <WhenText>Where: TeaSwap Stake</WhenText>
+            <AnnouncementText to="/staking">
               Learn Now !
             </AnnouncementText>
           </HomeLearnMore>
