@@ -83,6 +83,30 @@ export const USDT_TSA_LP = new Token(
   'USDT_TSA_LP'
 )
 
+export const BNB_BUSD_LP = new Token(
+    ChainId.BSC_MAINNET,
+    '0x559e3d9611e9cb8a77c11335bdac49621382188b',
+    18,
+    'BNB-BUSD BLP',
+    'BNB_BUSD_BakeryLP'
+)
+
+export const BNB_ETH_LP = new Token(
+    ChainId.BSC_MAINNET,
+    '0xa50b9c5DB61C855D5939aa1a66B26Df77745809b',
+    18,
+    'BNB-ETH BLP',
+    'BNB_ETH_BakeryLP'
+)
+
+export const BNB_WBTC_LP = new Token(
+    ChainId.BSC_MAINNET,
+    '0x58521373474810915b02FE968D1BCBe35Fc61E09',
+    18,
+    'BNB-WBTC BLP',
+    'BNB_WBTC_BakeryLP'
+)
+
 export const ETH_TSA_LP = new Token(
   ChainId.BSC_MAINNET,
   '0xc31173132a36c2453693d9e46d776d4b669b158f',
