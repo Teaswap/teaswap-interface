@@ -83,16 +83,16 @@ export default function Home() {
                 <img height="160px" style={{ marginTop: 0 }} src={smallLogo} alt="Home" />
               </RowBetween>
               <RowBetween style={{ justifyContent:"center" }}>
-                <TYPE.darkGray fontSize={14} >{t('The Art of TEAsWAP ( "TSA" )  is your home for incredible NFT Art . Together, we invite you to log into the era of digital enlightenment.')}</TYPE.darkGray>
+                <TYPE.darkGray fontSize={14} >{t('The Art of TEAsWAP ( "TSA" )  is now your home for incredible , innovative NFT Art. Together, we invite you to dive into this new  era of digital enlightenment.')}</TYPE.darkGray>
               </RowBetween>
               <RowBetween style={{ justifyContent:"center" }}>
-                <TYPE.darkGray fontSize={14} >{t('TSA is a new cross -chain of NFTart Marketplace built on Binance Smart Chain (BSC) and Ethereum network, powered by the native governance token TSA.')}</TYPE.darkGray>
+                <TYPE.darkGray fontSize={14} >{t('TSA is a new cross -chain marketplace of digital NFT Art built on Binance Smart Chain  and Ethereum network, powered by the native governance token TSA and DeFi solutions.')}</TYPE.darkGray>
               </RowBetween>
               <RowBetween style={{ justifyContent:"center" }}>
-                <TYPE.darkGray fontSize={14} >{t('TSA brings together creators, collectors, curators, influencers, brokers, wallets, auctioneers around the world to the NFT digital space. TSA features NFT collections, NFT Broadway, and NFT Incubator.')}</TYPE.darkGray>
+                <TYPE.darkGray fontSize={14} >{t('TSA brings together creators, collectors, curators, influencers, brokers, wallets, auctioneers around the world to the NFT digital space. It currently has 3 spaces: NFT collections, NFT Broadway, and NFT Incubator.')}</TYPE.darkGray>
               </RowBetween>
               <RowBetween style={{ justifyContent:"center" }}>
-                <TYPE.darkGray fontSize={14} >{t('TSA has been created to give TSA community the power to influence decisions and incentivize active participation, like RARI from Rarible.')}</TYPE.darkGray>
+                <TYPE.darkGray fontSize={14} >{t('TSA also has been created to give TSA community the power to influence decisions and incentivize active participation, like RARI from Rarible.')}</TYPE.darkGray>
               </RowBetween>
             </AutoColumn>
           </CardSection>
