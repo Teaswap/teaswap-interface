@@ -406,22 +406,22 @@ const products2 = [
       mediaType: 1,
       id: 4
     },
-    // {
-    //   picture_url: process.env.PUBLIC_URL + '/nft/np/5.gif',
-    //   title: "Shih_FU7UR3- Broadway",
-    //   number: "",
-    //   info: "Cosmic Bee",
-    //   mediaType: 1,
-    //   id: 5
-    // },
-    // {
-    //   picture_url: process.env.PUBLIC_URL + '/nft/np/4.gif',
-    //   title: "S-head #02",
-    //   number: "",
-    //   info: "",
-    //   mediaType: 1,
-    //   id: 4
-    // },
+    {
+      picture_url: process.env.PUBLIC_URL + '/nft/np/5.gif',
+      title: "Shih_FU7UR3- Broadway",
+      number: "",
+      info: "Cosmic Bee",
+      mediaType: 1,
+      id: 5
+    },
+    {
+      picture_url: process.env.PUBLIC_URL + '/nft/np/6.gif',
+      title: "S-eyebow #03",
+      number: "",
+      info: "",
+      mediaType: 1,
+      id: 6
+    },
     // {
     //   picture_url: process.env.PUBLIC_URL + '/nft/np/4.gif',
     //   title: "S-head #02",
