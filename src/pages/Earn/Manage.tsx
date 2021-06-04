@@ -391,7 +391,7 @@ const Manage = ()=>{
                   }
             }}
             disabled={timeUntilGenesis>=0||timeUntilEnd<=0} >
-              {stakingInfo?.stakedAmount?.greaterThan(JSBI.BigInt(0)) ? 'Deposit' : 'Deposit Tokens'}
+              {stakingInfo?.stakedAmount?.greaterThan(JSBI.BigInt(0)) ? t('deposit') : `t('deposit') Tokens`}
             </ButtonPrimary>
 
             {stakingInfo?.stakedAmount?.greaterThan(JSBI.BigInt(0)) && (
