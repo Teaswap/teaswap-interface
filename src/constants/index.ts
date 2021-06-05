@@ -103,8 +103,8 @@ export const BNB_WBTC_LP = new Token(
     ChainId.BSC_MAINNET,
     '0x58521373474810915b02FE968D1BCBe35Fc61E09',
     18,
-    'BNB-WBTC BLP',
-    'BNB_WBTC_BakeryLP'
+    'BNB-BTCB BLP',
+    'BNB_BTCB_BakeryLP'
 )
 
 export const ETH_TSA_LP = new Token(
