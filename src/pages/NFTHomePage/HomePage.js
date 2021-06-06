@@ -120,7 +120,15 @@ const HomePage = () => {
     handleGetProductsMoreButton,
   } = useProduct();
   const products1 = [
+    
     {
+      picture_url: process.env.PUBLIC_URL + '/nft/12.gif',
+      title: "CaoJun NFT Collectibles",
+      number: "Gateway to Nature",
+      info: 'Including CaoJun NFT | 0602',
+      mediaType: 1,
+      id: 10,
+    },{
       picture_url: process.env.PUBLIC_URL + '/nft/1.png',
       title: "CaoJun NFT Collectibles",
       number: "0605",
@@ -192,17 +200,16 @@ const HomePage = () => {
       mediaType: 1,
       id: 9,
     },
-    {
-      picture_url: process.env.PUBLIC_URL + '/nft/12.gif',
-      title: "CaoJun NFT Collectibles",
-      number: "Gateway to Nature",
-      info: 'Including CaoJun NFT | 0602',
-      mediaType: 1,
-      id: 10,
-    },
   ]
 const products2 = [
     {
+      picture_url: process.env.PUBLIC_URL + '/nft/tsa/101.gif',
+      title: "FU7UR3 Broadway",
+      number: "",
+      info: 'Cosmic Bee',
+      mediaType: 1,
+      id: 101,
+    },{
       picture_url: process.env.PUBLIC_URL + '/nft/tsa/2.jpeg',
       title: "The Very Best",
       number: "",
@@ -362,15 +369,147 @@ const products2 = [
       mediaType: 1,
       id: 20
     },
-    {
-      picture_url: process.env.PUBLIC_URL + '/nft/tsa/22.gif',
-      title: "Broadway-MediTeslation Studio",
-      number: "",
-      info: "Creator: ShatterBrainz-Gifl",
-      mediaType: 1,
-      id: 20
-    }
+    
 
+  ]
+
+  const product3 = [
+    {
+      picture_url: process.env.PUBLIC_URL + '/nft/np/1.gif',
+      title: "Punk Pupogz -Crypto Punk Doggie",
+      number: "",
+      info: "Cosmic Bee",
+      mediaType: 1,
+      id: 1
+    },
+    {
+      picture_url: process.env.PUBLIC_URL + '/nft/np/2.gif',
+      title: "S-hands",
+      number: "",
+      info: "",
+      mediaType: 1,
+      id: 2
+    },
+    {
+      picture_url: process.env.PUBLIC_URL + '/nft/np/3.gif',
+      title: "Skip_#6",
+      number: "",
+      info: "",
+      mediaType: 1,
+      id: 3
+    },
+    {
+      picture_url: process.env.PUBLIC_URL + '/nft/np/4.gif',
+      title: "S-head #02",
+      number: "",
+      info: "",
+      mediaType: 1,
+      id: 4
+    },
+    {
+      picture_url: process.env.PUBLIC_URL + '/nft/np/5.gif',
+      title: "Shih_FU7UR3- Broadway",
+      number: "",
+      info: "Cosmic Bee",
+      mediaType: 1,
+      id: 5
+    },
+    {
+      picture_url: process.env.PUBLIC_URL + '/nft/np/6.gif',
+      title: "S-eyebow #03",
+      number: "",
+      info: "",
+      mediaType: 1,
+      id: 6
+    },
+    // {
+    //   picture_url: process.env.PUBLIC_URL + '/nft/np/4.gif',
+    //   title: "S-head #02",
+    //   number: "",
+    //   info: "",
+    //   mediaType: 1,
+    //   id: 4
+    // },
+    // {
+    //   picture_url: process.env.PUBLIC_URL + '/nft/np/4.gif',
+    //   title: "S-head #02",
+    //   number: "",
+    //   info: "",
+    //   mediaType: 1,
+    //   id: 4
+    // },
+    // {
+    //   picture_url: process.env.PUBLIC_URL + '/nft/np/4.gif',
+    //   title: "S-head #02",
+    //   number: "",
+    //   info: "",
+    //   mediaType: 1,
+    //   id: 4
+    // },
+    // {
+    //   picture_url: process.env.PUBLIC_URL + '/nft/np/4.gif',
+    //   title: "S-head #02",
+    //   number: "",
+    //   info: "",
+    //   mediaType: 1,
+    //   id: 4
+    // },
+    // {
+    //   picture_url: process.env.PUBLIC_URL + '/nft/np/4.gif',
+    //   title: "S-head #02",
+    //   number: "",
+    //   info: "",
+    //   mediaType: 1,
+    //   id: 4
+    // },
+    // {
+    //   picture_url: process.env.PUBLIC_URL + '/nft/np/4.gif',
+    //   title: "S-head #02",
+    //   number: "",
+    //   info: "",
+    //   mediaType: 1,
+    //   id: 4
+    // },
+    // {
+    //   picture_url: process.env.PUBLIC_URL + '/nft/np/4.gif',
+    //   title: "S-head #02",
+    //   number: "",
+    //   info: "",
+    //   mediaType: 1,
+    //   id: 4
+    // },
+    // {
+    //   picture_url: process.env.PUBLIC_URL + '/nft/np/4.gif',
+    //   title: "S-head #02",
+    //   number: "",
+    //   info: "",
+    //   mediaType: 1,
+    //   id: 4
+    // },
+    // {
+    //   picture_url: process.env.PUBLIC_URL + '/nft/np/4.gif',
+    //   title: "S-head #02",
+    //   number: "",
+    //   info: "",
+    //   mediaType: 1,
+    //   id: 4
+    // },
+    // {
+    //   picture_url: process.env.PUBLIC_URL + '/nft/np/4.gif',
+    //   title: "S-head #02",
+    //   number: "",
+    //   info: "",
+    //   mediaType: 1,
+    //   id: 4
+    // },
+    // {
+    //   picture_url: process.env.PUBLIC_URL + '/nft/np/4.gif',
+    //   title: "S-head #02",
+    //   number: "",
+    //   info: "",
+    //   mediaType: 1,
+    //   id: 4
+    // }
   ]
 
 
@@ -390,7 +529,7 @@ const products2 = [
     };
   }, [dispatch]);
   const changeCat = function(t) {
-    setProducts(t == 1 ? products1 : products2)
+    setProducts([products1, products2, product3][t-1])
   }
 
   return (
@@ -400,11 +539,14 @@ const products2 = [
         <ConTitle con="The New Way to Own Art" />
       </TitleSection>
       <Nav>
+        <NavItem onClick={() => changeCat(2)}>
+          TSA Broadway
+        </NavItem>
         <NavItem onClick={() => changeCat(1)}>
           CaoJun NFT Collectibles
         </NavItem>
-        <NavItem onClick={() => changeCat(2)}>
-          TSA Broadway
+        <NavItem onClick={() => changeCat(3)}>
+          Charity Project
         </NavItem>
       </Nav>
       {/*<Snowfall color='#e8f2f7' />*/}

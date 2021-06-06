@@ -4,6 +4,8 @@ import styled from 'styled-components'
 import ConTitle from '../../components/Content/Title'
 import {MEDIA_QUERY} from '../../constants/style';
 
+import GridImg4 from '../../assets/images/grid_img4.webp'
+import GridImg5 from '../../assets/images/grid_img5.webp'
 import GridImg1 from '../../assets/images/IMG_6362_JPG.jpeg'
 import GridImg2 from '../../assets/images/grid_img2.webp'
 import GridImg3 from '../../assets/images/grid_img3.webp'
@@ -12,7 +14,7 @@ import { ExternalLink } from '../../theme'
 
 
 import EndedImg from '../../assets/images/sign/ended.png'
-// import NewImg from '../../assets/images/sign/new.png'
+import NewImg from '../../assets/images/sign/new.png'
 import ComingImg from '../../assets/images/sign/coming.webp'
 
 import IncubatorBox from '../../components/general/IncubatorBox'
@@ -41,6 +43,32 @@ const List = ()=>{
   // const durationfake = 3600
   console.log(t('tokensAvailable'), useTranslation())
   const products = [
+    {
+      image: GridImg4,
+      Learn: "https://www.caojunnft.com/",
+      author: "TSA NFT Broadway Series",
+      medium: "",
+      info: "TSA Broadway’s theme is inspired by the Legendary Song Dynasty painting “Along the River During the Qingming Festival”, also known in Chinese as Qingming Shanghe Tu (Simplified Chinese: 清明上河图 Traditional Chinese: 清明上河圖).\n\n TSA Broadway Series Collectibles",
+      joinUs: "",
+      // joinUs: "#",
+      when: "When: 06.16 21:30 EST",
+      end: undefined,
+      duration:259200,
+      sign: NewImg
+    },
+    {
+      image: GridImg5,
+      Learn: "https://www.caojunnft.com/",
+      author: "Cao Jun NFT Collectibles",
+      medium: "",
+      info: "CaoJun limited edition NFT series . The record price for CaoJun  artist at auction is $1,309,063 USD .",
+      joinUs: "/iro/bnb/0x5f99ACF13CAff815DD9cB4A415c0fB34e9F4545b/0xF72ECaD992CebB0138aC13b616199f131F847b04",
+      // joinUs: "#",
+      when: "When: 05.25 16:00 UTC",
+      end: undefined,
+      duration:259200,
+      sign: EndedImg
+    },
     {
       image: GridImg1,
       Learn: "https://www.caojunnft.com/",
@@ -167,7 +195,7 @@ const Grids = styled(ColumnCenter)`
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
-  justify-content: center;
+  justify-content: flex-start;
   margin-top: 10px;
 `
 
@@ -186,6 +214,7 @@ const Grid = styled(ColumnCenter)`
   transform: translateZ(0);
   margin: 0px;
   margin-left: 30px;
+  margin-top: 30px;
   align-items: flex-start;
   ${MEDIA_QUERY.sm} {
     margin-left: 0;
@@ -244,7 +273,7 @@ const Info  = styled.span`
   color: #474747;
   font-size: 14px;
   text-align: left;
-  height: 100px;
+  height: 130px;
 `
 
 const JoinUs = styled(ButtonPrimary)`
