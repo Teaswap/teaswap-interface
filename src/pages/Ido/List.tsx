@@ -6,7 +6,7 @@ import {MEDIA_QUERY} from '../../constants/style';
 
 import GridImg4 from '../../assets/images/grid_img4.webp'
 import GridImg5 from '../../assets/images/grid_img5.webp'
-import GridImg1 from '../../assets/images/IMG_6362_JPG.jpeg'
+import GridImg1 from '../../assets/images/grid_img1.webp'
 import GridImg2 from '../../assets/images/grid_img2.webp'
 import GridImg3 from '../../assets/images/grid_img3.webp'
 import MediumImg from '../../assets/images/read_medium.jpeg'
@@ -23,7 +23,7 @@ import { useTranslation } from 'react-i18next'
 
 import { NavLink } from 'react-router-dom'
 // import { useIdoInfo} from "../../state/stake/hooks";
-import {Countdown} from "../Earn/Countdown";
+// import {Countdown} from "../Earn/Countdown";
 // import {useActiveWeb3React} from "../../hooks";
 // import {RowBetween} from "../../components/Row";
 
@@ -48,39 +48,14 @@ const List = ()=>{
       Learn: "https://www.caojunnft.com/",
       author: "TSA NFT Broadway Series",
       medium: "",
-      info: "TSA Broadway’s theme is inspired by the Legendary Song Dynasty painting “Along the River During the Qingming Festival”, also known in Chinese as Qingming Shanghe Tu (Simplified Chinese: 清明上河图 Traditional Chinese: 清明上河圖).\n\n TSA Broadway Series Collectibles",
+      info: `TSA Broadway’s theme is inspired by the Legendary Song Dynasty painting “Along the River During the Qingming Festival”, also known in Chinese as Qingming Shanghe Tu (Simplified Chinese: 清明上河图 Traditional Chinese: 清明上河圖).`,
+      info2: `TSA Broadway Series Collectibles`,
       joinUs: "",
       // joinUs: "#",
       when: "When: 06.16 21:30 EST",
       end: undefined,
       duration:259200,
       sign: NewImg
-    },
-    {
-      image: GridImg5,
-      Learn: "https://www.caojunnft.com/",
-      author: "Cao Jun NFT Collectibles",
-      medium: "",
-      info: "CaoJun limited edition NFT series . The record price for CaoJun  artist at auction is $1,309,063 USD .",
-      joinUs: "/iro/bnb/0x5f99ACF13CAff815DD9cB4A415c0fB34e9F4545b/0xF72ECaD992CebB0138aC13b616199f131F847b04",
-      // joinUs: "#",
-      when: "When: 05.25 16:00 UTC",
-      end: undefined,
-      duration:259200,
-      sign: EndedImg
-    },
-    {
-      image: GridImg1,
-      Learn: "https://www.caojunnft.com/",
-      author: "Cao Jun NFT Collectibles",
-      medium: "",
-      info: "CaoJun limited edition of NFT Collectibles.",
-      joinUs: "/iro/bnb/0x5f99ACF13CAff815DD9cB4A415c0fB34e9F4545b/0xF72ECaD992CebB0138aC13b616199f131F847b04",
-      // joinUs: "#",
-      when: "When: 05.25 16:00 UTC",
-      end: undefined,
-      duration:259200,
-      sign: EndedImg
     },
     {
       image: GridImg2,
@@ -95,14 +70,41 @@ const List = ()=>{
       sign: ComingImg
     },
     {
+      image: GridImg5,
+      Learn: "https://www.caojunnft.com/",
+      author: "Cao Jun NFT Collectibles",
+      medium: "",
+      info: `CaoJun limited edition NFT series. The record price for CaoJun  artist at auction is $1,309,063 USD.`,
+      joinUs: "/iro/bnb/0x5f99ACF13CAff815DD9cB4A415c0fB34e9F4545b/0xF72ECaD992CebB0138aC13b616199f131F847b04",
+      // joinUs: "#",
+      when: "When: Ended",
+      end: undefined,
+      duration:259200,
+      sign: EndedImg
+    },
+    {
       image: GridImg3,
       Learn: "https://www.caojunnft.com/",
       author: "The Art of TEAsWAP",
       medium: "",
-      info: "TSA is where we bring together creators, collectors, curators, influencers, brokers, wallets, auctioneers around the world to the NFT digital space.",
+      info: `TSA is where we bring together creators, collectors, curators, influencers, brokers, wallets, auctioneers around the world to the NFT digital space.`,
       joinUs: "#",
+      info2: `CaoJun limited edition NFT series. The record price for CaoJun  artist at auction is $1,309,063 USD.`,
       end:undefined,
       duration:undefined,
+      sign: EndedImg
+    },
+    {
+      image: GridImg1,
+      Learn: "https://www.caojunnft.com/",
+      author: "iCashRewards",
+      medium: "",
+      info: "CaoJunNFT Collectibles",
+      joinUs: "/iro/bnb/0x5f99ACF13CAff815DD9cB4A415c0fB34e9F4545b/0xF72ECaD992CebB0138aC13b616199f131F847b04",
+      // joinUs: "#",
+      info2: "CaoJun limited edition NFT series. The record price for CaoJun  artist at auction is $1,309,063 USD.",
+      end: undefined,
+      duration:259200,
       sign: EndedImg
     },
     // {
@@ -143,11 +145,14 @@ const List = ()=>{
                   </span>
                 </Read>
                 <Spe></Spe>
-                <Info>{v.info}</Info>
-                <div>
+                <Info>
+                  {v.info}
+                  {v.info2 && (<p>{v.info2}</p>)}
+                </Info>
+                <div style={{marginTop: "20px"}}>
                   {v.when && (v.when)}
                 </div>
-                <Countdown exactEnd={v.end} rewardsDuration={v.duration?v.duration:1000} />
+                {/* <Countdown exactEnd={v.end} rewardsDuration={v.duration?v.duration:1000} /> */}
                 <StyledLink to={v.joinUs}>
                   <JoinUs>
                     {"Join Us"}
