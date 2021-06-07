@@ -408,17 +408,17 @@ const products2 = [
     },
     {
       picture_url: process.env.PUBLIC_URL + '/nft/np/5.gif',
-      title: "S-eyebow #03",
+      title: "Shih_FU7UR3- Broadway",
       number: "",
-      info: "",
+      info: "Cosmic Bee",
       mediaType: 1,
       id: 55
     },
     {
       picture_url: process.env.PUBLIC_URL + '/nft/np/55.gif',
-      title: "Shih_FU7UR3- Broadway",
+      title: "S-eyebow #03",
       number: "",
-      info: "Cosmic Bee",
+      info: "",
       mediaType: 1,
       id: 5
     },
@@ -434,7 +434,7 @@ const products2 = [
       picture_url: process.env.PUBLIC_URL + '/nft/np/7.gif',
       title: "Shih-Tzu-Pupogz #13",
       number: "",
-      info: "",
+      info: "Cosmic Bee",
       mediaType: 1,
       id: 4
     },
