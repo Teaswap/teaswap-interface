@@ -16,6 +16,10 @@ export const RedirectPathToSwapOnly : React.FC = (): JSX.Element => {
 export const RedirectPathToHomeOnly: React.FC = (): JSX.Element => {
   return <Navigate to='/home' />;
 };
+
+export const RedirectPathToIroOnly: React.FC = (): JSX.Element => {
+  return <Navigate to='/iro' />;
+};
 // Redirects from the /swap/:outputCurrency path to the /swap?outputCurrency=:outputCurrency format
 export const RedirectToSwap: React.FC = (): JSX.Element => {
   // const params = useParams();

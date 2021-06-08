@@ -383,16 +383,16 @@ const products2 = [
       id: 1
     },
     {
-      picture_url: process.env.PUBLIC_URL + '/nft/np/2.gif',
-      title: "S-hands",
+      picture_url: process.env.PUBLIC_URL + '/nft/np/3.gif',
+      title: "Skip_#6",
       number: "",
       info: "",
       mediaType: 1,
       id: 2
     },
     {
-      picture_url: process.env.PUBLIC_URL + '/nft/np/3.gif',
-      title: "Skip_#6",
+      picture_url: process.env.PUBLIC_URL + '/nft/np/2.gif',
+      title: "S-hands #01",
       number: "",
       info: "",
       mediaType: 1,
@@ -412,104 +412,112 @@ const products2 = [
       number: "",
       info: "Cosmic Bee",
       mediaType: 1,
+      id: 55
+    },
+    {
+      picture_url: process.env.PUBLIC_URL + '/nft/np/55.gif',
+      title: "S-eyebow #03",
+      number: "",
+      info: "",
+      mediaType: 1,
       id: 5
     },
     {
       picture_url: process.env.PUBLIC_URL + '/nft/np/6.gif',
-      title: "S-eyebow #03",
+      title: "S-ear #04",
       number: "",
       info: "",
       mediaType: 1,
       id: 6
     },
-    // {
-    //   picture_url: process.env.PUBLIC_URL + '/nft/np/4.gif',
-    //   title: "S-head #02",
-    //   number: "",
-    //   info: "",
-    //   mediaType: 1,
-    //   id: 4
-    // },
-    // {
-    //   picture_url: process.env.PUBLIC_URL + '/nft/np/4.gif',
-    //   title: "S-head #02",
-    //   number: "",
-    //   info: "",
-    //   mediaType: 1,
-    //   id: 4
-    // },
-    // {
-    //   picture_url: process.env.PUBLIC_URL + '/nft/np/4.gif',
-    //   title: "S-head #02",
-    //   number: "",
-    //   info: "",
-    //   mediaType: 1,
-    //   id: 4
-    // },
-    // {
-    //   picture_url: process.env.PUBLIC_URL + '/nft/np/4.gif',
-    //   title: "S-head #02",
-    //   number: "",
-    //   info: "",
-    //   mediaType: 1,
-    //   id: 4
-    // },
-    // {
-    //   picture_url: process.env.PUBLIC_URL + '/nft/np/4.gif',
-    //   title: "S-head #02",
-    //   number: "",
-    //   info: "",
-    //   mediaType: 1,
-    //   id: 4
-    // },
-    // {
-    //   picture_url: process.env.PUBLIC_URL + '/nft/np/4.gif',
-    //   title: "S-head #02",
-    //   number: "",
-    //   info: "",
-    //   mediaType: 1,
-    //   id: 4
-    // },
-    // {
-    //   picture_url: process.env.PUBLIC_URL + '/nft/np/4.gif',
-    //   title: "S-head #02",
-    //   number: "",
-    //   info: "",
-    //   mediaType: 1,
-    //   id: 4
-    // },
-    // {
-    //   picture_url: process.env.PUBLIC_URL + '/nft/np/4.gif',
-    //   title: "S-head #02",
-    //   number: "",
-    //   info: "",
-    //   mediaType: 1,
-    //   id: 4
-    // },
-    // {
-    //   picture_url: process.env.PUBLIC_URL + '/nft/np/4.gif',
-    //   title: "S-head #02",
-    //   number: "",
-    //   info: "",
-    //   mediaType: 1,
-    //   id: 4
-    // },
-    // {
-    //   picture_url: process.env.PUBLIC_URL + '/nft/np/4.gif',
-    //   title: "S-head #02",
-    //   number: "",
-    //   info: "",
-    //   mediaType: 1,
-    //   id: 4
-    // },
-    // {
-    //   picture_url: process.env.PUBLIC_URL + '/nft/np/4.gif',
-    //   title: "S-head #02",
-    //   number: "",
-    //   info: "",
-    //   mediaType: 1,
-    //   id: 4
-    // }
+    {
+      picture_url: process.env.PUBLIC_URL + '/nft/np/7.gif',
+      title: "Shih-Tzu-Pupogz #13",
+      number: "",
+      info: "Cosmic Bee",
+      mediaType: 1,
+      id: 4
+    },
+    {
+      picture_url: process.env.PUBLIC_URL + '/nft/np/8.gif',
+      title: "S-tail #5",
+      number: "",
+      info: "",
+      mediaType: 1,
+      id: 4
+    },
+    {
+      picture_url: process.env.PUBLIC_URL + '/nft/np/9.gif',
+      title: "SHIH-Token-Daytime #12",
+      number: "",
+      info: "Shatter Brainz",
+      mediaType: 1,
+      id: 4
+    },
+    {
+      picture_url: process.env.PUBLIC_URL + '/nft/np/10.gif',
+      title: "skipping #7",
+      number: "",
+      info: "",
+      mediaType: 1,
+      id: 4
+    },
+    {
+      picture_url: process.env.PUBLIC_URL + '/nft/np/11.gif',
+      title: "SHIH-Token-Night #11",
+      number: "",
+      info: "Shatter Brainz",
+      mediaType: 1,
+      id: 4
+    },
+    {
+      picture_url: process.env.PUBLIC_URL + '/nft/np/12.gif',
+      title: "Shih #9",
+      number: "",
+      info: "",
+      mediaType: 1,
+      id: 4
+    },
+    {
+      picture_url: process.env.PUBLIC_URL + '/nft/np/13.gif',
+      title: "Hello Shih",
+      number: "",
+      info: "Shatter  Brainz",
+      mediaType: 1,
+      id: 4
+    },
+    {
+      picture_url: process.env.PUBLIC_URL + '/nft/np/14.gif',
+      title: "S-eye#10",
+      number: "",
+      info: "",
+      mediaType: 1,
+      id: 4
+    },
+    {
+      picture_url: process.env.PUBLIC_URL + '/nft/np/15.gif',
+      title: "The Not-A-Rocket Boots",
+      number: "",
+      info: "Cosmic Bee",
+      mediaType: 1,
+      id: 4
+    },
+    {
+      picture_url: process.env.PUBLIC_URL + '/nft/np/16.gif',
+      title: "skip #8",
+      number: "",
+      info: "",
+      mediaType: 1,
+      id: 4
+    },
+    {
+      picture_url: process.env.PUBLIC_URL + '/nft/np/17.gif',
+      title: "London Punk Doggie",
+      number: "",
+      info: "Cosmic Bee",
+      mediaType: 1,
+      id: 4
+    }
   ]
 
 

@@ -30,7 +30,7 @@ import {
   OpenClaimAddressModalAndRedirectToSwap,
   RedirectPathToSwapOnly,
   RedirectToSwap,
-  RedirectPathToHomeOnly
+  RedirectPathToHomeOnly,
 } from './Swap/redirects'
 
 import Vote from './Vote'
@@ -181,6 +181,7 @@ export default function App() {
           <TopLevelModals/>
           <Web3ReactManager>
             <Routes>
+              <Route path="/iro" element={<IdoList />}/>
               <Route path="/home" element={<Home/>}/>
               <Route path="/swap" element={<Swaping/>}/>
               {/* <Route path="/swaping" element={<Swaping/>}/> */}
@@ -192,7 +193,6 @@ export default function App() {
               <Route path="/staking" element={<Earn/>}/>
               <Route path="/mint" element={<Mint />}/>
               <Route path="/iro/:currencyIdA/:currencyIdB/:idoAddress" element={<Ido />}/>
-              <Route path="/iro" element={<IdoList />}/>
               <Route path="/vote" element={<Vote/>}/>
               <Route path="/add" element={<AddLiquidity/>}/>
               <Route path="/add/:currencyIdA" element={<AddLiquidity/>}/>

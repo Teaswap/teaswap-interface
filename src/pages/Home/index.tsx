@@ -60,11 +60,11 @@ export default function Home() {
         <HomeImageDiv>
           <img width="100%" src={process.env.PUBLIC_URL + '/TSA_compressed.gif'} />
           <HomeLearnMore>
-            <AnnouncementText to="/staking">Announcement</AnnouncementText>
+            <AnnouncementText to="/iro">Announcement</AnnouncementText>
             <WhenText>TSA Incubator Program </WhenText>
             <WhenText> When: June 16, 2021 </WhenText>
             <WhenText>Where: TSA</WhenText>
-            <AnnouncementText to="/staking">
+            <AnnouncementText to="/iro">
               Learn Now !
             </AnnouncementText>
           </HomeLearnMore>
