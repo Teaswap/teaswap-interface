@@ -145,7 +145,7 @@ const postPictureAPI = (formData) => {
   return fetch('https://api.imgur.com/3/image', {
     method: 'POST',
     headers: {
-      Authorization: 'Client-ID 4610c48a0c55b2a',
+      Authorization: 'Client-ID 13c7722407e3240',
     },
     body: formData,
   }).then((res) => res.json());
