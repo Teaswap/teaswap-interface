@@ -62,8 +62,8 @@ export default function Home() {
           <HomeLearnMore>
             <AnnouncementText to="/iro">Announcement</AnnouncementText>
             <WhenText>TSA Incubator Program </WhenText>
-            <WhenText> When: June 16, 2021 </WhenText>
-            <WhenText>Where: TSA</WhenText>
+            <WhenText>When: June 16, 2021 </WhenText>
+            <WhenText>Where: TSA IRO</WhenText>
             <AnnouncementText to="/iro">
               Learn Now !
             </AnnouncementText>
