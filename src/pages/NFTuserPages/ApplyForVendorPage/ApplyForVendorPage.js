@@ -109,7 +109,7 @@ const ApplyForVendorPage = () => {
   useEffect(() => {
     window.scroll(0, 0);
     handleGetMe().then((result) => {
-      if (result.data.is_vendor) return navigate('/nft');
+      if (result.data.is_vendor) return navigate('/nft/products/post');
     });
   }, []);
 
