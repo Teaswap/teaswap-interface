@@ -15,7 +15,7 @@ import { ExternalLink } from '../../theme'
 
 import EndedImg from '../../assets/images/sign/ended.png'
 import NewImg from '../../assets/images/sign/new.png'
-import ComingImg from '../../assets/images/sign/coming.webp'
+import ComingImg from '../../assets/images/sign/comingsoon.png'
 
 import IncubatorBox from '../../components/general/IncubatorBox'
 import { ButtonPrimary } from '../../components/Button'
