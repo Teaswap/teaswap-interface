@@ -10,7 +10,7 @@ const List = ()=>{
     <PageWrapper >
       <img src={process.env.PUBLIC_URL + '/mint_banner.png'} width="100%" />
       <Title>
-        <StyledLink href="https://docs.google.com/forms/d/e/1FAIpQLSeGoEA3tuWG-S1NwUyCylmvCwTjALEbh-eVOqoQXHDp3pEmTA/viewform">
+        <StyledLink href="/nft/users/apply">
           Click & Mint Now!
         </StyledLink>
       </Title>
