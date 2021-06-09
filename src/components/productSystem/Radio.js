@@ -6,7 +6,7 @@ const RadioInput = styled.input`
 `;
 
 const RadioLabel = styled.label`
-  color: ${COLOR.text_2};
+  color: ${COLOR.text_3};
   width: 150px;
   margin: 5px 0;
 `;
