@@ -14,11 +14,11 @@ const List = ()=>{
           Click & Mint Now!
         </StyledLink>
       </Title>
-      <SubTitle>
+      {/* <SubTitle>
         <StyledLink href="https://docs.google.com/forms/d/e/1FAIpQLSeDP0KdH1VC9v9G-D97SUX1ykcOOkMR_ff9OX5je-g1Qw8ePw/viewform">
           Featured Artist Application 
         </StyledLink>
-      </SubTitle>
+      </SubTitle> */}
     </PageWrapper>
   )
 };
@@ -57,8 +57,8 @@ const Title = styled.p`
   font-size: 32px;
   text-align: center;
 `
-const SubTitle = styled.p`
-  font-size: 20px;
-  text-align: center;
-`
+// const SubTitle = styled.p`
+//   font-size: 20px;
+//   text-align: center;
+// `
 

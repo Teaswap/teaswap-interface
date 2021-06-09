@@ -5,7 +5,7 @@ import { Nav } from '../../../components/NFTButton';
 import { useNavigate } from 'react-router-dom';
 import { WrapperMask } from '../../../components/userSystem/';
 import { COLOR, FONT, EFFECT, DISTANCE } from '../../../constants/style';
-import { ActionButton } from '../../../components/NFTButton';
+import { GreyBtn } from '../../../components/NFTButton';
 import {
   Announcement,
   VendorInfoForm,
@@ -141,16 +141,16 @@ const ApplyForVendorPage = () => {
         <SetAvatar setSuccessMode={setSuccessMode} />
         <Text>{t('UpLoad Banner')}</Text>
         <SetBanner setSuccessMode={setSuccessMode} />
-        <PageBottom>
+        {/* <PageBottom>
           <Nav path='/nft' children={t('Back to NFTHome')} />
-        </PageBottom>
+        </PageBottom> */}
         {successMode && (
           <WrapperMask>
             <SuccessMessage>
               <p>{t('Success')}</p>
-              <ActionButton onClick={() => setSuccessMode(false)}>
+              <GreyBtn onClick={() => setSuccessMode(false)}>
                 {t('Confirm')}
-              </ActionButton>
+              </GreyBtn>
             </SuccessMessage>
           </WrapperMask>
         )}

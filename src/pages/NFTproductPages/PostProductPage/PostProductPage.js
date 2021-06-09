@@ -19,7 +19,7 @@ const FormWrap = styled.form``;
 
 const Title = styled.h1`
   color: ${COLOR.text_2};
-  font-size: ${FONT.lg};
+  font-size: ${FONT.lg}
   margin-bottom: ${DISTANCE.lg};
 `;
 
