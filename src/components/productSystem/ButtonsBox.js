@@ -10,8 +10,16 @@ const ButtonContainer = styled.div`
 `;
 
 const Button = styled(NormalButton)`
+  background-color: #ffffff;
+  color:  #7f7f7f;
+  border: 1px solid #7f7f7f;
   padding: 8px 45px;
   border-radius: 0px;
+  &:hover {
+    border: none;
+    color: #ffffff;
+    background-color: #7f7f7f;
+  }
   &:last-child {
     margin-left: ${DISTANCE.sm};
   }

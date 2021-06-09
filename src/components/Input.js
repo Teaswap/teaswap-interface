@@ -14,12 +14,14 @@ export const InputSearch = styled.input`
 export const InputComponent = styled.input`
   height: 30px;
   width: ${(props) => (props.$size === 'lg' ? '500px' : '250px')};
-  box-shadow: ${EFFECT.shadowInput};
+  border-width: 1px;
+  // box-shadow: ${EFFECT.shadowInput};
   border-radius: 0px;
   letter-spacing: 0.1rem;
   line-height: 1.5rem;
   padding: 3px;
   margin: ${(props) => (props.$margin === 0 ? '0' : '20px')};
+  padding-left: 10px;
 `;
 
 export const TextAreaComponent = styled.textarea`

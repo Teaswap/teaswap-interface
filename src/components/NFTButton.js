@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 import { COLOR, FONT, EFFECT } from '../constants/style';
 import IconComponent from './Icon';
+import { ButtonPrimary } from '../components/Button'
 
 const ButtonWrapper = styled.button`
   padding: 5px 10px;
@@ -38,29 +39,33 @@ const HelperButtonWrapper = styled(ButtonWrapper)`
 
 export const NormalButton = styled(ButtonWrapper)`
   padding: 5px 10px;
-  border: solid 1px ${COLOR.black};
-  background-color: ${COLOR.bg_primary};
-  color: ${COLOR.black};
   margin: 0px ${(props) => (props.$margin === 0 ? 0 : 20)}px;
   min-width: max-content;
+  font-size: 14px;
+  background-color: #ffffff;
+  color:  #7f7f7f;
+  border: 1px solid #7f7f7f;
+  height: 42px;
   &:hover {
-    border-color: ${COLOR.hover};
-    color: ${COLOR.hover};
+    border: none;
+    color: #ffffff;
+    background-color: #7f7f7f;
     transform: scale(1.05);
   }
 `;
 
-export const ActionButton = styled(ButtonWrapper)`
-  border: solid 1px transparent;
-  border-radius: 8px;
-  padding: ${(props) => (props.$size === 'lg' ? '10px 90px' : '10px 20px')};
-  background-color: ${(props) =>
-    props.$bg === 'red' ? COLOR.btn_secondary : COLOR.btn_primary};
-  color: ${COLOR.white};
-  margin: 0px ${(props) => (props.$margin === 0 ? 0 : 20)}px;
-  min-width: max-content;
+export const GreyBtn = styled(ButtonPrimary)`
+  margin: 40px 0 37px 0;
+  padding: 0px;
+  width: 120px;
+  height: 40px;
+  text-align: center;
+  line-height: 40px;
+  align-self: flex-start;
+  display: block;
+`
 
-`;
+export const ActionButton = styled(GreyBtn)``;
 
 export function HelperButton() {
   return (

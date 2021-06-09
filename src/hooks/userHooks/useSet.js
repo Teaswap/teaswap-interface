@@ -28,7 +28,7 @@ export default function useSet() {
   const [permissionError, setPermissionError] = useState('');
   const [qrCodeUrl, setQrCodeUrl] = useState('https://i.imgur.com/uqZxFCm.png');
   const [bannerUrl, setBannerUrl] = useState(
-    'https://lh4.googleusercontent.com/sAvtic6WzLRcGC485d2irc6Q36VS9GaiIj2TjL9AkbD1t3RjwacfNkJmmUe9fh9c0WV-ZVKQcw=w1200'
+    'https://lh5.googleusercontent.com/jkdMAFJa-CfKr5lLUkT4wKytAYduPXOEGrwoIqS4_JryhdSIi1neejeGicnlELqaAFAPFUBKCozAjeQFJD5kdXW8L-UodSL0UANl6tA-LGfsW4pEUsieoJ0zMdUrKaZaWA=w1440'
   );
   const [avatarUrl, setAvatarUrl] = useState('https://i.imgur.com/uqZxFCm.png');
 

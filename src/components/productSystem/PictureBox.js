@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { COLOR, FONT, DISTANCE, EFFECT } from '../../constants/style';
+import { useTranslation } from 'react-i18next'
 
 const SetPictureContainer = styled.div`
   display: flex;
@@ -28,16 +29,18 @@ const Description = styled.p`
 `;
 
 const Label = styled.label`
-  border: solid 1px transparent;
-  border-radius: 0px;
+  background-color: #ffffff;
+  color:  #7f7f7f;
+  border: 1px solid #7f7f7f;
   padding: ${(props) => (props.$size === 'lg' ? '10px 90px' : '10px 20px')};
-  background-color: ${COLOR.btn_primary};
-  color: ${COLOR.white};
   margin: ${DISTANCE.md} 0;
   min-width: max-content;
   width: 200px;
   cursor: pointer;
   &:hover {
+    border: none;
+    color: #ffffff;
+    background-color: #7f7f7f;
     transform: scale(1.05);
   }
 `;
@@ -47,18 +50,19 @@ const InputFile = styled.input`
 `;
 
 export function PictureBox({ pictureUrl, handleChange }) {
+  const {t} = useTranslation()
   return (
     <SetPictureContainer>
-      <PreviewPicture src={pictureUrl} alt='圖片載入失敗' />
+      <PreviewPicture src={pictureUrl} alt='' />
       <RightSide>
         <Description>
-          從電腦中選取圖檔
+          {t("Pick from computer")}
           <br></br>
-          最佳大小為 600px x 600px
+          {t("The best size")} 600px x 600px
         </Description>
         <Label>
           <InputFile type='file' onChange={handleChange} />
-          選擇圖片
+          {t("Choese File")}
         </Label>
       </RightSide>
     </SetPictureContainer>
