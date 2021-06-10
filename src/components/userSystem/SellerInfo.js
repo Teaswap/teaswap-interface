@@ -169,7 +169,7 @@ const InfoRight = ({ email }) => {
   return (
     <ContactContainer>
       <ContactInfo>
-        <ContactInfoTitle>{t('Contact Info')}</ContactInfoTitle>
+        {/* <ContactInfoTitle>{t('Contact Info')}</ContactInfoTitle> */}
         <Nav children={t('Edit Contact')} path={`/nft/users/vendor/${id}`} />
       </ContactInfo>
       <Email>{email}</Email>

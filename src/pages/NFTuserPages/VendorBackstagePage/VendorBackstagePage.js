@@ -78,33 +78,35 @@ const VendorBackstagePage = () => {
   }, []);
 
   return (
-    <StandardNavPage>
+    <>
       <Banner banner={vendorInfo.banner_url} loaded={loaded} onLoad={onLoad} />
-      <SellerInfo
-        vendorInfo={vendorInfo}
-        products={products}
-        loaded={loaded}
-        onLoad={onLoad}
-      />
-      <ButtonContainer>
-        <NormalButton onClick={handleSetAnnouncement}>{t('Edit Description')}</NormalButton>
-      </ButtonContainer>
-      {isSettingAnnouncement && (
-        <SetAnnouncement setIsSettingAnnouncement={setIsSettingAnnouncement} />
-      )}
-      <Announcement announcement={user?user.announcement:''} />
+      <StandardNavPage>
+        <SellerInfo
+          vendorInfo={vendorInfo}
+          products={products}
+          loaded={loaded}
+          onLoad={onLoad}
+        />
+        <ButtonContainer>
+          <NormalButton  onClick={handleSetAnnouncement}>{t('Edit Description')}</NormalButton>
+        </ButtonContainer>
+        {isSettingAnnouncement && (
+          <SetAnnouncement setIsSettingAnnouncement={setIsSettingAnnouncement} />
+        )}
+        <Announcement announcement={user?user.announcement:''} />
 
-      <SellerProductTitle>
-        <p>{t('Posted NFTs')} </p>
-        <Nav children={t('Add NFT')} path={'/nft/products/post'} />
-      </SellerProductTitle>
-      <Products
-        products={products}
-        id={id}
-        handler={handleVendorProductMoreButton}
-        productErrorMessage={productErrorMessage}
-      />
-    </StandardNavPage>
+        <SellerProductTitle>
+          <p>{t('Posted NFTs')} </p>
+          <Nav children={t('Add NFT')} path={'/nft/products/post'} />
+        </SellerProductTitle>
+        <Products
+          products={products}
+          id={id}
+          handler={handleVendorProductMoreButton}
+          productErrorMessage={productErrorMessage}
+        />
+      </StandardNavPage>
+    </>
   );
 };
 
