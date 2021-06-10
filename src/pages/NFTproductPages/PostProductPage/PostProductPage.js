@@ -8,10 +8,8 @@ import useProduct from '../../../hooks/productHooks/useProduct';
 import useProductFrom from '../../../hooks/productHooks/useProductForm';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next'
-// import {useETHBalances, useTokenBalance} from '../../state/wallet/hooks'
-// import { useActiveWeb3React } from '../../hooks'
-import {useStakingContract} from "../../../hooks/useContract";
-import {ApprovalState} from "../../../hooks/useApproveCallback";
+import {useETHBalances, useTokenBalance} from '../../state/wallet/hooks'
+import { useActiveWeb3React } from '../../hooks'
 import {PAYABLEETH, ZERO_ADDRESS} from "../../../constants";
 import {ChainId} from "@teaswap/uniswap-sdk";
 import {TransactionResponse} from "@ethersproject/providers";
@@ -33,7 +31,7 @@ const Title = styled.h1`
 const PostProductPage = () => {
   const navigate = useNavigate();
   const { handleGetMe } = useUser();
-  // const { account, chainId } = useActiveWeb3React()
+  const { account, chainId } = useActiveWeb3React()
   const {t} = useTranslation();
   const { productCategories, productErrorMessage,handleGetProductCategories } = useProduct();
   const {
@@ -64,63 +62,63 @@ const PostProductPage = () => {
     handleChangePicture,
   } = useProductFrom();
 
-  // const NFTFactoryContract = useStakingContract(stakingInfo.stakingRewardAddress)
-  // async function onMint() {
-  //   setAttempting(true)
-  //   if (stakingContract && parsedAmount && deadline) {
-  //     if (approval === ApprovalState.APPROVED) {
-  //       if(stakingInfo.stakedAmount.token.address===ZERO_ADDRESS||stakingInfo.stakedAmount.token===PAYABLEETH[ChainId.BSC_MAINNET]){
-  //         stakingContract.stakeBNB({ gasLimit: 350000, value:`0x${parsedAmount.raw.toString(16)}` })
-  //             .then((response: TransactionResponse) => {
-  //               addTransaction(response, {
-  //                 summary: t('depositLiquidity')
-  //               })
-  //               setHash(response.hash)
-  //             })
-  //             .catch((error: any) => {
-  //               setAttempting(false)
-  //               console.log(error)
-  //             })
-  //       }else{
-  //         stakingContract.stake(`0x${parsedAmount.raw.toString(16)}`, { gasLimit: 350000 })
-  //             .then((response: TransactionResponse) => {
-  //               addTransaction(response, {
-  //                 summary: t('depositLiquidity')
-  //               })
-  //               setHash(response.hash)
-  //             })
-  //             .catch((error: any) => {
-  //               setAttempting(false)
-  //               console.log(error)
-  //             })
-  //       }
-  //
-  //     } else if (signatureData) {
-  //       stakingContract
-  //           .stakeWithPermit(
-  //               `0x${parsedAmount.raw.toString(16)}`,
-  //               signatureData.deadline,
-  //               signatureData.v,
-  //               signatureData.r,
-  //               signatureData.s,
-  //               { gasLimit: 350000 }
-  //           )
-  //           .then((response: TransactionResponse) => {
-  //             addTransaction(response, {
-  //               summary: t('depositLiquidity')
-  //             })
-  //             setHash(response.hash)
-  //           })
-  //           .catch((error: any) => {
-  //             setAttempting(false)
-  //             console.log(error)
-  //           })
-  //     } else {
-  //       setAttempting(false)
-  //       throw new Error(t('attempting-to-stake-without-approval-or-a-signature-please-contact-support'))
-  //     }
-  //   }
-  // }
+  const NFTFactoryContract = useStakingContract(NFTFACTORY[ChainId.BSC_MAINNET]);
+  async function onMint() {
+    setAttempting(true)
+    if (NFTFactoryContract && parsedAmount && deadline) {
+      if (approval === ApprovalState.APPROVED) {
+        if(stakingInfo.stakedAmount.token.address===ZERO_ADDRESS||stakingInfo.stakedAmount.token===PAYABLEETH[ChainId.BSC_MAINNET]){
+          stakingContract.stakeBNB({ gasLimit: 350000, value:`0x${parsedAmount.raw.toString(16)}` })
+              .then((response: TransactionResponse) => {
+                addTransaction(response, {
+                  summary: t('depositLiquidity')
+                })
+                setHash(response.hash)
+              })
+              .catch((error: any) => {
+                setAttempting(false)
+                console.log(error)
+              })
+        }else{
+          stakingContract.stake(`0x${parsedAmount.raw.toString(16)}`, { gasLimit: 350000 })
+              .then((response: TransactionResponse) => {
+                addTransaction(response, {
+                  summary: t('depositLiquidity')
+                })
+                setHash(response.hash)
+              })
+              .catch((error: any) => {
+                setAttempting(false)
+                console.log(error)
+              })
+        }
+
+      } else if (signatureData) {
+        stakingContract
+            .stakeWithPermit(
+                `0x${parsedAmount.raw.toString(16)}`,
+                signatureData.deadline,
+                signatureData.v,
+                signatureData.r,
+                signatureData.s,
+                { gasLimit: 350000 }
+            )
+            .then((response: TransactionResponse) => {
+              addTransaction(response, {
+                summary: t('depositLiquidity')
+              })
+              setHash(response.hash)
+            })
+            .catch((error: any) => {
+              setAttempting(false)
+              console.log(error)
+            })
+      } else {
+        setAttempting(false)
+        throw new Error(t('attempting-to-stake-without-approval-or-a-signature-please-contact-support'))
+      }
+    }
+  }
 
 
   useEffect(() => {
