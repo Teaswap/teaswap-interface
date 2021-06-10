@@ -114,8 +114,8 @@ const VendorInfoPage = () => {
           <Nav path='/nft' children={t('Back to NFTHome')} />
         </PageBottom>
         {successMode && (
-          <WrapperMask>
-            <SuccessMessage>
+          <WrapperMask className="center-mask">
+            <SuccessMessage className="success-message">
               <p>{t('Success')}</p>
               <ActionButton onClick={() => setSuccessMode(false)}>
                 {t('Confirm')}

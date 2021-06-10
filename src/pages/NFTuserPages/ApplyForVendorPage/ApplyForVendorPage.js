@@ -135,7 +135,7 @@ const ApplyForVendorPage = () => {
         </PageBottom> */}
         {successMode && (
           <WrapperMask className="center-mask">
-            <SuccessMessage id="success-message">
+            <SuccessMessage className="success-message">
               <p>{t('Success')}</p>
               <GreyBtn style={{alignSelf: 'center', width: '150px'}} onClick={() => setSuccessMode(false)}>
                 {t('Confirm')}
