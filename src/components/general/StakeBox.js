@@ -29,7 +29,7 @@ const StakeBox = () => {
         nextButtonStyle: preBtnSty
       }}
     >
-      <img src={process.env.PUBLIC_URL + '/faa61f_faff7044587944099ebc3fbd12e65b7c_mv2.webp'} alt="" />
+      <img src={process.env.PUBLIC_URL + '/stake.png'} alt="" />
 
     </Carousel>
   );
