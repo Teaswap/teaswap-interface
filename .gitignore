@@ -9,7 +9,6 @@
 # production
 /build
 .deploy
-.exclude
 
 # misc
 .DS_Store
