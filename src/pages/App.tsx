@@ -39,6 +39,7 @@ import Footer from '../components/Footer/index'
 
 import { useInactiveListener } from '../hooks/useInactiveListener'
 import '../theme/font-family.css'
+import '../theme/App.css'
 
 import {
   HomePage,
@@ -129,8 +130,10 @@ const BodyWrapper = styled.div`
     padding: 16px;
     padding-top: 2rem;
   `};
-
   z-index: 1;
+  ${MEDIA_QUERY.sm} {
+    padding: 0;
+  }
 `
 
 const Marginer = styled.div`

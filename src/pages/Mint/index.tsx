@@ -3,14 +3,15 @@ import { ColumnCenter } from '../../components/Column'
 import styled from 'styled-components'
 import {MEDIA_QUERY} from '../../constants/style';
 
-import { ExternalLink } from '../../theme'
+import { NavLink } from 'react-router-dom'
+
 const List = ()=>{
 
   return (
     <PageWrapper >
       <img src={process.env.PUBLIC_URL + '/mint_banner.png'} width="100%" />
       <Title>
-        <StyledLink href="/nft/users/apply">
+        <StyledLink to="/nft/users/apply">
           Click & Mint Now!
         </StyledLink>
       </Title>
@@ -32,7 +33,7 @@ const PageWrapper = styled(ColumnCenter)`
     margin-top: -40px;
   }
 `
-const StyledLink = styled(ExternalLink)`
+const StyledLink = styled(NavLink)`
   text-decoration: none;
   cursor: pointer;
   font-weight: 500;
@@ -50,6 +51,10 @@ const StyledLink = styled(ExternalLink)`
 
   :active {
     text-decoration: none;
+    color: inherit;
+  }
+
+  :visited {
     color: inherit;
   }
 `

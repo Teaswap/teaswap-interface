@@ -43,6 +43,7 @@ const TopSection = styled(ColumnCenter)`
 const PoolSection = styled.div`
   width: 100%;
   max-width: 1320px;
+  overflow-x: scroll;
   margin: 0 auto;
   margin-top: 20px;
   display: flex;
@@ -84,14 +85,6 @@ export default function Earn() {
       <NavAndPool>
         <Nav handleCatChange={changeCate} />
       
-      {/* <AutoColumn gap="lg" style={{ width: '1040px'}}> */}
-        {/* <DataRow style={{ alignItems: 'baseline' }}>
-          <TYPE.mediumHeader style={{ marginTop: '0.5rem', color: '#000000' }}>
-            {t('participatingPools')}
-          </TYPE.mediumHeader>
-          <Countdown exactEnd={stakingInfos?.[0]?.periodFinish} />
-        </DataRow> */}
-
         <PoolSection>
           {stakingRewardsExist && stakingInfos?.length === 0 ? (
             <Loader style={{ margin: 'auto' }} />

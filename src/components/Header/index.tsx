@@ -14,7 +14,7 @@ import { useDarkModeManager } from '../../state/user/hooks'
 import { useETHBalances, useAggregateUniBalance } from '../../state/wallet/hooks'
 import { CardNoise } from '../earn/styled'
 import { CountUp } from 'use-count-up'
-import { TYPE, ExternalLink } from '../../theme'
+import { TYPE } from '../../theme'
 import {  useToggleModal } from '../../state/application/hooks'
 import { ApplicationModal } from '../../state/application/actions'
 
@@ -33,6 +33,7 @@ import UniBalanceContent from './UniBalanceContent'
 import usePrevious from '../../hooks/usePrevious'
 import I18nSwitch from '../I18nSwitch'
 import { ButtonSecondary } from '../Button'
+import { MEDIA_QUERY } from '../../constants/style'
 
 const HeaderFrame = styled.div`
   display: flex;
@@ -87,6 +88,9 @@ const HeaderControls = styled.div`
     border-radius: 0px 0px 0 0;
     background-color: ${({ theme }) => theme.bg1};
   `};
+  ${MEDIA_QUERY.sm} {
+    padding: 0;
+  }
 `
 
 const HeaderElement = styled.div`
@@ -253,43 +257,47 @@ const StyledNavLink = styled(NavLink).attrs({
     margin: 0 24px 0 0;
     font-size: 14px;
   }
-`
-
-const StyledExternalLink = styled(ExternalLink).attrs({
-  activeClassName
-})<{ isActive?: boolean }>`
-  ${({ theme }) => theme.flexRowNoWrap}
-  align-items: left;
-  border-radius: 0px;
-  outline: none;
-  cursor: pointer;
-  text-decoration: none;
-  color: #7f7f7f;
-  width: fit-content;
-  margin: 0 12px;
-  font-weight: 500;
-  position: relative;
-
-  &.${activeClassName} {
-    border-radius: 0px;
-    font-weight: bold;
-    color: #000;
-  }
-
-  :hover,
-  :focus, :active {
-    color: #000;
-    text-decoration: none;
-  }
-  ${({ theme }) => theme.mediaWidth.upToExtraSmall`
+  ${MEDIA_QUERY.sm} {
+    width: 22%;
     margin: 0;
-  `}
-
-  @media screen and (max-width: 1120px) {
-    margin: 0 24px 0 0;
-    font-size: 14px;
   }
 `
+
+// const StyledExternalLink = styled(ExternalLink).attrs({
+//   activeClassName
+// })<{ isActive?: boolean }>`
+//   ${({ theme }) => theme.flexRowNoWrap}
+//   align-items: left;
+//   border-radius: 0px;
+//   outline: none;
+//   cursor: pointer;
+//   text-decoration: none;
+//   color: #7f7f7f;
+//   width: fit-content;
+//   margin: 0 12px;
+//   font-weight: 500;
+//   position: relative;
+
+//   &.${activeClassName} {
+//     border-radius: 0px;
+//     font-weight: bold;
+//     color: #000;
+//   }
+
+//   :hover,
+//   :focus, :active {
+//     color: #000;
+//     text-decoration: none;
+//   }
+//   ${({ theme }) => theme.mediaWidth.upToExtraSmall`
+//     margin: 0;
+//   `}
+
+//   @media screen and (max-width: 1120px) {
+//     margin: 0 24px 0 0;
+//     font-size: 14px;
+//   }
+// `
 const Web3StatusGeneric = styled(ButtonSecondary)`
   ${({ theme }) => theme.flexRowNoWrap}
   width: 100%;
@@ -388,9 +396,9 @@ export default function Header() {
             {/* <StyledNavLink id={`Incubator-nav-link`} to={'/iro/bnb/0x5f99ACF13CAff815DD9cB4A415c0fB34e9F4545b/0x4aE03f6eaa8A21Ee3aeD47b97D5F44d2E2996d8a'}>
               {t('NFT Incubator')}
             </StyledNavLink> */}
-            <StyledExternalLink id={`Gallery-nav-link`} href={'https://www.teaswap.live/tsacollection '}>
+            {/* <StyledExternalLink id={`Gallery-nav-link`} href={'https://www.teaswap.live/tsacollection '}>
               {t('TSA Collections')}
-            </StyledExternalLink>
+            </StyledExternalLink> */}
             <StyledNavLink to="/mint">
               {t('Mint Artworks')}
             </StyledNavLink>

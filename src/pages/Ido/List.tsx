@@ -164,7 +164,7 @@ const List = ()=>{
                     top: '15px',
                     right: '5px'
                   }}
-                  width="50"
+                  width="100"
                   src={v.sign}
                   />
               </Grid>
@@ -191,7 +191,7 @@ const PageWrapper2 = styled(ColumnCenter)`
   text-align: center;
   width: 100%;
   margin: 0 auto;
-  max-width: 1700px;
+  max-width: 1400px;
   padding-top: 30px;
 `
 const Grids = styled(ColumnCenter)`

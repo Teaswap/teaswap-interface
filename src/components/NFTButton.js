@@ -57,7 +57,7 @@ export const NormalButton = styled(ButtonWrapper)`
 export const GreyBtn = styled(ButtonPrimary)`
   margin: 40px 0 37px 0;
   padding: 0px;
-  width: 120px;
+  width: 286px;
   height: 40px;
   text-align: center;
   line-height: 40px;
@@ -65,7 +65,9 @@ export const GreyBtn = styled(ButtonPrimary)`
   display: block;
 `
 
-export const ActionButton = styled(GreyBtn)``;
+export const ActionButton = styled(GreyBtn)`
+  width: 286px;
+`;
 
 export function HelperButton() {
   return (

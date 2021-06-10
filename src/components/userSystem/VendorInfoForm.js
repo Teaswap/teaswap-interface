@@ -102,7 +102,7 @@ export default function VendorInfoForm({ setSuccessMode, isAdminStatus }) {
         <InputComponent
           type='text'
           name='portfolio'
-          $size={'lg'}
+          $size={'sm'}
           $margin={0}
           value={portfolio}
           onChange={(e) => setPortfolio(e.target.value)}
@@ -111,7 +111,7 @@ export default function VendorInfoForm({ setSuccessMode, isAdminStatus }) {
         <InputComponent
           type='text'
           name='twitter'
-          $size={'lg'}
+          $size={'sm'}
           $margin={0}
           value={twitter}
           onChange={(e) => setTwitter(e.target.value)}
@@ -120,7 +120,7 @@ export default function VendorInfoForm({ setSuccessMode, isAdminStatus }) {
         <InputComponent
           type='text'
           name='instagram'
-          $size={'lg'}
+          $size={'sm'}
           $margin={0}
           value={instagram}
           onChange={(e) => setInstagram(e.target.value)}
@@ -129,7 +129,7 @@ export default function VendorInfoForm({ setSuccessMode, isAdminStatus }) {
         <InputComponent
           type='text'
           name='profile'
-          $size={'lg'}
+          $size={'sm'}
           $margin={0}
           value={profile}
           onChange={(e) => setProfile(e.target.value)}
@@ -138,7 +138,7 @@ export default function VendorInfoForm({ setSuccessMode, isAdminStatus }) {
         <InputComponent
           type='text'
           name='artsNumber'
-          $size={'lg'}
+          $size={'sm'}
           $margin={0}
           value={artsNumber}
           onChange={(e) => setArtsNumber(e.target.value)}
@@ -147,7 +147,7 @@ export default function VendorInfoForm({ setSuccessMode, isAdminStatus }) {
         <InputComponent
           type='text'
           name='contact'
-          $size={'lg'}
+          $size={'sm'}
           $margin={0}
           value={contact}
           onChange={(e) => setContact(e.target.value)}
@@ -156,7 +156,7 @@ export default function VendorInfoForm({ setSuccessMode, isAdminStatus }) {
         <InputComponent
           type='text'
           name='artworksLink'
-          $size={'lg'}
+          $size={'sm'}
           $margin={0}
           value={artworksLink}
           onChange={(e) => setArtworksLink(e.target.value)}
@@ -165,7 +165,7 @@ export default function VendorInfoForm({ setSuccessMode, isAdminStatus }) {
         <InputComponent
           type='text'
           name='other'
-          $size={'lg'}
+          $size={'sm'}
           $margin={0}
           value={other}
           onChange={(e) => setOther(e.target.value)}

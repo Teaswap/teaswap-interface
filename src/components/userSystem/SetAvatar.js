@@ -3,32 +3,36 @@ import styled from 'styled-components';
 import useUser from '../../hooks/userHooks/useUser';
 import useSet from '../../hooks/userHooks/useSet';
 import { WrapperMask } from '../userSystem';
-import { COLOR, FONT, DISTANCE, EFFECT } from '../../constants/style';
+import { COLOR, FONT, DISTANCE, EFFECT, MEDIA_QUERY } from '../../constants/style';
 import { ActionButton } from '../NFTButton'
 import { useTranslation } from 'react-i18next'
 
 const SetAvatarContainer = styled.div`
   display: flex;
   align-items: center;
+  ${MEDIA_QUERY.sm} {
+    display: block;
+  }
 `;
 
 const PreviewAvatar = styled.img`
   box-shadow: ${EFFECT.shadowInput};
-  height: 250px;
-  width: 250px;
-  min-width: 250px;
+  height: 300px;
+  width: 300px;
   border-radius: 0px;
   object-fit: cover;
+  cursor: pointer;
 `;
 
 const RightSide = styled.div`
   padding: ${DISTANCE.md};
   min-width: max-content;
+  font-size: 16px;
 `;
 
 const Description = styled.p`
   color: ${COLOR.text_2};
-  font-size: ${FONT.xs};
+  font-size: 16px;
   margin-bottom: ${DISTANCE.md};
 `;
 
@@ -40,6 +44,7 @@ const Label = styled.label`
   margin: ${DISTANCE.md} 0;
   min-width: max-content;
   width: 200px;
+  visibility: hidden;
   cursor: pointer;
   &:hover {
     border: none;
@@ -68,7 +73,6 @@ const CheckImage = styled.div`
 `;
 
 const CheckAvatar = styled.img`
-  box-shadow: ${EFFECT.shadowInput};
   height: 300px;
   width: 300px;
   border-radius: 0px;
@@ -83,7 +87,7 @@ const Title = styled.h1`
 
 const TwoButton = styled.div`
   margin: ${DISTANCE.md} auto;
-  width: 170px;
+  width: 270px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -130,13 +134,13 @@ export default function SetAvatar({ setSuccessMode }) {
 
   return (
     <SetAvatarContainer>
-      <PreviewAvatar src={avatarUrl} alt='' />
+      <PreviewAvatar onClick={() => document.getElementById('uploadAvatar').click()} src={avatarUrl} alt='' />
       <RightSide>
         <Description>
           {t("Pick from computer")} <br></br> {t("The best size")}250 x 250px
         </Description>
         <Label>
-          <InputFile type='file' onChange={handleChangeFile} />
+          <InputFile id="uploadAvatar" type='file' onChange={handleChangeFile} />
           {t("Choese File")}
         </Label>
         {isCheckImage && (
@@ -153,6 +157,9 @@ export default function SetAvatar({ setSuccessMode }) {
                   {t("Submit")}
                 </ActionButton>
                 <ActionButton
+                  style={{
+                    marginLeft: '10px'
+                  }}
                   $bg={'red'}
                   $margin={0}
                   onClick={() => handleCancelSetAvatar(setSuccessMode)}

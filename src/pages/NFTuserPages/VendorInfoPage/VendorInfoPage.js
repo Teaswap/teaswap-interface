@@ -98,7 +98,7 @@ const VendorInfoPage = () => {
   return (
     <ThickNavPage>
       <Wrapper>
-        <Title>{t('General Information')}</Title>
+        <Title>{t('Featured Artists Information')}</Title>
         {/*<Announcement />*/}
         {isAdminStatus && <SetPermission setSuccessMode={setSuccessMode} />}
         <VendorInfoForm

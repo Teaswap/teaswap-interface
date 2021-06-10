@@ -4,7 +4,7 @@ import useUser from '../../../hooks/userHooks/useUser';
 import { Nav } from '../../../components/NFTButton';
 import { useNavigate } from 'react-router-dom';
 import { WrapperMask } from '../../../components/userSystem/';
-import { COLOR, FONT, EFFECT, DISTANCE } from '../../../constants/style';
+import { COLOR, FONT, EFFECT, DISTANCE, MEDIA_QUERY } from '../../../constants/style';
 import { GreyBtn } from '../../../components/NFTButton';
 import {
   Announcement,
@@ -15,16 +15,21 @@ import {
 import { ThickNavPage } from '../../../components/Page';
 import {useTranslation} from 'react-i18next';
 import { ButtonPrimary } from '../../../components/Button';
+import { METHODS } from 'http';
 
 const Wrapper = styled.div`
-  width: 50vw;
+  width: 50%;
   margin: 0 auto;
   padding: 30px 0;
+  ${MEDIA_QUERY.sm}{
+    width: 95%;
+  }
 `;
 
 const Title = styled.h1`
   color: ${COLOR.black};
   font-size: ${FONT.lg};
+  width: 100%;
 `;
 
 const Text = styled.p`
@@ -40,27 +45,8 @@ const ErrorText = styled.p`
 `;
 
 const SuccessMessage = styled.div`
-  position: fixed;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  height: 200px;
-  min-width: 40vw;
-  color: ${COLOR.text_1};
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  font-size: ${FONT.lg};
-  border-radius: 15px;
-  background: ${COLOR.light_primary};
-  box-shadow: ${EFFECT.shadowDark};
-  & p {
-    margin: 20px;
-  }
-`;
 
-const CheckComponent = styled.div``;
+`;
 
 const CheckImage = styled.div`
   position: fixed;
@@ -74,6 +60,9 @@ const CheckImage = styled.div`
   flex-direction: column;
   justify-content: center;
   background: ${COLOR.bg_primary};
+  ${MEDIA_QUERY.sm} {
+    padding: 80px 0px;
+  }
 `;
 
 const TwoButton = styled.div`
@@ -116,8 +105,8 @@ const ApplyForVendorPage = () => {
   return (
     <ThickNavPage>
       <Wrapper>
-        {isCheck && (
-          <CheckComponent>
+        {/* {isCheck && (
+          <div class="ddddd">
             <WrapperMask>
               <CheckImage>
                 <Title>{t('Apply for Artist needs more Information')}</Title>
@@ -131,9 +120,9 @@ const ApplyForVendorPage = () => {
                 </TwoButton>
               </CheckImage>
             </WrapperMask>
-          </CheckComponent>
-        )}
-        <Title>{t('General Information')}</Title>
+          </div>
+        )} */}
+        <Title>{t('Featured Artists Information')}</Title>
         {/*<Announcement isApply={true} />*/}
         <VendorInfoForm setSuccessMode={setSuccessMode} />
         {errorMessage && <ErrorText>{errorMessage}</ErrorText>}
@@ -145,10 +134,10 @@ const ApplyForVendorPage = () => {
           <Nav path='/nft' children={t('Back to NFTHome')} />
         </PageBottom> */}
         {successMode && (
-          <WrapperMask>
-            <SuccessMessage>
+          <WrapperMask className="center-mask">
+            <SuccessMessage id="success-message">
               <p>{t('Success')}</p>
-              <GreyBtn onClick={() => setSuccessMode(false)}>
+              <GreyBtn style={{alignSelf: 'center', width: '150px'}} onClick={() => setSuccessMode(false)}>
                 {t('Confirm')}
               </GreyBtn>
             </SuccessMessage>

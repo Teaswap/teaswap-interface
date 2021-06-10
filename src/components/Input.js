@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { EFFECT } from '../constants/style';
+import { EFFECT, MEDIA_QUERY } from '../constants/style';
 
 export const InputSearch = styled.input`
   width: 100%;
@@ -13,7 +13,7 @@ export const InputSearch = styled.input`
 
 export const InputComponent = styled.input`
   height: 30px;
-  width: ${(props) => (props.$size === 'lg' ? '500px' : '250px')};
+  width: 500px;
   border-width: 1px;
   // box-shadow: ${EFFECT.shadowInput};
   border-radius: 0px;
@@ -22,6 +22,9 @@ export const InputComponent = styled.input`
   padding: 3px;
   margin: ${(props) => (props.$margin === 0 ? '0' : '20px')};
   padding-left: 10px;
+  ${MEDIA_QUERY.sm} {
+    width: 250px;
+  }
 `;
 
 export const TextAreaComponent = styled.textarea`
