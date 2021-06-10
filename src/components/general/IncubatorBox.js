@@ -17,8 +17,8 @@ const IncubatorBox = () => {
       style={{
         width: '100%',
         margin: '0 auto',
-        marginTop: '20px'
       }}
+      className="page-banner"
       autoplay={false}
       wrapAround={true}
       defaultControlsConfig={{

@@ -17,7 +17,7 @@ const List = ()=>{
 
   return (
     <PageWrapper >
-      <img src={process.env.PUBLIC_URL + '/mint_banner.png'} width="100%" />
+      <img className="page-banner" src={process.env.PUBLIC_URL + '/mint_banner.png'} width="100%" />
       <Title>
         <StyledLink to={mintUrl}>
           Click & Mint Now!
