@@ -1,17 +1,25 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { ColumnCenter } from '../../components/Column'
 import styled from 'styled-components'
 import {MEDIA_QUERY} from '../../constants/style';
-
 import { NavLink } from 'react-router-dom'
+import useUser from '../../hooks/userHooks/useUser';
 
 const List = ()=>{
+  const { handleGetMe } = useUser();
+  const [mintUrl, setMintUrl] = useState("/nft/users/apply")
+  useEffect(() => {
+    window.scroll(0, 0);
+    handleGetMe().then((result) => {
+      if (result.data.is_vendor) return setMintUrl('/nft/products/post');
+    });
+  }, []);
 
   return (
     <PageWrapper >
       <img src={process.env.PUBLIC_URL + '/mint_banner.png'} width="100%" />
       <Title>
-        <StyledLink to="/nft/users/apply">
+        <StyledLink to={mintUrl}>
           Click & Mint Now!
         </StyledLink>
       </Title>

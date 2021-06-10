@@ -43,8 +43,8 @@ const HeaderFrame = styled.div`
   width: 100%;
   top: 0;
   position: relative;
-  padding-left: 40px;
-  padding-right: 40px;
+  // padding-left: 40px;
+  // padding-right: 40px;
   padding-top: 18px;
   padding-bottom: 18px;
   background-color: #fff;
