@@ -294,7 +294,7 @@ export default function Swap() {
         onConfirm={handleConfirmTokenWarning}
       />
       <Banner>
-        <img width="100%" src={process.env.PUBLIC_URL + '/swap_banner.webp'} />
+        <img width="100%" src={process.env.PUBLIC_URL + '/swap_banner.png'} />
       </Banner>
       
       <BodyWrapper>
