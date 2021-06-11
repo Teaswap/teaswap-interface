@@ -293,7 +293,7 @@ export default function Swap() {
         tokens={urlLoadedTokens}
         onConfirm={handleConfirmTokenWarning}
       />
-      <Banner>
+      <Banner className="page-banner">
         <img width="100%" src={process.env.PUBLIC_URL + '/swap_banner.png'} />
       </Banner>
       
@@ -517,12 +517,14 @@ export const BodyWrapper = styled.div`
     0px 24px 32px rgba(0, 0, 0, 0.01);
       border-radius: 0px;
   padding: 1rem;
+  ${MEDIA_QUERY.sm} {
+    width: 90%;
+    padding: 0;
+  }
 `
 
 export const Banner = styled.div`
   width: 100%;
-  margin-top: -80px;
   ${MEDIA_QUERY.sm} {
-    margin-top: -30px;
   }
 `

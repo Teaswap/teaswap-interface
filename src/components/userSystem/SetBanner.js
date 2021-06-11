@@ -138,7 +138,7 @@ export default function SetBanner({ setSuccessMode }) {
         </Description>
         <Label>
           <InputFile type='file' onChange={handleChangeBannerFile} />
-          {t("Choese File")}
+          {t("Choose File")}
         </Label>
         {isCheckImage && (
           <WrapperMask>

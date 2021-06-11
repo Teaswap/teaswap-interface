@@ -180,10 +180,10 @@ export default List;
 
 const PageWrapper = styled(ColumnCenter)`
   text-align: center;
-  margin-top: -80px;
+  // margin-top: -80px;
   width: 100%;
   ${MEDIA_QUERY.sm} {
-    margin-top: -40px;
+    // margin-top: -40px;
   }
 `
 

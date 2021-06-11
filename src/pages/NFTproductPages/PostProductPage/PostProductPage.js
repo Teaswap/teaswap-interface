@@ -1,7 +1,7 @@
 import React,{ useEffect } from 'react';
 import { StandardNavPage } from '../../../components/Page';
 import styled from 'styled-components';
-import { COLOR, FONT, DISTANCE } from '../../../constants/style';
+import { COLOR, FONT, DISTANCE, MEDIA_QUERY } from '../../../constants/style';
 import { InputItem, ButtonsBox } from '../../../components/productSystem/';
 import useUser from '../../../hooks/userHooks/useUser';
 import useProduct from '../../../hooks/productHooks/useProduct';
@@ -17,9 +17,12 @@ import {NFTFACTORY} from "../../../constants";
 // import {TransactionResponse} from "@ethersproject/providers";
 
 const Wrapper = styled.div`
-  width: 50vw;
+  // width: 50vw;
   margin: 0 auto;
-  padding: 30px 0;
+  padding: 30px 10px;
+  ${MEDIA_QUERY.sm} {
+    width: 100%;
+  }
 `;
 
 const FormWrap = styled.form``;
@@ -99,88 +102,86 @@ const PostProductPage = () => {
   }, []);
 
   return (
-    <StandardNavPage>
-      <Wrapper>
-        <FormWrap>
-          <Title>{t('Apply fot Mint NFT')}</Title>
+    <Wrapper>
+      <FormWrap>
+        <Title>{t('Apply for Mint NFT')}</Title>
 
-          <InputItem
-            title={t('NFT Name')}
-            type={'input'}
-            hasValue={hasProductName}
-            errorMessage={t('Please Input Name')}
-            handleChange={handleChange(setProductName)}
-          />
+        <InputItem
+          title={t('NFT Name')}
+          type={'input'}
+          hasValue={hasProductName}
+          errorMessage={t('Please Input Name')}
+          handleChange={handleChange(setProductName)}
+        />
 
-          <InputItem
-            title={t('Your NFT Information')}
-            type={'textArea'}
-            hasValue={hasProductInfo}
-            textareaRows={4}
-            errorMessage={t('Please Input Information')}
-            handleChange={handleChange(setProductInfo)}
-          />
+        <InputItem
+          title={t('Your NFT Information')}
+          type={'textArea'}
+          hasValue={hasProductInfo}
+          textareaRows={4}
+          errorMessage={t('Please Input Information')}
+          handleChange={handleChange(setProductInfo)}
+        />
 
-          <InputItem
-            title={t('Picture')}
-            type={'picture'}
-            errorMessage={t('Please Choose Picture')}
-            productPictureUrl={productPictureUrl}
-            handleChange={handleChangePicture}
-          />
+        <InputItem
+          title={t('Upload Artwork')}
+          type={'picture'}
+          errorMessage={t('Please Choose Picture')}
+          productPictureUrl={productPictureUrl}
+          handleChange={handleChangePicture}
+        />
 
-          <InputItem
-            title={t('Category')}
-            type={'radio'}
-            options={productCategories}
-            hasValue={hasProductCategory}
-            errorMessage={t('Please Choose Category')}
-            handleChange={handleChange(setProductCategory)}
-          />
+        <InputItem
+          title={t('Category')}
+          type={'radio'}
+          options={productCategories}
+          hasValue={hasProductCategory}
+          errorMessage={t('Please Choose Category')}
+          handleChange={handleChange(setProductCategory)}
+        />
 
-          <InputItem
-            title={t('Price')}
-            type={'input'}
-            hasValue={hasProductPrice}
-            errorMessage={t('Please Input Price')}
-            handleChange={handleChange(setProductPrice)}
-          />
+        <InputItem
+          title={t('Price')}
+          type={'input'}
+          hasValue={hasProductPrice}
+          errorMessage={t('Please Input Price')}
+          handleChange={handleChange(setProductPrice)}
+        />
 
-          <InputItem
-            title={t('Number(ERC1155)')}
-            type={'input'}
-            errorMessage={t('Please Input NFT Number')}
-            hasValue={hasProductQuantity}
-            handleChange={handleChange(setProductQuantity)}
-          />
+        <InputItem
+          title={t('Number(ERC1155)')}
+          type={'input'}
+          errorMessage={t('Please Input NFT Number')}
+          hasValue={hasProductQuantity}
+          handleChange={handleChange(setProductQuantity)}
+        />
 
-          <InputItem
-            title={t('How to buy')}
-            type={'radio'}
-            options={[
-              { name: t('Bid'), id: '0' },
-              { name: t('Auction'), id: '1' },
-            ]}
-            hasValue={hasDelivery}
-            errorMessage={t('please choose')}
-            handleChange={handleChange(setDelivery)}
-            value={delivery}
-          />
+        <InputItem
+          title={t('How to buy')}
+          type={'radio'}
+          options={[
+            { name: t('Bid'), id: '0' },
+            { name: t('Auction'), id: '1' },
+          ]}
+          hasValue={hasDelivery}
+          errorMessage={t('please choose')}
+          handleChange={handleChange(setDelivery)}
+          value={delivery}
+        />
 
-          <InputItem
-            title={t('Remark')}
-            type={'textArea'}
-            textareaRows={2}
-            handleChange={handleChange(setRemark)}
-          />
+        <InputItem
+          title={t('Remark')}
+          type={'textArea'}
+          textareaRows={2}
+          handleChange={handleChange(setRemark)}
+        />
 
-          <ButtonsBox
-            handler={handleSubmitAddForm}
-            productErrorMessage={productErrorMessage}
-          />
-        </FormWrap>
-      </Wrapper>
-    </StandardNavPage>
+        <ButtonsBox
+          handler={handleSubmitAddForm}
+          productErrorMessage={productErrorMessage}
+        />
+      </FormWrap>
+    </Wrapper>
   );
 };
 

@@ -196,21 +196,21 @@ const BalanceText = styled(Text)`
   `};
 `
 
-const Title = styled.a`
-  display: flex;
-  align-items: center;
-  pointer-events: auto;
-  justify-self: flex-start;
-  margin-right: 24px;
-  padding:0 40px;
-  ${({ theme }) => theme.mediaWidth.upToSmall`
-    justify-self: center;
-    margin-right: 0;
-  `};
-  :hover {
-    cursor: pointer;
-  }
-`
+// const Title = styled.a`
+//   display: flex;
+//   align-items: center;
+//   pointer-events: auto;
+//   justify-self: flex-start;
+//   margin-right: 24px;
+//   padding:0 40px;
+//   ${({ theme }) => theme.mediaWidth.upToSmall`
+//     justify-self: center;
+//     margin-right: 0;
+//   `};
+//   :hover {
+//     cursor: pointer;
+//   }
+// `
 
 const UniIcon = styled.div`
   height: 40px;
@@ -329,8 +329,12 @@ const Web3StatusConnected = styled(Web3StatusGeneric)`
 const HeaderRoot = styled.div`
   display: flex;
   flex-direction: column;
-  width: 100%;
-  padding-top: 30px;
+  width: 90%;
+  margin:0 auto;
+  // padding-top: 30px;
+  ${MEDIA_QUERY.sm} {
+    width: 100%;
+  }
 `
 
 
@@ -368,20 +372,15 @@ export default function Header() {
 
   return (
     <HeaderRoot>
-      <Title href=".">
-        <UniIcon style={{ marginTop: 0 }}>
-          <img height="40px" style={{ marginTop: 0 }} src={isDark ? LogoDark : Logo} alt="logo" />
-        </UniIcon>
-      </Title>
       <HeaderFrame>
         <ClaimModal />
         <Modal isOpen={showUniBalanceModal} onDismiss={() => setShowUniBalanceModal(false)}>
           <UniBalanceContent setShowUniBalanceModal={setShowUniBalanceModal} />
         </Modal>
-
-
         <HeaderRow>
-
+          <UniIcon style={{ marginTop: 0 }}>
+            <img height="40px" style={{ marginTop: 0 }} src={isDark ? LogoDark : Logo} alt="logo" />
+          </UniIcon>
           <HeaderLinks style={{ fontSize: '14px' }}>
             <StyledNavLink id={`swap-nav-link`} to={'/home'}>
               {t('Home')}

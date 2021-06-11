@@ -13,8 +13,9 @@ const Button = styled(NormalButton)`
   background-color: #ffffff;
   color:  #7f7f7f;
   border: 1px solid #7f7f7f;
-  padding: 8px 45px;
+  // padding: 8px 45px;
   border-radius: 0px;
+  width: 120px;
   &:hover {
     border: none;
     color: #ffffff;

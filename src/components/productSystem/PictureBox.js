@@ -4,7 +4,7 @@ import { COLOR, FONT, DISTANCE, EFFECT } from '../../constants/style';
 import { useTranslation } from 'react-i18next'
 
 const SetPictureContainer = styled.div`
-  display: flex;
+  // display: flex;
   align-items: center;
 `;
 
@@ -62,7 +62,7 @@ export function PictureBox({ pictureUrl, handleChange }) {
         </Description>
         <Label>
           <InputFile type='file' onChange={handleChange} />
-          {t("Choese File")}
+          {t("Choose File")}
         </Label>
       </RightSide>
     </SetPictureContainer>

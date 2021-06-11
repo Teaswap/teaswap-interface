@@ -141,7 +141,7 @@ export default function SetAvatar({ setSuccessMode }) {
         </Description>
         <Label>
           <InputFile id="uploadAvatar" type='file' onChange={handleChangeFile} />
-          {t("Choese File")}
+          {t("Choose File")}
         </Label>
         {isCheckImage && (
           <WrapperMask>

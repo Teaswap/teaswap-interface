@@ -14,10 +14,12 @@ import smallLogo from '../../assets/images/home_page_logo.png'
 const PageWrapper = styled(HomeGrid)`
   max-width: 1024px;
   width: 100%;
+  margin-top: 60px;
   ${MEDIA_QUERY.md} { 
     display: flex;
     flex-direction: column;
     align-item: center;
+    margin-top: 40px;
   }
 `
 

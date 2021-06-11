@@ -28,7 +28,8 @@ export const InputComponent = styled.input`
 `;
 
 export const TextAreaComponent = styled.textarea`
-  width: ${(props) => (props.$size === 'lg' ? '600px' : '400px')};
+  width: 90%;
+  max-width: '600px';
   box-shadow: ${EFFECT.shadowInput};
   border-radius: 0px;
   letter-spacing: 0.1rem;
