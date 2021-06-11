@@ -32,13 +32,13 @@ const SellerProductTitle = styled.div`
 const ButtonContainer = styled.div`
   width: 100%;
   text-align: right;
-  & > button {
-    position: absolute;
-    transform: translate(-150%, 50px);
-    &:hover {
-      transform: translate(-150%, 50px);
-    }
-  }
+  // & > button {
+  //   position: absolute;
+  //   transform: translate(-150%, 50px);
+  //   &:hover {
+  //     transform: translate(-150%, 50px);
+  //   }
+  // }
 `;
 
 const VendorBackstagePage = () => {

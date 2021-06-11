@@ -1,6 +1,6 @@
 import React,{ useState, useEffect } from 'react';
 import styled from 'styled-components';
-import { COLOR, FONT, DISTANCE } from '../../constants/style';
+import { COLOR, FONT, DISTANCE, MEDIA_QUERY } from '../../constants/style';
 import { ActionButton, Nav } from '../NFTButton';
 import useUser from '../../hooks/userHooks/useUser';
 import useProduct from '../../hooks/productHooks/useProduct';
@@ -11,6 +11,7 @@ const InfoBlock = styled.section`
   align-item: center;
   justify-content: space-between;
   margin: 40px 0;
+  flex-wrap: wrap;
 `;
 const AvatarContainer = styled.div`
   position: relative;
@@ -43,6 +44,10 @@ const InfoContainer = styled.div`
   padding-right: 40px;
   align-self: center;
   min-width: max-content;
+  ${MEDIA_QUERY.sm} {
+    width: 96%;
+    padding-right: 0px;
+  }
 `;
 
 const InfoTop = styled.div`
@@ -67,7 +72,7 @@ const InfoBottom = styled.div`
 
 const InfoBottomItem = styled.div`
   margin: 5px 20px 5px 0;
-  width: 90px;
+  // width: 90px;
 `;
 
 const InfoName = styled.p`
@@ -84,6 +89,7 @@ const ContactContainer = styled.div`
   align-self: center;
   color: ${COLOR.text_2};
   min-width: max-content;
+  margin-top: 20px;
 `;
 
 const ContactInfo = styled.div`
