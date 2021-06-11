@@ -35,10 +35,8 @@ import {Countdown} from "../Earn/Countdown";
 
 const PageWrapper = styled.div`
   width: 100%;
-  margin-top: -70px;
   text-align: center;
   ${MEDIA_QUERY.sm} {
-    margin-top: -30px;
   }
 `
 
@@ -71,6 +69,7 @@ const Author = styled(ColumnCenter)`
 
 const Box = styled(ColumnCenter)`
   max-width: 405px;
+  width: 90%;
   border-color: rgba(176, 169, 134, 1) rgba(176, 169, 134, 1) rgba(176, 169, 134, 1) rgba(176, 169, 134, 1);
   border-radius: 0 0 0 0;
   box-shadow: 0 4px 10px 0 rgb(0 0 0 / 65%);
@@ -79,6 +78,7 @@ const Box = styled(ColumnCenter)`
   margin: 0px;
   margin-left: 40px;
   margin-top: 40px;
+  padding: 20px;
   padding-bottom: 20px;
   ${MEDIA_QUERY.sm} {
     margin-left: 0;
@@ -87,7 +87,7 @@ const Box = styled(ColumnCenter)`
 `
 
 const PositionInfo = styled(AutoColumn)<{ dim: any }>`
-  position: relative;
+  // position: relative;
   width: 100%;
   opacity: ${({ dim }) => (dim ? 0.6 : 1)};
 `
@@ -107,16 +107,17 @@ const StyledDataCard = styled(DataCard)<{ bgColor?: any; showBackground?: any }>
 const StyledBottomCard = styled(DataCard)<{ dim: any }>`
   background: ${({ theme }) => theme.bg3};
   opacity: ${({ dim }) => (dim ? 0.4 : 1)};
-  margin-top: -40px;
-  padding: 0 1.25rem 1rem 1.25rem;
-  padding-top: 32px;
+  // margin-top: -40px;
+  // padding: 0 1.25rem 1rem 1.25rem;
+  // padding-top: 32px;
   z-index: 1;
 `
 
 const PoolData = styled(DataCard)`
   background: none;
   border: 1px solid ${({ theme }) => theme.bg4};
-  padding: 1rem;
+  margin: 1rem;
+  // padding: 1rem;
   z-index: 1;
   text-align: left;
 `
@@ -285,7 +286,7 @@ const Index = ()=>{
         </Author>
         <Box>
           <PoolData>
-            <AutoColumn gap="sm">
+            <AutoColumn className="padding-column" gap="sm">
               <TYPE.darkGray style={{ margin: 0 }}>{t('totalSupply')}</TYPE.darkGray>
               {/*<TYPE.darkGray fontSize={24} fontWeight={500}>*/}
               {/*  {valueOfTotalStakedAmountInUSDC*/}
@@ -305,7 +306,7 @@ const Index = ()=>{
             </AutoColumn>
           </PoolData>
           <PoolData>
-            <AutoColumn gap="sm">
+            <AutoColumn className="padding-column" gap="sm">
               <TYPE.darkGray style={{ margin: 0 }}>{t('Price')}</TYPE.darkGray>
               <TYPE.darkGray fontSize={24} fontWeight={500}>
                 1 {currencyB?.symbol} {t('need')} {''}
@@ -385,9 +386,9 @@ const Index = ()=>{
                 </CardSection>
               </StyledDataCard>
               <StyledBottomCard dim={idoInfo?.makeAmount?.equalTo(JSBI.BigInt(0))}>
-                <CardBGImage desaturate />
-                <CardNoise />
-                <AutoColumn gap="sm">
+                {/* <CardBGImage desaturate />
+                <CardNoise /> */}
+                <AutoColumn className="padding-column" gap="sm">
                   <RowBetween>
                     <div>
                       <TYPE.black>{t('Your Unclaimed')} {currencyB?.symbol}</TYPE.black>

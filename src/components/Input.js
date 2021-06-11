@@ -13,7 +13,8 @@ export const InputSearch = styled.input`
 
 export const InputComponent = styled.input`
   height: 30px;
-  width: 500px;
+  width: 100%;
+  max-width: 600px;
   border-width: 1px;
   // box-shadow: ${EFFECT.shadowInput};
   border-radius: 0px;
@@ -23,13 +24,12 @@ export const InputComponent = styled.input`
   margin: ${(props) => (props.$margin === 0 ? '0' : '20px')};
   padding-left: 10px;
   ${MEDIA_QUERY.sm} {
-    width: 250px;
   }
 `;
 
 export const TextAreaComponent = styled.textarea`
-  width: 90%;
-  max-width: '600px';
+  width: 100%;
+  max-width: 600px;
   box-shadow: ${EFFECT.shadowInput};
   border-radius: 0px;
   letter-spacing: 0.1rem;

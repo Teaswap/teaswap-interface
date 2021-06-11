@@ -8,6 +8,8 @@ import { PictureBox } from './PictureBox';
 
 const QuestionBox = styled.div`
   margin-bottom: 40px;
+  width: 90%;
+  max-width: 600px;
 `;
 
 const QuestionTitle = styled.div`

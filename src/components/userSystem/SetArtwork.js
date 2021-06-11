@@ -1,30 +1,32 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import { COLOR, FONT, DISTANCE, EFFECT, MEDIA_QUERY } from '../../constants/style';
 import { useTranslation } from 'react-i18next'
 
-const SetPictureContainer = styled.div`
-  // display: flex;
+const SetAvatarContainer = styled.div`
+  display: flex;
   align-items: center;
+  ${MEDIA_QUERY.sm} {
+    display: block;
+  }
 `;
 
-const PreviewPicture = styled.img`
+const PreviewAvatar = styled.img`
   box-shadow: ${EFFECT.shadowInput};
-  // height: 250px;
-  // width: 250px;
-  // min-width: 250px;
-  width: 100%;
+  height: 300px;
+  width: 300px;
   border-radius: 0px;
   object-fit: cover;
+  cursor: pointer;
 `;
 
 const RightSide = styled.div`
   padding: ${DISTANCE.md};
   min-width: max-content;
+  font-size: 16px;
 `;
 
 const Description = styled.p`
-  width: 60%;
   color: ${COLOR.text_2};
   font-size: 16px;
   margin-bottom: ${DISTANCE.md};
@@ -38,6 +40,7 @@ const Label = styled.label`
   margin: ${DISTANCE.md} 0;
   min-width: max-content;
   width: 200px;
+  visibility: hidden;
   cursor: pointer;
   &:hover {
     border: none;
@@ -51,20 +54,21 @@ const InputFile = styled.input`
   display: none;
 `;
 
-export function PictureBox({ pictureUrl, handleChange }) {
+export default function SetAvatar({ productPictureUrl, handleChangePicture }) {
   const {t} = useTranslation()
+
   return (
-    <SetPictureContainer>
-      <PreviewPicture src={pictureUrl} alt='' />
+    <SetAvatarContainer>
+      <PreviewAvatar onClick={() => document.getElementById('uploadArtwork').click()} src={productPictureUrl} alt='' />
       <RightSide>
         <Description>
-        {"Support： PNG, JPG , GIF, Video and Audio; Suggested ration 3:4; Size <10MB"}
+          {"Support： PNG, JPG , GIF, Video and Audio; Suggested ration 3:4; Size <10MB"}
         </Description>
         <Label>
-          <InputFile type='file' onChange={handleChange} />
+          <InputFile id="uploadArtwork" type='file' onChange={handleChangePicture} />
           {t("Choose File")}
         </Label>
       </RightSide>
-    </SetPictureContainer>
+    </SetAvatarContainer>
   );
 }

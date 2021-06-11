@@ -34,6 +34,7 @@ const Description = styled.p`
   color: ${COLOR.text_2};
   font-size: 16px;
   margin-bottom: ${DISTANCE.md};
+  width: 60%;
 `;
 
 const Label = styled.label`
@@ -137,7 +138,7 @@ export default function SetAvatar({ setSuccessMode }) {
       <PreviewAvatar onClick={() => document.getElementById('uploadAvatar').click()} src={avatarUrl} alt='' />
       <RightSide>
         <Description>
-          {t("Pick from computer")} <br></br> {t("The best size")}250 x 250px
+          {"Support： PNG, JPG , GIF, Video and Audio; Suggested ration 3:4; Size <10MB"}
         </Description>
         <Label>
           <InputFile id="uploadAvatar" type='file' onChange={handleChangeFile} />

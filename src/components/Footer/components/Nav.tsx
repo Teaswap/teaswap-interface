@@ -14,10 +14,10 @@ const Nav: React.FC = () => {
         Stake
       </StyledNavLink>
       <StyledLinkSep />
-      <StyledLink target="_blank" href="https://teaswap.myshopify.com/">
+      {/* <StyledLink target="_blank" href="https://teaswap.myshopify.com/">
         Shop
-      </StyledLink>
-      <StyledLinkSep />
+      </StyledLink> */}
+      {/* <StyledLinkSep /> */}
       <StyledLink target="_blank" href="https://www.teaswap.live/info">
         Info
       </StyledLink>
@@ -59,9 +59,9 @@ const StyledLink = styled.a`
   line-height: 34px;
 `
 const StyledLinkSep = styled.span`
-  padding: 0 12px;
+  padding: 0 16px;
   ${MEDIA_QUERY.sm} {
-    padding: 0 6px;
+    padding: 0 12px;
   }
 `
 

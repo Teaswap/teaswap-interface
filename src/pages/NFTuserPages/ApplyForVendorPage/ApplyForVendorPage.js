@@ -19,10 +19,11 @@ import { METHODS } from 'http';
 
 const Wrapper = styled.div`
   width: 50%;
+  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.01), 0px 4px 8px rgba(0, 0, 0, 0.04), 0px 16px 24px rgba(0, 0, 0, 0.04), 0px 24px 32px rgba(0, 0, 0, 0.01);
   margin: 0 auto;
-  padding: 30px 0;
+  padding: 30px;
   ${MEDIA_QUERY.sm}{
-    width: 95%;
+    // width: 95%;
   }
 `;
 

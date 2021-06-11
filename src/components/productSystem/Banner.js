@@ -5,6 +5,7 @@ const BannerContainer = styled.div`
   position: relative;
   margin: 0 auto;
   height: 250px;
+  width: 100%:
 
   &:before {
     content: '';

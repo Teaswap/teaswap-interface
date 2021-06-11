@@ -24,7 +24,7 @@ import { MEDIA_QUERY } from '../../constants/style'
 
 const PageWrapper = styled(AutoColumn)`
   max-width: 640px;
-  margin-top: 20px;
+  margin-top: 80px;
   width: 100%;
   padding: 1rem;
   box-shadow: 0px 0px 1px rgb(0 0 0 / 1%), 0px 4px 8px rgb(0 0 0 / 4%), 0px 16px 24px rgb(0 0 0 / 4%), 0px 24px 32px rgb(0 0 0 / 1%);
@@ -57,23 +57,15 @@ const ButtonRow = styled(RowFixed)`
 `
 
 const ResponsiveButtonPrimary = styled(ButtonPrimary)`
-  width: fit-content;
+  width: 160px;
   height: 40px;
   padding: 0;
-  ${({ theme }) => theme.mediaWidth.upToSmall`
-    width: 48%;
-    height: 40px;
-  `};
 `
 
 const ResponsiveButtonSecondary = styled(ButtonSecondary)`
-  width: fit-content;
   height: 40px;
   padding: 0;
-  ${({ theme }) => theme.mediaWidth.upToSmall`
-    width: 48%;
-    height: 40px;
-  `};
+  width: 180px;
 `
 
 const EmptyProposals = styled.div`
@@ -212,7 +204,7 @@ export default function Pool() {
             )}
 
             <AutoColumn justify={'center'} gap="md">
-              <Text textAlign="center" fontSize={14} style={{ padding: '.5rem 0 .5rem 0', color: '#ffffff' }}>
+              <Text textAlign="center" fontSize={14} style={{ padding: '.5rem 0 .5rem 0', color: '#474747' }}>
                 {hasV1Liquidity ? t('uniswap-v1-liquidity-found') : t('dont-see-a-pool-you-joined')}{' '}
                 <StyledInternalLink id="import-pool-link" to={hasV1Liquidity ? '/migrate/v1' : '/find'}>
                   {hasV1Liquidity ? t('migrateNow') : t('importIt')}

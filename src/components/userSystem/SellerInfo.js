@@ -134,19 +134,19 @@ const InfoItem = () => {
   return (
     <InfoBottom>
       <InfoBottomItem>
-        <InfoName>{t('Works Amount')}</InfoName>
+        <InfoName>{t('On Sale')}</InfoName>
         <InfoNumber>{productCount}</InfoNumber>
       </InfoBottomItem>
       <InfoBottomItem>
-        <InfoName>{t('Works Amount')}</InfoName>
+        <InfoName>{t('Owned')}</InfoName>
         <InfoNumber>2</InfoNumber>
       </InfoBottomItem>
       <InfoBottomItem>
-        <InfoName>{t('Sold Amount')}</InfoName>
+        <InfoName>{t('Created')}</InfoName>
         <InfoNumber>3</InfoNumber>
       </InfoBottomItem>
       <InfoBottomItem>
-        <InfoName>{t('Watch Amount')}</InfoName>
+        <InfoName>{t('views')}</InfoName>
         <InfoNumber>
           {averageShippingTime ? `${averageShippingTime} days` : 'No Work'}
         </InfoNumber>

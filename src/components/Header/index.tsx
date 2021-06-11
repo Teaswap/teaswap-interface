@@ -329,9 +329,9 @@ const Web3StatusConnected = styled(Web3StatusGeneric)`
 const HeaderRoot = styled.div`
   display: flex;
   flex-direction: column;
-  width: 90%;
+  width: 96%;
   margin:0 auto;
-  // padding-top: 30px;
+  padding-top: 30px;
   ${MEDIA_QUERY.sm} {
     width: 100%;
   }
@@ -372,25 +372,25 @@ export default function Header() {
 
   return (
     <HeaderRoot>
+      <UniIcon style={{ marginTop: 0, marginLeft: '10px' }}>
+        <img height="40px" style={{ marginTop: 0 }} src={isDark ? LogoDark : Logo} alt="logo" />
+      </UniIcon>
       <HeaderFrame>
         <ClaimModal />
         <Modal isOpen={showUniBalanceModal} onDismiss={() => setShowUniBalanceModal(false)}>
           <UniBalanceContent setShowUniBalanceModal={setShowUniBalanceModal} />
         </Modal>
         <HeaderRow>
-          <UniIcon style={{ marginTop: 0 }}>
-            <img height="40px" style={{ marginTop: 0 }} src={isDark ? LogoDark : Logo} alt="logo" />
-          </UniIcon>
           <HeaderLinks style={{ fontSize: '14px' }}>
             <StyledNavLink id={`swap-nav-link`} to={'/home'}>
               {t('Home')}
             </StyledNavLink>
             <StyledNavLink id={`NFT-nav-link`} to={'/nft'} >
-              {t('NFT Broadway')}
+              {t('NFT')}
               {/* <span>↗</span> */}
             </StyledNavLink>
             <StyledNavLink id={`Incubator-nav-link`} to={'/iro'}>
-              {t('NFT Incubator')}
+              {t('Incubator')}
             </StyledNavLink>
             {/* <StyledNavLink id={`Incubator-nav-link`} to={'/iro/bnb/0x5f99ACF13CAff815DD9cB4A415c0fB34e9F4545b/0x4aE03f6eaa8A21Ee3aeD47b97D5F44d2E2996d8a'}>
               {t('NFT Incubator')}
@@ -399,7 +399,7 @@ export default function Header() {
               {t('TSA Collections')}
             </StyledExternalLink> */}
             <StyledNavLink to="/mint">
-              {t('Mint Artworks')}
+              {t('Create')}
             </StyledNavLink>
 
             {/* <StyledNavLink id={`swap-nav-link`} to={'/swap'}>

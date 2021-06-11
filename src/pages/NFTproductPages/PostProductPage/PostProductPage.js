@@ -17,11 +17,14 @@ import {NFTFACTORY} from "../../../constants";
 // import {TransactionResponse} from "@ethersproject/providers";
 
 const Wrapper = styled.div`
-  // width: 50vw;
+  width: 50vw;
   margin: 0 auto;
-  padding: 30px 10px;
+  padding: 30px;
+  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.01), 0px 4px 8px rgba(0, 0, 0, 0.04), 0px 16px 24px rgba(0, 0, 0, 0.04),
+    0px 24px 32px rgba(0, 0, 0, 0.01);
   ${MEDIA_QUERY.sm} {
     width: 100%;
+    padding: 10px;
   }
 `;
 
@@ -104,7 +107,7 @@ const PostProductPage = () => {
   return (
     <Wrapper>
       <FormWrap>
-        <Title>{t('Apply for Mint NFT')}</Title>
+        <Title>{t('Mint Artwork')}</Title>
 
         <InputItem
           title={t('NFT Name')}
@@ -149,7 +152,7 @@ const PostProductPage = () => {
         />
 
         <InputItem
-          title={t('Number(ERC1155)')}
+          title={t('Number (ERC1155)')}
           type={'input'}
           errorMessage={t('Please Input NFT Number')}
           hasValue={hasProductQuantity}
