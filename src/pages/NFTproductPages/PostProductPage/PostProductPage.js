@@ -20,8 +20,8 @@ const Wrapper = styled.div`
   width: 50vw;
   margin: 0 auto;
   padding: 30px;
-  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.01), 0px 4px 8px rgba(0, 0, 0, 0.04), 0px 16px 24px rgba(0, 0, 0, 0.04),
-    0px 24px 32px rgba(0, 0, 0, 0.01);
+  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.1), 0px 4px 8px rgba(0, 0, 0, 0.1), 0px 16px 24px rgba(0, 0, 0, 0.1),
+    0px 24px 32px rgba(0, 0, 0, 0.1);
   ${MEDIA_QUERY.sm} {
     width: 100%;
     padding: 10px;
@@ -53,10 +53,12 @@ const PostProductPage = () => {
     setPaymentMethod,
     setRemark,
     setProductQuantity,
+    setHasProductToken,
     handleChange,
     hasProductName,
     hasProductInfo,
     hasProductCategory,
+    hasProductToken,
     hasDeliveryLocation,
     hasProductPrice,
     hasDeliveryTime,
@@ -104,6 +106,14 @@ const PostProductPage = () => {
     });
   }, []);
 
+  const tokenOptions = [
+    { id: 'BNB', name: 'BNB' },
+    { id: 'BUSD', name: 'BUSD' },
+    { id: 'TSA', name: 'BNB' },
+    { id: 'Shih', name: 'Shih' },
+    { id: 'CJAI', name: 'CJAI' },
+  ]
+
   return (
     <Wrapper>
       <FormWrap>
@@ -144,6 +154,15 @@ const PostProductPage = () => {
         />
 
         <InputItem
+          title={t('Which token will you charge for your NFT?')}
+          type={'radio'}
+          options={tokenOptions}
+          hasValue={hasProductToken}
+          errorMessage={t('Please Choose Category')}
+          handleChange={handleChange(setHasProductToken)}
+        />
+
+        <InputItem
           title={t('Price')}
           type={'input'}
           hasValue={hasProductPrice}
@@ -178,7 +197,10 @@ const PostProductPage = () => {
           textareaRows={2}
           handleChange={handleChange(setRemark)}
         />
-
+        <div class="declare-checkbox">
+          <input type="checkbox" id="declare" />
+          {t("I declare that this is an original artwork. I understand that no plagiarism is allowed, and that the artwork can be removed anytime if detected.")}
+        </div>
         <ButtonsBox
           handler={handleSubmitAddForm}
           productErrorMessage={productErrorMessage}

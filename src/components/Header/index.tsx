@@ -234,7 +234,7 @@ const StyledNavLink = styled(NavLink).attrs({
   text-decoration: none;
   color: ${({ theme }) => theme.gray};
   width: fit-content;
-  margin: 0 6px;
+  margin: 0 16px;
   font-weight: 500;
 
   &.${activeClassName} {
@@ -254,12 +254,12 @@ const StyledNavLink = styled(NavLink).attrs({
   `}
 
   @media screen and (max-width: 1120px) {
-    margin: 0 24px 0 0;
+    margin: 0 30px 0 0;
     font-size: 14px;
   }
   ${MEDIA_QUERY.sm} {
-    width: 22%;
-    margin: 0;
+    // width: 22%;
+    margin: 0 30px 0 0;
   }
 `
 
@@ -372,15 +372,15 @@ export default function Header() {
 
   return (
     <HeaderRoot>
-      <UniIcon style={{ marginTop: 0, marginLeft: '10px' }}>
-        <img height="40px" style={{ marginTop: 0 }} src={isDark ? LogoDark : Logo} alt="logo" />
-      </UniIcon>
       <HeaderFrame>
         <ClaimModal />
         <Modal isOpen={showUniBalanceModal} onDismiss={() => setShowUniBalanceModal(false)}>
           <UniBalanceContent setShowUniBalanceModal={setShowUniBalanceModal} />
         </Modal>
         <HeaderRow>
+          <UniIcon style={{ marginTop: 0, marginBottom: '20px', marginRight: '50px' }}>
+            <img height="40px" style={{ marginTop: 0 }} src={isDark ? LogoDark : Logo} alt="logo" />
+          </UniIcon>
           <HeaderLinks style={{ fontSize: '14px' }}>
             <StyledNavLink id={`swap-nav-link`} to={'/home'}>
               {t('Home')}

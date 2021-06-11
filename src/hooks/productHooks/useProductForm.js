@@ -29,6 +29,7 @@ export default function useProductForm(id) {
   const [hasProductName, setHasProductName] = useState('');
   const [hasProductInfo, setHasProductInfo] = useState('');
   const [hasProductCategory, setHasProductCategory] = useState('');
+  const [hasProductToken, setHasProductToken] = useState('');
   const [hasDeliveryLocation, setHasDeliveryLocation] = useState('');
   const [hasProductPrice, setHasProductPrice] = useState('');
   const [hasDeliveryTime, setHasDeliveryTime] = useState('');
@@ -200,6 +201,7 @@ export default function useProductForm(id) {
     hasDelivery,
     hasPaymentMethod,
     hasProductQuantity,
+    hasProductToken,
 
     setProductName,
     setProductInfo,
@@ -212,7 +214,8 @@ export default function useProductForm(id) {
     setPaymentMethod,
     setRemark,
     setProductQuantity,
-
+    setHasProductToken,
+    
     changeProductValue,
     handleChange,
     handleSubmitAddForm,

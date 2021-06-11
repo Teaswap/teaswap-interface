@@ -219,7 +219,7 @@ const Grid = styled(ColumnCenter)`
   transform: translateZ(0);
   margin: 0px;
   margin-left: 30px;
-  margin-top: 30px;
+  margin-top: 60px;
   align-items: flex-start;
   ${MEDIA_QUERY.sm} {
     margin-left: 0;

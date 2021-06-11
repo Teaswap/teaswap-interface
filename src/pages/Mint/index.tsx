@@ -11,7 +11,7 @@ const List = ()=>{
   useEffect(() => {
     window.scroll(0, 0);
     handleGetMe().then((result) => {
-      if (result.data.is_vendor) return setMintUrl('/nft/products/post');
+      if (result && result.data && result.data.is_vendor) return setMintUrl('/nft/products/post');
     });
   }, []);
 
@@ -43,25 +43,27 @@ const StyledLink = styled(NavLink)`
   text-decoration: none;
   cursor: pointer;
   font-weight: 500;
+  color: #474747;
 
   :hover {
     text-decoration: none;
-    color: inherit;
+    color: #474747;
   }
 
   :focus {
     outline: none;
     text-decoration: none;
-    color: inherit;
+    color: #474747;
   }
 
   :active {
     text-decoration: none;
-    color: inherit;
+    color: #474747;
   }
 
   :visited {
     color: inherit;
+    color: #474747;
   }
 `
 const Title = styled.p`

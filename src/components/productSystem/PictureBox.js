@@ -19,7 +19,6 @@ const PreviewPicture = styled.img`
 `;
 
 const RightSide = styled.div`
-  padding: ${DISTANCE.md};
   min-width: max-content;
 `;
 
@@ -33,11 +32,10 @@ const Description = styled.p`
 const Label = styled.label`
   background-color: #ffffff;
   color:  #7f7f7f;
-  border: 1px solid #7f7f7f;
-  padding: ${(props) => (props.$size === 'lg' ? '10px 90px' : '10px 20px')};
+  // border: 1px solid #7f7f7f;
+  // padding: 10px 40px;
   margin: ${DISTANCE.md} 0;
   min-width: max-content;
-  width: 200px;
   cursor: pointer;
   &:hover {
     border: none;
@@ -45,6 +43,8 @@ const Label = styled.label`
     background-color: #7f7f7f;
     transform: scale(1.05);
   }
+  // visibility: hidden;
+  height: 0px;
 `;
 
 const InputFile = styled.input`
@@ -55,14 +55,19 @@ export function PictureBox({ pictureUrl, handleChange }) {
   const {t} = useTranslation()
   return (
     <SetPictureContainer>
-      <PreviewPicture src={pictureUrl} alt='' />
+      <PreviewPicture onClick={() => document.getElementById('upload-file').click()} src={pictureUrl} alt='' />
       <RightSide>
         <Description>
-        {"Support： PNG, JPG , GIF, Video and Audio; Suggested ration 3:4; Size <10MB"}
+          <p>
+            {"Support： PNG, JPG , GIF, Video and Audio; Suggested ration 3:4; Size <10MB"}
+          </p>
+          <p>
+            {"Mint an NFT charges 0.01BNB"}
+          </p>
         </Description>
         <Label>
-          <InputFile type='file' onChange={handleChange} />
-          {t("Choose File")}
+          <InputFile id="upload-file" type='file' onChange={handleChange} />
+          {/* {t("Choose File")} */}
         </Label>
       </RightSide>
     </SetPictureContainer>

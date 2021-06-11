@@ -34,5 +34,17 @@
 .padding-column {
   padding: 1rem;
 }
+.declare-checkbox{
+  color: #474747;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 30px;
+}
+.declare-checkbox > input{
+  width: 25px;
+  height: 25px;
+  margin-right: 20px;
+}
 @media (max-width: 500px){
 }
