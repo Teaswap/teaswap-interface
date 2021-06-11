@@ -40,11 +40,12 @@
   justify-content: center;
   align-items: center;
   padding-bottom: 30px;
+  width: 90%;
 }
 .declare-checkbox > input{
-  width: 25px;
-  height: 25px;
-  margin-right: 20px;
+  /* width: 2rem;
+  height: 2rem; */
+  margin-right: 10px;
 }
 @media (max-width: 500px){
 }

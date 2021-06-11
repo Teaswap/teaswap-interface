@@ -3,7 +3,6 @@ import { MEDIA_QUERY } from '../constants/style';
 
 export const StandardNavPage = styled.div`
   min-height: 50vh;
-  top: -40px;
   width: 100%;
   max-width: 1400px;
   position: relative;
