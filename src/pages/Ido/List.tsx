@@ -155,7 +155,7 @@ const List = ()=>{
                 {/* <Countdown exactEnd={v.end} rewardsDuration={v.duration?v.duration:1000} /> */}
                 <StyledLink to={v.joinUs}>
                   <JoinUs>
-                    {"Join Us"}
+                    {t("Join Us")}
                   </JoinUs>
                 </StyledLink>
                 <img 
