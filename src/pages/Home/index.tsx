@@ -91,7 +91,7 @@ export default function Home() {
                 <TYPE.darkGray fontSize={14} >TSA is a new cross -chain marketplace of digital NFT Art built on Binance Smart Chain  and Ethereum network, powered by the native governance token TSA and DeFi solutions.</TYPE.darkGray>
               </RowBetween>
               <RowBetween style={{ justifyContent:"center" }}>
-                <TYPE.darkGray fontSize={14} >TSA brings together creators, collectors, curators, influencers, brokers, wallets, auctioneers around the world to the NFT digital space. It currently has 3 spaces: NFT collections, NFT Broadway, and NFT Incubator.</TYPE.darkGray>
+                <TYPE.darkGray fontSize={14} >TSA brings together creators, collectors, curators, influencers, brokers, wallets, auctioneers around the world to the NFT digital space. It currently has 3 spaces: NFT Broadway, Incubator and NFT Finance.</TYPE.darkGray>
               </RowBetween>
               <RowBetween style={{ justifyContent:"center" }}>
                 <TYPE.darkGray fontSize={14} >TSA also has been created to give TSA community the power to influence decisions and incentivize active participation, like RARI from Rarible.</TYPE.darkGray>
