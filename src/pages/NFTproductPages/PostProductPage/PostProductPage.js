@@ -14,6 +14,9 @@ import { useActiveWeb3React } from '../../../hooks'
 import {ChainId} from "@teaswap/uniswap-sdk";
 import {useNFTFactoryContract} from "../../../hooks/useContract";
 import {NFTFACTORY} from "../../../constants";
+import {wrappedCurrency} from "../../../utils/wrappedCurrency";
+import {Field} from "../../../state/mint/actions";
+import {useUserNFTTokens} from "../../../state/wallet/hooks";
 // import {TransactionResponse} from "@ethersproject/providers";
 
 const Wrapper = styled.div`
@@ -65,9 +68,22 @@ const PostProductPage = () => {
   } = useProductFrom();
 
   const NFTFactoryContract = useNFTFactoryContract(NFTFACTORY[ChainId.BSC_MAINNET]);
+  const NFTTokens = useUserNFTTokens(account,chainId)
   async function onMint() {
     // setAttempting(true)
     if (NFTFactoryContract) {
+      if(NFTTokens){
+
+      }else{
+        // args = [
+        //   _uri,
+        //   _name,
+        //   _symbol,
+        //   _uri0,
+        //   _name0,
+        //   _royalty0,
+        //   _creator
+        // ]
         // NFTFactoryContract.createERC1155(
         //     ,{ gasLimit: 350000 })
         //       .then((response: TransactionResponse) => {
@@ -80,6 +96,8 @@ const PostProductPage = () => {
         //         setAttempting(false)
         //         console.log(error)
         //       })
+      }
+
 
       } else {
         // setAttempting(false)

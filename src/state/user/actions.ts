@@ -8,6 +8,21 @@ export interface SerializedToken {
   name?: string
 }
 
+export interface NFTToken {
+  chainId: number
+  address: string
+  tokenid: number
+  owner: string
+  collectionSymbol?: string
+  collectionName?: string
+  collectionUri?: string
+  creator?: string
+  royalty:number
+  name?:string
+  uri?:string
+  amount?:number
+}
+
 export interface userInterface {
   username?: string,
   password?: string,
@@ -46,6 +61,8 @@ export const updateUserSlippageTolerance = createAction<{ userSlippageTolerance:
 export const updateUserDeadline = createAction<{ userDeadline: number }>('user/updateUserDeadline')
 export const addSerializedToken = createAction<{ serializedToken: SerializedToken }>('user/addSerializedToken')
 export const removeSerializedToken = createAction<{ chainId: number; address: string }>('user/removeSerializedToken')
+export const addNFTToken = createAction<{ NFTToken: NFTToken }>('user/addNFTToken')
+export const removeNFTToken = createAction<{ chainId: number; address: string; tokenId: number }>('user/removeNFTToken')
 export const addSerializedPair = createAction<{ serializedPair: SerializedPair }>('user/addSerializedPair')
 export const removeSerializedPair = createAction<{ chainId: number; tokenAAddress: string; tokenBAddress: string }>(
   'user/removeSerializedPair'
