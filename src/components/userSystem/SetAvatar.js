@@ -9,10 +9,8 @@ import { useTranslation } from 'react-i18next'
 
 const SetAvatarContainer = styled.div`
   display: flex;
-  align-items: center;
-  ${MEDIA_QUERY.sm} {
-    display: block;
-  }
+  flex-direction: column;
+  align-items: flex-start;
 `;
 
 const PreviewAvatar = styled.img`
@@ -25,9 +23,9 @@ const PreviewAvatar = styled.img`
 `;
 
 const RightSide = styled.div`
-  padding: ${DISTANCE.md};
   min-width: max-content;
   font-size: 16px;
+
 `;
 
 const Description = styled.p`

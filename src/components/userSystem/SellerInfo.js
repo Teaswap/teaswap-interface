@@ -12,6 +12,9 @@ const InfoBlock = styled.section`
   justify-content: space-between;
   margin: 40px 0;
   flex-wrap: wrap;
+  ${MEDIA_QUERY.sm} {
+    width: calc(100% - 20px);
+  }
 `;
 const AvatarContainer = styled.div`
   position: relative;
@@ -45,8 +48,9 @@ const InfoContainer = styled.div`
   align-self: center;
   min-width: max-content;
   ${MEDIA_QUERY.sm} {
-    width: 96%;
+    width: 100%;
     padding-right: 0px;
+    border-right: none;
   }
 `;
 
@@ -71,7 +75,8 @@ const InfoBottom = styled.div`
 `;
 
 const InfoBottomItem = styled.div`
-  margin: 5px 20px 5px 0;
+  margin: 5px 10px 5px 10px;
+  text-align: center;
   // width: 90px;
 `;
 
@@ -152,7 +157,7 @@ const InfoItem = () => {
         <InfoNumber>3</InfoNumber>
       </InfoBottomItem>
       <InfoBottomItem>
-        <InfoName>{t('views')}</InfoName>
+        <InfoName>{t('Views')}</InfoName>
         <InfoNumber>
           {averageShippingTime ? `${averageShippingTime} days` : 'No Work'}
         </InfoNumber>

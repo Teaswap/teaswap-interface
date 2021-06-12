@@ -24,6 +24,7 @@ export const InputComponent = styled.input`
   margin: ${(props) => (props.$margin === 0 ? '0' : '20px')};
   padding-left: 10px;
   ${MEDIA_QUERY.sm} {
+    width: 90%;
   }
 `;
 

@@ -33,6 +33,7 @@ const TopSection = styled(ColumnCenter)`
   margin-top: -80px;
   z-index: 999;
   ${MEDIA_QUERY.sm} {
+    display: none;
     margin-top: -30px;
     font-size: 12px;
   }
@@ -47,6 +48,9 @@ const PoolSection = styled.div`
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: flex-start;
+  ${MEDIA_QUERY.sm} {
+    justify-content: center;
+  }
 `
 
 const NavAndPool = styled.div`

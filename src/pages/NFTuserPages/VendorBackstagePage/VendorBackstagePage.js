@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import { COLOR, FONT, DISTANCE } from '../../../constants/style';
+import { COLOR, FONT, DISTANCE, MEDIA_QUERY } from '../../../constants/style';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { StandardNavPage } from '../../../components/Page';
 import useUser from '../../../hooks/userHooks/useUser';
 import useProduct from '../../../hooks/productHooks/useProduct';
+import { NavLink } from 'react-router-dom';
 import { NormalButton, Nav } from '../../../components/NFTButton';
 import {
   SellerInfo,
@@ -27,18 +28,17 @@ const SellerProductTitle = styled.div`
   border-bottom: 1px solid ${COLOR.cccccc};
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  ${MEDIA_QUERY.sm} {
+    width: 90%;
+    padding: 0px 5%;
+  }
 `;
 
 const ButtonContainer = styled.div`
   width: 100%;
-  text-align: right;
-  // & > button {
-  //   position: absolute;
-  //   transform: translate(-150%, 50px);
-  //   &:hover {
-  //     transform: translate(-150%, 50px);
-  //   }
-  // }
+  display: flex;
+  justify-content: center;
 `;
 
 const VendorBackstagePage = () => {
@@ -97,7 +97,9 @@ const VendorBackstagePage = () => {
 
         <SellerProductTitle>
           <p>{t('Posted NFTs')} </p>
-          <Nav children={t('Add NFT')} path={'/nft/products/post'} />
+          <NavLink style={{ minWidth: 'fit-content' }} to={'/nft/products/post'}>
+            <NormalButton className="btn-sm-100" >{t('Add NFT')}</NormalButton>
+          </NavLink>
         </SellerProductTitle>
         <Products
           products={products}

@@ -19,7 +19,9 @@ import {NFTFACTORY} from "../../../constants";
 const Wrapper = styled.div`
   width: 50vw;
   margin: 0 auto;
-  padding: 30px;
+  padding: 20px;
+  padding-bottom: 50px;
+  margin-top: 50px;
   box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.1), 0px 4px 8px rgba(0, 0, 0, 0.1), 0px 16px 24px rgba(0, 0, 0, 0.1),
     0px 24px 32px rgba(0, 0, 0, 0.1);
   ${MEDIA_QUERY.sm} {
@@ -33,7 +35,7 @@ const FormWrap = styled.form``;
 const Title = styled.h1`
   color: ${COLOR.text_2};
   font-size: ${FONT.lg}
-  margin-bottom: ${DISTANCE.lg};
+  margin-bottom: 30px;
 `;
 
 const PostProductPage = () => {
@@ -54,11 +56,15 @@ const PostProductPage = () => {
     setRemark,
     setProductQuantity,
     setHasProductToken,
+    setHasProductMediaType,
+    setHasProductRoyalty,
     handleChange,
     hasProductName,
     hasProductInfo,
     hasProductCategory,
     hasProductToken,
+    hasProductMediaType,
+    hasProductRoyalty,
     hasDeliveryLocation,
     hasProductPrice,
     hasDeliveryTime,
@@ -109,9 +115,24 @@ const PostProductPage = () => {
   const tokenOptions = [
     { id: 'BNB', name: 'BNB' },
     { id: 'BUSD', name: 'BUSD' },
-    { id: 'TSA', name: 'BNB' },
+    { id: 'TSA', name: 'TSA' },
     { id: 'Shih', name: 'Shih' },
     { id: 'CJAI', name: 'CJAI' },
+  ]
+
+  const mediaTypeOptions = [
+    { id: 'Picture', name: 'Picture' },
+    { id: 'Gif', name: 'Gif' },
+    { id: 'Video', name: 'Video' },
+    { id: 'Audio', name: 'Audio' },
+  ]
+  //Royalties: 1%, 5% , 10%, 20% 30%
+  const royaltyOptions = [
+    { id: '1', name: '1%' },
+    { id: '5', name: '5%' },
+    { id: '10', name: '10%' },
+    { id: '20', name: '20%' },
+    { id: '30', name: '30%' },
   ]
 
   return (
@@ -134,6 +155,15 @@ const PostProductPage = () => {
           textareaRows={4}
           errorMessage={t('Please Input Information')}
           handleChange={handleChange(setProductInfo)}
+        />
+
+        <InputItem
+          title={t('Artwork Type')}
+          type={'radio'}
+          options={mediaTypeOptions}
+          hasValue={hasProductMediaType}
+          errorMessage={t('Please Choose Artwork type')}
+          handleChange={handleChange(setHasProductMediaType)}
         />
 
         <InputItem
@@ -189,6 +219,16 @@ const PostProductPage = () => {
           errorMessage={t('please choose')}
           handleChange={handleChange(setDelivery)}
           value={delivery}
+        />
+
+        
+        <InputItem
+          title={t('Royalties')}
+          type={'radio'}
+          options={royaltyOptions}
+          hasValue={hasProductRoyalty}
+          errorMessage={t('Please Choose Royalties')}
+          handleChange={handleChange(setHasProductRoyalty)}
         />
 
         <InputItem

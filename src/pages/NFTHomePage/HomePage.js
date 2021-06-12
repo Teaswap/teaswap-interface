@@ -550,7 +550,7 @@ const products2 = [
           TSA Broadway
         </NavItem>
         <NavItem onClick={() => changeCat(1)}>
-          CaoJun NFT Collectibles
+          CJAI NFT Collectibles
         </NavItem>
         <NavItem onClick={() => changeCat(3)}>
           Charity Project

@@ -38,12 +38,6 @@ const Wrapper = styled(AutoColumn)<{ showBackground: boolean; bgColor: any }>`
   //   margin: 0 20%;
   //   margin-top: 30px;
   // }
-  // ${MEDIA_QUERY.sm}{
-  //   width: 90%;
-  //   margin-left: 0;
-  //   margin: 0 auto;
-  //   margin-top: 30px;
-  // }
   margin: 0 1.5%;
   display: flex;
   padding: 15px;
@@ -58,8 +52,9 @@ const Wrapper = styled(AutoColumn)<{ showBackground: boolean; bgColor: any }>`
   transform: translateZ(0);
   align-items: center;
   margin-top: 30px;
-  ${MEDIA_QUERY.sm} {
-    margin-right: 0;
+  ${MEDIA_QUERY.sm}{
+    width: calc(90% - 30px);
+    margin-top: 30px;
   }
 `
 

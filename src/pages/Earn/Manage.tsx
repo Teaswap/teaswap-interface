@@ -38,6 +38,11 @@ const PageWrapper = styled(AutoColumn)`
   width: 100%;
   box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.1), 0px 4px 8px rgba(0, 0, 0, 0.08), 0px 16px 24px rgba(0, 0, 0, 0.06),
   0px 24px 32px rgba(0, 0, 0, 0.04);
+  padding: 1rem;
+  ${MEDIA_QUERY.sm} {
+    width: 86%;
+    margin: 0 auto;
+  }
 `
 
 const PositionInfo = styled(AutoColumn)<{ dim: any }>`
@@ -45,6 +50,11 @@ const PositionInfo = styled(AutoColumn)<{ dim: any }>`
   max-width: 640px;
   width: 100%;
   opacity: ${({ dim }) => (dim ? 0.6 : 1)};
+  padding: 1rem;
+  ${MEDIA_QUERY.sm} {
+    width: 86%;
+    margin: 0 auto;
+  }
 `
 
 const BottomSection = styled(AutoColumn)`
@@ -64,7 +74,7 @@ const StyledDataCard = styled(DataCard)<{ bgColor?: any; showBackground?: any }>
 const StyledBottomCard = styled(DataCard)<{ dim: any }>`
   background: ${({ theme }) => theme.bg3};
   opacity: ${({ dim }) => (dim ? 0.4 : 1)};
-  margin-top: -40px;
+  // margin-top: -40px;
   padding: 0 1.25rem 1rem 1.25rem;
   padding-top: 32px;
   z-index: 1;
@@ -328,10 +338,10 @@ const Manage = ()=>{
               </AutoColumn>
             </CardSection>
           </StyledDataCard>
-          <StyledBottomCard dim={stakingInfo?.stakedAmount?.equalTo(JSBI.BigInt(0))}>
+          <StyledBottomCard style={{padding: '0'}} dim={stakingInfo?.stakedAmount?.equalTo(JSBI.BigInt(0))}>
             <CardBGImage desaturate />
             <CardNoise />
-            <AutoColumn gap="sm">
+            <AutoColumn className="padding-column" gap="sm">
               <RowBetween>
                 <div>
                   <TYPE.black>{t('yourUnclaimed')} {currencyB?.symbol}</TYPE.black>

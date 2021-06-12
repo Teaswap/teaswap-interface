@@ -20,8 +20,6 @@ const PreviewPicture = styled.img`
 
 const RightSide = styled.div`
   min-width: max-content;
-  margin-top: -100px;
-  margin-left: 20px;
 `;
 
 const Description = styled.p`

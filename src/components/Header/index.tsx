@@ -379,7 +379,9 @@ export default function Header() {
         </Modal>
         <HeaderRow>
           <UniIcon style={{ marginTop: 0, marginBottom: '20px', marginRight: '50px' }}>
-            <img height="40px" style={{ marginTop: 0 }} src={isDark ? LogoDark : Logo} alt="logo" />
+            <NavLink to={'/nft'}>
+              <img height="40px" style={{ marginTop: 0 }} src={isDark ? LogoDark : Logo} alt="logo" />
+            </NavLink>
           </UniIcon>
           <HeaderLinks style={{ fontSize: '14px' }}>
             <StyledNavLink id={`swap-nav-link`} to={'/home'}>
