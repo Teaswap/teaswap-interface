@@ -166,21 +166,21 @@ const InfoItem = () => {
   return (
     <InfoBottom>
       <InfoBottomItem>
-        <InfoName>商品數量</InfoName>
+        <InfoName>Product Count</InfoName>
         <InfoNumber>{productCount}</InfoNumber>
       </InfoBottomItem>
       <InfoBottomItem>
-        <InfoName>關注人數</InfoName>
+        <InfoName>Follows</InfoName>
         <InfoNumber>2</InfoNumber>
       </InfoBottomItem>
       <InfoBottomItem>
-        <InfoName>回應速度</InfoName>
+        <InfoName>Response speed</InfoName>
         <InfoNumber>3</InfoNumber>
       </InfoBottomItem>
       <InfoBottomItem>
-        <InfoName>平均出貨速度</InfoName>
+        <InfoName>Average shipment speed</InfoName>
         <InfoNumber>
-          {averageShippingTime ? `${averageShippingTime} 日內` : '暫無商品'}
+          {averageShippingTime ? `${averageShippingTime} days` : 'No Products'}
         </InfoNumber>
       </InfoBottomItem>
     </InfoBottom>

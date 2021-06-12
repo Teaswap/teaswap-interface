@@ -14,9 +14,9 @@ const CarouselBox = () => {
     <Carousel
       style={{
         width: '100%',
-        margin: '0 auto',
-        marginTop: '20px'
+        margin: '0 auto'
       }}
+      className="page-banner"
       autoplay={true}
       wrapAround={true}
       defaultControlsConfig={{

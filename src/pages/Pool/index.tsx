@@ -20,10 +20,17 @@ import { usePairs } from '../../data/Reserves'
 import { toV2LiquidityToken, useTrackedTokenPairs } from '../../state/user/hooks'
 import { Dots } from '../../components/swap/styleds'
 import { CardSection, DataCard, CardNoise, CardBGImage } from '../../components/earn/styled'
+import { MEDIA_QUERY } from '../../constants/style'
 
 const PageWrapper = styled(AutoColumn)`
   max-width: 640px;
+  margin-top: 80px;
   width: 100%;
+  padding: 1rem;
+  box-shadow: 0px 0px 1px rgb(0 0 0 / 1%), 0px 4px 8px rgb(0 0 0 / 4%), 0px 16px 24px rgb(0 0 0 / 4%), 0px 24px 32px rgb(0 0 0 / 1%);
+  ${MEDIA_QUERY.sm} {
+    width: 90%;
+  }
 `
 
 const VoteCard = styled(DataCard)`
@@ -50,23 +57,22 @@ const ButtonRow = styled(RowFixed)`
 `
 
 const ResponsiveButtonPrimary = styled(ButtonPrimary)`
-  width: fit-content;
-  ${({ theme }) => theme.mediaWidth.upToSmall`
-    width: 48%;
-  `};
+  width: 160px;
+  height: 40px;
+  padding: 0;
 `
 
 const ResponsiveButtonSecondary = styled(ButtonSecondary)`
-  width: fit-content;
-  ${({ theme }) => theme.mediaWidth.upToSmall`
-    width: 48%;
-  `};
+  height: 40px;
+  padding: 0;
+  width: 180px;
 `
 
 const EmptyProposals = styled.div`
   border: 1px solid ${({ theme }) => theme.text4};
-  padding: 16px 12px;
-      border-radius: 0px;
+  padding: 0;
+  height: 40px;
+  border-radius: 0px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -151,10 +157,10 @@ export default function Pool() {
                 </TYPE.mediumHeader>
               </HideSmall>
               <ButtonRow>
-                <ResponsiveButtonSecondary as={Link} padding="6px 8px" to="/create/BNB">
+                <ResponsiveButtonSecondary as={Link} to="/create/BNB">
                   {t('createAPair')}
                 </ResponsiveButtonSecondary>
-                <ResponsiveButtonPrimary id="join-pool-button" as={Link} padding="6px 8px" to="/add/BNB">
+                <ResponsiveButtonPrimary id="join-pool-button" as={Link} to="/add/BNB">
                   <Text fontWeight={500} fontSize={16} >
                     {t('addLiquidity')}
                   </Text>
@@ -198,7 +204,7 @@ export default function Pool() {
             )}
 
             <AutoColumn justify={'center'} gap="md">
-              <Text textAlign="center" fontSize={14} style={{ padding: '.5rem 0 .5rem 0', color: '#ffffff' }}>
+              <Text textAlign="center" fontSize={14} style={{ padding: '.5rem 0 .5rem 0', color: '#474747' }}>
                 {hasV1Liquidity ? t('uniswap-v1-liquidity-found') : t('dont-see-a-pool-you-joined')}{' '}
                 <StyledInternalLink id="import-pool-link" to={hasV1Liquidity ? '/migrate/v1' : '/find'}>
                   {hasV1Liquidity ? t('migrateNow') : t('importIt')}

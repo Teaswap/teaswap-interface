@@ -21,10 +21,8 @@ const PageWrapper = styled.div`
   display: flex;
   justify-content; center;
   flex-wrap: wrap;
-  margin-top: -80px;
   padding-bottom: 30px;
   ${MEDIA_QUERY.sm} {
-    margin-top: -30px;
   }
 `
 
@@ -35,6 +33,7 @@ const TopSection = styled(ColumnCenter)`
   margin-top: -80px;
   z-index: 999;
   ${MEDIA_QUERY.sm} {
+    display: none;
     margin-top: -30px;
     font-size: 12px;
   }
@@ -42,13 +41,16 @@ const TopSection = styled(ColumnCenter)`
 
 const PoolSection = styled.div`
   width: 100%;
-  max-width: 1320px;
+  max-width: 1340px;
   margin: 0 auto;
   margin-top: 20px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: flex-start;
+  ${MEDIA_QUERY.sm} {
+    justify-content: center;
+  }
 `
 
 const NavAndPool = styled.div`
@@ -84,14 +86,6 @@ export default function Earn() {
       <NavAndPool>
         <Nav handleCatChange={changeCate} />
       
-      {/* <AutoColumn gap="lg" style={{ width: '1040px'}}> */}
-        {/* <DataRow style={{ alignItems: 'baseline' }}>
-          <TYPE.mediumHeader style={{ marginTop: '0.5rem', color: '#000000' }}>
-            {t('participatingPools')}
-          </TYPE.mediumHeader>
-          <Countdown exactEnd={stakingInfos?.[0]?.periodFinish} />
-        </DataRow> */}
-
         <PoolSection>
           {stakingRewardsExist && stakingInfos?.length === 0 ? (
             <Loader style={{ margin: 'auto' }} />

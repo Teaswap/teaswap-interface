@@ -14,7 +14,7 @@ import { useDarkModeManager } from '../../state/user/hooks'
 import { useETHBalances, useAggregateUniBalance } from '../../state/wallet/hooks'
 import { CardNoise } from '../earn/styled'
 import { CountUp } from 'use-count-up'
-import { TYPE, ExternalLink } from '../../theme'
+import { TYPE } from '../../theme'
 import {  useToggleModal } from '../../state/application/hooks'
 import { ApplicationModal } from '../../state/application/actions'
 
@@ -33,6 +33,7 @@ import UniBalanceContent from './UniBalanceContent'
 import usePrevious from '../../hooks/usePrevious'
 import I18nSwitch from '../I18nSwitch'
 import { ButtonSecondary } from '../Button'
+import { MEDIA_QUERY } from '../../constants/style'
 
 const HeaderFrame = styled.div`
   display: flex;
@@ -42,8 +43,8 @@ const HeaderFrame = styled.div`
   width: 100%;
   top: 0;
   position: relative;
-  padding-left: 40px;
-  padding-right: 40px;
+  // padding-left: 40px;
+  // padding-right: 40px;
   padding-top: 18px;
   padding-bottom: 18px;
   background-color: #fff;
@@ -87,6 +88,9 @@ const HeaderControls = styled.div`
     border-radius: 0px 0px 0 0;
     background-color: ${({ theme }) => theme.bg1};
   `};
+  ${MEDIA_QUERY.sm} {
+    padding: 0;
+  }
 `
 
 const HeaderElement = styled.div`
@@ -192,21 +196,21 @@ const BalanceText = styled(Text)`
   `};
 `
 
-const Title = styled.a`
-  display: flex;
-  align-items: center;
-  pointer-events: auto;
-  justify-self: flex-start;
-  margin-right: 24px;
-  padding:0 40px;
-  ${({ theme }) => theme.mediaWidth.upToSmall`
-    justify-self: center;
-    margin-right: 0;
-  `};
-  :hover {
-    cursor: pointer;
-  }
-`
+// const Title = styled.a`
+//   display: flex;
+//   align-items: center;
+//   pointer-events: auto;
+//   justify-self: flex-start;
+//   margin-right: 24px;
+//   padding:0 40px;
+//   ${({ theme }) => theme.mediaWidth.upToSmall`
+//     justify-self: center;
+//     margin-right: 0;
+//   `};
+//   :hover {
+//     cursor: pointer;
+//   }
+// `
 
 const UniIcon = styled.div`
   height: 40px;
@@ -230,7 +234,7 @@ const StyledNavLink = styled(NavLink).attrs({
   text-decoration: none;
   color: ${({ theme }) => theme.gray};
   width: fit-content;
-  margin: 0 6px;
+  margin: 0 16px;
   font-weight: 500;
 
   &.${activeClassName} {
@@ -250,46 +254,50 @@ const StyledNavLink = styled(NavLink).attrs({
   `}
 
   @media screen and (max-width: 1120px) {
-    margin: 0 24px 0 0;
+    margin: 0 30px 0 0;
     font-size: 14px;
+  }
+  ${MEDIA_QUERY.sm} {
+    // width: 22%;
+    margin: 0 30px 0 0;
   }
 `
 
-const StyledExternalLink = styled(ExternalLink).attrs({
-  activeClassName
-})<{ isActive?: boolean }>`
-  ${({ theme }) => theme.flexRowNoWrap}
-  align-items: left;
-  border-radius: 0px;
-  outline: none;
-  cursor: pointer;
-  text-decoration: none;
-  color: #7f7f7f;
-  width: fit-content;
-  margin: 0 12px;
-  font-weight: 500;
-  position: relative;
+// const StyledExternalLink = styled(ExternalLink).attrs({
+//   activeClassName
+// })<{ isActive?: boolean }>`
+//   ${({ theme }) => theme.flexRowNoWrap}
+//   align-items: left;
+//   border-radius: 0px;
+//   outline: none;
+//   cursor: pointer;
+//   text-decoration: none;
+//   color: #7f7f7f;
+//   width: fit-content;
+//   margin: 0 12px;
+//   font-weight: 500;
+//   position: relative;
 
-  &.${activeClassName} {
-    border-radius: 0px;
-    font-weight: bold;
-    color: #000;
-  }
+//   &.${activeClassName} {
+//     border-radius: 0px;
+//     font-weight: bold;
+//     color: #000;
+//   }
 
-  :hover,
-  :focus, :active {
-    color: #000;
-    text-decoration: none;
-  }
-  ${({ theme }) => theme.mediaWidth.upToExtraSmall`
-    margin: 0;
-  `}
+//   :hover,
+//   :focus, :active {
+//     color: #000;
+//     text-decoration: none;
+//   }
+//   ${({ theme }) => theme.mediaWidth.upToExtraSmall`
+//     margin: 0;
+//   `}
 
-  @media screen and (max-width: 1120px) {
-    margin: 0 24px 0 0;
-    font-size: 14px;
-  }
-`
+//   @media screen and (max-width: 1120px) {
+//     margin: 0 24px 0 0;
+//     font-size: 14px;
+//   }
+// `
 const Web3StatusGeneric = styled(ButtonSecondary)`
   ${({ theme }) => theme.flexRowNoWrap}
   width: 100%;
@@ -321,8 +329,12 @@ const Web3StatusConnected = styled(Web3StatusGeneric)`
 const HeaderRoot = styled.div`
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: 96%;
+  margin:0 auto;
   padding-top: 30px;
+  ${MEDIA_QUERY.sm} {
+    width: 100%;
+  }
 `
 
 
@@ -360,39 +372,36 @@ export default function Header() {
 
   return (
     <HeaderRoot>
-      <Title href=".">
-        <UniIcon style={{ marginTop: 0 }}>
-          <img height="40px" style={{ marginTop: 0 }} src={isDark ? LogoDark : Logo} alt="logo" />
-        </UniIcon>
-      </Title>
       <HeaderFrame>
         <ClaimModal />
         <Modal isOpen={showUniBalanceModal} onDismiss={() => setShowUniBalanceModal(false)}>
           <UniBalanceContent setShowUniBalanceModal={setShowUniBalanceModal} />
         </Modal>
-
-
         <HeaderRow>
-
+          <UniIcon style={{ marginTop: 0, marginBottom: '20px', marginRight: '50px' }}>
+            <NavLink to={'/nft'}>
+              <img height="40px" style={{ marginTop: 0 }} src={isDark ? LogoDark : Logo} alt="logo" />
+            </NavLink>
+          </UniIcon>
           <HeaderLinks style={{ fontSize: '14px' }}>
             <StyledNavLink id={`swap-nav-link`} to={'/home'}>
               {t('Home')}
             </StyledNavLink>
             <StyledNavLink id={`NFT-nav-link`} to={'/nft'} >
-              {t('NFT Broadway')}
+              {t('NFT')}
               {/* <span>↗</span> */}
             </StyledNavLink>
             <StyledNavLink id={`Incubator-nav-link`} to={'/iro'}>
-              {t('NFT Incubator')}
+              {t('Incubator')}
             </StyledNavLink>
             {/* <StyledNavLink id={`Incubator-nav-link`} to={'/iro/bnb/0x5f99ACF13CAff815DD9cB4A415c0fB34e9F4545b/0x4aE03f6eaa8A21Ee3aeD47b97D5F44d2E2996d8a'}>
               {t('NFT Incubator')}
             </StyledNavLink> */}
-            <StyledExternalLink id={`Gallery-nav-link`} href={'https://www.teaswap.live/tsacollection '}>
+            {/* <StyledExternalLink id={`Gallery-nav-link`} href={'https://www.teaswap.live/tsacollection '}>
               {t('TSA Collections')}
-            </StyledExternalLink>
+            </StyledExternalLink> */}
             <StyledNavLink to="/mint">
-              {t('Mint Artworks')}
+              {t('Create')}
             </StyledNavLink>
 
             {/* <StyledNavLink id={`swap-nav-link`} to={'/swap'}>

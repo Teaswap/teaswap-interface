@@ -3,7 +3,6 @@ import { MEDIA_QUERY } from '../constants/style';
 
 export const StandardNavPage = styled.div`
   min-height: 50vh;
-  top: -40px;
   width: 100%;
   max-width: 1400px;
   position: relative;
@@ -11,13 +10,24 @@ export const StandardNavPage = styled.div`
     margin: 0 auto;
     padding: 30px;
   }
+  ${MEDIA_QUERY.sm} {
+    padding: 0px;
+  }
 ;
 `;
 
 export const ThickNavPage = styled.div`
   min-height: 50vh;
-  top: -40px;
   position: relative;
+  margin-top: 50px;
+  padding: 20px;
+  padding-bottom: 50px;
+  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.1), 0px 4px 8px rgba(0, 0, 0, 0.1), 0px 16px 24px rgba(0, 0, 0, 0.1),
+  0px 24px 32px rgba(0, 0, 0, 0.1);
+  ${MEDIA_QUERY.sm} {
+    width: 90%;
+    padding: 20px 2%;
+  }
 `;
 
 export const ThickNavTwoColumnsPage = styled.div`

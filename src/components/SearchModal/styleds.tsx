@@ -41,7 +41,7 @@ export const SearchInput = styled.input`
   display: flex;
   padding: 16px;
   align-items: center;
-  width: 100%;
+  // width: 100%;
   white-space: nowrap;
   background: none;
   border: none;

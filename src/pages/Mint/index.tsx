@@ -1,16 +1,25 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { ColumnCenter } from '../../components/Column'
 import styled from 'styled-components'
 import {MEDIA_QUERY} from '../../constants/style';
+import { NavLink } from 'react-router-dom'
+import useUser from '../../hooks/userHooks/useUser';
 
-import { ExternalLink } from '../../theme'
 const List = ()=>{
+  const { handleGetMe } = useUser();
+  const [mintUrl, setMintUrl] = useState("/nft/users/apply")
+  useEffect(() => {
+    window.scroll(0, 0);
+    handleGetMe().then((result) => {
+      if (result && result.data && result.data.is_vendor) return setMintUrl('/nft/products/post');
+    });
+  }, []);
 
   return (
     <PageWrapper >
-      <img src={process.env.PUBLIC_URL + '/mint_banner.png'} width="100%" />
+      <img className="page-banner" src={process.env.PUBLIC_URL + '/mint_banner.png'} width="100%" />
       <Title>
-        <StyledLink href="/nft/users/apply">
+        <StyledLink to={mintUrl}>
           Click & Mint Now!
         </StyledLink>
       </Title>
@@ -26,31 +35,35 @@ export default List;
 
 const PageWrapper = styled(ColumnCenter)`
   text-align: center;
-  margin-top: -80px;
   width: 100%;
   ${MEDIA_QUERY.sm} {
-    margin-top: -40px;
   }
 `
-const StyledLink = styled(ExternalLink)`
+const StyledLink = styled(NavLink)`
   text-decoration: none;
   cursor: pointer;
   font-weight: 500;
+  color: #474747;
 
   :hover {
     text-decoration: none;
-    color: inherit;
+    color: #474747;
   }
 
   :focus {
     outline: none;
     text-decoration: none;
-    color: inherit;
+    color: #474747;
   }
 
   :active {
     text-decoration: none;
+    color: #474747;
+  }
+
+  :visited {
     color: inherit;
+    color: #474747;
   }
 `
 const Title = styled.p`

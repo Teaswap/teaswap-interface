@@ -46,10 +46,10 @@ const List = ()=>{
     {
       image: GridImg4,
       Learn: "https://www.caojunnft.com/",
-      author: "TSA NFT Broadway Series",
+      author: "TSA Broadway Series Collectibles",
       medium: "",
       info: `TSA NFT Broadway Series’s theme is inspired by the Legendary Song Dynasty painting “Along the River During the Qingming Festival”. TSA Broadway embodies the spirit of Qingming Shanghe Tu, celebrating the excitement and hopes and dreams of collaborating in a new era of NFT, all in a beautiful and artistic format.`,
-      info2: `TSA Broadway Series Collectibles`,
+      info2: ``,
       joinUs: "",
       // joinUs: "#",
       when: "When: 06.16 21:30 EST",
@@ -155,7 +155,7 @@ const List = ()=>{
                 {/* <Countdown exactEnd={v.end} rewardsDuration={v.duration?v.duration:1000} /> */}
                 <StyledLink to={v.joinUs}>
                   <JoinUs>
-                    {"Join Us"}
+                    {t("Join Us")}
                   </JoinUs>
                 </StyledLink>
                 <img 
@@ -164,7 +164,7 @@ const List = ()=>{
                     top: '15px',
                     right: '5px'
                   }}
-                  width="50"
+                  width="100"
                   src={v.sign}
                   />
               </Grid>
@@ -180,10 +180,10 @@ export default List;
 
 const PageWrapper = styled(ColumnCenter)`
   text-align: center;
-  margin-top: -80px;
+  // margin-top: -80px;
   width: 100%;
   ${MEDIA_QUERY.sm} {
-    margin-top: -40px;
+    // margin-top: -40px;
   }
 `
 
@@ -191,7 +191,7 @@ const PageWrapper2 = styled(ColumnCenter)`
   text-align: center;
   width: 100%;
   margin: 0 auto;
-  max-width: 1700px;
+  max-width: 1400px;
   padding-top: 30px;
 `
 const Grids = styled(ColumnCenter)`
@@ -219,7 +219,7 @@ const Grid = styled(ColumnCenter)`
   transform: translateZ(0);
   margin: 0px;
   margin-left: 30px;
-  margin-top: 30px;
+  margin-top: 60px;
   align-items: flex-start;
   ${MEDIA_QUERY.sm} {
     margin-left: 0;

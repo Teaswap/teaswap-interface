@@ -16,7 +16,8 @@ const SetBannerContainer = styled.div`
 const PreviewBanner = styled.img`
   box-shadow: ${EFFECT.shadowInput};
   height: 200px;
-  width: 600px;
+  width: 100%;
+  max-width: 600px;
   border-radius: 0px;
   object-fit: cover;
 `;
@@ -39,7 +40,7 @@ const Label = styled.label`
   padding: ${(props) => (props.$size === 'lg' ? '10px 90px' : '10px 20px')};
   margin: ${DISTANCE.md} 0;
   min-width: max-content;
-  width: 200px;
+  width: 286px;
   cursor: pointer;
   &:hover {
     border: none;
@@ -137,7 +138,7 @@ export default function SetBanner({ setSuccessMode }) {
         </Description>
         <Label>
           <InputFile type='file' onChange={handleChangeBannerFile} />
-          {t("Choese File")}
+          {t("Choose File")}
         </Label>
         {isCheckImage && (
           <WrapperMask>

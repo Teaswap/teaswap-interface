@@ -5,17 +5,18 @@ const BannerContainer = styled.div`
   position: relative;
   margin: 0 auto;
   height: 250px;
+  width: 100%;
 
-  &:before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    background: url(${process.env.PUBLIC_URL}/logo.svg) center/contain no-repeat;
-    object-fit: cover;
-  }
+  // &:before {
+  //   content: '';
+  //   position: absolute;
+  //   top: 0;
+  //   left: 0;
+  //   bottom: 0;
+  //   width: 100%;
+  //   background: url(${process.env.PUBLIC_URL}/logo.svg) center/contain no-repeat;
+  //   object-fit: cover;
+  // }
 `;
 
 const BannerImg = styled.img`
@@ -28,7 +29,7 @@ const BannerImg = styled.img`
 
 export const Banner = ({ onLoad, loaded, banner }) => {
   return (
-    <BannerContainer>
+    <BannerContainer id="user-banner" >
       <BannerImg
         src={banner}
         style={{ opacity: loaded ? 1 : 0 }}

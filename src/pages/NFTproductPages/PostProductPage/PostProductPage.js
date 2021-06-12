@@ -1,7 +1,7 @@
 import React,{ useEffect } from 'react';
 import { StandardNavPage } from '../../../components/Page';
 import styled from 'styled-components';
-import { COLOR, FONT, DISTANCE } from '../../../constants/style';
+import { COLOR, FONT, DISTANCE, MEDIA_QUERY } from '../../../constants/style';
 import { InputItem, ButtonsBox } from '../../../components/productSystem/';
 import useUser from '../../../hooks/userHooks/useUser';
 import useProduct from '../../../hooks/productHooks/useProduct';
@@ -22,7 +22,15 @@ import {useUserNFTTokens} from "../../../state/wallet/hooks";
 const Wrapper = styled.div`
   width: 50vw;
   margin: 0 auto;
-  padding: 30px 0;
+  padding: 20px;
+  padding-bottom: 50px;
+  margin-top: 50px;
+  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.1), 0px 4px 8px rgba(0, 0, 0, 0.1), 0px 16px 24px rgba(0, 0, 0, 0.1),
+    0px 24px 32px rgba(0, 0, 0, 0.1);
+  ${MEDIA_QUERY.sm} {
+    width: 100%;
+    padding: 10px;
+  }
 `;
 
 const FormWrap = styled.form``;
@@ -30,7 +38,7 @@ const FormWrap = styled.form``;
 const Title = styled.h1`
   color: ${COLOR.text_2};
   font-size: ${FONT.lg}
-  margin-bottom: ${DISTANCE.lg};
+  margin-bottom: 30px;
 `;
 
 const PostProductPage = () => {
@@ -50,10 +58,16 @@ const PostProductPage = () => {
     setPaymentMethod,
     setRemark,
     setProductQuantity,
+    setHasProductToken,
+    setHasProductMediaType,
+    setHasProductRoyalty,
     handleChange,
     hasProductName,
     hasProductInfo,
     hasProductCategory,
+    hasProductToken,
+    hasProductMediaType,
+    hasProductRoyalty,
     hasDeliveryLocation,
     hasProductPrice,
     hasDeliveryTime,
@@ -116,89 +130,141 @@ const PostProductPage = () => {
     });
   }, []);
 
+  const tokenOptions = [
+    { id: 'BNB', name: 'BNB' },
+    { id: 'BUSD', name: 'BUSD' },
+    { id: 'TSA', name: 'TSA' },
+    { id: 'Shih', name: 'Shih' },
+    { id: 'CJAI', name: 'CJAI' },
+  ]
+
+  const mediaTypeOptions = [
+    { id: 'Picture', name: 'Picture' },
+    { id: 'Gif', name: 'Gif' },
+    { id: 'Video', name: 'Video' },
+    { id: 'Audio', name: 'Audio' },
+  ]
+  //Royalties: 1%, 5% , 10%, 20% 30%
+  const royaltyOptions = [
+    { id: '1', name: '1%' },
+    { id: '5', name: '5%' },
+    { id: '10', name: '10%' },
+    { id: '20', name: '20%' },
+    { id: '30', name: '30%' },
+  ]
+
   return (
-    <StandardNavPage>
-      <Wrapper>
-        <FormWrap>
-          <Title>{t('Apply fot Mint NFT')}</Title>
+    <Wrapper>
+      <FormWrap>
+        <Title>{t('Mint Artwork')}</Title>
 
-          <InputItem
-            title={t('NFT Name')}
-            type={'input'}
-            hasValue={hasProductName}
-            errorMessage={t('Please Input Name')}
-            handleChange={handleChange(setProductName)}
-          />
+        <InputItem
+          title={t('NFT Name')}
+          type={'input'}
+          hasValue={hasProductName}
+          errorMessage={t('Please Input Name')}
+          handleChange={handleChange(setProductName)}
+        />
 
-          <InputItem
-            title={t('Your NFT Information')}
-            type={'textArea'}
-            hasValue={hasProductInfo}
-            textareaRows={4}
-            errorMessage={t('Please Input Information')}
-            handleChange={handleChange(setProductInfo)}
-          />
+        <InputItem
+          title={t('Your NFT Information')}
+          type={'textArea'}
+          hasValue={hasProductInfo}
+          textareaRows={4}
+          errorMessage={t('Please Input Information')}
+          handleChange={handleChange(setProductInfo)}
+        />
 
-          <InputItem
-            title={t('Picture')}
-            type={'picture'}
-            errorMessage={t('Please Choose Picture')}
-            productPictureUrl={productPictureUrl}
-            handleChange={handleChangePicture}
-          />
+        <InputItem
+          title={t('Artwork Type')}
+          type={'radio'}
+          options={mediaTypeOptions}
+          hasValue={hasProductMediaType}
+          errorMessage={t('Please Choose Artwork type')}
+          handleChange={handleChange(setHasProductMediaType)}
+        />
 
-          <InputItem
-            title={t('Category')}
-            type={'radio'}
-            options={productCategories}
-            hasValue={hasProductCategory}
-            errorMessage={t('Please Choose Category')}
-            handleChange={handleChange(setProductCategory)}
-          />
+        <InputItem
+          title={t('Upload Artwork')}
+          type={'picture'}
+          errorMessage={t('Please Choose Picture')}
+          productPictureUrl={productPictureUrl}
+          handleChange={handleChangePicture}
+        />
 
-          <InputItem
-            title={t('Price')}
-            type={'input'}
-            hasValue={hasProductPrice}
-            errorMessage={t('Please Input Price')}
-            handleChange={handleChange(setProductPrice)}
-          />
+        <InputItem
+          title={t('Category')}
+          type={'radio'}
+          options={productCategories}
+          hasValue={hasProductCategory}
+          errorMessage={t('Please Choose Category')}
+          handleChange={handleChange(setProductCategory)}
+        />
 
-          <InputItem
-            title={t('Number(ERC1155)')}
-            type={'input'}
-            errorMessage={t('Please Input NFT Number')}
-            hasValue={hasProductQuantity}
-            handleChange={handleChange(setProductQuantity)}
-          />
+        <InputItem
+          title={t('Which token will you charge for your NFT?')}
+          type={'radio'}
+          options={tokenOptions}
+          hasValue={hasProductToken}
+          errorMessage={t('Please Choose Category')}
+          handleChange={handleChange(setHasProductToken)}
+        />
 
-          <InputItem
-            title={t('How to buy')}
-            type={'radio'}
-            options={[
-              { name: t('Bid'), id: '0' },
-              { name: t('Auction'), id: '1' },
-            ]}
-            hasValue={hasDelivery}
-            errorMessage={t('please choose')}
-            handleChange={handleChange(setDelivery)}
-            value={delivery}
-          />
+        <InputItem
+          title={t('Price')}
+          type={'input'}
+          hasValue={hasProductPrice}
+          errorMessage={t('Please Input Price')}
+          handleChange={handleChange(setProductPrice)}
+        />
 
-          <InputItem
-            title={t('Remark')}
-            type={'textArea'}
-            textareaRows={2}
-            handleChange={handleChange(setRemark)}
-          />
+        <InputItem
+          title={t('Number (ERC1155)')}
+          type={'input'}
+          errorMessage={t('Please Input NFT Number')}
+          hasValue={hasProductQuantity}
+          handleChange={handleChange(setProductQuantity)}
+        />
 
-          <ButtonsBox
-            handler={handleSubmitAddForm}
-            productErrorMessage={productErrorMessage}
-          />
-        </FormWrap>
-      </Wrapper>
-    </StandardNavPage>
+        <InputItem
+          title={t('How to buy')}
+          type={'radio'}
+          options={[
+            { name: t('Bid'), id: '0' },
+            { name: t('Auction'), id: '1' },
+          ]}
+          hasValue={hasDelivery}
+          errorMessage={t('please choose')}
+          handleChange={handleChange(setDelivery)}
+          value={delivery}
+        />
+
+        
+        <InputItem
+          title={t('Royalties')}
+          type={'radio'}
+          options={royaltyOptions}
+          hasValue={hasProductRoyalty}
+          errorMessage={t('Please Choose Royalties')}
+          handleChange={handleChange(setHasProductRoyalty)}
+        />
+
+        <InputItem
+          title={t('Remark')}
+          type={'textArea'}
+          textareaRows={2}
+          handleChange={handleChange(setRemark)}
+        />
+        <div class="declare-checkbox">
+          <input type="checkbox" id="declare" />
+          {t("I declare that this is an original artwork. I understand that no plagiarism is allowed, and that the artwork can be removed anytime if detected.")}
+        </div>
+        <ButtonsBox
+          handler={handleSubmitAddForm}
+          productErrorMessage={productErrorMessage}
+        />
+      </FormWrap>
+    </Wrapper>
   );
 };
 

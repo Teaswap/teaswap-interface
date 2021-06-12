@@ -1,6 +1,6 @@
 import React,{ useState, useEffect } from 'react';
 import styled from 'styled-components';
-import { COLOR, FONT, DISTANCE } from '../../constants/style';
+import { COLOR, FONT, DISTANCE, MEDIA_QUERY } from '../../constants/style';
 import { ActionButton, Nav } from '../NFTButton';
 import useUser from '../../hooks/userHooks/useUser';
 import useProduct from '../../hooks/productHooks/useProduct';
@@ -11,6 +11,10 @@ const InfoBlock = styled.section`
   align-item: center;
   justify-content: space-between;
   margin: 40px 0;
+  flex-wrap: wrap;
+  ${MEDIA_QUERY.sm} {
+    width: calc(100% - 20px);
+  }
 `;
 const AvatarContainer = styled.div`
   position: relative;
@@ -43,6 +47,11 @@ const InfoContainer = styled.div`
   padding-right: 40px;
   align-self: center;
   min-width: max-content;
+  ${MEDIA_QUERY.sm} {
+    width: 100%;
+    padding-right: 0px;
+    border-right: none;
+  }
 `;
 
 const InfoTop = styled.div`
@@ -66,8 +75,9 @@ const InfoBottom = styled.div`
 `;
 
 const InfoBottomItem = styled.div`
-  margin: 5px 20px 5px 0;
-  width: 90px;
+  margin: 5px 10px 5px 10px;
+  text-align: center;
+  // width: 90px;
 `;
 
 const InfoName = styled.p`
@@ -84,6 +94,7 @@ const ContactContainer = styled.div`
   align-self: center;
   color: ${COLOR.text_2};
   min-width: max-content;
+  margin-top: 20px;
 `;
 
 const ContactInfo = styled.div`
@@ -134,19 +145,19 @@ const InfoItem = () => {
   return (
     <InfoBottom>
       <InfoBottomItem>
-        <InfoName>{t('Works Amount')}</InfoName>
+        <InfoName>{t('On Sale')}</InfoName>
         <InfoNumber>{productCount}</InfoNumber>
       </InfoBottomItem>
       <InfoBottomItem>
-        <InfoName>{t('Works Amount')}</InfoName>
+        <InfoName>{t('Owned')}</InfoName>
         <InfoNumber>2</InfoNumber>
       </InfoBottomItem>
       <InfoBottomItem>
-        <InfoName>{t('Sold Amount')}</InfoName>
+        <InfoName>{t('Created')}</InfoName>
         <InfoNumber>3</InfoNumber>
       </InfoBottomItem>
       <InfoBottomItem>
-        <InfoName>{t('Watch Amount')}</InfoName>
+        <InfoName>{t('Views')}</InfoName>
         <InfoNumber>
           {averageShippingTime ? `${averageShippingTime} days` : 'No Work'}
         </InfoNumber>
@@ -169,7 +180,7 @@ const InfoRight = ({ email }) => {
   return (
     <ContactContainer>
       <ContactInfo>
-        <ContactInfoTitle>{t('Contact Info')}</ContactInfoTitle>
+        {/* <ContactInfoTitle>{t('Contact Info')}</ContactInfoTitle> */}
         <Nav children={t('Edit Contact')} path={`/nft/users/vendor/${id}`} />
       </ContactInfo>
       <Email>{email}</Email>

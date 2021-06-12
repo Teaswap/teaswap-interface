@@ -1,20 +1,24 @@
 import React from 'react';
 import styled from "styled-components";
-import { COLOR, FONT } from "../../constants/style";
+import { COLOR, FONT, MEDIA_QUERY } from "../../constants/style";
 import { useTranslation } from 'react-i18next'
 
 const AnnouncementContainer = styled.section`
-  margin: 75px auto;
+  margin: 15px auto;
   width: 100%;
   min-height: 130px;
   background: ${COLOR.bg_secondary};
   padding: 20px 50px;
   font-size: ${FONT.xs};
+  ${MEDIA_QUERY.sm} {
+    width: 90%;
+    padding: 20px 5%;
+  }
 `;
 
 const AnnouncementTitle = styled.div`
-  font-size: ${FONT.xs};
-  color: ${COLOR.text_2};
+  font-size: 24px;
+  color: #7a7a7a;
   font-weight: bold;
   margin-bottom: 15px;
 `;
@@ -25,6 +29,7 @@ const AnnouncementContent = styled.div`
   line-height: 1.5rem;
   white-space: break-spaces;
   word-wrap: break-word;
+  margin-top: 20px;
 `;
 
 export const Announcement = ({ announcement }) => {

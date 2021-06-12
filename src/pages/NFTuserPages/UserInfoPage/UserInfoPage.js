@@ -88,7 +88,7 @@ const UserInfoPage = () => {
   return (
     <ThickNavPage>
       <Wrapper>
-        <Title>{t('General Information')}</Title>
+        <Title>{t('Featured Artists Information')}</Title>
         {/*<Announcement />*/}
         <ClientInfoForm setSuccessMode={setSuccessMode} />
         {errorMessage && <ErrorText>{errorMessage}</ErrorText>}

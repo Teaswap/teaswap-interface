@@ -141,9 +141,6 @@ const VendorInfoItem = () => {
       </InfoItem>
       <InfoItem>
         <InfoItemTitle>{t('Watch Amount')}</InfoItemTitle>
-        {/*<InfoItemBlock>*/}
-        {/*  {averageShippingTime ? `${averageShippingTime} 日內` : '暫無商品'}*/}
-        {/*</InfoItemBlock>*/}
         <InfoItemBlock>1000</InfoItemBlock>
       </InfoItem>
     </InfoWrap>
