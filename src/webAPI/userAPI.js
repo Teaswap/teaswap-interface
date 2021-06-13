@@ -10,6 +10,7 @@ const getMeAPI = () => {
 };
 
 const updateUserAPI = (data) => {
+  console.log('v1/users/me', data)
   const token = localStorage.getItem('token');
   return getMeAPI().then((res) => {
     return fetch(`${BASE_URL}/users/me`, {
@@ -20,11 +21,15 @@ const updateUserAPI = (data) => {
       },
       body: JSON.stringify({
         nickname: data.nickname,
-        id_card_no: data.id_card_no,
-        email: data.email,
-        address: data.address,
-        birthday: data.birthday,
-        socialmedia_id: data.socialmedia_id,
+        description: data.description ? data.description : '',
+        portfolio: data.portfolio ? data.portfolio : '',
+        twitter: data.twitter ? data.twitter : '',
+        instagram: data.instagram ? data.instagram : '',
+        profile: data.profile ? data.profile : '',
+        artsNumber: data.artsNumber ? data.artsNumber : '',
+        contact: data.contact ? data.contact : '',
+        other: data.other ? data.other : '',
+        artworksLink: data.artworksLink ? data.artworksLink : '',
       }),
     }).then((res) => res.json());
   });

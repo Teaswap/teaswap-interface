@@ -14,7 +14,7 @@ const SetAvatarContainer = styled.div`
 `;
 
 const PreviewAvatar = styled.img`
-  box-shadow: ${EFFECT.shadowInput};
+  // box-shadow: ${EFFECT.shadowInput};
   height: 300px;
   width: 300px;
   border-radius: 0px;
@@ -43,7 +43,7 @@ const Label = styled.label`
   margin: ${DISTANCE.md} 0;
   min-width: max-content;
   width: 200px;
-  visibility: hidden;
+  display: none;
   cursor: pointer;
   &:hover {
     border: none;

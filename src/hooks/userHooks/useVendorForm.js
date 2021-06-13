@@ -21,7 +21,17 @@ export default function useVendorForm() {
     if (nickname && !nickname.trim()) return setNicknameError('姓名格式錯誤');
     const data = {
       nickname: nickname ? nickname : '',
+      description: description ? description : '',
+      portfolio: portfolio ? portfolio : '',
+      twitter: twitter ? twitter : '',
+      instagram: instagram ? instagram : '',
+      profile: profile ? profile : '',
+      artsNumber: artsNumber ? artsNumber : '',
+      contact: contact ? contact : '',
+      other: other ? other : '',
+      artworksLink: artworksLink ? artworksLink : '',
     };
+    console.log('submit user', data)
     if (isAdminStatus)
       return handleUpdateUserInfo(user.userId, data).then((result) => {
         if (result) return;

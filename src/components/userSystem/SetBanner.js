@@ -24,7 +24,6 @@ const PreviewBanner = styled.img`
 
 const RightSide = styled.div`
   min-width: max-content;
-  margin-top: ${DISTANCE.md};
 `;
 
 const Description = styled.p`

@@ -196,6 +196,7 @@ export default function App() {
               <Route path="/staking" element={<Earn/>}/>
               <Route path="/mint" element={<Mint />}/>
               <Route path="/iro/:currencyIdA/:currencyIdB/:idoAddress" element={<Ido />}/>
+              {/* <Route path="/iro/:currencyIdA/:currencyIdB/:idoAddress" element={<Ido2 />}/> */}
               <Route path="/vote" element={<Vote/>}/>
               <Route path="/add" element={<AddLiquidity/>}/>
               <Route path="/add/:currencyIdA" element={<AddLiquidity/>}/>

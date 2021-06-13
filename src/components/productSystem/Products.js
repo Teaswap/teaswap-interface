@@ -38,7 +38,7 @@ const ProductContainer = styled.div`
     margin-top: 30px;
   }
   ${MEDIA_QUERY.sm}{
-    width: 100%;
+    width: 90%;
     margin: 0;
     margin-top: 30px;
   }

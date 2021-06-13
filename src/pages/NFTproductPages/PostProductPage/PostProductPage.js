@@ -9,7 +9,7 @@ import useProductFrom from '../../../hooks/productHooks/useProductForm';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next'
 // import {useETHBalances, useTokenBalance} from '../../state/wallet/hooks'
-import { useActiveWeb3React } from '../../../hooks'
+import { useActiveWeb3React } from '../../../hooks';
 // import {PAYABLEETH, ZERO_ADDRESS} from "../../../constants";
 import {ChainId} from "@teaswap/uniswap-sdk";
 import {useNFTFactoryContract} from "../../../hooks/useContract";
@@ -17,9 +17,11 @@ import {NFTFACTORY} from "../../../constants";
 // import {TransactionResponse} from "@ethersproject/providers";
 
 const Wrapper = styled.div`
-  width: 50vw;
+  width: 90%;
+  max-width: 600px
   margin: 0 auto;
   padding: 20px;
+  padding-left: 40px;
   padding-bottom: 50px;
   margin-top: 50px;
   box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.1), 0px 4px 8px rgba(0, 0, 0, 0.1), 0px 16px 24px rgba(0, 0, 0, 0.1),
@@ -27,6 +29,7 @@ const Wrapper = styled.div`
   ${MEDIA_QUERY.sm} {
     width: 100%;
     padding: 10px;
+    padding-left: 10px;
   }
 `;
 
@@ -221,7 +224,6 @@ const PostProductPage = () => {
           value={delivery}
         />
 
-        
         <InputItem
           title={t('Royalties')}
           type={'radio'}
@@ -237,7 +239,7 @@ const PostProductPage = () => {
           textareaRows={2}
           handleChange={handleChange(setRemark)}
         />
-        <div class="declare-checkbox">
+        <div className="declare-checkbox">
           <input type="checkbox" id="declare" />
           {t("I declare that this is an original artwork. I understand that no plagiarism is allowed, and that the artwork can be removed anytime if detected.")}
         </div>

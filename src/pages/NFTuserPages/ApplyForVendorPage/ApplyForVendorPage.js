@@ -18,12 +18,11 @@ import { ButtonPrimary } from '../../../components/Button';
 import { METHODS } from 'http';
 
 const Wrapper = styled.div`
-  width: 50%;
+  width: 90%;
   box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.01), 0px 4px 8px rgba(0, 0, 0, 0.04), 0px 16px 24px rgba(0, 0, 0, 0.04), 0px 24px 32px rgba(0, 0, 0, 0.01);
   margin: 0 auto;
   padding: 30px;
   ${MEDIA_QUERY.sm}{
-    // width: 95%;
   }
 `;
 
@@ -104,9 +103,9 @@ const ApplyForVendorPage = () => {
   }, []);
 
   return (
-    <ThickNavPage>
+    <ThickNavPage style={{maxWidth:"600px"}}>
       <Wrapper>
-        {/* {isCheck && (
+        {isCheck && (
           <div class="ddddd">
             <WrapperMask>
               <CheckImage>
@@ -122,7 +121,7 @@ const ApplyForVendorPage = () => {
               </CheckImage>
             </WrapperMask>
           </div>
-        )} */}
+        )}
         <Title>{t('Featured Artists Information')}</Title>
         {/*<Announcement isApply={true} />*/}
         <VendorInfoForm setSuccessMode={setSuccessMode} />

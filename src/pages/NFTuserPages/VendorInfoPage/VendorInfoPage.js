@@ -34,7 +34,7 @@ const Title = styled.h1`
 const Text = styled.p`
   color: ${COLOR.black};
   font-size: ${FONT.md};
-  margin: ${DISTANCE.lg} 0 ${DISTANCE.sm} 0;
+  margin: ${DISTANCE.sm} 0 ${DISTANCE.sm} 0;
 `;
 
 const ErrorText = styled.p`

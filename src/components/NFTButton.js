@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
-import { COLOR, FONT, EFFECT } from '../constants/style';
+import { COLOR, FONT, EFFECT, MEDIA_QUERY } from '../constants/style';
 import IconComponent from './Icon';
 import { ButtonPrimary } from '../components/Button'
 
@@ -69,6 +69,12 @@ export const GreyBtn = styled(ButtonPrimary)`
 
 export const ActionButton = styled(GreyBtn)`
   width: 286px;
+`;
+
+export const ActionButton2 = styled(GreyBtn)`
+  ${MEDIA_QUERY.sm} {
+    width: 100px;
+  }
 `;
 
 export function HelperButton() {
