@@ -86,9 +86,19 @@ export function useTokenBalancesWithLoadingIndicator(
   ]
 }
 
+export function useUserFirstToken(
+    address: string,
+    chainid:ChainId
+):{nftaddress:string}{
+    const nftFactoryContract = useNFTFactoryContract(NFTFACTORY[ChainId.BSC_MAINNET])
+    const NFTTokenAddresses = useSingleCallResult(nftFactoryContract, 'usrTokens', [address]).result?.[0]
+
+    return NFTTokenAddresses[0]?.toString()
+}
+
 export function useUserNFTTokens(
     address: string,
-    chainid:number
+    chainid:ChainId
 ): { [tokenAddress: string]: {[tokenId: number]: NFTToken} | undefined } {
 
     const nftFactoryContract = useNFTFactoryContract(NFTFACTORY[ChainId.BSC_MAINNET])

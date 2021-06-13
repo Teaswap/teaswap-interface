@@ -1,7 +1,6 @@
-import React,{ useEffect } from 'react';
-import { StandardNavPage } from '../../../components/Page';
+import React, {useCallback, useEffect, useState} from 'react';
 import styled from 'styled-components';
-import { COLOR, FONT, DISTANCE, MEDIA_QUERY } from '../../../constants/style';
+import { COLOR, FONT, MEDIA_QUERY } from '../../../constants/style';
 import { InputItem, ButtonsBox } from '../../../components/productSystem/';
 import useUser from '../../../hooks/userHooks/useUser';
 import useProduct from '../../../hooks/productHooks/useProduct';
@@ -14,10 +13,12 @@ import { useActiveWeb3React } from '../../../hooks'
 import {ChainId} from "@teaswap/uniswap-sdk";
 import {useNFTFactoryContract} from "../../../hooks/useContract";
 import {NFTFACTORY} from "../../../constants";
-import {wrappedCurrency} from "../../../utils/wrappedCurrency";
-import {Field} from "../../../state/mint/actions";
-import {useUserNFTTokens} from "../../../state/wallet/hooks";
-// import {TransactionResponse} from "@ethersproject/providers";
+import {useUserFirstToken, useUserNFTTokens} from "../../../state/wallet/hooks";
+import {TransactionResponse} from "@ethersproject/providers";
+import {useTransactionAdder} from "../../../state/transactions/hooks";
+import {SubmittedView} from "../../../components/ModalViews";
+import {AutoColumn} from "../../../components/Column";
+import {TYPE} from "../../../theme";
 
 const Wrapper = styled.div`
   width: 50vw;
@@ -52,70 +53,100 @@ const PostProductPage = () => {
     setProductInfo,
     setProductCategory,
     setProductPrice,
-    setDeliveryTime,
-    setDeliveryLocation,
     setDelivery,
-    setPaymentMethod,
+    setProductRoyalty,
     setRemark,
     setProductQuantity,
-    setHasProductToken,
-    setHasProductMediaType,
-    setHasProductRoyalty,
+    setProductToken,
+    setProductMediaType,
     handleChange,
     hasProductName,
     hasProductInfo,
     hasProductCategory,
     hasProductToken,
     hasProductMediaType,
-    hasProductRoyalty,
-    hasDeliveryLocation,
     hasProductPrice,
-    hasDeliveryTime,
     hasDelivery,
-    hasPaymentMethod,
     hasProductQuantity,
     handleSubmitAddForm,
     productPictureUrl,
-    deliveryLocation,
-    delivery,
     handleChangePicture,
+    productCategory,
+    productName,
+    productPrice,
+    productQuantity,
+    productMediaType,
+    delivery,
+    productRoyalty,
+    remark,
+    productToken
   } = useProductFrom();
 
+  const {user} = useUser()
   const NFTFactoryContract = useNFTFactoryContract(NFTFACTORY[ChainId.BSC_MAINNET]);
-  const NFTTokens = useUserNFTTokens(account,chainId)
+  const NFTTokens = useUserNFTTokens(account?account:user.address,chainId?chainId:ChainId.BSC_MAINNET)
+  const firstNftAddress = useUserFirstToken(account?account:user.address,chainId?chainId:ChainId.BSC_MAINNET)
+  const [hash, setHash] = useState('')
+  const [attempting, setAttempting] = useState(false)
+  const addTransaction = useTransactionAdder()
+  const wrappedOnDismiss = useCallback(() => {
+    setHash('')
+    setAttempting(false)
+  }, [])
+
   async function onMint() {
-    // setAttempting(true)
+    setAttempting(true)
     if (NFTFactoryContract) {
       if(NFTTokens){
-
+        const mintargs = [
+          firstNftAddress,
+          account,
+          1,
+          productPictureUrl,
+          productName,
+          productRoyalty,
+          0
+        ]
+        NFTFactoryContract.mint(
+            ...mintargs,{ gasLimit: 350000 })
+            .then((response: TransactionResponse) => {
+              addTransaction(response, {
+                summary: t('mint NFT')
+              })
+              setHash(response.hash)
+            })
+            .catch((error: any) => {
+              setAttempting(false)
+              console.log(error)
+            })
       }else{
-        // args = [
-        //   _uri,
-        //   _name,
-        //   _symbol,
-        //   _uri0,
-        //   _name0,
-        //   _royalty0,
-        //   _creator
-        // ]
-        // NFTFactoryContract.createERC1155(
-        //     ,{ gasLimit: 350000 })
-        //       .then((response: TransactionResponse) => {
-        //         addTransaction(response, {
-        //           summary: t('depositLiquidity')
-        //         })
-        //         setHash(response.hash)
-        //       })
-        //       .catch((error: any) => {
-        //         setAttempting(false)
-        //         console.log(error)
-        //       })
+        const args = [
+          user.banner_url,
+          user.nickname+ ' Collection',
+          user.nickname+'NFT',
+          productPictureUrl,
+          productName,
+          productRoyalty,
+          account
+        ]
+        NFTFactoryContract.createERC1155(
+            ...args,{ gasLimit: 350000 })
+              .then((response: TransactionResponse) => {
+                addTransaction(response, {
+                  summary: t('create NFT')
+                })
+                setHash(response.hash)
+              })
+              .catch((error: any) => {
+                setAttempting(false)
+                console.log(error)
+              })
       }
-
+      handleSubmitAddForm();
 
       } else {
-        // setAttempting(false)
-        throw new Error(t('attempting-to-stake-without-approval-or-a-signature-please-contact-support'))
+        setAttempting(false)
+        throw new Error(t('no factory'))
       }
     }
 
@@ -164,6 +195,11 @@ const PostProductPage = () => {
           hasValue={hasProductName}
           errorMessage={t('Please Input Name')}
           handleChange={handleChange(setProductName)}
+          isNumber={false}
+          options={undefined}
+          productPictureUrl = {undefined}
+          textareaRows = {1}
+          value = {''}
         />
 
         <InputItem
@@ -173,6 +209,10 @@ const PostProductPage = () => {
           textareaRows={4}
           errorMessage={t('Please Input Information')}
           handleChange={handleChange(setProductInfo)}
+          isNumber={false}
+          options={undefined}
+          productPictureUrl={undefined}
+          value={''}
         />
 
         <InputItem
@@ -181,7 +221,11 @@ const PostProductPage = () => {
           options={mediaTypeOptions}
           hasValue={hasProductMediaType}
           errorMessage={t('Please Choose Artwork type')}
-          handleChange={handleChange(setHasProductMediaType)}
+          handleChange={handleChange(setProductMediaType)}
+          isNumber={false}
+          productPictureUrl={undefined}
+          textareaRows={1}
+          value={productMediaType}
         />
 
         <InputItem
@@ -190,6 +234,11 @@ const PostProductPage = () => {
           errorMessage={t('Please Choose Picture')}
           productPictureUrl={productPictureUrl}
           handleChange={handleChangePicture}
+          isNumber={false}
+          hasValue={false}
+          options={undefined}
+          textareaRows={1}
+          value={''}
         />
 
         <InputItem
@@ -199,6 +248,10 @@ const PostProductPage = () => {
           hasValue={hasProductCategory}
           errorMessage={t('Please Choose Category')}
           handleChange={handleChange(setProductCategory)}
+          isNumber={false}
+          productPictureUrl={undefined}
+          textareaRows = {1}
+          value = {productCategory}
         />
 
         <InputItem
@@ -206,8 +259,12 @@ const PostProductPage = () => {
           type={'radio'}
           options={tokenOptions}
           hasValue={hasProductToken}
-          errorMessage={t('Please Choose Category')}
-          handleChange={handleChange(setHasProductToken)}
+          errorMessage={t('Please Choose Token')}
+          handleChange={handleChange(setProductToken)}
+          isNumber = {false}
+          productPictureUrl={undefined}
+          textareaRows={1}
+          value={productToken}
         />
 
         <InputItem
@@ -216,6 +273,11 @@ const PostProductPage = () => {
           hasValue={hasProductPrice}
           errorMessage={t('Please Input Price')}
           handleChange={handleChange(setProductPrice)}
+          isNumber = {false}
+          options = {undefined}
+          productPictureUrl={undefined}
+          textareaRows={1}
+          value={productPrice}
         />
 
         <InputItem
@@ -224,6 +286,11 @@ const PostProductPage = () => {
           errorMessage={t('Please Input NFT Number')}
           hasValue={hasProductQuantity}
           handleChange={handleChange(setProductQuantity)}
+          isNumber={false}
+          options={undefined}
+          productPictureUrl={undefined}
+          textareaRows={1}
+          value={productQuantity}
         />
 
         <InputItem
@@ -237,6 +304,9 @@ const PostProductPage = () => {
           errorMessage={t('please choose')}
           handleChange={handleChange(setDelivery)}
           value={delivery}
+          isNumber={false}
+          productPictureUrl={undefined}
+          textareaRows={1}
         />
 
         
@@ -244,9 +314,13 @@ const PostProductPage = () => {
           title={t('Royalties')}
           type={'radio'}
           options={royaltyOptions}
-          hasValue={hasProductRoyalty}
+          hasValue={productRoyalty}
           errorMessage={t('Please Choose Royalties')}
-          handleChange={handleChange(setHasProductRoyalty)}
+          handleChange={handleChange(setProductRoyalty)}
+          isNumber={false}
+          productPictureUrl={undefined}
+          textareaRows={1}
+          value={productRoyalty}
         />
 
         <InputItem
@@ -254,16 +328,32 @@ const PostProductPage = () => {
           type={'textArea'}
           textareaRows={2}
           handleChange={handleChange(setRemark)}
+          isNumber={false}
+          errorMessage={"wrong"}
+          hasValue={false}
+          options={undefined}
+          productPictureUrl={undefined}
+          value={remark}
         />
-        <div class="declare-checkbox">
+        <div className="declare-checkbox">
           <input type="checkbox" id="declare" />
           {t("I declare that this is an original artwork. I understand that no plagiarism is allowed, and that the artwork can be removed anytime if detected.")}
         </div>
         <ButtonsBox
-          handler={handleSubmitAddForm}
+          handler={onMint}
           productErrorMessage={productErrorMessage}
         />
       </FormWrap>
+      {attempting && hash && (
+          <SubmittedView onDismiss={wrappedOnDismiss} hash={hash}>
+            <AutoColumn gap="12px" justify={'center'}>
+              <TYPE.largeHeader>{t('transactionSubmitted')}</TYPE.largeHeader>
+              <TYPE.body fontSize={20}>
+                {t('Mint')} {user.nickname+'NFT'}
+              </TYPE.body>
+            </AutoColumn>
+          </SubmittedView>
+      )}
     </Wrapper>
   );
 };

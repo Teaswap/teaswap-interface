@@ -17,6 +17,8 @@ export default function useProductForm(id) {
   const [productPictureUrl, setProductPictureUrl] = useState(
     'https://i.imgur.com/uqZxFCm.png'
   );
+  const [productRoyalty, setProductRoyalty] = useState('');
+  const [productMediaType, setProductMediaType] = useState('');
   const [productPrice, setProductPrice] = useState('');
   const [deliveryTime, setDeliveryTime] = useState('');
   const [deliveryLocation, setDeliveryLocation] = useState('台灣');
@@ -30,6 +32,7 @@ export default function useProductForm(id) {
   const [hasProductInfo, setHasProductInfo] = useState('');
   const [hasProductCategory, setHasProductCategory] = useState('');
   const [hasProductToken, setHasProductToken] = useState('');
+  const [productToken, setProductToken] = useState('');
   const [hasProductRoyalty, setHasProductRoyalty] = useState('');
   const [hasProductMediaType, setHasProductMediaType] = useState('');
   const [hasDeliveryLocation, setHasDeliveryLocation] = useState('');
@@ -38,6 +41,7 @@ export default function useProductForm(id) {
   const [hasDelivery, setHasDelivery] = useState('');
   const [hasPaymentMethod, setHasPaymentMethod] = useState('');
   const [hasProductQuantity, setHasProductQuantity] = useState('');
+
 
   let hasError = false;
 
@@ -124,8 +128,8 @@ export default function useProductForm(id) {
       setProductPictureUrl(product.picture_url);
       setProductPrice(product.price);
       setProductQuantity(product.quantity);
-      setDeliveryTime(product.delivery_time);
-      setDeliveryLocation(product.delivery_location);
+      setProductRoyalty(product.royalty);
+      setProductToken(product.token);
       setDelivery(product.delivery);
       setPaymentMethod(product.payment_method);
       setRemark(product.remark);
@@ -143,6 +147,9 @@ export default function useProductForm(id) {
     delivery_location: deliveryLocation, // 出貨地點的欄位
     delivery_time: deliveryTime, // 備貨時間的欄位
     payment_method: paymentMethod, // 付款方式 0:貨到付款
+    royalty: productRoyalty,
+    extoken: productToken,
+    mediaType:productMediaType,
     remark,
   };
 
@@ -187,11 +194,14 @@ export default function useProductForm(id) {
     productInfo,
     productPrice,
     productQuantity,
+    productRoyalty,
+    productToken,
     delivery,
     deliveryTime,
     deliveryLocation,
     paymentMethod,
     productPictureUrl,
+    productMediaType,
     remark,
 
     hasProductName,
@@ -216,11 +226,14 @@ export default function useProductForm(id) {
     setDeliveryLocation,
     setDelivery,
     setPaymentMethod,
+    setProductToken,
     setRemark,
     setProductQuantity,
+    setProductRoyalty,
     setHasProductToken,
     setHasProductMediaType,
     setHasProductRoyalty,
+    setProductMediaType,
     
     changeProductValue,
     handleChange,
