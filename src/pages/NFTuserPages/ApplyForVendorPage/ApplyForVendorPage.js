@@ -30,6 +30,10 @@ const Title = styled.h1`
   color: ${COLOR.black};
   font-size: ${FONT.lg};
   width: 100%;
+  margin: 0 auto;
+  ${MEDIA_QUERY.sm} {
+    width: 70%;
+  }
 `;
 
 const Text = styled.p`
@@ -107,9 +111,11 @@ const ApplyForVendorPage = () => {
       <Wrapper>
         {isCheck && (
           <div class="ddddd">
-            <WrapperMask>
+            <WrapperMask style={{
+              width: '100%'
+            }}>
               <CheckImage>
-                <Title>{t('Apply for Artist needs more Information')}</Title>
+                <Title >{t('Apply for Artist needs more Information')}</Title>
                 <TwoButton>
                   <ButtonPrimary onClick={handleCheck}>
                     {t('OK')}
