@@ -45,7 +45,10 @@ export default function useProductForm(id) {
 
   let hasError = false;
 
-  const handleChange = (setValue) => (e) => setValue(e.target.value);
+  const handleChange = (setValue) => (e) => {
+    console.log(e, e.target.value)
+    setValue(e.target.value)
+  };
 
   const checkValidNumber = (input, max, min) => {
     const num = Number(input);

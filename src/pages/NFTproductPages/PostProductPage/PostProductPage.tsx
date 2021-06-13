@@ -83,7 +83,8 @@ const PostProductPage = () => {
     delivery,
     productRoyalty,
     remark,
-    productToken
+    productToken,
+    productMediaType
   } = useProductFrom();
 
   const {user} = useUser()
@@ -167,21 +168,22 @@ const PostProductPage = () => {
   }, []);
 
   const tokenOptions = [
-    { id: 'BNB', name: 'BNB' },
-    { id: 'BUSD', name: 'BUSD' },
-    { id: 'TSA', name: 'TSA' },
-    { id: 'Shih', name: 'Shih' },
-    { id: 'CJAI', name: 'CJAI' },
+    { id: '1', name: 'BNB' },
+    { id: '2', name: 'BUSD' },
+    { id: '3', name: 'TSA' },
+    { id: '4', name: 'Shih' },
+    { id: '5', name: 'CJAI' },
   ]
 
   const mediaTypeOptions = [
-    { id: 'Picture', name: 'Picture',value:'Picture' },
-    { id: 'Gif', name: 'Gif',value:'Gif' },
-    { id: 'Video', name: 'Video',value:'Video' },
-    { id: 'Audio', name: 'Audio',value:'Audio' },
+    { id: '1', name: 'Picture' },
+    { id: '2', name: 'Gif' },
+    { id: '3', name: 'Video' },
+    { id: '4', name: 'Audio' },
   ]
   //Royalties: 1%, 5% , 10%, 20% 30%
   const royaltyOptions = [
+    { id: '0', name: '0%' },
     { id: '1', name: '1%' },
     { id: '5', name: '5%' },
     { id: '10', name: '10%' },
@@ -196,6 +198,7 @@ const PostProductPage = () => {
 
         <InputItem
           title={t('NFT Name')}
+          label={t('NFT Name')}
           type={'input'}
           hasValue={hasProductName}
           errorMessage={t('Please Input Name')}
@@ -209,6 +212,7 @@ const PostProductPage = () => {
 
         <InputItem
           title={t('Your NFT Information')}
+          label={t('Your NFT Information')}
           type={'textArea'}
           hasValue={hasProductInfo}
           textareaRows={4}
@@ -221,7 +225,8 @@ const PostProductPage = () => {
         />
 
         <InputItem
-          title={t('Artwork Type')}
+          title={t('ArtworkType')}
+          label={t('Artwork Type')}
           type={'radio'}
           options={mediaTypeOptions}
           hasValue={hasProductMediaType}
@@ -230,13 +235,14 @@ const PostProductPage = () => {
           isNumber={false}
           productPictureUrl={undefined}
           textareaRows={1}
-          value={'Picture'}
+          value={productMediaType}
         />
 
         <InputItem
           title={t('Upload Artwork')}
+          label={t('Upload Artwork')}
           type={'picture'}
-          errorMessage={t('Please Choose Picture')}
+          errorMessage={t('')}
           productPictureUrl={productPictureUrl}
           handleChange={handleChangePicture}
           isNumber={false}
@@ -248,6 +254,7 @@ const PostProductPage = () => {
 
         <InputItem
           title={t('Category')}
+          label={t('Category')}
           type={'radio'}
           options={productCategories}
           hasValue={hasProductCategory}
@@ -260,7 +267,8 @@ const PostProductPage = () => {
         />
 
         <InputItem
-          title={t('Which token will you charge for your NFT?')}
+          title={t('Token')}
+          label={t('Which token will you charge for your NFT?')}
           type={'radio'}
           options={tokenOptions}
           hasValue={hasProductToken}
@@ -274,6 +282,7 @@ const PostProductPage = () => {
 
         <InputItem
           title={t('Price')}
+          label={t('Price')}
           type={'input'}
           hasValue={hasProductPrice}
           errorMessage={t('Please Input Price')}
@@ -287,6 +296,7 @@ const PostProductPage = () => {
 
         <InputItem
           title={t('Number (ERC1155)')}
+          label={t('Number (ERC1155)')}
           type={'input'}
           errorMessage={t('Please Input NFT Number')}
           hasValue={hasProductQuantity}
@@ -299,6 +309,7 @@ const PostProductPage = () => {
         />
 
         <InputItem
+          label={t('How to buy')}
           title={t('How to buy')}
           type={'radio'}
           options={[
@@ -316,6 +327,7 @@ const PostProductPage = () => {
 
         <InputItem
           title={t('Royalties')}
+          label={t('Royalties')}
           type={'radio'}
           options={royaltyOptions}
           hasValue={productRoyalty}
@@ -329,6 +341,7 @@ const PostProductPage = () => {
 
         <InputItem
           title={t('Remark')}
+          label={t('Remark')}
           type={'textArea'}
           textareaRows={2}
           handleChange={handleChange(setRemark)}

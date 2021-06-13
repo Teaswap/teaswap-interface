@@ -69,6 +69,7 @@ const StyledLink = styled(NavLink)`
 const Title = styled.p`
   font-size: 32px;
   text-align: center;
+  margin-top: 40px;
 `
 // const SubTitle = styled.p`
 //   font-size: 20px;

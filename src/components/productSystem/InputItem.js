@@ -26,7 +26,8 @@ const ErrorMessage = styled.div`
 
 export const InputItem = ({
   title,
-  type,
+  type=null,
+  label,
   isNumber,
   errorMessage,
   hasValue,
@@ -38,7 +39,7 @@ export const InputItem = ({
 }) => {
   return (
     <QuestionBox>
-      <QuestionTitle>{title}</QuestionTitle>
+      <QuestionTitle>{label ? label : title}</QuestionTitle>
 
       {type === 'input' && (
         <InputComponent
@@ -67,6 +68,7 @@ export const InputItem = ({
 
       {type === 'radio' && (
         <RadioBox
+          label={label}
           title={title}
           options={options}
           handleChange={handleChange}
