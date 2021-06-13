@@ -18,7 +18,7 @@ import {
   setUser,
   setErrorMessage,
   setWalletUser,
-  walletUserInterface
+  walletUserInterface, NFTToken, addNFTToken, removeNFTToken
 } from './actions'
 
 const currentTimestamp = () => new Date().getTime()
@@ -41,6 +41,14 @@ export interface UserState {
   tokens: {
     [chainId: number]: {
       [address: string]: SerializedToken
+    }
+  }
+
+  NFTTokens: {
+    [chainId: number]: {
+      [address: string]: {
+        [tokenId:number]:NFTToken
+      }
     }
   }
 
@@ -70,6 +78,7 @@ export const initialState: UserState = {
   userDeadline: DEFAULT_DEADLINE_FROM_NOW,
   tokens: {},
   pairs: {},
+  NFTTokens:{},
   timestamp: currentTimestamp(),
   URLWarningVisible: true,
   user: {
@@ -127,6 +136,16 @@ export default createReducer(initialState, builder =>
       delete state.tokens[chainId][address]
       state.timestamp = currentTimestamp()
     })
+      .addCase(addNFTToken, (state, { payload: { NFTToken } }) => {
+        state.NFTTokens[NFTToken.chainId] = state.NFTTokens[NFTToken.chainId] || {}
+        state.NFTTokens[NFTToken.chainId][NFTToken.address][NFTToken.tokenid] = NFTToken
+        state.timestamp = currentTimestamp()
+      })
+      .addCase(removeNFTToken, (state, { payload: { address, chainId,tokenId } }) => {
+        state.NFTTokens[chainId] = state.NFTTokens[chainId] || {}
+        delete state.NFTTokens[chainId][address][tokenId]
+        state.timestamp = currentTimestamp()
+      })
     .addCase(addSerializedPair, (state, { payload: { serializedPair } }) => {
       if (
         serializedPair.token0.chainId === serializedPair.token1.chainId &&

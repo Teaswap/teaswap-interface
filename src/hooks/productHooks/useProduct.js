@@ -22,6 +22,8 @@ import {
   getProductsFromVendor,
   getUserById,
 } from '../../redux/slices/productSlice/productSlice';
+import {useMultipleContractSingleData} from "../../state/multicall/hooks";
+import {STAKING_REWARDS_INTERFACE} from "../../constants/abis/staking-rewards";
 
 function averageTime(count, products) {
   let totalTime = 0;
@@ -56,6 +58,11 @@ export default function useProduct() {
   const onLoad = () => {
     setLoaded(true);
   };
+
+  // const handleGETHasNFT = (string) => {
+  //   const earnedAmounts = useMultipleContractSingleData(rewardsAddresses, STAKING_REWARDS_INTERFACE, 'earned', accountArg)
+  //   const totalSupplies = useMultipleContractSingleData(rewardsAddresses, STAKING_REWARDS_INTERFACE, 'totalSupply')
+  // }
 
   const handleGetProduct = (id, page) => {
     dispatch(setPage(page));

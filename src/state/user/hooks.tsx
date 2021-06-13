@@ -17,7 +17,7 @@ import {
   updateUserDeadline,
   updateUserExpertMode,
   updateUserSlippageTolerance,
-  toggleURLWarning
+  toggleURLWarning, NFTToken, addNFTToken, removeNFTToken
 } from './actions'
 
 function serializeToken(token: Token): SerializedToken {
@@ -29,6 +29,16 @@ function serializeToken(token: Token): SerializedToken {
     name: token.name
   }
 }
+
+// function serializeNFTToken(nftToken: NFTToken): NFTToken {
+//   return {
+//     chainId: token.chainId,
+//     address: token.address,
+//     decimals: token.decimals,
+//     symbol: token.symbol,
+//     name: token.name
+//   }
+// }
 
 function deserializeToken(serializedToken: SerializedToken): Token {
   return new Token(
@@ -142,6 +152,36 @@ export function useUserAddedTokens(): Token[] {
     return Object.values(serializedTokensMap[chainId as ChainId] ?? {}).map(deserializeToken)
   }, [serializedTokensMap, chainId])
 }
+
+export function useAddUserNFTToken(): (nftToken: NFTToken) => void {
+  const dispatch = useDispatch<AppDispatch>()
+  return useCallback(
+      (nftToken: NFTToken) => {
+        dispatch(addNFTToken({ NFTToken: nftToken }))
+      },
+      [dispatch]
+  )
+}
+
+export function useRemoveUserNFTToken(): (chainId: number, address: string,tokenId:number) => void {
+  const dispatch = useDispatch<AppDispatch>()
+  return useCallback(
+      (chainId: number, address: string,tokenId:number) => {
+        dispatch(removeNFTToken({ chainId, address,tokenId }))
+      },
+      [dispatch]
+  )
+}
+
+// export function useUserNFTTokens(): Token[] {
+//   const { chainId } = useActiveWeb3React()
+//   const NFTTokensMap = useSelector<AppState, AppState['user']['NFTTokens']>(({ user: { NFTTokens } }) => NFTTokens)
+//
+//   return useMemo(() => {
+//     if (!chainId) return []
+//     return Object.values(NFTTokensMap[chainId as ChainId] ?? {}).map(NFTToken)
+//   }, [NFTTokensMap, chainId])
+// }
 
 function serializePair(pair: Pair): SerializedPair {
   return {

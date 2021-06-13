@@ -171,6 +171,9 @@ export const postProduct = ({
   delivery_location, // 出貨地點的欄位
   delivery_time, // 備貨時間的欄位
   payment_method, // 付款方式 0:貨到付款
+  royalty,
+  extoken,
+  mediaType,
   remark, // 備註
 }) => (dispatch) => {
   return postProductAPI({
@@ -184,6 +187,9 @@ export const postProduct = ({
     delivery_location, // 出貨地點的欄位
     delivery_time, // 備貨時間的欄位
     payment_method, // 付款方式 0:貨到付款
+    royalty,
+    extoken,
+    mediaType,
     remark, // 備註
   }).then((res) => {
     if (res.ok === 0) {

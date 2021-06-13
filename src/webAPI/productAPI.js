@@ -62,6 +62,9 @@ const postProductAPI = ({
   delivery_location, // 出貨地點的欄位
   delivery_time, // 備貨時間的欄位
   payment_method, // 付款方式 0:貨到付款
+  royalty,
+  extoken,
+  mediaType,
   remark, // 備註
 }) => {
   const token = localStorage.getItem('token');
@@ -82,6 +85,9 @@ const postProductAPI = ({
       delivery_location,
       delivery_time,
       payment_method,
+      royalty,
+      extoken,
+      mediaType,
       remark,
     }),
   })

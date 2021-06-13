@@ -6,6 +6,7 @@ import { abi as MERKLE_DISTRIBUTOR_ABI } from '@uniswap/merkle-distributor/build
 import {abi as IFO_ABI } from '../constants/abis/ifo.json'
 import {abi as STAKING_ABI} from '../constants/abis/stakingReward.json'
 import {abi as NFTFactory_ABI} from '../constants/abis/NFTFactory.json'
+import {abi as ERC1155Collection_ABI} from '../constants/abis/ERC1155Collection.json'
 import { ChainId, WETH } from '@teaswap/uniswap-sdk'
 import { abi as IUniswapV2PairABI } from '@uniswap/v2-core/build/IUniswapV2Pair.json'
 import { useMemo } from 'react'
@@ -125,6 +126,10 @@ export function useStakingContract(stakingAddress?: string, withSignerIfPossible
 
 export function useNFTFactoryContract(NFTFactoryAddress?: string, withSignerIfPossible?: boolean): Contract | null {
   return useContract(NFTFactoryAddress, NFTFactory_ABI, withSignerIfPossible)
+}
+
+export function useERC1155Contract(NFTFactoryAddress?: string, withSignerIfPossible?: boolean): Contract | null {
+  return useContract(NFTFactoryAddress, ERC1155Collection_ABI, withSignerIfPossible)
 }
 
 export function useIdoContract(idoAddress?: string, withSignerIfPossible?: boolean): Contract | null {
