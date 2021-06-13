@@ -89,12 +89,22 @@ export function useTokenBalancesWithLoadingIndicator(
 export function useUserFirstToken(
     address: string,
     chainid:ChainId
-):{nftaddress:string}{
+):{nftaddress:string|undefined}{
     const nftFactoryContract = useNFTFactoryContract(NFTFACTORY[ChainId.BSC_MAINNET])
     const NFTTokenAddresses = useSingleCallResult(nftFactoryContract, 'usrTokens', [address]).result?.[0]
 
-    return NFTTokenAddresses[0]?.toString()
+    return NFTTokenAddresses && NFTTokenAddresses?.length>0 ? NFTTokenAddresses[0]?.toString():undefined
 }
+
+// export function useUserHasToken(
+//     address: string,
+//     chainid:ChainId
+// ):boolean{
+//     const nftFactoryContract = useNFTFactoryContract(NFTFACTORY[ChainId.BSC_MAINNET])
+//     const NFTTokenAddresses = useSingleCallResult(nftFactoryContract, 'usrTokens', [address]).result?.[0]
+//
+//     return (NFTTokenAddresses && NFTTokenAddresses?.length>0)?true:false
+// }
 
 export function useUserNFTTokens(
     address: string,
@@ -104,22 +114,23 @@ export function useUserNFTTokens(
     const nftFactoryContract = useNFTFactoryContract(NFTFACTORY[ChainId.BSC_MAINNET])
     const NFTTokenAddresses = useSingleCallResult(nftFactoryContract, 'usrTokens', [address]).result?.[0]
     let nftaddresses = []
-    for (let index = 0; index < NFTTokenAddresses.length;index++){
+    for (let index = 0; index < NFTTokenAddresses?.length;index++){
         nftaddresses.push(NFTTokenAddresses[index].toString())
     }
+
     const accountArg = useMemo(() => [address ?? undefined], [address])
     const collectionSymbolStates = useMultipleContractSingleData(nftaddresses,ERC1155Collection_INTERFACE,'symbol')
     const collectionNameStates = useMultipleContractSingleData(nftaddresses,ERC1155Collection_INTERFACE,'name')
     const collectionUriStates = useMultipleContractSingleData(nftaddresses,ERC1155Collection_INTERFACE,'uri')
     const creatorStates = useMultipleContractSingleData(nftaddresses,ERC1155Collection_INTERFACE,'getCreator')
     const tokenIdsStates = useMultipleContractSingleData(nftaddresses,ERC1155Collection_INTERFACE,'tokensOfOwner',accountArg)
-    const collectionSymbol0 = collectionSymbolStates[0].result?.[0].toString()
-    const collectionName0 = collectionNameStates[0].result?.[0].toString()
-    const collectionUri0 = collectionUriStates[0].result?.[0].toString()
-    const creator0 = creatorStates[0].result?.[0].toString()
-    const tokenIds0 = tokenIdsStates[0].result?.[0]
+    const collectionSymbol0 = collectionSymbolStates[0]?.result?.[0].toString()
+    const collectionName0 = collectionNameStates[0]?.result?.[0].toString()
+    const collectionUri0 = collectionUriStates[0]?.result?.[0].toString()
+    const creator0 = creatorStates[0]?.result?.[0].toString()
+    const tokenIds0 = tokenIdsStates[0]?.result?.[0]
     let tokenIdsArray = []
-    for (let index = 0; index < tokenIds0.length;index++){
+    for (let index = 0; index < tokenIds0?.length;index++){
         tokenIdsArray.push(tokenIds0[index].toString())
     }
     const erc1155Contract = useERC1155Contract(nftaddresses[0])
@@ -127,7 +138,7 @@ export function useUserNFTTokens(
     const names0 = useSingleContractMultipleData(erc1155Contract,'tokenName',tokenIdsArray)
     const uris0 = useSingleContractMultipleData(erc1155Contract,'tokenURI',tokenIdsArray)
     let memo: { [nftaddress:string]: { [tokenId:number]:NFTToken} } = {};
-    for (let i = 0; i <= (tokenIdsArray.length ?? 0); i++) {
+    for (let i = 0; i < (tokenIdsArray.length ?? 0); i++) {
         memo[nftaddresses[0]][tokenIdsArray[i]] = {
             chainId:chainid,
             address: nftaddresses[0],

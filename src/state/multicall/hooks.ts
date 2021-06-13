@@ -200,10 +200,10 @@ export function useMultipleContractSingleData(
   const fragment = useMemo(() => contractInterface.getFunction(methodName), [contractInterface, methodName])
   const callData: string | undefined = useMemo(
     () =>
-      fragment && isValidMethodArgs(callInputs)
+        addresses && addresses?.length>0 && fragment && isValidMethodArgs(callInputs)
         ? contractInterface.encodeFunctionData(fragment, callInputs)
         : undefined,
-    [callInputs, contractInterface, fragment]
+    [callInputs, contractInterface, fragment,addresses]
   )
 
   const calls = useMemo(

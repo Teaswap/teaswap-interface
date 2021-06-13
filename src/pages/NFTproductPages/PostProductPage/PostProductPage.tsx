@@ -78,7 +78,7 @@ const PostProductPage = () => {
     productName,
     productPrice,
     productQuantity,
-    productMediaType,
+    productInfo,
     delivery,
     productRoyalty,
     remark,
@@ -87,6 +87,7 @@ const PostProductPage = () => {
 
   const {user} = useUser()
   const NFTFactoryContract = useNFTFactoryContract(NFTFACTORY[ChainId.BSC_MAINNET]);
+  // const hasToken = useUserHasToken(account?account:user.address,chainId?chainId:ChainId.BSC_MAINNET)
   const NFTTokens = useUserNFTTokens(account?account:user.address,chainId?chainId:ChainId.BSC_MAINNET)
   const firstNftAddress = useUserFirstToken(account?account:user.address,chainId?chainId:ChainId.BSC_MAINNET)
   const [hash, setHash] = useState('')
@@ -173,10 +174,10 @@ const PostProductPage = () => {
   ]
 
   const mediaTypeOptions = [
-    { id: 'Picture', name: 'Picture' },
-    { id: 'Gif', name: 'Gif' },
-    { id: 'Video', name: 'Video' },
-    { id: 'Audio', name: 'Audio' },
+    { id: 'Picture', name: 'Picture',value:'Picture' },
+    { id: 'Gif', name: 'Gif',value:'Gif' },
+    { id: 'Video', name: 'Video',value:'Video' },
+    { id: 'Audio', name: 'Audio',value:'Audio' },
   ]
   //Royalties: 1%, 5% , 10%, 20% 30%
   const royaltyOptions = [
@@ -202,7 +203,7 @@ const PostProductPage = () => {
           options={undefined}
           productPictureUrl = {undefined}
           textareaRows = {1}
-          value = {''}
+          value = {productName}
         />
 
         <InputItem
@@ -215,7 +216,7 @@ const PostProductPage = () => {
           isNumber={false}
           options={undefined}
           productPictureUrl={undefined}
-          value={''}
+          value={productInfo}
         />
 
         <InputItem
@@ -228,7 +229,7 @@ const PostProductPage = () => {
           isNumber={false}
           productPictureUrl={undefined}
           textareaRows={1}
-          value={productMediaType}
+          value={'Picture'}
         />
 
         <InputItem
@@ -241,7 +242,7 @@ const PostProductPage = () => {
           hasValue={false}
           options={undefined}
           textareaRows={1}
-          value={''}
+          value={productPictureUrl}
         />
 
         <InputItem
