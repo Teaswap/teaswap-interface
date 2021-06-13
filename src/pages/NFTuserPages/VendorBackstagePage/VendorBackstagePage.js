@@ -38,7 +38,10 @@ const SellerProductTitle = styled.div`
 const ButtonContainer = styled.div`
   width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
+  ${MEDIA_QUERY.sm} {
+    justify-content: center;
+  }
 `;
 
 const VendorBackstagePage = () => {

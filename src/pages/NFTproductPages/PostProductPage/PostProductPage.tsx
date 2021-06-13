@@ -8,7 +8,7 @@ import useProductFrom from '../../../hooks/productHooks/useProductForm';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next'
 // import {useETHBalances, useTokenBalance} from '../../state/wallet/hooks'
-import { useActiveWeb3React } from '../../../hooks'
+import { useActiveWeb3React } from '../../../hooks';
 // import {PAYABLEETH, ZERO_ADDRESS} from "../../../constants";
 import {ChainId} from "@teaswap/uniswap-sdk";
 import {useNFTFactoryContract} from "../../../hooks/useContract";
@@ -21,9 +21,11 @@ import {AutoColumn} from "../../../components/Column";
 import {TYPE} from "../../../theme";
 
 const Wrapper = styled.div`
-  width: 50vw;
+  width: 90%;
+  max-width: 600px
   margin: 0 auto;
   padding: 20px;
+  padding-left: 40px;
   padding-bottom: 50px;
   margin-top: 50px;
   box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.1), 0px 4px 8px rgba(0, 0, 0, 0.1), 0px 16px 24px rgba(0, 0, 0, 0.1),
@@ -31,6 +33,7 @@ const Wrapper = styled.div`
   ${MEDIA_QUERY.sm} {
     width: 100%;
     padding: 10px;
+    padding-left: 10px;
   }
 `;
 
@@ -309,7 +312,6 @@ const PostProductPage = () => {
           textareaRows={1}
         />
 
-        
         <InputItem
           title={t('Royalties')}
           type={'radio'}

@@ -5,7 +5,7 @@ import useSet from '../../hooks/userHooks/useSet';
 import { WrapperMask } from '../userSystem';
 import { COLOR, FONT, DISTANCE } from '../../constants/style';
 import { TextAreaComponent } from '../../components/Input';
-import { ActionButton } from '../NFTButton'
+import { ActionButton2 } from '../NFTButton'
 import { useTranslation } from 'react-i18next'
 
 const SetAnnouncementContainer = styled.div`
@@ -67,7 +67,7 @@ export default function SetAnnouncement({ setIsSettingAnnouncement }) {
         />
         {submitError && <ErrorMessage>{submitError}</ErrorMessage>}
         <TwoButton>
-          <ActionButton
+          <ActionButton2
             onClick={() =>
               handleSubmitSetAnnouncement(
                 setIsSettingAnnouncement,
@@ -77,13 +77,16 @@ export default function SetAnnouncement({ setIsSettingAnnouncement }) {
             }
           >
             {t('Confirm')}
-          </ActionButton>
-          <ActionButton
+          </ActionButton2>
+          <ActionButton2
+            style={{
+              marginLeft: "20px"
+            }}
             $bg={'red'}
             onClick={() => setIsSettingAnnouncement(false)}
           >
             {t('Cancel')}
-          </ActionButton>
+          </ActionButton2>
         </TwoButton>
       </SetAnnouncementContainer>
     </WrapperMask>

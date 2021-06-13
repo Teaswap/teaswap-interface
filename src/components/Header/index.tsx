@@ -47,7 +47,7 @@ const HeaderFrame = styled.div`
   // padding-right: 40px;
   padding-top: 18px;
   padding-bottom: 18px;
-  background-color: #fff;
+  // background-color: #fff;
   z-index: 2;
   ${({ theme }) => theme.mediaWidth.upToMedium`
     grid-template-columns: 1fr;
