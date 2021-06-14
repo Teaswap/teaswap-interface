@@ -96,15 +96,15 @@ export function useUserFirstToken(
     return NFTTokenAddresses && NFTTokenAddresses?.length>0 ? NFTTokenAddresses[0]?.toString():undefined
 }
 
-// export function useUserHasToken(
-//     address: string,
-//     chainid:ChainId
-// ):boolean{
-//     const nftFactoryContract = useNFTFactoryContract(NFTFACTORY[ChainId.BSC_MAINNET])
-//     const NFTTokenAddresses = useSingleCallResult(nftFactoryContract, 'usrTokens', [address]).result?.[0]
-//
-//     return (NFTTokenAddresses && NFTTokenAddresses?.length>0)?true:false
-// }
+export function useUserHasToken(
+    address: string,
+    chainid:ChainId
+):boolean{
+    const nftFactoryContract = useNFTFactoryContract(NFTFACTORY[ChainId.BSC_MAINNET])
+    const NFTTokenAddresses = useSingleCallResult(nftFactoryContract, 'usrTokens', [address]).result?.[0]
+
+    return (NFTTokenAddresses && NFTTokenAddresses?.length>0)?true:false
+}
 
 export function useUserNFTTokens(
     address: string,
@@ -116,12 +116,17 @@ export function useUserNFTTokens(
     let nftaddresses = []
     for (let index = 0; index < NFTTokenAddresses?.length;index++){
         nftaddresses.push(NFTTokenAddresses[index].toString())
+        console.log(NFTTokenAddresses[index].toString())
     }
 
     const accountArg = useMemo(() => [address ?? undefined], [address])
+    const uintArg = [0];
     const collectionSymbolStates = useMultipleContractSingleData(nftaddresses,ERC1155Collection_INTERFACE,'symbol')
+    console.log('symbolstate:'+collectionSymbolStates[0]?.result)
     const collectionNameStates = useMultipleContractSingleData(nftaddresses,ERC1155Collection_INTERFACE,'name')
-    const collectionUriStates = useMultipleContractSingleData(nftaddresses,ERC1155Collection_INTERFACE,'uri')
+    console.log('namstate:'+collectionNameStates[0]?.result)
+    const collectionUriStates = useMultipleContractSingleData(nftaddresses,ERC1155Collection_INTERFACE,'uri',uintArg)
+    console.log('uristate:'+collectionUriStates[0]?.result)
     const creatorStates = useMultipleContractSingleData(nftaddresses,ERC1155Collection_INTERFACE,'getCreator')
     const tokenIdsStates = useMultipleContractSingleData(nftaddresses,ERC1155Collection_INTERFACE,'tokensOfOwner',accountArg)
     const collectionSymbol0 = collectionSymbolStates[0]?.result?.[0].toString()
@@ -130,30 +135,50 @@ export function useUserNFTTokens(
     const creator0 = creatorStates[0]?.result?.[0].toString()
     const tokenIds0 = tokenIdsStates[0]?.result?.[0]
     let tokenIdsArray = []
+    let tokenIdsTupleArray = []
     for (let index = 0; index < tokenIds0?.length;index++){
         tokenIdsArray.push(tokenIds0[index].toString())
+        tokenIdsTupleArray.push([tokenIds0[index].toString()])
+        console.log('tokenid:'+tokenIds0[index].toString())
     }
     const erc1155Contract = useERC1155Contract(nftaddresses[0])
-    const royalties0 = useSingleContractMultipleData(erc1155Contract,'getRoyalty',tokenIdsArray)
-    const names0 = useSingleContractMultipleData(erc1155Contract,'tokenName',tokenIdsArray)
-    const uris0 = useSingleContractMultipleData(erc1155Contract,'tokenURI',tokenIdsArray)
+    const royalties0 = useSingleContractMultipleData(erc1155Contract,'getRoyalty',tokenIdsTupleArray)
+    const names0 = useSingleContractMultipleData(erc1155Contract,'tokenName',tokenIdsTupleArray)
+    const uris0 = useSingleContractMultipleData(erc1155Contract,'tokenURI',tokenIdsTupleArray)
     let memo: { [nftaddress:string]: { [tokenId:number]:NFTToken} } = {};
-    for (let i = 0; i < (tokenIdsArray.length ?? 0); i++) {
-        memo[nftaddresses[0]][tokenIdsArray[i]] = {
-            chainId:chainid,
-            address: nftaddresses[0],
-            tokenid: tokenIdsArray[i],
-            owner: address,
-            collectionSymbol: collectionSymbol0,
-            collectionName: collectionName0,
-            collectionUri: collectionUri0,
-            creator: creator0,
-            royalty:parseInt(royalties0[i]?.result?.[0].toString()),
-            name:names0[i]?.result?.[0].toString(),
-            uri:uris0[i]?.result?.[0].toString(),
-            amount:1
+    memo[nftaddresses[0]] = {}
+    if(royalties0 && royalties0?.length>0 && royalties0[0]?.result && names0 && names0?.length>0 && names0[0]?.result && uris0 && uris0?.length>0 && uris0[0]?.result){
+        for (let i = 0; i < (tokenIdsArray.length ?? 0); i++) {
+            console.log('nftaddress:'+nftaddresses[0])
+            console.log('tokenid:'+tokenIdsArray[i])
+            console.log('owner:'+address)
+            console.log('collectionSymbol:'+collectionSymbol0)
+            console.log('collectionName:'+collectionName0)
+            console.log('collectionUri:'+collectionUri0)
+            console.log('creator:'+creator0)
+            console.log('royalty:'+parseInt(royalties0[i]?.result?.[0].toString()))
+            console.log('name:'+names0[i]?.result?.[0].toString())
+            console.log('uri:'+uris0[i]?.result?.[0].toString())
+            if(nftaddresses[0] && tokenIdsArray[i]){
+                memo[nftaddresses[0]][tokenIdsArray[i]] = {
+                    chainId:chainid,
+                    address: nftaddresses[0],
+                    tokenid: tokenIdsArray[i],
+                    owner: address,
+                    collectionSymbol: collectionSymbol0,
+                    collectionName: collectionName0,
+                    collectionUri: collectionUri0,
+                    creator: creator0,
+                    royalty:parseInt(royalties0[i]?.result?.[0].toString()),
+                    name:names0[i]?.result?.[0].toString(),
+                    uri:uris0[i]?.result?.[0].toString(),
+                    amount:1
+                }
+            }
+
         }
     }
+
 
 
 

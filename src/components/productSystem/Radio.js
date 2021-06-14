@@ -27,7 +27,7 @@ export const Radio = ({
         value={value}
         name={name}
         onChange={handleChange}
-        checked={currentOption && value == Number(currentOption)}
+        checked={currentOption && value == currentOption}
       />
       {children}
     </RadioLabel>

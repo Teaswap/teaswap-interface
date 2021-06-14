@@ -20,13 +20,13 @@ export default function OptionList() {
     <OptionListContainer>
       <OptionListOuter>
         <OptionItem>
-          <Nav children={'商品管理'} path={'/admin/products'} $margin={0} />
+          <Nav children={'商品管理'} path={'/nft/admin/products'} $margin={0} />
         </OptionItem>
         <OptionItem>
-          <Nav children={'用戶管理'} path={'/admin/users'} />
+          <Nav children={'用戶管理'} path={'/nft/admin/users'} />
         </OptionItem>
         <OptionItem>
-          <Nav children={'查看意見箱'} path={'/admin/mails'} $margin={0} />
+          <Nav children={'查看意見箱'} path={'/nft/admin/mails'} $margin={0} />
         </OptionItem>
       </OptionListOuter>
     </OptionListContainer>

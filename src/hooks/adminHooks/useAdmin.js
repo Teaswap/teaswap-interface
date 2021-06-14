@@ -37,18 +37,18 @@ export default function useAdmin() {
   });
 
   const handleGetUnCheckProducts = (page) =>
-    dispatch(getUnCheckProducts(page)).then((result) => result);
+    getUnCheckProducts(page)(dispatch).then((result) => result);
   const handleUpdateProductStatus = (id, status) =>
-    dispatch(updateProductStatus(id, status)).then((result) => result);
+    updateProductStatus(id, status)(dispatch).then((result) => result);
   const handleGetUsers = (params) =>
-    dispatch(getUsers(params)).then((result) => result);
+    getUsers(params)(dispatch).then((result) => result);
   const handleSearchUsers = (keyword) =>
-    dispatch(searchUsers(keyword)).then((result) => result);
+    searchUsers(keyword)(dispatch).then((result) => result);
   const handleGetProducts = (params) =>
-    dispatch(getProducts(params)).then((result) => result);
+    getProducts(params)(dispatch).then((result) => result);
   const handleSearchProducts = (params) =>
-    dispatch(searchProducts(params)).then((result) => result);
-  const handleGetMails = () => dispatch(getMails()).then((result) => result);
+    searchProducts(params)(dispatch).then((result) => result);
+  const handleGetMails = () => getMails()(dispatch).then((result) => result);
 
   const handleChangeSelector = (e, product) => {
     setValue(e.target.value);

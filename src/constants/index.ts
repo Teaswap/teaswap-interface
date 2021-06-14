@@ -76,7 +76,7 @@ export const MERKLE_DISTRIBUTOR_ADDRESS: { [chainId in ChainId]?: string } = {
 }
 
 export const NFTFACTORY: { [chainId in ChainId]?: string } = {
-  [ChainId.BSC_MAINNET]:'0x5A53a29FC6bfB56227E6F62C90e05b51679760e1'
+  [ChainId.BSC_MAINNET]:'0xb0AEB3b4C1CDf40Bc05Dc232073634d08de72060'
 }
 
 export const USDT_TSA_LP = new Token(

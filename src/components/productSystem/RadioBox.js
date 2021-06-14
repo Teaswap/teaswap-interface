@@ -15,7 +15,7 @@ export const RadioBox = ({ title, options, handleChange, oldValue}) => {
         <Radio
           key={option.id}
           name={title}
-          value={option.id}
+          value={option.value?option.value:option.id}
           children={option.name}
           handleChange={handleChange}
           currentOption={oldValue}

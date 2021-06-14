@@ -10,12 +10,15 @@ import { useTranslation } from 'react-i18next'
 // import {useETHBalances, useTokenBalance} from '../../state/wallet/hooks'
 import { useActiveWeb3React } from '../../../hooks';
 // import {PAYABLEETH, ZERO_ADDRESS} from "../../../constants";
-import {ChainId} from "@teaswap/uniswap-sdk";
+import {ChainId, JSBI} from "@teaswap/uniswap-sdk";
 import {useNFTFactoryContract} from "../../../hooks/useContract";
-import {NFTFACTORY} from "../../../constants";
-import {useUserFirstToken, useUserNFTTokens} from "../../../state/wallet/hooks";
+import {NFTFACTORY, ZERO_ADDRESS, BUSD, UNI, SHIH, CJAI} from "../../../constants";
+import {useUserFirstToken, useUserHasToken, useUserNFTTokens} from "../../../state/wallet/hooks";
 import {TransactionResponse} from "@ethersproject/providers";
-import {useTransactionAdder} from "../../../state/transactions/hooks";
+import {
+  useTransactionAdder,
+  useUserHasSubmittedMint
+} from "../../../state/transactions/hooks";
 import {SubmittedView} from "../../../components/ModalViews";
 import {AutoColumn} from "../../../components/Column";
 import {TYPE} from "../../../theme";
@@ -89,21 +92,33 @@ const PostProductPage = () => {
 
   const {user} = useUser()
   const NFTFactoryContract = useNFTFactoryContract(NFTFACTORY[ChainId.BSC_MAINNET]);
-  // const hasToken = useUserHasToken(account?account:user.address,chainId?chainId:ChainId.BSC_MAINNET)
+  const hasToken = useUserHasToken(account?account:user.address,chainId?chainId:ChainId.BSC_MAINNET)
   const NFTTokens = useUserNFTTokens(account?account:user.address,chainId?chainId:ChainId.BSC_MAINNET)
   const firstNftAddress = useUserFirstToken(account?account:user.address,chainId?chainId:ChainId.BSC_MAINNET)
   const [hash, setHash] = useState('')
   const [attempting, setAttempting] = useState(false)
   const addTransaction = useTransactionAdder()
+  const { submitted, mintTxn } = useUserHasSubmittedMint(account ?? undefined)
+  const mintConfirmed = Boolean(mintTxn?.receipt)
   const wrappedOnDismiss = useCallback(() => {
     setHash('')
     setAttempting(false)
+    alert(t('Apply success, please wait for audit'));
+    navigate('/nft/users/backstage');
   }, [])
+  // once confirmed txn is found, if modal is closed open, mark as not attempting regradless
+  useEffect(() => {
+    if (mintConfirmed && mintConfirmed && attempting) {
+      setAttempting(false)
+      navigate('/nft/users/backstage');
+    }
+  }, [attempting, mintConfirmed, submitted])
 
-  async function onMint() {
+
+  const onMint = (e: Event) => {
     setAttempting(true)
     if (NFTFactoryContract) {
-      if(NFTTokens){
+      if(NFTTokens && hasToken){
         const mintargs = [
           firstNftAddress,
           account,
@@ -114,7 +129,7 @@ const PostProductPage = () => {
           0
         ]
         NFTFactoryContract.mint(
-            ...mintargs,{ gasLimit: 350000 })
+            ...mintargs,{ gasLimit: 350000 ,value:`0x${JSBI.BigInt("10000000000000000").toString(16)}`})
             .then((response: TransactionResponse) => {
               addTransaction(response, {
                 summary: t('mint NFT')
@@ -127,16 +142,16 @@ const PostProductPage = () => {
             })
       }else{
         const args = [
-          user.banner_url,
+          user.banner_url?user.banner_url:'https://static.wixstatic.com/media/faa61f_5b2f06d9bee14f369a0a3b7d31761b98~mv2.png',
           user.nickname+ ' Collection',
           user.nickname+'NFT',
-          productPictureUrl,
+          'https://i.imgur.com/TSsItDE.png',
           productName,
           productRoyalty,
           account
         ]
         NFTFactoryContract.createERC1155(
-            ...args,{ gasLimit: 350000 })
+            ...args,{ gasLimit: 350000,value:`0x${JSBI.BigInt("10000000000000000").toString(16)}`})
               .then((response: TransactionResponse) => {
                 addTransaction(response, {
                   summary: t('create NFT')
@@ -148,7 +163,7 @@ const PostProductPage = () => {
                 console.log(error)
               })
       }
-      handleSubmitAddForm();
+      handleSubmitAddForm(e);
 
       } else {
         setAttempting(false)
@@ -168,27 +183,27 @@ const PostProductPage = () => {
   }, []);
 
   const tokenOptions = [
-    { id: '1', name: 'BNB' },
-    { id: '2', name: 'BUSD' },
-    { id: '3', name: 'TSA' },
-    { id: '4', name: 'Shih' },
-    { id: '5', name: 'CJAI' },
+    { id: '1', name: 'BNB',value:ZERO_ADDRESS },
+    { id: '2', name: 'BUSD',value:BUSD.address },
+    { id: '3', name: 'TSA',value:UNI[ChainId.BSC_MAINNET].address },
+    { id: '4', name: 'Shih',value:SHIH.address },
+    { id: '5', name: 'CJAI',value:CJAI.address },
   ]
 
   const mediaTypeOptions = [
-    { id: '1', name: 'Picture' },
-    { id: '2', name: 'Gif' },
-    { id: '3', name: 'Video' },
-    { id: '4', name: 'Audio' },
+    { id: '1', name: 'Picture',value:'Picture' },
+    { id: '2', name: 'Gif',value:'Gif' },
+    { id: '3', name: 'Video',value:'Video' },
+    { id: '4', name: 'Audio',value:'Audio' },
   ]
   //Royalties: 1%, 5% , 10%, 20% 30%
   const royaltyOptions = [
-    { id: '0', name: '0%' },
-    { id: '1', name: '1%' },
-    { id: '5', name: '5%' },
-    { id: '10', name: '10%' },
-    { id: '20', name: '20%' },
-    { id: '30', name: '30%' },
+    { id: '0', name: '0%',value:0 },
+    { id: '1', name: '1%',value:100 },
+    { id: '5', name: '5%' ,value:500},
+    { id: '10', name: '10%',value:1000 },
+    { id: '20', name: '20%',value:2000},
+    { id: '30', name: '30%' ,value:3000},
   ]
 
   return (
@@ -313,8 +328,8 @@ const PostProductPage = () => {
           title={t('How to buy')}
           type={'radio'}
           options={[
-            { name: t('Bid'), id: '0' },
-            { name: t('Auction'), id: '1' },
+            { name: t('Bid'), id: '0',value:0 },
+            { name: t('Auction'), id: '1',value:1 },
           ]}
           hasValue={hasDelivery}
           errorMessage={t('please choose')}

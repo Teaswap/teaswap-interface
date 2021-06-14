@@ -59,9 +59,6 @@ const postProductAPI = ({
   price,
   quantity,
   delivery, // 出貨方式  0:面交、1:郵寄
-  delivery_location, // 出貨地點的欄位
-  delivery_time, // 備貨時間的欄位
-  payment_method, // 付款方式 0:貨到付款
   royalty,
   extoken,
   mediaType,
@@ -82,9 +79,6 @@ const postProductAPI = ({
       price,
       quantity,
       delivery,
-      delivery_location,
-      delivery_time,
-      payment_method,
       royalty,
       extoken,
       mediaType,

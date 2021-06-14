@@ -52,7 +52,7 @@ export default function useProductForm(id) {
 
   const checkValidNumber = (input, max, min) => {
     const num = Number(input);
-    if (!Number.isInteger(num) || num > max || num < min) {
+    if (Number.isNaN(num) || num > max || num < min) {
       return false;
     }
     return true;
@@ -64,13 +64,6 @@ export default function useProductForm(id) {
       setHasProductName(false);
     } else {
       setHasProductName(true);
-    }
-
-    if (!deliveryLocation || !deliveryLocation.trim()) {
-      hasError = true;
-      setHasDeliveryLocation(false);
-    } else {
-      setHasDeliveryLocation(true);
     }
 
     if (!productCategory) {
@@ -87,7 +80,7 @@ export default function useProductForm(id) {
       setHasProductInfo(true);
     }
 
-    if (!checkValidNumber(productPrice, 50000, 0)) {
+    if (!checkValidNumber(productPrice, 50000000, 0)) {
       hasError = true;
       setHasProductPrice(false);
     } else {
@@ -108,19 +101,6 @@ export default function useProductForm(id) {
       setHasDelivery(true);
     }
 
-    if (!checkValidNumber(deliveryTime, 30, 0)) {
-      hasError = true;
-      setHasDeliveryTime(false);
-    } else {
-      setHasDeliveryTime(true);
-    }
-
-    if (!checkValidNumber(paymentMethod, 2, 0)) {
-      hasError = true;
-      setHasPaymentMethod(false);
-    } else {
-      setHasPaymentMethod(true);
-    }
   };
 
   const changeProductValue = (product) => {
@@ -170,8 +150,6 @@ export default function useProductForm(id) {
     setIsSubmitClicked(true);
     if (!hasError) {
       postProduct(formData)(dispatch);
-      alert(t('Apply success, please wait for audit'));
-      navigate('/nft/users/backstage');
     }
   };
 
