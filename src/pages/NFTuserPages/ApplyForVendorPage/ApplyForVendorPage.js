@@ -36,12 +36,6 @@ const Title = styled.h1`
   }
 `;
 
-const Text = styled.p`
-  color: ${COLOR.black};
-  font-size: ${FONT.md};
-  margin: ${DISTANCE.lg} 0 ${DISTANCE.sm} 0;
-`;
-
 const ErrorText = styled.p`
   color: ${COLOR.text_alert};
   font-size: ${FONT.xss};
@@ -132,20 +126,14 @@ const ApplyForVendorPage = () => {
         {/*<Announcement isApply={true} />*/}
         <VendorInfoForm setSuccessMode={setSuccessMode} />
         {errorMessage && <ErrorText>{errorMessage}</ErrorText>}
-        <Text>{t('Upload Avatar')}</Text>
-        <SetAvatar setSuccessMode={setSuccessMode} />
-        <Text>{t('UpLoad Banner')}</Text>
-        <SetBanner setSuccessMode={setSuccessMode} />
+
         {/* <PageBottom>
           <Nav path='/nft' children={t('Back to NFTHome')} />
         </PageBottom> */}
         {successMode && (
-          <WrapperMask className="center-mask">
+          <WrapperMask onClick={() => setSuccessMode(false)} className="center-mask">
             <SuccessMessage className="success-message">
-              <p>{t('Success')}</p>
-              <GreyBtn style={{alignSelf: 'center', width: '150px'}} onClick={() => setSuccessMode(false)}>
-                {t('Confirm')}
-              </GreyBtn>
+              {t('Update Success')}
             </SuccessMessage>
           </WrapperMask>
         )}

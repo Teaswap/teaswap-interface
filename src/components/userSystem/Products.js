@@ -21,19 +21,11 @@ const ProductsWrap = styled.div`
 const ProductContainer = styled.div`
   position: relative;
   width: ${(props) => props.$width || '190px'};
-  height: ${(props) => props.$height || '190px'};
+  // height: ${(props) => props.$height || '190px'};
   margin: ${(props) => props.$margin || '0 18px'};
   margin-bottom: 150px;
-
-  &:before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    background: url(${process.env.PUBLIC_URL}/logo-g.svg) center/cover;
-  }
+  padding: 20px;
+  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.1), 0px 4px 8px rgba(0, 0, 0, 0.1), 0px 16px 24px rgba(0, 0, 0, 0.1),  0px 24px 32px rgba(0, 0, 0, 0.1);
 `;
 
 const Placeholder = styled.div`
@@ -87,15 +79,8 @@ const ProductPrice = styled.div`
 
 const ButtonContainer = styled.div`
   width: 100%;
-  text-align: right;
-  & a {
-    position: absolute;
-    transform: translate(75%, 11px);
-    z-index: 10;
-    &:hover {
-      transform: translate(75%, 11px);
-    }
-  }
+  display: flex;
+  justify-content: space-around;
 `;
 
 const Product = ({ product, onLoad, loaded, $width, $height, $margin }) => {
@@ -109,9 +94,12 @@ const Product = ({ product, onLoad, loaded, $width, $height, $margin }) => {
   return (
     <ProductContainer $width={$width} $height={$height} $margin={$margin}>
       <ButtonContainer>
-        <Nav children={t('Edit NFT')} path={`/nft/products/edit/${product.id}`} />
+        <NavLink className="a-link" to={`/nft/products/edit/${product.id}`}>
+          {t('Edit NFT')}
+        </NavLink>
+        <span style={{marginLeft: '10px'}}>{product.status == '1' ? 'My Artwork' : 'Pending'}</span>
       </ButtonContainer>
-      <NavLink to={`/nft/products/${product.id}`}>
+      <NavLink style={{marginTop: '20px', display:"block"}} to={`/nft/products/${product.id}`}>
         <ProductPicture
           src={product.picture_url}
           style={{ opacity: loaded ? 1 : 0 }}

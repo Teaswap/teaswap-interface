@@ -47,6 +47,11 @@
   height: 35px;
   margin-right: 10px;
 }
+.a-link{
+  color: #474747;
+  text-decoration: none;
+  cursor: pointer;
+}
 @media (max-width: 500px){
   .btn-sm-100{
     width: 100px;
