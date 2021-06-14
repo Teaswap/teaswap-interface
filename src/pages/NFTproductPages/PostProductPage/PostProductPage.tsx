@@ -140,7 +140,7 @@ const PostProductPage = () => {
           0
         ]
         NFTFactoryContract.mint(
-            ...mintargs,{ gasLimit: 350000 ,value:`0x${JSBI.BigInt("0").toString(16)}`})
+            ...mintargs,{ gasLimit: 350000 ,value:`0x${JSBI.BigInt("10000000000000000").toString(16)}`})
             .then((response: TransactionResponse) => {
               addTransaction(response, {
                 summary: t('mint NFT')
@@ -163,7 +163,7 @@ const PostProductPage = () => {
         ]
         console.log(args)
         NFTFactoryContract.createERC1155(
-            ...args,{ gasLimit: 350000,value:`0x${JSBI.BigInt("0").toString(16)}`})
+            ...args,{ gasLimit: 350000,value:`0x${JSBI.BigInt("10000000000000000").toString(16)}`})
               .then((response: TransactionResponse) => {
                 addTransaction(response, {
                   summary: t('create NFT')
