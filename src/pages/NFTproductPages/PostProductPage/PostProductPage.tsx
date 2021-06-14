@@ -28,7 +28,9 @@ const Wrapper = styled.div`
   max-width: 600px
   margin: 0 auto;
   padding: 20px;
-  padding-left: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   padding-bottom: 50px;
   margin-top: 50px;
   box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.1), 0px 4px 8px rgba(0, 0, 0, 0.1), 0px 16px 24px rgba(0, 0, 0, 0.1),
@@ -41,7 +43,11 @@ const Wrapper = styled.div`
   }
 `;
 
-const FormWrap = styled.form``;
+const FormWrap = styled.form`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
 
 const Title = styled.h1`
   color: ${COLOR.text_2};

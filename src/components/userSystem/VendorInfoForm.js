@@ -8,9 +8,13 @@ import { InputComponent } from '../../components/Input';
 import { GreyBtn } from '../NFTButton'
 import useVendorForm from '../../hooks/userHooks/useVendorForm';
 import {useTranslation} from 'react-i18next';
-
+import {SetAvatar, SetBanner}  from '../../components/userSystem' 
+  
 const FontWrapper = styled.form`
+  margin: 0 auto;
   margin: ${DISTANCE.md} 0;
+  width: 90%;
+  max-width: 620px;
 `;
 
 const InputName = styled.h2`
@@ -24,6 +28,12 @@ const InputDescription = styled.p`
   color: ${COLOR.text_1};
   font-size: ${FONT.sm};
   margin: ${DISTANCE.xs} 0;
+`;
+
+const Text = styled.p`
+  color: ${COLOR.black};
+  font-size: ${FONT.md};
+  margin: ${DISTANCE.lg} 0 ${DISTANCE.sm} 0;
 `;
 
 const ErrorMessage = styled.span`
@@ -176,8 +186,15 @@ export default function VendorInfoForm({ setSuccessMode, isAdminStatus }) {
         <InputName>{t('Im QR-code')}</InputName>
         <InputDescription>wechat/line/tg QR-code</InputDescription> */}
         {/* <SetQRCode setSocialMediaId={setSocialMediaId} /> */}
+        <Text>{t('Upload Avatar')}</Text>
+        <SetAvatar setSuccessMode={setSuccessMode} />
+        <Text>{t('UpLoad Banner')}</Text>
+        <SetBanner setSuccessMode={setSuccessMode} />
       </FontWrapper>
       <GreyBtn
+        style={{
+          margin: '0 auto'
+        }}
         onClick={() => handleSubmit(setSuccessMode, isAdminStatus)}
         $margin={0}
       >

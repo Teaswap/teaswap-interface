@@ -7,6 +7,7 @@ import { useTranslation } from 'react-i18next'
 
 const ButtonContainer = styled.div`
   display: flex;
+  flex-wrap: wrap;
 `;
 
 const Button = styled(NormalButton)`

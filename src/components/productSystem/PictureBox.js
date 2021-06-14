@@ -13,9 +13,14 @@ const PreviewPicture = styled.img`
   // height: 250px;
   // width: 250px;
   // min-width: 250px;
-  width: 100%;
+  width: 432px;
+  height: 576px;
   border-radius: 0px;
   object-fit: cover;
+  ${MEDIA_QUERY.sm} {
+    width: 90vw;
+    height: 120vw;
+  }
 `;
 
 const RightSide = styled.div`
@@ -58,12 +63,9 @@ export function PictureBox({ pictureUrl, handleChange }) {
       <PreviewPicture onClick={() => document.getElementById('upload-file').click()} src={pictureUrl} alt='' />
       <RightSide>
         <Description>
-          <p>
-            {"Support： PNG, JPG , GIF, Video and Audio; Suggested ration 3:4; Size <10MB"}
-          </p>
-          <p>
-            {"Mint an NFT charges 0.01BNB"}
-          </p>
+          {"Support： PNG, JPG , GIF, Video and Audio; Suggested ration 3:4; Size <10MB"}
+          <br />
+          {"Mint an NFT charges 0.01BNB"}
         </Description>
         <Label>
           <InputFile id="upload-file" type='file' onChange={handleChange} />

@@ -21,6 +21,9 @@ const Wrapper = styled.div`
   width: 50vw;
   margin: 0 auto;
   padding: 30px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   ${MEDIA_QUERY.sm} {
     width: 100%;
   }
@@ -109,20 +112,17 @@ const VendorInfoPage = () => {
           isAdminStatus={isAdminStatus}
         />
         {errorMessage && <ErrorText>{errorMessage}</ErrorText>}
-        <Text>{t('Upload Avatar')}</Text>
+        {/* <Text>{t('Upload Avatar')}</Text>
         <SetAvatar setSuccessMode={setSuccessMode} />
         <Text>{t('Upload Banner')}</Text>
-        <SetBanner setSuccessMode={setSuccessMode} />
+        <SetBanner setSuccessMode={setSuccessMode} /> */}
         <PageBottom>
           <Nav path='/nft/users/backstage' children={t('Back to Account')} />
         </PageBottom>
         {successMode && (
-          <WrapperMask className="center-mask">
+          <WrapperMask onClick={() => setSuccessMode(false)} className="center-mask">
             <SuccessMessage className="success-message">
-              <p>{t('Success')}</p>
-              <ActionButton onClick={() => setSuccessMode(false)}>
-                {t('Confirm')}
-              </ActionButton>
+               {t('Update Success')}
             </SuccessMessage>
           </WrapperMask>
         )}
