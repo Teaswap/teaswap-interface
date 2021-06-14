@@ -59,6 +59,7 @@ const postProductAPI = ({
   price,
   quantity,
   delivery, // 出貨方式  0:面交、1:郵寄
+  delivery_location,
   royalty,
   extoken,
   mediaType,
@@ -79,6 +80,7 @@ const postProductAPI = ({
       price,
       quantity,
       delivery,
+      delivery_location,
       royalty,
       extoken,
       mediaType,

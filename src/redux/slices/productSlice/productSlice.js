@@ -168,6 +168,7 @@ export const postProduct = ({
   price,
   quantity,
   delivery, // 出貨方式  0:面交、1:郵寄
+  delivery_location,
   royalty,
   extoken,
   mediaType,
@@ -181,6 +182,7 @@ export const postProduct = ({
     price,
     quantity,
     delivery, // 出貨方式  0:面交、1:郵寄
+    delivery_location,
     royalty,
     extoken,
     mediaType,

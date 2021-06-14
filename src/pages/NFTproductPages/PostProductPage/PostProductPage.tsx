@@ -66,6 +66,7 @@ const PostProductPage = () => {
     setProductQuantity,
     setProductToken,
     setProductMediaType,
+    setDeliveryLocation,
     handleChange,
     hasProductName,
     hasProductInfo,
@@ -78,12 +79,14 @@ const PostProductPage = () => {
     handleSubmitAddForm,
     productPictureUrl,
     handleChangePicture,
+    // handleSubmitProduct,
     productCategory,
     productName,
     productPrice,
     productQuantity,
     productInfo,
     delivery,
+    // deliveryLocation,
     productRoyalty,
     remark,
     productToken,
@@ -100,17 +103,19 @@ const PostProductPage = () => {
   const addTransaction = useTransactionAdder()
   const { submitted, mintTxn } = useUserHasSubmittedMint(account ?? undefined)
   const mintConfirmed = Boolean(mintTxn?.receipt)
+  // const [creating, setCreating] = useState(false)
   const wrappedOnDismiss = useCallback(() => {
     setHash('')
     setAttempting(false)
-    alert(t('Apply success, please wait for audit'));
-    navigate('/nft/users/backstage');
+    alert(t('Apply success, please wait for audit'))
+    navigate('/nft/users/backstage')
   }, [])
   // once confirmed txn is found, if modal is closed open, mark as not attempting regradless
   useEffect(() => {
-    if (mintConfirmed && mintConfirmed && attempting) {
+    if (mintConfirmed && attempting) {
       setAttempting(false)
-      navigate('/nft/users/backstage');
+      console.log(JSON.stringify(mintTxn))
+      navigate('/nft/users/backstage')
     }
   }, [attempting, mintConfirmed, submitted])
 
@@ -150,6 +155,7 @@ const PostProductPage = () => {
           productRoyalty,
           account
         ]
+        console.log(args)
         NFTFactoryContract.createERC1155(
             ...args,{ gasLimit: 350000,value:`0x${JSBI.BigInt("0").toString(16)}`})
               .then((response: TransactionResponse) => {
@@ -157,13 +163,15 @@ const PostProductPage = () => {
                   summary: t('create NFT')
                 })
                 setHash(response.hash)
+                // setCreating(true)
+
               })
               .catch((error: any) => {
                 setAttempting(false)
                 console.log(error)
               })
       }
-      handleSubmitAddForm(e);
+        handleSubmitAddForm(e)
 
       } else {
         setAttempting(false)
@@ -181,6 +189,19 @@ const PostProductPage = () => {
       if (!result.data || !result.data.is_vendor) navigate('/nft');
     });
   }, []);
+
+  useEffect(() => {
+    if(firstNftAddress?.nftaddress){
+      setDeliveryLocation(firstNftAddress?.nftaddress)
+    }
+  }, [firstNftAddress]);
+  //
+  // useEffect(() => {
+  //   if(hash && !creating){
+  //       handleSubmitProduct();
+  //   }
+  // }, [hash]);
+
 
   const tokenOptions = [
     { id: '1', name: 'BNB',value:ZERO_ADDRESS },

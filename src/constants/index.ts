@@ -76,10 +76,12 @@ export const MERKLE_DISTRIBUTOR_ADDRESS: { [chainId in ChainId]?: string } = {
 }
 
 export const NFTFACTORY: { [chainId in ChainId]?: string } = {
-  [ChainId.BSC_MAINNET]:'0x4ebf158511bb844d3c827d71d519637479942ac4'
+  [ChainId.BSC_MAINNET]:'0xb0AEB3b4C1CDf40Bc05Dc232073634d08de72060'
 }
 
 //0xb0AEB3b4C1CDf40Bc05Dc232073634d08de72060   0.01BNB
+//0x4ebf158511bb844d3c827d71d519637479942ac4   0BNB
+//0x236b4961D3fE0D16aa021CaA394d5F32273e3521 new
 
 export const USDT_TSA_LP = new Token(
   ChainId.BSC_MAINNET,

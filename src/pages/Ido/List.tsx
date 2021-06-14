@@ -50,7 +50,7 @@ const List = ()=>{
       medium: "",
       info: `TSA NFT Broadway Series’s theme is inspired by the Legendary Song Dynasty painting “Along the River During the Qingming Festival”. TSA Broadway embodies the spirit of Qingming Shanghe Tu, celebrating the excitement and hopes and dreams of collaborating in a new era of NFT, all in a beautiful and artistic format.`,
       info2: ``,
-      joinUs: "",
+      joinUs: "/iro/bnb/0x5f99ACF13CAff815DD9cB4A415c0fB34e9F4545b/0x887Ed22FAF9C4B985ecB019eA54A5185350AE214",
       // joinUs: "#",
       when: "When: 06.16 21:30 EST",
       end: undefined,

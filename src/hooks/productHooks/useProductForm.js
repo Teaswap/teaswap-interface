@@ -21,7 +21,7 @@ export default function useProductForm(id) {
   const [productMediaType, setProductMediaType] = useState('');
   const [productPrice, setProductPrice] = useState('');
   const [deliveryTime, setDeliveryTime] = useState('');
-  const [deliveryLocation, setDeliveryLocation] = useState('台灣');
+  const [deliveryLocation, setDeliveryLocation] = useState('0x83Ed4dF752CCe79cA786D505D4063541419CFf15');
   const [delivery, setDelivery] = useState('');
   const [paymentMethod, setPaymentMethod] = useState('');
   const [remark, setRemark] = useState('');
@@ -78,6 +78,13 @@ export default function useProductForm(id) {
       setHasProductInfo(false);
     } else {
       setHasProductInfo(true);
+    }
+
+    if (!deliveryLocation || !deliveryLocation.trim()) {
+      hasError = true;
+      setHasDeliveryLocation(false);
+    } else {
+      setHasDeliveryLocation(true);
     }
 
     if (!checkValidNumber(productPrice, 50000000, 0)) {
@@ -153,6 +160,14 @@ export default function useProductForm(id) {
     }
   };
 
+  const handleSubmitProduct = () => {
+    checkDataValidity();
+    setIsSubmitClicked(true);
+    if (!hasError) {
+      postProduct(formData)(dispatch);
+    }
+  };
+
   const handleSubmitEditForm = (e) => {
     e.preventDefault();
     checkDataValidity();
@@ -221,5 +236,6 @@ export default function useProductForm(id) {
     handleSubmitAddForm,
     handleSubmitEditForm,
     handleChangePicture,
+    handleSubmitProduct
   };
 }
