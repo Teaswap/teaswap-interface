@@ -236,12 +236,18 @@ const Index = ()=>{
 
   return (
     <PageWrapper>
-      <img style={{marginBottom: "20px"}} onClick={() => {
-        window.open("https://docs.google.com/forms/d/e/1FAIpQLSfA-dOW15tyN6dfyZScvcEmT3lC13K9ThFBTruiFD0wOVsoUQ/viewform")
-      }} width="100%" src={process.env.PUBLIC_URL + '/incubator_banner.png'} alt="" />
-      <ConTitle con="CaoJun NFT Collectibles" />
+      {params.idoAddress == '0xF72ECaD992CebB0138aC13b616199f131F847b04' && (
+        <img style={{marginBottom: "20px"}} onClick={() => {
+          window.open("https://docs.google.com/forms/d/e/1FAIpQLSfA-dOW15tyN6dfyZScvcEmT3lC13K9ThFBTruiFD0wOVsoUQ/viewform")
+        }} width="100%" src={process.env.PUBLIC_URL + '/incubator_banner.png'} alt="" />
+      )}
+      {params.idoAddress == '0xF72ECaD992CebB0138aC13b616199f131F847b04' && (
+        <ConTitle con="CaoJun NFT Collectibles" />
+      )}
+      {params.idoAddress == '0x887Ed22FAF9C4B985ecB019eA54A5185350AE214' && (
+        <ConTitle con={t("TSA Broadway Series NFT Collectibles")} />
+      )}
       {idoInfo && (
-
           <BuyingModal
             isOpen={showStakingModal}
             onDismiss={() => setShowStakingModal(false)}
@@ -265,25 +271,52 @@ const Index = ()=>{
         <DoubleCurrencyLogo currency0={currencyA ?? undefined} currency1={currencyB ?? undefined} size={24} /> */}
       {/* </RowBetween> */}
       <AuthorInfo>
-        <Author>
-          <img src={process.env.PUBLIC_URL + '/cjainft.png'} width="150" style={{marginBottom: '0px'}}/>
-          <ConSubTitle con="CaoJun Limited Edition of NFT Collectibles" />
-          <div style={{lineHeight: '30px', fontSize: '15px'}}>Key terms for CJAI NFT Collectibles & Initial Art Offering ("IRO"): </div>
-          <ol style={{fontSize: '15px', textAlign: 'left', lineHeight: "28px"}}>
-            <li>​Total Edition of CaoJunNFT Collectibles released: 600</li>
-            <li>Total TSA released for CJAI IRO: 15,000,000</li>
-            <li>List TSA Token on TeaSwap, BakerySwap and SwapAll for trading and liquidity farming;</li>
-            <li>Able to stake TSA to earn CJAI and iCASH, Deposit TSA-BNB BLP to earn TSA, Deposit TSA-BUSD to earn TSA, and Deposit TSA-USDT BLP to earn TSA.</li>
-            <li>100,000 $TSA can be exchanged with 1 CaoJun NFT, and 1 CaoJun NFT can be converted into one exclusive physical CaoJun Limited Edition of NFT Collectible ("CaoJun NFT Collectible"). The NFT and $TSA will be burned afterward.</li>
-            <li>The CaoJun NFT will be available at the CaoJun NFT Collectibles (under NFT Broadway tab), and can only be purchased with $TSA</li>
-            <li>No minimum: Users can buy fractions of $TSA Offering for CaoJun NFT Collectibles</li>
-          </ol>
-          <div style={{lineHeight: '30px', fontSize: '15px'}}>  Details : 
-            <ExternalLink href="https://www.caojunnft.com">
-              https://www.caojunnft.com
-            </ExternalLink>
-          </div>
-        </Author>
+          {params.idoAddress == '0xF72ECaD992CebB0138aC13b616199f131F847b04' && (
+            <Author>
+              <img src={process.env.PUBLIC_URL + '/cjainft.png'} width="150" style={{marginBottom: '0px'}}/>
+              <ConSubTitle con="CaoJun Limited Edition of NFT Collectibles" />
+              <div style={{lineHeight: '30px', fontSize: '15px'}}>Key terms for CJAI NFT Collectibles & Initial Art Offering ("IRO"): </div>
+              <ol style={{fontSize: '15px', textAlign: 'left', lineHeight: "28px"}}>
+                <li>​Total Edition of CaoJunNFT Collectibles released: 600</li>
+                <li>Total TSA released for CJAI IRO: 15,000,000</li>
+                <li>List TSA Token on TeaSwap, BakerySwap and SwapAll for trading and liquidity farming;</li>
+                <li>Able to stake TSA to earn CJAI and iCASH, Deposit TSA-BNB BLP to earn TSA, Deposit TSA-BUSD to earn TSA, and Deposit TSA-USDT BLP to earn TSA.</li>
+                <li>100,000 $TSA can be exchanged with 1 CaoJun NFT, and 1 CaoJun NFT can be converted into one exclusive physical CaoJun Limited Edition of NFT Collectible ("CaoJun NFT Collectible"). The NFT and $TSA will be burned afterward.</li>
+                <li>The CaoJun NFT will be available at the CaoJun NFT Collectibles (under NFT Broadway tab), and can only be purchased with $TSA</li>
+                <li>No minimum: Users can buy fractions of $TSA Offering for CaoJun NFT Collectibles</li>
+              </ol>
+              <div style={{lineHeight: '30px', fontSize: '15px'}}>  Details : 
+                <ExternalLink href="https://www.caojunnft.com">
+                  https://www.caojunnft.com
+                </ExternalLink>
+              </div>
+            </Author>
+          )}
+          {params.idoAddress == '0x887Ed22FAF9C4B985ecB019eA54A5185350AE214' && (
+            <Author>
+              <ConSubTitle con= {t("irobigtitle")}  />
+              <div style={{lineHeight: '30px', fontSize: '15px'}}>
+                {t("irotitle")} 
+              </div>
+              <ol style={{fontSize: '15px', textAlign: 'left', lineHeight: "28px"}}>
+                <li>{t("irocon1")}</li>
+                <li>{t("irocon2")}</li>
+                <li>{t("irocon3")}</li>
+                <li>{t("irocon4")}</li>
+                <li>{t("irocon5")}</li>
+                <li>{t("irocon6")}</li>
+                <li>{t("irocon7")}</li>
+                <li>{t("irocon8")}</li>
+                <li>{t("irocon9")}</li>
+              </ol>
+              {/* <div style={{lineHeight: '30px', fontSize: '15px'}}>  Details : 
+                <ExternalLink href="https://www.caojunnft.com">
+                  https://www.caojunnft.com
+                </ExternalLink>
+              </div> */}
+            </Author>
+          )}
+          
         <Box>
           <PoolData>
             <AutoColumn className="padding-column" gap="sm">
