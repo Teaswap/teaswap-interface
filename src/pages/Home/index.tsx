@@ -21,6 +21,9 @@ const PageWrapper = styled(HomeGrid)`
     align-item: center;
     margin-top: 40px;
   }
+  ${MEDIA_QUERY.sm} {
+    width: 90%;
+  }
 `
 
 const HomeImageDiv = styled.div`

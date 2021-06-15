@@ -51,6 +51,7 @@ const AuthorInfo = styled(ColumnCenter)`
   align-items: flex-start;
   ${MEDIA_QUERY.sm} {
     flex-direction: column-reverse;
+    align-items: center;
   }
 `
 
@@ -64,6 +65,7 @@ const Author = styled(ColumnCenter)`
   font-size: 13px;
   ${MEDIA_QUERY.sm} {
     margin-top: 30px;
+    width: 96%;
   }
 `
 
@@ -83,6 +85,7 @@ const Box = styled(ColumnCenter)`
   ${MEDIA_QUERY.sm} {
     margin-left: 0;
     margin-top: 0;
+    width: 80%;
   }
 `
 
@@ -236,11 +239,9 @@ const Index = ()=>{
 
   return (
     <PageWrapper>
-      {params.idoAddress == '0xF72ECaD992CebB0138aC13b616199f131F847b04' && (
-        <img style={{marginBottom: "20px"}} onClick={() => {
-          window.open("https://docs.google.com/forms/d/e/1FAIpQLSfA-dOW15tyN6dfyZScvcEmT3lC13K9ThFBTruiFD0wOVsoUQ/viewform")
-        }} width="100%" src={process.env.PUBLIC_URL + '/incubator_banner.png'} alt="" />
-      )}
+      <img style={{marginBottom: "20px"}} onClick={() => {
+        window.open("https://docs.google.com/forms/d/e/1FAIpQLSfA-dOW15tyN6dfyZScvcEmT3lC13K9ThFBTruiFD0wOVsoUQ/viewform")
+      }} width="100%" src={process.env.PUBLIC_URL + '/incubator_banner.png'} alt="" />
       {params.idoAddress == '0xF72ECaD992CebB0138aC13b616199f131F847b04' && (
         <ConTitle con="CaoJun NFT Collectibles" />
       )}
@@ -509,16 +510,49 @@ const Index = ()=>{
         </Box>
       </AuthorInfo>
 
-      <IframeComponent iframe={iframe} />
-      <div style={{
-        color: "#474747",
-        marginTop: '50px'
-      }}>
-      ** Converting into one exclusive CaoJun NFT limited edition of digital collectible  or original collectibles ? 
-        <ExternalLink href={"https://docs.google.com/forms/d/e/1FAIpQLSfKQ5ESZ_843cjHGBwKuObT79bfjUPQ3XHOJpy9vw2VFbAZVA/viewform"}>
-          Submit Now .
-        </ExternalLink>
-      </div>
+      {params.idoAddress == '0xF72ECaD992CebB0138aC13b616199f131F847b04' && (
+        <IframeComponent iframe={iframe} />
+      )}
+      {params.idoAddress == '0x887Ed22FAF9C4B985ecB019eA54A5185350AE214' && (
+        <IframeComponent iframe={iframe2} />
+      )}
+      {params.idoAddress == '0xF72ECaD992CebB0138aC13b616199f131F847b04' && (
+        <div style={{
+          color: "#474747",
+          marginTop: '50px'
+        }}>
+        ** Converting into one exclusive CaoJun NFT limited edition of digital collectible  or original collectibles ? 
+          <ExternalLink href={"https://docs.google.com/forms/d/e/1FAIpQLSfKQ5ESZ_843cjHGBwKuObT79bfjUPQ3XHOJpy9vw2VFbAZVA/viewform"}>
+            Submit Now .
+          </ExternalLink>
+        </div>
+      )}
+      {params.idoAddress == '0x887Ed22FAF9C4B985ecB019eA54A5185350AE214' && (
+        <div style={{
+          maxWidth: '849px',
+          width: '100%',
+          margin: '0 auto',
+          marginTop: '60px',
+          display: 'flex',
+          justifyContent: 'flex-end',
+          paddingBottom: '60px'
+        }}>
+          <span className="link-btn" style={{
+            display: 'block',
+            alignSelf: 'right',
+            width: '256px',
+            height: '40px',
+            lineHeight: '40px',
+            color: '#333333',
+            backgroundColor: '#DBDBDB',
+            cursor: 'pointer'
+          }} onClick={() => {
+            window.open("https://docs.google.com/forms/d/e/1FAIpQLSfIocxm-bnEI3CvQF0caJDjIp0Kz-BDbIRig_kC7vBo0L7p3Q/viewform")
+          }}>
+            Redeem NFT
+          </span>
+        </div>
+      )}
       
     </PageWrapper>
   )
@@ -547,5 +581,6 @@ function IframeComponent(props: any) {
 }
 
 const iframe = '<iframe frameborder="0" allowfullscreen="1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" title="YouTube video player" style="margin-top: 30px; width: 100%; height: 100%; " src="https://www.youtube.com/embed/xa8OBoVx2yk?autoplay=0&amp;mute=0&amp;controls=1&amp;loop=0&amp;origin=https%3A%2F%2Fwww.teaswap.live&amp;playsinline=1&amp;enablejsapi=1&amp;widgetid=1" id="widget2"></iframe>'; 
+const iframe2 = '<iframe frameborder="0" allowfullscreen="1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" title="YouTube video player" style="margin-top: 30px; width: 100%; height: 100%; " src="https://www.youtube.com/embed/QVuiElOqJ5Y?autoplay=0&amp;mute=0&amp;controls=1&amp;loop=0&amp;origin=https%3A%2F%2Fwww.teaswap.live&amp;playsinline=1&amp;enablejsapi=1&amp;widgetid=1" id="widget2"></iframe>'; 
 
 export default Index;
