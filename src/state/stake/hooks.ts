@@ -37,7 +37,7 @@ export const STAKING_REWARDS_INFO: {
   [ChainId.BSC_MAINNET]: [
     {
       tokens: [BNB_TSA_LP, UNI[ChainId.BSC_MAINNET]],
-      stakingRewardAddress: '0x83e84c73BeE33Da98F63A4d4a5C851cD6654c91b',
+      stakingRewardAddress: '0xA1f2Bc4cBB56b02cB1329C8ca633155c02Fc6Cb8',
       iconUrl: "/bnbtsastaketsa.png"
     },
     {
