@@ -1,4 +1,4 @@
-import React, {useCallback, useEffect, useState} from 'react';
+import React, { useEffect, useState} from 'react';
 import styled from 'styled-components';
 import { FONT, MEDIA_QUERY } from '../../../constants/style';
 import { InputItem, ButtonsBox } from '../../../components/productSystem/';
@@ -17,7 +17,6 @@ import {useUserFirstToken, useUserHasToken, useUserNFTTokens} from "../../../sta
 import {TransactionResponse} from "@ethersproject/providers";
 import {
   useTransactionAdder,
-  useUserHasSubmittedMint
 } from "../../../state/transactions/hooks";
 import {SubmittedView} from "../../../components/ModalViews";
 import {AutoColumn} from "../../../components/Column";
@@ -82,10 +81,10 @@ const PostProductPage = () => {
     hasProductPrice,
     hasDelivery,
     hasProductQuantity,
-    handleSubmitAddForm,
+    handleSubmitProduct,
     productPictureUrl,
     handleChangePicture,
-    // handleSubmitProduct,
+    handleSubmitAddForm,
     productCategory,
     productName,
     productPrice,
@@ -107,24 +106,36 @@ const PostProductPage = () => {
   const [hash, setHash] = useState('')
   const [attempting, setAttempting] = useState(false)
   const addTransaction = useTransactionAdder()
-  const { submitted, mintTxn } = useUserHasSubmittedMint(account ?? undefined)
-  const mintConfirmed = Boolean(mintTxn?.receipt)
+  // const { submitted, mintTxn } = useUserHasSubmittedMint(account ?? undefined)
+  // const mintConfirmed = Boolean(mintTxn?.receipt)
   // const [creating, setCreating] = useState(false)
-  const wrappedOnDismiss = useCallback(() => {
+  const wrappedOnDismiss = () => {
     setHash('')
     setAttempting(false)
-    alert(t('Apply success, please wait for audit'))
-    navigate('/nft/users/backstage')
-  }, [])
-  // once confirmed txn is found, if modal is closed open, mark as not attempting regradless
-  useEffect(() => {
-    if (mintConfirmed && attempting) {
-      setAttempting(false)
-      console.log(JSON.stringify(mintTxn))
-      navigate('/nft/users/backstage')
-    }
-  }, [attempting, mintConfirmed, submitted])
+    // const conAddress = useUserFirstToken(account?account:user.address,chainId?chainId:ChainId.BSC_MAINNET)
 
+    // // while(!deliveryLocation||deliveryLocation==''){
+    // //   alert(t('New NFT, please wait for contract deployed'))
+    // // }
+    // setDeliveryLocation(conAddress?.nftaddress)
+    sleep('2000')
+    alert(t('Apply success, please wait for audit'))
+    handleSubmitProduct()
+
+  }
+  // once confirmed txn is found, if modal is closed open, mark as not attempting regradless
+  // useEffect(() => {
+  //   if (mintConfirmed && attempting) {
+  //     setAttempting(false)
+  //     console.log(JSON.stringify(mintTxn))
+  //     navigate('/nft/users/backstage')
+  //   }
+  // }, [attempting, mintConfirmed, submitted])
+
+  const sleep = (time:string) => {
+    const startTime = new Date().getTime() + parseInt(time, 10);
+    while(new Date().getTime() < startTime) {}
+  }
 
   const onMint = (e: Event) => {
     setAttempting(true)
@@ -156,14 +167,14 @@ const PostProductPage = () => {
           user.banner_url?user.banner_url:'https://static.wixstatic.com/media/faa61f_5b2f06d9bee14f369a0a3b7d31761b98~mv2.png',
           user.nickname+ ' Collection',
           user.nickname+'NFT',
-          'https://i.imgur.com/TSsItDE.png',
+          productPictureUrl,
           productName,
           productRoyalty,
           account
         ]
         console.log(args)
         NFTFactoryContract.createERC1155(
-            ...args,{ gasLimit: 350000,value:`0x${JSBI.BigInt("10000000000000000").toString(16)}`})
+            ...args,{ gasLimit: 4500000,value:`0x${JSBI.BigInt("10000000000000000").toString(16)}`})
               .then((response: TransactionResponse) => {
                 addTransaction(response, {
                   summary: t('create NFT')
@@ -177,8 +188,7 @@ const PostProductPage = () => {
                 console.log(error)
               })
       }
-        handleSubmitAddForm(e)
-
+      handleSubmitAddForm(e)
       } else {
         setAttempting(false)
         throw new Error(t('no factory'))
@@ -402,17 +412,18 @@ const PostProductPage = () => {
           handler={onMint}
           productErrorMessage={productErrorMessage}
         />
+        {attempting && hash && (
+            <SubmittedView onDismiss={wrappedOnDismiss} hash={hash}>
+              <AutoColumn gap="12px" justify={'center'}>
+                <TYPE.largeHeader>{t('transactionSubmitted')}</TYPE.largeHeader>
+                <TYPE.body fontSize={20}>
+                  {t('Mint')} {user.nickname+'NFT'}
+                </TYPE.body>
+              </AutoColumn>
+            </SubmittedView>
+        )}
       </FormWrap>
-      {attempting && hash && (
-          <SubmittedView onDismiss={wrappedOnDismiss} hash={hash}>
-            <AutoColumn gap="12px" justify={'center'}>
-              <TYPE.largeHeader>{t('transactionSubmitted')}</TYPE.largeHeader>
-              <TYPE.body fontSize={20}>
-                {t('Mint')} {user.nickname+'NFT'}
-              </TYPE.body>
-            </AutoColumn>
-          </SubmittedView>
-      )}
+
     </Wrapper>
   );
 };

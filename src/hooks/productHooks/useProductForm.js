@@ -17,11 +17,11 @@ export default function useProductForm(id) {
   const [productPictureUrl, setProductPictureUrl] = useState(
     'https://i.imgur.com/uqZxFCm.png'
   );
-  const [productRoyalty, setProductRoyalty] = useState('');
+  const [productRoyalty, setProductRoyalty] = useState(0);
   const [productMediaType, setProductMediaType] = useState('');
   const [productPrice, setProductPrice] = useState('');
   const [deliveryTime, setDeliveryTime] = useState('');
-  const [deliveryLocation, setDeliveryLocation] = useState('0x83Ed4dF752CCe79cA786D505D4063541419CFf15');
+  const [deliveryLocation, setDeliveryLocation] = useState('');
   const [delivery, setDelivery] = useState('');
   const [paymentMethod, setPaymentMethod] = useState('');
   const [remark, setRemark] = useState('');
@@ -153,19 +153,19 @@ export default function useProductForm(id) {
 
   const handleSubmitAddForm = (e) => {
     e.preventDefault();
-    checkDataValidity();
+    // checkDataValidity();
     setIsSubmitClicked(true);
-    if (!hasError) {
-      postProduct(formData)(dispatch);
-    }
+    // if (!hasError) {
+    //   postProduct(formData)(dispatch);
+    // }
   };
 
   const handleSubmitProduct = () => {
     checkDataValidity();
-    setIsSubmitClicked(true);
     if (!hasError) {
       postProduct(formData)(dispatch);
     }
+    navigate('/nft/users/backstage')
   };
 
   const handleSubmitEditForm = (e) => {
