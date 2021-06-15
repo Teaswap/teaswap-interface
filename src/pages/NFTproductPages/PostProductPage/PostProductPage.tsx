@@ -1,4 +1,4 @@
-import React, {useCallback, useEffect, useState} from 'react';
+import React, { useEffect, useState} from 'react';
 import styled from 'styled-components';
 import { COLOR, FONT, MEDIA_QUERY } from '../../../constants/style';
 import { InputItem, ButtonsBox } from '../../../components/productSystem/';
@@ -17,7 +17,6 @@ import {useUserFirstToken, useUserHasToken, useUserNFTTokens} from "../../../sta
 import {TransactionResponse} from "@ethersproject/providers";
 import {
   useTransactionAdder,
-  useUserHasSubmittedMint
 } from "../../../state/transactions/hooks";
 import {SubmittedView} from "../../../components/ModalViews";
 import {AutoColumn} from "../../../components/Column";
@@ -82,17 +81,17 @@ const PostProductPage = () => {
     hasProductPrice,
     hasDelivery,
     hasProductQuantity,
-    handleSubmitAddForm,
+    handleSubmitProduct,
     productPictureUrl,
     handleChangePicture,
-    // handleSubmitProduct,
+    handleSubmitAddForm,
     productCategory,
     productName,
     productPrice,
     productQuantity,
     productInfo,
     delivery,
-    // deliveryLocation,
+    deliveryLocation,
     productRoyalty,
     remark,
     productToken,
@@ -107,23 +106,28 @@ const PostProductPage = () => {
   const [hash, setHash] = useState('')
   const [attempting, setAttempting] = useState(false)
   const addTransaction = useTransactionAdder()
-  const { submitted, mintTxn } = useUserHasSubmittedMint(account ?? undefined)
-  const mintConfirmed = Boolean(mintTxn?.receipt)
+  // const { submitted, mintTxn } = useUserHasSubmittedMint(account ?? undefined)
+  // const mintConfirmed = Boolean(mintTxn?.receipt)
   // const [creating, setCreating] = useState(false)
-  const wrappedOnDismiss = useCallback(() => {
+  const wrappedOnDismiss = () => {
     setHash('')
     setAttempting(false)
-    alert(t('Apply success, please wait for audit'))
-    navigate('/nft/users/backstage')
-  }, [])
-  // once confirmed txn is found, if modal is closed open, mark as not attempting regradless
-  useEffect(() => {
-    if (mintConfirmed && attempting) {
-      setAttempting(false)
-      console.log(JSON.stringify(mintTxn))
-      navigate('/nft/users/backstage')
+
+    while(!deliveryLocation||deliveryLocation==''){
+      alert(t('New NFT, please wait for contract deployed'))
     }
-  }, [attempting, mintConfirmed, submitted])
+    alert(t('Apply success, please wait for audit'))
+    handleSubmitProduct()
+
+  }
+  // once confirmed txn is found, if modal is closed open, mark as not attempting regradless
+  // useEffect(() => {
+  //   if (mintConfirmed && attempting) {
+  //     setAttempting(false)
+  //     console.log(JSON.stringify(mintTxn))
+  //     navigate('/nft/users/backstage')
+  //   }
+  // }, [attempting, mintConfirmed, submitted])
 
 
   const onMint = (e: Event) => {
@@ -156,7 +160,7 @@ const PostProductPage = () => {
           user.banner_url?user.banner_url:'https://static.wixstatic.com/media/faa61f_5b2f06d9bee14f369a0a3b7d31761b98~mv2.png',
           user.nickname+ ' Collection',
           user.nickname+'NFT',
-          'https://i.imgur.com/TSsItDE.png',
+          productPictureUrl,
           productName,
           productRoyalty,
           account
@@ -177,8 +181,7 @@ const PostProductPage = () => {
                 console.log(error)
               })
       }
-        handleSubmitAddForm(e)
-
+      handleSubmitAddForm(e)
       } else {
         setAttempting(false)
         throw new Error(t('no factory'))
