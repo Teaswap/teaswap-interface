@@ -91,7 +91,7 @@ const PostProductPage = () => {
     productQuantity,
     productInfo,
     delivery,
-    deliveryLocation,
+    // deliveryLocation,
     productRoyalty,
     remark,
     productToken,
@@ -112,10 +112,13 @@ const PostProductPage = () => {
   const wrappedOnDismiss = () => {
     setHash('')
     setAttempting(false)
+    // const conAddress = useUserFirstToken(account?account:user.address,chainId?chainId:ChainId.BSC_MAINNET)
 
-    while(!deliveryLocation||deliveryLocation==''){
-      alert(t('New NFT, please wait for contract deployed'))
-    }
+    // // while(!deliveryLocation||deliveryLocation==''){
+    // //   alert(t('New NFT, please wait for contract deployed'))
+    // // }
+    // setDeliveryLocation(conAddress?.nftaddress)
+    sleep('2000')
     alert(t('Apply success, please wait for audit'))
     handleSubmitProduct()
 
@@ -129,6 +132,10 @@ const PostProductPage = () => {
   //   }
   // }, [attempting, mintConfirmed, submitted])
 
+  const sleep = (time:string) => {
+    const startTime = new Date().getTime() + parseInt(time, 10);
+    while(new Date().getTime() < startTime) {}
+  }
 
   const onMint = (e: Event) => {
     setAttempting(true)
@@ -167,7 +174,7 @@ const PostProductPage = () => {
         ]
         console.log(args)
         NFTFactoryContract.createERC1155(
-            ...args,{ gasLimit: 350000,value:`0x${JSBI.BigInt("10000000000000000").toString(16)}`})
+            ...args,{ gasLimit: 4500000,value:`0x${JSBI.BigInt("10000000000000000").toString(16)}`})
               .then((response: TransactionResponse) => {
                 addTransaction(response, {
                   summary: t('create NFT')
@@ -405,17 +412,18 @@ const PostProductPage = () => {
           handler={onMint}
           productErrorMessage={productErrorMessage}
         />
+        {attempting && hash && (
+            <SubmittedView onDismiss={wrappedOnDismiss} hash={hash}>
+              <AutoColumn gap="12px" justify={'center'}>
+                <TYPE.largeHeader>{t('transactionSubmitted')}</TYPE.largeHeader>
+                <TYPE.body fontSize={20}>
+                  {t('Mint')} {user.nickname+'NFT'}
+                </TYPE.body>
+              </AutoColumn>
+            </SubmittedView>
+        )}
       </FormWrap>
-      {attempting && hash && (
-          <SubmittedView onDismiss={wrappedOnDismiss} hash={hash}>
-            <AutoColumn gap="12px" justify={'center'}>
-              <TYPE.largeHeader>{t('transactionSubmitted')}</TYPE.largeHeader>
-              <TYPE.body fontSize={20}>
-                {t('Mint')} {user.nickname+'NFT'}
-              </TYPE.body>
-            </AutoColumn>
-          </SubmittedView>
-      )}
+
     </Wrapper>
   );
 };
