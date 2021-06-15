@@ -41,7 +41,7 @@ const PageWrapper = styled.div`
 `
 
 const AuthorInfo = styled(ColumnCenter)`
-  max-width: 960px;
+  max-width: 1000px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -510,8 +510,22 @@ const Index = ()=>{
         </Box>
       </AuthorInfo>
 
+
+
       {params.idoAddress == '0xF72ECaD992CebB0138aC13b616199f131F847b04' && (
         <IframeComponent iframe={iframe} />
+      )}
+      {params.idoAddress == '0x887Ed22FAF9C4B985ecB019eA54A5185350AE214' && (
+        <div style={{
+          width: '100%',
+          maxWidth: '1000px',
+          textAlign: 'left',
+          margin: '0 auto'
+        }}>
+          <p>Details :</p>
+          <p>English： <ExternalLink href="https://www.teaswap.live/tsabroadway">https://www.teaswap.live/tsabroadway</ExternalLink></p>
+          <p>中文信息： <ExternalLink href="https://zh.teaswap.live/tsabroadway">https://zh.teaswap.live/tsabroadway</ExternalLink></p>
+        </div>
       )}
       {params.idoAddress == '0x887Ed22FAF9C4B985ecB019eA54A5185350AE214' && (
         <IframeComponent iframe={iframe2} />

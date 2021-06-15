@@ -7,14 +7,14 @@ import { SelectBox } from './SelectBox';
 import { PictureBox } from './PictureBox';
 
 const QuestionBox = styled.div`
-  margin-bottom: 40px;
+  margin-bottom: 30px;
   width: 90%;
   max-width: 600px;
 `;
 
 const QuestionTitle = styled.div`
   margin-bottom: 10px;
-  color: ${COLOR.text_2};
+  color: #474747;
   font-size: 14px;
 `;
 

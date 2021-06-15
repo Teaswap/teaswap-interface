@@ -109,7 +109,7 @@ const ApplyForVendorPage = () => {
               width: '100%'
             }}>
               <CheckImage>
-                <Title >{t('Apply for Artist needs more Information')}</Title>
+                <Title >{t('Create collections and sell NFTs to your fans ,start now !')}</Title>
                 <TwoButton>
                   <ButtonPrimary onClick={handleCheck}>
                     {t('OK')}

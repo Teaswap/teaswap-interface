@@ -33,7 +33,7 @@ const InputDescription = styled.p`
 const Text = styled.p`
   color: ${COLOR.black};
   font-size: ${FONT.md};
-  margin: ${DISTANCE.lg} 0 ${DISTANCE.sm} 0;
+  margin: ${DISTANCE.md} 0 ${DISTANCE.sm} 0;
 `;
 
 const ErrorMessage = styled.span`

@@ -1,6 +1,6 @@
 import React, {useCallback, useEffect, useState} from 'react';
 import styled from 'styled-components';
-import { COLOR, FONT, MEDIA_QUERY } from '../../../constants/style';
+import { FONT, MEDIA_QUERY } from '../../../constants/style';
 import { InputItem, ButtonsBox } from '../../../components/productSystem/';
 import useUser from '../../../hooks/userHooks/useUser';
 import useProduct from '../../../hooks/productHooks/useProduct';
@@ -50,7 +50,7 @@ const FormWrap = styled.form`
 `;
 
 const Title = styled.h1`
-  color: ${COLOR.text_2};
+  color: #474747;
   font-size: ${FONT.lg}
   margin-bottom: 30px;
 `;

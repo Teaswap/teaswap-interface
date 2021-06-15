@@ -29,9 +29,8 @@ const RightSide = styled.div`
 
 const Description = styled.p`
   width: 60%;
-  color: ${COLOR.text_2};
-  font-size: 16px;
-  margin-bottom: ${DISTANCE.md};
+  color: #474747;
+  font-size: 14px;
 `;
 
 const Label = styled.label`
