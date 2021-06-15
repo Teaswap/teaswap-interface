@@ -139,6 +139,14 @@ export const BNB_SHIH_LP = new Token(
     'BNB_SHIH_BakeryLP'
 )
 
+export const BNB_TSA_LP = new Token(
+    ChainId.BSC_MAINNET,
+    '0xab8f32d5e14d84b21befe0cc57b63e086af558e1',
+    18,
+    'BNB-TSA BLP',
+    'BNB_TSA_BakeryLP'
+)
+
 export const BUSD_SHIH_LP = new Token(
     ChainId.BSC_MAINNET,
     '0x1692b78116352fc8f11838a61a115b0ba0e6a88d',
