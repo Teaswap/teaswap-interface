@@ -1,11 +1,14 @@
 import React from 'react'
 import styled from 'styled-components'
+import { MEDIA_QUERY } from '../../constants/style'
 
 const Title = styled.span`
   color: ${({ theme }) => theme.darkGray};
   font-size: 28px;
   margin-bottom: 20px;
-  margin-top: -10px;
+  ${MEDIA_QUERY.sm} {
+    margin-bottom: 10px;
+  }
 `
 
 // eslint-disable-next-line react/prop-types

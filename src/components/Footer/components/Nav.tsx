@@ -6,12 +6,12 @@ import { MEDIA_QUERY } from '../../../constants/style'
 const Nav: React.FC = () => {
   return (
     <StyledNav>
-       <StyledNavLink to="/swap">
-        Swap
-      </StyledNavLink>
-      <StyledLinkSep />
       <StyledNavLink to="/staking">
         Stake
+      </StyledNavLink>
+      <StyledLinkSep />
+       <StyledNavLink to="/swap">
+        Swap
       </StyledNavLink>
       <StyledLinkSep />
       {/* <StyledLink target="_blank" href="https://teaswap.myshopify.com/">

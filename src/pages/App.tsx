@@ -185,7 +185,7 @@ export default function App() {
           <Web3ReactManager>
             <Routes>
               <Route path="/iro" element={<IdoList />}/>
-              <Route path="/home" element={<Home/>}/>
+              <Route path="/explore" element={<Home/>}/>
               <Route path="/swap" element={<Swaping/>}/>
               {/* <Route path="/swaping" element={<Swaping/>}/> */}
               <Route path="/claim" element={<OpenClaimAddressModalAndRedirectToSwap/>}/>

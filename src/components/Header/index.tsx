@@ -384,8 +384,8 @@ export default function Header() {
             </NavLink>
           </UniIcon>
           <HeaderLinks style={{ fontSize: '14px' }}>
-            <StyledNavLink id={`swap-nav-link`} to={'/home'}>
-              {t('Home')}
+            <StyledNavLink id={`swap-nav-link`} to={'/explore'}>
+              {t('Explore')}
             </StyledNavLink>
             <StyledNavLink id={`NFT-nav-link`} to={'/nft'} >
               {t('NFT')}
