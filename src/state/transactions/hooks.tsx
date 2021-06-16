@@ -6,11 +6,12 @@ import { useActiveWeb3React } from '../../hooks'
 import { AppDispatch, AppState } from '../index'
 import { addTransaction } from './actions'
 import { TransactionDetails } from './reducer'
+import {MintInfoInterface} from "../../hooks/useMintCallback";
 
 // helper that can take a ethers library transaction response and add it to the list of transactions
 export function useTransactionAdder(): (
   response: TransactionResponse,
-  customData?: { summary?: string; approval?: { tokenAddress: string; spender: string }; claim?: { recipient: string } }
+  customData?: { summary?: string; approval?: { tokenAddress: string; spender: string }; claim?: { recipient: string };mint?:MintInfoInterface;  nftapproval?: { tokenAddress: string; spender: string;tokenId: number } }
 ) => void {
   const { chainId, account } = useActiveWeb3React()
   const dispatch = useDispatch<AppDispatch>()
@@ -21,8 +22,10 @@ export function useTransactionAdder(): (
       {
         summary,
         approval,
-        claim
-      }: { summary?: string; claim?: { recipient: string }; approval?: { tokenAddress: string; spender: string } } = {}
+        claim,
+          mint,
+          nftapproval
+      }: { summary?: string; claim?: { recipient: string }; approval?: { tokenAddress: string; spender: string }; mint?: MintInfoInterface;  nftapproval?: { tokenAddress: string; spender: string;tokenId: number } } = {}
     ) => {
       if (!account) return
       if (!chainId) return
@@ -31,7 +34,7 @@ export function useTransactionAdder(): (
       if (!hash) {
         throw Error('No transaction hash found.')
       }
-      dispatch(addTransaction({ hash, from: account, chainId, approval, summary, claim }))
+      dispatch(addTransaction({ hash, from: account, chainId, approval, summary, claim,mint,nftapproval }))
     },
     [dispatch, chainId, account]
   )
@@ -84,6 +87,48 @@ export function useHasPendingApproval(tokenAddress: string | undefined, spender:
   )
 }
 
+export function useHasPendingNFTApproval(tokenAddress: string | undefined, spender: string | undefined,tokenId: number | undefined): boolean {
+    const allTransactions = useAllTransactions()
+    return useMemo(
+        () =>
+            typeof tokenAddress === 'string' &&
+            typeof spender === 'string' &&
+            typeof tokenId === 'number' &&
+            Object.keys(allTransactions).some(hash => {
+                const tx = allTransactions[hash]
+                if (!tx) return false
+                if (tx.receipt) {
+                    return false
+                } else {
+                    const approval = tx.nftapproval
+                    if (!approval) return false
+                    return approval.spender === spender && approval.tokenAddress === tokenAddress && approval.tokenId === tokenId && isTransactionRecent(tx)
+                }
+            }),
+        [allTransactions, spender, tokenAddress,tokenId]
+    )
+}
+
+export function useHasPendingMint(mintInfo:MintInfoInterface): boolean {
+    const allTransactions = useAllTransactions()
+    return useMemo(
+        () =>
+            mintInfo  &&
+            Object.keys(allTransactions).some(hash => {
+                const tx = allTransactions[hash]
+                if (!tx) return false
+                if (tx.receipt) {
+                    return false
+                } else {
+                    const mint = tx.mint
+                    if (!mint) return false
+                    return isTransactionRecent(tx)
+                }
+            }),
+        [allTransactions, mintInfo]
+    )
+}
+
 // watch for submissions to claim
 // return null if not done loading, return undefined if not found
 export function useUserHasSubmittedClaim(
@@ -114,7 +159,7 @@ export function useUserHasSubmittedMint(
     const mintTxn = useMemo(() => {
         const txnIndex = Object.keys(allTransactions).find(hash => {
             const tx = allTransactions[hash]
-            return tx.claim && tx.claim.recipient === account
+            return tx.mint && tx.mint.account === account
         })
         return txnIndex && allTransactions[txnIndex] ? allTransactions[txnIndex] : undefined
     }, [account, allTransactions])

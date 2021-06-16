@@ -86,6 +86,7 @@ export function useTokenBalancesWithLoadingIndicator(
   ]
 }
 
+
 export function useUserFirstToken(
     address: string,
     chainid:ChainId
@@ -104,6 +105,15 @@ export function useUserHasToken(
     const NFTTokenAddresses = useSingleCallResult(nftFactoryContract, 'usrTokens', [address]).result?.[0]
 
     return (NFTTokenAddresses && NFTTokenAddresses?.length>0)?true:false
+}
+
+export function useNFTLastId(
+    address?: string,
+):number|undefined|null{
+    const contract = useERC1155Contract(address)
+    const lastId = useSingleCallResult(contract, 'totalSupply').result?.[0]
+
+    return lastId
 }
 
 export function useUserNFTTokens(

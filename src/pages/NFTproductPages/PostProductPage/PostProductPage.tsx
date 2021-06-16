@@ -1,4 +1,4 @@
-import React, { useEffect, useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import styled from 'styled-components';
 import { COLOR, FONT, MEDIA_QUERY } from '../../../constants/style';
 import { InputItem, ButtonsBox } from '../../../components/productSystem/';
@@ -10,17 +10,13 @@ import { useTranslation } from 'react-i18next'
 // import {useETHBalances, useTokenBalance} from '../../state/wallet/hooks'
 import { useActiveWeb3React } from '../../../hooks';
 // import {PAYABLEETH, ZERO_ADDRESS} from "../../../constants";
-import {ChainId, JSBI} from "@teaswap/uniswap-sdk";
-import {useNFTFactoryContract} from "../../../hooks/useContract";
-import {NFTFACTORY, ZERO_ADDRESS, BUSD, UNI, SHIH, CJAI} from "../../../constants";
-import {useUserFirstToken, useUserHasToken, useUserNFTTokens} from "../../../state/wallet/hooks";
-import {TransactionResponse} from "@ethersproject/providers";
-import {
-  useTransactionAdder,
-} from "../../../state/transactions/hooks";
-import {SubmittedView} from "../../../components/ModalViews";
-import {AutoColumn} from "../../../components/Column";
-import {TYPE} from "../../../theme";
+import {ChainId} from "@teaswap/uniswap-sdk";
+import { ZERO_ADDRESS, BUSD, UNI, SHIH, CJAI} from "../../../constants";
+import {useUserFirstToken} from "../../../state/wallet/hooks";
+// import {SubmittedView} from "../../../components/ModalViews";
+// import {AutoColumn} from "../../../components/Column";
+// import {TYPE} from "../../../theme";
+import MintModal  from "../../../components/NFT/mintModal"
 
 const Wrapper = styled.div`
   width: 90%;
@@ -81,17 +77,16 @@ const PostProductPage = () => {
     hasProductPrice,
     hasDelivery,
     hasProductQuantity,
-    handleSubmitProduct,
     productPictureUrl,
     handleChangePicture,
-    handleSubmitAddForm,
+    checkInputError,
     productCategory,
     productName,
     productPrice,
     productQuantity,
     productInfo,
     delivery,
-    // deliveryLocation,
+    deliveryLocation,
     productRoyalty,
     remark,
     productToken,
@@ -99,30 +94,31 @@ const PostProductPage = () => {
   } = useProductFrom();
 
   const {user} = useUser()
-  const NFTFactoryContract = useNFTFactoryContract(NFTFACTORY[ChainId.BSC_MAINNET]);
-  const hasToken = useUserHasToken(account?account:user.address,chainId?chainId:ChainId.BSC_MAINNET)
-  const NFTTokens = useUserNFTTokens(account?account:user.address,chainId?chainId:ChainId.BSC_MAINNET)
+  // const NFTFactoryContract = useNFTFactoryContract(NFTFACTORY[ChainId.BSC_MAINNET]);
+  // const hasToken = useUserHasToken(account?account:user.address,chainId?chainId:ChainId.BSC_MAINNET)
+  // const NFTTokens = useUserNFTTokens(account?account:user.address,chainId?chainId:ChainId.BSC_MAINNET)
   const firstNftAddress = useUserFirstToken(account?account:user.address,chainId?chainId:ChainId.BSC_MAINNET)
-  const [hash, setHash] = useState('')
-  const [attempting, setAttempting] = useState(false)
-  const addTransaction = useTransactionAdder()
+  // const [hash, setHash] = useState('')
+  // const [attempting, setAttempting] = useState(false)
+  const [showMintModal, setShowMintModal] = useState<boolean>(false)
+
   // const { submitted, mintTxn } = useUserHasSubmittedMint(account ?? undefined)
   // const mintConfirmed = Boolean(mintTxn?.receipt)
   // const [creating, setCreating] = useState(false)
-  const wrappedOnDismiss = () => {
-    setHash('')
-    setAttempting(false)
+  // const wrappedOnDismiss = () => {
+  //   setHash('')
+  //   setAttempting(false)
     // const conAddress = useUserFirstToken(account?account:user.address,chainId?chainId:ChainId.BSC_MAINNET)
 
     // // while(!deliveryLocation||deliveryLocation==''){
     // //   alert(t('New NFT, please wait for contract deployed'))
     // // }
     // setDeliveryLocation(conAddress?.nftaddress)
-    sleep('2000')
-    alert(t('Apply success, please wait for audit'))
-    handleSubmitProduct()
-
-  }
+    // sleep('2000')
+  //   alert(t('Apply success, please wait for audit'))
+  //
+  //
+  // }
   // once confirmed txn is found, if modal is closed open, mark as not attempting regradless
   // useEffect(() => {
   //   if (mintConfirmed && attempting) {
@@ -132,68 +128,77 @@ const PostProductPage = () => {
   //   }
   // }, [attempting, mintConfirmed, submitted])
 
-  const sleep = (time:string) => {
-    const startTime = new Date().getTime() + parseInt(time, 10);
-    while(new Date().getTime() < startTime) {}
+  // const sleep = (time:string) => {
+  //   const startTime = new Date().getTime() + parseInt(time, 10);
+  //   while(new Date().getTime() < startTime) {}
+  // }
+
+  const handleShowMintModel = () => {
+    if(!checkInputError()){
+      setShowMintModal(true)
+    }else{
+      alert(t('have some input error!'))
+    }
+
   }
 
-  const onMint = (e: Event) => {
-    setAttempting(true)
-    if (NFTFactoryContract) {
-      if(NFTTokens && hasToken){
-        const mintargs = [
-          firstNftAddress,
-          account,
-          1,
-          productPictureUrl,
-          productName,
-          productRoyalty,
-          0
-        ]
-        NFTFactoryContract.mint(
-            ...mintargs,{ gasLimit: 350000 ,value:`0x${JSBI.BigInt("10000000000000000").toString(16)}`})
-            .then((response: TransactionResponse) => {
-              addTransaction(response, {
-                summary: t('mint NFT')
-              })
-              setHash(response.hash)
-            })
-            .catch((error: any) => {
-              setAttempting(false)
-              console.log(error)
-            })
-      }else{
-        const args = [
-          user.banner_url?user.banner_url:'https://static.wixstatic.com/media/faa61f_5b2f06d9bee14f369a0a3b7d31761b98~mv2.png',
-          user.nickname+ ' Collection',
-          user.nickname+'NFT',
-          productPictureUrl,
-          productName,
-          productRoyalty,
-          account
-        ]
-        console.log(args)
-        NFTFactoryContract.createERC1155(
-            ...args,{ gasLimit: 4500000,value:`0x${JSBI.BigInt("10000000000000000").toString(16)}`})
-              .then((response: TransactionResponse) => {
-                addTransaction(response, {
-                  summary: t('create NFT')
-                })
-                setHash(response.hash)
-                // setCreating(true)
-
-              })
-              .catch((error: any) => {
-                setAttempting(false)
-                console.log(error)
-              })
-      }
-      handleSubmitAddForm(e)
-      } else {
-        setAttempting(false)
-        throw new Error(t('no factory'))
-      }
-    }
+  // const onMint = (e: Event) => {
+  //   setAttempting(true)
+  //   if (NFTFactoryContract) {
+  //     if(NFTTokens && hasToken){
+  //       const mintargs = [
+  //         firstNftAddress,
+  //         account,
+  //         1,
+  //         productPictureUrl,
+  //         productName,
+  //         productRoyalty,
+  //         0
+  //       ]
+  //       NFTFactoryContract.mint(
+  //           ...mintargs,{ gasLimit: 350000 ,value:`0x${JSBI.BigInt("10000000000000000").toString(16)}`})
+  //           .then((response: TransactionResponse) => {
+  //             addTransaction(response, {
+  //               summary: t('mint NFT')
+  //             })
+  //             setHash(response.hash)
+  //           })
+  //           .catch((error: any) => {
+  //             setAttempting(false)
+  //             console.log(error)
+  //           })
+  //     }else{
+  //       const args = [
+  //         user.banner_url?user.banner_url:'https://static.wixstatic.com/media/faa61f_5b2f06d9bee14f369a0a3b7d31761b98~mv2.png',
+  //         user.nickname+ ' Collection',
+  //         user.nickname+'NFT',
+  //         productPictureUrl,
+  //         productName,
+  //         productRoyalty,
+  //         account
+  //       ]
+  //       console.log(args)
+  //       NFTFactoryContract.createERC1155(
+  //           ...args,{ gasLimit: 4500000,value:`0x${JSBI.BigInt("10000000000000000").toString(16)}`})
+  //             .then((response: TransactionResponse) => {
+  //               addTransaction(response, {
+  //                 summary: t('create NFT')
+  //               })
+  //               setHash(response.hash)
+  //               // setCreating(true)
+  //
+  //             })
+  //             .catch((error: any) => {
+  //               setAttempting(false)
+  //               console.log(error)
+  //             })
+  //     }
+  //     handleSubmitAddForm(e)
+  //     } else {
+  //       setAttempting(false)
+  //       throw new Error(t('no factory'))
+  //     }
+  //   }
 
 
   useEffect(() => {
@@ -207,6 +212,7 @@ const PostProductPage = () => {
   }, []);
 
   useEffect(() => {
+    console.log("nftaddress:"+firstNftAddress?.nftaddress)
     if(firstNftAddress?.nftaddress){
       setDeliveryLocation(firstNftAddress?.nftaddress)
     }
@@ -217,7 +223,6 @@ const PostProductPage = () => {
   //       handleSubmitProduct();
   //   }
   // }, [hash]);
-
 
   const tokenOptions = [
     { id: '1', name: 'BNB',value:ZERO_ADDRESS },
@@ -244,7 +249,32 @@ const PostProductPage = () => {
   ]
 
   return (
+
     <Wrapper>
+
+      { user && account && productPictureUrl && productName && productRoyalty && productToken && productMediaType &&
+      (
+          <MintModal
+            isOpen={showMintModal}
+            onDismiss={() => setShowMintModal(false)}
+            mintInfo={{
+              ProductCategoryId: productCategory,
+              productInfo: productInfo,
+              productPrice: productPrice,
+              delivertyLocation: deliveryLocation,
+              delivery: delivery,
+              user: user,
+              account: account,
+              productPictureUrl: productPictureUrl,
+              productName: productName,
+              productRoyalty: productRoyalty,
+              productToken: productToken,
+              productMediaType: productMediaType,
+              remark: remark}}
+          />
+        )
+      }
+
       <FormWrap>
         <Title>{t('Mint Artwork')}</Title>
 
@@ -409,19 +439,19 @@ const PostProductPage = () => {
           {t("I declare that this is an original artwork. I understand that no plagiarism is allowed, and that the artwork can be removed anytime if detected.")}
         </div>
         <ButtonsBox
-          handler={onMint}
+          handler={handleShowMintModel}
           productErrorMessage={productErrorMessage}
         />
-        {attempting && hash && (
-            <SubmittedView onDismiss={wrappedOnDismiss} hash={hash}>
-              <AutoColumn gap="12px" justify={'center'}>
-                <TYPE.largeHeader>{t('transactionSubmitted')}</TYPE.largeHeader>
-                <TYPE.body fontSize={20}>
-                  {t('Mint')} {user.nickname+'NFT'}
-                </TYPE.body>
-              </AutoColumn>
-            </SubmittedView>
-        )}
+        {/*{attempting && hash && (*/}
+        {/*    <SubmittedView onDismiss={wrappedOnDismiss} hash={hash}>*/}
+        {/*      <AutoColumn gap="12px" justify={'center'}>*/}
+        {/*        <TYPE.largeHeader>{t('transactionSubmitted')}</TYPE.largeHeader>*/}
+        {/*        <TYPE.body fontSize={20}>*/}
+        {/*          {t('Mint')} {user.nickname+'NFT'}*/}
+        {/*        </TYPE.body>*/}
+        {/*      </AutoColumn>*/}
+        {/*    </SubmittedView>*/}
+        {/*)}*/}
       </FormWrap>
 
     </Wrapper>

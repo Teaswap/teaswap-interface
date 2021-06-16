@@ -128,8 +128,8 @@ export function useNFTFactoryContract(NFTFactoryAddress?: string, withSignerIfPo
   return useContract(NFTFactoryAddress, NFTFactory_ABI, withSignerIfPossible)
 }
 
-export function useERC1155Contract(NFTFactoryAddress?: string, withSignerIfPossible?: boolean): Contract | null {
-  return useContract(NFTFactoryAddress, ERC1155Collection_ABI, withSignerIfPossible)
+export function useERC1155Contract(NFTAddress?: string, withSignerIfPossible?: boolean): Contract | null {
+  return useContract(NFTAddress, ERC1155Collection_ABI, withSignerIfPossible)
 }
 
 export function useIdoContract(idoAddress?: string, withSignerIfPossible?: boolean): Contract | null {

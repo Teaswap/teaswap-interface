@@ -7,22 +7,23 @@ import {
   updateProduct,
 } from '../../redux/slices/productSlice/productSlice';
 import { useTranslation } from 'react-i18next'
+import {MintInfoInterface} from "../useMintCallback";
 
 export default function useProductForm(id) {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [productName, setProductName] = useState('');
   const [productInfo, setProductInfo] = useState('');
-  const [productCategory, setProductCategory] = useState('');
+  const [productCategory, setProductCategory] = useState(0);
   const [productPictureUrl, setProductPictureUrl] = useState(
     'https://i.imgur.com/uqZxFCm.png'
   );
   const [productRoyalty, setProductRoyalty] = useState(0);
   const [productMediaType, setProductMediaType] = useState('');
-  const [productPrice, setProductPrice] = useState('');
+  const [productPrice, setProductPrice] = useState(0);
   const [deliveryTime, setDeliveryTime] = useState('');
   const [deliveryLocation, setDeliveryLocation] = useState('');
-  const [delivery, setDelivery] = useState('');
+  const [delivery, setDelivery] = useState(0);
   const [paymentMethod, setPaymentMethod] = useState('');
   const [remark, setRemark] = useState('');
   const [productQuantity, setProductQuantity] = useState('');
@@ -80,12 +81,12 @@ export default function useProductForm(id) {
       setHasProductInfo(true);
     }
 
-    if (!deliveryLocation || !deliveryLocation.trim()) {
-      hasError = true;
-      setHasDeliveryLocation(false);
-    } else {
-      setHasDeliveryLocation(true);
-    }
+    // if (!deliveryLocation || !deliveryLocation.trim()) {
+    //   hasError = true;
+    //   setHasDeliveryLocation(false);
+    // } else {
+    //   setHasDeliveryLocation(true);
+    // }
 
     if (!checkValidNumber(productPrice, 50000000, 0)) {
       hasError = true;
@@ -160,10 +161,31 @@ export default function useProductForm(id) {
     // }
   };
 
-  const handleSubmitProduct = () => {
+  const checkInputError = () => {
+    checkDataValidity();
+    return hasError;
+  };
+
+  const handleSubmitProduct = (mintInfo) => {
     checkDataValidity();
     if (!hasError) {
-      postProduct(formData)(dispatch);
+      let mintData = {
+        ProductCategoryId: mintInfo.productCategory,
+        name: mintInfo.productName,
+        picture_url: mintInfo.productPictureUrl,
+        info: mintInfo.productInfo,
+        price: mintInfo.productPrice,
+        quantity: mintInfo.productQuantity,
+        delivery: mintInfo.delivery, // 出貨方式  0:面交、1:郵寄
+        delivery_location: mintInfo.deliveryLocation, // 出貨地點的欄位
+        delivery_time: undefined, // 備貨時間的欄位
+        payment_method: undefined, // 付款方式 0:貨到付款
+        royalty: mintInfo.productRoyalty,
+        extoken: mintInfo.productToken,
+        mediaType:mintInfo.productMediaType,
+        remark: mintInfo.remark
+      };
+      postProduct(mintData)(dispatch);
     }
     navigate('/nft/users/backstage')
   };
@@ -236,6 +258,7 @@ export default function useProductForm(id) {
     handleSubmitAddForm,
     handleSubmitEditForm,
     handleChangePicture,
-    handleSubmitProduct
+    handleSubmitProduct,
+    checkInputError
   };
 }
