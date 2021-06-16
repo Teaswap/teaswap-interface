@@ -98,7 +98,7 @@ const ApplyForVendorPage = () => {
     window.scroll(0, 0);
     handleGetMe().then((result) => {
       console.log('dddd', 'handleGetMe', result )
-      // if (result && result.data && result.data.is_vendor) return navigate('/nft/products/post');
+      if (result && result.data && result.data.is_vendor) return navigate('/nft/products/post');
     });
   }, []);
 
