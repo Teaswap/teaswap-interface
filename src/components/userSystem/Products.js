@@ -99,7 +99,18 @@ const Product = ({ product, onLoad, loaded, $width, $height, $margin }) => {
         </NavLink>
         <span style={{marginLeft: '10px'}}>{product.status == '1' ? 'My Artwork' : 'Pending'}</span>
       </ButtonContainer>
-      <NavLink style={{marginTop: '20px', display:"block"}} to={`/nft/products/${product.id}`}>
+      {product.status == '1' && (
+        <NavLink style={{marginTop: '20px', display:"block"}} to={`/nft/products/${product.id}`}>
+          <ProductPicture
+            src={product.picture_url}
+            style={{ opacity: loaded ? 1 : 0 }}
+            onLoad={onLoad}
+            $width={$width}
+            $height={$height}
+          />
+        </NavLink>
+      )}
+      {product.status !== '1' && (
         <ProductPicture
           src={product.picture_url}
           style={{ opacity: loaded ? 1 : 0 }}
@@ -107,7 +118,8 @@ const Product = ({ product, onLoad, loaded, $width, $height, $margin }) => {
           $width={$width}
           $height={$height}
         />
-      </NavLink>
+      )}
+      
       <ProductName>
         <NavLink to={`/nft/products/${product.id}`}>{product.name}</NavLink>
       </ProductName>

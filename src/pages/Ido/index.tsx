@@ -29,7 +29,6 @@ import BuyingModal from '../../components/ido/BuyingModal'
 import ClaimIdoRewardModal from '../../components/earn/ClaimRewardModal'
 import ConTitle from '../../components/Content/Title'
 // import IncubatorBox from '../../components/general/IncubatorBox'
-import ConSubTitle from '../../components/Content/SubTitle'
 import { MEDIA_QUERY } from '../../constants/style'
 import {Countdown} from "../Earn/Countdown";
 
@@ -41,7 +40,7 @@ const PageWrapper = styled.div`
 `
 
 const AuthorInfo = styled(ColumnCenter)`
-  max-width: 960px;
+  max-width: 1000px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -275,8 +274,8 @@ const Index = ()=>{
           {params.idoAddress == '0xF72ECaD992CebB0138aC13b616199f131F847b04' && (
             <Author>
               <img src={process.env.PUBLIC_URL + '/cjainft.png'} width="150" style={{marginBottom: '0px'}}/>
-              <ConSubTitle con="CaoJun Limited Edition of NFT Collectibles" />
-              <div style={{lineHeight: '30px', fontSize: '15px'}}>Key terms for CJAI NFT Collectibles & Initial Art Offering ("IRO"): </div>
+              <div className="iro-title">CaoJun Limited Edition of NFT Collectibles</div>
+              <div className="iro-title1">Key terms for CJAI NFT Collectibles & Initial Art Offering ("IRO"): </div>
               <ol style={{fontSize: '15px', textAlign: 'left', lineHeight: "28px"}}>
                 <li>​Total Edition of CaoJunNFT Collectibles released: 600</li>
                 <li>Total TSA released for CJAI IRO: 15,000,000</li>
@@ -295,8 +294,8 @@ const Index = ()=>{
           )}
           {params.idoAddress == '0x887Ed22FAF9C4B985ecB019eA54A5185350AE214' && (
             <Author>
-              <ConSubTitle con= {t("irobigtitle")}  />
-              <div style={{lineHeight: '30px', fontSize: '15px'}}>
+              <div className="iro-title">{t("irobigtitle")}</div>
+              <div className="iro-title1">
                 {t("irotitle")} 
               </div>
               <ol style={{fontSize: '15px', textAlign: 'left', lineHeight: "28px"}}>
@@ -510,8 +509,22 @@ const Index = ()=>{
         </Box>
       </AuthorInfo>
 
+
+
       {params.idoAddress == '0xF72ECaD992CebB0138aC13b616199f131F847b04' && (
         <IframeComponent iframe={iframe} />
+      )}
+      {params.idoAddress == '0x887Ed22FAF9C4B985ecB019eA54A5185350AE214' && (
+        <div style={{
+          width: '90%',
+          maxWidth: '1000px',
+          textAlign: 'left',
+          margin: '0 auto'
+        }}>
+          <p>Details :</p>
+          <p>English： <ExternalLink href="https://www.teaswap.live/tsabroadway">https://www.teaswap.live/tsabroadway</ExternalLink></p>
+          <p>中文信息： <ExternalLink href="https://zh.teaswap.live/tsabroadway">https://zh.teaswap.live/tsabroadway</ExternalLink></p>
+        </div>
       )}
       {params.idoAddress == '0x887Ed22FAF9C4B985ecB019eA54A5185350AE214' && (
         <IframeComponent iframe={iframe2} />

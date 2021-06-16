@@ -10,7 +10,7 @@ import useVendorForm from '../../hooks/userHooks/useVendorForm';
 import {useTranslation} from 'react-i18next';
 import {SetAvatar, SetBanner}  from '../../components/userSystem' 
   
-const FontWrapper = styled.form`
+const FontWrapper = styled.div`
   margin: 0 auto;
   margin: ${DISTANCE.md} 0;
   width: 90%;
@@ -33,7 +33,7 @@ const InputDescription = styled.p`
 const Text = styled.p`
   color: ${COLOR.black};
   font-size: ${FONT.md};
-  margin: ${DISTANCE.lg} 0 ${DISTANCE.sm} 0;
+  margin: ${DISTANCE.md} 0 ${DISTANCE.sm} 0;
 `;
 
 const ErrorMessage = styled.span`
@@ -42,7 +42,7 @@ const ErrorMessage = styled.span`
   margin: 0 15px;
 `;
 
-export default function VendorInfoForm({ setSuccessMode, isAdminStatus }) {
+export default function VendorInfoForm({ setSuccessMode, isAdminStatus, goPost }) {
   const { user } = useUser();
   const {
     nickname,
@@ -195,7 +195,7 @@ export default function VendorInfoForm({ setSuccessMode, isAdminStatus }) {
         style={{
           margin: '0 auto'
         }}
-        onClick={() => handleSubmit(setSuccessMode, isAdminStatus)}
+        onClick={() => handleSubmit(setSuccessMode, isAdminStatus, goPost)}
         $margin={0}
       >
         {t('Confirm')}

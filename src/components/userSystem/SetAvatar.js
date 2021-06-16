@@ -15,8 +15,8 @@ const SetAvatarContainer = styled.div`
 
 const PreviewAvatar = styled.img`
   // box-shadow: ${EFFECT.shadowInput};
-  height: 300px;
-  width: 300px;
+  height: 102px;
+  width: 102px;
   border-radius: 0px;
   object-fit: cover;
   cursor: pointer;
@@ -24,15 +24,14 @@ const PreviewAvatar = styled.img`
 
 const RightSide = styled.div`
   min-width: max-content;
-  font-size: 16px;
+  font-size: 14px;
 
 `;
 
 const Description = styled.p`
-  color: ${COLOR.text_2};
-  font-size: 16px;
-  margin-bottom: ${DISTANCE.md};
-  width: 60%;
+  color: #474747;
+  font-size: 14px;
+  margin-bottom: ${DISTANCE.sm};
 `;
 
 const Label = styled.label`
@@ -72,8 +71,8 @@ const CheckImage = styled.div`
 `;
 
 const CheckAvatar = styled.img`
-  height: 300px;
-  width: 300px;
+  height: 102px;
+  width: 102px;
   border-radius: 0px;
   object-fit: cover;
 `;
@@ -136,7 +135,7 @@ export default function SetAvatar({ setSuccessMode }) {
       <PreviewAvatar onClick={() => document.getElementById('uploadAvatar').click()} src={avatarUrl} alt='' />
       <RightSide>
         <Description>
-          {"Support： PNG, JPG , GIF, Video and Audio; Suggested ration 3:4; Size <10MB"}
+          {"Support： PNG, JPG , GIF, Video and Audio; Suggested 102* 102;"}
         </Description>
         <Label>
           <InputFile id="uploadAvatar" type='file' onChange={handleChangeFile} />

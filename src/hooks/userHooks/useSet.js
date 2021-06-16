@@ -46,11 +46,12 @@ export default function useSet() {
   const handleSubmitSetAvatar = (setSuccessMode) => {
     setIsLoadingUpload(true);
     setUploadError('');
+    console.log('dddd', 'handleSubmitSetAvatar')
     handleUploadAvatar(uploadEvent).then((result) => {
       if (result.ok === 0) return setUploadError(result.message);
       setIsLoadingUpload(false);
       setIsCheckImage(false);
-      setSuccessMode(true);
+      // setSuccessMode(true);
     });
   };
 
@@ -89,7 +90,7 @@ export default function useSet() {
       if (result.ok === 0) return setUploadError(result.message);
       setIsLoadingUpload(false);
       setIsCheckImage(false);
-      setSuccessMode(true);
+      // setSuccessMode(true);
     });
   };
 

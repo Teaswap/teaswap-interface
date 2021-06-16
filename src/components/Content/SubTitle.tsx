@@ -8,8 +8,8 @@ const Title = styled.span`
 `
 
 // eslint-disable-next-line react/prop-types
-export default function ConSubTitle({ con }: { con: string }) {
+export default function ConSubTitle({ con, className }: { con: string, className?: string }) {
   return (
-      <Title> {con} </Title>
+      <Title className={className}> {con} </Title>
   )
 }

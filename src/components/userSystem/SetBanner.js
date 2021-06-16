@@ -27,8 +27,8 @@ const RightSide = styled.div`
 `;
 
 const Description = styled.p`
-  color: ${COLOR.text_2};
-  font-size: ${FONT.xs};
+  color: #474747;
+  font-size: 14px;
   margin-bottom: ${DISTANCE.md};
 `;
 
@@ -133,7 +133,7 @@ export default function SetBanner({ setSuccessMode }) {
       <PreviewBanner src={bannerUrl} alt='' />
       <RightSide>
         <Description>
-        {t("Pick from computer")}<br></br>{t("The best size")} 250 x 1140px
+        {t("Pick from computer")}，{t("The best size")} 250 x 1140px
         </Description>
         <Label>
           <InputFile type='file' onChange={handleChangeBannerFile} />

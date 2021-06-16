@@ -18,7 +18,8 @@ import AddLiquidity from './AddLiquidity'
 //   RedirectToAddLiquidity
 // } from './AddLiquidity/redirects'
 import Manage from './Earn/Manage'
-import Home from './Home'
+// import Home from './Home'
+import Home from './Home/Explore'
 import Earn from './Earn'
 import Pool from './Pool'
 import PoolFinder from './PoolFinder'
@@ -40,6 +41,7 @@ import Footer from '../components/Footer/index'
 import { useInactiveListener } from '../hooks/useInactiveListener'
 import '../theme/font-family.css'
 import '../theme/App.css'
+import '../theme/AppH5.css'
 
 import {
   HomePage,
@@ -234,10 +236,7 @@ export default function App() {
                   <Route path={'/edit/:id'} element={<EditProductPage/>}/>
                   <Route path={'/post'} element={<PostProductPage/>}/>
                   <Route path={'/search/:keyword'} element={<SearchProductPage/>}/>
-                  <Route
-                    path={'/category/:id'}
-                    element={<CategorizedProductPage/>}
-                  />
+                  <Route path={'/category/:id'} element={<CategorizedProductPage/>} />
                   <Route path={'/vendor/:id'} element={<VendorShopPage/>}/>
                 </Route>
 

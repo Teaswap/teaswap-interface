@@ -94,8 +94,10 @@ const ApplyForVendorPage = () => {
   const {t} = useTranslation();
 
   useEffect(() => {
+    // componentDidMount or componentDidUpdate
     window.scroll(0, 0);
     handleGetMe().then((result) => {
+      console.log('dddd', 'handleGetMe', result )
       if (result && result.data && result.data.is_vendor) return navigate('/nft/products/post');
     });
   }, []);
@@ -104,12 +106,12 @@ const ApplyForVendorPage = () => {
     <ThickNavPage style={{maxWidth:"600px"}}>
       <Wrapper>
         {isCheck && (
-          <div class="ddddd">
+          <div>
             <WrapperMask style={{
               width: '100%'
             }}>
               <CheckImage>
-                <Title >{t('Apply for Artist needs more Information')}</Title>
+                <Title >{t('Create collections and sell NFTs to your fans ,start now !')}</Title>
                 <TwoButton>
                   <ButtonPrimary onClick={handleCheck}>
                     {t('OK')}
@@ -124,7 +126,7 @@ const ApplyForVendorPage = () => {
         )}
         <Title>{t('Featured Artists Information')}</Title>
         {/*<Announcement isApply={true} />*/}
-        <VendorInfoForm setSuccessMode={setSuccessMode} />
+        <VendorInfoForm setSuccessMode={setSuccessMode} goPost={true} />
         {errorMessage && <ErrorText>{errorMessage}</ErrorText>}
 
         {/* <PageBottom>
