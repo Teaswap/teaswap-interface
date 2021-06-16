@@ -42,7 +42,7 @@ const ErrorMessage = styled.span`
   margin: 0 15px;
 `;
 
-export default function VendorInfoForm({ setSuccessMode, isAdminStatus }) {
+export default function VendorInfoForm({ setSuccessMode, isAdminStatus, goPost }) {
   const { user } = useUser();
   const {
     nickname,
@@ -195,7 +195,7 @@ export default function VendorInfoForm({ setSuccessMode, isAdminStatus }) {
         style={{
           margin: '0 auto'
         }}
-        onClick={() => handleSubmit(setSuccessMode, isAdminStatus)}
+        onClick={() => handleSubmit(setSuccessMode, isAdminStatus, goPost)}
         $margin={0}
       >
         {t('Confirm')}

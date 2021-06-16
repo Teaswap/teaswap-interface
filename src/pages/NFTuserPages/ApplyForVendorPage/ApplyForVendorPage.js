@@ -126,7 +126,7 @@ const ApplyForVendorPage = () => {
         )}
         <Title>{t('Featured Artists Information')}</Title>
         {/*<Announcement isApply={true} />*/}
-        <VendorInfoForm setSuccessMode={setSuccessMode} />
+        <VendorInfoForm setSuccessMode={setSuccessMode} goPost={true} />
         {errorMessage && <ErrorText>{errorMessage}</ErrorText>}
 
         {/* <PageBottom>

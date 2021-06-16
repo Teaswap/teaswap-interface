@@ -1,7 +1,9 @@
 import { useState } from 'react';
 import useUser from '../../hooks/userHooks/useUser';
+import { useNavigate } from 'react-router-dom';
 
 export default function useVendorForm() {
+  const navigate = useNavigate();
   const { user, handleUpdateUser, handleUpdateUserInfo } = useUser();
   const [nickname, setNickname] = useState('');
   const [description, setDescription] = useState('');
@@ -16,7 +18,7 @@ export default function useVendorForm() {
 
   const [nicknameError, setNicknameError] = useState('');
 
-  const handleSubmit = (setSuccessMode, isAdminStatus) => {
+  const handleSubmit = (setSuccessMode, isAdminStatus, goPost=false) => {
     setNicknameError('');
     if (nickname && !nickname.trim()) return setNicknameError('姓名格式錯誤');
     const data = {
@@ -38,8 +40,11 @@ export default function useVendorForm() {
         setSuccessMode(true);
       });
     handleUpdateUser(data).then((result) => {
-      if (result) return;
+      if (result) return navigate('/nft/products/post');
       setSuccessMode(true);
+      if (goPost)
+        navigate('/nft/products/post')
+      // navigator to post
     });
   };
 

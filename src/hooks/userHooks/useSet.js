@@ -90,7 +90,7 @@ export default function useSet() {
       if (result.ok === 0) return setUploadError(result.message);
       setIsLoadingUpload(false);
       setIsCheckImage(false);
-      setSuccessMode(true);
+      // setSuccessMode(true);
     });
   };
 
