@@ -517,7 +517,7 @@ const Index = ()=>{
       )}
       {params.idoAddress == '0x887Ed22FAF9C4B985ecB019eA54A5185350AE214' && (
         <div style={{
-          width: '100%',
+          width: '90%',
           maxWidth: '1000px',
           textAlign: 'left',
           margin: '0 auto'
