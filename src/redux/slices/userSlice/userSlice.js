@@ -40,10 +40,11 @@ import { setUser, setErrorMessage } from '../../../state/user/actions'
 
 
 export const  getMe = () => (dispatch) => {
-
+    console.log('dddd', 'getMe')
     dispatch(setUser({is_admin:false,is_vendor:false}));
     dispatch(setErrorMessage(''));
     return getMeAPI().then((result) => {
+      console.log('dddd', 'getMeAPI', result)
       if (!result || result.ok === 0)
         return dispatch(
           setErrorMessage(result ? result.message : 'something wrong')
@@ -78,7 +79,9 @@ export const updatePassword = (data) => (dispatch) => {
 
 export const uploadAvatar = (data) => (dispatch) => {
   dispatch(setErrorMessage(''));
+  console.log('dddd', 'uploadAvatar', data)
   return uploadAvatarAPI(data).then((result) => {
+    console.log('dddd', 'uploadAvatarAPI', data, result)
     if (!result || result.ok === 0)
       return dispatch(
         setErrorMessage(result ? result.message : 'something wrong')

@@ -94,9 +94,11 @@ const ApplyForVendorPage = () => {
   const {t} = useTranslation();
 
   useEffect(() => {
+    // componentDidMount or componentDidUpdate
     window.scroll(0, 0);
     handleGetMe().then((result) => {
-      if (result && result.data && result.data.is_vendor) return navigate('/nft/products/post');
+      console.log('dddd', 'handleGetMe', result )
+      // if (result && result.data && result.data.is_vendor) return navigate('/nft/products/post');
     });
   }, []);
 
@@ -104,7 +106,7 @@ const ApplyForVendorPage = () => {
     <ThickNavPage style={{maxWidth:"600px"}}>
       <Wrapper>
         {isCheck && (
-          <div class="ddddd">
+          <div>
             <WrapperMask style={{
               width: '100%'
             }}>

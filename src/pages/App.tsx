@@ -236,10 +236,7 @@ export default function App() {
                   <Route path={'/edit/:id'} element={<EditProductPage/>}/>
                   <Route path={'/post'} element={<PostProductPage/>}/>
                   <Route path={'/search/:keyword'} element={<SearchProductPage/>}/>
-                  <Route
-                    path={'/category/:id'}
-                    element={<CategorizedProductPage/>}
-                  />
+                  <Route path={'/category/:id'} element={<CategorizedProductPage/>} />
                   <Route path={'/vendor/:id'} element={<VendorShopPage/>}/>
                 </Route>
 

@@ -10,7 +10,7 @@ import useVendorForm from '../../hooks/userHooks/useVendorForm';
 import {useTranslation} from 'react-i18next';
 import {SetAvatar, SetBanner}  from '../../components/userSystem' 
   
-const FontWrapper = styled.form`
+const FontWrapper = styled.div`
   margin: 0 auto;
   margin: ${DISTANCE.md} 0;
   width: 90%;
