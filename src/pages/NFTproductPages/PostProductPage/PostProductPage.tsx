@@ -398,7 +398,7 @@ const PostProductPage = () => {
           textareaRows={2}
           handleChange={handleChange(setRemark)}
           isNumber={false}
-          errorMessage={"wrong"}
+          errorMessage={""}
           hasValue={false}
           options={undefined}
           productPictureUrl={undefined}
