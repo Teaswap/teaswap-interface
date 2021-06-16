@@ -52,15 +52,13 @@
   text-decoration: none;
   cursor: pointer;
 }
-@media (max-width: 500px){
-  .btn-sm-100{
-    width: 100px;
-  }
-  .declare-checkbox > input{
-    width: 70px;
-    height: 70px;
-  }
-  .link-btn{
-    margin-right: 20px;
-  }
+.iro-title{
+  color: #474747;
+  margin-bottom: 10px;
+  line-height: 30px;
+  font-size: 18px;
+}
+.iro-title1{
+  line-height: 30px;
+  font-size: 15px;
 }

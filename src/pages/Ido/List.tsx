@@ -149,7 +149,7 @@ const List = ()=>{
                   {v.info}
                   {v.info2 && (<p>{v.info2}</p>)}
                 </Info>
-                <div style={{marginTop: "20px"}}>
+                <div style={{marginTop: "40px"}}>
                   {v.when && (v.when)}
                 </div>
                 {/* <Countdown exactEnd={v.end} rewardsDuration={v.duration?v.duration:1000} /> */}

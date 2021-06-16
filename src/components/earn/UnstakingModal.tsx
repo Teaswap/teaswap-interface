@@ -117,7 +117,7 @@ export default function UnstakingModal({ isOpen, onDismiss, stakingInfo }: Staki
             {error ?? t('Harvest')}
           </ButtonError>
           <ButtonError disabled={!!error} error={!!error && !!stakingInfo?.stakedAmount} onClick={onWithdraw}>
-            {error ?? t('Withdraw')}
+            {error ?? t('withdraw')}
           </ButtonError>
         </ContentWrapper>
       )}

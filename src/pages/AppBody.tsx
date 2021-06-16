@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { MEDIA_QUERY } from '../constants/style'
 
 export const BodyWrapper = styled.div`
   position: relative;
@@ -12,6 +13,9 @@ export const BodyWrapper = styled.div`
     0px 24px 32px rgba(0, 0, 0, 0.01);
       border-radius: 0px;
   padding: 1rem;
+  ${MEDIA_QUERY.sm} {
+    width: 80%;
+  }
 `
 
 /**

@@ -41,6 +41,7 @@ import Footer from '../components/Footer/index'
 import { useInactiveListener } from '../hooks/useInactiveListener'
 import '../theme/font-family.css'
 import '../theme/App.css'
+import '../theme/AppH5.css'
 
 import {
   HomePage,

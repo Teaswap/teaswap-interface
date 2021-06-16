@@ -29,7 +29,7 @@ const PageWrapper = styled(AutoColumn)`
   padding: 1rem;
   box-shadow: 0px 0px 1px rgb(0 0 0 / 1%), 0px 4px 8px rgb(0 0 0 / 4%), 0px 16px 24px rgb(0 0 0 / 4%), 0px 24px 32px rgb(0 0 0 / 1%);
   ${MEDIA_QUERY.sm} {
-    width: 90%;
+    width: 80%;
   }
 `
 
