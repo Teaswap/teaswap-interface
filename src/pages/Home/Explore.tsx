@@ -11,12 +11,14 @@ const PageWrapper = styled(HomeGrid)`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-top: 20px;
 `
 const Title = styled.div`
-  color: #7a7a7a;
-  font-size: 24px;
+  color: #474747;
+  font-size: 20px;
   font-weight: bold;
   margin-bottom: 10px;
+  letter-spacing: 2px;
 `
 
 const IframeDiv = styled.div`
@@ -24,6 +26,8 @@ const IframeDiv = styled.div`
   max-width: 1300px;
   height: 721px;
   margin:0 auto;
+  margin-top: 20px;
+  margin-bottom: 50px;
   ${MEDIA_QUERY.sm} {
     width: 90%;
     height: 240px;
