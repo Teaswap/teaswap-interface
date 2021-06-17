@@ -41,7 +41,7 @@ const Wrapper = styled.div`
   }
 `;
 
-const FormWrap = styled.form`
+const FormWrap = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -474,7 +474,7 @@ const PostProductPage = () => {
           {t("I declare that this is an original artwork. I understand that no plagiarism is allowed, and that the artwork can be removed anytime if detected.")}
         </div>
         <ButtonContainer>
-          <Button  onClick={handleShowMintModel}>
+          <Button  onClick={() => handleShowMintModel()}>
             {t('Mint')}
           </Button>
           <NavLink to='/nft/users/backstage'>
