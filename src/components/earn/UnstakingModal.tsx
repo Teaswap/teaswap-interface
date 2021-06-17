@@ -113,7 +113,7 @@ export default function UnstakingModal({ isOpen, onDismiss, stakingInfo }: Staki
           <TYPE.subHeader style={{ textAlign: 'center' }}>
             {t('when-you-withdraw-your-best-is-claimed-and-your-liquidity-is-removed-from-the-mining-pool')}
           </TYPE.subHeader>
-          <ButtonError disabled={!!error} error={!!error && !!stakingInfo?.earnedAmount} onClick={onHarvest}>
+          <ButtonError error={!!error && !!stakingInfo?.earnedAmount} onClick={onHarvest}>
             {error ?? t('Harvest')}
           </ButtonError>
           <ButtonError disabled={!!error} error={!!error && !!stakingInfo?.stakedAmount} onClick={onWithdraw}>

@@ -41,7 +41,6 @@ export const NormalButton = styled(ButtonWrapper)`
   width: 286px;
   height: 40px;
   padding: 5px 10px;
-  margin: 0px ${(props) => (props.$margin === 0 ? 0 : 20)}px;
   min-width: max-content;
   font-size: 14px;
   background-color: #ffffff;
@@ -49,10 +48,7 @@ export const NormalButton = styled(ButtonWrapper)`
   border: 1px solid #7f7f7f;
   height: 42px;
   &:hover {
-    border: none;
-    color: #ffffff;
-    background-color: #7f7f7f;
-    transform: scale(1.05);
+    border: #474747;
   }
 `;
 

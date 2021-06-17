@@ -60,6 +60,7 @@ export default function useProductForm(id) {
   };
 
   const checkDataValidity = () => {
+    debugger
     if (!productName || !productName.trim()) {
       hasError = true;
       setHasProductName(false);

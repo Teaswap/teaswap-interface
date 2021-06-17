@@ -8,7 +8,7 @@ import {ETHER, JSBI} from '@teaswap/uniswap-sdk'
 import { useParams } from 'react-router-dom'
 // import DoubleCurrencyLogo from '../../components/DoubleLogo'
 import { useCurrency } from '../../hooks/Tokens'
-// import { useWalletModalToggle } from '../../state/application/hooks'
+import { useWalletModalToggle } from '../../state/application/hooks'
 import { ExternalLink, TYPE } from '../../theme'
 
 import { RowBetween } from '../../components/Row'
@@ -199,7 +199,7 @@ const Index = ()=>{
   // const valueOfTotalStakedAmountInUSDC =
   //   valueOfTotalStakedAmountInWETH && USDPrice?.quote(valueOfTotalStakedAmountInWETH)
 
-  // const toggleWalletModal = useWalletModalToggle()
+  const toggleWalletModal = useWalletModalToggle()
 
   // const handleDepositClick = useCallback(() => {
   //   if (account) {
