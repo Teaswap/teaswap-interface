@@ -431,7 +431,7 @@ const Index = ()=>{
                         padding="8px"
                         borderRadius="0px"
                         width="fit-content"
-                        // onClick={() => setShowClaimRewardModal(true)}
+                        onClick={() => setShowClaimRewardModal(true)}
                       >
                         {t('claim')}
                       </ButtonEmpty>
@@ -471,15 +471,15 @@ const Index = ()=>{
             {!showAddLiquidityButton && (
               <DataRow style={{ marginBottom: '1rem' }}>
                 <ButtonPrimary padding="8px" borderRadius="0px" width="266px" 
-                // onClick={()=>{
-                //   if (account) {
-                //         console.log(showStakingModal)
-                //         setShowStakingModal(true)
-                //         console.log(showStakingModal)
-                //       } else {
-                //         toggleWalletModal()
-                //       }
-                // }}
+                onClick={()=>{
+                  if (account) {
+                        console.log(showStakingModal)
+                        setShowStakingModal(true)
+                        console.log(showStakingModal)
+                      } else {
+                        toggleWalletModal()
+                      }
+                }}
                 disabled={ timeUntilGenesis>0||timeUntilEnd<0 } >
                   {idoInfo?.makeAmount?.greaterThan(JSBI.BigInt(0)) ? t('Buy Again') : t('Participate')}
                 </ButtonPrimary>
@@ -491,7 +491,7 @@ const Index = ()=>{
                         padding="8px"
                       borderRadius="0px"
                       width="266px"
-                      // onClick={() => setShowClaimRewardModal(true)}
+                      onClick={() => setShowClaimRewardModal(true)}
                     >
                       {t('claim')}
                     </ButtonPrimary>
