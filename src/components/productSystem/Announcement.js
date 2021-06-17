@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next'
 
 const AnnouncementContainer = styled.section`
   margin: 15px auto;
-  width: 100%;
+  width: calc(100% 100px);
   min-height: 130px;
   background: ${COLOR.bg_secondary};
   padding: 20px 50px;

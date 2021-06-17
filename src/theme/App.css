@@ -63,3 +63,9 @@
   line-height: 30px;
   font-size: 15px;
 }
+.auto-list-div{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
