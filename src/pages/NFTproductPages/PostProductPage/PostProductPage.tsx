@@ -18,14 +18,14 @@ import {useUserFirstToken} from "../../../state/wallet/hooks";
 // import {TYPE} from "../../../theme";
 import MintModal  from "../../../components/NFT/mintModal"
 
-import { NormalButton } from '../../../components/NFTButton'
+import { ActionButton } from '../../../components/NFTButton'
 
 
 const Wrapper = styled.div`
-  width: 90%;
-  max-width: 600px
+  width: 86%;
+  max-width: 620px
   margin: 0 auto;
-  padding: 20px;
+  padding: 40px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -34,7 +34,7 @@ const Wrapper = styled.div`
   box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.1), 0px 4px 8px rgba(0, 0, 0, 0.1), 0px 16px 24px rgba(0, 0, 0, 0.1),
     0px 24px 32px rgba(0, 0, 0, 0.1);
   ${MEDIA_QUERY.sm} {
-    width: 100%;
+    width: calc(100% -20px);
     padding: 10px;
     padding-left: 10px;
     padding-bottom: 50px;
@@ -45,6 +45,9 @@ const FormWrap = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  ${MEDIA_QUERY.sm} {
+    width: 100%;
+  }
 `;
 
 const Title = styled.h1`
@@ -58,7 +61,7 @@ const ButtonContainer = styled.div`
   flex-wrap: wrap;
 `;
 
-const Button = styled(NormalButton)`
+const Button = styled(ActionButton)`
   background-color: #ffffff;
   color:  #7f7f7f;
   border: 1px solid #7f7f7f;
@@ -477,7 +480,7 @@ const PostProductPage = () => {
           <Button  onClick={() => handleShowMintModel()}>
             {t('Mint')}
           </Button>
-          <NavLink to='/nft/users/backstage'>
+          <NavLink className="a-link"  to='/nft/users/backstage'>
             <Button >{t('My Account')}</Button>
           </NavLink>
           {productErrorMessage && (

@@ -41,6 +41,7 @@
   align-items: center;
   padding-bottom: 30px;
   width: 90%;
+  font-size: 14px;
 }
 .declare-checkbox > input{
   width: 35px;

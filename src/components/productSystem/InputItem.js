@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { COLOR, FONT } from '../../constants/style';
+import { COLOR, FONT, MEDIA_QUERY } from '../../constants/style';
 import { InputComponent, TextAreaComponent } from '../../components/Input';
 import { RadioBox } from './RadioBox';
 import { SelectBox } from './SelectBox';
@@ -8,8 +8,11 @@ import { PictureBox } from './PictureBox';
 
 const QuestionBox = styled.div`
   margin-bottom: 30px;
-  width: 90%;
+  width: 100%;
   max-width: 600px;
+  ${MEDIA_QUERY.sm} {
+    width: 90%;
+  }
 `;
 
 const QuestionTitle = styled.div`

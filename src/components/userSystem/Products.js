@@ -172,7 +172,7 @@ export default function Products({
           <Placeholder $width={$width} $margin={$margin} />
         </ProductsWrap>
       </ProductsContainer>
-      {loaded && !productErrorMessage ? (
+      {/* {loaded && !productErrorMessage ? (
         <MoreButton
           id={id}
           products={products}
@@ -180,7 +180,7 @@ export default function Products({
         />
       ) : (
         <ErrorMessage productErrorMessage={productErrorMessage} />
-      )}
+      )} */}
     </>
   );
 }

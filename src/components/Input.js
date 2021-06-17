@@ -13,7 +13,7 @@ export const InputSearch = styled.input`
 
 export const InputComponent = styled.input`
   height: 30px;
-  width: 100%;
+  width: calc(100% - 6px);
   max-width: 600px;
   border-width: 1px;
   // box-shadow: ${EFFECT.shadowInput};
@@ -29,7 +29,7 @@ export const InputComponent = styled.input`
 `;
 
 export const TextAreaComponent = styled.textarea`
-  width: 100%;
+  width: calc(100% - 10px);
   max-width: 600px;
   box-shadow: ${EFFECT.shadowInput};
   border-radius: 0px;
