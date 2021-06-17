@@ -126,15 +126,15 @@ export function useApproveNFTCallback(
   // check the current approval status
   const approvalState: ApprovalState = useMemo(() => {
     if (!to) return ApprovalState.UNKNOWN
-    if(!tokenAddress) return ApprovalState.APPROVED
+    if(!tokenAddress) return ApprovalState.UNKNOWN
     // we might not have enough data to know whether or not we need to approve
     if (!currentAllowance) return ApprovalState.UNKNOWN
 
     // amountToApprove will be defined if currentAllowance is
-    return currentAllowance === to
+    return currentAllowance != to
         ? pendingApproval
-            ? ApprovalState.APPROVED: ApprovalState.PENDING
-            : ApprovalState.NOT_APPROVED
+            ? ApprovalState.PENDING
+            : ApprovalState.NOT_APPROVED: ApprovalState.APPROVED
   }, [currentAllowance, pendingApproval, to])
 
   const nftContract = useTokenContract(tokenAddress)

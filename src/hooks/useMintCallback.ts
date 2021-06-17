@@ -40,13 +40,13 @@ export function useMintCallback(
     const { account } = useActiveWeb3React()
     const NFTFactoryContract = useNFTFactoryContract(NFTFACTORY[ChainId.BSC_MAINNET]);
     const pendingMint = useHasPendingMint(mintInfo)
-    const submitedMint = useUserHasSubmittedMint(account?account:undefined)
+    const {submitted,} = useUserHasSubmittedMint(account?account:undefined)
     const {t} = useTranslation()
     const addTransaction = useTransactionAdder()
 
     // check the current mint status
     const state:mintState = useMemo(() => {
-        return submitedMint?pendingMint ? mintState.MINTED: mintState.PENDING : mintState.NOT_MINT
+        return !submitted? pendingMint ? mintState.PENDING : mintState.NOT_MINT: mintState.MINTED
     }, [pendingMint])
 
 

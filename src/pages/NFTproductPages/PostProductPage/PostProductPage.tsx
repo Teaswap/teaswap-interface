@@ -1,11 +1,11 @@
 import React, {useEffect, useState} from 'react';
 import styled from 'styled-components';
-import { FONT, MEDIA_QUERY } from '../../../constants/style';
-import { InputItem, ButtonsBox } from '../../../components/productSystem/';
+import {COLOR, DISTANCE, FONT, MEDIA_QUERY} from '../../../constants/style';
+import { InputItem } from '../../../components/productSystem/';
 import useUser from '../../../hooks/userHooks/useUser';
 import useProduct from '../../../hooks/productHooks/useProduct';
 import useProductFrom from '../../../hooks/productHooks/useProductForm';
-import { useNavigate } from 'react-router-dom';
+import {NavLink, useNavigate} from 'react-router-dom';
 import { useTranslation } from 'react-i18next'
 // import {useETHBalances, useTokenBalance} from '../../state/wallet/hooks'
 import { useActiveWeb3React } from '../../../hooks';
@@ -17,6 +17,9 @@ import {useUserFirstToken} from "../../../state/wallet/hooks";
 // import {AutoColumn} from "../../../components/Column";
 // import {TYPE} from "../../../theme";
 import MintModal  from "../../../components/NFT/mintModal"
+
+import { NormalButton } from '../../../components/NFTButton'
+
 
 const Wrapper = styled.div`
   width: 90%;
@@ -48,6 +51,38 @@ const Title = styled.h1`
   color: #474747;
   font-size: ${FONT.lg}
   margin-bottom: 30px;
+`;
+
+const ButtonContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+`;
+
+const Button = styled(NormalButton)`
+  background-color: #ffffff;
+  color:  #7f7f7f;
+  border: 1px solid #7f7f7f;
+  // padding: 8px 45px;
+  border-radius: 0px;
+  ${MEDIA_QUERY.sm} {
+    width: 120px;
+  }
+  &:hover {
+    border: none;
+    color: #ffffff;
+    background-color: #7f7f7f;
+  }
+  &:last-child {
+    margin-left: ${DISTANCE.sm};
+  }
+`;
+
+const ErrorMessageContainer = styled.div`
+  margin-left: ${DISTANCE.lg};
+  font-size: ${FONT.lg};
+  font-weight: bold;
+  color: ${COLOR.text_alert};
+  line-height: 1.5;
 `;
 
 const PostProductPage = () => {
@@ -438,10 +473,17 @@ const PostProductPage = () => {
           <input type="checkbox" id="declare" />
           {t("I declare that this is an original artwork. I understand that no plagiarism is allowed, and that the artwork can be removed anytime if detected.")}
         </div>
-        <ButtonsBox
-          handler={handleShowMintModel}
-          productErrorMessage={productErrorMessage}
-        />
+        <ButtonContainer>
+          <Button  onClick={handleShowMintModel}>
+            {t('Mint')}
+          </Button>
+          <NavLink to='/nft/users/backstage'>
+            <Button >{t('My Account')}</Button>
+          </NavLink>
+          {productErrorMessage && (
+              <ErrorMessageContainer>{productErrorMessage}</ErrorMessageContainer>
+          )}
+        </ButtonContainer>
         {/*{attempting && hash && (*/}
         {/*    <SubmittedView onDismiss={wrappedOnDismiss} hash={hash}>*/}
         {/*      <AutoColumn gap="12px" justify={'center'}>*/}

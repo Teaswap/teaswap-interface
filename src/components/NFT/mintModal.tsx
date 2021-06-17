@@ -21,7 +21,7 @@ import {NFTEXCHANGE} from "../../constants";
 import {MintInfoInterface, mintState, useMintCallback} from "../../hooks/useMintCallback";
 import {useActiveWeb3React} from "../../hooks";
 import {useNFTLastId} from "../../state/wallet/hooks";
-import useProductForm from "../../hooks/productHooks/useProductForm";
+// import useProductForm from "../../hooks/productHooks/useProductForm";
 
 // const HypotheticalRewardRate = styled.div<{ dim: boolean }>`
 //   display: flex;
@@ -48,15 +48,23 @@ interface mintModalProps {
 export default function MintModal({ isOpen, onDismiss, mintInfo }: mintModalProps) {
   const {  account } = useActiveWeb3React()
   const { t } = useTranslation()
+    if(isOpen){
+        console.log('account:'+account)
+    }
+
 
   // track and parse user input
   const [approvalSubmitted, setApprovalSubmitted] = useState<boolean>(false)
     const [mintSubmitted, setMintSubmitted] = useState<boolean>(false)
-
+    console.log('approvalSubmitted:'+approvalSubmitted)
+    console.log('mintSubmitted:'+mintSubmitted)
   // state for pending and submitted txn views
   // const addTransaction = useTransactionAdder()
   const [attempting, setAttempting] = useState<boolean>(false)
   const [hash, setHash] = useState<string | undefined>()
+    console.log('attempting:'+attempting)
+    console.log('hash:'+hash)
+
   const wrappedOnDismiss = useCallback(() => {
     setHash(undefined)
     setAttempting(false)
@@ -70,6 +78,7 @@ export default function MintModal({ isOpen, onDismiss, mintInfo }: mintModalProp
   // approval data for stake
   // const stakeTokenContract = useTokenContract(stakingInfo.tokens[0].address)
  const [mint,mintCallback] = useMintCallback(mintInfo)
+    console.log('mint:'+mint)
  console.log("mintInfo:"+JSON.stringify(mintInfo))
  const lastIdres = useNFTLastId(mintInfo.delivertyLocation)
     console.log("lastIdres:"+lastIdres)
@@ -78,12 +87,12 @@ export default function MintModal({ isOpen, onDismiss, mintInfo }: mintModalProp
 
 
  const [approval, approveCallback] = useApproveNFTCallback(NFTEXCHANGE[ChainId.BSC_MAINNET], lastId, mintInfo.delivertyLocation)
- const {handleSubmitProduct} = useProductForm()
-
+ // const {handleSubmitProduct} = useProductForm()
+    console.log("approval:"+approval)
   useEffect(() => {
     if (approval === ApprovalState.PENDING) {
       setApprovalSubmitted(true)
-      handleSubmitProduct(mintInfo)
+      // handleSubmitProduct(mintInfo)
     }
   }, [approval, approvalSubmitted])
 
@@ -98,6 +107,8 @@ export default function MintModal({ isOpen, onDismiss, mintInfo }: mintModalProp
           return t('connectWallet')
       }
   },[account])
+
+    console.log("error:"+error)
 
 
 
