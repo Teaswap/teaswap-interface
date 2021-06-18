@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import useUser from '../../hooks/userHooks/useUser';
 import useSet from '../../hooks/userHooks/useSet';
 import { WrapperMask } from '../userSystem';
-import { COLOR, FONT, DISTANCE, EFFECT } from '../../constants/style';
+import { COLOR, FONT, DISTANCE, EFFECT, MEDIA_QUERY } from '../../constants/style';
 import { ActionButton } from '../NFTButton'
 import { useTranslation } from 'react-i18next'
 
@@ -30,6 +30,10 @@ const Description = styled.p`
   color: #474747;
   font-size: 14px;
   margin-bottom: ${DISTANCE.md};
+  ${MEDIA_QUERY.sm} {
+    width: 80%;
+  }
+
 `;
 
 const Label = styled.label`

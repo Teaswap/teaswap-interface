@@ -240,7 +240,7 @@ export default function MintModal({ isOpen, onDismiss, mintInfo }: mintModalProp
       {!attempting && !hash && (
         <ContentWrapper gap="lg">
           <RowBetween>
-            <TYPE.mediumHeader>{t('mint NFT')}</TYPE.mediumHeader>
+            <TYPE.mediumHeader>{t('Mint NFT')}</TYPE.mediumHeader>
             <CloseIcon onClick={wrappedOnDismiss} />
           </RowBetween>
           {/*<CurrencyInputPanel*/}

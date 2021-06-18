@@ -197,7 +197,7 @@ const PostProductPage = () => {
   //           ...mintargs,{ gasLimit: 350000 ,value:`0x${JSBI.BigInt("10000000000000000").toString(16)}`})
   //           .then((response: TransactionResponse) => {
   //             addTransaction(response, {
-  //               summary: t('mint NFT')
+  //               summary: t('Mint NFT')
   //             })
   //             setHash(response.hash)
   //           })

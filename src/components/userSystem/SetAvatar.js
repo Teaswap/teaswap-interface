@@ -32,6 +32,9 @@ const Description = styled.p`
   color: #474747;
   font-size: 14px;
   margin-bottom: ${DISTANCE.sm};
+  ${MEDIA_QUERY.sm} {
+    width: 80%;
+  }
 `;
 
 const Label = styled.label`
