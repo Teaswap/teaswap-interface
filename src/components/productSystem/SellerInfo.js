@@ -41,7 +41,7 @@ const Avatar = styled.img`
 
 const InfoContainer = styled.div`
   width: 55%;
-  border-right: 1px solid ${COLOR.cccccc};
+  // border-right: 1px solid ${COLOR.cccccc};
   padding-right: 40px;
   align-self: center;
 
@@ -132,11 +132,12 @@ const InfoLeft = ({ avatar, onLoad, loaded }) => {
 };
 
 const InfoMiddle = ({ nickname, products }) => {
+  const {t} = useTranslation()
   return (
     <InfoContainer>
       <InfoTop>
         <SellerName>{nickname}</SellerName>
-        <ActionButton $margin={20}>+ 加入關注</ActionButton>
+        <ActionButton $margin={20}>{t("Follow")}</ActionButton>
       </InfoTop>
       <InfoItem products={products} />
     </InfoContainer>
@@ -192,9 +193,9 @@ const InfoRight = ({ email, isShowContact, setIsShowContact, handleClick }) => {
   return (
     <ContactContainer>
       <ContactInfo>
-        <ContactInfoTitle>{t('Contact Info')}</ContactInfoTitle>
-        <NormalButton onClick={handleClick}>{t('Contact')}</NormalButton>
-        {isShowContact && <VendorContact setIsShowContact={setIsShowContact} />}
+        {/* <ContactInfoTitle>{t('Contact Info')}</ContactInfoTitle> */}
+        {/* <NormalButton onClick={handleClick}>{t('Contact')}</NormalButton> */}
+        {/* {isShowContact && <VendorContact setIsShowContact={setIsShowContact} />} */}
       </ContactInfo>
       <Email>{email}</Email>
     </ContactContainer>
@@ -210,6 +211,7 @@ export const SellerInfoMobile = ({
   setIsShowContact,
   handleClick,
 }) => {
+  const {t} = useTranslation();
   return (
     <InfoContainer>
       <VendorInfoWrap>
@@ -223,13 +225,13 @@ export const SellerInfoMobile = ({
           </AvatarContainer>
           <SellerName>{vendorInfo.nickname}</SellerName>
           <Buttons>
-            <ActionButton $margin={20}>+ 加入關注</ActionButton>
+            <ActionButton $margin={20}>{t("Follow")}</ActionButton>
             <ActionButton onClick={handleClick} $margin={20} $bg={'red'}>
-              + 加入關注
+              {t("Follow")}
             </ActionButton>
-            {isShowContact && (
+            {/* {isShowContact && (
               <VendorContact setIsShowContact={setIsShowContact} />
-            )}
+            )} */}
           </Buttons>
         </InfoTop>
       </VendorInfoWrap>
@@ -255,12 +257,12 @@ export const SellerInfo = ({
         loaded={loaded}
       />
       <InfoMiddle nickname={vendorInfo.nickname} products={products} />
-      <InfoRight
+      {/* <InfoRight
         email={vendorInfo.email}
         isShowContact={isShowContact}
         setIsShowContact={setIsShowContact}
         handleClick={handleClick}
-      />
+      /> */}
     </InfoBlock>
   );
 };

@@ -43,7 +43,7 @@ const Avatar = styled.img`
 
 const InfoContainer = styled.div`
   width: 55%;
-  border-right: 1px solid ${COLOR.cccccc};
+  // border-right: 1px solid ${COLOR.cccccc};
   padding-right: 40px;
   align-self: center;
   min-width: max-content;
@@ -150,18 +150,18 @@ const InfoItem = () => {
       </InfoBottomItem>
       <InfoBottomItem>
         <InfoName>{t('Owned')}</InfoName>
-        <InfoNumber>2</InfoNumber>
+        <InfoNumber>0</InfoNumber>
       </InfoBottomItem>
       <InfoBottomItem>
         <InfoName>{t('Created')}</InfoName>
-        <InfoNumber>3</InfoNumber>
+        <InfoNumber>0</InfoNumber>
       </InfoBottomItem>
-      <InfoBottomItem>
+      {/* <InfoBottomItem>
         <InfoName>{t('Views')}</InfoName>
         <InfoNumber>
           {averageShippingTime ? `${averageShippingTime} days` : 'No Work'}
         </InfoNumber>
-      </InfoBottomItem>
+      </InfoBottomItem> */}
     </InfoBottom>
   );
 };
@@ -179,11 +179,7 @@ const InfoRight = ({ email }) => {
 
   return (
     <ContactContainer>
-      <ContactInfo>
-        {/* <ContactInfoTitle>{t('Contact Info')}</ContactInfoTitle> */}
-        <Nav children={t('Edit Contact')} path={`/nft/users/vendor/${id}`} />
-      </ContactInfo>
-      <Email>{email}</Email>
+    
     </ContactContainer>
   );
 };
@@ -197,7 +193,6 @@ export default function SellerInfo({ onLoad, loaded, vendorInfo, products }) {
         loaded={loaded}
       />
       <InfoMiddle nickname={vendorInfo.nickname} products={products} />
-      <InfoRight email={vendorInfo.email} />
     </InfoBlock>
   );
 }

@@ -63,6 +63,14 @@ const VendorShopPage = () => {
           loaded={loaded}
           onLoad={onLoad}
         />
+        {/* <div className="user-icons">
+          <ExternalLink className="margin10" href={`${vendorInfo.twitter}`}>
+            <AiFillTwitterSquare title="twitter" size="30"/>
+          </ExternalLink>
+          <NavLink className="margin10" style={{ minWidth: 'fit-content' }} to={`/nft/users/vendor/${id}`}>
+            <AiOutlineUser title="Edit Contact" size="30"/>
+          </NavLink>
+        </div> */}
         {isMobile ? (
           <SellerInfoMobile
             vendorInfo={vendorInfo}

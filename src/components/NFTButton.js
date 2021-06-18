@@ -49,7 +49,7 @@ export const NormalButton = styled(ButtonWrapper)`
   border: 1px solid #7f7f7f;
   height: 42px;
   &:hover {
-    border: #474747;
+    border: 1px solid #474747;
   }
 `;
 
