@@ -32,7 +32,7 @@ const Title = styled.h1`
   width: 100%;
   margin: 0 auto;
   ${MEDIA_QUERY.sm} {
-    width: 70%;
+    width: 50%;
   }
 `;
 
