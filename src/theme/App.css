@@ -17,14 +17,9 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  border-radius: 15px;
-  -webkit-border-radius: 15px;
-  -moz-border-radius: 15px;
-  -ms-border-radius: 15px;
-  -o-border-radius: 15px;
 }
 .success-message > p {
-  color: #7a7a7a;
+  color: #474747;
   font-size: 16px;
   margin: 20px;
 }

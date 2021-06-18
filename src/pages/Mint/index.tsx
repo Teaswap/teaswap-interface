@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import {MEDIA_QUERY} from '../../constants/style';
 import { NavLink } from 'react-router-dom'
 import useUser from '../../hooks/userHooks/useUser';
+import ConSubTitle from '../../components/Content/SubTitle';
 
 const List = ()=>{
   const { handleGetMe } = useUser();
@@ -20,14 +21,13 @@ const List = ()=>{
       <img className="page-banner" src={process.env.PUBLIC_URL + '/mint_banner.png'} width="100%" />
       <Title>
         <StyledLink to={mintUrl}>
-          Click & Mint Now!
+          Create
         </StyledLink>
       </Title>
-      {/* <SubTitle>
-        <StyledLink href="https://docs.google.com/forms/d/e/1FAIpQLSeDP0KdH1VC9v9G-D97SUX1ykcOOkMR_ff9OX5je-g1Qw8ePw/viewform">
-          Featured Artist Application 
-        </StyledLink>
-      </SubTitle> */}
+      <ConSubTitle con="Featured Artist Application" />
+        {/* <StyledLink href="https://docs.google.com/forms/d/e/1FAIpQLSeDP0KdH1VC9v9G-D97SUX1ykcOOkMR_ff9OX5je-g1Qw8ePw/viewform"> */}
+         
+        {/* </StyledLink> */}
     </PageWrapper>
   )
 };
@@ -42,28 +42,29 @@ const PageWrapper = styled(ColumnCenter)`
 const StyledLink = styled(NavLink)`
   text-decoration: none;
   cursor: pointer;
-  font-weight: 500;
-  color: #474747;
-
+  color: #ffffff;
+  font-size: 17px;
+  background-color: #474747;
+  padding: 20px 50px;
   :hover {
     text-decoration: none;
-    color: #474747;
+    color: #ffffff;
+    background-color: rgb(0, 0, 0);
   }
 
   :focus {
     outline: none;
     text-decoration: none;
-    color: #474747;
+    color: #ffffff;
   }
 
   :active {
     text-decoration: none;
-    color: #474747;
+    color: #ffffff;
   }
 
   :visited {
-    color: inherit;
-    color: #474747;
+    color: #ffffff;
   }
 `
 const Title = styled.p`
