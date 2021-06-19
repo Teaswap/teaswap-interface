@@ -44,12 +44,12 @@ const StyledLink = styled(NavLink)`
   cursor: pointer;
   color: #ffffff;
   font-size: 17px;
-  background-color: #7a7a7a;
-  padding: 10px 50px;
+  background-color: #7f7f7f;
+  padding: 10px 70px;
   :hover {
     text-decoration: none;
     color: #ffffff;
-    background-color: rgb(0, 0, 0);
+    background-color: #474747;
   }
 
   :focus {

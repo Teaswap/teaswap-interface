@@ -5,6 +5,9 @@ import { COLOR, FONT, DISTANCE, MEDIA_QUERY } from '../../constants/style';
 import { ActionButton, NormalButton } from '../NFTButton';
 import { VendorContact } from '../../components/productSystem';
 import { useTranslation } from 'react-i18next'
+import { AiFillTwitterSquare, AiFillInstagram, AiFillLike } from "react-icons/ai";
+import { NavLink } from 'react-router-dom';
+import { ExternalLink } from '../../theme';
 
 const InfoBlock = styled.section`
   display: flex;
@@ -40,15 +43,14 @@ const Avatar = styled.img`
 `;
 
 const InfoContainer = styled.div`
-  width: 55%;
-  // border-right: 1px solid ${COLOR.cccccc};
-  padding-right: 40px;
   align-self: center;
-
-  ${MEDIA_QUERY.lg_1} {
+  height: 130px;
+  min-width: max-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  ${MEDIA_QUERY.sm} {
     width: 100%;
-    padding-right: 0px;
-    border-right: none;
   }
 `;
 
@@ -119,26 +121,42 @@ const Email = styled.p`
   font-size: ${FONT.xs};
 `;
 
-const InfoLeft = ({ avatar, onLoad, loaded }) => {
+const InfoLeft = ({ vendorInfo, onLoad, loaded }) => {
+  const {t} = useTranslation()
+
   return (
-    <AvatarContainer>
-      <Avatar
-        src={avatar}
-        style={{ opacity: loaded ? 1 : 0 }}
-        onLoad={onLoad}
-      />
-    </AvatarContainer>
+    <div className="user-left">
+      <div className="user-avatar-div flex-center">
+        <img
+          className="user-avatar"
+          src={vendorInfo.avatar_url}
+          style={{ opacity: loaded ? 1 : 0 }}
+          onLoad={onLoad}
+        />
+      </div>
+      <InfoContainer>
+        <SellerName>{vendorInfo.nickname}</SellerName>
+          {/*<ActionButton $margin={20}>+ 加入關注</ActionButton>*/}
+          <div className="user-icons">
+            <ExternalLink className="margin10" href={`${vendorInfo.twitter}`}>
+              <AiFillInstagram color="#7a7a7a" title="twitter" size="30"/>
+            </ExternalLink>
+            <ExternalLink className="margin10" href={`${vendorInfo.twitter}`}>
+              <AiFillTwitterSquare color="#7a7a7a" title="twitter" size="30"/>
+            </ExternalLink>
+            <span style={{cursor: 'pointer'}} className="margin10">
+              <AiFillLike size="30" color="#7a7a7a" title={t("Follow")} />
+            </span>
+          </div>
+      </InfoContainer>
+    </div>
   );
 };
 
 const InfoMiddle = ({ nickname, products }) => {
-  const {t} = useTranslation()
   return (
     <InfoContainer>
-      <InfoTop>
-        <SellerName>{nickname}</SellerName>
-        <ActionButton $margin={20}>{t("Follow")}</ActionButton>
-      </InfoTop>
+
       <InfoItem products={products} />
     </InfoContainer>
   );
@@ -178,12 +196,12 @@ const InfoItem = () => {
         <InfoName>Response speed</InfoName>
         <InfoNumber>3</InfoNumber>
       </InfoBottomItem>
-      <InfoBottomItem>
+      {/* <InfoBottomItem>
         <InfoName>Average shipment speed</InfoName>
         <InfoNumber>
           {averageShippingTime ? `${averageShippingTime} days` : 'No Products'}
         </InfoNumber>
-      </InfoBottomItem>
+      </InfoBottomItem> */}
     </InfoBottom>
   );
 };
@@ -252,7 +270,7 @@ export const SellerInfo = ({
   return (
     <InfoBlock>
       <InfoLeft
-        avatar={vendorInfo.avatar_url}
+        vendorInfo={vendorInfo}
         onLoad={onLoad}
         loaded={loaded}
       />

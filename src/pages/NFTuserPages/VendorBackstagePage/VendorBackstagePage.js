@@ -8,7 +8,6 @@ import useUser from '../../../hooks/userHooks/useUser';
 import useProduct from '../../../hooks/productHooks/useProduct';
 import { NavLink } from 'react-router-dom';
 import { NormalButton, Nav } from '../../../components/NFTButton';
-import { AiFillTwitterSquare, AiOutlineEdit } from "react-icons/ai";
 
 import {
   SellerInfo,
@@ -21,14 +20,13 @@ import {
   setErrorMessage,
 } from '../../../redux/slices/productSlice/productSlice';
 import { useTranslation } from 'react-i18next';
-import { ExternalLink } from '../../../theme';
 
 const SellerProductTitle = styled.div`
   margin: ${DISTANCE.sm} auto;
   padding-bottom: ${DISTANCE.sm};
   font-size: ${FONT.lg};
   color: ${COLOR.text_2};
-  border-bottom: 1px solid ${COLOR.cccccc};
+  // border-bottom: 1px solid ${COLOR.cccccc};
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -83,34 +81,44 @@ const VendorBackstagePage = () => {
     };
   }, []);
 
+  const [productCat, setProductCat] = useState(0);
+
+  const changeCat = function(t) {
+    setProductCat(t)
+  }
+
+
   return (
     <>
       <Banner banner={vendorInfo.banner_url} loaded={loaded} onLoad={onLoad} />
       <StandardNavPage>
-        <div className="user-icons">
-          <ExternalLink className="margin10" href={`${vendorInfo.twitter}`}>
-            <AiFillTwitterSquare title="twitter" size="30"/>
-          </ExternalLink>
-          <NavLink className="margin10" style={{ minWidth: 'fit-content' }} to={`/nft/users/vendor/${id}`}>
-            <AiOutlineEdit title="Edit Contact" size="30"/>
-          </NavLink>
-        </div>
         <SellerInfo
           vendorInfo={vendorInfo}
           products={products}
           loaded={loaded}
           onLoad={onLoad}
         />
-        <ButtonContainer>
-          <NormalButton  onClick={handleSetAnnouncement}>{t('Edit Description')}</NormalButton>
-        </ButtonContainer>
+        
         {isSettingAnnouncement && (
           <SetAnnouncement setIsSettingAnnouncement={setIsSettingAnnouncement} />
         )}
-        <Announcement announcement={user?user.announcement:''} />
+        <Announcement handleSetAnnouncement={handleSetAnnouncement} announcement={user?user.announcement:''} />
 
         <SellerProductTitle>
-          <p>{t('Posted NFTs')} </p>
+          <div className='page-tabs'>
+            <span className='page-tab' onClick={() => changeCat(0)}>
+              In Wallet
+            </span>
+            <span className='page-tab' onClick={() => changeCat(1)}>
+              On Sale
+            </span>
+            <span className='page-tab' onClick={() => changeCat(2)}>
+              On Auction
+            </span>
+            <span className='page-tab' onClick={() => changeCat(3)}>
+              Collected
+            </span>
+          </div>
           <NavLink style={{ minWidth: 'fit-content' }} to={'/nft/products/post'}>
             <NormalButton className="btn-sm-100" >{t('Add NFT')}</NormalButton>
           </NavLink>

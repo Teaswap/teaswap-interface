@@ -8,7 +8,7 @@ import { NavLink } from 'react-router-dom';
 import { useTranslation } from 'react-i18next'
 
 const ProductsContainer = styled.div`
-  padding: 50px 10px;
+  padding: 0px 10px 50px 10px;
 `;
 
 const ProductsWrap = styled.div`

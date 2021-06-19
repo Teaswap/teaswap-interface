@@ -34,24 +34,24 @@ const Description = styled.p`
   width: 60%;
   color: #474747;
   font-size: 14px;
+  margin: 0;
+  margin-top: 1rem;
 `;
 
 const Label = styled.label`
-  background-color: #ffffff;
-  color:  #7f7f7f;
-  // border: 1px solid #7f7f7f;
-  // padding: 10px 40px;
-  margin: ${DISTANCE.md} 0;
-  min-width: max-content;
-  cursor: pointer;
-  &:hover {
-    border: none;
-    color: #ffffff;
-    background-color: #7f7f7f;
-    transform: scale(1.05);
-  }
-  // visibility: hidden;
-  height: 0px;
+  display: none;
+  // background-color: #ffffff;
+  // color:  #7f7f7f;
+  // min-width: max-content;
+  // cursor: pointer;
+  // &:hover {
+  //   border: none;
+  //   color: #ffffff;
+  //   background-color: #7f7f7f;
+  //   transform: scale(1.05);
+  // }
+  // // visibility: hidden;
+  // height: 0px;
 `;
 
 const InputFile = styled.input`
@@ -67,7 +67,9 @@ export function PictureBox({ pictureUrl, handleChange }) {
       </PreviewPicture>
       <RightSide>
         <Description>
-          {"Support： PNG, JPG , GIF, Video and Audio; Suggested ration 3:4; Size <10MB"}
+          {"Support： PNG, JPG , GIF, Video and Audio;"}
+          <br />
+          {"Suggested ration 3:4; Size <10MB"}
           <br />
           {"Mint an NFT charges 0.01BNB"}
         </Description>

@@ -5,6 +5,9 @@ import { ActionButton, Nav } from '../NFTButton';
 import useUser from '../../hooks/userHooks/useUser';
 import useProduct from '../../hooks/productHooks/useProduct';
 import { useTranslation } from 'react-i18next'
+import { AiFillTwitterSquare, AiFillEdit, AiFillInstagram } from "react-icons/ai";
+import { NavLink } from 'react-router-dom';
+import { ExternalLink } from '../../theme';
 
 const InfoBlock = styled.section`
   display: flex;
@@ -16,41 +19,21 @@ const InfoBlock = styled.section`
     width: calc(100% - 20px);
   }
 `;
-const AvatarContainer = styled.div`
-  position: relative;
-  width: 150px;
-  height: 150px;
-
-  &:before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    background: url(${process.env.PUBLIC_URL}/logo-g.svg) center/contain
-      no-repeat;
-  }
-`;
 
 const Avatar = styled.img`
-  position: relative;
-  width: 100%;
-  height: 100%;
-  transition: opacity 0.2s;
-  object-fit: cover;
+  width: 50%; 
+  height: 50%;
 `;
 
 const InfoContainer = styled.div`
-  width: 55%;
-  // border-right: 1px solid ${COLOR.cccccc};
-  padding-right: 40px;
   align-self: center;
+  height: 130px;
   min-width: max-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   ${MEDIA_QUERY.sm} {
     width: 100%;
-    padding-right: 0px;
-    border-right: none;
   }
 `;
 
@@ -61,10 +44,12 @@ const InfoTop = styled.div`
 `;
 
 const SellerName = styled.div`
-  font-size: ${FONT.lg};
-  color: ${COLOR.text_2};
+  font-size: 16px;
+  color: #474747;
   font-weight: bold;
   margin-right: 26px;
+  width: 90%;
+  margin: 0 auto
 `;
 
 const InfoBottom = styled.div`
@@ -81,18 +66,18 @@ const InfoBottomItem = styled.div`
 `;
 
 const InfoName = styled.p`
-  color: ${COLOR.text_2};
+  color: #474747;
 `;
 
 const InfoNumber = styled.div`
-  color: ${COLOR.text_2};
+  color: #474747;
 `;
 
 const ContactContainer = styled.div`
   width: 250px;
-  margin-left: ${DISTANCE.sm};
+  margin-left: 20px;
   align-self: center;
-  color: ${COLOR.text_2};
+  color: #474747;
   min-width: max-content;
   margin-top: 20px;
 `;
@@ -111,29 +96,39 @@ const ContactInfoTitle = styled.div`
   min-width: max-content;
 `;
 
-const Email = styled.p`
-  font-size: ${FONT.xs};
-`;
-
-const InfoLeft = ({ avatar, onLoad, loaded }) => {
+const InfoLeft = ({ vendorInfo, onLoad, loaded }) => {
   return (
-    <AvatarContainer>
-      <Avatar
-        src={avatar}
-        style={{ opacity: loaded ? 1 : 0 }}
-        onLoad={onLoad}
-      />
-    </AvatarContainer>
+    <div className="user-left">
+      <div className="user-avatar-div flex-center">
+        <img
+          className="user-avatar"
+          src={vendorInfo.avatar_url}
+          style={{ opacity: loaded ? 1 : 0 }}
+          onLoad={onLoad}
+        />
+      </div>
+      <InfoContainer>
+        <SellerName>{vendorInfo.nickname}</SellerName>
+          {/*<ActionButton $margin={20}>+ 加入關注</ActionButton>*/}
+          <div className="user-icons">
+            <ExternalLink className="margin10" href={`${vendorInfo.twitter}`}>
+              <AiFillInstagram color="#7a7a7a" title="twitter" size="30"/>
+            </ExternalLink>
+            <ExternalLink className="margin10" href={`${vendorInfo.twitter}`}>
+              <AiFillTwitterSquare color="#7a7a7a" title="twitter" size="30"/>
+            </ExternalLink>
+            <NavLink className="margin10" style={{ minWidth: 'fit-content' }} to={`/nft/users/vendor/${vendorInfo.userId}`}>
+              <AiFillEdit color="#7a7a7a" title="Edit Contact" size="30"/>
+            </NavLink>
+          </div>
+      </InfoContainer>
+    </div>
   );
 };
 
 const InfoMiddle = ({ nickname, products }) => {
   return (
     <InfoContainer>
-      <InfoTop>
-        <SellerName>{nickname}</SellerName>
-        {/*<ActionButton $margin={20}>+ 加入關注</ActionButton>*/}
-      </InfoTop>
       <InfoItem products={products} />
     </InfoContainer>
   );
@@ -149,7 +144,7 @@ const InfoItem = () => {
         <InfoNumber>{productCount}</InfoNumber>
       </InfoBottomItem>
       <InfoBottomItem>
-        <InfoName>{t('Owned')}</InfoName>
+        <InfoName>{t('Collected')}</InfoName>
         <InfoNumber>0</InfoNumber>
       </InfoBottomItem>
       <InfoBottomItem>
@@ -188,7 +183,7 @@ export default function SellerInfo({ onLoad, loaded, vendorInfo, products }) {
   return (
     <InfoBlock>
       <InfoLeft
-        avatar={vendorInfo.avatar_url}
+        vendorInfo={vendorInfo}
         onLoad={onLoad}
         loaded={loaded}
       />

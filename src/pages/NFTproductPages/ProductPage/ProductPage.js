@@ -59,7 +59,7 @@ const ProductPage = () => {
     return () => {
       dispatch(setProduct([]));
       dispatch(setProducts([]));
-      dispatch(setCategory([]));
+    dispatch(setCategory([]));
       dispatch(setErrorMessage(null));
     };
   }, [id, dispatch]);

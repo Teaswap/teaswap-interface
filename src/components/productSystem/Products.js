@@ -58,6 +58,7 @@ const ProductContainer = styled.div`
   flex-direction: column;
   align-items: center;
   padding-bottom: 20px; 
+  text-align: center;
 `;
 
 const Placeholder = styled.div`

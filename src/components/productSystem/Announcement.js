@@ -2,8 +2,11 @@ import React from 'react';
 import styled from "styled-components";
 import { COLOR, FONT, MEDIA_QUERY } from "../../constants/style";
 import { useTranslation } from 'react-i18next'
+import { AiFillEdit } from "react-icons/ai";
+import { NavLink } from 'react-router-dom';
 
 const AnnouncementContainer = styled.section`
+  position: relative;
   margin: 15px auto;
   width: calc(100% 100px);
   min-height: 130px;
@@ -32,12 +35,15 @@ const AnnouncementContent = styled.div`
   margin-top: 20px;
 `;
 
-export const Announcement = ({ announcement }) => {
+export const Announcement = ({ announcement, handleSetAnnouncement }) => {
   const {t} = useTranslation();
   return (
     <AnnouncementContainer>
       <AnnouncementTitle>{t('Artist Description')}</AnnouncementTitle>
       <AnnouncementContent>{announcement}</AnnouncementContent>
+      {handleSetAnnouncement && (<span className="edit-desc-btn flex-center" onClick={handleSetAnnouncement}>
+        <AiFillEdit color="#7a7a7a" title="Edit Contact" size="30"/>
+      </span>)}
     </AnnouncementContainer>
   );
 };
