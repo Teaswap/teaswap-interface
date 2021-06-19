@@ -151,7 +151,7 @@ export function useUserHasSubmittedClaim(
 // watch for submissions to mint
 // return null if not done loading, return undefined if not found
 export function useUserHasSubmittedMint(
-    account?: string
+    productName?: string
 ): { submitted: boolean; mintTxn: TransactionDetails | undefined } {
     const allTransactions = useAllTransactions()
 
@@ -159,10 +159,10 @@ export function useUserHasSubmittedMint(
     const mintTxn = useMemo(() => {
         const txnIndex = Object.keys(allTransactions).find(hash => {
             const tx = allTransactions[hash]
-            return tx.mint && tx.mint.account === account
+            return tx.mint && tx.mint.productName === productName
         })
         return txnIndex && allTransactions[txnIndex] ? allTransactions[txnIndex] : undefined
-    }, [account, allTransactions])
+    }, [productName, allTransactions])
 
     return { submitted: Boolean(mintTxn), mintTxn }
 }

@@ -20,7 +20,8 @@ import { LoadingView, SubmittedView } from '../ModalViews'
 import {NFTEXCHANGE} from "../../constants";
 import {MintInfoInterface, mintState, useMintCallback} from "../../hooks/useMintCallback";
 import {useActiveWeb3React} from "../../hooks";
-import {useNFTLastId} from "../../state/wallet/hooks";
+import useProductForm from "../../hooks/productHooks/useProductForm";
+// import {useNFTLastId} from "../../state/wallet/hooks";
 // import useProductForm from "../../hooks/productHooks/useProductForm";
 
 // const HypotheticalRewardRate = styled.div<{ dim: boolean }>`
@@ -43,14 +44,12 @@ interface mintModalProps {
   isOpen: boolean
   onDismiss: () => void
   mintInfo: MintInfoInterface
+    lastId?:number
 }
 
-export default function MintModal({ isOpen, onDismiss, mintInfo }: mintModalProps) {
+export default function MintModal({ isOpen, onDismiss, mintInfo,lastId }: mintModalProps) {
   const {  account } = useActiveWeb3React()
   const { t } = useTranslation()
-    if(isOpen){
-        console.log('account:'+account)
-    }
 
 
   // track and parse user input
@@ -58,7 +57,9 @@ export default function MintModal({ isOpen, onDismiss, mintInfo }: mintModalProp
     const [mintSubmitted, setMintSubmitted] = useState<boolean>(false)
     console.log('approvalSubmitted:'+approvalSubmitted)
     console.log('mintSubmitted:'+mintSubmitted)
-  // state for pending and submitted txn views
+    const [minted, setMinted] = useState<boolean>(false)
+
+    // state for pending and submitted txn views
   // const addTransaction = useTransactionAdder()
   const [attempting, setAttempting] = useState<boolean>(false)
   const [hash, setHash] = useState<string | undefined>()
@@ -80,19 +81,27 @@ export default function MintModal({ isOpen, onDismiss, mintInfo }: mintModalProp
  const [mint,mintCallback] = useMintCallback(mintInfo)
     console.log('mint:'+mint)
  console.log("mintInfo:"+JSON.stringify(mintInfo))
- const lastIdres = useNFTLastId(mintInfo.delivertyLocation)
-    console.log("lastIdres:"+lastIdres)
- const lastId = lastIdres?lastIdres-1:undefined
+ // const lastIdres = useNFTLastId(mintInfo.delivertyLocation)
+ //    console.log("lastIdres:"+lastIdres)
+ //
+ // const lastId = useMemo(()=>{
+ //     if (lastIdres) {
+ //         return lastIdres-1
+ //     }else{
+ //         return undefined
+ //     }
+ // },[lastIdres])
+
     console.log("lastId:"+lastId)
 
 
- const [approval, approveCallback] = useApproveNFTCallback(NFTEXCHANGE[ChainId.BSC_MAINNET], lastId, mintInfo.delivertyLocation)
- // const {handleSubmitProduct} = useProductForm()
+ const [approval, approveCallback] = useApproveNFTCallback(NFTEXCHANGE[ChainId.BSC_MAINNET], lastId,mintInfo.delivertyLocation)
+ const {handleSubmitProduct} = useProductForm()
     console.log("approval:"+approval)
   useEffect(() => {
     if (approval === ApprovalState.PENDING) {
       setApprovalSubmitted(true)
-      // handleSubmitProduct(mintInfo)
+      handleSubmitProduct(mintInfo,lastId)
     }
   }, [approval, approvalSubmitted])
 
@@ -101,6 +110,12 @@ export default function MintModal({ isOpen, onDismiss, mintInfo }: mintModalProp
           setMintSubmitted(true)
       }
   }, [mint, mintSubmitted])
+
+    useEffect(() => {
+        if (mint === mintState.MINTED) {
+            setMinted(true)
+        }
+    }, [mint, minted])
 
   const error = useMemo(()=>{
       if (!account) {
@@ -282,7 +297,7 @@ export default function MintModal({ isOpen, onDismiss, mintInfo }: mintModalProp
                   onClick={approveCallback}
                   confirmed={approval === ApprovalState.APPROVED || approvalSubmitted}
                   altDisabledStyle={approval === ApprovalState.PENDING} // show solid button while waiting
-                  disabled={!!error || approval !== ApprovalState.NOT_APPROVED ||  mint !== mintState.MINTED }
+                  disabled={!!error || approval !== ApprovalState.NOT_APPROVED ||  !minted  }
               >
                   {t('approve')}
               </ButtonConfirmed>

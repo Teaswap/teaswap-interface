@@ -8,7 +8,7 @@ import {useNFTFactoryContract} from './useContract'
 import {userInterface} from "../state/user/actions";
 import {useTranslation} from "react-i18next";
 import {useHasPendingMint, useTransactionAdder, useUserHasSubmittedMint} from "../state/transactions/hooks";
-import {useActiveWeb3React} from "./index";
+// import {useActiveWeb3React} from "./index";
 
 export enum mintState {
     UNKNOWN,
@@ -37,10 +37,10 @@ export interface MintInfoInterface{
 export function useMintCallback(
     mintInfo: MintInfoInterface,
 ): [mintState, () => Promise<void>  ] {
-    const { account } = useActiveWeb3React()
+    // const { account } = useActiveWeb3React()
     const NFTFactoryContract = useNFTFactoryContract(NFTFACTORY[ChainId.BSC_MAINNET]);
     const pendingMint = useHasPendingMint(mintInfo)
-    const {submitted,} = useUserHasSubmittedMint(account?account:undefined)
+    const {submitted,} = useUserHasSubmittedMint(mintInfo.productName?mintInfo.productName:undefined)
     const {t} = useTranslation()
     const addTransaction = useTransactionAdder()
 

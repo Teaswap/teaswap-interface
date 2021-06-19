@@ -12,6 +12,7 @@ import { calculateGasMargin } from '../utils'
 import { useTokenContract } from './useContract'
 import { useActiveWeb3React } from './index'
 import { Version } from './useToggledVersion'
+import {useNFTLastId} from "../state/wallet/hooks";
 
 export enum ApprovalState {
   UNKNOWN,
@@ -116,9 +117,23 @@ export function useApproveCallbackFromTrade(trade?: Trade, allowedSlippage = 0) 
 
 export function useApproveNFTCallback(
     to?: string,
-    tokenId?: number,
+    lastTokenId?: number,
     tokenAddress?:string
 ): [ApprovalState, () => Promise<void>  ] {
+
+  const tokenIdres = useNFTLastId(tokenAddress)
+     console.log("tokenIdres:"+tokenIdres)
+
+  const tokenId = useMemo(()=>{
+    console.log("tokenIdres:"+tokenIdres)
+    console.log("lastTokenId:"+lastTokenId)
+
+      if (tokenIdres) {
+          return tokenIdres-1
+      }else{
+          return undefined
+      }
+  },[tokenIdres])
 
   const currentAllowance = useNFTAllowance(tokenAddress,tokenId)
   const pendingApproval = useHasPendingNFTApproval(tokenAddress, to,tokenId)
@@ -128,14 +143,14 @@ export function useApproveNFTCallback(
     if (!to) return ApprovalState.UNKNOWN
     if(!tokenAddress) return ApprovalState.UNKNOWN
     // we might not have enough data to know whether or not we need to approve
-    if (!currentAllowance) return ApprovalState.UNKNOWN
+    if (!currentAllowance) return ApprovalState.NOT_APPROVED
 
     // amountToApprove will be defined if currentAllowance is
     return currentAllowance != to
         ? pendingApproval
             ? ApprovalState.PENDING
             : ApprovalState.NOT_APPROVED: ApprovalState.APPROVED
-  }, [currentAllowance, pendingApproval, to])
+  }, [currentAllowance, pendingApproval, to,tokenAddress])
 
   const nftContract = useTokenContract(tokenAddress)
   const addTransaction = useTransactionAdder()
@@ -155,7 +170,7 @@ export function useApproveNFTCallback(
       return
     }
 
-    if (!tokenId) {
+    if (tokenId === undefined) {
       console.error('missing tokenId to approve')
       return
     }

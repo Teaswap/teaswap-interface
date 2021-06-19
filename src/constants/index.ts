@@ -76,11 +76,11 @@ export const MERKLE_DISTRIBUTOR_ADDRESS: { [chainId in ChainId]?: string } = {
 }
 
 export const NFTFACTORY: { [chainId in ChainId]?: string } = {
-  [ChainId.BSC_MAINNET]:'0x3F07774026B0E4F0a18e7f3261165000d5750362'
+  [ChainId.BSC_MAINNET]:'0x7c06212329E0922Dc85D28F2D2DD60d5d29b3B0b'
 }
 
 export const NFTEXCHANGE: { [chainId in ChainId]?: string } = {
-  [ChainId.BSC_MAINNET]:'0x952fb637f0BCC9a8a51bfb57d343a0D22b31C675'
+  [ChainId.BSC_MAINNET]:'0x7CA4B205545A740ebC395bc02299cFb6DD628956'
 }
 
 //0xb0AEB3b4C1CDf40Bc05Dc232073634d08de72060   0.01BNB
