@@ -17,14 +17,9 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  border-radius: 15px;
-  -webkit-border-radius: 15px;
-  -moz-border-radius: 15px;
-  -ms-border-radius: 15px;
-  -o-border-radius: 15px;
 }
 .success-message > p {
-  color: #7a7a7a;
+  color: #474747;
   font-size: 16px;
   margin: 20px;
 }
@@ -41,6 +36,7 @@
   align-items: center;
   padding-bottom: 30px;
   width: 90%;
+  font-size: 14px;
 }
 .declare-checkbox > input{
   width: 35px;
@@ -61,4 +57,74 @@
 .iro-title1{
   line-height: 30px;
   font-size: 15px;
+}
+.auto-list-div{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+.user-icons{
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: flex-start;
+}
+.margin10{
+  margin: 10px;
+}
+.user-left{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+.user-avatar-div{
+  width: 150px; 
+  height: 150px;
+  border-radius: 150px;
+  border: 1px solid #474747;
+}
+.user-avatar{
+  width: 50%; 
+  height: 50%;
+}
+.flex-center{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.edit-desc-btn{
+  width: 42px;
+  height: 42px; 
+  background-color: rgb(222, 222, 222);
+  position: absolute;
+  top: 0;
+  right: 10px;
+  cursor: pointer;
+}
+.page-tabs{
+  width: 100%;
+  max-width: 1320px;
+  margin: 0 auto;
+  text-align: left;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  padding:0 20px;
+}
+.page-tab{
+  margin-right: 30px;
+  color: #7f7f7f;
+  font-size: 15px;
+  cursor: pointer;
+  padding: 10px 30px;
+}
+.page-tab:hover {
+  color: #474747;
+  background: #ccc;
+  transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -ms-transition: all 0.5s;
+  -o-transition: all 0.5s;
 }

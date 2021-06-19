@@ -164,8 +164,11 @@ export const IFO_REWARDS_INFO: {
     {
       tokens: [PAYABLEETH[ChainId.BSC_MAINNET], UNI[ChainId.BSC_MAINNET]],
       idoAddress: '0x887Ed22FAF9C4B985ecB019eA54A5185350AE214'
+    },
+    {
+      tokens: [PAYABLEETH[ChainId.BSC_MAINNET], UNI[ChainId.BSC_MAINNET]],
+      idoAddress: '0xF72ECaD992CebB0138aC13b616199f131F847b04'
     }
-
   ]
 }
 

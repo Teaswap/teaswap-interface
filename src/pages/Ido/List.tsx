@@ -9,7 +9,7 @@ import GridImg5 from '../../assets/images/grid_img5.webp'
 import GridImg1 from '../../assets/images/grid_img1.webp'
 import GridImg2 from '../../assets/images/grid_img2.webp'
 import GridImg3 from '../../assets/images/grid_img3.webp'
-import MediumImg from '../../assets/images/read_medium.jpeg'
+import YoutobeImg from '../../assets/images/youtube.png'
 import { ExternalLink } from '../../theme'
 
 
@@ -47,7 +47,7 @@ const List = ()=>{
       image: GridImg4,
       Learn: "https://www.caojunnft.com/",
       author: "TSA Broadway Series Collectibles",
-      medium: "",
+      medium: "https://www.youtube.com/watch?v=6OqBxO0xQT0",
       info: t("iroinfo1"),
       info2: ``,
       joinUs: "/iro/bnb/0x5f99ACF13CAff815DD9cB4A415c0fB34e9F4545b/0x887Ed22FAF9C4B985ecB019eA54A5185350AE214",
@@ -61,7 +61,7 @@ const List = ()=>{
       image: GridImg2,
       Learn: "https://www.caojunnft.com/",
       author: "Gus Bawab NFTs",
-      medium: "",
+      medium: "https://www.youtube.com/watch?v=xMX2oPlPtF8",
       info: "We are proud that his work “Persistence” found its way to the Elysee, the French presidential Palace in 2016.",
       joinUs: "#",
       when: "When: TBD",
@@ -73,7 +73,7 @@ const List = ()=>{
       image: GridImg5,
       Learn: "https://www.caojunnft.com/",
       author: "Cao Jun NFT Collectibles",
-      medium: "",
+      medium: "https://www.youtube.com/watch?v=zjgxziqWj3w",
       info: `CaoJun limited edition NFT series. The record price for CaoJun  artist at auction is $1,309,063 USD.`,
       joinUs: "/iro/bnb/0x5f99ACF13CAff815DD9cB4A415c0fB34e9F4545b/0xF72ECaD992CebB0138aC13b616199f131F847b04",
       // joinUs: "#",
@@ -86,7 +86,7 @@ const List = ()=>{
       image: GridImg3,
       Learn: "https://www.caojunnft.com/",
       author: "The Art of TEAsWAP",
-      medium: "",
+      medium: "https://www.youtube.com/watch?v=680CKTlcZjk&t=215s",
       info: `TSA is where we bring together creators, collectors, curators, influencers, brokers, wallets, auctioneers around the world to the NFT digital space.`,
       joinUs: "#",
       info2: `CaoJun limited edition NFT series. The record price for CaoJun  artist at auction is $1,309,063 USD.`,
@@ -98,7 +98,7 @@ const List = ()=>{
       image: GridImg1,
       Learn: "https://www.caojunnft.com/",
       author: "iCashRewards",
-      medium: "",
+      medium: "https://youtu.be/Jkq1PL2j4qg",
       info: "CaoJunNFT Collectibles",
       joinUs: "/iro/bnb/0x5f99ACF13CAff815DD9cB4A415c0fB34e9F4545b/0xF72ECaD992CebB0138aC13b616199f131F847b04",
       // joinUs: "#",
@@ -137,12 +137,12 @@ const List = ()=>{
                 </Learn>
                 <Read>
                   <span>{v.author}</span>
-                  <span>
+                  <p style={{display: 'flex'}}>
                     {"Read"}
                     <StyledLink to={v.medium}>
-                      <img style={{marginLeft: "10px"}} width="22px" height="18px" src={MediumImg} />
+                      <img style={{marginLeft: "10px"}} width="26" height="26" src={YoutobeImg} />
                     </StyledLink>
-                  </span>
+                  </p>
                 </Read>
                 <Spe></Spe>
                 <Info>

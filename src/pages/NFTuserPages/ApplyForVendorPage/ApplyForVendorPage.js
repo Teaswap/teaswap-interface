@@ -32,9 +32,15 @@ const Title = styled.h1`
   width: 100%;
   margin: 0 auto;
   ${MEDIA_QUERY.sm} {
-    width: 70%;
+    width: 100%;
+    font-size: 18px;
   }
 `;
+const Title2 = styled(Title)`
+  ${MEDIA_QUERY.sm} {
+    width: 50%;
+  }
+`
 
 const ErrorText = styled.p`
   color: ${COLOR.text_alert};
@@ -111,7 +117,7 @@ const ApplyForVendorPage = () => {
               width: '100%'
             }}>
               <CheckImage>
-                <Title >{t('Create collections and sell NFTs to your fans ,start now !')}</Title>
+                <Title2>{t('Create collections and sell NFTs to your fans ,start now !')}</Title2>
                 <TwoButton>
                   <ButtonPrimary onClick={handleCheck}>
                     {t('OK')}

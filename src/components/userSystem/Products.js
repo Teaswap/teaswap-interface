@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { COLOR, FONT, DISTANCE } from '../../constants/style';
+import { COLOR, FONT, DISTANCE, MEDIA_QUERY } from '../../constants/style';
 import { MoreButton, ErrorMessage } from '../../components/productSystem/';
 import { Nav } from '../NFTButton';
 import useProduct from '../../hooks/productHooks/useProduct';
@@ -8,24 +8,22 @@ import { NavLink } from 'react-router-dom';
 import { useTranslation } from 'react-i18next'
 
 const ProductsContainer = styled.div`
-  padding: ${(props) => props.$padding || '50px 42px'};
+  padding: 0px 10px 50px 10px;
 `;
 
 const ProductsWrap = styled.div`
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: ${(props) => props.$justify || 'center'};
 `;
 
 const ProductContainer = styled.div`
   position: relative;
-  width: ${(props) => props.$width || '190px'};
-  // height: ${(props) => props.$height || '190px'};
-  margin: ${(props) => props.$margin || '0 18px'};
-  margin-bottom: 150px;
   padding: 20px;
+  margin: 40px 20px;
+  width: calc(90% - 40px);
+  max-width: 380px;
   box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.1), 0px 4px 8px rgba(0, 0, 0, 0.1), 0px 16px 24px rgba(0, 0, 0, 0.1),  0px 24px 32px rgba(0, 0, 0, 0.1);
+  ${MEDIA_QUERY.sm} {
+
+  }
 `;
 
 const Placeholder = styled.div`
@@ -35,8 +33,9 @@ const Placeholder = styled.div`
 
 const ProductPicture = styled.img`
   position: relative;
-  width: ${(props) => props.$width || '190px'};
-  height: ${(props) => props.$height || '190px'};
+  width: 100%;
+  margin: 20px 0;
+  // height: ${(props) => props.$height || '190px'};
   transition: opacity 0.2s;
   cursor: pointer;
 `;
@@ -150,7 +149,7 @@ export default function Products({
   return (
     <>
       <ProductsContainer $padding={$padding}>
-        <ProductsWrap $justify={$justify}>
+        <ProductsWrap className="auto-list-div">
           <>
             {products.map((product) => {
               return (
@@ -172,7 +171,7 @@ export default function Products({
           <Placeholder $width={$width} $margin={$margin} />
         </ProductsWrap>
       </ProductsContainer>
-      {loaded && !productErrorMessage ? (
+      {/* {loaded && !productErrorMessage ? (
         <MoreButton
           id={id}
           products={products}
@@ -180,7 +179,7 @@ export default function Products({
         />
       ) : (
         <ErrorMessage productErrorMessage={productErrorMessage} />
-      )}
+      )} */}
     </>
   );
 }

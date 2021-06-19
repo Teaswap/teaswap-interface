@@ -8,6 +8,7 @@ import useUser from '../../../hooks/userHooks/useUser';
 import useProduct from '../../../hooks/productHooks/useProduct';
 import { NavLink } from 'react-router-dom';
 import { NormalButton, Nav } from '../../../components/NFTButton';
+
 import {
   SellerInfo,
   SetAnnouncement,
@@ -25,7 +26,7 @@ const SellerProductTitle = styled.div`
   padding-bottom: ${DISTANCE.sm};
   font-size: ${FONT.lg};
   color: ${COLOR.text_2};
-  border-bottom: 1px solid ${COLOR.cccccc};
+  // border-bottom: 1px solid ${COLOR.cccccc};
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -80,6 +81,13 @@ const VendorBackstagePage = () => {
     };
   }, []);
 
+  const [productCat, setProductCat] = useState(0);
+
+  const changeCat = function(t) {
+    setProductCat(t)
+  }
+
+
   return (
     <>
       <Banner banner={vendorInfo.banner_url} loaded={loaded} onLoad={onLoad} />
@@ -90,16 +98,27 @@ const VendorBackstagePage = () => {
           loaded={loaded}
           onLoad={onLoad}
         />
-        <ButtonContainer>
-          <NormalButton  onClick={handleSetAnnouncement}>{t('Edit Description')}</NormalButton>
-        </ButtonContainer>
+        
         {isSettingAnnouncement && (
           <SetAnnouncement setIsSettingAnnouncement={setIsSettingAnnouncement} />
         )}
-        <Announcement announcement={user?user.announcement:''} />
+        <Announcement handleSetAnnouncement={handleSetAnnouncement} announcement={user?user.announcement:''} />
 
         <SellerProductTitle>
-          <p>{t('Posted NFTs')} </p>
+          <div className='page-tabs'>
+            <span className='page-tab' onClick={() => changeCat(0)}>
+              In Wallet
+            </span>
+            <span className='page-tab' onClick={() => changeCat(1)}>
+              On Sale
+            </span>
+            <span className='page-tab' onClick={() => changeCat(2)}>
+              On Auction
+            </span>
+            <span className='page-tab' onClick={() => changeCat(3)}>
+              Collected
+            </span>
+          </div>
           <NavLink style={{ minWidth: 'fit-content' }} to={'/nft/products/post'}>
             <NormalButton className="btn-sm-100" >{t('Add NFT')}</NormalButton>
           </NavLink>

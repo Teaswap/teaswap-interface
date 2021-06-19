@@ -255,7 +255,7 @@ export default function MintModal({ isOpen, onDismiss, mintInfo,lastId }: mintMo
       {!attempting && !hash && (
         <ContentWrapper gap="lg">
           <RowBetween>
-            <TYPE.mediumHeader>{t('mint NFT')}</TYPE.mediumHeader>
+            <TYPE.mediumHeader>{t('Mint NFT')}</TYPE.mediumHeader>
             <CloseIcon onClick={wrappedOnDismiss} />
           </RowBetween>
           {/*<CurrencyInputPanel*/}
@@ -290,7 +290,7 @@ export default function MintModal({ isOpen, onDismiss, mintInfo,lastId }: mintMo
                 altDisabledStyle={mint === mintState.PENDING} // show solid button while waiting
                 disabled={!!error || mint !== mintState.NOT_MINT }
             >
-              { error ?? t('mint')}
+              { error ?? t('Mint')}
             </ButtonConfirmed>
               <ButtonConfirmed
                   mr="0.5rem"
@@ -318,7 +318,7 @@ export default function MintModal({ isOpen, onDismiss, mintInfo,lastId }: mintMo
           <AutoColumn gap="12px" justify={'center'}>
             <TYPE.largeHeader>{t('transactionSubmitted')}</TYPE.largeHeader>
             <TYPE.body fontSize={20}>
-              {t('mint')} {mintInfo.productName}
+              {t('Mint')} {mintInfo.productName}
             </TYPE.body>
           </AutoColumn>
         </SubmittedView>
