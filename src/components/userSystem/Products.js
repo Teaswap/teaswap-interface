@@ -127,7 +127,8 @@ const Product = ({ product, onLoad, loaded, $width, $height, $margin }) => {
           {product.User.nickname}
         </NavLink>
       </VendorName>
-      <ProductPrice>{formatter.format(product.price)}</ProductPrice>
+      {/* <ProductPrice>{formatter.format(product.price)}</ProductPrice> */}
+      <ProductPrice>{product.price}</ProductPrice>
     </ProductContainer>
   );
 };
