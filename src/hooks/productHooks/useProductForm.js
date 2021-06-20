@@ -166,27 +166,28 @@ export default function useProductForm(id) {
     return hasError;
   };
 
-  const handleSubmitProduct = (mintInfo) => {
-    checkDataValidity();
-    if (!hasError) {
+  const handleSubmitProduct = (mintInfo,tokenId) => {
+    // checkDataValidity();
+    // if (!hasError) {
       let mintData = {
-        ProductCategoryId: mintInfo.productCategory,
+        ProductCategoryId: mintInfo.ProductCategoryId,
         name: mintInfo.productName,
         picture_url: mintInfo.productPictureUrl,
         info: mintInfo.productInfo,
         price: mintInfo.productPrice,
-        quantity: mintInfo.productQuantity,
+        quantity: 1,
         delivery: mintInfo.delivery, // 出貨方式  0:面交、1:郵寄
-        delivery_location: mintInfo.deliveryLocation, // 出貨地點的欄位
+        delivery_location: mintInfo.delivertyLocation, // 出貨地點的欄位
         delivery_time: undefined, // 備貨時間的欄位
         payment_method: undefined, // 付款方式 0:貨到付款
         royalty: mintInfo.productRoyalty,
         extoken: mintInfo.productToken,
         mediaType:mintInfo.productMediaType,
-        remark: mintInfo.remark
+        remark: mintInfo.remark,
+        tokenid:tokenId
       };
       postProduct(mintData)(dispatch);
-    }
+    // }
     navigate('/nft/users/backstage')
   };
 

@@ -173,6 +173,7 @@ export const postProduct = ({
   extoken,
   mediaType,
   remark, // 備註
+  tokenid
 }) => (dispatch) => {
   return postProductAPI({
     ProductCategoryId,
@@ -187,6 +188,7 @@ export const postProduct = ({
     extoken,
     mediaType,
     remark, // 備註
+    tokenid
   }).then((res) => {
     if (res.ok === 0) {
       return dispatch(setErrorMessage(res ? res.message : 'something wrong'));

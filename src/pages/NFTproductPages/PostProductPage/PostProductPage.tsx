@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useMemo, useState} from 'react';
 import styled from 'styled-components';
 import {COLOR, DISTANCE, FONT, MEDIA_QUERY} from '../../../constants/style';
 import { InputItem } from '../../../components/productSystem/';
@@ -12,7 +12,7 @@ import { useActiveWeb3React } from '../../../hooks';
 // import {PAYABLEETH, ZERO_ADDRESS} from "../../../constants";
 import {ChainId} from "@teaswap/uniswap-sdk";
 import { ZERO_ADDRESS, BUSD, UNI, SHIH, CJAI} from "../../../constants";
-import {useUserFirstToken} from "../../../state/wallet/hooks";
+import {useNFTLastId, useUserFirstToken} from "../../../state/wallet/hooks";
 // import {SubmittedView} from "../../../components/ModalViews";
 // import {AutoColumn} from "../../../components/Column";
 // import {TYPE} from "../../../theme";
@@ -250,11 +250,24 @@ const PostProductPage = () => {
   }, []);
 
   useEffect(() => {
-    console.log("nftaddress:"+firstNftAddress?.nftaddress)
-    if(firstNftAddress?.nftaddress){
-      setDeliveryLocation(firstNftAddress?.nftaddress)
+    console.log("nftaddress:"+firstNftAddress)
+    if(firstNftAddress){
+      setDeliveryLocation(firstNftAddress.toString())
     }
   }, [firstNftAddress]);
+
+  const lastIdres = useNFTLastId(deliveryLocation)
+
+  const lastId = useMemo(()=>{
+    if (lastIdres) {
+      console.log("postpage--lastIdres:"+lastIdres)
+      return lastIdres-1
+    }else{
+      return undefined
+    }
+  },[lastIdres])
+
+
   //
   // useEffect(() => {
   //   if(hash && !creating){
@@ -309,6 +322,7 @@ const PostProductPage = () => {
               productToken: productToken,
               productMediaType: productMediaType,
               remark: remark}}
+            lastId = {lastId}
           />
         )
       }

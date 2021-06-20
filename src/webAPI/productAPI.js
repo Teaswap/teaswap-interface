@@ -64,6 +64,7 @@ const postProductAPI = ({
   extoken,
   mediaType,
   remark, // 備註
+  tokenid
 }) => {
   const token = localStorage.getItem('token');
   return fetch(`${BASE_URL}/products/new`, {
@@ -85,6 +86,7 @@ const postProductAPI = ({
       extoken,
       mediaType,
       remark,
+      tokenid
     }),
   })
     .then((res) => res.json())
