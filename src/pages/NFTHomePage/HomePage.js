@@ -37,6 +37,7 @@ const  TitleSection = styled.div`
   align-items: center;
   margin-top: 40px;
   padding: 20px;
+  color: #474747;
 `;
 
 const HomePageProducts = styled.div`
@@ -632,7 +633,8 @@ const products2 = [
     <Page>
       <CarouselBox />
       <TitleSection>
-        <ConTitle con="The New Way to Own Art" />
+        <p style={{fontFamily: "Roboto-Thin", color: '#474747', fontSize: '30px', fontWeight: 'bold'}}>Upcoming Drops</p>
+        <p style={{fontSize: '15px'}}>The New Way to Own Art</p>
       </TitleSection>
       <Nav>
         <NavItem onClick={() => changeCat(2)}>

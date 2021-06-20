@@ -23,7 +23,11 @@ const List = ()=>{
         <StyledLink to={mintUrl}>
           Create
         </StyledLink>
+        <StyledLink to='/nft/users/backstage'>
+          My Account
+        </StyledLink>
       </Title>
+      
       <ConSubTitle con="Featured Artist Application" />
         {/* <StyledLink href="https://docs.google.com/forms/d/e/1FAIpQLSeDP0KdH1VC9v9G-D97SUX1ykcOOkMR_ff9OX5je-g1Qw8ePw/viewform"> */}
          
@@ -45,7 +49,10 @@ const StyledLink = styled(NavLink)`
   color: #ffffff;
   font-size: 17px;
   background-color: #7f7f7f;
-  padding: 10px 70px;
+  padding: 10px 0px;
+  width: 240px;
+  margin: 0 20px;
+  display: inline-block;
   :hover {
     text-decoration: none;
     color: #ffffff;

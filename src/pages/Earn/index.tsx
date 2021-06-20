@@ -40,8 +40,7 @@ const TopSection = styled(ColumnCenter)`
 `
 
 const PoolSection = styled.div`
-  width: 100%;
-  max-width: 1340px;
+  width: 1286px;
   margin: 0 auto;
   margin-top: 20px;
   display: flex;
@@ -49,6 +48,7 @@ const PoolSection = styled.div`
   flex-wrap: wrap;
   justify-content: flex-start;
   ${MEDIA_QUERY.sm} {
+    width: 100%;
     justify-content: center;
   }
 `

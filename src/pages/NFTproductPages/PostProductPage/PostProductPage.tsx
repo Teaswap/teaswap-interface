@@ -415,7 +415,7 @@ const PostProductPage = () => {
         />
 
         <InputItem
-          title={t('Number (ERC1155)')}
+          title={t('Number')}
           label={t('Number (ERC1155)')}
           type={'input'}
           errorMessage={t('Please Input NFT Number')}

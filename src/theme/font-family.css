@@ -1830,3 +1830,11 @@
   font-family: 'dancingscript';
   src: url(https://fonts.gstatic.com/s/dancingscript/v9/KGBfwabt0ZRLA5W1ywjowZR92E8gBbe58j0pHY_YhTY.woff2) format('woff2');
 }
+@font-face {font-family: "Roboto-Thin"; src: url("//fonts.gstatic.com/s/roboto/v18/e7MeVAyvogMqFwwl61PKhPesZW2xOQ-xsNqO47m55DA.woff2") format("woff2");}
+@font-face {font-family: "Roboto-Thin"; font-weight: 700; src: url("//fonts.gstatic.com/s/roboto/v18/fIKu7GwZTy_12XzG_jt8eA.woff2") format("woff2");}
+@font-face {font-family: "Roboto-Thin"; font-style: italic; src: url("//fonts.gstatic.com/s/roboto/v18/dzxs_VxZUhdM2mEBkNa8svk_vArhqVIZ0nv9q090hN8.woff2") format("woff2");}
+@font-face {font-family: "Roboto-Thin"; font-weight: 700; font-style: italic; src: url("//fonts.gstatic.com/s/roboto/v18/vSzulfKSK0LLjjfeaxcREvesZW2xOQ-xsNqO47m55DA.woff2") format("woff2");}
+@font-face {font-family: "Roboto-Bold"; src: url("//fonts.gstatic.com/s/roboto/v18/97uahxiqZRoncBaCEI3aW1tXRa8TVwTICgirnJhmVJw.woff2") format("woff2");}
+@font-face {font-family: "Roboto-Bold"; font-weight: 700; src: url("//fonts.gstatic.com/s/roboto/v18/9_7S_tWeGDh5Pq3u05RVkltXRa8TVwTICgirnJhmVJw.woff2") format("woff2");}
+@font-face {font-family: "Roboto-Bold"; font-style: italic; src: url("//fonts.gstatic.com/s/roboto/v18/t6Nd4cfPRhZP44Q5QAjcC6g5eI2G47JWe0-AuFtD150.woff2") format("woff2");}
+@font-face {font-family: "Roboto-Bold"; font-weight: 700; font-style: italic; src: url("//fonts.gstatic.com/s/roboto/v18/bmC0pGMXrhphrZJmniIZpag5eI2G47JWe0-AuFtD150.woff2") format("woff2");}

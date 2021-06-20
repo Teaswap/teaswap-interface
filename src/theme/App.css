@@ -82,7 +82,7 @@
   width: 150px; 
   height: 150px;
   border-radius: 150px;
-  border: 1px solid #474747;
+  border: 1px solid #ccc;
 }
 .user-avatar{
   width: 50%; 
@@ -96,7 +96,6 @@
 .edit-desc-btn{
   width: 42px;
   height: 42px; 
-  background-color: rgb(222, 222, 222);
   position: absolute;
   top: 0;
   right: 10px;
@@ -127,4 +126,7 @@
   -moz-transition: all 0.5s;
   -ms-transition: all 0.5s;
   -o-transition: all 0.5s;
+}
+.btn-sm-100{
+  width: 160px;
 }
