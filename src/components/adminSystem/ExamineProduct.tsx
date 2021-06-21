@@ -82,12 +82,13 @@ export interface ProductInterface{
 
 interface productItemProps {
     key: number
-    product: ProductInterface,
-    handleChangeSelector: Function
+    product: ProductInterface
+    setPassedProducts: Function
+    passedProducts: Array<ProductInterface>
 }
 
 
-const ProductsItem = ({key,product, handleChangeSelector}:productItemProps ) => {
+const ProductsItem = ({key,product, passedProducts, setPassedProducts}:productItemProps ) => {
   // const { setThousandths } = useAdmin();
   const extoken = product.extoken
   const tokenOptions = [
@@ -120,14 +121,14 @@ const ProductsItem = ({key,product, handleChangeSelector}:productItemProps ) => 
       <ProductTd>{product.royalty/100}</ProductTd>
       <ProductTd>{product.createdAt.split('T')[0]}</ProductTd>
       <ProductTd>
-        <ExamineSelector product={product} handleChangeSelector={handleChangeSelector} />
+        <ExamineSelector passedProducts={passedProducts} setPassedProducts={setPassedProducts}  product={product} />
       </ProductTd>
     </ProductTr>
   );
 };
 
 export default function ExamineProduct() {
-  const { products, handleGetUnCheckProducts,  handleChangeSelector, passedProduct, passedProducts } = useAdmin();
+  const { products, handleGetUnCheckProducts,  passedProduct } = useAdmin();
   // const {passedProducts,  } = useAdmin()
 
 
@@ -214,7 +215,7 @@ export default function ExamineProduct() {
           })
     }
 
-
+    const [passedProducts, setPassedProducts] = useState([]);
 
   return (
     <ExamineProductContainer>
@@ -235,7 +236,7 @@ export default function ExamineProduct() {
         </ProductsThead>
         <ProductsTbody>
           {products.map((product:ProductInterface, index:number) => (
-            <ProductsItem key={index} product={product} handleChangeSelector={handleChangeSelector} />
+            <ProductsItem key={index} product={product} passedProducts={passedProducts} setPassedProducts={setPassedProducts} />
           ))}
         </ProductsTbody>
       </ProductsTable>
