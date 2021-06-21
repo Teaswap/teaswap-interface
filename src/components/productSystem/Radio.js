@@ -8,8 +8,8 @@ const RadioInput = styled.input`
 
 const RadioLabel = styled.label`
   color: #474747;
-  width: 150px;
-  margin: 5px 0;
+  // width: 150px;
+  margin: 5px 10px;
 `;
 
 export const Radio = ({

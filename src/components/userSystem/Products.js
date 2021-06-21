@@ -83,6 +83,7 @@ const ButtonContainer = styled.div`
 `;
 
 const Product = ({ product, onLoad, loaded, $width, $height, $margin }) => {
+  const {handleTokenSwitch} = useProduct();
   const formatter = new Intl.NumberFormat('zh-TW', {
     style: 'currency',
     currency: 'NTD',
@@ -128,7 +129,7 @@ const Product = ({ product, onLoad, loaded, $width, $height, $margin }) => {
         </NavLink>
       </VendorName>
       {/* <ProductPrice>{formatter.format(product.price)}</ProductPrice> */}
-      <ProductPrice>{product.price}</ProductPrice>
+      <ProductPrice>{product.price}{handleTokenSwitch(product.extoken)}</ProductPrice>
     </ProductContainer>
   );
 };

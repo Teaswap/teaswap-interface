@@ -24,6 +24,8 @@ import {
 } from '../../redux/slices/productSlice/productSlice';
 import {useMultipleContractSingleData} from "../../state/multicall/hooks";
 import {STAKING_REWARDS_INTERFACE} from "../../constants/abis/staking-rewards";
+import {BUSD, CJAI, NFTEXCHANGE, SHIH, UNI, ZERO_ADDRESS} from "../../constants";
+import {ChainId} from "@teaswap/uniswap-sdk";
 
 function averageTime(count, products) {
   let totalTime = 0;
@@ -141,6 +143,26 @@ export default function useProduct() {
   const handleGetUserById = (id) => {
     getUserById(id)(dispatch);
   };
+  
+  const handleTokenSwitch = (extoken) => {
+
+    const tokenOptions = [
+      { name: 'BNB',value:ZERO_ADDRESS },
+      { name: 'BUSD',value:BUSD.address },
+      { name: 'TSA',value:UNI[ChainId.BSC_MAINNET].address },
+      { name: 'Shih',value:SHIH.address },
+      { name: 'CJAI',value:CJAI.address },
+    ]
+
+    let extokenName = 'TSA'
+    for(let i = 0 ;i<tokenOptions.length;i++){
+        if(tokenOptions[i].value === extoken){
+            extokenName=tokenOptions[i].name
+            break
+        }
+    }
+    return extokenName
+  }
 
   return {
     page,
@@ -174,5 +196,6 @@ export default function useProduct() {
     handleGetProductsFromVendor,
     handleChangeProductSort,
     handleGetUserById,
+    handleTokenSwitch
   };
 }

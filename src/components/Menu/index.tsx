@@ -1,23 +1,24 @@
 import React, { useRef } from 'react'
-import { Info, MessageCircle, Twitter, Send } from 'react-feather'
+// import { Info, MessageCircle, Twitter, Send } from 'react-feather'
 import styled from 'styled-components'
 import { lighten } from 'polished'
 import { useTranslation } from 'react-i18next'
 
-import { ReactComponent as MenuIcon } from '../../assets/images/menu.svg'
+// import { ReactComponent as MenuIcon } from '../../assets/images/menu.svg'
 import { useActiveWeb3React } from '../../hooks'
 import { useOnClickOutside } from '../../hooks/useOnClickOutside'
 import { ApplicationModal } from '../../state/application/actions'
 import { useModalOpen, useToggleModal } from '../../state/application/hooks'
 
-import { ExternalLink } from '../../theme'
+// import { ExternalLink } from '../../theme'
 import { ButtonPrimary } from '../Button'
+import { useNavigate } from 'react-router-dom';
 
-const StyledMenuIcon = styled(MenuIcon)`
-  path {
-    stroke: ${({ theme }) => theme.bg2};
-  }
-`
+// const StyledMenuIcon = styled(MenuIcon)`
+//   path {
+//     stroke: ${({ theme }) => theme.bg2};
+//   }
+// `
 
 const StyledMenuButton = styled.button`
   width: 100%;
@@ -26,23 +27,19 @@ const StyledMenuButton = styled.button`
   margin: 0;
   padding: 0;
   height: 35px;
-  background-color: ${({ theme }) => lighten(0.05, theme.primary1)};
+  background-color: #ffffff;
+  border: 1px solid ${({ theme }) => theme.lightGray};
+  color: ${({ theme }) => theme.gray};
+  font-weight: 500;
+  cursor: pointer;
+  :hover,
+  :focus {
+    border: 1px solid ${({ theme }) => theme.darkGray};
+  }
+  // background-color: ${({ theme }) => lighten(0.05, theme.primary1)};
 
   padding: 0.15rem 0.5rem;
   border-radius: 0px;
-
-  :hover,
-  :focus {
-    cursor: pointer;
-    outline: none;
-    background-color: ${({ theme }) => lighten(0.05, theme.primary1)};
-  }
-
-  svg {
-    margin-top: 2px;
-    width: 15px;
-    height: 15px;
-  }
 `
 
 const StyledMenu = styled.div`
@@ -75,25 +72,26 @@ const MenuFlyout = styled.span`
   `};
 `
 
-const MenuItem = styled(ExternalLink)`
-  flex: 1;
-  padding: 0.5rem 0.5rem;
-  color: ${({ theme }) => theme.text2};
-  :hover {
-    color: ${({ theme }) => theme.text1};
-    cursor: pointer;
-    text-decoration: none;
-  }
-  > svg {
-    margin-right: 8px;
-  }
-`
+// const MenuItem = styled(ExternalLink)`
+//   flex: 1;
+//   padding: 0.5rem 0.5rem;
+//   color: ${({ theme }) => theme.text2};
+//   :hover {
+//     color: ${({ theme }) => theme.text1};
+//     cursor: pointer;
+//     text-decoration: none;
+//   }
+//   > svg {
+//     margin-right: 8px;
+//   }
+// `
 
 // const CODE_LINK = 'https://github.com/KodamaSakuno/uniswap-interface'
 
 export default function Menu() {
   const { account } = useActiveWeb3React()
   const { t } = useTranslation()
+  const navigate = useNavigate();
 
   const node = useRef<HTMLDivElement>()
   const open = useModalOpen(ApplicationModal.MENU)
@@ -105,12 +103,13 @@ export default function Menu() {
     // https://github.com/DefinitelyTyped/DefinitelyTyped/issues/30451
     <StyledMenu ref={node as any}>
       <StyledMenuButton onClick={toggle}>
-        <StyledMenuIcon />
+        Activity
+        {/* <StyledMenuIcon /> */}
       </StyledMenuButton>
 
       {open && (
         <MenuFlyout>
-          <MenuItem id="link" href="https://t.me/icashrewards123">
+          {/* <MenuItem id="link" href="https://t.me/icashrewards123">
             <Send size={14} />
             Telegram
           </MenuItem>
@@ -122,18 +121,25 @@ export default function Menu() {
             <BookOpen size={14} />
             Medium
           </MenuItem> */}
-          <MenuItem id="link" href="https://twitter.com/ArtTeaswap">
+          {/* <MenuItem id="link" href="https://twitter.com/ArtTeaswap">
             <Twitter size={14} />
             Twitter
-          </MenuItem>
-          <MenuItem id="link" href="https://www.teaswap.live/news">
+          </MenuItem> */}
+          {/* <MenuItem id="link" href="https://www.teaswap.live/news">
             <Info size={14} />
             {t('Announcement')}
-          </MenuItem>
+          </MenuItem> */}
           {account && (
-            <ButtonPrimary onClick={openClaimModal} padding="8px 16px" width="100%" borderRadius="0px" mt="0.5rem">
-              {t('Claim')} AirDrops
-            </ButtonPrimary>
+            <>
+              <ButtonPrimary onClick={openClaimModal} padding="8px 16px" width="100%" borderRadius="0px" mt="0.5rem">
+                {t('Claim')} AirDrops
+              </ButtonPrimary>
+              <ButtonPrimary onClick={() => {
+                navigate('/nft/users/backstage')
+              }} padding="8px 16px" width="100%" borderRadius="0px" mt="0.5rem">
+                My Profile
+              </ButtonPrimary>
+            </>
           )}
         </MenuFlyout>
       )}

@@ -125,6 +125,7 @@ const StyledLink = styled(NavLink)`
 `
 
 const Product = ({ product, onLoad, loaded, $width, $height, $margin }) => {
+  const {handleTokenSwitch} = useProduct();
   const formatter = new Intl.NumberFormat('en', {
     style: 'currency',
     currency: 'USD',
@@ -153,7 +154,7 @@ const Product = ({ product, onLoad, loaded, $width, $height, $margin }) => {
       </VendorName>
       <ProductPrice>
         <TYPE.darkGray fontSize={14}>
-          {product.price}
+          {product.price}{handleTokenSwitch(product.extoken)}
         </TYPE.darkGray>
       </ProductPrice>
     </ProductContainer>
