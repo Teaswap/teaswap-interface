@@ -82,11 +82,12 @@ export interface ProductInterface{
 
 interface productItemProps {
     key: number
-    product: ProductInterface
+    product: ProductInterface,
+    handleChangeSelector: Function
 }
 
 
-const ProductsItem = ({key,product}:productItemProps ) => {
+const ProductsItem = ({key,product, handleChangeSelector}:productItemProps ) => {
   // const { setThousandths } = useAdmin();
   const extoken = product.extoken
   const tokenOptions = [
@@ -119,15 +120,16 @@ const ProductsItem = ({key,product}:productItemProps ) => {
       <ProductTd>{product.royalty/100}</ProductTd>
       <ProductTd>{product.createdAt.split('T')[0]}</ProductTd>
       <ProductTd>
-        <ExamineSelector product={product} />
+        <ExamineSelector product={product} handleChangeSelector={handleChangeSelector} />
       </ProductTd>
     </ProductTr>
   );
 };
 
 export default function ExamineProduct() {
-  const { products, handleGetUnCheckProducts,passedProduct } = useAdmin();
+  const { products, handleGetUnCheckProducts,  handleChangeSelector, passedProduct, passedProducts } = useAdmin();
   // const {passedProducts,  } = useAdmin()
+
 
   useEffect(() => {
     handleGetUnCheckProducts();
@@ -166,6 +168,8 @@ export default function ExamineProduct() {
 
     const handleBatchAddOrder = async ()=>{
 
+      console.log('handleBatchAddOrder', passedProduct, passedProducts)
+
       for(let i = 0;i<passProducts.length;i++){
           let pProduct:ProductInterface = passProducts[i]
           nfts.push(pProduct.delivery_location)
@@ -186,36 +190,28 @@ export default function ExamineProduct() {
       // window.location.reload()
       // setSendClick(true)
 
-        if(!exchangeTokens){
-            return
-        }
-        if(!exchangeContract){
-            return
-        }
+        if(!exchangeTokens){ return }
+        if(!exchangeContract){ return }
 
-        if(passProducts.length===0){
-            return
-        }
-
+        if(passProducts.length===0){ return }
 
         const estimatedGas = await exchangeContract.estimateGas.batchAddOrder(nfts, ids,amounts ,owners,prices,royalties,exchangeTokens).catch(() => {
             return exchangeContract.estimateGas.batchAddOrder(nfts, ids,amounts ,owners,prices,royalties,exchangeTokens)
         })
 
         exchangeContract
-            .batchAddOrder(nfts, ids,amounts ,owners,prices,royalties,exchangeTokens, {
-                gasLimit: calculateGasMargin(estimatedGas)
-            })
-            .then((response: TransactionResponse) => {
-                addTransaction(response, {
-                    summary: 'batchaddorder ',
-                })
-            })
-            .catch((error: Error) => {
-                console.debug('Failed to add order', error)
-                throw error
-            })
-
+          .batchAddOrder(nfts, ids,amounts ,owners,prices,royalties,exchangeTokens, {
+              gasLimit: calculateGasMargin(estimatedGas)
+          })
+          .then((response: TransactionResponse) => {
+              addTransaction(response, {
+                  summary: 'batchaddorder ',
+              })
+          })
+          .catch((error: Error) => {
+              console.debug('Failed to add order', error)
+              throw error
+          })
     }
 
 
@@ -239,7 +235,7 @@ export default function ExamineProduct() {
         </ProductsThead>
         <ProductsTbody>
           {products.map((product:ProductInterface, index:number) => (
-            <ProductsItem key={index} product={product} />
+            <ProductsItem key={index} product={product} handleChangeSelector={handleChangeSelector} />
           ))}
         </ProductsTbody>
       </ProductsTable>
