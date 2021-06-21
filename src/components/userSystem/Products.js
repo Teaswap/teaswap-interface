@@ -93,9 +93,9 @@ const Product = ({ product, onLoad, loaded, $width, $height, $margin }) => {
   return (
     <ProductContainer $width={$width} $height={$height} $margin={$margin}>
       <ButtonContainer>
-        <NavLink className="a-link" to={`/nft/products/edit/${product.id}`}>
+        {/* <NavLink className="a-link" to={`/nft/products/edit/${product.id}`}>
           {t('Edit NFT')}
-        </NavLink>
+        </NavLink> */}
         <span style={{marginLeft: '10px'}}>{product.status == '1' ? 'My Artwork' : 'Pending'}</span>
       </ButtonContainer>
       {product.status == '1' && (
@@ -127,7 +127,8 @@ const Product = ({ product, onLoad, loaded, $width, $height, $margin }) => {
           {product.User.nickname}
         </NavLink>
       </VendorName>
-      <ProductPrice>{formatter.format(product.price)}</ProductPrice>
+      {/* <ProductPrice>{formatter.format(product.price)}</ProductPrice> */}
+      <ProductPrice>{product.price}</ProductPrice>
     </ProductContainer>
   );
 };

@@ -64,7 +64,7 @@ import {
 
 import {
   ProductPage,
-  EditProductPage,
+  // EditProductPage,
   PostProductPage,
   SearchProductPage,
   CategorizedProductPage,
@@ -233,7 +233,7 @@ export default function App() {
 
                 <Route path={'/products'}>
                   <Route path={'/:id'} element={<ProductPage/>}/>
-                  <Route path={'/edit/:id'} element={<EditProductPage/>}/>
+                  {/* <Route path={'/edit/:id'} element={<EditProductPage/>}/> */}
                   <Route path={'/post'} element={<PostProductPage/>}/>
                   <Route path={'/search/:keyword'} element={<SearchProductPage/>}/>
                   <Route path={'/category/:id'} element={<CategorizedProductPage/>} />
