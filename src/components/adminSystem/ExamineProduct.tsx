@@ -82,12 +82,11 @@ export interface ProductInterface{
 
 interface productItemProps {
     key: number
-    product: ProductInterface,
-    handleChangeSelector: Function
+    product: ProductInterface
 }
 
 
-const ProductsItem = ({key,product, handleChangeSelector}:productItemProps ) => {
+const ProductsItem = ({key,product}:productItemProps ) => {
   // const { setThousandths } = useAdmin();
   const extoken = product.extoken
   const tokenOptions = [
@@ -120,14 +119,14 @@ const ProductsItem = ({key,product, handleChangeSelector}:productItemProps ) => 
       <ProductTd>{product.royalty/100}</ProductTd>
       <ProductTd>{product.createdAt.split('T')[0]}</ProductTd>
       <ProductTd>
-        <ExamineSelector product={product} handleChangeSelector={handleChangeSelector} />
+        <ExamineSelector product={product} />
       </ProductTd>
     </ProductTr>
   );
 };
 
 export default function ExamineProduct() {
-  const { products, handleGetUnCheckProducts,  handleChangeSelector, passedProduct, passedProducts } = useAdmin();
+  const { products, handleGetUnCheckProducts, passedProduct, passedProducts } = useAdmin();
   // const {passedProducts,  } = useAdmin()
 
 
@@ -235,7 +234,7 @@ export default function ExamineProduct() {
         </ProductsThead>
         <ProductsTbody>
           {products.map((product:ProductInterface, index:number) => (
-            <ProductsItem key={index} product={product} handleChangeSelector={handleChangeSelector} />
+            <ProductsItem key={index} product={product}  />
           ))}
         </ProductsTbody>
       </ProductsTable>

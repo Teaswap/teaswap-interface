@@ -25,12 +25,13 @@ const Selector = styled.select`
 
 const OptionComponent = styled.option``;
 
-export default function ExamineSelector({ product, handleChangeSelector }) {
+export default function ExamineSelector({ product }) {
 
   const {
     value,
     isChecked,
     setValue,
+    handleChangeSelector
   } = useAdmin();
 
   useEffect(() => {
