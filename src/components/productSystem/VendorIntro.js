@@ -62,8 +62,8 @@ export const VendorIntro = ({
             id={id}
             productErrorMessage={productErrorMessage}
             $padding={'20px 10px'}
-            $width={'150px'}
-            $height={'150px'}
+            $width={'300px'}
+            $height={'300px'}
             $margin={'0 5px'}
             $justify={'space-around'}
           />

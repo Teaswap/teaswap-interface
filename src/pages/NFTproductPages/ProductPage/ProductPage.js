@@ -28,7 +28,6 @@ const ProductInfoContainer = styled.section`
 
 const NavbarWrapper = styled.div`
   position : relative;
-  top : -40px;
   width : 100%;
 `;
 
