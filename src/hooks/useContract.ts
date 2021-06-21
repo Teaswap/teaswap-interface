@@ -7,6 +7,7 @@ import {abi as IFO_ABI } from '../constants/abis/ifo.json'
 import {abi as STAKING_ABI} from '../constants/abis/stakingReward.json'
 import {abi as NFTFactory_ABI} from '../constants/abis/NFTFactory.json'
 import {abi as ERC1155Collection_ABI} from '../constants/abis/ERC1155Collection.json'
+import {abi as NFTExchange_ABI} from '../constants/abis/nftexchange.json'
 import { ChainId, WETH } from '@teaswap/uniswap-sdk'
 import { abi as IUniswapV2PairABI } from '@uniswap/v2-core/build/IUniswapV2Pair.json'
 import { useMemo } from 'react'
@@ -122,6 +123,10 @@ export function useUniContract(): Contract | null {
 
 export function useStakingContract(stakingAddress?: string, withSignerIfPossible?: boolean): Contract | null {
   return useContract(stakingAddress, STAKING_ABI, withSignerIfPossible)
+}
+
+export function useNFTExchangeContract(NFTExchangeAddress?: string, withSignerIfPossible?: boolean): Contract | null {
+  return useContract(NFTExchangeAddress, NFTExchange_ABI, withSignerIfPossible)
 }
 
 export function useNFTFactoryContract(NFTFactoryAddress?: string, withSignerIfPossible?: boolean): Contract | null {

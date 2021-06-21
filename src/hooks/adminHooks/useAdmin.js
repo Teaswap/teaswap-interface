@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { useState } from 'react';
+import { useState} from 'react';
 import {
   selectUsers,
   selectProducts,
@@ -36,6 +36,16 @@ export default function useAdmin() {
     order: 'DESC',
   });
 
+
+  const [passedProduct,setPassedProduct] = useState({});
+
+  // const pProducts = useMemo(()=>{
+  //   if(passedProducts.length!=0){
+  //     return passedProducts
+  //   }
+  //   return []
+  // },[passedProducts])
+
   const handleGetUnCheckProducts = (page) =>
     getUnCheckProducts(page)(dispatch).then((result) => result);
   const handleUpdateProductStatus = (id, status) =>
@@ -54,6 +64,14 @@ export default function useAdmin() {
     setValue(e.target.value);
     setIsChecked(true);
     const status = e.target.value === '通過' ? '1' : '2';
+    if(status === '1'){
+      // const newPasseds =  passedProducts
+      // newPasseds.push(product)
+      // setPassedProducts(newPasseds)
+      // // passedProducts.push(product)
+      setPassedProduct(product)
+    }
+    // product.status = status
     handleUpdateProductStatus(product.id, status);
   };
 
@@ -101,6 +119,7 @@ export default function useAdmin() {
     keyword,
     params,
     productParams,
+    passedProduct,
     isChecked,
     isSearch,
     setProductParams,
@@ -109,6 +128,7 @@ export default function useAdmin() {
     setIsChecked,
     setKeyword,
     setParams,
+    setPassedProduct,
     handleGetUnCheckProducts,
     handleUpdateProductStatus,
     handleGetUsers,
