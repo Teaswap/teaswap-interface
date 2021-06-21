@@ -25,7 +25,7 @@ const Selector = styled.select`
 
 const OptionComponent = styled.option``;
 
-export default function ExamineSelector({ product }) {
+export default function ExamineSelector({ product, passedProducts, setPassedProducts}) {
 
   const {
     value,
@@ -41,7 +41,16 @@ export default function ExamineSelector({ product }) {
   return (
     <ExamineContainer>
       <Selector
-        onChange={(e) => handleChangeSelector(e, product)}
+        onChange={(e) => {
+          handleChangeSelector(e, product)
+          const status = e.target.value === '通過' ? '1' : '2';
+          if(status === '1'){
+            passedProducts.push(product)
+            setPassedProducts(passedProducts)
+          }else{
+            setPassedProducts(passedProducts.filter(v => v.id != product.id))
+          }
+        }}
         value={value}
         $bg={value}
       >

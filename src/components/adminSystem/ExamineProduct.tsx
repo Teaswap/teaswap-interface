@@ -83,10 +83,12 @@ export interface ProductInterface{
 interface productItemProps {
     key: number
     product: ProductInterface
+    setPassedProducts: Function
+    passedProducts: Array<ProductInterface>
 }
 
 
-const ProductsItem = ({key,product}:productItemProps ) => {
+const ProductsItem = ({key,product, passedProducts, setPassedProducts}:productItemProps ) => {
   // const { setThousandths } = useAdmin();
   const extoken = product.extoken
   const tokenOptions = [
@@ -119,14 +121,15 @@ const ProductsItem = ({key,product}:productItemProps ) => {
       <ProductTd>{product.royalty/100}</ProductTd>
       <ProductTd>{product.createdAt.split('T')[0]}</ProductTd>
       <ProductTd>
-        <ExamineSelector product={product} />
+        <ExamineSelector passedProducts={passedProducts} setPassedProducts={setPassedProducts}  product={product} />
       </ProductTd>
     </ProductTr>
   );
 };
 
 export default function ExamineProduct() {
-  const { products, handleGetUnCheckProducts, passedProduct, passedProducts } = useAdmin();
+
+  const { products, handleGetUnCheckProducts,  passedProduct } = useAdmin();
   // const {passedProducts,  } = useAdmin()
 
 
@@ -136,12 +139,11 @@ export default function ExamineProduct() {
 
   const exchangeContract = useNFTExchangeContract(NFTEXCHANGE[ChainId.BSC_MAINNET])
   const addTransaction = useTransactionAdder()
-
   const [nfts,setNfts] = useState([] as Array<string>)
   const [ids,setIds] = useState([] as Array<number>)
   const [amounts,setAmounts] = useState([] as Array<number>)
   const [owners,setOwners] = useState([] as Array<string>)
-  const [prices,setPrices] = useState([] as Array<BigNumber>)
+  const [prices,setPrices] = useState([] as Array<string>)
   const [royalties,setRoyalties] = useState([] as Array<number>)
   const [exchangeTokens,setExchangeTokens] = useState([] as Array<string>)
   const [passProducts, setPassProducts] = useState([] as Array<ProductInterface>)
@@ -169,13 +171,14 @@ export default function ExamineProduct() {
 
       console.log('handleBatchAddOrder', passedProduct, passedProducts)
 
-      for(let i = 0;i<passProducts.length;i++){
-          let pProduct:ProductInterface = passProducts[i]
+      for(let i = 0;i<passedProducts.length;i++){
+          let pProduct:ProductInterface = passedProducts[i]
+          let priceNumber = new BigNumber(pProduct.price).multipliedBy(new BigNumber(10).pow(18))
           nfts.push(pProduct.delivery_location)
           ids.push(pProduct.tokenid)
           amounts.push(1)
           owners.push(pProduct.User.address)
-          prices.push( new BigNumber(pProduct.price).multipliedBy("1000000000000000000") )
+          prices.push( priceNumber.toFixed() )
           royalties.push(pProduct.royalty)
           exchangeTokens.push(pProduct.extoken)
           setNfts(nfts)
@@ -192,7 +195,7 @@ export default function ExamineProduct() {
         if(!exchangeTokens){ return }
         if(!exchangeContract){ return }
 
-        if(passProducts.length===0){ return }
+        if(passedProducts.length===0){ return }
 
         const estimatedGas = await exchangeContract.estimateGas.batchAddOrder(nfts, ids,amounts ,owners,prices,royalties,exchangeTokens).catch(() => {
             return exchangeContract.estimateGas.batchAddOrder(nfts, ids,amounts ,owners,prices,royalties,exchangeTokens)
@@ -211,9 +214,10 @@ export default function ExamineProduct() {
               console.debug('Failed to add order', error)
               throw error
           })
+        window.location.reload()
     }
 
-
+    const [passedProducts, setPassedProducts] = useState([]);
 
   return (
     <ExamineProductContainer>
@@ -234,7 +238,9 @@ export default function ExamineProduct() {
         </ProductsThead>
         <ProductsTbody>
           {products.map((product:ProductInterface, index:number) => (
-            <ProductsItem key={index} product={product}  />
+
+            <ProductsItem key={index} product={product} passedProducts={passedProducts} setPassedProducts={setPassedProducts} />
+
           ))}
         </ProductsTbody>
       </ProductsTable>

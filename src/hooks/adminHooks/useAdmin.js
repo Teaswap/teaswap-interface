@@ -38,7 +38,6 @@ export default function useAdmin() {
 
 
   const [passedProduct,setPassedProduct] = useState({});
-  const [passedProducts,setPassedProducts] = useState([]);
 
   // const pProducts = useMemo(()=>{
   //   if(passedProducts.length!=0){
@@ -71,10 +70,10 @@ export default function useAdmin() {
       // setPassedProducts(newPasseds)
       // // passedProducts.push(product)
       setPassedProduct(product)
-      passedProducts.push(product)
-      setPassedProducts(passedProducts)
-    }else{
-      setPassedProducts(passedProducts.filter(v => v.id != product.id))
+      // passedProducts.push(product)
+      // setPassedProducts(passedProducts)
+    // }else{
+    //   setPassedProducts(passedProducts.filter(v => v.id != product.id))
     }
     // product.status = status
     handleUpdateProductStatus(product.id, status);
@@ -125,7 +124,6 @@ export default function useAdmin() {
     params,
     productParams,
     passedProduct,
-    passedProducts,
     isChecked,
     isSearch,
     setProductParams,
