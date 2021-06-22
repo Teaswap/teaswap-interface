@@ -20,7 +20,7 @@ const AnnouncementContainer = styled.section`
 `;
 
 const AnnouncementTitle = styled.div`
-  font-size: 24px;
+  font-size: 15px;
   color: #7a7a7a;
   font-weight: bold;
   margin-bottom: 15px;
