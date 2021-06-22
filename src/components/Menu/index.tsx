@@ -2,7 +2,7 @@ import React, { useRef } from 'react'
 // import { Info, MessageCircle, Twitter, Send } from 'react-feather'
 import styled from 'styled-components'
 import { lighten } from 'polished'
-import { useTranslation } from 'react-i18next'
+// import { useTranslation } from 'react-i18next'
 
 // import { ReactComponent as MenuIcon } from '../../assets/images/menu.svg'
 import { useActiveWeb3React } from '../../hooks'
@@ -90,7 +90,7 @@ const MenuFlyout = styled.span`
 
 export default function Menu() {
   const { account } = useActiveWeb3React()
-  const { t } = useTranslation()
+  // const { t } = useTranslation()
   const navigate = useNavigate();
 
   const node = useRef<HTMLDivElement>()
