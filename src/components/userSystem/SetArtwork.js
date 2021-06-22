@@ -62,7 +62,7 @@ export default function SetAvatar({ productPictureUrl, handleChangePicture }) {
       <PreviewAvatar onClick={() => document.getElementById('uploadArtwork').click()} src={productPictureUrl} alt='' />
       <RightSide>
         <Description>
-          {"Support： PNG, JPG , GIF, Video and Audio; Suggested ration 3:4; Size <10MB"}
+          {"Support： PNG, JPG , GIF, Video and Audio; Suggested ratio 3:4; Size <10MB"}
         </Description>
         <Label>
           <InputFile id="uploadArtwork" type='file' onChange={handleChangePicture} />

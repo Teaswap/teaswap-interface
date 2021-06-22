@@ -69,7 +69,7 @@ export function PictureBox({ pictureUrl, handleChange }) {
         <Description>
           {"Support： PNG, JPG , GIF, Video and Audio;"}
           <br />
-          {"Suggested ration 3:4; Size <10MB"}
+          {"Suggested ratio 3:4; Size <10MB"}
           <br />
           {"Mint an NFT charges 0.01BNB"}
         </Description>
