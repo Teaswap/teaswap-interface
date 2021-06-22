@@ -131,13 +131,13 @@ export default function Menu() {
           </MenuItem> */}
           {account && (
             <>
-              <ButtonPrimary onClick={openClaimModal} padding="8px 16px" width="100%" borderRadius="0px" mt="0.5rem">
-                {t('Claim')} AirDrops
-              </ButtonPrimary>
               <ButtonPrimary onClick={() => {
                 navigate('/nft/users/backstage')
               }} padding="8px 16px" width="100%" borderRadius="0px" mt="0.5rem">
                 My Profile
+              </ButtonPrimary>
+              <ButtonPrimary onClick={openClaimModal} padding="8px 16px" width="100%" borderRadius="0px" mt="0.5rem">
+                AirDrop
               </ButtonPrimary>
             </>
           )}
