@@ -26,7 +26,6 @@ const Selector = styled.select`
 const OptionComponent = styled.option``;
 
 export default function ExamineSelector(props) {
-  console.log('ExamineSelector props ', props)
   const { product, setPassedProducts } = props
   const {
     value,
@@ -38,7 +37,6 @@ export default function ExamineSelector(props) {
   useEffect(() => {
     setValue(product.status);
   }, []);
-  console.log('ExamineSelector setPassedProducts', setPassedProducts)
 
   return (
     <ExamineContainer>

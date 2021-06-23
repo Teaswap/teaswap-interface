@@ -94,7 +94,6 @@ interface productItemProps {
 
 
 const ProductsItem = ({key, product, setPassedProducts}:productItemProps ) => {
-  console.log('ProductsItem', key, product, setPassedProducts)
   // const { setThousandths } = useAdmin();
   const extoken = product.extoken
   const tokenOptions = [
@@ -129,7 +128,6 @@ const ProductsItem = ({key, product, setPassedProducts}:productItemProps ) => {
       <ProductTd>{product.createdAt.split('T')[0]}</ProductTd>
       <ProductTd>
       <ExamineSelector setPassedProducts={(status: any, product: ProductInterface) => {
-          console.log('ProductsItem2', setPassedProducts)
           setPassedProducts(status, product)
         }} product={product} />
       </ProductTd>
@@ -143,11 +141,6 @@ export default function ExamineProduct() {
   
   // var initialPP:= []
   var [passedProducts, setPassedProducts] = useState([] as  Array<ProductInterface>);
-  try{
-    console.log('ffffff', passedProducts, setPassedProducts)
-  }catch(e) {
-    console.error(e)
-  }
 
   // const {passedProducts,  } = useAdmin()
 
