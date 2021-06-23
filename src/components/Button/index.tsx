@@ -43,6 +43,7 @@ export const ButtonPrimary = styled(Base)`
   color:  #7f7f7f;
   border: 1px solid #7f7f7f;
   height: 42px;
+  font-size: 13px;
   &:focus {
     border: none;
     color: #ffffff;

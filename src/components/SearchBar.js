@@ -5,6 +5,7 @@ import { IconComponent } from '../components';
 import { InputSearch } from './Input';
 import { useLocation, useNavigate } from 'react-router-dom';
 import {useTranslation} from 'react-i18next';
+import { BsSearch } from 'react-icons/bs';
 
 const SearchBarContainer = styled.div`
   cursor: pointer;
@@ -50,7 +51,7 @@ const SearchBar = () => {
   return (
     <SearchBarContainer>
       <SearchArea>
-        <IconComponent kind={'search'} />
+        <BsSearch size="15" color="#7f7f7f" />
         <InputSearch
           value={value}
           onChange={handleChangeInput}

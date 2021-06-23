@@ -383,11 +383,11 @@ export default function Header() {
               <img height="40px" style={{ marginTop: 0 }} src={isDark ? LogoDark : Logo} alt="logo" />
             </NavLink>
           </UniIcon>
-          <HeaderLinks style={{ fontSize: '14px' }}>
+          <HeaderLinks style={{ fontSize: '13px' }}>
             <StyledNavLink id={`swap-nav-link`} to={'/explore'}>
               {t('DROPS')}
             </StyledNavLink>
-            <StyledNavLink id={`NFT-nav-link`} to={'/nft'} >
+            <StyledNavLink id={`NFT-nav-link`} to={'/nft/products/category/1'} >
               {t('NFT')}
               {/* <span>↗</span> */}
             </StyledNavLink>

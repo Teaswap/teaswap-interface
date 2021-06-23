@@ -146,6 +146,8 @@ export default function useProduct() {
   
   const handleTokenSwitch = (extoken) => {
 
+    if (!extoken) return;
+
     const tokenOptions = [
       { name: 'BNB',value:ZERO_ADDRESS },
       { name: 'BUSD',value:BUSD.address },

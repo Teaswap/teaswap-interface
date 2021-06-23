@@ -67,13 +67,23 @@ const VendorBackstagePage = () => {
     setIsSettingAnnouncement(true);
   };
 
+  const { handleApplyForVendor } = useUser();
+
   useEffect(() => {
     window.scroll(0, 0);
     handleGetMe().then((result) => {
-      if (!result.data.is_vendor) navigate('/');
-      setId(result.data.userId);
-      handleGetUserById(result.data.userId);
-      handleGetProductsFromVendor(result.data.userId, 1);
+      // todo 自动
+      if (!result.data.is_vendor) {
+        handleApplyForVendor()
+        // navigate('/');
+        setTimeout(() => {
+          window.location.href = window.location.href
+        }, 500)
+      }else{
+        setId(result.data.userId);
+        handleGetUserById(result.data.userId);
+        handleGetProductsFromVendor(result.data.userId, 1);
+      }
     });
     return () => {
       dispatch(setProducts([]));

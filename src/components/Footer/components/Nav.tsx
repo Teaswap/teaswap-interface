@@ -47,14 +47,14 @@ const StyledNav = styled.nav`
 const StyledNavLink = styled(NavLink)`
   color: ${({ theme }) => theme.bg2};
   text-decoration: none;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 500;
   line-height: 34px;
 `
 const StyledLink = styled.a`
   color: ${({ theme }) => theme.bg2};
   text-decoration: none;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 500;
   line-height: 34px;
 `

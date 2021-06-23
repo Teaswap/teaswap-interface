@@ -35,8 +35,7 @@ const  TitleSection = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 40px;
-  padding: 20px;
+  padding: 10px;
   color: #474747;
 `;
 
@@ -123,9 +122,9 @@ const HomePage = () => {
     
     {
       picture_url: process.env.PUBLIC_URL + '/nft/12.gif',
-      title: "CaoJun NFT Collectibles",
-      number: "",
-      info: '',
+      title: "CJAI NFT Collectibles",
+      number: "#0605",
+      info: 'TSA NFT Studio',
       mediaType: 1,
       id: 1,
     },{
@@ -147,51 +146,42 @@ const HomePage = () => {
     {
       picture_url: process.env.PUBLIC_URL + '/nft/3.gif',
       title: "CaoJun NFT Collectibles",
-      number: "",
-      info: '',
+      number: "#9134",
+      info: 'Including CaoJunNFT #9134',
       mediaType: 1,
       id: 4,
-    },
-
-    {
-      picture_url: process.env.PUBLIC_URL + '/nft/5.png',
-      title: "CaoJun NFT Collectibles",
-      number: "",
-      info: 'Purple Pavilion and Cyan Cloud',
-      mediaType: 1,
-      id: 5,
     },
     {
       picture_url: process.env.PUBLIC_URL + '/nft/6.png',
       title: "CaoJun NFT Collectibles",
-      number: "",
+      number: "#7611",
       info: "Spring's News",
       mediaType: 1,
       id: 6,
     },
     {
-      picture_url: process.env.PUBLIC_URL + '/nft/7.gif',
-      title: "CaoJun Digital NFT Collectibles",
-      number: "",
-      info: '',
+      picture_url: process.env.PUBLIC_URL + '/nft/5.png',
+      title: "CaoJun NFT Collectibles",
+      number: "#8034",
+      info: 'Purple Pavilion and Cyan Cloud',
       mediaType: 1,
-      id: 7,
+      id: 5,
     },
     {
       picture_url: process.env.PUBLIC_URL + '/nft/8.gif',
-      title: "CJAI Gold Grass",
-      number: "",
-      info: '',
+      title: "CJAI Collectibles",
+      number: "Gold Grass",
+      info: 'Including CaoJunNFT #8304',
       mediaType: 1,
       id: 8,
     },
     {
-      picture_url: process.env.PUBLIC_URL + '/nft/9.gif',
-      title: "CJAI Fishing Lake",
-      number: "",
+      picture_url: process.env.PUBLIC_URL + '/nft/7.gif',
+      title: "CJAI Collectibles",
+      number: "# 7611",
       info: '',
       mediaType: 1,
-      id: 9,
+      id: 7,
     },
     {
       picture_url: process.env.PUBLIC_URL + '/nft/10.gif',
@@ -200,6 +190,22 @@ const HomePage = () => {
       info: '',
       mediaType: 1,
       id: 10,
+    },
+    {
+      picture_url: process.env.PUBLIC_URL + '/nft/12.png',
+      title: "CJAI Fishing",
+      number: "Gateway to Nature",
+      info: 'Including CaoJunNFT#0602',
+      mediaType: 1,
+      id: 12,
+    },
+    {
+      picture_url: process.env.PUBLIC_URL + '/nft/9.gif',
+      title: "CJAI Fishing",
+      number: "Fishing Lake",
+      info: 'Including CaoJunNFT #7611',
+      mediaType: 1,
+      id: 9,
     },
     {
       picture_url: process.env.PUBLIC_URL + '/nft/11.gif',
@@ -612,7 +618,7 @@ const products2 = [
 
   const productErrorMessage = ''
 
-  const [products, setProducts] = useState(products2);
+  const [products, setProducts] = useState(products1);
   
 
   // const {t} = useTranslation();
@@ -633,7 +639,7 @@ const products2 = [
     <Page>
       <CarouselBox />
       <TitleSection>
-        <p style={{fontFamily: "Roboto-Thin", color: '#474747', fontSize: '30px', fontWeight: 'bold'}}>Upcoming Drops</p>
+        <div style={{fontFamily: "Roboto-Thin", padding: "10px", color: '#474747', fontSize: '30px', fontWeight: 'bold'}}>Upcoming Drops</div>
         <p style={{fontSize: '15px'}}>The New Way to Own Art</p>
       </TitleSection>
       <Nav>
