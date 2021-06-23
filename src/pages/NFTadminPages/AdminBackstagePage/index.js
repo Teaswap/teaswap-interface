@@ -1,1 +1,1 @@
-export { default } from './AdminBackstagePage';
+export { default } from './AdminBackstagePage.tsx';

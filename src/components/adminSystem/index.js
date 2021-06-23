@@ -1,5 +1,5 @@
 import OptionList from './OptionList';
-import ExamineProduct from './ExamineProduct';
+import ExamineProduct from './ExamineProduct.tsx';
 import ExamineSelector from './ExamineSelector';
 import SearchBar from './SearchBar';
 import ManageUsers from './ManageUsers';

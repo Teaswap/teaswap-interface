@@ -7,7 +7,7 @@ import { OptionList, ExamineProduct } from '../../../components/adminSystem';
 import { ThickNavPage } from '../../../components/Page';
 
 const Wrapper = styled.div`
-  width: 50vw;
+  // width: 50vw;
   margin: 0 auto;
   padding: 30px 0;
 `;
