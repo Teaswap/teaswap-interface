@@ -9,10 +9,14 @@ import ConSubTitle from '../../components/Content/SubTitle';
 const List = ()=>{
   const { handleGetMe } = useUser();
   const [mintUrl, setMintUrl] = useState("/nft/users/apply")
+  const [minted, setMinted] = useState(false)
   useEffect(() => {
     window.scroll(0, 0);
     handleGetMe().then((result) => {
-      if (result && result.data && result.data.is_vendor) return setMintUrl('/nft/products/post');
+      if (result && result.data && result.data.is_vendor)  {
+        setMinted(true)
+        return setMintUrl('/nft/products/post');
+      }
     });
   }, []);
 
@@ -23,9 +27,12 @@ const List = ()=>{
         <StyledLink to={mintUrl}>
           Create
         </StyledLink>
-        <StyledLink to='/nft/users/backstage'>
+        {minted && (
+          <StyledLink to='/nft/users/backstage'>
           My Account
-        </StyledLink>
+          </StyledLink>
+        )}
+       
       </Title>
       
       <ConSubTitle con="Featured Artist Application" />

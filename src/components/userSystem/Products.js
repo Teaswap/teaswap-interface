@@ -42,7 +42,7 @@ const ProductPicture = styled.img`
 
 const ProductName = styled.div`
   margin-top: ${DISTANCE.md};
-  text-align: center;
+  text-align: left;
   cursor: pointer;
 }
   a {
@@ -57,7 +57,7 @@ const ProductName = styled.div`
 
 const VendorName = styled.div`
   margin-top: ${DISTANCE.sm};
-  text-align: center;
+  text-align: left;
   cursor: pointer;
   a {
     display: block;
@@ -73,7 +73,7 @@ const ProductPrice = styled.div`
   margin-top: 5px;
   font-size: ${FONT.xs};
   color: ${COLOR.text_2};
-  text-align: center;
+  text-align: left;
 `;
 
 const ButtonContainer = styled.div`
@@ -83,11 +83,8 @@ const ButtonContainer = styled.div`
 `;
 
 const Product = ({ product, onLoad, loaded, $width, $height, $margin }) => {
-  const formatter = new Intl.NumberFormat('zh-TW', {
-    style: 'currency',
-    currency: 'NTD',
-    minimumFractionDigits: 0,
-  });
+  const {handleTokenSwitch} = useProduct();
+  const formatter = new Intl.NumberFormat();
   const {t} = useTranslation();
 
   return (
@@ -120,15 +117,15 @@ const Product = ({ product, onLoad, loaded, $width, $height, $margin }) => {
       )}
       
       <ProductName>
-        <NavLink to={`/nft/products/${product.id}`}>{product.name}</NavLink>
+        <NavLink className="a-link" to={`/nft/products/${product.id}`}>{product.name}</NavLink>
       </ProductName>
       <VendorName>
-        <NavLink to={`/nft/products/vendor/${product.User.id}`}>
+        <NavLink className="a-link" to={`/nft/products/vendor/${product.User.id}`}>
           {product.User.nickname}
         </NavLink>
       </VendorName>
       {/* <ProductPrice>{formatter.format(product.price)}</ProductPrice> */}
-      <ProductPrice>{product.price}</ProductPrice>
+      <ProductPrice>{formatter.format(product.price)} {handleTokenSwitch(product.extoken)}</ProductPrice>
     </ProductContainer>
   );
 };

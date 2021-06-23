@@ -111,7 +111,7 @@ const InfoLeft = ({ vendorInfo, onLoad, loaded }) => {
         <SellerName>{vendorInfo.nickname}</SellerName>
           {/*<ActionButton $margin={20}>+ 加入關注</ActionButton>*/}
           <div className="user-icons">
-            <ExternalLink className="margin10" href={`${vendorInfo.twitter}`}>
+            <ExternalLink className="margin10" href={`${vendorInfo.instagram}`}>
               <AiFillInstagram color="#7a7a7a" title="twitter" size="30"/>
             </ExternalLink>
             <ExternalLink className="margin10" href={`${vendorInfo.twitter}`}>
@@ -140,7 +140,7 @@ const InfoItem = () => {
   return (
     <InfoBottom>
       <InfoBottomItem>
-        <InfoName>{t('On Sale')}</InfoName>
+        <InfoName>{t('Created')}</InfoName>
         <InfoNumber>{productCount}</InfoNumber>
       </InfoBottomItem>
       <InfoBottomItem>
@@ -148,7 +148,7 @@ const InfoItem = () => {
         <InfoNumber>0</InfoNumber>
       </InfoBottomItem>
       <InfoBottomItem>
-        <InfoName>{t('Created')}</InfoName>
+        <InfoName>{t('On Sale')}</InfoName>
         <InfoNumber>0</InfoNumber>
       </InfoBottomItem>
       {/* <InfoBottomItem>

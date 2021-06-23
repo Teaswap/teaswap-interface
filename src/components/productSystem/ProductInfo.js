@@ -158,6 +158,7 @@ const ShoppingCart = styled(ActionButton)`
   font-weight: 400;
   padding: 8px;
   border-radius: 0;
+  line-height: 24px;
   :hover{
     border-color : #000000;
   }
@@ -165,6 +166,7 @@ const ShoppingCart = styled(ActionButton)`
 
 const ShoppingBuy = styled(ActionButton)`
   margin-top : 10px;
+  line-height: 24px;
   width : 100%;
   border: 1px solid #cccccc;
   color: #111;

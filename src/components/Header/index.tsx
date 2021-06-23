@@ -15,11 +15,11 @@ import { useETHBalances, useAggregateUniBalance } from '../../state/wallet/hooks
 import { CardNoise } from '../earn/styled'
 import { CountUp } from 'use-count-up'
 import { TYPE } from '../../theme'
-import {  useToggleModal } from '../../state/application/hooks'
-import { ApplicationModal } from '../../state/application/actions'
+// import {  useToggleModal } from '../../state/application/hooks'
+// import { ApplicationModal } from '../../state/application/actions'
 
 import Settings from '../Settings'
-// import Menu from '../Menu'
+import Menu from '../Menu'
 
 import Row, { RowFixed } from '../Row'
 import Web3Status from '../Web3Status'
@@ -32,7 +32,7 @@ import Modal from '../Modal'
 import UniBalanceContent from './UniBalanceContent'
 import usePrevious from '../../hooks/usePrevious'
 import I18nSwitch from '../I18nSwitch'
-import { ButtonSecondary } from '../Button'
+// import { ButtonSecondary } from '../Button'
 import { MEDIA_QUERY } from '../../constants/style'
 
 const HeaderFrame = styled.div`
@@ -298,33 +298,33 @@ const StyledNavLink = styled(NavLink).attrs({
 //     font-size: 14px;
 //   }
 // `
-const Web3StatusGeneric = styled(ButtonSecondary)`
-  ${({ theme }) => theme.flexRowNoWrap}
-  width: 100%;
-  align-items: center;
-  padding: 0.285rem 0.3rem;
-  border-radius: 0px;
-  cursor: pointer;
-  user-select: none;
-  font-size: 14px;
-  margin-top: 1px;
-  :focus {
-    outline: none;
-  }
-`
+// const Web3StatusGeneric = styled(ButtonSecondary)`
+//   ${({ theme }) => theme.flexRowNoWrap}
+//   width: 100%;
+//   align-items: center;
+//   padding: 0.285rem 0.3rem;
+//   border-radius: 0px;
+//   cursor: pointer;
+//   user-select: none;
+//   font-size: 14px;
+//   margin-top: 1px;
+//   :focus {
+//     outline: none;
+//   }
+// `
 
-const Web3StatusConnected = styled(Web3StatusGeneric)`
-  background-color: #ffffff;
-  border: 1px solid ${({ theme }) => theme.lightGray};
-  color: ${({ theme }) => theme.gray};
-  font-weight: 500;
-  :hover,
-  :focus {
-    border: 1px solid ${({ theme }) => theme.darkGray};
-  }
-  height: 35px;
-  margin-left: 8px;
-`
+// const Web3StatusConnected = styled(Web3StatusGeneric)`
+//   background-color: #ffffff;
+//   border: 1px solid ${({ theme }) => theme.lightGray};
+//   color: ${({ theme }) => theme.gray};
+//   font-weight: 500;
+//   :hover,
+//   :focus {
+//     border: 1px solid ${({ theme }) => theme.darkGray};
+//   }
+//   height: 35px;
+//   margin-left: 8px;
+// `
 
 const HeaderRoot = styled.div`
   display: flex;
@@ -368,7 +368,7 @@ export default function Header() {
 
   const countUpValue = aggregateBalance?.toFixed(0) ?? '0'
   const countUpValuePrevious = usePrevious(countUpValue) ?? '0'
-  const openClaimModal = useToggleModal(ApplicationModal.ADDRESS_CLAIM)
+  // const openClaimModal = useToggleModal(ApplicationModal.ADDRESS_CLAIM)
 
   return (
     <HeaderRoot>
@@ -385,7 +385,7 @@ export default function Header() {
           </UniIcon>
           <HeaderLinks style={{ fontSize: '14px' }}>
             <StyledNavLink id={`swap-nav-link`} to={'/explore'}>
-              {t('Explore')}
+              {t('DROPS')}
             </StyledNavLink>
             <StyledNavLink id={`NFT-nav-link`} to={'/nft'} >
               {t('NFT')}
@@ -526,10 +526,10 @@ export default function Header() {
             </AccountElement>
           </HeaderElement>
           <HeaderElementWrap>
-            {/* <Menu /> */}
-            <Web3StatusConnected onClick={openClaimModal}>
+            <Menu />
+            {/* <Web3StatusConnected onClick={openClaimModal}>
               Airdrop
-            </Web3StatusConnected>
+            </Web3StatusConnected> */}
             <Settings />
             <I18nSwitch />
           </HeaderElementWrap>
