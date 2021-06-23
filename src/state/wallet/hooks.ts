@@ -4,7 +4,12 @@ import { useMemo } from 'react'
 import ERC20_INTERFACE from '../../constants/abis/erc20'
 import { useAllTokens } from '../../hooks/Tokens'
 import { useActiveWeb3React } from '../../hooks'
-import {useERC1155Contract, useMulticallContract, useNFTFactoryContract} from '../../hooks/useContract'
+import {
+    useERC1155Contract,
+    useMulticallContract,
+    useNFTExchangeContract,
+    useNFTFactoryContract
+} from '../../hooks/useContract'
 import { isAddress } from '../../utils'
 import {useSingleContractMultipleData, useMultipleContractSingleData, useSingleCallResult} from '../multicall/hooks'
 import { useUserUnclaimedAmount } from '../claim/hooks'
@@ -112,6 +117,15 @@ export function useNFTLastId(
 ):number|undefined|null{
     const contract = useERC1155Contract(address)
     const lastId = useSingleCallResult(contract, 'totalSupply').result?.[0]
+
+    return lastId
+}
+
+export function useNFTLastOrderId(
+    address?: string,
+):number|undefined|null{
+    const contract = useNFTExchangeContract(address)
+    const lastId = useSingleCallResult(contract, 'totalOrder').result?.[0]
 
     return lastId
 }

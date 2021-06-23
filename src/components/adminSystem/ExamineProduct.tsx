@@ -1,16 +1,17 @@
-import React, {useEffect,  useState} from 'react';
+import React, {useEffect, useMemo, useState} from 'react';
 import styled from 'styled-components';
 import useAdmin from '../../hooks/adminHooks/useAdmin';
 import { DISTANCE } from '../../constants/style';
 import { ActionButton } from '../NFTButton';
 import { ExamineSelector } from '../../components/adminSystem';
-import {BUSD, CJAI, NFTEXCHANGE, SHIH, UNI, ZERO_ADDRESS} from "../../constants";
+import {BUSD, CJAI, NFTEXCHANGE,  SHIH, UNI, ZERO_ADDRESS} from "../../constants";
 import {ChainId} from "@teaswap/uniswap-sdk";
 import {calculateGasMargin} from "../../utils";
 import {TransactionResponse} from "@ethersproject/providers";
 import {useNFTExchangeContract} from "../../hooks/useContract";
 import {useTransactionAdder} from "../../state/transactions/hooks";
 import BigNumber from "bignumber.js";
+import { useNFTLastOrderId} from "../../state/wallet/hooks";
 
 const ExamineProductContainer = styled.div`
   margin: ${DISTANCE.md} 0;
@@ -55,6 +56,10 @@ export interface userMiniInterface {
     username: string,
     nickname: string,
     address: string
+}
+
+export interface orderidsjason {
+    orderid: string,
 }
 
 
@@ -129,7 +134,7 @@ const ProductsItem = ({key,product, passedProducts, setPassedProducts}:productIt
 
 export default function ExamineProduct() {
 
-  const { products, handleGetUnCheckProducts,  passedProduct } = useAdmin();
+  const { products, handleGetUnCheckProducts,  passedProduct,handleUpdateProductsOrderid } = useAdmin();
   // const {passedProducts,  } = useAdmin()
 
 
@@ -146,8 +151,19 @@ export default function ExamineProduct() {
   const [prices,setPrices] = useState([] as Array<string>)
   const [royalties,setRoyalties] = useState([] as Array<number>)
   const [exchangeTokens,setExchangeTokens] = useState([] as Array<string>)
-  const [passProducts, setPassProducts] = useState([] as Array<ProductInterface>)
-  // const [sendClick,setSendClick] = useState(false)
+  const [orderIds,setOrderIds] = useState([] as Array<orderidsjason>)
+    const [tableIds,setTableIds] = useState([] as Array<string>)
+    const [passProducts, setPassProducts] = useState([] as Array<ProductInterface>)
+  const lastIdres = useNFTLastOrderId(NFTEXCHANGE[ChainId.BSC_MAINNET])
+    const lastId = useMemo(()=>{
+        if (lastIdres) {
+            console.log("postpage--lastIdres:"+lastIdres)
+            return lastIdres
+        }else{
+            return undefined
+        }
+    },[lastIdres])
+    // const [sendClick,setSendClick] = useState(false)
   //   const addorderCallback = useCallback( async ()=>{
   //           if(!sendClick){
   //               return
@@ -171,6 +187,11 @@ export default function ExamineProduct() {
 
       console.log('handleBatchAddOrder', passedProduct, passedProducts)
 
+        if(lastId===undefined){
+            alert("no nft order found")
+            return
+        }
+
       for(let i = 0;i<passedProducts.length;i++){
           let pProduct:ProductInterface = passedProducts[i]
           let priceNumber = new BigNumber(pProduct.price).multipliedBy(new BigNumber(10).pow(18))
@@ -181,6 +202,8 @@ export default function ExamineProduct() {
           prices.push( priceNumber.toFixed() )
           royalties.push(pProduct.royalty)
           exchangeTokens.push(pProduct.extoken)
+          orderIds.push({orderid:(Number(lastId)+i+1).toString()})
+          tableIds.push(pProduct.id.toString())
           setNfts(nfts)
           setIds(ids)
           setAmounts(amounts)
@@ -188,6 +211,8 @@ export default function ExamineProduct() {
           setPrices(prices)
           setRoyalties(royalties)
           setExchangeTokens(exchangeTokens)
+          setOrderIds(orderIds)
+          setTableIds(tableIds)
       }
       // window.location.reload()
       // setSendClick(true)
@@ -209,11 +234,15 @@ export default function ExamineProduct() {
               addTransaction(response, {
                   summary: 'batchaddorder ',
               })
+              const pids = tableIds.join(",")
+              handleUpdateProductsOrderid(pids,orderIds)
           })
           .catch((error: Error) => {
               console.debug('Failed to add order', error)
               throw error
           })
+        const pids = tableIds.join(",")
+        handleUpdateProductsOrderid(pids,orderIds)
         window.location.reload()
     }
 

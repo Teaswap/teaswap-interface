@@ -8,6 +8,7 @@ import {
   selectMail,
   getUnCheckProducts,
   updateProductStatus,
+  updateProductsOrderid,
   getUsers,
   searchUsers,
   getProducts,
@@ -50,6 +51,8 @@ export default function useAdmin() {
     getUnCheckProducts(page)(dispatch).then((result) => result);
   const handleUpdateProductStatus = (id, status) =>
     updateProductStatus(id, status)(dispatch).then((result) => result);
+  const handleUpdateProductsOrderid = (ids, orderids) =>
+      updateProductsOrderid(ids, orderids)(dispatch).then((result) => result);
   const handleGetUsers = (params) =>
     getUsers(params)(dispatch).then((result) => result);
   const handleSearchUsers = (keyword) =>
@@ -59,6 +62,12 @@ export default function useAdmin() {
   const handleSearchProducts = (params) =>
     searchProducts(params)(dispatch).then((result) => result);
   const handleGetMails = () => getMails()(dispatch).then((result) => result);
+
+  // const handleUpdateOrderid = (addresses,tokenids,orderids) => {
+  //
+  //   handleUpdateProductsOrderid(product.id, status);
+  // };
+
 
   const handleChangeSelector = (e, product) => {
     setValue(e.target.value);
@@ -143,5 +152,6 @@ export default function useAdmin() {
     handleChangeSelector,
     handleSearchingUsers,
     handleSearchingProducts,
+    handleUpdateProductsOrderid
   };
 }
