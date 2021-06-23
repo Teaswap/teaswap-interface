@@ -7,6 +7,7 @@ import {
   getProductsAPI,
   searchProductsAPI,
   getMailsAPI,
+  updateProductsOrderidAPI
 } from '../../../webAPI/adminAPI';
 
 export const adminSlice = createSlice({
@@ -69,6 +70,17 @@ export const updateProductStatus = (id, status) => (dispatch) => {
     if (!result || result.ok === 0)
       return dispatch(
         setErrorMessage(result ? result.message : 'something wrong')
+      );
+    return result;
+  });
+};
+
+export const updateProductsOrderid = (ids, orderids) => (dispatch) => {
+  dispatch(setErrorMessage(''));
+  return updateProductsOrderidAPI(ids, orderids).then((result) => {
+    if (!result || result.ok === 0)
+      return dispatch(
+          setErrorMessage(result ? result.message : 'something wrong')
       );
     return result;
   });

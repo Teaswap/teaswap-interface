@@ -54,6 +54,20 @@ const updateProductStatusAPI = (id, status) => {
   }).then((res) => res.json());
 };
 
+const updateProductsOrderidAPI = (ids, orderids) => {
+  const token = localStorage.getItem('token');
+  return fetch(`${BASE_URL}/manages/update-orderids/${ids}`, {
+    method: 'PATCH',
+    headers: {
+      'content-type': 'application/json',
+      authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify({
+      orderids,
+    }),
+  }).then((res) => res.json());
+};
+
 const getProductsAPI = (params) => {
   const token = localStorage.getItem('token');
   const queryString = `_offset=${params.offset ? params.offset : 0}&_limit=${
@@ -101,4 +115,5 @@ export {
   getProductsAPI,
   searchProductsAPI,
   getMailsAPI,
+  updateProductsOrderidAPI
 };
