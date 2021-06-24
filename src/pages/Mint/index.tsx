@@ -5,11 +5,13 @@ import {MEDIA_QUERY} from '../../constants/style';
 import { NavLink } from 'react-router-dom'
 import useUser from '../../hooks/userHooks/useUser';
 import ConSubTitle from '../../components/Content/SubTitle';
+import { useTranslation } from 'react-i18next';
 
 const List = ()=>{
   const { handleGetMe } = useUser();
   const [mintUrl, setMintUrl] = useState("/nft/users/apply")
   const [minted, setMinted] = useState(false)
+  const {t} = useTranslation();
   useEffect(() => {
     window.scroll(0, 0);
     handleGetMe().then((result) => {
@@ -25,11 +27,11 @@ const List = ()=>{
       <img className="page-banner" src={process.env.PUBLIC_URL + '/mint_banner.png'} width="100%" />
       <Title>
         <StyledLink to={mintUrl}>
-          Create
+          {t('Create')}
         </StyledLink>
         {minted && (
           <StyledLink to='/nft/users/backstage'>
-          My Account
+           {t('My Account')}
           </StyledLink>
         )}
        

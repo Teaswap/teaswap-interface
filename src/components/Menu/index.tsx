@@ -2,7 +2,7 @@ import React, { useRef } from 'react'
 // import { Info, MessageCircle, Twitter, Send } from 'react-feather'
 import styled from 'styled-components'
 import { lighten } from 'polished'
-// import { useTranslation } from 'react-i18next'
+import { useTranslation } from 'react-i18next'
 
 // import { ReactComponent as MenuIcon } from '../../assets/images/menu.svg'
 import { useActiveWeb3React } from '../../hooks'
@@ -91,7 +91,7 @@ const MenuFlyout = styled.span`
 
 export default function Menu() {
   const { account } = useActiveWeb3React()
-  // const { t } = useTranslation()
+  const { t } = useTranslation()
   const navigate = useNavigate();
 
   const node = useRef<HTMLDivElement>()
@@ -135,10 +135,10 @@ export default function Menu() {
               <ButtonPrimary onClick={() => {
                 navigate('/nft/users/backstage')
               }} padding="8px 8px" width="80%" borderRadius="0px" mt="0.5rem">
-                My Profile
+                {t('My Profile')}
               </ButtonPrimary>
               <ButtonPrimary onClick={openClaimModal} padding="8px 8px" width="80%" borderRadius="0px" mt="0.5rem">
-                AirDrop
+                {t('AirDrop')}
               </ButtonPrimary>
             </>
           )}
