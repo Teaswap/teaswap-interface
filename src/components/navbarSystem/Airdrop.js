@@ -47,41 +47,19 @@ const OptionWrapper = styled.div`
   }
 `;
 
-const OptionInner = styled.div`
-  padding-top: 9px;
-  z-index: 1;
-  position: relative;
-  width: 150px;
-  background: ${COLOR.bg_primary};
-`;
 
-const OptionList = styled.ul`
-  border: 1px solid #e5e5e6;
-  border-radius: 0px;
-  padding: 5px 15px 10px 15px;
-  display: flex;
-  justify-content: center;
-`;
-
-const OptionItem = styled.li`
-  margin: ${DISTANCE.xs} 0;
-`;
-
-const OptionName = styled.p`
-  color: ${COLOR.black};
-  font-size: ${FONT.xs};
-  cursor: pointer;
-`;
-
-export default function Notification() {
+export default function Airdrop() {
   return (
     <UserContainer>
-      <IconComponent kind={'bell'} />
+      <span>Activity</span>
       <OptionWrapper>
         <OptionInner>
           <OptionList>
             <OptionItem>
-              <OptionName>No Notfication</OptionName>
+              <OptionName>My Profile</OptionName>
+            </OptionItem>
+            <OptionItem>
+              <OptionName>AirDrop</OptionName>
             </OptionItem>
           </OptionList>
         </OptionInner>

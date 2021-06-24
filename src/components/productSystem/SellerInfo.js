@@ -67,7 +67,7 @@ const InfoTop = styled.div`
 `;
 
 const SellerName = styled.div`
-  font-size: ${FONT.lg};
+  font-size: ${FONT.xs};
   color: ${COLOR.text_2};
   font-weight: bold;
   margin-right: 26px;
@@ -181,20 +181,21 @@ const Buttons = styled.div`
 `;
 
 const InfoItem = () => {
+  const {t} = useTranslation();
   const { averageShippingTime, productCount } = useProduct();
   return (
     <InfoBottom>
       <InfoBottomItem>
-        <InfoName>Product Count</InfoName>
+        <InfoName>{t('Created')}</InfoName>
         <InfoNumber>{productCount}</InfoNumber>
       </InfoBottomItem>
       <InfoBottomItem>
-        <InfoName>Follows</InfoName>
-        <InfoNumber>2</InfoNumber>
+        <InfoName>{t('Collected')}</InfoName>
+        <InfoNumber>0</InfoNumber>
       </InfoBottomItem>
       <InfoBottomItem>
-        <InfoName>Response speed</InfoName>
-        <InfoNumber>3</InfoNumber>
+        <InfoName>{t('On Sale')}</InfoName>
+        <InfoNumber>0</InfoNumber>
       </InfoBottomItem>
       {/* <InfoBottomItem>
         <InfoName>Average shipment speed</InfoName>

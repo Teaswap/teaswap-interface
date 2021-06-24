@@ -6,7 +6,8 @@ const preBtnSty = {
   backgroundColor: "rgba(0, 0, 0, 0.2)",
   width: '40px',
   height: '40px',
-  borderRadius: '20px' 
+  borderRadius: '20px',
+  display: 'none'
 }
 
 const CarouselBox = () => {

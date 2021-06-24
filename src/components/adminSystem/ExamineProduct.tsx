@@ -34,6 +34,7 @@ const ProductTd = styled.td`
   text-align: center;
   max-width: 100px;
   padding: 0 10px;
+  word-break: break-all;
 `;
 
 const ProductImage = styled.img`
@@ -89,11 +90,10 @@ interface productItemProps {
     key: number
     product: ProductInterface
     setPassedProducts: Function
-    passedProducts: Array<ProductInterface>
 }
 
 
-const ProductsItem = ({key,product, passedProducts, setPassedProducts}:productItemProps ) => {
+const ProductsItem = ({key, product, setPassedProducts}:productItemProps ) => {
   // const { setThousandths } = useAdmin();
   const extoken = product.extoken
   const tokenOptions = [
@@ -104,13 +104,14 @@ const ProductsItem = ({key,product, passedProducts, setPassedProducts}:productIt
         { name: 'CJAI',value:CJAI.address },
     ]
 
-    let extokenName = 'TSA'
+    let extokenName = ''
     for(let i = 0 ;i<tokenOptions.length;i++){
         if(tokenOptions[i].value === extoken){
             extokenName=tokenOptions[i].name
             break
         }
     }
+
 
   return (
     <ProductTr>
@@ -126,7 +127,9 @@ const ProductsItem = ({key,product, passedProducts, setPassedProducts}:productIt
       <ProductTd>{product.royalty/100}</ProductTd>
       <ProductTd>{product.createdAt.split('T')[0]}</ProductTd>
       <ProductTd>
-        <ExamineSelector passedProducts={passedProducts} setPassedProducts={setPassedProducts}  product={product} />
+      <ExamineSelector setPassedProducts={(status: any, product: ProductInterface) => {
+          setPassedProducts(status, product)
+        }} product={product} />
       </ProductTd>
     </ProductTr>
   );
@@ -135,6 +138,10 @@ const ProductsItem = ({key,product, passedProducts, setPassedProducts}:productIt
 export default function ExamineProduct() {
 
   const { products, handleGetUnCheckProducts,  passedProduct,handleUpdateProductsOrderid } = useAdmin();
+  
+  // var initialPP:= []
+  var [passedProducts, setPassedProducts] = useState([] as  Array<ProductInterface>);
+
   // const {passedProducts,  } = useAdmin()
 
 
@@ -246,8 +253,6 @@ export default function ExamineProduct() {
         window.location.reload()
     }
 
-    const [passedProducts, setPassedProducts] = useState([]);
-
   return (
     <ExamineProductContainer>
       <ProductsTable>
@@ -268,7 +273,16 @@ export default function ExamineProduct() {
         <ProductsTbody>
           {products.map((product:ProductInterface, index:number) => (
 
-            <ProductsItem key={index} product={product} passedProducts={passedProducts} setPassedProducts={setPassedProducts} />
+            <ProductsItem key={index} product={product} setPassedProducts={(status:any , product:ProductInterface) => {
+              // const status = e.target.value === '通過' ? '1' : '2';
+              if(status === '1'){
+                // let products: Array<ProductInterface> = passedProducts
+                passedProducts.push(product)
+                setPassedProducts(passedProducts)
+              }else{
+                setPassedProducts(passedProducts.filter(v => v.id != product.id))
+              }
+            }} />
 
           ))}
         </ProductsTbody>

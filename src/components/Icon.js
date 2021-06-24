@@ -16,10 +16,10 @@ const Icon = styled.i`
 
 `;
 
-export default function IconComponent({ kind, margin }) {
+export default function IconComponent({ kind, margin, color }) {
   return (
     <IconContainer>
-      <Icon kind={kind} $margin={margin} />
+      <Icon kind={kind} color={color} $margin={margin} />
     </IconContainer>
   );
 }

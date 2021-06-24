@@ -225,7 +225,7 @@ button {
 }
 
 html {
-  font-size: 14px;
+  font-size: 13px;
   font-variant: none;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

@@ -60,7 +60,7 @@ const OptionInner = styled.div`
   padding-top: 9px;
   z-index: 1;
   position: relative;
-  width: 250px;
+  width: 150px;
   background: ${COLOR.bg_primary};
   overflow: auto;
   max-height: 70vh;

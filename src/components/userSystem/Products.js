@@ -47,7 +47,7 @@ const ProductName = styled.div`
 }
   a {
     display: block;
-    font-size: ${FONT.md};
+    font-size: ${FONT.xs};
     color: ${COLOR.black};
     overflow: hidden;
     white-space: pre;
@@ -125,7 +125,10 @@ const Product = ({ product, onLoad, loaded, $width, $height, $margin }) => {
         </NavLink>
       </VendorName>
       {/* <ProductPrice>{formatter.format(product.price)}</ProductPrice> */}
-      <ProductPrice>{formatter.format(product.price)} {handleTokenSwitch(product.extoken)}</ProductPrice>
+      <ProductPrice>
+        {formatter.format(product.price)} 
+        <span style={{fontSize: '9px'}}>{' ' + handleTokenSwitch(product.extoken)}</span>
+    </ProductPrice>
     </ProductContainer>
   );
 };

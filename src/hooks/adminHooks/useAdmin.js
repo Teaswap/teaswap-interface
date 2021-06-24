@@ -40,6 +40,10 @@ export default function useAdmin() {
 
   const [passedProduct,setPassedProduct] = useState({});
 
+  
+  var [passedProducts, setPassedProducts] = useState([]);
+
+
   // const pProducts = useMemo(()=>{
   //   if(passedProducts.length!=0){
   //     return passedProducts
@@ -152,6 +156,7 @@ export default function useAdmin() {
     handleChangeSelector,
     handleSearchingUsers,
     handleSearchingProducts,
-    handleUpdateProductsOrderid
+    handleUpdateProductsOrderid,
+    passedProducts, setPassedProducts
   };
 }

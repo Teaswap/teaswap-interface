@@ -66,6 +66,7 @@ const MenuFlyout = styled.span`
   top: 4rem;
   right: 0rem;
   z-index: 100;
+  align-items: center;
 
   ${({ theme }) => theme.mediaWidth.upToMedium`
     top: -17.25rem;
@@ -133,10 +134,10 @@ export default function Menu() {
             <>
               <ButtonPrimary onClick={() => {
                 navigate('/nft/users/backstage')
-              }} padding="8px 16px" width="100%" borderRadius="0px" mt="0.5rem">
+              }} padding="8px 8px" width="80%" borderRadius="0px" mt="0.5rem">
                 My Profile
               </ButtonPrimary>
-              <ButtonPrimary onClick={openClaimModal} padding="8px 16px" width="100%" borderRadius="0px" mt="0.5rem">
+              <ButtonPrimary onClick={openClaimModal} padding="8px 8px" width="80%" borderRadius="0px" mt="0.5rem">
                 AirDrop
               </ButtonPrimary>
             </>

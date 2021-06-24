@@ -44,7 +44,7 @@ const InfoTop = styled.div`
 `;
 
 const SellerName = styled.div`
-  font-size: 16px;
+  font-size: 13px;
   color: #474747;
   font-weight: bold;
   margin-right: 26px;

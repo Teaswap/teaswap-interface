@@ -20,7 +20,7 @@ const PreviewPicture = styled.div`
   justify-content: center;
   align-items: center;
   ${MEDIA_QUERY.sm} {
-    width: 80vw;
+    width: 80%;
     padding: 0;
     height: 100vw;
   }

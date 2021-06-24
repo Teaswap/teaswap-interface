@@ -77,7 +77,7 @@ const ProductPicture = styled.img`
 
 const ProductName = styled.div`
   width: 95%;
-  font-size: 14px;
+  font-size: 12px;
   text-align: left;
   margin-top: 10px;
   cursor: pointer;
@@ -88,7 +88,7 @@ const ProductName = styled.div`
 const VendorName = styled.div`
   margin-top: 10px;
   width: 95%;
-  font-size: 13px;
+  font-size: 12px;
   color: #7f7f7f;
   text-align: left;
   cursor: pointer;
@@ -97,7 +97,7 @@ const VendorName = styled.div`
 
 const ProductPrice = styled.div`
   margin-top: 5px;
-  width: 90%;
+  width: 95%;
   text-align: left;
   margin-bottom: 10px;
 `;
@@ -126,23 +126,32 @@ const StyledLink = styled(NavLink)`
 
 const Product = ({ product, onLoad, loaded, $width, $height, $margin }) => {
   const {handleTokenSwitch} = useProduct();
-  const formatter = new Intl.NumberFormat('en', {
-    style: 'currency',
-    currency: 'USD',
-    minimumFractionDigits: 0,
-  });
-
+  const formatter = new Intl.NumberFormat();
   return (
     <ProductContainer $width={$width} $height={$height} $margin={$margin}>
-      <NavLink to={`/nft/products/${product.id}`}>
-        <ProductPicture
-          src={product.picture_url}
-          style={{ opacity: loaded ? 1 : 0 }}
-          onLoad={onLoad}
-          $width={$width}
-          $height={$height}
-        />
-      </NavLink>
+      {product.link && (
+        <NavLink to={product.link}>
+          <ProductPicture
+            src={product.picture_url}
+            style={{ opacity: loaded ? 1 : 0 }}
+            onLoad={onLoad}
+            $width={$width}
+            $height={$height}
+          />
+        </NavLink>
+      )}
+      {!product.link && (
+        <NavLink to={`/nft/products/${product.id}`}>
+          <ProductPicture
+            src={product.picture_url}
+            style={{ opacity: loaded ? 1 : 0 }}
+            onLoad={onLoad}
+            $width={$width}
+            $height={$height}
+          />
+        </NavLink>
+      )}
+
       <ProductName>
         {product.title}
         {(product.number) && (
@@ -150,13 +159,22 @@ const Product = ({ product, onLoad, loaded, $width, $height, $margin }) => {
         )}
       </ProductName>
       <VendorName>
-        {product.info}
+        {product.name}
       </VendorName>
-      <ProductPrice>
-        <TYPE.darkGray fontSize={14}>
-          {product.price}{handleTokenSwitch(product.extoken)}
+      {(product.desc) &&
+        (
+          <VendorName>
+            {product.desc}
+          </VendorName>
+        )
+      }
+      {product.price && (<ProductPrice>
+        <TYPE.darkGray fontSize={12}>
+        {formatter.format(product.price)} 
+        <span style={{fontSize: '9px'}}>{' ' + handleTokenSwitch(product.extoken)}</span>
         </TYPE.darkGray>
-      </ProductPrice>
+      </ProductPrice>)
+      }
     </ProductContainer>
   );
 };
@@ -201,11 +219,11 @@ export const Products = ({
         </ProductsWrap>
       </ProductsContainer>
 
-      {productCount - productsArray.length <= 0 ? (
+      {/* {productCount - productsArray.length <= 0 ? (
         <></>
       ) : (
         <>{handler && <MoreButton id={id} handler={handler} />}</>
-      )}
+      )} */}
 
       {productErrorMessage && (
         <ErrorMessage productErrorMessage={productErrorMessage} />

@@ -35,8 +35,7 @@ const  TitleSection = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 40px;
-  padding: 20px;
+  padding: 10px;
   color: #474747;
 `;
 
@@ -123,16 +122,18 @@ const HomePage = () => {
     
     {
       picture_url: process.env.PUBLIC_URL + '/nft/12.gif',
-      title: "CaoJun NFT Collectibles",
-      number: "",
-      info: '',
+      title: "CJAI NFT Collectibles",
+      number: "#0605",
+      desc: 'TSA NFT Studio',
+      link: '/nft/products/vendor/263801',
       mediaType: 1,
       id: 1,
     },{
       picture_url: process.env.PUBLIC_URL + '/nft/1.png',
       title: "CaoJun NFT Collectibles",
       number: "0605",
-      info: 'Once in a Millennium',
+      desc: 'Once in a Millennium',
+      link: '/nft/products/vendor/263801',
       mediaType: 1,
       id: 2,
     },
@@ -140,72 +141,89 @@ const HomePage = () => {
       picture_url: process.env.PUBLIC_URL + '/nft/4.png',
       title: "CaoJun NFT Collectibles",
       number: "9134",
-      info: 'Once in a Millennium',
+      desc: 'Once in a Millennium',
+      link: '/nft/products/257',
       mediaType: 1,
       id: 3,
     },
     {
       picture_url: process.env.PUBLIC_URL + '/nft/3.gif',
       title: "CaoJun NFT Collectibles",
-      number: "",
-      info: '',
+      number: "#9134",
+      desc: 'Including CaoJunNFT #9134',
+      link: '/nft/products/257',
       mediaType: 1,
       id: 4,
-    },
-
-    {
-      picture_url: process.env.PUBLIC_URL + '/nft/5.png',
-      title: "CaoJun NFT Collectibles",
-      number: "",
-      info: 'Purple Pavilion and Cyan Cloud',
-      mediaType: 1,
-      id: 5,
     },
     {
       picture_url: process.env.PUBLIC_URL + '/nft/6.png',
       title: "CaoJun NFT Collectibles",
-      number: "",
-      info: "Spring's News",
+      number: "#7611",
+      desc: "Spring's News",
+      link: '/nft/products/257',
       mediaType: 1,
       id: 6,
     },
     {
-      picture_url: process.env.PUBLIC_URL + '/nft/7.gif',
-      title: "CaoJun Digital NFT Collectibles",
-      number: "",
-      info: '',
+      picture_url: process.env.PUBLIC_URL + '/nft/5.png',
+      title: "CaoJun NFT Collectibles",
+      number: "#8034",
+      desc: 'Purple Pavilion and Cyan Cloud',
+      link: '/nft/products/vendor/263801',
       mediaType: 1,
-      id: 7,
+      id: 5,
     },
     {
       picture_url: process.env.PUBLIC_URL + '/nft/8.gif',
-      title: "CJAI Gold Grass",
-      number: "",
-      info: '',
+      title: "CJAI Collectibles",
+      number: "Gold Grass",
+      desc: 'Including CaoJunNFT #8304',
+      link: '/nft/products/vendor/263801',
       mediaType: 1,
       id: 8,
     },
     {
-      picture_url: process.env.PUBLIC_URL + '/nft/9.gif',
-      title: "CJAI Fishing Lake",
-      number: "",
-      info: '',
+      picture_url: process.env.PUBLIC_URL + '/nft/7.gif',
+      title: "CJAI Collectibles",
+      number: "# 7611",
+      desc: '',
+      link: '/nft/products/vendor/263801',
       mediaType: 1,
-      id: 9,
+      id: 7,
     },
     {
       picture_url: process.env.PUBLIC_URL + '/nft/10.gif',
       title: "CJAI Gateway to Nature",
       number: "",
-      info: '',
+      desc: '',
+      link: '/nft/products/vendor/263801',
       mediaType: 1,
       id: 10,
+    },
+    {
+      picture_url: process.env.PUBLIC_URL + '/nft/12.png',
+      title: "CJAI Fishing",
+      number: "Gateway to Nature",
+      desc: 'Including CaoJunNFT#0602',
+      link: '/nft/products/vendor/263801',
+      mediaType: 1,
+      id: 12,
+    },
+    {
+      picture_url: process.env.PUBLIC_URL + '/nft/9.gif',
+      title: "CJAI Fishing",
+      number: "Fishing Lake",
+      desc: 'Including CaoJunNFT #7611',
+      link: '/nft/products/vendor/263801',
+      mediaType: 1,
+      id: 9,
     },
     {
       picture_url: process.env.PUBLIC_URL + '/nft/11.gif',
       title: "TSA Collectors Club",
       number: "",
-      info: 'A Trusted Partner in NFT Exchange',
+      desc: 'A Trusted Partner in NFT Exchange',
+      link: '/nft/products/vendor/263801',
       mediaType: 1,
       id: 11,
     },
@@ -215,14 +233,16 @@ const products2 = [
       picture_url: process.env.PUBLIC_URL + '/nft/tsa/101.gif',
       title: "TSANFT #1 Voyage to Metaverse",
       number: "",
-      info: 'TSA NFT Studio',
+      desc: 'TSA NFT Studio',
+      link: '/nft/products/vendor/263801',
       mediaType: 1,
       id: 101,
     },{
       picture_url: process.env.PUBLIC_URL + '/nft/tsa/2.gif',
       title: "TSANFT #1 Voyage to Metaverse 2",
       number: "",
-      info: "TSA NFT Studio",
+      desc: "TSA NFT Studio",
+      link: '/nft/products/vendor/263801',
       mediaType: 1,
       id: 2,
     },
@@ -230,7 +250,8 @@ const products2 = [
       picture_url: process.env.PUBLIC_URL + '/nft/tsa/3.gif',
       title: "TSANFT #2 BTC Shop",
       number: "",
-      info: "TSA NFT Studio",
+      desc: "TSA NFT Studio",
+      link: '/nft/products/vendor/263801',
       mediaType: 1,
       id: 3,
     },
@@ -238,7 +259,8 @@ const products2 = [
       picture_url: process.env.PUBLIC_URL + '/nft/tsa/4.gif',
       title: "TSANFT#3 BNB Shop",
       number: "",
-      info: "TSA NFT Studio",
+      desc: "TSA NFT Studio",
+      link: '/nft/products/vendor/263801',
       mediaType: 1,
       id: 4,
     },
@@ -246,7 +268,8 @@ const products2 = [
       picture_url: process.env.PUBLIC_URL + '/nft/tsa/5.gif',
       title: "TSANFT #4 Tesla Doge Shop",
       number: "",
-      info: "TSA NFT Studio",
+      desc: "TSA NFT Studio",
+      link: '/nft/products/vendor/263801',
       mediaType: 1,
       id: 5,
     },
@@ -254,7 +277,8 @@ const products2 = [
       picture_url: process.env.PUBLIC_URL + '/nft/tsa/6.gif',
       title: "TSANFT #5 CJAI NFT Shop",
       number: "",
-      info: "TSA NFT Studio",
+      desc: "TSA NFT Studio",
+      link: '/nft/products/vendor/263801',
       mediaType: 1,
       id: 1,
     },
@@ -262,7 +286,8 @@ const products2 = [
       picture_url: process.env.PUBLIC_URL + '/nft/tsa/7.gif',
       title: "FU7UR3 Broadway",
       number: "",
-      info: "Cosmic Bee",
+      desc: "Cosmic Bee",
+      link: '/nft/products/vendor/263801',
       mediaType: 1,
       id: 6,
     },
@@ -270,7 +295,8 @@ const products2 = [
       picture_url: process.env.PUBLIC_URL + '/nft/tsa/8.jpeg',
       title: "The Very Best",
       number: "",
-      info: "Artist: Sir Peter Thomas Blake",
+      desc: "Artist: Sir Peter Thomas Blake",
+      link: '/nft/products/vendor/263801',
       mediaType: 1,
       id: 7,
     },
@@ -278,7 +304,8 @@ const products2 = [
       picture_url: process.env.PUBLIC_URL + '/nft/tsa/9.jpeg',
       title: "Homage to Schwitters",
       number: "",
-      info: "Artist: Sir Peter Thomas Blake",
+      desc: "Artist: Sir Peter Thomas Blake",
+      link: '/nft/products/vendor/263801',
       mediaType: 1,
       id: 8,
     },
@@ -286,7 +313,8 @@ const products2 = [
       picture_url: process.env.PUBLIC_URL + '/nft/tsa/10.jpeg',
       title: "New Year's Eve Parade at the Tower Ballroom, Blackpool",
       number: "",
-      info: "Artist: Sir Peter Thomas Blake",
+      desc: "Artist: Sir Peter Thomas Blake",
+      link: '/nft/products/vendor/263801',
       mediaType: 1,
       id: 9,
     },
@@ -294,7 +322,8 @@ const products2 = [
       picture_url: process.env.PUBLIC_URL + '/nft/tsa/11.jpeg',
       title: "Flower Market",
       number: "",
-      info: "Artist: Manuel Robbe",
+      desc: "Artist: Manuel Robbe",
+      link: '/nft/products/vendor/263801',
       mediaType: 1,
       id: 10
     },
@@ -302,7 +331,8 @@ const products2 = [
       picture_url: process.env.PUBLIC_URL + '/nft/tsa/12.gif',
       title: "Vancouver Broadway City",
       number: "",
-      info: "Shatter Brainz",
+      desc: "Shatter Brainz",
+      link: '/nft/products/vendor/263801',
       mediaType: 1,
       id: 11
     },
@@ -310,7 +340,8 @@ const products2 = [
       picture_url: process.env.PUBLIC_URL + '/nft/tsa/13.jpeg',
       title: "Flower Market",
       number: "",
-      info: "Artist: Manuel Robbe",
+      desc: "Artist: Manuel Robbe",
+      link: '/nft/products/vendor/263801',
       mediaType: 1,
       id: 12
     },
@@ -318,7 +349,8 @@ const products2 = [
       picture_url: process.env.PUBLIC_URL + '/nft/tsa/14.gif',
       title: "TSANFT #100 Collectors Club",
       number: "",
-      info: "A Trusted Partner in NFT Exchange.",
+      desc: "A Trusted Partner in NFT Exchange.",
+      link: '/nft/products/vendor/263801',
       mediaType: 1,
       id: 13
     },
@@ -326,7 +358,8 @@ const products2 = [
       picture_url: process.env.PUBLIC_URL + '/nft/tsa/15.jpeg',
       title: "Tall Dutch Tulips",
       number: "",
-      info: "Artist: Bruce McLean",
+      desc: "Artist: Bruce McLean",
+      link: '/nft/products/vendor/263801',
       mediaType: 1,
       id: 14
     },
@@ -334,7 +367,8 @@ const products2 = [
       picture_url: process.env.PUBLIC_URL + '/nft/tsa/16.gif',
       title: "bird_view_10mb.gif",
       number: "",
-      info: "",
+      desc: "",
+      link: '/nft/products/vendor/263801',
       mediaType: 1,
       id: 15
     },
@@ -342,7 +376,8 @@ const products2 = [
       picture_url: process.env.PUBLIC_URL + '/nft/tsa/17.jpeg',
       title: "Anomie",
       number: "",
-      info: "Artist: Dan Baldwin",
+      desc: "Artist: Dan Baldwin",
+      link: '/nft/products/vendor/263801',
       mediaType: 1,
       id: 16
     },
@@ -350,7 +385,8 @@ const products2 = [
       picture_url: process.env.PUBLIC_URL + '/nft/tsa/18.jpeg',
       title: "TV Eyes",
       number: "",
-      info: "Artist: Dan Baldwin",
+      desc: "Artist: Dan Baldwin",
+      link: '/nft/products/vendor/263801',
       mediaType: 1,
       id: 17
     },
@@ -358,7 +394,8 @@ const products2 = [
       picture_url: process.env.PUBLIC_URL + '/nft/tsa/19.gif',
       title: "Persistence of Humanity Fractured-Gem",
       number: "",
-      info: "Shatter Brainz",
+      desc: "Shatter Brainz",
+      link: '/nft/products/vendor/263801',
       mediaType: 1,
       id: 19
     },
@@ -366,7 +403,8 @@ const products2 = [
       picture_url: process.env.PUBLIC_URL + '/nft/tsa/20.jpeg',
       title: "Untitled",
       number: "",
-      info: "Artist: Gordon Smith",
+      desc: "Artist: Gordon Smith",
+      link: '/nft/products/vendor/263801',
       mediaType: 1,
       id: 20
     },
@@ -374,7 +412,8 @@ const products2 = [
       picture_url: process.env.PUBLIC_URL + '/nft/tsa/21.jpeg',
       title: "Untitled",
       number: "",
-      info: "Artist: Angela Grossmann",
+      desc: "Artist: Angela Grossmann",
+      link: '/nft/products/vendor/263801',
       mediaType: 1,
       id: 21
     },
@@ -382,7 +421,8 @@ const products2 = [
       picture_url: process.env.PUBLIC_URL + '/nft/tsa/22.jpeg',
       title: "Untitled",
       number: "",
-      info: "Artist: Derek Root",
+      desc: "Artist: Derek Root",
+      link: '/nft/products/vendor/263801',
       mediaType: 1,
       id: 22
     },
@@ -390,7 +430,8 @@ const products2 = [
       picture_url: process.env.PUBLIC_URL + '/nft/tsa/23.jpeg',
       title: "Passed Port",
       number: "",
-      info: "Artist: Graham Gillmore",
+      desc: "Artist: Graham Gillmore",
+      link: '/nft/products/vendor/263801',
       mediaType: 1,
       id: 23
     },
@@ -398,7 +439,8 @@ const products2 = [
       picture_url: process.env.PUBLIC_URL + '/nft/tsa/24.jpeg',
       title: "At the Galleries",
       number: "",
-      info: "Artist: Attila Richard Lukacs",
+      desc: "Artist: Attila Richard Lukacs",
+      link: '/nft/products/vendor/263801',
       mediaType: 1,
       id: 24
     },
@@ -406,7 +448,8 @@ const products2 = [
       picture_url: process.env.PUBLIC_URL + '/nft/tsa/25.jpeg',
       title: "Untitled",
       number: "",
-      info: "Artist: Lawrence Paul Yuxweluptun",
+      desc: "Artist: Lawrence Paul Yuxweluptun",
+      link: '/nft/products/vendor/263801',
       mediaType: 1,
       id: 25
     },
@@ -414,7 +457,8 @@ const products2 = [
       picture_url: process.env.PUBLIC_URL + '/nft/tsa/26.jpg',
       title: "GUS BAWAB",
       number: "",
-      info: "Echo 48x72 inch,122x183cm 4'x6'",
+      desc: "Echo 48x72 inch,122x183cm 4'x6'",
+      link: '/nft/products/vendor/263801',
       mediaType: 1,
       id: 26
     },
@@ -422,7 +466,8 @@ const products2 = [
       picture_url: process.env.PUBLIC_URL + '/nft/tsa/27.jpeg',
       title: "Galerie Grillon Women",
       number: "",
-      info: "Artist:Suzanne Meunier",
+      desc: "Artist:Suzanne Meunier",
+      link: '/nft/products/vendor/263801',
       mediaType: 1,
       id: 27
     },
@@ -430,7 +475,8 @@ const products2 = [
       picture_url: process.env.PUBLIC_URL + '/nft/tsa/28.jpeg',
       title: "Les Affiches Etrangere",
       number: "",
-      info: "Artist: Hubert von Herkomer",
+      desc: "Artist: Hubert von Herkomer",
+      link: '/nft/products/vendor/263801',
       mediaType: 1,
       id: 28
     },
@@ -438,7 +484,8 @@ const products2 = [
       picture_url: process.env.PUBLIC_URL + '/nft/tsa/29.gif',
       title: "TSANFT #99 Shih NFT Shop",
       number: "",
-      info: "TSA NFT Studio",
+      desc: "TSA NFT Studio",
+      link: '/nft/products/vendor/263801',
       mediaType: 1,
       id: 29
     },
@@ -446,7 +493,8 @@ const products2 = [
       picture_url: process.env.PUBLIC_URL + '/nft/tsa/30.gif',
       title: "Shih 2_Broadway Neon Nights",
       number: "",
-      info: "Cosmic Bee",
+      desc: "Cosmic Bee",
+      link: '/nft/products/vendor/263801',
       mediaType: 1,
       id: 30
     },
@@ -459,7 +507,8 @@ const products2 = [
       picture_url: process.env.PUBLIC_URL + '/nft/np/1.gif',
       title: "ShihNFT#13 -Crypto Punk Doggie",
       number: "",
-      info: "Cosmic Bee",
+      desc: "Cosmic Bee",
+      link: '/nft/products/vendor/263801',
       mediaType: 1,
       id: 1
     },
@@ -467,7 +516,8 @@ const products2 = [
       picture_url: process.env.PUBLIC_URL + '/nft/np/3.gif',
       title: "ShihNFT #6 Ski",
       number: "",
-      info: "",
+      desc: "",
+      link: '/nft/products/vendor/263801',
       mediaType: 1,
       id: 2
     },
@@ -475,7 +525,8 @@ const products2 = [
       picture_url: process.env.PUBLIC_URL + '/nft/np/2.gif',
       title: "ShihNFT#01-hands",
       number: "",
-      info: "",
+      desc: "",
+      link: '/nft/products/vendor/263801',
       mediaType: 1,
       id: 3
     },
@@ -483,7 +534,8 @@ const products2 = [
       picture_url: process.env.PUBLIC_URL + '/nft/np/4.gif',
       title: "ShihNFT #2 S-head",
       number: "",
-      info: "",
+      desc: "",
+      link: '/nft/products/vendor/263801',
       mediaType: 1,
       id: 4
     },
@@ -491,7 +543,8 @@ const products2 = [
       picture_url: process.env.PUBLIC_URL + '/nft/np/5.gif',
       title: "ShihNFT #14_FU7UR3- Broadway",
       number: "",
-      info: "Cosmic Bee",
+      desc: "Cosmic Bee",
+      link: '/nft/products/vendor/263801',
       mediaType: 1,
       id: 55
     },
@@ -499,7 +552,8 @@ const products2 = [
       picture_url: process.env.PUBLIC_URL + '/nft/np/55.gif',
       title: "ShihNFT #3 S-eyebow",
       number: "",
-      info: "",
+      desc: "",
+      link: '/nft/products/vendor/263801',
       mediaType: 1,
       id: 5
     },
@@ -507,7 +561,8 @@ const products2 = [
       picture_url: process.env.PUBLIC_URL + '/nft/np/6.gif',
       title: "ShihNFT #4 S-ear",
       number: "",
-      info: "",
+      desc: "",
+      link: '/nft/products/vendor/263801',
       mediaType: 1,
       id: 6
     },
@@ -515,7 +570,8 @@ const products2 = [
       picture_url: process.env.PUBLIC_URL + '/nft/np/7.gif',
       title: "ShihNFT #16-Tzu-Pupogz",
       number: "",
-      info: "Cosmic Bee",
+      desc: "Cosmic Bee",
+      link: '/nft/products/vendor/263801',
       mediaType: 1,
       id: 7
     },
@@ -523,7 +579,8 @@ const products2 = [
       picture_url: process.env.PUBLIC_URL + '/nft/np/8.gif',
       title: "ShihNFT #5 S-tail",
       number: "",
-      info: "",
+      desc: "",
+      link: '/nft/products/vendor/263801',
       mediaType: 1,
       id: 8
     },
@@ -531,7 +588,8 @@ const products2 = [
       picture_url: process.env.PUBLIC_URL + '/nft/np/9.gif',
       title: "ShihNFT #12-Token-Daytime",
       number: "",
-      info: "Shatter Brainz",
+      desc: "Shatter Brainz",
+      link: '/nft/products/vendor/263801',
       mediaType: 1,
       id: 9
     },
@@ -539,7 +597,8 @@ const products2 = [
       picture_url: process.env.PUBLIC_URL + '/nft/np/10.gif',
       title: "ShihNFT #7 skipping",
       number: "",
-      info: "",
+      desc: "",
+      link: '/nft/products/vendor/263801',
       mediaType: 1,
       id: 10
     },
@@ -547,7 +606,8 @@ const products2 = [
       picture_url: process.env.PUBLIC_URL + '/nft/np/11.gif',
       title: "ShihNFT #11-Token-Night",
       number: "",
-      info: "Shatter Brainz",
+      desc: "Shatter Brainz",
+      link: '/nft/products/vendor/263801',
       mediaType: 1,
       id: 11
     },
@@ -555,7 +615,8 @@ const products2 = [
       picture_url: process.env.PUBLIC_URL + '/nft/np/12.gif',
       title: "ShihNFT #9",
       number: "",
-      info: "",
+      desc: "",
+      link: '/nft/products/vendor/263801',
       mediaType: 1,
       id: 12
     },
@@ -563,7 +624,8 @@ const products2 = [
       picture_url: process.env.PUBLIC_URL + '/nft/np/13.gif',
       title: "ShihNFT #15 Hello Shih",
       number: "",
-      info: "Shatter  Brainz",
+      desc: "Shatter  Brainz",
+      link: '/nft/products/vendor/263801',
       mediaType: 1,
       id: 13
     },
@@ -571,7 +633,8 @@ const products2 = [
       picture_url: process.env.PUBLIC_URL + '/nft/np/14.gif',
       title: "ShihNFT #10 S-eye",
       number: "",
-      info: "",
+      desc: "",
+      link: '/nft/products/vendor/263801',
       mediaType: 1,
       id: 14
     },
@@ -579,7 +642,8 @@ const products2 = [
       picture_url: process.env.PUBLIC_URL + '/nft/np/15.gif',
       title: "ShihNFT #17 The Not-A-Rocket Boots",
       number: "",
-      info: "Cosmic Bee",
+      desc: "Cosmic Bee",
+      link: '/nft/products/vendor/263801',
       mediaType: 1,
       id: 15
     },
@@ -587,7 +651,8 @@ const products2 = [
       picture_url: process.env.PUBLIC_URL + '/nft/np/16.gif',
       title: "ShihNFT #8 skip",
       number: "",
-      info: "",
+      desc: "",
+      link: '/nft/products/vendor/263801',
       mediaType: 1,
       id: 16
     },
@@ -595,7 +660,8 @@ const products2 = [
       picture_url: process.env.PUBLIC_URL + '/nft/np/17.gif',
       title: "ShihNFT #18 London Punk Doggie",
       number: "",
-      info: "Cosmic Bee",
+      desc: "Cosmic Bee",
+      link: '/nft/products/vendor/263801',
       mediaType: 1,
       id: 17
     },
@@ -603,7 +669,8 @@ const products2 = [
       picture_url: process.env.PUBLIC_URL + '/nft/np/18.gif',
       title: "ShihNFT #19 SHIH Neon",
       number: "",
-      info: "Shatter Brainz",
+      desc: "Shatter Brainz",
+      link: '/nft/products/vendor/263801',
       mediaType: 1,
       id: 18
     }
@@ -612,7 +679,7 @@ const products2 = [
 
   const productErrorMessage = ''
 
-  const [products, setProducts] = useState(products2);
+  const [products, setProducts] = useState(products1);
   
 
   // const {t} = useTranslation();
@@ -633,7 +700,7 @@ const products2 = [
     <Page>
       <CarouselBox />
       <TitleSection>
-        <p style={{fontFamily: "Roboto-Thin", color: '#474747', fontSize: '30px', fontWeight: 'bold'}}>Upcoming Drops</p>
+        <div style={{fontFamily: "Roboto-Thin", padding: "10px", color: '#474747', fontSize: '30px', fontWeight: 'bold'}}>Upcoming Drops</div>
         <p style={{fontSize: '15px'}}>The New Way to Own Art</p>
       </TitleSection>
       <Nav>

@@ -10,7 +10,7 @@ const ProductCategoryItem = styled.li`
   display: flex;
   align-items: center;
   cursor: pointer;
-  font-size: 14px;
+  font-size: 13px;
   & p {
     padding: 0;
     margin-left: -5px;
