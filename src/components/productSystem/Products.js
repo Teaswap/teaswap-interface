@@ -129,15 +129,29 @@ const Product = ({ product, onLoad, loaded, $width, $height, $margin }) => {
   const formatter = new Intl.NumberFormat();
   return (
     <ProductContainer $width={$width} $height={$height} $margin={$margin}>
-      <NavLink to={`/nft/products/${product.id}`}>
-        <ProductPicture
-          src={product.picture_url}
-          style={{ opacity: loaded ? 1 : 0 }}
-          onLoad={onLoad}
-          $width={$width}
-          $height={$height}
-        />
-      </NavLink>
+      {product.link && (
+        <NavLink to={product.link}>
+          <ProductPicture
+            src={product.picture_url}
+            style={{ opacity: loaded ? 1 : 0 }}
+            onLoad={onLoad}
+            $width={$width}
+            $height={$height}
+          />
+        </NavLink>
+      )}
+      {!product.link && (
+        <NavLink to={`/nft/products/${product.id}`}>
+          <ProductPicture
+            src={product.picture_url}
+            style={{ opacity: loaded ? 1 : 0 }}
+            onLoad={onLoad}
+            $width={$width}
+            $height={$height}
+          />
+        </NavLink>
+      )}
+
       <ProductName>
         {product.title}
         {(product.number) && (
@@ -147,12 +161,20 @@ const Product = ({ product, onLoad, loaded, $width, $height, $margin }) => {
       <VendorName>
         {product.name}
       </VendorName>
-      <ProductPrice>
+      {(product.desc) &&
+        (
+          <VendorName>
+            {product.desc}
+          </VendorName>
+        )
+      }
+      {product.price && (<ProductPrice>
         <TYPE.darkGray fontSize={12}>
         {formatter.format(product.price)} 
         <span style={{fontSize: '9px'}}>{' ' + handleTokenSwitch(product.extoken)}</span>
         </TYPE.darkGray>
-      </ProductPrice>
+      </ProductPrice>)
+      }
     </ProductContainer>
   );
 };
