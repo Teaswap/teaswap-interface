@@ -6,6 +6,7 @@ import {
   deleteItem,
   deleteItemsBySeller,
   createOrder as createOrderAPI,
+  completeOrder
 } from "../../../webAPI/cartAPI";
 
 export const cartSlice = createSlice({
@@ -140,7 +141,8 @@ export const createOrder = (readyToOrderItems) => (dispatch) => {
   dispatch(setIsLoading(true));
   return createOrderAPI(readyToOrderItems).then((res) => {
     dispatch(setIsLoading(false));
-    dispatch(setOrderNumber(res.orderNumber));
+    dispatch(setOrderNumber(res.orderId));
+    completeOrder(res.orderId).then((res)=>{console.log(JSON.stringify(res))});
   });
 };
 

@@ -450,6 +450,42 @@ export function useDerivedIdoInfo(
   }
 }
 
+export function useDerivedBidInfo(
+    typedValue: string,
+    makeToken: Token,
+    userLiquidityUnstaked: TokenAmount| CurrencyAmount | undefined
+): {
+  parsedAmount?: CurrencyAmount
+  error?: string
+} {
+  const { account } = useActiveWeb3React()
+  const { t } = useTranslation()
+
+  const parsedInput: CurrencyAmount | undefined = tryParseAmount(typedValue, makeToken)
+
+  const parsedAmount =
+      parsedInput && userLiquidityUnstaked && JSBI.lessThanOrEqual(parsedInput.raw, userLiquidityUnstaked.raw)
+          ? parsedInput
+          : undefined
+
+  console.log("typevalue:"+typedValue )
+  console.log("makeToken"+JSON.stringify(makeToken))
+  console.log("parsedAmount"+JSON.stringify(parsedAmount))
+
+  let error: string | undefined
+  if (!account) {
+    error = t('connectWallet')
+  }
+  if (!parsedAmount) {
+    error = error ?? t('enterAnAmount')
+  }
+
+  return {
+    parsedAmount,
+    error
+  }
+}
+
 // based on typed value
 export function useDerivedUnstakeInfo(
   typedValue: string,

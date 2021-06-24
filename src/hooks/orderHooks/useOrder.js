@@ -74,7 +74,7 @@ export default function useOrder() {
     dispatch(sentOrder(id));
     window.location.reload(true);
   };
-  const handleCompleteOrder = () => {
+  const handleCompleteOrder = (id) => {
     dispatch(completeOrder(id));
     window.location.reload(true);
   };

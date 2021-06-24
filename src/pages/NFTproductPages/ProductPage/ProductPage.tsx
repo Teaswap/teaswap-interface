@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { StandardNavPage } from '../../../components/Page';
 import styled from 'styled-components';
-import { useParams } from 'react-router-dom';
+import {useNavigate, useParams} from 'react-router-dom';
 import useProduct from '../../../hooks/productHooks/useProduct';
 import { useDispatch } from 'react-redux';
 import { MEDIA_QUERY } from '../../../constants/style';
@@ -18,6 +18,7 @@ import {
   setErrorMessage,
 } from '../../../redux/slices/productSlice/productSlice';
 import { Navbar } from '../../../components'
+import useUser from "../../../hooks/userHooks/useUser";
 
 const ProductInfoContainer = styled.section`
   margin-top: 20px;
@@ -42,7 +43,9 @@ const PurchaseInfo = styled.section`
 
 const ProductPage = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { id } = useParams();
+  const {user,handleGetMe} = useUser();
   const {
     product,
     vendorInfo,
@@ -51,6 +54,12 @@ const ProductPage = () => {
     productErrorMessage,
     handleGetProduct,
   } = useProduct();
+
+  useEffect(() => {
+    handleGetMe().then((result) => {
+      if (!result.data ) navigate('/nft');
+    });
+  }, [dispatch]);
 
   useEffect(() => {
     window.scroll(0, 0);
@@ -64,6 +73,8 @@ const ProductPage = () => {
   }, [id, dispatch]);
 
   const isMobile = window.innerWidth <= 1000;
+
+  console.log("productPage--User:"+JSON.stringify(user))
 
   return (
     <>
@@ -84,14 +95,14 @@ const ProductPage = () => {
             />
           ) : (
             <>
-              <PurchaseInfoLeft product={product} category={category} />
+              <PurchaseInfoLeft product={product} />
               <PurchaseInfoRight
                 product={product}
                 products={products}
                 id={vendorInfo.id}
-                productId={id}
                 vendorInfo={vendorInfo}
                 productErrorMessage={productErrorMessage}
+                user = {user}
               />
             </>
           )}

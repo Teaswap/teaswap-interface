@@ -25,6 +25,9 @@ import { ButtonsBox } from './ButtonsBox';
 import { InputItem } from './InputItem';
 import { SingleProductMobile } from './SingleProductMobile';
 
+
+
+
 export {
   Banner,
   ButtonsBox,
@@ -51,4 +54,5 @@ export {
   VendorInfo,
   VendorContact,
   SingleProductMobile,
+
 };

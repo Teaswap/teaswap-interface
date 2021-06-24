@@ -118,9 +118,9 @@ export const sentOrder = (id) => (dispatch) => {
     return res.data;
   });
 };
-export const completeOrder = (quantity, productId, sellerId) => (dispatch) => {
+export const completeOrder = (id) => (dispatch) => {
   dispatch(setIsLoading(true));
-  return completeOrderAPI(quantity, productId, sellerId).then((res) => {
+  return completeOrderAPI(id).then((res) => {
     dispatch(setIsLoading(false));
     return res.data;
   });
