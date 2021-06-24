@@ -381,7 +381,7 @@ export const ProductInfo = ({product,user}:{ product:ProductInterface ,user:user
         <Modal>
           <Form>
             <IconContainer onClick={handleCloseAddProduct}>
-              <IconComponent kind='close-black' margin={0}/>
+              <IconComponent kind='close-black' margin={0} color={COLOR.dark_gray}/>
             </IconContainer>
             {console.log(errorMessage)}
             Something wrong
@@ -393,7 +393,7 @@ export const ProductInfo = ({product,user}:{ product:ProductInterface ,user:user
           {!attempting && !hash && (
               <Form>
                 <IconContainer onClick={wrappedOnDismiss}>
-                  <IconComponent kind='close-black' margin={0} />
+                  <IconComponent kind='close-black' margin={0} color={COLOR.dark_gray}/>
                 </IconContainer>
                 <InputName>{t('Input biding price')}</InputName>
                 <CurrencyInputPanel
