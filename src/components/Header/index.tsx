@@ -331,7 +331,7 @@ const HeaderRoot = styled.div`
   flex-direction: column;
   width: 96%;
   margin:0 auto;
-  padding-top: 30px;
+  // padding-top: 30px;
   ${MEDIA_QUERY.sm} {
     width: 100%;
   }
@@ -378,12 +378,12 @@ export default function Header() {
           <UniBalanceContent setShowUniBalanceModal={setShowUniBalanceModal} />
         </Modal>
         <HeaderRow>
-          <UniIcon style={{ marginTop: 0, marginBottom: '20px', marginRight: '50px' }}>
+          <UniIcon style={{ marginTop: '3px'}}>
             <NavLink to={'/nft'}>
               <img height="40px" style={{ marginTop: 0 }} src={isDark ? LogoDark : Logo} alt="logo" />
             </NavLink>
           </UniIcon>
-          <HeaderLinks style={{ fontSize: '13px' }}>
+          <HeaderLinks style={{ fontSize: '13px'}}>
             <StyledNavLink id={`swap-nav-link`} to={'/explore'}>
               {t('DROPS')}
             </StyledNavLink>
