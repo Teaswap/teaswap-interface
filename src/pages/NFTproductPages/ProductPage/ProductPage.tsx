@@ -4,13 +4,7 @@ import styled from 'styled-components';
 import {useNavigate, useParams} from 'react-router-dom';
 import useProduct from '../../../hooks/productHooks/useProduct';
 import { useDispatch } from 'react-redux';
-import { MEDIA_QUERY } from '../../../constants/style';
-import {
-  Breadcrumb,
-  PurchaseInfoLeft,
-  PurchaseInfoRight,
-  SingleProductMobile,
-} from '../../../components/productSystem';
+import { COLOR, MEDIA_QUERY } from '../../../constants/style';
 import {
   setProduct,
   setProducts,
@@ -19,6 +13,18 @@ import {
 } from '../../../redux/slices/productSlice/productSlice';
 import { Navbar } from '../../../components'
 import useUser from "../../../hooks/userHooks/useUser";
+import {
+  Products,
+  Breadcrumb,
+  ProductInfo,
+  VendorIntro,
+  ProductPicture,
+  ProductIntro,
+  FreightIntro,
+  InfoTitle,
+  InfoItem,
+} from '../../../components/productSystem'
+import { useTranslation } from 'react-i18next';
 
 const ProductInfoContainer = styled.section`
   margin-top: 20px;
@@ -34,10 +40,31 @@ const NavbarWrapper = styled.div`
 
 const PurchaseInfo = styled.section`
   display: flex;
+  align-items: flex-start;
+`;
 
-  ${MEDIA_QUERY.lg} {
-    flex-direction: column;
-    align-items: center;
+const OtherProductWrap = styled(InfoItem)`
+  margin-top: 40px;
+  padding-bottom: 0;
+  border-bottom: none;
+  ${MEDIA_QUERY} {
+    display: flex;
+    justify-content: space-between;
+  }
+`;
+
+const OtherProductTitle = styled(InfoTitle)`
+  margin: 0;
+  border-bottom: none;
+`;
+
+const MoreLink = styled.a`
+  margin: 0 20px;
+  color: #007bff;
+  display: inline-block;
+  &:hover {
+    color: ${COLOR.hover};
+    text-decoration: underline;
   }
 `;
 
@@ -67,12 +94,14 @@ const ProductPage = () => {
     return () => {
       dispatch(setProduct([]));
       dispatch(setProducts([]));
-    dispatch(setCategory([]));
+      dispatch(setCategory([]));
       dispatch(setErrorMessage(null));
     };
   }, [id, dispatch]);
 
-  const isMobile = window.innerWidth <= 1000;
+  const { t } = useTranslation()
+
+  // const isMobile = window.innerWidth <= 1000;
 
   console.log("productPage--User:"+JSON.stringify(user))
 
@@ -85,28 +114,40 @@ const ProductPage = () => {
       <ProductInfoContainer>
         <Breadcrumb category={category} product={product} />
         <PurchaseInfo>
-          {isMobile ? (
-            <SingleProductMobile
-              product={product}
+          <ProductPicture product={product} />
+          <div id="product-right">
+            <ProductInfo user={user} product={product} />
+            <ProductIntro product={product} />
+            <FreightIntro product={product} />
+            <VendorIntro
               products={products}
-              id={vendorInfo.id}
+              id={id}
               vendorInfo={vendorInfo}
               productErrorMessage={productErrorMessage}
             />
-          ) : (
-            <>
-              <PurchaseInfoLeft product={product} />
-              <PurchaseInfoRight
-                product={product}
-                products={products}
-                id={vendorInfo.id}
-                vendorInfo={vendorInfo}
-                productErrorMessage={productErrorMessage}
-                user = {user}
-              />
-            </>
-          )}
+          </div>
         </PurchaseInfo>
+          {products.length !== 0 ? (
+          <>
+            <OtherProductWrap>
+              <OtherProductTitle>{t('Other Works by This artist')}</OtherProductTitle>
+              <MoreLink href={`/nft/products/vendor/${vendorInfo.id}`}>
+                {t('More')}
+              </MoreLink>
+            </OtherProductWrap>
+            <Products
+              products={products}
+              productErrorMessage={productErrorMessage}
+              $padding={'20px 10px'}
+              $width={'300px'}
+              $height={'300px'}
+              $margin={'0 5px'}
+              $justify={'space-around'}
+            />
+          </>
+        ) : (
+          <></>
+        )}
       </ProductInfoContainer>
     </StandardNavPage>
       </>

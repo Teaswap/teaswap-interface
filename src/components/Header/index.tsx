@@ -379,12 +379,12 @@ export default function Header() {
         </Modal>
         <HeaderRow>
           <UniIcon style={{ marginTop: '3px'}}>
-            <NavLink to={'/nft'}>
+            <NavLink to={'/drops'}>
               <img height="40px" style={{ marginTop: 0 }} src={isDark ? LogoDark : Logo} alt="logo" />
             </NavLink>
           </UniIcon>
           <HeaderLinks style={{ fontSize: '13px'}}>
-            <StyledNavLink id={`swap-nav-link`} to={'/explore'}>
+            <StyledNavLink id={`swap-nav-link`} to={'/drops'}>
               {t('DROPS')}
             </StyledNavLink>
             <StyledNavLink id={`NFT-nav-link`} to={'/nft/products/category/1'} >
@@ -442,7 +442,7 @@ export default function Header() {
             {/*</StyledExternalLink>*/}
           </HeaderLinks>
         </HeaderRow>
-        <HeaderControls style={{fontSize: '14px'}}>
+        <HeaderControls style={{fontSize: '13px'}}>
           <HeaderElement>
             <HideSmall>
               {chainId && NETWORK_LABELS[chainId] && (

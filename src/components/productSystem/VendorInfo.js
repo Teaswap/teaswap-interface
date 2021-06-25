@@ -26,7 +26,7 @@ const VendorInfoTop = styled.div`
 `;
 
 const VendorName = styled.div`
-  font-size: ${FONT.md};
+  font-size: ${FONT.xs};
   color: ${COLOR.text_2};
 `;
 
@@ -128,19 +128,19 @@ const VendorInfoItem = () => {
   return (
     <InfoWrap>
       <InfoItem>
-        <InfoItemTitle>{t('Works Amount')}</InfoItemTitle>
+        <InfoItemTitle>{t('Created')}</InfoItemTitle>
         <InfoItemBlock>{productCount}</InfoItemBlock>
       </InfoItem>
       <InfoItem>
-        <InfoItemTitle>{t('Sold Amount')}</InfoItemTitle>
+        <InfoItemTitle>{t('Sold')}</InfoItemTitle>
         <InfoItemBlock>2</InfoItemBlock>
       </InfoItem>
       <InfoItem>
-        <InfoItemTitle>{t('Like Amount')}</InfoItemTitle>
+        <InfoItemTitle>{t('Like')}</InfoItemTitle>
         <InfoItemBlock>3</InfoItemBlock>
       </InfoItem>
       <InfoItem>
-        <InfoItemTitle>{t('Watch Amount')}</InfoItemTitle>
+        <InfoItemTitle>{t('Watch')}</InfoItemTitle>
         <InfoItemBlock>1000</InfoItemBlock>
       </InfoItem>
     </InfoWrap>

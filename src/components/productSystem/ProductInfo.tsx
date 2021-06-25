@@ -28,7 +28,7 @@ const ProductName = styled.div`
   max-width: 500px;
   word-break: break-all;
   font-weight: bold;
-  font-size: ${FONT.md};
+  font-size: 14px;
   color: ${COLOR.text_2};
 `;
 

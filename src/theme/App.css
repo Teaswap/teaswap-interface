@@ -131,3 +131,12 @@
   width: 160px;
   font-size: 13px;
 }
+.page-title3{
+  font-size: 15px;
+  font-weight: bold;
+  color: #7f7f7f;
+  text-align: center;
+}
+#product-right{
+  width: 50%;
+}

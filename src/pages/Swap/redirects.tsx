@@ -14,7 +14,7 @@ export const RedirectPathToSwapOnly : React.FC = (): JSX.Element => {
 // }
 
 export const RedirectPathToHomeOnly: React.FC = (): JSX.Element => {
-  return <Navigate to='/explore' />;
+  return <Navigate to='/drops' />;
 };
 
 export const RedirectPathToIroOnly: React.FC = (): JSX.Element => {

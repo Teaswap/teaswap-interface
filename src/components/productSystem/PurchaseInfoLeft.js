@@ -9,36 +9,21 @@ const ProductPictureContainer = styled.div`
   position: relative;
   display: flex;
   justify-content: center;
-  margin-bottom: 65px;
-  max-height: 400px;
-  height: auto;
-
-  &:before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    opacity: ${(props) => (props.loaded ? 0 : 1)};
-    background: url(${process.env.PUBLIC_URL}/logo.svg) center/contain no-repeat;
-    object-fit: cover;
-  }
+  width: 50%;
 `;
 
 const ProductPictureImg = styled.img`
   position: relative;
   transition: opacity 0.2s;
   width: 80%;
-  max-width: 500px;
-  height: 100%;
-  object-fit: cover;
+  // height: 100%;
+  object-fit: contain;
 `;
 
 export const InfoTitle = styled.div`
   margin: ${DISTANCE.sm} auto;
   padding-bottom: ${DISTANCE.sm};
-  font-size: ${FONT.lg};
+  font-size: 14px;
   color: ${COLOR.text_2};
   border-bottom: 1px solid ${COLOR.cccccc};
 
@@ -81,7 +66,7 @@ export const InfoItem = styled.div`
 export const InfoItemTitle = styled.div`
   width: 150px;
   padding-right: 20px;
-  font-size: ${FONT.md};
+  font-size: 14px;
   color: ${COLOR.text_2};
   word-break: break-all;
 `;
