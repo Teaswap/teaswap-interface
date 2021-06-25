@@ -6,6 +6,7 @@ export const InputSearch = styled.input`
   height: 45px;
   outline: none;
   border: none;
+  margin-left: 10px;
   letter-spacing: 0.1rem;
   line-height: 1.5rem;
   background: rgba(0, 0, 0, 0);

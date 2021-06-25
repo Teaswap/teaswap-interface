@@ -45,7 +45,7 @@ import '../theme/App.css'
 import '../theme/AppH5.css'
 
 import {
-  HomePage,
+  // HomePage,
   AboutUsPage,
   EntrancePage,
   LoginPage,
@@ -188,7 +188,7 @@ export default function App() {
           <Web3ReactManager>
             <Routes>
               <Route path="/iro" element={<IdoList />}/>
-              <Route path="/explore" element={<Home/>}/>
+              <Route path="/drops" element={<Home/>}/>
               <Route path="/swap" element={<Swaping/>}/>
               {/* <Route path="/swaping" element={<Swaping/>}/> */}
               <Route path="/claim" element={<OpenClaimAddressModalAndRedirectToSwap/>}/>
@@ -214,7 +214,7 @@ export default function App() {
               <Route element={<RedirectPathToHomeOnly/>}/>
 
               <Route path={'/nft'}>
-                <Route path={'/'} element={<HomePage/>}/>
+                <Route path={'/'} element={<Home/>}/>
                 <Route path={'/about'} element={<AboutUsPage/>}/>
                 <Route path={'/entrance'} element={<EntrancePage/>}/>
                 <Route path={'/login'} element={<LoginPage/>}/>

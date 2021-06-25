@@ -181,8 +181,6 @@ const Product = ({ product, onLoad, loaded, $width, $height, $margin }) => {
 
 export const Products = ({
   products,
-  id,
-  handler,
   productErrorMessage,
   $width,
   $height,

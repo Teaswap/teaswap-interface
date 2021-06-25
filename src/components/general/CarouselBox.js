@@ -32,9 +32,9 @@ const CarouselBox = () => {
       }}
     >
       {/* <img src={process.env.PUBLIC_URL + '/nft_banner1.png'} alt="" /> */}
-      <img src={process.env.PUBLIC_URL + '/homepage-banner2.png'} alt="" />
-      <img src={process.env.PUBLIC_URL + '/homepage-banner1.jpg'} alt="" />
-      <img src={process.env.PUBLIC_URL + '/homepage-banner3.png'} alt="" />
+      <img src={process.env.PUBLIC_URL + '/big_banner_CJAI.png'} alt="" />
+      <img src={process.env.PUBLIC_URL + '/big_banner_TSA.png'} alt="" />
+      {/* <img src={process.env.PUBLIC_URL + '/homepage-banner3.png'} alt="" /> */}
       {/* <img src={process.env.PUBLIC_URL + '/homepage-banner4.jpg'} alt="" /> */}
       {/* <img src={process.env.PUBLIC_URL + '/homepage-banner5.png'} alt="" /> */}
 
