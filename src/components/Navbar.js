@@ -23,7 +23,6 @@ const NavbarContainer = styled.div`
   height: ${(props) => (props.$size === 'sm' ? '65px' : '135px')};
   background: #fcfcfc;
   padding: 25px 0;
-  z-index: 99;
   ${MEDIA_QUERY.lg} {
     height: ${(props) => (props.$size === 'sm' ? '65px' : '165px')};
     padding: 10px 0;
@@ -130,7 +129,7 @@ const Navbar = () => {
 
         <RightSide>
           <OptionList>
-            {isAdmin && <Nav children={'管理後台'} path={'/admin'} />}
+            {isAdmin && <Nav children={'管理後台'} path={'/nft/admin'} />}
             {userId && (
               <>
                 <User />

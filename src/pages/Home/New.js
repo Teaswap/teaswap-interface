@@ -699,6 +699,7 @@ const products2 = [
   return (
     <Page>
       <CarouselBox />
+      <IframeComponent iframe={iframe2} />
       <TitleSection>
         <div style={{fontFamily: "Roboto-Thin", padding: "10px", color: '#474747', fontSize: '30px', fontWeight: 'bold'}}>Upcoming Drops</div>
         <p style={{fontSize: '15px'}}>The New Way to Own Art</p>
@@ -730,5 +731,31 @@ const products2 = [
     </Page>
   );
 };
+
+
+const IframeDiv = styled.div`
+  width: 100%;
+  max-width: 1274px;
+  width: 100%;
+  height: 782px;
+  margin:0 auto;
+  margin-top: 60px;
+  @media (max-width: 500px) {
+    height: 220px;
+    margin-top: 40px;
+  } 
+`
+
+
+function IframeComponent(props) {
+  return (
+    <IframeDiv
+      dangerouslySetInnerHTML={{ __html: props.iframe ? props.iframe : "" }}
+    />
+  );
+}
+
+const iframe2 = '<iframe frameborder="0" allowfullscreen="1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" title="YouTube video player" style="margin-top: 30px; width: 100%; height: 100%; " src="https://www.youtube.com/embed/QVuiElOqJ5Y?autoplay=0&amp;mute=0&amp;controls=1&amp;loop=0&amp;origin=https%3A%2F%2Fwww.teaswap.live&amp;playsinline=1&amp;enablejsapi=1&amp;widgetid=1" id="widget2"></iframe>'; 
+
 
 export default HomePage;

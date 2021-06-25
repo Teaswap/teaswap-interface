@@ -31,6 +31,7 @@ const SearchBarContainer = styled.div`
 
 const SearchArea = styled.div`
   width: 90%;
+  padding-left: 10px;
 `;
 
 const SearchBar = () => {
