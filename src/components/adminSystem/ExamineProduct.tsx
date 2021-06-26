@@ -209,7 +209,7 @@ export default function ExamineProduct() {
           prices.push( priceNumber.toFixed() )
           royalties.push(pProduct.royalty)
           exchangeTokens.push(pProduct.extoken)
-          orderIds.push({orderid:(Number(lastId)+i+1).toString()})
+          orderIds.push({orderid:(Number(lastId)+i).toString()})
           tableIds.push(pProduct.id.toString())
           setNfts(nfts)
           setIds(ids)

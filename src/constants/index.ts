@@ -80,7 +80,7 @@ export const NFTFACTORY: { [chainId in ChainId]?: string } = {
 }
 
 export const NFTEXCHANGE: { [chainId in ChainId]?: string } = {
-  [ChainId.BSC_MAINNET]:'0x80b18948C0f2F76d702A55675416f6f49c5d8610'
+  [ChainId.BSC_MAINNET]:'0xe38924646842F252c8C76Ebc09208F3c2e478E90'
 }
 
 //0xb0AEB3b4C1CDf40Bc05Dc232073634d08de72060   0.01BNB
