@@ -137,6 +137,7 @@ export default function PoolCard({ stakingInfo }: { stakingInfo: StakingInfo }) 
   const currency1 = unwrappedToken(token1)
 
   const isStaking = Boolean(stakingInfo.stakedAmount.greaterThan('0'))
+    const isUnclaim = Boolean(stakingInfo.unclaimAmount.greaterThan('0'))
 
   // const tokenIcon = stakingInfo.stakingRewardAddress == ''
 
@@ -242,9 +243,9 @@ export default function PoolCard({ stakingInfo }: { stakingInfo: StakingInfo }) 
             <Countdown exactEnd={stakingInfo?.periodFinish} rewardsDuration={stakingInfo?.rewardsDuration} />
         </RowBetween>
 
-        <StyledLink href={((timeUntilGenesis <= 0 && timeUntilEnd > 0) || isStaking) ? `/staking/${currencyId(currency0)}/${currencyId(currency1)}/${stakingInfo.stakingRewardAddress}`:`#`} >
+        <StyledLink href={((timeUntilGenesis <= 0 && timeUntilEnd > 0) || isStaking||isUnclaim) ? `/staking/${currencyId(currency0)}/${currencyId(currency1)}/${stakingInfo.stakingRewardAddress}`:`#`} >
         <SelectBtn>
-          {isStaking ? t('manage') : t('select')}
+          {(isStaking||isUnclaim) ? t('manage') : t('select')}
         </SelectBtn>
       </StyledLink>
 
