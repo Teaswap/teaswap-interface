@@ -74,12 +74,14 @@ export default function useProduct() {
       }
       (getProductsFromVendor(res.vendorInfo.id, page, 4)(dispatch)).then(
         (products) => {
+          console.log('getProductsFromVendor', products)
           let tempProducts = products.filter((product) => {
             return product.id !== Number(id);
           });
           if (tempProducts.length > 3) {
             tempProducts.pop();
           }
+          console.log('getProductsFromVendor tempProducts', tempProducts)
           return dispatch(setProducts(tempProducts));
         }
       );

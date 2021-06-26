@@ -63,6 +63,8 @@ const VendorBackstagePage = () => {
     handleGetUserById,
   } = useProduct();
 
+  console.log('useProduct', products)
+
   const handleSetAnnouncement = () => {
     setIsSettingAnnouncement(true);
   };

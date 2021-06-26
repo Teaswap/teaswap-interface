@@ -81,7 +81,7 @@ export const getProducts = (page) => (dispatch) => {
       return dispatch(setErrorMessage(res ? res.message : 'something wrong'));
     }
     const { count, products } = res.data;
-    dispatch(pushProducts(products));
+    // dispatch(pushProducts(products));
     dispatch(setProductCount(count));
   });
 };
