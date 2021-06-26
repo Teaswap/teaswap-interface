@@ -243,7 +243,7 @@ export default function PoolCard({ stakingInfo }: { stakingInfo: StakingInfo }) 
             <Countdown exactEnd={stakingInfo?.periodFinish} rewardsDuration={stakingInfo?.rewardsDuration} />
         </RowBetween>
 
-        <StyledLink href={((timeUntilGenesis <= 0 && timeUntilEnd > 0) || isStaking) ? `/staking/${currencyId(currency0)}/${currencyId(currency1)}/${stakingInfo.stakingRewardAddress}`:`#`} >
+        <StyledLink href={((timeUntilGenesis <= 0 && timeUntilEnd > 0) || isStaking||isUnclaim) ? `/staking/${currencyId(currency0)}/${currencyId(currency1)}/${stakingInfo.stakingRewardAddress}`:`#`} >
         <SelectBtn>
           {(isStaking||isUnclaim) ? t('manage') : t('select')}
         </SelectBtn>
