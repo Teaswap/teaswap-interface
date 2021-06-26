@@ -184,6 +184,7 @@ export interface StakingInfo {
   earnedAmount: TokenAmount
   // the total amount of token staked in the contract
   totalStakedAmount: TokenAmount
+  unclaimAmount:TokenAmount
   // the amount of token distributed per second to all LPs, constant
   totalRewardRate: TokenAmount
   // the current amount of token distributed to the active account per second.
@@ -254,6 +255,7 @@ export function useStakingInfo(stakingRewardAddress?:string | null): StakingInfo
   // get all the info from the staking rewards contracts
   const balances = useMultipleContractSingleData(rewardsAddresses, STAKING_REWARDS_INTERFACE, 'balanceOf', accountArg)
   const earnedAmounts = useMultipleContractSingleData(rewardsAddresses, STAKING_REWARDS_INTERFACE, 'earned', accountArg)
+  const unClaimedAmounts = useMultipleContractSingleData(rewardsAddresses, STAKING_REWARDS_INTERFACE, 'rewards', accountArg)
   const totalSupplies = useMultipleContractSingleData(rewardsAddresses, STAKING_REWARDS_INTERFACE, 'totalSupply')
 
   // const startTimes = useMultipleContractSingleData(rewardsAddresses, STAKING_REWARDS_INTERFACE, 'startTime')
@@ -281,6 +283,7 @@ export function useStakingInfo(stakingRewardAddress?:string | null): StakingInfo
       // these two are dependent on account
       const balanceState = balances[index]
       const earnedAmountState = earnedAmounts[index]
+      const unclaimedAmountState = unClaimedAmounts[index]
 
       // these get fetched regardless of account
       const totalSupplyState = totalSupplies[index]
@@ -306,6 +309,7 @@ export function useStakingInfo(stakingRewardAddress?:string | null): StakingInfo
         if (
           balanceState?.error ||
           earnedAmountState?.error ||
+            unclaimedAmountState.error||
           totalSupplyState.error ||
           rewardRateState.error ||
           periodFinishState.error||
@@ -325,6 +329,7 @@ export function useStakingInfo(stakingRewardAddress?:string | null): StakingInfo
         // const stakedAmount = new TokenAmount(dummyPair.liquidityToken, JSBI.BigInt(balanceState?.result?.[0] ?? 0))
         // const totalStakedAmount = new TokenAmount(dummyPair.liquidityToken, JSBI.BigInt(totalSupplyState.result?.[0]))
         const stakedAmount = new TokenAmount(tokens[0], JSBI.BigInt(balanceState?.result?.[0] ?? 0))
+        const unClaimedAmount = new TokenAmount(tokens[1],JSBI.BigInt(unclaimedAmountState?.result?.[0] ?? 0))
         const totalStakedAmount = new TokenAmount(tokens[0], JSBI.BigInt(totalSupplyState.result?.[0]))
 
 
@@ -356,6 +361,7 @@ export function useStakingInfo(stakingRewardAddress?:string | null): StakingInfo
           iconUrl: info[index].iconUrl,
           periodFinish: periodFinishMs > 0 ? new Date(periodFinishMs) : undefined,
           earnedAmount: new TokenAmount(info[index].tokens[1], JSBI.BigInt(earnedAmountState?.result?.[0] ?? 0)),
+          unclaimAmount:unClaimedAmount,
           rewardRate: individualRewardRate,
           totalRewardRate: totalRewardRate,
           stakedAmount: stakedAmount,

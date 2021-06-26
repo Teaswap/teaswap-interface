@@ -46,7 +46,7 @@ export default function UnstakingModal({ isOpen, onDismiss, stakingInfo }: Staki
     if (stakingContract && stakingInfo?.stakedAmount) {
       setAttempting(true)
       await stakingContract
-        .withdraw(`0x${stakingInfo?.stakedAmount.raw.toString(16)}`,{ gasLimit: 300000 })
+        .exit({ gasLimit: 300000 })
         .then((response: TransactionResponse) => {
           addTransaction(response, {
             summary: `Withdraw deposited token`

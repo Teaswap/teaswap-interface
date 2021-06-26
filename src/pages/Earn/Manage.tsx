@@ -403,10 +403,10 @@ const Manage = ()=>{
                   }
             }}
             disabled={timeUntilGenesis>=0||timeUntilEnd<=0} >
-              {stakingInfo?.stakedAmount?.greaterThan(JSBI.BigInt(0)) ? t('deposit') : t('deposit')+' Tokens'}
+              {(stakingInfo?.stakedAmount?.greaterThan(JSBI.BigInt(0))||stakingInfo?.unclaimAmount?.greaterThan(JSBI.BigInt(0))) ? t('deposit') : t('deposit')+' Tokens'}
             </ButtonPrimary>
 
-            {stakingInfo?.stakedAmount?.greaterThan(JSBI.BigInt(0)) && (
+            {(stakingInfo?.stakedAmount?.greaterThan(JSBI.BigInt(0))||stakingInfo?.unclaimAmount?.greaterThan(JSBI.BigInt(0))) && (
               <>
                 <WithdarBtn
                   padding="8px"
