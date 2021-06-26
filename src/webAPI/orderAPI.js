@@ -20,6 +20,16 @@ export const getClientOrder = () => {
     },
   }).then((res) => res.json());
 };
+// 取出产品订单
+export const getProductOrders = (id) => {
+  const token = getAuthToken();
+  return fetch(`${BASE_URL}/product/orders/${id}`, {
+    headers: {
+      "content-type": "application/json",
+      authorization: `Bearer ${token}`,
+    },
+  }).then((res) => res.json());
+};
 // 取得自己賣的訂單列表
 export const getSellerOrder = () => {
   const token = getAuthToken();

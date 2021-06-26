@@ -8,6 +8,7 @@ import {
   sentOrder as sentOrderAPI,
   payOrder as payOrderAPI,
   completeOrder as completeOrderAPI,
+  getProductOrders as getProductOrdersAPI,
 } from "../../../webAPI/orderAPI.js";
 import { setAuthToken, getAuthToken } from "../../../NFTutils";
 export const orderSlice = createSlice({
@@ -130,6 +131,13 @@ export const payOrder = (id) => (dispatch) => {
   dispatch(setIsLoading(true));
   return payOrderAPI(id).then((res) => {
     dispatch(setIsLoading(false));
+    return res.data;
+  });
+};
+
+export const getProductOrders = (id) => (dispatch) => {
+  dispatch(setIsLoading(true));
+  return getProductOrdersAPI(id).then((res) => {
     return res.data;
   });
 };

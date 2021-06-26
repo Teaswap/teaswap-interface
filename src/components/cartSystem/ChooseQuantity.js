@@ -35,7 +35,7 @@ const Modal = styled.div`
   background: ${COLOR.bg_mask};
   z-index: 2;
 `;
-const Form = styled.form`
+const Form = styled.div`
   display: flex;
   position: relative;
   align-items: center;

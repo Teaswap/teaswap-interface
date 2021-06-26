@@ -102,16 +102,30 @@ export const FreightIntro = ({ product }) => {
       <InfoItem>
         <InfoItemTitle>{t('Biding Price')}</InfoItemTitle>
         <InfoBlock>{product.delivery === '0' ? t('Bid') : t('Auction')}</InfoBlock>
+        {product.Carts && product.Carts.map((cart, index) => {
+          return (
+            <>
+              <span>order.bidprice</span>
+              <span>order.createdAt</span>
+            </>
+          )
+        })}
       </InfoItem>
       <InfoItem>
         <InfoItemTitle>{t('Contract Info')}</InfoItemTitle>
-        <InfoBlock>{product.delivery === '0' ? t('Bid') : t('Auction')}</InfoBlock>
       </InfoItem>
       <InfoItem>
         <InfoItemTitle>{t('Trade History')}</InfoItemTitle>
-        <InfoBlock>
-          {product.payment_method === '0' ? '' : ''}
-        </InfoBlock>
+        {product.Orders && product.Orders.map((order, index) => {
+          return (
+            <>
+              <span>order.seller_name</span>
+              <span>order.client_name</span>
+              <span>order.is_completed</span>
+              <span>order.createdAt</span>
+            </>
+          )
+        })}
       </InfoItem>
       <InfoItem style={{ borderBottom: 'none' }}>
         <InfoItemTitle>{t('Warning')}</InfoItemTitle>
