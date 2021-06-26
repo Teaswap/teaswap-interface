@@ -125,7 +125,7 @@ export function useNFTLastOrderId(
     address?: string,
 ):number|undefined|null{
     const contract = useNFTExchangeContract(address)
-    const lastId = useSingleCallResult(contract, 'totalOrder').result?.[0]
+    const lastId = useSingleCallResult(contract, 'getNextId').result?.[0]
 
     return lastId
 }
