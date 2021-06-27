@@ -18,10 +18,12 @@ export const Radio = ({
   name,
   handleChange,
   currentOption,
+  disable
 }) => {
   return (
     <RadioLabel>
       <RadioInput
+        disabled={disable}
         $margin={0}
         rows='15'
         type='radio'

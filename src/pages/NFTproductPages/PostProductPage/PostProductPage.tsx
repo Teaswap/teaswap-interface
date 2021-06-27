@@ -102,7 +102,7 @@ const PostProductPage = () => {
     setDelivery,
     setProductRoyalty,
     setRemark,
-    setProductQuantity,
+    // setProductQuantity,
     setProductToken,
     setProductMediaType,
     setDeliveryLocation,
@@ -114,14 +114,14 @@ const PostProductPage = () => {
     hasProductMediaType,
     hasProductPrice,
     hasDelivery,
-    hasProductQuantity,
+    // hasProductQuantity,
     productPictureUrl,
     handleChangePicture,
     checkInputError,
     productCategory,
     productName,
     productPrice,
-    productQuantity,
+    // productQuantity,
     productInfo,
     delivery,
     deliveryLocation,
@@ -130,6 +130,7 @@ const PostProductPage = () => {
     productToken,
     productMediaType
   } = useProductFrom();
+  // setProductQuantity(1);
 
   const {user} = useUser()
   // const NFTFactoryContract = useNFTFactoryContract(NFTFACTORY[ChainId.BSC_MAINNET]);
@@ -428,7 +429,7 @@ const PostProductPage = () => {
           value={productPrice}
         />
 
-        <InputItem
+        {/* <InputItem
           title={t('Number')}
           label={t('Number (ERC1155)')}
           type={'input'}
@@ -440,7 +441,7 @@ const PostProductPage = () => {
           productPictureUrl={undefined}
           textareaRows={1}
           value={productQuantity}
-        />
+        /> */}
 
         <InputItem
           label={t('How to buy')}
@@ -448,7 +449,7 @@ const PostProductPage = () => {
           type={'radio'}
           options={[
             { name: t('Bid'), id: '0',value:0 },
-            { name: t('Auction'), id: '1',value:1 },
+            { name: t('Auction'), id: '1',value:1, disable: true },
           ]}
           hasValue={hasDelivery}
           errorMessage={t('please choose')}
