@@ -188,7 +188,7 @@ export default function VendorInfoForm({ setSuccessMode, isAdminStatus, goPost }
         {/* <SetQRCode setSocialMediaId={setSocialMediaId} /> */}
         <Text>{t('Upload Avatar')}</Text>
         <SetAvatar setSuccessMode={setSuccessMode} />
-        <Text>{t('UpLoad Banner')}</Text>
+        <Text>{t('Upload Banner')}</Text>
         <SetBanner setSuccessMode={setSuccessMode} />
       </FontWrapper>
       <GreyBtn

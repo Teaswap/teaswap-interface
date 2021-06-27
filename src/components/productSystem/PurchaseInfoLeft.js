@@ -8,7 +8,7 @@ import { useTranslation } from 'react-i18next';
 const ProductPictureContainer = styled.div`
   position: relative;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   width: 50%;
 `;
 

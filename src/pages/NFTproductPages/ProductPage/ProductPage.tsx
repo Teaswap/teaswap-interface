@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import {useNavigate, useParams} from 'react-router-dom';
 import useProduct from '../../../hooks/productHooks/useProduct';
 import { useDispatch } from 'react-redux';
-import { COLOR, MEDIA_QUERY } from '../../../constants/style';
+import { MEDIA_QUERY } from '../../../constants/style';
 import {
   setProduct,
   setProducts,
@@ -21,8 +21,6 @@ import {
   ProductPicture,
   ProductIntro,
   FreightIntro,
-  InfoTitle,
-  InfoItem,
 } from '../../../components/productSystem'
 import { useTranslation } from 'react-i18next';
 
@@ -43,8 +41,7 @@ const PurchaseInfo = styled.section`
   align-items: flex-start;
 `;
 
-const OtherProductWrap = styled(InfoItem)`
-  margin-top: 40px;
+const OtherProductWrap = styled.div`
   padding-bottom: 0;
   border-bottom: none;
   ${MEDIA_QUERY} {
@@ -53,18 +50,18 @@ const OtherProductWrap = styled(InfoItem)`
   }
 `;
 
-const OtherProductTitle = styled(InfoTitle)`
+const OtherProductTitle = styled.div`
   margin: 0;
   border-bottom: none;
 `;
 
 const MoreLink = styled.a`
   margin: 0 20px;
-  color: #007bff;
+  color: #7f7f7f;
   display: inline-block;
+  text-decoration: none;
   &:hover {
-    color: ${COLOR.hover};
-    text-decoration: underline;
+    text-decoration: none;
   }
 `;
 
@@ -130,9 +127,9 @@ const ProductPage = () => {
           {products.length !== 0 ? (
           <>
             <OtherProductWrap>
-              <OtherProductTitle>{t('Other Works by This artist')}</OtherProductTitle>
-              <MoreLink href={`/nft/products/vendor/${vendorInfo.id}`}>
-                {t('More')}
+              <OtherProductTitle>{t('More by this artist')}</OtherProductTitle>
+              <MoreLink className="a-link" href={`/nft/products/vendor/${vendorInfo.id}`}>
+                {t('View all')}
               </MoreLink>
             </OtherProductWrap>
             <Products

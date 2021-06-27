@@ -137,6 +137,11 @@ export default function Menu() {
               }} padding="8px 8px" width="80%" borderRadius="0px" mt="0.5rem">
                 {t('My Profile')}
               </ButtonPrimary>
+              <ButtonPrimary onClick={() => {
+                navigate('/swap')
+              }} padding="8px 8px" width="80%" borderRadius="0px" mt="0.5rem">
+                {t('Get TSA')}
+              </ButtonPrimary>
               <ButtonPrimary onClick={openClaimModal} padding="8px 8px" width="80%" borderRadius="0px" mt="0.5rem">
                 {t('AirDrop')}
               </ButtonPrimary>

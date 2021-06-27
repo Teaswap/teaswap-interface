@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import { useTranslation } from 'react-i18next'
-import {  ColumnCenter } from '../../components/Column'
+// import {  ColumnCenter } from '../../components/Column'
 import styled from 'styled-components'
 import { STAKING_REWARDS_INFO, useStakingInfo } from '../../state/stake/hooks'
 import PoolCardNew from '../../components/earn/PoolCardNew'
@@ -8,7 +8,7 @@ import PoolCardNew from '../../components/earn/PoolCardNew'
 import Loader from '../../components/Loader'
 import { useActiveWeb3React } from '../../hooks'
 
-import ConSubTitle from '../../components/Content/SubTitle'
+// import ConSubTitle from '../../components/Content/SubTitle'
 
 import Nav from '../../components/earn/Nav'
 import { MEDIA_QUERY } from '../../constants/style'
@@ -26,18 +26,18 @@ const PageWrapper = styled.div`
   }
 `
 
-const TopSection = styled(ColumnCenter)`
-  width: 100%;
-  text-align: center;
-  margin: 0 auto;
-  margin-top: -80px;
-  z-index: 999;
-  ${MEDIA_QUERY.sm} {
-    display: none;
-    margin-top: -30px;
-    font-size: 12px;
-  }
-`
+// const TopSection = styled(ColumnCenter)`
+//   width: 100%;
+//   text-align: center;
+//   margin: 0 auto;
+//   margin-top: -80px;
+//   z-index: 999;
+//   ${MEDIA_QUERY.sm} {
+//     display: none;
+//     margin-top: -30px;
+//     font-size: 12px;
+//   }
+// `
 
 const PoolSection = styled.div`
   width: 1286px;
@@ -80,9 +80,9 @@ export default function Earn() {
   return (
     <PageWrapper >
       <StakeBox />
-      <TopSection >
+      {/* <TopSection >
         <ConSubTitle con={"An amazing yield farm on Binance Smart Chain."} />
-      </TopSection>
+      </TopSection> */}
       <NavAndPool>
         <Nav handleCatChange={changeCate} />
       

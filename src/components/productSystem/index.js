@@ -1,7 +1,7 @@
 import { Banner } from './Banner';
 import { SellerInfo, SellerInfoMobile } from './SellerInfo';
 import { Announcement } from './Announcement';
-import { Products } from './Products';
+import { Products, Product } from './Products';
 import { MoreButton } from './MoreButton';
 import { ProductSort } from './ProductSort';
 import { ErrorMessage } from './ErrorMessage';
@@ -36,6 +36,7 @@ export {
   SellerInfoMobile,
   Announcement,
   Products,
+  Product,
   MoreButton,
   ProductSort,
   ErrorMessage,

@@ -22,7 +22,9 @@ import {useDerivedBidInfo} from "../../state/stake/hooks";
 import {useNFTExchangeContract} from "../../hooks/useContract";
 import CurrencyInputPanel from "../CurrencyInputPanel";
 
-const ProductInfoContainer = styled.div``;
+const ProductInfoContainer = styled.div`
+  width: 80%;
+`;
 const ProductName = styled.div`
   width:  100%;
   max-width: 500px;

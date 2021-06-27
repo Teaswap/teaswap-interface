@@ -124,7 +124,7 @@ const StyledLink = styled(NavLink)`
   }
 `
 
-const Product = ({ product, onLoad, loaded, $width, $height, $margin }) => {
+export const Product = ({ product, onLoad, loaded, $width, $height, $margin }) => {
   const {handleTokenSwitch} = useProduct();
   const formatter = new Intl.NumberFormat();
   return (
@@ -178,6 +178,7 @@ const Product = ({ product, onLoad, loaded, $width, $height, $margin }) => {
     </ProductContainer>
   );
 };
+
 
 export const Products = ({
   products,

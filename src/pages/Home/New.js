@@ -2,9 +2,10 @@
 import React,{ useEffect, useState } from 'react';
 import styled from 'styled-components';
 // import { DISTANCE } from '../../constants/style';
+import Carousel from 'nuka-carousel';
 import { CarouselBox } from '../../components/general';
 import { useDispatch } from 'react-redux';
-import { Products } from '../../components/productSystem';
+import { Product } from '../../components/productSystem';
 // import { MEDIA_QUERY } from '../../constants/style';
 import useProduct from '../../hooks/productHooks/useProduct';
 // import Snowfall from 'react-snowfall';
@@ -680,7 +681,7 @@ const products2 = [
 
   const productErrorMessage = ''
 
-  const [products, setProducts] = useState(products1);
+  // const [products, setProducts] = useState(products1);
   
 
   // const {t} = useTranslation();
@@ -693,9 +694,9 @@ const products2 = [
       dispatch(setErrorMessage(null));
     };
   }, [dispatch]);
-  const changeCat = function(t) {
-    setProducts([products1, products2, products3][t-1])
-  }
+  // const changeCat = function(t) {
+  //   setProducts([products1, products2, products3][t-1])
+  // }
 
   return (
     <Page>
@@ -704,9 +705,9 @@ const products2 = [
       <p className="page-title3"> NFT FOR GOOD </p>
       <IframeComponent iframe={iframe2} />
       <TitleSection>
-        <div style={{fontFamily: "Roboto-Thin", padding: "10px", color: '#474747', fontSize: '30px', fontWeight: 'bold'}}>Upcoming Drops</div>
+        <div style={{fontFamily: "Roboto-Thin", padding: "40px", color: '#474747', fontSize: '30px', fontWeight: 'bold'}}>Upcoming Drops</div>
       </TitleSection>
-      <Nav>
+      {/* <Nav>
         <NavItem onClick={() => changeCat(2)}>
           TSA Broadway
         </NavItem>
@@ -716,18 +717,126 @@ const products2 = [
         <NavItem onClick={() => changeCat(3)}>
           Charity Project
         </NavItem>
-      </Nav>
+      </Nav> */}
       {/*<Snowfall color='#e8f2f7' />*/}
       <Section>
         {/* <Title $isLarge>{t('NEW POST')}</Title> */}
-        <HomePageProducts>
+        <p className="products-title">TSA Broadway</p>
+        <Carousel
+          style={{
+            width: '100%',
+            margin: '0 auto'
+          }}
+          className="page-banner drop-products"
+          autoplay={true}
+          wrapAround={true}
+          scrollMode="remainder"
+          slideWidth="330px"
+          cellSpacing={20}
+          defaultControlsConfig={{
+            nextButtonText: '>',
+            prevButtonText: '<',
+            pagingDotsStyle: {
+              fill: 'white',
+              margin: '0 5px',
+            },
+          }}
+        >
+          {products2.map((product) => {
+              return (
+                <div className="drop-product">
+                  <img src={product.picture_url} />
+                  <div>
+                    {product.title} {product.number}
+                  </div>
+                  <div>
+                    {product.desc}
+                  </div>
+                </div>
+              );
+            })}
+
+        </Carousel>
+        <p className="products-title">CJAI NFT Collectibles</p>
+        <Carousel
+          style={{
+            width: '100%',
+            margin: '0 auto'
+          }}
+          className="page-banner drop-products"
+          autoplay={true}
+          wrapAround={true}
+          scrollMode="remainder"
+          slideWidth="330px"
+          cellSpacing={20}
+          defaultControlsConfig={{
+            nextButtonText: '>',
+            prevButtonText: '<',
+            pagingDotsStyle: {
+              fill: 'white',
+              margin: '0 5px',
+            },
+          }}
+        >
+          {products1.map((product) => {
+              return (
+                <div className="drop-product">
+                  <img src={product.picture_url} />
+                  <div>
+                    {product.title} {product.number}
+                  </div>
+                  <div>
+                    {product.desc}
+                  </div>
+                </div>
+              );
+            })}
+
+        </Carousel>
+        <p className="products-title">Charity Project</p>
+        <Carousel
+          style={{
+            width: '100%',
+            margin: '0 auto'
+          }}
+          className="page-banner drop-products"
+          autoplay={true}
+          wrapAround={true}
+          scrollMode="remainder"
+          slideWidth="330px"
+          cellSpacing={20}
+          defaultControlsConfig={{
+            nextButtonText: '>',
+            prevButtonText: '<',
+            pagingDotsStyle: {
+              fill: 'white',
+              margin: '0 5px',
+            },
+          }}
+        >
+          {products3.map((product) => {
+              return (
+                <div className="drop-product">
+                  <img src={product.picture_url} />
+                  <div>
+                    {product.title} {product.number}
+                  </div>
+                  <div>
+                    {product.desc}
+                  </div>
+                </div>
+              );
+            })}
+
+        </Carousel>
+        {/* <HomePageProducts>
           <Products
             $justify={'space-between'}
             products={products}
             handler={()=>{}}
             productErrorMessage={productErrorMessage}
           />
-        </HomePageProducts>
+        </HomePageProducts> */}
       </Section>
       {/* <GoalBox /> */}
     </Page>

@@ -140,7 +140,7 @@ const VendorInfoItem = () => {
         <InfoItemBlock>3</InfoItemBlock>
       </InfoItem>
       <InfoItem>
-        <InfoItemTitle>{t('Watch')}</InfoItemTitle>
+        <InfoItemTitle>{t('View')}</InfoItemTitle>
         <InfoItemBlock>1000</InfoItemBlock>
       </InfoItem>
     </InfoWrap>
