@@ -95,12 +95,12 @@ export default function useProductForm(id) {
       setHasProductPrice(true);
     }
 
-    if (!checkValidNumber(productQuantity, 1000, 1)) {
-      hasError = true;
-      setHasProductQuantity(false);
-    } else {
-      setHasProductQuantity(true);
-    }
+    // if (!checkValidNumber(productQuantity, 1000, 1)) {
+    //   hasError = true;
+    //   setHasProductQuantity(false);
+    // } else {
+    //   setHasProductQuantity(true);
+    // }
 
     if (!checkValidNumber(delivery, 2, 0)) {
       hasError = true;
