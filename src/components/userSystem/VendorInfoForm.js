@@ -9,6 +9,8 @@ import { GreyBtn } from '../NFTButton'
 import useVendorForm from '../../hooks/userHooks/useVendorForm';
 import {useTranslation} from 'react-i18next';
 import {SetAvatar, SetBanner}  from '../../components/userSystem' 
+import { AiOutlineCheck } from "react-icons/ai";
+
   
 const FontWrapper = styled.div`
   margin: 0 auto;
@@ -42,10 +44,11 @@ const ErrorMessage = styled.span`
   margin: 0 15px;
 `;
 
-export default function VendorInfoForm({ setSuccessMode, isAdminStatus, goPost }) {
+export default function VendorInfoForm({ successMode, setSuccessMode, isAdminStatus, goPost }) {
   const { user } = useUser();
   const {
     nickname,
+    email,
     description,
     portfolio,
     twitter,
@@ -56,6 +59,7 @@ export default function VendorInfoForm({ setSuccessMode, isAdminStatus, goPost }
     artworksLink,
     other,
     setNickname,
+    setEmail,
     setDescription,
     setPortfolio,
     setTwitter,
@@ -66,7 +70,8 @@ export default function VendorInfoForm({ setSuccessMode, isAdminStatus, goPost }
     setArtworksLink,
     setOther,
     handleSubmit,
-    nicknameError
+    nicknameError,
+    emailError
   }= useVendorForm();
 
   const {t} = useTranslation();
@@ -74,6 +79,7 @@ export default function VendorInfoForm({ setSuccessMode, isAdminStatus, goPost }
   useEffect(() => {
     if(user){
       setNickname(user.nickname ? user.nickname : '');
+      setEmail(user.email? user.email: '');
       setDescription(user.description ? user.description : '');
       setPortfolio(user.portfolio ? user.portfolio : '');
       setTwitter(user.twitter ? user.twitter : '');
@@ -90,6 +96,16 @@ export default function VendorInfoForm({ setSuccessMode, isAdminStatus, goPost }
   return (
     <>
       <FontWrapper action='' novalidate=''>
+        <InputName>{t('Enter your email to get started ( is a must )')}</InputName>
+        <InputComponent
+          type='text'
+          name='email'
+          $margin={0}
+          maxLength='20'
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          />
+        {emailError && <ErrorMessage>{emailError}</ErrorMessage>}
         <InputName>{t('Your Name')}</InputName>
         <InputComponent
           type='text'
@@ -153,7 +169,7 @@ export default function VendorInfoForm({ setSuccessMode, isAdminStatus, goPost }
           value={artsNumber}
           onChange={(e) => setArtsNumber(e.target.value)}
         />
-        <InputName>{t("Contact (Telegram ID preferred)")}</InputName>
+        <InputName>{t("Your Telegram ID")}</InputName>
         <InputComponent
           type='text'
           name='contact'
@@ -188,6 +204,7 @@ export default function VendorInfoForm({ setSuccessMode, isAdminStatus, goPost }
         {/* <SetQRCode setSocialMediaId={setSocialMediaId} /> */}
         <Text>{t('Upload Avatar')}</Text>
         <SetAvatar setSuccessMode={setSuccessMode} />
+       
         <Text>{t('Upload Banner')}</Text>
         <SetBanner setSuccessMode={setSuccessMode} />
       </FontWrapper>
@@ -200,6 +217,11 @@ export default function VendorInfoForm({ setSuccessMode, isAdminStatus, goPost }
       >
         {t('Confirm')}
       </GreyBtn>
+      {successMode && (
+        <div className="update-success">
+          <AiOutlineCheck color="green" size="25" />{t('Update Success')}
+        </div>
+      )}
     </>
   );
 }

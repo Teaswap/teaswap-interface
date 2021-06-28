@@ -109,6 +109,7 @@ const VendorInfoPage = () => {
         {isAdminStatus && <SetPermission setSuccessMode={setSuccessMode} />}
         <VendorInfoForm
           setSuccessMode={setSuccessMode}
+          successMode={successMode}
           isAdminStatus={isAdminStatus}
         />
         {errorMessage && <ErrorText>{errorMessage}</ErrorText>}
@@ -119,13 +120,7 @@ const VendorInfoPage = () => {
         <PageBottom>
           <Nav path='/nft/users/backstage' children={t('Back to Account')} />
         </PageBottom>
-        {successMode && (
-          <WrapperMask onClick={() => setSuccessMode(false)} className="center-mask">
-            <SuccessMessage className="success-message">
-               {t('Update Success')}
-            </SuccessMessage>
-          </WrapperMask>
-        )}
+        
       </Wrapper>
     </ThickNavPage>
   );

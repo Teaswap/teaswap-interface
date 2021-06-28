@@ -9,4 +9,13 @@
   .link-btn{
     margin-right: 20px;
   }
+  .drop-products li{
+    width: 100% !important;
+  }
+  .drop-product img, .drop-product video{
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+  }
+
 }

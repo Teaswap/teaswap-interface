@@ -151,6 +151,7 @@
   text-align: center;
   letter-spacing: 2px;
   margin: 20px;
+  font-family: Roboto-Thin;
 }
 #product-right{
   width: 50%;
@@ -205,11 +206,12 @@
 .drop-product{
   width: 100%;
 }
-.drop-product img{
+.drop-product img, .drop-product video{
   width: 330px;
   height: 500px;
   object-fit: cover;
 }
+
 .products-title{
   font-size: 18px;
   text-align: left;
@@ -219,4 +221,10 @@
 }
 .drop-product div:last-child{
   color: #474747;
+}
+.update-success{
+  display: flex;
+  align-items: center;
+  padding-top: 20px;
+  color: #474747; 
 }

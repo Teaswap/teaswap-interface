@@ -138,13 +138,6 @@ const ApplyForVendorPage = () => {
         {/* <PageBottom>
           <Nav path='/nft' children={t('Back to NFTHome')} />
         </PageBottom> */}
-        {successMode && (
-          <WrapperMask onClick={() => setSuccessMode(false)} className="center-mask">
-            <SuccessMessage className="success-message">
-              {t('Update Success')}
-            </SuccessMessage>
-          </WrapperMask>
-        )}
       </Wrapper>
     </ThickNavPage>
   );

@@ -21,6 +21,8 @@ export const productSlice = createSlice({
     product: [],
     products: [],
     productCount: 0,
+    userCreated: 0,
+    userSold: 0,
     category: [],
     categories: [],
     errorMessage: null,
@@ -44,6 +46,12 @@ export const productSlice = createSlice({
     setProductCount: (state, action) => {
       state.productCount = action.payload;
     },
+    setUserCreated: (state, action) => {
+      state.userCreated = action.payload;
+    },
+    setUserSold: (state, action) => {
+      state.userSold = action.payload;
+    },
     setProduct: (state, action) => {
       state.product = action.payload;
     },
@@ -66,6 +74,8 @@ export const {
   pushProducts,
   setProducts,
   setProductCount,
+  setUserCreated,
+  setUserSold,
   setProduct,
   setCategories,
   setCategory,
@@ -91,8 +101,10 @@ export const getProduct = (id) => (dispatch) => {
     if (res.ok === 0) {
       return dispatch(setErrorMessage(res ? res.message : 'something wrong'));
     }
-    const { vendorInfo, category, product } = res.data;
+    const { vendorInfo, category, product, userCreated, userSold } = res.data;
     dispatch(setVendorInfo(vendorInfo));
+    dispatch(setUserCreated(userCreated));
+    dispatch(setUserSold(userSold));
     dispatch(setProduct(product));
     dispatch(setCategory(category));
     return res.data;
@@ -249,6 +261,8 @@ export const selectProduct = (state) => state.product.product;
 export const selectCategory = (state) => state.product.category;
 export const selectErrorMessage = (state) => state.product.errorMessage;
 export const selectProductCount = (state) => state.product.productCount;
+export const selectUserCreated = (state) => state.product.userCreated;
+export const selectUserSold = (state) => state.product.userSold;
 export const selectPage = (state) => state.product.page;
 export const selectSort = (state) => state.product.sort;
 export const selectVendorInfo = (state) => state.product.vendorInfo;

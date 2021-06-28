@@ -21,6 +21,8 @@ import {
   getProductsFromCategory,
   getProductsFromVendor,
   getUserById,
+  selectUserCreated,
+  selectUserSold,
 } from '../../redux/slices/productSlice/productSlice';
 import {useMultipleContractSingleData} from "../../state/multicall/hooks";
 import {STAKING_REWARDS_INTERFACE} from "../../constants/abis/staking-rewards";
@@ -48,6 +50,8 @@ export default function useProduct() {
   const product = useSelector(selectProduct);
   const products = useSelector(selectProducts);
   const productCount = useSelector(selectProductCount);
+  const userCreated = useSelector(selectUserCreated);
+  const userSold = useSelector(selectUserSold);
   const category = useSelector(selectCategory);
   const productErrorMessage = useSelector(selectErrorMessage);
   const averageShippingTime = averageTime(products.length, products);
@@ -179,6 +183,8 @@ export default function useProduct() {
     products,
     category,
     productCount,
+    userCreated,
+    userSold,
     productErrorMessage,
 
     setPage,

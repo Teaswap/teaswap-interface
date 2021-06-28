@@ -124,24 +124,24 @@ const InfoItemBlock = styled(InfoBlock)`
 
 const VendorInfoItem = () => {
   const {t} = useTranslation();
-  const { averageShippingTime, productCount } = useProduct();
+  const { averageShippingTime, userCreated, userSold, vendorInfo } = useProduct();
   return (
     <InfoWrap>
       <InfoItem>
         <InfoItemTitle>{t('Created')}</InfoItemTitle>
-        <InfoItemBlock>{productCount}</InfoItemBlock>
+        <InfoItemBlock>{userCreated}</InfoItemBlock>
       </InfoItem>
       <InfoItem>
         <InfoItemTitle>{t('Sold')}</InfoItemTitle>
-        <InfoItemBlock>2</InfoItemBlock>
+        <InfoItemBlock>{userSold}</InfoItemBlock>
       </InfoItem>
       <InfoItem>
         <InfoItemTitle>{t('Like')}</InfoItemTitle>
-        <InfoItemBlock>3</InfoItemBlock>
+        <InfoItemBlock>{vendorInfo.likes}</InfoItemBlock>
       </InfoItem>
       <InfoItem>
         <InfoItemTitle>{t('View')}</InfoItemTitle>
-        <InfoItemBlock>1000</InfoItemBlock>
+        <InfoItemBlock>{vendorInfo.views}</InfoItemBlock>
       </InfoItem>
     </InfoWrap>
   );
@@ -164,7 +164,7 @@ export const VendorInfo = () => {
         <VendorName>{vendorInfo.nickname}</VendorName>
       </VendorInfoTop>
       {/*<Buttons />*/}
-      <VendorInfoItem />
+      <VendorInfoItem/>
     </VendorInfoContainer>
   );
 };

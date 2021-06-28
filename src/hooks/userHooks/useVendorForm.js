@@ -6,6 +6,7 @@ export default function useVendorForm() {
   const navigate = useNavigate();
   const { user, handleUpdateUser, handleUpdateUserInfo } = useUser();
   const [nickname, setNickname] = useState('');
+  const [email, setEmail] = useState('');
   const [description, setDescription] = useState('');
   const [portfolio, setPortfolio] = useState('');
   const [twitter, setTwitter] = useState('');
@@ -17,12 +18,17 @@ export default function useVendorForm() {
   const [artworksLink, setArtworksLink] = useState('');
 
   const [nicknameError, setNicknameError] = useState('');
+  const [emailError, setEmailError] = useState('');
 
   const handleSubmit = (setSuccessMode, isAdminStatus, goPost=false) => {
+    const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    if(!re.test(String(email).toLowerCase())) return setEmailError('Email format is wrong')
     setNicknameError('');
+    setEmailError('');
     if (nickname && !nickname.trim()) return setNicknameError('姓名格式錯誤');
     const data = {
       nickname: nickname ? nickname : '',
+      email: email ? email : '',
       description: description ? description : '',
       portfolio: portfolio ? portfolio : '',
       twitter: twitter ? twitter : '',
@@ -50,6 +56,7 @@ export default function useVendorForm() {
 
   return {
     nickname,
+    email,
     description,
     portfolio,
     twitter,
@@ -60,6 +67,7 @@ export default function useVendorForm() {
     artworksLink,
     other,
     setNickname,
+    setEmail,
     setDescription,
     setPortfolio,
     setTwitter,
