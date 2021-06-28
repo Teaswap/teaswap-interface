@@ -9,7 +9,7 @@ export default function HomeProducts({products}) {
 				margin: '0 auto'
 			}}
 			className="page-banner drop-products"
-			autoplay={false}
+			autoplay={true}
 			wrapAround={true}
 			scrollMode="remainder"
 			slideWidth="330px"
