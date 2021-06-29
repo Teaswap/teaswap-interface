@@ -101,7 +101,7 @@ export default function VendorInfoForm({ successMode, setSuccessMode, isAdminSta
           type='text'
           name='email'
           $margin={0}
-          maxLength='20'
+          maxLength='255'
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           />
@@ -111,7 +111,7 @@ export default function VendorInfoForm({ successMode, setSuccessMode, isAdminSta
           type='text'
           name='nickname'
           $margin={0}
-          maxLength='20'
+          maxLength='255'
           value={nickname}
           onChange={(e) => setNickname(e.target.value)}
         />
