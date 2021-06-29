@@ -1,13 +1,13 @@
 export default [ 
-  {
-    picture_url: process.env.PUBLIC_URL + '/nft/pro2/1.gif',
-    title: "TSA Broadway Collectors Club",
-    number: "No.100",
-    desc: 'TSA NFT Studio',
-    link: '/nft/products/category/1',
-    mediaType: 1,
-    id: 1,
-  },
+  // {
+  //   picture_url: process.env.PUBLIC_URL + '/nft/pro2/1.gif',
+  //   title: "TSA Broadway Collectors Club",
+  //   number: "No.100",
+  //   desc: 'TSA NFT Studio',
+  //   link: '/nft/products/category/1',
+  //   mediaType: 1,
+  //   id: 1,
+  // },
   {
     picture_url: process.env.PUBLIC_URL + '/nft/pro2/2.gif',
     title: "TSANFT No. 7 Broadway River",

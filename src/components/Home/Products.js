@@ -1,8 +1,10 @@
 import React from 'react'
 import Carousel from 'nuka-carousel';
+import { useNavigate } from 'react-router';
 
 export default function HomeProducts({products}) {
 	const isMobile = window.innerWidth <= 500
+	const navigate = useNavigate()
 	return(
 		<Carousel
 			style={{
@@ -26,7 +28,7 @@ export default function HomeProducts({products}) {
 		>
 			{products.map((product) => {
 					return (
-						<div key={product.id} className="drop-product">
+						<div onClick={() => navigate(product.link)} key={product.id} className="drop-product">
 							{product.mediaType == 1 && (
 								<img src={product.picture_url} />
 							)}
