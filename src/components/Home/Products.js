@@ -2,10 +2,11 @@ import React from 'react'
 import Carousel from 'nuka-carousel';
 
 export default function HomeProducts({products}) {
+	const isMobile = window.innerWidth <= 500
 	return(
 		<Carousel
 			style={{
-				width: '100%',
+				width: isMobile ? '90%' : '100%',
 				margin: '0 auto'
 			}}
 			className="page-banner drop-products"
@@ -13,7 +14,7 @@ export default function HomeProducts({products}) {
 			wrapAround={true}
 			scrollMode="remainder"
 			slideWidth="330px"
-			cellSpacing={20}
+			cellSpacing={isMobile ? 0 : 20}
 			defaultControlsConfig={{
 				nextButtonText: '>',
 				prevButtonText: '<',
@@ -25,7 +26,7 @@ export default function HomeProducts({products}) {
 		>
 			{products.map((product) => {
 					return (
-						<div className="drop-product">
+						<div key={product.id} className="drop-product">
 							{product.mediaType == 1 && (
 								<img src={product.picture_url} />
 							)}
