@@ -38,7 +38,7 @@ const ProductPrice = styled.div`
   margin-top: ${DISTANCE.md};
   font-weight: bold;
   font-size: ${FONT.xs};
-  color: ${COLOR.text_1};
+  color: ${COLOR.dark_gray};
 `;
 
 const ProductQuantityContainer = styled.div`
@@ -195,6 +195,7 @@ const ProductQuantitySelector = ({quantity}:{quantity:number}) => {
 
 const ShoppingCart = styled(ActionButton)`
   width: 100%;
+  margin: 0;
   margin-top : 10px;
   width : 100%;
   border: 1px solid #cccccc;

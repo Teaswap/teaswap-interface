@@ -123,14 +123,15 @@ export const getProductsFromCategory = (id, page, queue) => (dispatch) => {
   });
 };
 
-export const getProductsFromVendor = (id, page, limit) => (dispatch) => {
-  return getProductsFromVendorAPI(id, page, limit).then((res) => {
+export const getProductsFromVendor = (id, page, limit, type="all") => (dispatch) => {
+  return getProductsFromVendorAPI(id, page, limit, type).then((res) => {
     if (res.ok === 0) {
       dispatch(setErrorMessage(res ? res.message : 'something wrong'));
+      dispatch(setProducts([]));
       return res;
     }
     const { count, products } = res.data;
-    dispatch(pushProducts(products));
+    dispatch(setProducts(products));
     dispatch(setProductCount(count));
     return products;
   });

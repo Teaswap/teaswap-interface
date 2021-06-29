@@ -26,9 +26,9 @@ const SellerProductTitle = styled.div`
   padding-bottom: ${DISTANCE.sm};
   font-size: ${FONT.lg};
   color: ${COLOR.text_2};
-  // border-bottom: 1px solid ${COLOR.cccccc};
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
   align-items: center;
   ${MEDIA_QUERY.sm} {
     width: 90%;
@@ -84,7 +84,7 @@ const VendorBackstagePage = () => {
       }else{
         setId(result.data.userId);
         handleGetUserById(result.data.userId);
-        handleGetProductsFromVendor(result.data.userId, 1);
+        handleGetProductsFromVendor(result.data.userId, productPage, productCat);
       }
     });
     return () => {
@@ -93,12 +93,15 @@ const VendorBackstagePage = () => {
     };
   }, []);
 
-  const [productCat, setProductCat] = useState(0);
+  const [productCat, setProductCat] = useState('all');
+  const [productPage, setProductPage] = useState(1);
 
   const changeCat = function(t) {
     setProductCat(t)
+    handleGetProductsFromVendor(id, productPage, t);
   }
 
+  console.log('product cat', productCat)
 
   return (
     <>
@@ -118,16 +121,16 @@ const VendorBackstagePage = () => {
 
         <SellerProductTitle>
           <div className='page-tabs'>
-            <span className='page-tab' onClick={() => changeCat(0)}>
+            <span className={productCat == 'all' ? 'active-page-tab' : 'page-tab'} onClick={() => changeCat('all')}>
               In Wallet
             </span>
-            <span className='page-tab' onClick={() => changeCat(1)}>
+            <span className={productCat == 'sale' ? 'active-page-tab' : 'page-tab'} onClick={() => changeCat('sale')}>
               On Sale
             </span>
-            <span className='page-tab' onClick={() => changeCat(2)}>
+            <span className={productCat == 'auction' ? 'active-page-tab' : 'page-tab'} onClick={() => changeCat('auction')}>
               On Auction
             </span>
-            <span className='page-tab' onClick={() => changeCat(3)}>
+            <span className={productCat == 'collected' ? 'active-page-tab' : 'page-tab'} onClick={() => changeCat('collected')}>
               Collected
             </span>
           </div>

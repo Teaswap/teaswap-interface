@@ -88,7 +88,7 @@ export const ProductIntro = ({ product }) => {
   const {t} = useTranslation();
   return (
     <>
-      <InfoTitle>{t('Introduction')}</InfoTitle>
+      <InfoTitle>{t('Description')}</InfoTitle>
       <ProductInfoWrap>{product.info}</ProductInfoWrap>
     </>
   );
@@ -98,7 +98,7 @@ export const FreightIntro = ({ product }) => {
   const {t} = useTranslation();
   return (
     <>
-      <InfoTitle>{t('Item Info')}</InfoTitle>
+      <InfoTitle>{t('Additional Details')}</InfoTitle>
       <InfoItem>
         <InfoItemTitle>{t('Biding Price')}</InfoItemTitle>
         <InfoBlock>{product.delivery === '0' ? t('Bid') : t('Auction')}</InfoBlock>

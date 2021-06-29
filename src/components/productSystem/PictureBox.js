@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { COLOR, FONT, DISTANCE, EFFECT, MEDIA_QUERY } from '../../constants/style';
 import { useTranslation } from 'react-i18next'
+import useProductForm from '../../hooks/productHooks/useProductForm';
 
 const SetPictureContainer = styled.div`
   // display: flex;
@@ -58,8 +59,22 @@ const InputFile = styled.input`
   display: none;
 `;
 
-export function PictureBox({ pictureUrl, handleChange }) {
+export function PictureBox({ pictureUrl, handleChange, productMediaType }) {
   const {t} = useTranslation()
+  const _productMediaType = productMediaType || 'picture'
+  let fileAccept = 'image/jpeg,image/png,image/gif'
+  // switch(_productMediaType) {
+  //   case 'Video':
+  //     fileAccept = 'video/mp4,video/mpeg,video/avi,video/quicktime,video/x-flv,video/x-ms-wmv,video/webm,video/x-msvideo';
+  //     break;
+  //   case 'Audio':
+  //     fileAccept = 'audio/*';
+  //     break;
+  //   case 'Gif':
+  //     fileAccept = 'image/gif';
+  //     break;
+  // }
+  console.log('productMediaType', productMediaType, fileAccept)
   return (
     <SetPictureContainer>
       <PreviewPicture onClick={() => document.getElementById('upload-file').click()}>
@@ -74,7 +89,7 @@ export function PictureBox({ pictureUrl, handleChange }) {
           {"Mint an NFT charges 0.01BNB"}
         </Description>
         <Label>
-          <InputFile id="upload-file" type='file' onChange={handleChange} />
+          <InputFile id="upload-file" type='file' accept={fileAccept} onChange={handleChange} />
           {/* {t("Choose File")} */}
         </Label>
       </RightSide>

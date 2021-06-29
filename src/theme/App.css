@@ -111,12 +111,15 @@
   justify-content: flex-start;
   padding:0 20px;
 }
-.page-tab{
+.page-tab, .active-page-tab{
   margin-right: 30px;
   color: #7f7f7f;
   font-size: 13px;
   cursor: pointer;
   padding: 10px 30px;
+}
+.active-page-tab{
+  color: #474747;
 }
 .page-tab:hover {
   color: #474747;

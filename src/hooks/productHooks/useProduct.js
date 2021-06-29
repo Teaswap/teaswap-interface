@@ -108,9 +108,9 @@ export default function useProduct() {
     getProductsFromCategory(id, 1)(dispatch);
   };
 
-  const handleGetProductsFromVendor = (id, page) => {
+  const handleGetProductsFromVendor = (id, page, type) => {
     dispatch(setPage(page));
-    (getProductsFromVendor(id, page, 10)(dispatch)).then((res) => {
+    (getProductsFromVendor(id, page, 10, type)(dispatch)).then((res) => {
       if (res.message === 'not a Vendor') navigate('/nft');
     });
   };

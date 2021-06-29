@@ -39,7 +39,7 @@ export const Announcement = ({ announcement, handleSetAnnouncement }) => {
   const {t} = useTranslation();
   return (
     <AnnouncementContainer>
-      <AnnouncementTitle>{t('Description')}</AnnouncementTitle>
+      <AnnouncementTitle>{t('Announcement')}</AnnouncementTitle>
       <AnnouncementContent>{announcement}</AnnouncementContent>
       {handleSetAnnouncement && (<span className="edit-desc-btn flex-center" onClick={handleSetAnnouncement}>
         <AiFillEdit color="#7a7a7a" title="Edit Contact" size="30"/>
