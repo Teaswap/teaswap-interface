@@ -23,4 +23,7 @@
   .active-page-tab, .age-tab {
     padding: 10px 0;
   }
+  .page-tabs{
+    width: 100%;
+  }
 }
