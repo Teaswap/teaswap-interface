@@ -34,6 +34,7 @@ const Section = styled.div`
   padding: 20px 0;
   height: auto;
   max-width: 1320px;
+  padding-bottom: 100px;
 `;
 
 const  TitleSection = styled.div`
@@ -146,12 +147,12 @@ const HomePage = () => {
   return (
     <Page>
       <CarouselBox />
-      <p style={{marginTop: '60px'}} className="page-title3"> INSPIRING CREATIVITY </p>
-      <p className="page-title3"> NFT FOR GOOD </p>
+      <div style={{marginTop: '120px'}} className="page-title3"> INSPIRING CREATIVITY </div>
+      <div style={{marginTop: '10px', marginBottom: "100px"}} className="page-title3"> NFT FOR GOOD </div>
       <IframeComponent iframe={iframe2} />
       <TitleSection>
-        <div style={{fontFamily: "Roboto-Thin", padding: "40px", color: '#474747', fontSize: '30px', fontWeight: 'bold'}}>Upcoming Drops</div>
-        <div style={{color: '#7a7a7a', fontFamily: "Roboto-Thin", fontSize: '13px'}}>
+        <div style={{fontFamily: "Roboto-Thin", marginTop: "120px", color: '#474747', fontSize: '30px', fontWeight: 'bold'}}>Upcoming Drops</div>
+        <div style={{color: '#696969', fontWeight: 'bold', marginTop: '10px', marginBottom: '100px', fontFamily: "Roboto-Thin", fontSize: '16px'}}>
           A New Way to Own Art !
         </div>
       </TitleSection>

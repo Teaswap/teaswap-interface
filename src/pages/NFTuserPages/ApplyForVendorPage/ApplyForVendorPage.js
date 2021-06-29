@@ -117,7 +117,7 @@ const ApplyForVendorPage = () => {
               width: '100%'
             }}>
               <CheckImage>
-                <Title2>{t('Create collections and sell NFTs to your fans ,start now !')}</Title2>
+                <Title2>{t('Create collections and sell NFTs to your fans, start now !')}</Title2>
                 <TwoButton>
                   <ButtonPrimary onClick={handleCheck}>
                     {t('OK')}
