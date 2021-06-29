@@ -92,6 +92,7 @@ const InfoBottomItem = styled.div`
 
 const InfoName = styled.p`
   color: ${COLOR.text_2};
+  font-size: 13px;
 `;
 
 const InfoNumber = styled.div`
