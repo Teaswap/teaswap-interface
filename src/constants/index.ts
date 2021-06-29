@@ -183,6 +183,15 @@ export const BUSD = new Token(
   'BUSD Token'
 )
 
+
+export const BETH = new Token(
+    ChainId.BSC_MAINNET,
+    '0x2170ed0880ac9a755fd29b2688956bd959f933f8',
+    18,
+    'BETH',
+    'Binance-Peg Ethereum Token'
+)
+
 export const DOGE = new Token(
     ChainId.BSC_MAINNET,
     '0xba2ae424d960c26247dd6c32edc70b295c744c43',
