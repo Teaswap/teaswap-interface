@@ -38,7 +38,7 @@ const ProductPrice = styled.div`
   margin-top: ${DISTANCE.md};
   font-weight: bold;
   font-size: ${FONT.xs};
-  color: ${COLOR.text_1};
+  color: ${COLOR.dark_gray};
 `;
 
 const ProductQuantityContainer = styled.div`
@@ -195,6 +195,7 @@ const ProductQuantitySelector = ({quantity}:{quantity:number}) => {
 
 const ShoppingCart = styled(ActionButton)`
   width: 100%;
+  margin: 0;
   margin-top : 10px;
   width : 100%;
   border: 1px solid #cccccc;
@@ -377,7 +378,6 @@ export const ProductInfo = ({product,user}:{ product:ProductInterface ,user:user
   // const handleApprove = () =>{
   //
   // }
-
   return (
     <ProductInfoContainer>
       {errorMessage && (
@@ -441,13 +441,14 @@ export const ProductInfo = ({product,user}:{ product:ProductInterface ,user:user
               </LoadingView>
           )}
           {attempting && hash && (
+            
               <SubmittedView onDismiss={wrappedOnDismiss} hash={hash}>
-                <AutoColumn gap="12px" justify={'center'}>
-                  <TYPE.largeHeader>{t('transactionSubmitted')}</TYPE.largeHeader>
-                  <TYPE.body fontSize={20}>
-                    {t('send')} {parsedAmount?.toSignificant(4)} {exToken.symbol}
-                  </TYPE.body>
-                </AutoColumn>
+                  <AutoColumn gap="12px" justify={'center'}>
+                    <TYPE.largeHeader>{t('transactionSubmitted')}</TYPE.largeHeader>
+                    <TYPE.body fontSize={20}>
+                      {t('send')} {parsedAmount?.toSignificant(4)} {exToken.symbol}
+                    </TYPE.body>
+                  </AutoColumn>
               </SubmittedView>
           )}
         </Modal>

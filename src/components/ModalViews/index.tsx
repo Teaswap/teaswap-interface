@@ -56,21 +56,31 @@ export function SubmittedView({
 
   return (
     <ConfirmOrLoadingWrapper>
-      <RowBetween>
-        <div />
-        <CloseIcon onClick={onDismiss} />
-      </RowBetween>
-      <ConfirmedIcon>
-        <ArrowUpCircle strokeWidth={0.5} size={90} color={theme.primary1} />
-      </ConfirmedIcon>
-      <AutoColumn gap="100px" justify={'center'}>
-        {children}
-        {chainId && hash && (
-          <ExternalLink href={getBscScanLink(chainId, hash, 'transaction')} style={{ marginLeft: '4px' }}>
-            <TYPE.subHeader>{t('viewTransactionOnEtherscan')}</TYPE.subHeader>
-          </ExternalLink>
-        )}
-      </AutoColumn>
+      <div style={{
+        backgroundColor: '#ffffff',
+        width: '80%',
+        maxWidth: '500px',
+        margin: '0 auto',
+        position: 'relative',
+        padding: '20px',
+        paddingBottom: '40px'
+      }}>
+        <RowBetween>
+          <div />
+          <CloseIcon onClick={onDismiss} />
+        </RowBetween>
+        <ConfirmedIcon>
+          <ArrowUpCircle strokeWidth={0.5} size={90} color={theme.primary1} />
+        </ConfirmedIcon>
+        <AutoColumn gap="100px" justify={'center'}>
+          {children}
+          {chainId && hash && (
+            <ExternalLink href={getBscScanLink(chainId, hash, 'transaction')} style={{ marginLeft: '4px' }}>
+              <TYPE.subHeader>{t('viewTransactionOnEtherscan')}</TYPE.subHeader>
+            </ExternalLink>
+          )}
+        </AutoColumn>
+      </div>
     </ConfirmOrLoadingWrapper>
   )
 }

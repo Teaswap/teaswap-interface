@@ -140,9 +140,9 @@ const BodyWrapper = styled.div`
 `
 
 const Marginer = styled.div`
-  margin-top: 5rem;
+  margin-top: 200px;
   ${MEDIA_QUERY.sm} {
-    margin-top: 0.5rem;
+    margin-top: 150px;
   }
 `
 

@@ -102,21 +102,24 @@
   cursor: pointer;
 }
 .page-tabs{
-  width: 100%;
+  width: 60%;
   max-width: 1320px;
-  margin: 0 auto;
+  /* margin: 0 auto; */
   text-align: left;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   padding:0 20px;
 }
-.page-tab{
+.page-tab, .active-page-tab{
   margin-right: 30px;
   color: #7f7f7f;
   font-size: 13px;
   cursor: pointer;
-  padding: 10px 30px;
+  padding: 10px 0;
+}
+.active-page-tab{
+  color: #474747;
 }
 .page-tab:hover {
   color: #474747;

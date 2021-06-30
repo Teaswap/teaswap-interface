@@ -143,7 +143,7 @@ export default function User() {
             {isVendor && (
               <OptionItem>
                 <OptionName onClick={() => navigate('/nft/users/backstage')}>
-                  Manage
+                  My Profile
                 </OptionName>
               </OptionItem>
             )}

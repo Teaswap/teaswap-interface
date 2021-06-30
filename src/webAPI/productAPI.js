@@ -34,9 +34,9 @@ const getProductsFromCategoryAPI = (id, page, queue) => {
   ).then((res) => res.json());
 };
 
-const getProductsFromVendorAPI = (id, page, limit) => {
+const getProductsFromVendorAPI = (id, page, limit, type) => {
   return fetch(
-    `${BASE_URL}/products/vendor/${id}?_page=${page}&_limit=${limit}`
+    `${BASE_URL}/products/vendor/${id}?_page=${page}&_limit=${limit}&_type=${type}`
   ).then((res) => res.json());
 };
 

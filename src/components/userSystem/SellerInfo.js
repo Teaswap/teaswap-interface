@@ -126,30 +126,29 @@ const InfoLeft = ({ vendorInfo, onLoad, loaded }) => {
   );
 };
 
-const InfoMiddle = ({ nickname, products }) => {
+const InfoMiddle = ({ vendorInfo }) => {
   return (
     <InfoContainer>
-      <InfoItem products={products} />
+      <InfoItem vendorInfo={vendorInfo} />
     </InfoContainer>
   );
 };
 
-const InfoItem = () => {
-  const { averageShippingTime, productCount } = useProduct();
+const InfoItem = ({vendorInfo}) => {
   const {t} = useTranslation();
   return (
     <InfoBottom>
       <InfoBottomItem>
         <InfoName>{t('Created')}</InfoName>
-        <InfoNumber>{productCount}</InfoNumber>
+        <InfoNumber>{vendorInfo.created}</InfoNumber>
       </InfoBottomItem>
       <InfoBottomItem>
         <InfoName>{t('Collected')}</InfoName>
-        <InfoNumber>0</InfoNumber>
+        <InfoNumber>{vendorInfo.collected}</InfoNumber>
       </InfoBottomItem>
       <InfoBottomItem>
         <InfoName>{t('On Sale')}</InfoName>
-        <InfoNumber>0</InfoNumber>
+        <InfoNumber>{vendorInfo.onSale}</InfoNumber>
       </InfoBottomItem>
       {/* <InfoBottomItem>
         <InfoName>{t('Views')}</InfoName>
@@ -187,7 +186,7 @@ export default function SellerInfo({ onLoad, loaded, vendorInfo, products }) {
         onLoad={onLoad}
         loaded={loaded}
       />
-      <InfoMiddle nickname={vendorInfo.nickname} products={products} />
+      <InfoMiddle vendorInfo={vendorInfo} products={products} />
     </InfoBlock>
   );
 }

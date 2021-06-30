@@ -23,8 +23,8 @@ const ProductPictureImg = styled.img`
 export const InfoTitle = styled.div`
   margin: ${DISTANCE.sm} auto;
   padding-bottom: ${DISTANCE.sm};
-  font-size: 14px;
-  color: ${COLOR.text_2};
+  font-size: 19px;
+  color: ${COLOR.dark_gray};
   border-bottom: 1px solid ${COLOR.cccccc};
 
   ${MEDIA_QUERY} {
@@ -66,7 +66,7 @@ export const InfoItem = styled.div`
 export const InfoItemTitle = styled.div`
   width: 150px;
   padding-right: 20px;
-  font-size: 14px;
+  font-size: 13px;
   color: ${COLOR.text_2};
   word-break: break-all;
 `;
@@ -88,7 +88,7 @@ export const ProductIntro = ({ product }) => {
   const {t} = useTranslation();
   return (
     <>
-      <InfoTitle>{t('Introduction')}</InfoTitle>
+      <InfoTitle>{t('Description')}</InfoTitle>
       <ProductInfoWrap>{product.info}</ProductInfoWrap>
     </>
   );
@@ -98,7 +98,7 @@ export const FreightIntro = ({ product }) => {
   const {t} = useTranslation();
   return (
     <>
-      <InfoTitle>{t('Item Info')}</InfoTitle>
+      <InfoTitle>{t('Additional Details')}</InfoTitle>
       <InfoItem>
         <InfoItemTitle>{t('Biding Price')}</InfoItemTitle>
         <InfoBlock>{product.delivery === '0' ? t('Bid') : t('Auction')}</InfoBlock>

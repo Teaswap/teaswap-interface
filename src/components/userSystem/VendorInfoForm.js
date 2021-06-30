@@ -9,7 +9,7 @@ import { GreyBtn } from '../NFTButton'
 import useVendorForm from '../../hooks/userHooks/useVendorForm';
 import {useTranslation} from 'react-i18next';
 import {SetAvatar, SetBanner}  from '../../components/userSystem' 
-import { AiOutlineCheck } from "react-icons/ai";
+import { AiOutlineCheck, AiFillStar } from "react-icons/ai";
 
   
 const FontWrapper = styled.div`
@@ -92,11 +92,12 @@ export default function VendorInfoForm({ successMode, setSuccessMode, isAdminSta
     }
 
   }, [user]);
+  console.log('emailError:', emailError)
 
   return (
     <>
       <FontWrapper action='' novalidate=''>
-        <InputName>{t('Enter your email to get started ( is a must )')}</InputName>
+        <InputName>{t('Enter your email to get started')}<AiFillStar color="red" size='10' /></InputName>
         <InputComponent
           type='text'
           name='email'

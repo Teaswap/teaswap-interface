@@ -41,9 +41,9 @@ export const Announcement = ({ announcement, handleSetAnnouncement }) => {
     <AnnouncementContainer>
       <AnnouncementTitle>{t('Description')}</AnnouncementTitle>
       <AnnouncementContent>{announcement}</AnnouncementContent>
-      {handleSetAnnouncement && (<span className="edit-desc-btn flex-center" onClick={handleSetAnnouncement}>
+      {/* {handleSetAnnouncement && (<span className="edit-desc-btn flex-center" onClick={handleSetAnnouncement}>
         <AiFillEdit color="#7a7a7a" title="Edit Contact" size="30"/>
-      </span>)}
+      </span>)} */}
     </AnnouncementContainer>
   );
 };

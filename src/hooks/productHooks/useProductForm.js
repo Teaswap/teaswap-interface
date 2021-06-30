@@ -212,6 +212,8 @@ export default function useProductForm(id) {
 
   const handleChangePicture = (e) => {
     const formData = new FormData();
+    console.log('handleChangePicture', e.target.files[0])
+    console.log('productMediaType', productMediaType)
     formData.append('image', e.target.files[0]);
     postPictureAPI(formData).then((res) => setProductPictureUrl(res.data.link));
   };
