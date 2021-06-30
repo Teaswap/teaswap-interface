@@ -16,6 +16,7 @@ export interface TransactionDetails {
   summary?: string
   claim?: { recipient: string }
   mint?:MintInfoInterface
+  setprice?: {orderid:number,price:number}
   nftapproval?: { tokenAddress: string; spender: string;tokenId: number }
   receipt?: SerializableTransactionReceipt
   lastCheckedBlockNumber?: number

@@ -11,7 +11,7 @@ import {MintInfoInterface} from "../../hooks/useMintCallback";
 // helper that can take a ethers library transaction response and add it to the list of transactions
 export function useTransactionAdder(): (
   response: TransactionResponse,
-  customData?: { summary?: string; approval?: { tokenAddress: string; spender: string }; claim?: { recipient: string };mint?:MintInfoInterface;  nftapproval?: { tokenAddress: string; spender: string;tokenId: number } }
+  customData?: { summary?: string; approval?: { tokenAddress: string; spender: string }; claim?: { recipient: string };mint?:MintInfoInterface; setprice?: {orderid:number,price:number}; nftapproval?: { tokenAddress: string; spender: string;tokenId: number } }
 ) => void {
   const { chainId, account } = useActiveWeb3React()
   const dispatch = useDispatch<AppDispatch>()
@@ -24,8 +24,9 @@ export function useTransactionAdder(): (
         approval,
         claim,
           mint,
+          setprice,
           nftapproval
-      }: { summary?: string; claim?: { recipient: string }; approval?: { tokenAddress: string; spender: string }; mint?: MintInfoInterface;  nftapproval?: { tokenAddress: string; spender: string;tokenId: number } } = {}
+      }: { summary?: string; claim?: { recipient: string }; approval?: { tokenAddress: string; spender: string }; mint?: MintInfoInterface; setprice?: {orderid:number,price:number}; nftapproval?: { tokenAddress: string; spender: string;tokenId: number } } = {}
     ) => {
       if (!account) return
       if (!chainId) return
@@ -34,7 +35,7 @@ export function useTransactionAdder(): (
       if (!hash) {
         throw Error('No transaction hash found.')
       }
-      dispatch(addTransaction({ hash, from: account, chainId, approval, summary, claim,mint,nftapproval }))
+      dispatch(addTransaction({ hash, from: account, chainId, approval, summary, claim,mint, setprice, nftapproval }))
     },
     [dispatch, chainId, account]
   )
@@ -127,6 +128,43 @@ export function useHasPendingMint(mintInfo:MintInfoInterface): boolean {
             }),
         [allTransactions, mintInfo]
     )
+}
+
+export function useHasPendingSetPrice(orderid:number,price:number): boolean {
+    const allTransactions = useAllTransactions()
+    return useMemo(
+        () =>
+            price!=0 &&
+            Object.keys(allTransactions).some(hash => {
+                const tx = allTransactions[hash]
+                if (!tx) return false
+                if (tx.receipt) {
+                    return false
+                } else {
+                    const setPrice = tx.setprice
+                    if (!setPrice) return false
+                    return isTransactionRecent(tx)
+                }
+            }),
+        [allTransactions, orderid,price]
+    )
+}
+
+export function useUserHasSubmittedSetPrice(
+    orderid:number,price:number
+): { setPriceSubmitted: boolean; setPirceTxn: TransactionDetails | undefined } {
+    const allTransactions = useAllTransactions()
+
+    // get the txn if it has been submitted
+    const setPirceTxn = useMemo(() => {
+        const txnIndex = Object.keys(allTransactions).find(hash => {
+            const tx = allTransactions[hash]
+            return tx.setprice && tx.setprice.orderid === orderid && tx.setprice.price === price
+        })
+        return txnIndex && allTransactions[txnIndex] ? allTransactions[txnIndex] : undefined
+    }, [orderid,price, allTransactions])
+
+    return { setPriceSubmitted: Boolean(setPirceTxn), setPirceTxn }
 }
 
 // watch for submissions to claim

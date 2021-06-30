@@ -19,6 +19,7 @@ export const addTransaction = createAction<{
   from: string
   approval?: { tokenAddress: string; spender: string }
   claim?: { recipient: string }
+  setprice?: {orderid:number,price:number}
   nftapproval?: { tokenAddress: string; spender: string;tokenId: number }
   summary?: string
   mint?:MintInfoInterface

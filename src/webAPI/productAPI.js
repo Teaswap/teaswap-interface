@@ -103,10 +103,12 @@ const updateProductAPI = (
     price,
     quantity,
     delivery, // 出貨方式  0:面交、1:郵寄
-    delivery_location, // 出貨地點的欄位
-    delivery_time, // 備貨時間的欄位
-    payment_method, // 付款方式 0:貨到付款
+    delivery_location,
+    royalty,
+    extoken,
+    mediaType,
     remark, // 備註
+    tokenid
   }
 ) => {
   const token = localStorage.getItem('token');
@@ -124,11 +126,13 @@ const updateProductAPI = (
       info,
       price,
       quantity,
-      delivery,
+      delivery, // 出貨方式  0:面交、1:郵寄
       delivery_location,
-      delivery_time,
-      payment_method,
-      remark,
+      royalty,
+      extoken,
+      mediaType,
+      remark, // 備註
+      tokenid
     }),
   }).then((res) => res.json());
 };

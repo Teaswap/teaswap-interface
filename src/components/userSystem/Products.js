@@ -1,12 +1,15 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import styled from 'styled-components';
 import { COLOR, FONT, DISTANCE, MEDIA_QUERY } from '../../constants/style';
-import { MoreButton, ErrorMessage } from '../../components/productSystem/';
-import { Nav, ActionButton2 } from '../NFTButton';
 import useProduct from '../../hooks/productHooks/useProduct';
 import { NavLink } from 'react-router-dom';
 import { useTranslation } from 'react-i18next'
 import Modal from '../../components/Modal'
+import {ApprovalState, useApproveNFTCallback} from "../../hooks/useApproveCallback";
+import {NFTEXCHANGE} from "../../constants";
+import {ChainId} from "@teaswap/uniswap-sdk";
+import useProductForm from "../../hooks/productHooks/useProductForm";
+import {useSetPriceCallback} from "../../hooks/useSetPriceCallback";
 
 const ProductsContainer = styled.div`
   padding: 0px 10px 50px 10px;
@@ -89,6 +92,22 @@ const Product = ({ product, onLoad, loaded, $width, $height, $margin }) => {
   const {t} = useTranslation();
   const [isProof, setIsProof] = useState(false)
   const [isPrice, setIsPrice] = useState(false)
+  const [approvalSubmitted, setApprovalSubmitted] = useState(false)
+  const [setPriceSubmitted, setSetPriceSubmitted] = useState(false)
+  const [setPriced, setSetPriced] = useState(false)
+  const [newPrice, setNewPrice] = useState(0)
+  const [reSalePrice, setReSalePrice] = useState(0)
+  const [approval, approveCallback] = useApproveNFTCallback(NFTEXCHANGE[ChainId.BSC_MAINNET],product.tokenid,product.delivery_location)
+  const [setPrice,setPriceCallback] = useSetPriceCallback(product.orderid,newPrice)
+  const {handleResaleProduct} = useProductForm()
+  console.log("approval:"+approval)
+  useEffect(() => {
+    if (approval === ApprovalState.APPROVED) {
+      setApprovalSubmitted(true)
+      handleResaleProduct(product,reSalePrice)
+    }
+  }, [approval, approvalSubmitted])
+
 
   const dismissProof = () => {
     setIsProof(false)
@@ -107,7 +126,7 @@ const Product = ({ product, onLoad, loaded, $width, $height, $margin }) => {
         {product.status != '1' && (
           <span onClick={() => {
             setIsProof(true)
-          }} className="short-btn">{t("Proof")}</span>
+          }} className="short-btn">{t("Approve")}</span>
         )}
         <span style={{marginLeft: '10px', color: '#7f7f7f'}}>{product.status == '1' ? 'My Artwork' : 'Pending'}</span>
         <span onClick={() => {
@@ -150,19 +169,20 @@ const Product = ({ product, onLoad, loaded, $width, $height, $margin }) => {
     </ProductPrice>
     <Modal isOpen={isProof} onDismiss={dismissProof} maxHeight={90}>
       <div className="new-modal">
-        <p>确定上架</p>
+        <p>{t('Resale')}</p>
+        <input type="text" className="input-primary" />
         <div className="modal-btns">
-          <span className='btn-sm-100 btn-primary'>{t("Confirm")}</span>
+          <span className='btn-sm-100 btn-primary' onClick={approveCallback}>{t("Confirm")}</span>
           <span className='btn-sm-100 btn-primary' onClick={dismissProof}>{t("Cancel")}</span>
         </div>
       </div>
     </Modal>
     <Modal className="new-modal" isOpen={isPrice} onDismiss={dismissPrice} maxHeight={90}>
       <div className="new-modal">
-        <p>输入价格</p>
+        <p>{t('Set Price')}</p>
         <input type="text" className="input-primary" />
         <div className="modal-btns">
-          <span className='btn-sm-100 btn-primary'>{t("Confirm")}</span>
+          <span className='btn-sm-100 btn-primary' onClick={setPriceCallback}>{t("Confirm")}</span>
           <span className='btn-sm-100 btn-primary' onClick={dismissPrice}>{t("Cancel")}</span>
         </div>
       </div>

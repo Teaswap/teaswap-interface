@@ -219,10 +219,12 @@ export const updateProduct = (
     price,
     quantity,
     delivery, // 出貨方式  0:面交、1:郵寄
-    delivery_location, // 出貨地點的欄位
-    delivery_time, // 備貨時間的欄位
-    payment_method, // 付款方式 0:貨到付款
+    delivery_location,
+    royalty,
+    extoken,
+    mediaType,
     remark, // 備註
+    tokenid
   }
 ) => (dispatch) => {
   return updateProductAPI(id, {
@@ -233,10 +235,12 @@ export const updateProduct = (
     price,
     quantity,
     delivery, // 出貨方式  0:面交、1:郵寄
-    delivery_location, // 出貨地點的欄位
-    delivery_time, // 備貨時間的欄位
-    payment_method, // 付款方式 0:貨到付款
+    delivery_location,
+    royalty,
+    extoken,
+    mediaType,
     remark, // 備註
+    tokenid
   }).then((res) => {
     if (res.ok === 0) {
       return dispatch(setErrorMessage(res ? res.message : 'something wrong'));

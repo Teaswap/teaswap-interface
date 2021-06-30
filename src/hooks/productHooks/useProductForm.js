@@ -191,6 +191,15 @@ export default function useProductForm(id) {
     navigate('/nft/users/backstage')
   };
 
+  const handleResaleProduct = (product,reSalePrice) => {
+    // checkDataValidity();
+    // if (!hasError) {
+    product.price=reSalePrice;
+    updateProduct(product.id,product)(dispatch);
+    // }
+    navigate('/nft/users/backstage')
+  };
+
   const handleSubmitEditForm = (e) => {
     e.preventDefault();
     checkDataValidity();
