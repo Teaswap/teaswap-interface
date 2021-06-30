@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import { COLOR, FONT, DISTANCE } from '../../../constants/style';
+import { COLOR, FONT, DISTANCE, MEDIA_QUERY } from '../../../constants/style';
 import { useParams } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { StandardNavPage } from '../../../components/Page';
@@ -17,13 +17,22 @@ import {
   setErrorMessage,
 } from '../../../redux/slices/productSlice/productSlice';
 import { useTranslation } from 'react-i18next'
+import { NavLink } from 'react-router-dom';
+import { NormalButton, Nav } from '../../../components/NFTButton';
 
 const SellerProductTitle = styled.div`
   margin: ${DISTANCE.sm} auto;
   padding-bottom: ${DISTANCE.sm};
   font-size: ${FONT.lg};
-  // border-bottom: 1px solid ${COLOR.cccccc};
-  text-align: center;
+  color: ${COLOR.text_2};
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+  ${MEDIA_QUERY.sm} {
+    width: 90%;
+    padding: 0px 5%;
+  };
 `;
 
 const VendorShopPage = () => {
@@ -45,7 +54,7 @@ const VendorShopPage = () => {
 
   useEffect(() => {
     window.scroll(0, 0);
-    handleGetProductsFromVendor(id, 1);
+    handleGetProductsFromVendor(id, productPage, productCat);
     handleGetUserById(id);
     return () => {
       dispatch(setProducts([]));
@@ -56,12 +65,14 @@ const VendorShopPage = () => {
   const isMobile = window.innerWidth <= 1140;
   const {t} = useTranslation();
 
-  const [productCat, setProductCat] = useState(0);
+  const [productCat, setProductCat] = useState('all');
+  const [productPage, setProductPage] = useState(1);
 
   const changeCat = function(t) {
     setProductCat(t)
+    handleGetProductsFromVendor(id, productPage, t);
   }
-
+  
   return (
     <>
       <StandardNavPage>
@@ -99,22 +110,25 @@ const VendorShopPage = () => {
             handleClick={handleClick}
           />
         )}
-        <Announcement announcement={vendorInfo.announcement} />
+        <Announcement announcement={vendorInfo.description} />
         <SellerProductTitle>
           <div className='page-tabs'>
-            <span className='page-tab' onClick={() => changeCat(0)}>
+            <span className={productCat == 'all' ? 'active-page-tab' : 'page-tab'} onClick={() => changeCat('all')}>
               In Wallet
             </span>
-            <span className='page-tab' onClick={() => changeCat(1)}>
+            <span className={productCat == 'sale' ? 'active-page-tab' : 'page-tab'} onClick={() => changeCat('sale')}>
               On Sale
             </span>
-            <span className='page-tab' onClick={() => changeCat(2)}>
+            <span className={productCat == 'auction' ? 'active-page-tab' : 'page-tab'} onClick={() => changeCat('auction')}>
               On Auction
             </span>
-            <span className='page-tab' onClick={() => changeCat(3)}>
+            <span className={productCat == 'collected' ? 'active-page-tab' : 'page-tab'} onClick={() => changeCat('collected')}>
               Collected
             </span>
           </div>
+            <NavLink style={{ minWidth: 'fit-content' }} to={'/nft'}>
+              <NormalButton className="btn-sm-100" >{t('Buy NFT')}</NormalButton>
+            </NavLink>
         </SellerProductTitle>
         <Products
           products={products}

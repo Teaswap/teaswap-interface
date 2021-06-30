@@ -117,9 +117,9 @@ const VendorBackstagePage = () => {
         {isSettingAnnouncement && (
           <SetAnnouncement setIsSettingAnnouncement={setIsSettingAnnouncement} />
         )}
-        <Announcement handleSetAnnouncement={handleSetAnnouncement} announcement={user?user.announcement:''} />
+        <Announcement handleSetAnnouncement={handleSetAnnouncement} announcement={user?user.description:''} />
 
-        <SellerProductTitle>
+        <SellerProductTitle className="SellerProductTitle">
           <div className='page-tabs'>
             <span className={productCat == 'all' ? 'active-page-tab' : 'page-tab'} onClick={() => changeCat('all')}>
               In Wallet
@@ -134,12 +134,14 @@ const VendorBackstagePage = () => {
               Collected
             </span>
           </div>
-          <NavLink style={{ minWidth: 'fit-content' }} to={'/nft'}>
-            <NormalButton className="btn-sm-100" >{t('Buy NFT')}</NormalButton>
-          </NavLink>
-          <NavLink style={{ minWidth: 'fit-content' }} to={'/nft/products/post'}>
-            <NormalButton className="btn-sm-100" >{t('Add NFT')}</NormalButton>
-          </NavLink>
+          <div>
+            <NavLink style={{ minWidth: 'fit-content' }} to={'/nft'}>
+              <NormalButton className="btn-sm-100" >{t('Buy NFT')}</NormalButton>
+            </NavLink>
+            <NavLink style={{ minWidth: 'fit-content' }} to={'/nft/products/post'}>
+              <NormalButton className="btn-sm-100" >{t('Add NFT')}</NormalButton>
+            </NavLink>
+          </div>
         </SellerProductTitle>
         <Products
           products={products}

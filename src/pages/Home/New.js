@@ -16,6 +16,7 @@ import products1 from '../../components/Home/Pro1'
 import products2 from '../../components/Home/Pro2'
 import products3 from '../../components/Home/Pro3'
 import products4 from '../../components/Home/Pro4'
+import products5 from '../../components/Home/Pro5'
 // import { Navbar } from '../../components';
 // import { useTranslation } from 'react-i18next'
 // import ConTitle from '../../components/Content/Title';
@@ -177,6 +178,8 @@ const HomePage = () => {
         <HomeProducts products={products3} />
         <p className="products-title">Charity Event</p>
         <HomeProducts products={products4} />
+        <p className="products-title">Sold</p>
+        <HomeProducts products={products5} />
 
         {/* <HomePageProducts>
           <Products

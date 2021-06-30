@@ -378,7 +378,6 @@ export const ProductInfo = ({product,user}:{ product:ProductInterface ,user:user
   // const handleApprove = () =>{
   //
   // }
-
   return (
     <ProductInfoContainer>
       {errorMessage && (
@@ -442,13 +441,14 @@ export const ProductInfo = ({product,user}:{ product:ProductInterface ,user:user
               </LoadingView>
           )}
           {attempting && hash && (
+            
               <SubmittedView onDismiss={wrappedOnDismiss} hash={hash}>
-                <AutoColumn gap="12px" justify={'center'}>
-                  <TYPE.largeHeader>{t('transactionSubmitted')}</TYPE.largeHeader>
-                  <TYPE.body fontSize={20}>
-                    {t('send')} {parsedAmount?.toSignificant(4)} {exToken.symbol}
-                  </TYPE.body>
-                </AutoColumn>
+                  <AutoColumn gap="12px" justify={'center'}>
+                    <TYPE.largeHeader>{t('transactionSubmitted')}</TYPE.largeHeader>
+                    <TYPE.body fontSize={20}>
+                      {t('send')} {parsedAmount?.toSignificant(4)} {exToken.symbol}
+                    </TYPE.body>
+                  </AutoColumn>
               </SubmittedView>
           )}
         </Modal>

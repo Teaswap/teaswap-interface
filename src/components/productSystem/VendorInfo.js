@@ -93,7 +93,7 @@ const InfoWrap = styled(InfoItem)`
 
   ${InfoItemTitle} {
     min-width: 150px;
-    font-size: ${FONT.sm};
+    font-size: ${FONT.xs};
 
     &:after {
       content: ' : ';

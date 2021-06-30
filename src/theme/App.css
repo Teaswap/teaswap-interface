@@ -104,7 +104,7 @@
 .page-tabs{
   width: 60%;
   max-width: 1320px;
-  margin: 0 auto;
+  /* margin: 0 auto; */
   text-align: left;
   display: flex;
   flex-direction: row;
