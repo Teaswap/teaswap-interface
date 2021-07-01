@@ -96,6 +96,7 @@ export const ProductIntro = ({ product }) => {
 
 export const FreightIntro = ({ product }) => {
   const {t} = useTranslation();
+  const { vendorInfo, Creator } = useProduct();
   return (
     <>
       <InfoTitle>{t('Additional Details')}</InfoTitle>
@@ -112,7 +113,11 @@ export const FreightIntro = ({ product }) => {
         })}
       </InfoItem>
       <InfoItem>
-        <InfoItemTitle>{t('Contract Info')}</InfoItemTitle>
+        <InfoItemTitle>{t('Provenance')}</InfoItemTitle>
+        <div>
+          <p>Creator: {Creator.address}</p>
+          <p>Owner: {vendorInfo.address}</p>
+        </div>
       </InfoItem>
       <InfoItem>
         <InfoItemTitle>{t('Trade History')}</InfoItemTitle>
@@ -128,7 +133,7 @@ export const FreightIntro = ({ product }) => {
         })}
       </InfoItem>
       <InfoItem style={{ borderBottom: 'none' }}>
-        <InfoItemTitle>{t('Warning')}</InfoItemTitle>
+        <InfoItemTitle>{t('Special notice')}</InfoItemTitle>
         <InfoBlock>
           {t('Discreet investment is suggested for the risk of the NFT market.')}
         </InfoBlock>

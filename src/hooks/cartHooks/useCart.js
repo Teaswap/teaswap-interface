@@ -44,11 +44,7 @@ export default function useCart() {
   const { user } = useOrder();
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const formatter = new Intl.NumberFormat("zh-TW", {
-    style: "currency",
-    currency: "NTD",
-    minimumFractionDigits: 0,
-  });
+  const formatter = new Intl.NumberFormat();
   const carts = useSelector(selectCarts);
   const errorMessage = useSelector(selectError);
   const isLoading = useSelector(selectLoading);
@@ -65,7 +61,8 @@ export default function useCart() {
   const checked = useSelector(selectChecked);
 
   const handleDeleteProductInCart = (id) => {
-    deleteCartItem(id)(dispatch);
+    // todo for simon
+    // deleteCartItem(id)(dispatch);
   };
   const handleDeleteCart = (id) => {
     deleteCartItemsBySeller(id)(dispatch);

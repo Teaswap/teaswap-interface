@@ -7,9 +7,8 @@ import ItemDetail from "./ItemDetail";
 import useCart from "../../hooks/cartHooks/useCart";
 
 const Container = styled.div`
-  margin: 20px 120px 20px 10px;
-  width: 60%;
-  min-width: 400px;
+  margin: 0 auto;
+  width: 100%;
   border: solid 1px #f6f5f5;
   border-radius: 0px 0px;
   margin-bottom: 40px;
@@ -145,54 +144,17 @@ export default function CartItem({ cart }) {
       )}
       <Top>
         <Seller>
-          {isPaying ? null : (
-            <Check
-              type="checkbox"
-              onClick={() => handleSelect(SellerId[0], TotalAmount)}
-              disabled={checked && isSelect !== SellerId[0]}
-            ></Check>
-          )}
           <Name isSelect={isSelect}>{cart.sellerName}</Name>
         </Seller>
-        {isPaying || checked ? null : (
+        {/* {isPaying || checked ? null : (
           <IconContainer onClick={() => handleDeleteCart(SellerId)}>
             <IconComponent kind="close-black" />
           </IconContainer>
-        )}
+        )} */}
       </Top>
       {cart.cartDetail.map((Item) => (
         <ItemDetail Item={Item} key={Item.productId} />
       ))}
-      <SendDetail>
-        {completeOrder ? null : <Hr />}
-        {completeOrder ? null : isPaying ? (
-          <Section>
-            <Wrapper>
-              <TotalAmountTitle>商品總計</TotalAmountTitle>
-              <Price>{formatter.format(TotalAmount)}</Price>
-            </Wrapper>
-            <Wrapper>
-              <TotalAmountTitle>運費總計</TotalAmountTitle>
-              <Price>{formatter.format(0)}</Price>
-            </Wrapper>
-            <Hr />
-            <Wrapper>
-              <TotalAmountTitle>總共金額</TotalAmountTitle>
-              <Price>{formatter.format(TotalAmount)}</Price>
-            </Wrapper>
-          </Section>
-        ) : (
-          <>
-            <Title>選擇收件地與運送方式</Title>
-            <Select name="地區">
-              <option value="台灣">台灣</option>
-            </Select>
-            <Select name="交貨方式">
-              <option value="面交">面交</option>
-            </Select>
-          </>
-        )}
-      </SendDetail>
     </Container>
   );
 }

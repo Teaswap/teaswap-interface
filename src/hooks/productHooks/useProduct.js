@@ -6,6 +6,7 @@ import {
   setProducts,
   setSort,
   selectVendorInfo,
+  selectCreator,
   selectSort,
   selectProductCount,
   selectProductCategories,
@@ -46,6 +47,7 @@ export default function useProduct() {
   const dispatch = useDispatch();
   const page = useSelector(selectPage);
   const vendorInfo = useSelector(selectVendorInfo);
+  const Creator = useSelector(selectCreator);
   const productCategories = useSelector(selectProductCategories);
   const product = useSelector(selectProduct);
   const products = useSelector(selectProducts);
@@ -178,6 +180,7 @@ export default function useProduct() {
     loaded,
     isShowContact,
     vendorInfo,
+    Creator,
     productCategories,
     averageShippingTime,
     product,

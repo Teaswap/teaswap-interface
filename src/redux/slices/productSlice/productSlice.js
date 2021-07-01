@@ -16,6 +16,7 @@ export const productSlice = createSlice({
   name: 'product',
   initialState: {
     vendorInfo: [],
+    Creator: {},
     page: 1,
     sort: 'latest',
     product: [],
@@ -30,6 +31,9 @@ export const productSlice = createSlice({
   reducers: {
     setVendorInfo: (state, action) => {
       state.vendorInfo = action.payload;
+    },
+    setCreator: (state, action) => {
+      state.Creator = action.payload;
     },
     setSort: (state, action) => {
       state.sort = action.payload;
@@ -69,6 +73,7 @@ export const productSlice = createSlice({
 
 export const {
   setVendorInfo,
+  setCreator,
   setSort,
   setPage,
   pushProducts,
@@ -101,7 +106,8 @@ export const getProduct = (id) => (dispatch) => {
     if (res.ok === 0) {
       return dispatch(setErrorMessage(res ? res.message : 'something wrong'));
     }
-    const { vendorInfo, category, product, userCreated, userSold } = res.data;
+    const { vendorInfo, Creator, category, product, userCreated, userSold } = res.data;
+    dispatch(setCreator(Creator));
     dispatch(setVendorInfo(vendorInfo));
     dispatch(setUserCreated(userCreated));
     dispatch(setUserSold(userSold));
@@ -267,4 +273,5 @@ export const selectUserSold = (state) => state.product.userSold;
 export const selectPage = (state) => state.product.page;
 export const selectSort = (state) => state.product.sort;
 export const selectVendorInfo = (state) => state.product.vendorInfo;
+export const selectCreator = (state) => state.product.Creator;
 export default productSlice.reducer;

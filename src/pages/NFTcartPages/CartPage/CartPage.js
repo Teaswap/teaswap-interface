@@ -6,8 +6,8 @@ import {
   FONT,
   MEDIA_QUERY_MD,
   DISTANCE,
+  MEDIA_QUERY,
 } from "../../../constants/style";
-import { ThickNavPage } from "../../../components/Page";
 import { IconComponent } from "../../../components";
 import CartItem from "../../../components/cartSystem/CartItem";
 import OrderPrice from "../../../components/cartSystem/OrderPrice";
@@ -22,6 +22,22 @@ const Title = styled.p`
   width: 30%;
   padding: ${DISTANCE.xs};
 `;
+
+export const ThickNavPage = styled.div`
+  width: 90%;
+  max-width: 1230px;
+  min-height: 50vh;
+  position: relative;
+  margin-top: 50px;
+  padding: 20px;
+  padding-bottom: 50px;
+  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.1), 0px 4px 8px rgba(0, 0, 0, 0.1), 0px 16px 24px rgba(0, 0, 0, 0.1),
+  0px 24px 32px rgba(0, 0, 0, 0.1);
+  ${MEDIA_QUERY.sm} {
+    width: 90%;
+    padding: 20px 2%;
+  }
+`;
 const PayTitle = styled.p`
   color: ${COLOR.text_1};
   font-size: ${FONT.md};
@@ -29,10 +45,8 @@ const PayTitle = styled.p`
 `;
 const Container = styled.div`
   margin-top: 100px;
-  min-width: 800px;
-  width: 1230px;
-  padding: ${DISTANCE.xs};
-  min-width: ${MEDIA_QUERY_MD.md};
+  width: 100%;
+  max-width: 1230px;
 `;
 
 const Wrapper = styled.div`
@@ -76,19 +90,8 @@ const CartPage = () => {
       )}
       <ThickNavPage>
         <Container>
-          {isPaying && checked ? (
-            <Wrapper>
-              <IconWrapper onClick={() => handleToCart()}>
-                <IconComponent kind="left-blue" $margin={0} />
-              </IconWrapper>
-              <PayTitle>返回購物車</PayTitle>
-            </Wrapper>
-          ) : (
-            <Title>購物車</Title>
-          )}
           {carts &&
-            carts
-              .filter((cart) => {
+            carts.filter((cart) => {
                 switch (filter) {
                   case "all":
                     return true;
@@ -99,14 +102,7 @@ const CartPage = () => {
                 }
               })
               .map((cart, index) => (
-                <>
-                  <CartItem key={index} cart={cart} />
-                  {isPaying ? (
-                    <PayDetail cart={cart} />
-                  ) : (
-                    <OrderPrice cart={cart} />
-                  )}
-                </>
+                <CartItem key={index} cart={cart} />
               ))}
         </Container>
       </ThickNavPage>

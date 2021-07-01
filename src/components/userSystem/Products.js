@@ -146,7 +146,7 @@ const Product = ({ product, onLoad, loaded, $width, $height, $margin }) => {
       {/* <ProductPrice>{formatter.format(product.price)}</ProductPrice> */}
       <ProductPrice>
         {formatter.format(product.price)} 
-        <span style={{fontSize: '9px'}}>{' ' + handleTokenSwitch(product.extoken)}</span>
+        <span style={{fontSize: '9px'}}>{' ' + (product.extoken)}</span>
     </ProductPrice>
     <Modal isOpen={isProof} onDismiss={dismissProof} maxHeight={90}>
       <div className="new-modal">
