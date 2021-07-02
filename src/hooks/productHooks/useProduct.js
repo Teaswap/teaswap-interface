@@ -24,10 +24,9 @@ import {
   selectUserCreated,
   selectUserSold,
 } from '../../redux/slices/productSlice/productSlice';
-import {useMultipleContractSingleData} from "../../state/multicall/hooks";
-import {STAKING_REWARDS_INTERFACE} from "../../constants/abis/staking-rewards";
-import {BUSD, CJAI, NFTEXCHANGE, SHIH, UNI, ZERO_ADDRESS,BETH} from "../../constants";
-import {ChainId} from "@teaswap/uniswap-sdk";
+
+import { tokenOptions} from "../../constants";
+
 
 function averageTime(count, products) {
   let totalTime = 0;
@@ -154,14 +153,7 @@ export default function useProduct() {
 
     if (!extoken) return;
 
-    const tokenOptions = [
-      { name: 'BNB',value:ZERO_ADDRESS },
-      { name: 'BUSD',value:BUSD.address },
-      { name: 'TSA',value:UNI[ChainId.BSC_MAINNET].address },
-      { name: 'Shih',value:SHIH.address },
-      { name: 'CJAI',value:CJAI.address },
-      { name: 'ETH',value:BETH.address }
-    ]
+
 
     let extokenName = 'TSA'
     for(let i = 0 ;i<tokenOptions.length;i++){

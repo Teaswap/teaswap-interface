@@ -4,7 +4,7 @@ import useAdmin from '../../hooks/adminHooks/useAdmin';
 import { DISTANCE } from '../../constants/style';
 import { ActionButton } from '../NFTButton';
 import { ExamineSelector } from '../../components/adminSystem';
-import {BETH, BUSD, CJAI, NFTEXCHANGE, SHIH, UNI, ZERO_ADDRESS} from "../../constants";
+import {NFTEXCHANGE, tokenOptions} from "../../constants";
 import {ChainId} from "@teaswap/uniswap-sdk";
 import {calculateGasMargin} from "../../utils";
 import {TransactionResponse} from "@ethersproject/providers";
@@ -96,14 +96,7 @@ interface productItemProps {
 const ProductsItem = ({key, product, setPassedProducts}:productItemProps ) => {
   // const { setThousandths } = useAdmin();
   const extoken = product.extoken
-  const tokenOptions = [
-        { name: 'BNB',value:ZERO_ADDRESS },
-        { name: 'BUSD',value:BUSD.address },
-        { name: 'TSA',value:UNI[ChainId.BSC_MAINNET].address },
-        { name: 'Shih',value:SHIH.address },
-        { name: 'CJAI',value:CJAI.address },
-        { name: 'ETH',value:BETH.address },
-    ]
+
 
     let extokenName = ''
     for(let i = 0 ;i<tokenOptions.length;i++){

@@ -10,6 +10,7 @@ import {
   postProductAPI,
   updateProductAPI,
   deleteProductAPI,
+  setPriceAPI
 } from '../../../webAPI/productAPI';
 
 export const productSlice = createSlice({
@@ -203,6 +204,15 @@ export const postProduct = ({
     remark, // 備註
     tokenid
   }).then((res) => {
+    if (res.ok === 0) {
+      return dispatch(setErrorMessage(res ? res.message : 'something wrong'));
+    }
+    return res.message;
+  });
+};
+
+export const setPrice = (id,price)=>(dispatch)=>{
+  return setPriceAPI(id,price).then((res) => {
     if (res.ok === 0) {
       return dispatch(setErrorMessage(res ? res.message : 'something wrong'));
     }

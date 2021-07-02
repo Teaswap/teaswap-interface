@@ -6,10 +6,11 @@ import { NavLink } from 'react-router-dom';
 import { useTranslation } from 'react-i18next'
 import Modal from '../../components/Modal'
 import {ApprovalState, useApproveNFTCallback} from "../../hooks/useApproveCallback";
-import {NFTEXCHANGE} from "../../constants";
+import {NFTEXCHANGE, tokenOptions} from "../../constants";
 import {ChainId} from "@teaswap/uniswap-sdk";
 import useProductForm from "../../hooks/productHooks/useProductForm";
-import {useSetPriceCallback} from "../../hooks/useSetPriceCallback";
+import {setPriceState, useSetPriceCallback} from "../../hooks/useSetPriceCallback";
+import {InputItem} from "../productSystem";
 
 const ProductsContainer = styled.div`
   padding: 0px 10px 50px 10px;
@@ -87,6 +88,16 @@ const ButtonContainer = styled.div`
 `;
 
 const Product = ({ product, onLoad, loaded, $width, $height, $margin }) => {
+  const{
+    hasProductToken,
+    handleChange,
+    productToken,
+    productPrice,
+    setProductToken,
+    hasProductPrice,
+    setProductPrice,
+  } = useProductForm()
+
   const {handleTokenSwitch} = useProduct();
   const formatter = new Intl.NumberFormat();
   const {t} = useTranslation();
@@ -99,14 +110,21 @@ const Product = ({ product, onLoad, loaded, $width, $height, $margin }) => {
   const [reSalePrice, setReSalePrice] = useState(0)
   const [approval, approveCallback] = useApproveNFTCallback(NFTEXCHANGE[ChainId.BSC_MAINNET],product.tokenid,product.delivery_location)
   const [setPrice,setPriceCallback] = useSetPriceCallback(product.orderid,newPrice)
-  const {handleResaleProduct} = useProductForm()
+  const {handleResaleProduct,handleSetPrice} = useProductForm()
   console.log("approval:"+approval)
   useEffect(() => {
     if (approval === ApprovalState.APPROVED) {
       setApprovalSubmitted(true)
-      handleResaleProduct(product,reSalePrice)
+      handleResaleProduct(product,productPrice,productToken)
     }
   }, [approval, approvalSubmitted])
+
+  useEffect(() => {
+    if (setPrice === setPriceState.SETED) {
+      setPriceSubmitted(true)
+      handleSetPrice(product,price)
+    }
+  }, [setPrice, setPriceSubmitted])
 
 
   const dismissProof = () => {
@@ -170,7 +188,32 @@ const Product = ({ product, onLoad, loaded, $width, $height, $margin }) => {
     <Modal isOpen={isProof} onDismiss={dismissProof} maxHeight={90}>
       <div className="new-modal">
         <p>{t('Resale')}</p>
-        <input type="text" className="input-primary" />
+        <InputItem
+            title={t('Token')}
+            label={t('Which token will you charge for your NFT?')}
+            type={'radio'}
+            options={tokenOptions}
+            hasValue={hasProductToken}
+            errorMessage={t('Please Choose Token')}
+            handleChange={handleChange(setProductToken)}
+            isNumber = {false}
+            productPictureUrl={undefined}
+            textareaRows={1}
+            value={productToken}
+        />
+        <InputItem
+            title={t('Price')}
+            label={t('Price')}
+            type={'input'}
+            hasValue={hasProductPrice}
+            errorMessage={t('Please Input Price')}
+            handleChange={handleChange(setProductPrice)}
+            isNumber = {false}
+            options = {undefined}
+            productPictureUrl={undefined}
+            textareaRows={1}
+            value={productPrice}
+        />
         <div className="modal-btns">
           <span className='btn-sm-100 btn-primary' onClick={approveCallback}>{t("Confirm")}</span>
           <span className='btn-sm-100 btn-primary' onClick={dismissProof}>{t("Cancel")}</span>

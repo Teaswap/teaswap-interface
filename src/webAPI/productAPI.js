@@ -93,6 +93,21 @@ const postProductAPI = ({
     .then((res) => res);
 };
 
+const setPriceAPI = (id,price)=>{
+  const token = localStorage.getItem('token');
+
+  return fetch(`${BASE_URL}/products/productprice/${id}`, {
+    method: 'PATCH',
+    headers: {
+      'content-type': 'application/json',
+      authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify({
+      price:price
+    }),
+  }).then((res) => res.json());
+};
+
 const updateProductAPI = (
   id,
   {
@@ -170,4 +185,5 @@ export {
   updateProductAPI,
   deleteProductAPI,
   postPictureAPI,
+    setPriceAPI
 };

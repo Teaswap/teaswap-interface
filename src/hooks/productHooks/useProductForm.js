@@ -5,6 +5,7 @@ import { postPictureAPI } from '../../webAPI/productAPI';
 import {
   postProduct,
   updateProduct,
+  setPrice
 } from '../../redux/slices/productSlice/productSlice';
 import { useTranslation } from 'react-i18next'
 import {MintInfoInterface} from "../useMintCallback";
@@ -191,13 +192,23 @@ export default function useProductForm(id) {
     navigate('/nft/users/backstage')
   };
 
-  const handleResaleProduct = (product,reSalePrice) => {
+  const handleResaleProduct = (product,reSalePrice,reSaleToken) => {
     // checkDataValidity();
     // if (!hasError) {
     product.price=reSalePrice;
+    product.extoken=reSaleToken;
     updateProduct(product.id,product)(dispatch);
     // }
-    navigate('/nft/users/backstage')
+    // navigate('/nft/users/backstage')
+  };
+
+  const handleSetPrice = (product,price) => {
+    // checkDataValidity();
+    // if (!hasError) {
+    product.price=price;
+    setPrice(product.id,price)(dispatch);
+    // }
+    // navigate('/nft/users/backstage')
   };
 
   const handleSubmitEditForm = (e) => {
@@ -271,6 +282,8 @@ export default function useProductForm(id) {
     handleSubmitEditForm,
     handleChangePicture,
     handleSubmitProduct,
-    checkInputError
+    checkInputError,
+    handleSetPrice,
+    handleResaleProduct
   };
 }
