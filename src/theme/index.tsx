@@ -263,7 +263,7 @@ body {
   calc(100% - 170px) 470px,
   calc(100% - 40px) 700px;
   background-repeat: no-repeat;
-  font-family: Robot-thin;
+  font-family: Robot-thin,Roboto, Roboto Regular,  Noto Sans TC, San serif, AtlasGrotesk , Yuanti SC ;
  
 }
 `

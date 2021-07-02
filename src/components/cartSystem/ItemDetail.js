@@ -6,6 +6,7 @@ import ChooseQuantity from "./ChooseQuantity";
 import useCart from "../../hooks/cartHooks/useCart";
 import { LoopCircleLoading } from "react-loadingg";
 import { useDispatch } from "react-redux";
+import useProduct from "../../hooks/productHooks/useProduct";
 
 const CartInfo = styled.div`
   display: flex;
@@ -53,6 +54,8 @@ export default function ItemDetail({ Item }) {
     completeOrder,
     checked,
   } = useCart();
+  const { handleTokenSwitch } = useProduct()
+    
 
   return (
     <>
@@ -66,11 +69,11 @@ export default function ItemDetail({ Item }) {
           <PhotoImg src={Item.pictureUrl}></PhotoImg>
         </Photo>
         <ProductName>{Item.productName}</ProductName>
-        <ChooseQuantity Item={Item} />
+        {/* <ChooseQuantity Item={Item} /> */}
         {completeOrder ? (
           <Price>{formatter.format(Item.price * Item.cartQuantity)}</Price>
         ) : (
-          <Price>{formatter.format(Item.price)}</Price>
+          <Price>{formatter.format(Item.price)} {handleTokenSwitch(Item.productExtoken)}</Price>
         )}
         {checked || isPaying ? null : (
           <Container onClick={() => handleDeleteProductInCart(Item.cartItemId)}>

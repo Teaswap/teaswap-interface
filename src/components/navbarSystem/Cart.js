@@ -9,6 +9,7 @@ import { useDispatch } from "react-redux";
 import { getCartItem } from "../../redux/slices/cartSlice/cartSlice";
 import useCart from "../../hooks/cartHooks/useCart";
 import {useTranslation} from 'react-i18next';
+import useProduct from "../../hooks/productHooks/useProduct";
 
 const UserContainer = styled.div`
   position: relative;
@@ -60,7 +61,7 @@ const OptionInner = styled.div`
   padding-top: 9px;
   z-index: 1;
   position: relative;
-  width: 150px;
+  width: auto;
   background: ${COLOR.bg_primary};
   overflow: auto;
   max-height: 70vh;
@@ -69,7 +70,7 @@ const OptionInner = styled.div`
 const OptionList = styled.ul`
   border: 1px solid #e5e5e6;
   border-radius: 0px;
-  padding: 10px 0 20px 0;
+  padding: 20px;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -133,11 +134,8 @@ const CartBottom = styled.div`
 const ProductQuantity = styled.span``;
 
 const CartItem = ({ cartItem }) => {
-  const formatter = new Intl.NumberFormat("zh-TW", {
-    style: "currency",
-    currency: "NTD",
-    minimumFractionDigits: 0,
-  });
+  const {handleTokenSwitch} = useProduct();
+  const formatter = new Intl.NumberFormat();
   return (
     <CartDetail>
       <VendorName>{cartItem.sellerName}</VendorName>
@@ -148,13 +146,12 @@ const CartItem = ({ cartItem }) => {
             <ProductInfo>
               <ProductName>{product.productName}</ProductName>
 
-              <ProductPrice>{formatter.format(product.price)}</ProductPrice>
+              <ProductPrice>{formatter.format(product.price)} {handleTokenSwitch(product.extoken)}</ProductPrice>
               <ProductQuantity>x{product.cartQuantity}</ProductQuantity>
             </ProductInfo>
           </ProductItem>
         ))}
-
-        <TotalPrice>
+        {/* <TotalPrice>
           <span>合計：</span>
           {formatter.format(
             cartItem.cartDetail.reduce(
@@ -162,7 +159,7 @@ const CartItem = ({ cartItem }) => {
               0
             )
           )}
-        </TotalPrice>
+        </TotalPrice> */}
       </ProductsDetail>
     </CartDetail>
   );
@@ -190,7 +187,7 @@ export default function Cart() {
                 <CartItem cartItem={cartItem} key={index} />
               ))}
               <CartBottom>
-                <Nav children={t('List')} path={"/cart"} />
+                <Nav children={t('List')} path={"/nft/cart"} />
               </CartBottom>
             </OptionList>
           ) : (

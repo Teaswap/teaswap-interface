@@ -102,34 +102,6 @@ export default function OrderPrice({ cart }) {
           </ErrorForm>
         </ErrorModal>
       )}
-      <Container>
-        <Top>
-          <Title>訂單摘要</Title>
-        </Top>
-        <Count>
-          <Wrapper>
-            <TotalAmountTitle>商品總計</TotalAmountTitle>
-
-            <TotalAmount>{formatter.format(price)}</TotalAmount>
-          </Wrapper>
-          <Wrapper>
-            <TotalAmountTitle>運費總計</TotalAmountTitle>
-            <TotalAmount>NTD 0</TotalAmount>
-          </Wrapper>
-          <Hr />
-          <Wrapper>
-            <TotalAmountTitle>總共金額</TotalAmountTitle>
-            <TotalAmount> {formatter.format(price)}</TotalAmount>
-          </Wrapper>
-          <ActionButton
-            $margin={0}
-            style={{ background: "#b6deea" }}
-            onClick={() => handlePay(productId[0])}
-          >
-            前往結帳
-          </ActionButton>
-        </Count>
-      </Container>
     </>
   );
 }
