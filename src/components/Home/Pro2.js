@@ -64,7 +64,7 @@ export default [
   },
   {
     picture_url: process.env.PUBLIC_URL + '/nft/pro2/8.gif',
-    title: "TSANFT #6 BNB Shop",
+    title: "TSANFT No.6 BNB Shop",
     number: "",
     desc: '',
     link: '/nft/products/304',
