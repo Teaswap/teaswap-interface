@@ -162,7 +162,7 @@ export default [
     id: 13
   },
   {
-    picture_url: process.env.PUBLIC_URL + '/nft/pro3/14.jpeg',
+    picture_url: process.env.PUBLIC_URL + '/nft/pro3/Desire of Return.jpeg',
     title: "Desire of Return",
     number: "",
     desc: '',
@@ -171,7 +171,7 @@ export default [
     id: 14
   },
   {
-    picture_url: process.env.PUBLIC_URL + '/nft/pro3/15.jpeg',
+    picture_url: process.env.PUBLIC_URL + '/nft/pro3/Resistence.jpeg',
     title: "Resistance",
     number: "",
     desc: '',
