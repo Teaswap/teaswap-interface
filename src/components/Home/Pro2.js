@@ -67,7 +67,7 @@ export default [
     title: "TSANFT #6 BNB Shop",
     number: "",
     desc: '',
-    link: '/nft/products/category/1',
+    link: '/nft/products/304',
     mediaType: 1,
     id: 8
   }
