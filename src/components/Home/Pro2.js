@@ -48,7 +48,7 @@ export default [
     picture_url: process.env.PUBLIC_URL + '/nft/pro2/6.gif',
     title: "TSANFT No.1 Voyage to Metaverse",
     number: "",
-    desc: 'TSA NFT Studio',
+    desc: '',
     link: '/nft/products/category/1',
     mediaType: 1,
     id: 6,
