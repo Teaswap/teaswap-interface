@@ -9,17 +9,13 @@ import { BsSearch } from 'react-icons/bs';
 
 const SearchBarContainer = styled.div`
   cursor: pointer;
-  display: flex;F
+  display: flex;
   justify-content: space-between;
   align-items: center;
   width: 500px;
   height: 32px;
   border-radius: 0px;
   margin-left: 140px;
-  box-shadow: ${EFFECT.shadowLight};
-  :hover{
-    border: 1px solid #474747;
-  }
   & div {
     display: flex;
     align-items: center;
@@ -48,23 +44,30 @@ const SearchBar = () => {
     navigate(`/nft/products/search/${keyWord}`);
     setValue('');
   };
+  let [searchBarWidth, setSearchBarWidth] = useState('0');
 
   return (
     <SearchBarContainer>
-      <SearchArea>
-        <BsSearch size="15" color="#7f7f7f" />
         <InputSearch
+          id="search-bar"
+          style={{
+            width: searchBarWidth
+          }}
           value={value}
           onChange={handleChangeInput}
-          placeholder={t('Search')}
           onKeyDown={(e) => {
             if (e.keyCode === 13 && value !== '') {
               handleSearchProduct(value);
             }
           }}
         />
-      </SearchArea>
-      <IconComponent kind={'angle-down'} />
+        <BsSearch onClick={() => {
+          if (searchBarWidth == '0') {
+            setSearchBarWidth('100%')
+          }else{
+            setSearchBarWidth('0')
+          }
+        }} size="20" color="#7f7f7f" />
     </SearchBarContainer>
   );
 };

@@ -83,7 +83,9 @@ const CategorizedProductPage = () => {
   return (
     <>
       <NavbarWrapper >
+        <p className="category-title">Categories</p> 
         <Navbar />
+        <p className="category-title">{category}</p>
       </NavbarWrapper>
       <StandardNavPage>
 
@@ -94,11 +96,7 @@ const CategorizedProductPage = () => {
           />
         ) : (
           <>
-            <CategoryTitle
-              id={id}
-              category={category}
-              handleChangeProductSort={handleChangeProductSort}
-            />
+
             <Products
               products={products}
               id={id}

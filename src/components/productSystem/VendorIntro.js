@@ -21,7 +21,7 @@ export const VendorIntro = ({
   const {t} = useTranslation();
   return (
     <>
-      <VendorTitle>{t('Artist')}</VendorTitle>
+      <VendorTitle>{t('Creator')}</VendorTitle>
       <VendorInfo />
     </>
   );

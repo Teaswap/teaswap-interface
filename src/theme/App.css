@@ -1,3 +1,8 @@
+* {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
 .center-mask{
   width: 100vw;
   height: 100vh;
@@ -232,4 +237,10 @@
   align-items: center;
   padding-top: 20px;
   color: #474747; 
+}
+.category-title{
+  font-weight: bold;
+  font-size: 16px;
+  columns: #474747;
+  padding-left: 210px;
 }

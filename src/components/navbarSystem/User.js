@@ -126,7 +126,7 @@ export default function User() {
                 History
               </OptionName>
             </OptionItem>
-            {!isVendor && (
+            {/* {!isVendor && (
               <OptionItem>
                 <OptionName onClick={() => navigate('/nft/users/apply')}>
                   To be Vendor
@@ -139,7 +139,7 @@ export default function User() {
                   Sell
                 </OptionName>
               </OptionItem>
-            )}
+            )} */}
             {isVendor && (
               <OptionItem>
                 <OptionName onClick={() => navigate('/nft/users/backstage')}>

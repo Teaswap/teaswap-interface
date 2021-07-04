@@ -11,6 +11,7 @@ const ProductCategoryItem = styled.li`
   align-items: center;
   cursor: pointer;
   font-size: 13px;
+  float: left;
   & p {
     padding: 0;
     margin-left: -5px;

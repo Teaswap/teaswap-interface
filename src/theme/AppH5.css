@@ -26,4 +26,7 @@
   .page-tabs{
     width: 100%;
   }
+  .category-title{
+    padding-left: 10px;
+  }
 }

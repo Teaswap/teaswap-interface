@@ -113,13 +113,6 @@ export const FreightIntro = ({ product }) => {
         })}
       </InfoItem>
       <InfoItem>
-        <InfoItemTitle>{t('Provenance')}</InfoItemTitle>
-        <div>
-          <p>Creator: {Creator.address}</p>
-          <p>Owner: {vendorInfo.address}</p>
-        </div>
-      </InfoItem>
-      <InfoItem>
         <InfoItemTitle>{t('Trade History')}</InfoItemTitle>
         {product.Orders && product.Orders.map((order, index) => {
           return (
@@ -131,6 +124,15 @@ export const FreightIntro = ({ product }) => {
             </>
           )
         })}
+      </InfoItem>
+      <InfoItem>
+        <InfoItemTitle>{t('Provenance')}</InfoItemTitle>
+        <div>
+          <p>Creator: {Creator.address}</p>
+          <p>Owner: {vendorInfo.address}</p>
+          <p>Contract Address: {product.delivery_location}</p>
+          <p>Token ID: {product.tokenId}</p>
+        </div>
       </InfoItem>
       <InfoItem style={{ borderBottom: 'none' }}>
         <InfoItemTitle>{t('Special notice')}</InfoItemTitle>
