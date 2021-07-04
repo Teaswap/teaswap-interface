@@ -39,6 +39,11 @@ const NavbarWrapper = styled.div`
 const PurchaseInfo = styled.section`
   display: flex;
   align-items: flex-start;
+  flex-wrap: wrap;
+  ${MEDIA_QUERY.sm} {
+    align-items: center;
+    width: 100%;
+  }
 `;
 
 const OtherProductWrap = styled.div`

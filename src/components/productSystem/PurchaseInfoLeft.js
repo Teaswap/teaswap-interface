@@ -10,6 +10,11 @@ const ProductPictureContainer = styled.div`
   display: flex;
   justify-content: flex-start;
   width: 50%;
+  ${MEDIA_QUERY.sm} {
+    width: 100%;
+    padding: 10px;
+    justify-content: center;
+  }
 `;
 
 const ProductPictureImg = styled.img`

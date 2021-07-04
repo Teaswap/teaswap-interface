@@ -123,7 +123,7 @@ const HomePage = () => {
   const {
     // products,
     // productErrorMessage,
-    handleGetProducts,
+    // handleGetProducts,
     // handleGetProductsMoreButton,
   } = useProduct();
   const productErrorMessage = ''
@@ -135,7 +135,7 @@ const HomePage = () => {
 
   useEffect(() => {
     window.scroll(0, 0);
-    handleGetProducts(1);
+    // handleGetProducts(1);
     return () => {
       // dispatch(setProducts([]));
       dispatch(setErrorMessage(null));
