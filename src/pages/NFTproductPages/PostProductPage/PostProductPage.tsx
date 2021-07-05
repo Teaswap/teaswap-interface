@@ -396,7 +396,7 @@ const PostProductPage = () => {
           />
         </QuestionBox> */}
         <QuestionTitle>{t('Upload Artwork')}</QuestionTitle>
-        <SetArtwork productPictureUrl={productPictureUrl} />
+        <SetArtwork/>
 
         <InputItem
           title={t('Category')}

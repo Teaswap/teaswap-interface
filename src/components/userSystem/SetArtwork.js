@@ -116,13 +116,14 @@ const LoadingMask = styled.div`
   align-items: center;
 `;
 
-export default function SetArtwork({ productPictureUrl }) {
+export default function SetArtwork() {
   const {t} = useTranslation()
 
   const{
     uploadError,
     isCheckImage,
     isLoadingUpload,
+    productPictureUrl,
     setIsCheckImage,
     handleChangePicture
   } = useProductForm()

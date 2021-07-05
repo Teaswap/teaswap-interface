@@ -218,6 +218,7 @@ export default function useProductForm(id) {
       if (res.ok === 0) return setUploadError(res.message);
       setIsLoadingUpload(false);
       setIsCheckImage(false);
+      console.log('setProductPictureUrl', res.data.link)
       setProductPictureUrl(res.data.link)
     })
   };
