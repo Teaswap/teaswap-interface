@@ -2,3 +2,5 @@ node_modules
 build
 .exclude
 .deploy
+src/constants/lists.ts
+src/constants/unit.js
