@@ -4,7 +4,7 @@ import useUser from '../../hooks/userHooks/useUser';
 import { SetQRCode } from '../userSystem/';
 import { BirthdaySelector } from '../../components/userSystem';
 import { COLOR, FONT, DISTANCE } from '../../constants/style';
-import { InputComponent } from '../../components/Input';
+import { InputComponent, TextAreaComponent } from '../../components/Input';
 import { GreyBtn } from '../NFTButton'
 import useVendorForm from '../../hooks/userHooks/useVendorForm';
 import {useTranslation} from 'react-i18next';
@@ -16,7 +16,7 @@ const FontWrapper = styled.div`
   margin: 0 auto;
   margin: ${DISTANCE.md} 0;
   width: 90%;
-  max-width: 620px;
+  max-width: 820px;
 `;
 
 const InputName = styled.h2`
@@ -118,9 +118,11 @@ export default function VendorInfoForm({ successMode, setSuccessMode, isAdminSta
         />
         {nicknameError && <ErrorMessage>{nicknameError}</ErrorMessage>}
         <InputName>{t('Add a description of you and your art (200 words maximum)')}</InputName>
-        <InputComponent
-          type='text'
+        <TextAreaComponent
+          type='textarea'
           name='description'
+          rows={4}
+          cols={4}
           $margin={0}
           value={description}
           onChange={(e) => setDescription(e.target.value)}
