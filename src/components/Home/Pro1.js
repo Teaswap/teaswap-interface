@@ -98,13 +98,5 @@ export default [
     mediaType: 1,
     id: 11
   },
-  {
-    picture_url: process.env.PUBLIC_URL + '/nft/pro1/13.gif',
-    title: "CaoJunNFT Collectibles",
-    number: "No.7611",
-    desc: `Spring's News`,
-    link: '/nft/products/category/1',
-    mediaType: 1,
-    id: 12
-  },
+
 ]
