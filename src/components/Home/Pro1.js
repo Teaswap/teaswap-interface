@@ -94,7 +94,7 @@ export default [
     title: "CJAI Collectibles",
     number: "No. 8304 (2)",
     desc: `Purple Pavilion and Cyan Cloud`,
-    link: 'https://www.icashrewards.io/product-page/cjai-collectibles-no-8304-2-purple-pavilion-and-cyan-cloud',
+    link: '/nft/products/category/1',
     mediaType: 1,
     id: 11
   },
