@@ -46,7 +46,7 @@ export default [
   },
   {
     picture_url: process.env.PUBLIC_URL + '/nft/pro1/6.gif',
-    title: "CJAI Collectibles",
+    title: "CJAI NFT  Collectibles",
     number: "No.7611",
     desc: '',
     link: '/nft/products/category/1',
@@ -55,7 +55,7 @@ export default [
   },
   {
     picture_url: process.env.PUBLIC_URL + '/nft/pro1/7.png',
-    title: "CJAI Collectibles",
+    title: "CJAI NFT Collectibles",
     number: "No.7611",
     desc: `Spring's News`,
     link: '/nft/products/category/1',
