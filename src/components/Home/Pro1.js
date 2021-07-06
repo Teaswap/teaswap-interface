@@ -92,9 +92,9 @@ export default [
   {
     picture_url: process.env.PUBLIC_URL + '/nft/pro1/11.gif',
     title: "CJAI Collectibles",
-    number: "Fishing Lake No.7611",
-    desc: ``,
-    link: '/nft/products/category/1',
+    number: "No. 8304 (2)",
+    desc: `Purple Pavilion and Cyan Cloud`,
+    link: 'https://www.icashrewards.io/product-page/cjai-collectibles-no-8304-2-purple-pavilion-and-cyan-cloud',
     mediaType: 1,
     id: 11
   },
