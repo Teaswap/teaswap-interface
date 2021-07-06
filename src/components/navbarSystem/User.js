@@ -7,7 +7,9 @@ import { useNavigate } from 'react-router-dom';
 import { shortenAddress } from '../../utils'
 
 const UserContainer = styled.div`
-  position: relative;
+  position: absolute;
+  top: -55px;
+  right: 10px;
   &:hover {
     & div {
       opacity: 1;

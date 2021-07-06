@@ -8,14 +8,12 @@ import {useTranslation} from 'react-i18next';
 import { BsSearch } from 'react-icons/bs';
 
 const SearchBarContainer = styled.div`
-  cursor: pointer;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
-  width: 500px;
+  width: 320px;
   height: 32px;
   border-radius: 0px;
-  margin-left: 140px;
   & div {
     display: flex;
     align-items: center;
@@ -44,14 +42,16 @@ const SearchBar = () => {
     navigate(`/nft/products/search/${keyWord}`);
     setValue('');
   };
-  let [searchBarWidth, setSearchBarWidth] = useState('0');
+  const [searchBarWidth, setSearchBarWidth] = useState('0');
+  const [searchBarDisplay, setSearchBarDisplay] = useState('none');
 
   return (
     <SearchBarContainer>
         <InputSearch
           id="search-bar"
           style={{
-            width: searchBarWidth
+            width: searchBarWidth,
+            display: searchBarDisplay
           }}
           value={value}
           onChange={handleChangeInput}
@@ -60,14 +60,20 @@ const SearchBar = () => {
               handleSearchProduct(value);
             }
           }}
+        onBlur={() => () => {
+          setSearchBarWidth('0')
+          setSearchBarDisplay('none')
+        }}
         />
         <BsSearch onClick={() => {
           if (searchBarWidth == '0') {
             setSearchBarWidth('100%')
+            setSearchBarDisplay('inline-block')
           }else{
             setSearchBarWidth('0')
+            setSearchBarDisplay('none')
           }
-        }} size="20" color="#7f7f7f" />
+        }} size="20" style={{marginLeft: '-30px', cursor: 'pointer'}} color="#7f7f7f" />
     </SearchBarContainer>
   );
 };

@@ -53,7 +53,7 @@ const BreadcrumbLi = styled.li`
 const BreadcrumbOl = styled.ol`
   display: flex;
   flex-wrap: wrap;
-  padding: 0.75rem 1rem 0.75rem 0;
+  padding: 0.75rem 1rem 0.75rem 0.5rem;
   margin-bottom: 1rem;
   list-style: none;
 `;

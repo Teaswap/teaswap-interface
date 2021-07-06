@@ -244,3 +244,28 @@
   columns: #474747;
   padding-left: 210px;
 }
+.dropdown-menu{
+  position: absolute;
+  top: 30px;
+  right: 0;
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  padding: 20px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+}
+.dropdown-menu-item {
+  display: block;
+  padding: 10px 25px;
+  text-align: left;
+  cursor: pointer;
+  color: #7f7f7f;
+}
+.dropdown-menu-item:first{
+  margin-top: 10px;
+}
+.dropdown-menu-item:hover{
+  background-color: #eeeeee;
+  color: #474747;
+}

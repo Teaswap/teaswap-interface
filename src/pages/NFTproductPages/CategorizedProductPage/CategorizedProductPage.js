@@ -83,7 +83,6 @@ const CategorizedProductPage = () => {
   return (
     <>
       <NavbarWrapper >
-        <p className="category-title">Categories</p> 
         <Navbar />
       </NavbarWrapper>
       <StandardNavPage>
