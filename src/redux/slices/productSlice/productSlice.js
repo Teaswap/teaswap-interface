@@ -12,6 +12,8 @@ import {
   deleteProductAPI,
   setPriceAPI
 } from '../../../webAPI/productAPI';
+import {completeOrder, createOrder as createOrderAPI} from "../../../webAPI/cartAPI";
+import {setIsLoading, setOrderNumber} from "../cartSlice/cartSlice";
 
 export const productSlice = createSlice({
   name: 'product',
@@ -221,6 +223,16 @@ export const setPrice = (id,price)=>(dispatch)=>{
   return setPriceAPI(id,price).then((res) => {
     if (res.ok === 0) {
       return dispatch(setErrorMessage(res ? res.message : 'something wrong'));
+    }
+    if ( res.ok === 2 ) {
+      const readyToOrderItems = [{
+        ProductId: id,
+        UserId: product.UserId,
+        product_quantity: 1,
+      }]
+      return createOrderAPI(readyToOrderItems).then((res) => {
+        completeOrder(res.orderId).then((res)=>{console.log(JSON.stringify(res))});
+      });
     }
     return res.message;
   });
