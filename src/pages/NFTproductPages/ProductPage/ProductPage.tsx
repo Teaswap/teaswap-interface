@@ -39,6 +39,11 @@ const NavbarWrapper = styled.div`
 const PurchaseInfo = styled.section`
   display: flex;
   align-items: flex-start;
+  flex-wrap: wrap;
+  ${MEDIA_QUERY.sm} {
+    align-items: center;
+    width: 100%;
+  }
 `;
 
 const OtherProductWrap = styled.div`
@@ -127,7 +132,7 @@ const ProductPage = () => {
           {products.length !== 0 ? (
           <>
             <OtherProductWrap>
-              <OtherProductTitle>{t('More by this artist')}</OtherProductTitle>
+              <OtherProductTitle>{t('More by this creator')}</OtherProductTitle>
               <MoreLink className="a-link" href={`/nft/products/vendor/${vendorInfo.id}`}>
                 {t('View all')}
               </MoreLink>

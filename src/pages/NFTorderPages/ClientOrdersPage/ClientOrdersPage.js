@@ -106,11 +106,11 @@ const ClientOrdersPage = () => {
             <Table>
               <NameContainer>
                 <Name>編號</Name>
-                <Name>成立日期</Name>
+                <Name>下单时间</Name>
                 <Name>總金額</Name>
-                <Name>狀態</Name>
+                {/* <Name>狀態</Name> */}
               </NameContainer>
-              {orders &&
+              {/* {orders &&
                 orders.map((order) => (
                   <ContentContainer key={order.id}>
                     <OrderContent to={`/orders/${order.id}`}>
@@ -128,7 +128,7 @@ const ClientOrdersPage = () => {
                         : "未出貨"}
                     </Content>
                   </ContentContainer>
-                ))}
+                ))} */}
             </Table>
           )}
         </Container>

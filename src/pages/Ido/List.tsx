@@ -227,7 +227,7 @@ const Grid = styled(ColumnCenter)`
   align-items: flex-start;
   ${MEDIA_QUERY.sm} {
     margin-left: 0;
-    width: calc(90% - 30px);
+    // width: calc(90% - 30px);
   }
 `
 

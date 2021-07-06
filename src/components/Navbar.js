@@ -19,17 +19,18 @@ const NavbarContainer = styled.div`
   position: relative;
   left: 0;
   width: 100%;
+  max-width: 1400px;
   margin: 0 auto;
   height: ${(props) => (props.$size === 'sm' ? '65px' : '135px')};
   background: #fcfcfc;
-  padding: 25px 0;
+  padding: 25px;
   ${MEDIA_QUERY.lg} {
     height: ${(props) => (props.$size === 'sm' ? '65px' : '165px')};
-    padding: 10px 0;
+    padding: 10px;
   }
   ${MEDIA_QUERY.sm} {
     height: ${(props) => (props.$size === 'sm' ? '65px' : '115px')};
-    padding: 10px 0;
+    padding: 10px;
   }
 `;
 
@@ -43,8 +44,7 @@ const NavbarTop = styled.div`
 
 const NavbarBottom = styled.div`
   display: flex;
-  justify-content: left;
-  margin-left: 210px;
+  justify-content: space-between;
   flex-wrap: wrap;
   ${MEDIA_QUERY.lg} {
     margin-left: 0;
@@ -54,17 +54,13 @@ const NavbarBottom = styled.div`
 const LeftSide = styled.div`
   display: flex;
   align-items: center;
-  margin-left: 80px;
   ${MEDIA_QUERY.md} {
     display: none;
-    margin-left: 10px;
   }
 `;
 
 const RightSide = styled.div`
-  margin-right: 90px;
   ${MEDIA_QUERY.md} {
-    margin-right: 20px;
   }
 `;
 
@@ -124,17 +120,15 @@ const Navbar = () => {
       <NavbarTop>
         <LeftSide>
           <Logo />
-          <SearchBar />
         </LeftSide>
-
         <RightSide>
           <OptionList>
             {isAdmin && <Nav children={'管理後台'} path={'/nft/admin'} />}
             {userId && (
               <>
                 <User />
-                <Cart />
-                <Notification />
+                {/* <Cart /> */}
+                {/* <Notification /> */}
               </>
             )}
             {/*{isUserLoading ? (*/}
@@ -153,13 +147,16 @@ const Navbar = () => {
 
       {(currentPath === '/nft' || currentPath.includes('products')) && (
         <NavbarBottom>
-          {productCategories.map((category) => (
-            <CategoryItemBox
-              text={category.name}
-              id={category.id}
-              key={category.id}
-            />
-          ))}
+          <div>
+            {productCategories.map((category) => (
+              <CategoryItemBox
+                text={category.name}
+                id={category.id}
+                key={category.id}
+              />
+            ))}
+          </div>
+          <SearchBar />
         </NavbarBottom>
       )}
     </NavbarContainer>

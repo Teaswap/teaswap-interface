@@ -53,7 +53,7 @@ const Wrapper = styled(AutoColumn)<{ showBackground: boolean; bgColor: any }>`
   align-items: center;
   margin-top: 30px;
   ${MEDIA_QUERY.sm}{
-    width: calc(90% - 30px);
+    // width: calc(90% - 30px);
     margin-top: 30px;
   }
 `

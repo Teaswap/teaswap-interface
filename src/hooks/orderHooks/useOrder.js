@@ -24,11 +24,7 @@ export default function useOrder() {
   const errorMessage = useSelector(selectError);
   const isLoading = useSelector(selectLoading);
   const mask = useSelector(selectMask);
-  const formatter = new Intl.NumberFormat("zh-TW", {
-    style: "currency",
-    currency: "NTD",
-    minimumFractionDigits: 0,
-  });
+  const formatter = new Intl.NumberFormat();
   const order_number = detailOrder.map(
     (data) => Object.values(data)[11].order_number
   );

@@ -36,3 +36,5 @@ cypress/videos
 cypress/screenshots
 cypress/fixtures/example.json
 .login
+src/constants/lists.ts
+src/constants/unit.js

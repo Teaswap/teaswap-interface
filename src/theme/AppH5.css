@@ -26,4 +26,11 @@
   .page-tabs{
     width: 100%;
   }
+  .category-title{
+    padding-left: 10px;
+  }
+  #product-right{
+    width: 100%;
+    padding: 10px;
+  }
 }

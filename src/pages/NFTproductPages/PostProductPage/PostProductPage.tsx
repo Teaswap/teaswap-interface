@@ -19,12 +19,12 @@ import {useNFTLastId, useUserFirstToken} from "../../../state/wallet/hooks";
 import MintModal  from "../../../components/NFT/mintModal"
 
 import { ActionButton } from '../../../components/NFTButton'
-import { PictureBox } from '../../../components/productSystem/PictureBox';
+import SetArtwork from '../../../components/userSystem/SetArtwork'
 
 
 const Wrapper = styled.div`
   width: 86%;
-  max-width: 620px
+  max-width: 820px
   margin: 0 auto;
   padding: 40px;
   display: flex;
@@ -117,7 +117,7 @@ const PostProductPage = () => {
     hasDelivery,
     // hasProductQuantity,
     productPictureUrl,
-    handleChangePicture,
+    // handleChangePicture,
     checkInputError,
     productCategory,
     productName,
@@ -380,14 +380,15 @@ const PostProductPage = () => {
           textareaRows={1}
           value={productPictureUrl}
         /> */}
-        <QuestionBox>
-          <QuestionTitle>{t('Upload Artwork')}</QuestionTitle>
+        {/* <QuestionBox>
           <PictureBox
             productMediaType={productMediaType} 
             pictureUrl={productPictureUrl}
             handleChange={handleChangePicture}
           />
-        </QuestionBox>
+        </QuestionBox> */}
+        <QuestionTitle>{t('Upload Artwork')}</QuestionTitle>
+        <SetArtwork/>
 
         <InputItem
           title={t('Category')}
@@ -521,18 +522,11 @@ const PostProductPage = () => {
 };
 
 export default PostProductPage;
-
-const QuestionBox = styled.div`
-  margin-bottom: 30px;
-  width: 100%;
-  max-width: 600px;
-  ${MEDIA_QUERY.sm} {
-    width: 90%;
-  }
-`;
-
 const QuestionTitle = styled.div`
   margin-bottom: 10px;
   color: #474747;
   font-size: 14px;
+  width: 100%;
+  max-width: 600px;
+  text-align: left;
 `;

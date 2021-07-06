@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { EFFECT, MEDIA_QUERY } from '../constants/style';
 
 export const InputSearch = styled.input`
-  width: 100%;
+  width: 0;
   height: 45px;
   outline: none;
   border: none;
@@ -10,6 +10,10 @@ export const InputSearch = styled.input`
   letter-spacing: 0.1rem;
   line-height: 1.5rem;
   background: rgba(0, 0, 0, 0);
+  box-shadow: ${EFFECT.shadowLight};
+  focus: {
+    transform: scale(500px, 0.5);
+  }
 `;
 
 export const InputComponent = styled.input`

@@ -44,6 +44,11 @@ export default function useProductForm(id) {
   const [hasPaymentMethod, setHasPaymentMethod] = useState('');
   const [hasProductQuantity, setHasProductQuantity] = useState('');
 
+    
+  const [isCheckImage, setIsCheckImage] = useState(false)
+  const [uploadError, setUploadError] = useState('')
+  const [isLoadingUpload, setIsLoadingUpload] = useState(false)
+
 
   let hasError = false;
 
@@ -225,8 +230,17 @@ export default function useProductForm(id) {
     const formData = new FormData();
     console.log('handleChangePicture', e.target.files[0])
     console.log('productMediaType', productMediaType)
+    setUploadError('')
+    setIsCheckImage(true);
+    setIsLoadingUpload(true)
     formData.append('image', e.target.files[0]);
-    postPictureAPI(formData).then((res) => setProductPictureUrl(res.data.link));
+    postPictureAPI(formData).then((res) => {
+      if (res.ok === 0) return setUploadError(res.message);
+      setIsLoadingUpload(false);
+      setIsCheckImage(false);
+      console.log('setProductPictureUrl', res.data.link)
+      setProductPictureUrl(res.data.link)
+    })
   };
 
   return {
@@ -244,6 +258,9 @@ export default function useProductForm(id) {
     productPictureUrl,
     productMediaType,
     remark,
+    isCheckImage,
+    isLoadingUpload,
+    uploadError,
 
     hasProductName,
     hasProductInfo,
@@ -258,6 +275,7 @@ export default function useProductForm(id) {
     hasProductMediaType,
     hasProductRoyalty,
 
+    setIsCheckImage,
     setProductName,
     setProductInfo,
     setProductCategory,
