@@ -72,7 +72,7 @@ export default [
     id: 8
   },
   {
-    picture_url: process.env.PUBLIC_URL + '/nft/pro1/9.gif',
+    picture_url: process.env.PUBLIC_URL + '/nft/pro2/9.gif',
     title: "TSANFT No. 9 TSA Club",
     number: "",
     desc: ``,
