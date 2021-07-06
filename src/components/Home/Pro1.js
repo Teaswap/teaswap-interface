@@ -92,10 +92,19 @@ export default [
   {
     picture_url: process.env.PUBLIC_URL + '/nft/pro1/12.gif',
     title: "CJAI Collectibles",
-    number: "No. 8304 (2)",
+    number: "No.8304 (2)",
     desc: `Purple Pavilion and Cyan Cloud`,
     link: '/nft/products/category/1',
     mediaType: 1,
     id: 11
+  },
+  {
+    picture_url: process.env.PUBLIC_URL + '/nft/pro1/13.gif',
+    title: "CaoJunNFT Collectibles",
+    number: "No.7611",
+    desc: `Spring's News`,
+    link: '/nft/products/category/1',
+    mediaType: 1,
+    id: 12
   },
 ]
