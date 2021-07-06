@@ -90,7 +90,7 @@ export default [
     id: 10
   },
   {
-    picture_url: process.env.PUBLIC_URL + '/nft/pro1/11.gif',
+    picture_url: process.env.PUBLIC_URL + '/nft/pro1/12.gif',
     title: "CJAI Collectibles",
     number: "No. 8304 (2)",
     desc: `Purple Pavilion and Cyan Cloud`,
