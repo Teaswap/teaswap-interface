@@ -116,11 +116,11 @@ export default function User() {
                 {shortenAddress(address)}
               </OptionItem>
             )}
-            <OptionItem>
+            {/* <OptionItem>
               <OptionName onClick={() => navigate('/nft/users/me')}>
                 Edit
               </OptionName>
-            </OptionItem>
+            </OptionItem> */}
             <OptionItem>
               <OptionName onClick={() => navigate('/nft/orders/client')}>
                 History
