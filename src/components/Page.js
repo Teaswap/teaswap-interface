@@ -17,6 +17,8 @@ export const StandardNavPage = styled.div`
 `;
 
 export const ThickNavPage = styled.div`
+  width: 100%;
+  max-width: 1400px;
   min-height: 50vh;
   position: relative;
   margin-top: 50px;

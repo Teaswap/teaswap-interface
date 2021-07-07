@@ -12,6 +12,8 @@ import {
   payOrder,
   cancelOrder,
   getProductOrders,
+  getClientOrder,
+  getSellerOrder,
   setErrorMessage,
 } from "../../redux/slices/orderSlice/orderSlice";
 import { useParams } from "react-router-dom";
@@ -60,6 +62,14 @@ export default function useOrder() {
   const client_address = detailOrder.map(
     (data) => Object.values(data)[11].client_address
   );
+
+  const handleGetClientOrder = () => {
+    getClientOrder()(dispatch)
+  }
+
+  const handleGetSellerOrder = () => {
+    getSellerOrder()(dispatch)
+  }
 
   const handleCloseModal = () => {
     dispatch(setMask(false));
@@ -120,5 +130,7 @@ export default function useOrder() {
     handleModal,
     handleCloseModal,
     handleSubmitCancelReason,
+    handleGetClientOrder,
+    handleGetSellerOrder
   };
 }

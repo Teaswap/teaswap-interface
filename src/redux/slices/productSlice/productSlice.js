@@ -123,6 +123,8 @@ export const getProduct = (id) => (dispatch) => {
 export const getProductsFromCategory = (id, page, queue) => (dispatch) => {
   getProductsFromCategoryAPI(id, page, queue).then((res) => {
     if (res.ok === 0) {
+      dispatch(setProductCount(0));
+      dispatch(setProducts([]));
       return dispatch(setErrorMessage(res ? res.message : 'something wrong'));
     }
     const { category, count, products } = res.data;
@@ -137,8 +139,10 @@ export const getProductsFromVendor = (id, page, limit, type="all") => (dispatch)
     if (res.ok === 0) {
       dispatch(setErrorMessage(res ? res.message : 'something wrong'));
       dispatch(setProducts([]));
+      dispatch(setProductCount(0));
       return res;
     }
+    dispatch(setErrorMessage(''))
     const { count, products } = res.data;
     dispatch(setProducts(products));
     dispatch(setProductCount(count));
