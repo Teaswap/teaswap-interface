@@ -177,14 +177,15 @@ const ProductQuantitySelector = ({quantity}:{quantity:number}) => {
   const {t} = useTranslation();
   return (
     <>
-      {quantity > 0 ? (
+      {quantity > 0 && (
         <ProductQuantityContainer>
           <label>{t('Number')}</label>
           <ProductCountSelect onChange={(e) => handleSelectQuantity(e)}>
             <Options quantity={quantity} />
           </ProductCountSelect>
         </ProductQuantityContainer>
-      ) : (
+      )}
+      {quantity == 0 && (
         <ProductQuantityContainer>
           <SoldOutMessage>{t('Sold Out')}</SoldOutMessage>
         </ProductQuantityContainer>

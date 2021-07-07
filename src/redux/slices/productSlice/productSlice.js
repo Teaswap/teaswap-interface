@@ -128,7 +128,7 @@ export const getProductsFromCategory = (id, page, queue) => (dispatch) => {
     const { category, count, products } = res.data;
     dispatch(setCategory(category));
     dispatch(setProductCount(count));
-    dispatch(pushProducts(products));
+    dispatch(setProducts(products));
   });
 };
 

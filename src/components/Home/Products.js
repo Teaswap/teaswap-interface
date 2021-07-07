@@ -28,7 +28,13 @@ export default function HomeProducts({products}) {
 		>
 			{products.map((product) => {
 					return (
-						<div onClick={() => navigate(product.link)} key={product.id} className="drop-product">
+						<div onClick={() => {
+							if (product.link.startsWith('http')) {
+								window.open(product.link)
+							}else{
+								navigate(product.link)
+							}
+						}} key={product.id} className="drop-product">
 							{product.mediaType == 1 && (
 								<img src={product.picture_url} />
 							)}

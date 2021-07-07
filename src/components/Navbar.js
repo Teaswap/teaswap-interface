@@ -81,6 +81,8 @@ const Empty = styled.div`
 `;
 
 const CatTitle = styled.span`
+  margin-left: 10px;
+  font-size: 20px;
   ${MEDIA_QUERY.sm}{
     display: none;
   }
