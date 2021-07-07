@@ -19,8 +19,8 @@ const ProductsWrap = styled.div`
 const ProductContainer = styled.div`
   position: relative;
   padding: 20px;
-  margin: 40px 20px;
-  width: calc(90% - 40px);
+  margin: 40px 0px;
+  width: 100%;
   max-width: 380px;
   box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.1), 0px 4px 8px rgba(0, 0, 0, 0.1), 0px 16px 24px rgba(0, 0, 0, 0.1),  0px 24px 32px rgba(0, 0, 0, 0.1);
   ${MEDIA_QUERY.sm} {
@@ -29,8 +29,8 @@ const ProductContainer = styled.div`
 `;
 
 const Placeholder = styled.div`
-  width: ${(props) => props.$width || '190px'};
-  margin: ${(props) => props.$margin || '0 20px'};
+  width: 100%;
+  max-width: 380px;
 `;
 
 const ProductPicture = styled.img`
@@ -210,29 +210,30 @@ export default function Products({
   $justify,
 }) {
   const { loaded, onLoad } = useProduct();
+  const leftCount = 9 % products.length
+  const appendPros = []
+  for(let i = 0; i < leftCount; i++) {
+    appendPros.push(<Placeholder $width={$width} $margin={$margin} />)
+  }
+  console.log('appendPros', leftCount, appendPros)
   return (
     <>
       <ProductsContainer $padding={$padding}>
         <ProductsWrap className="auto-list-div">
-          <>
-            {products.map((product) => {
-              return (
-                <Product
-                  key={product.id}
-                  product={product}
-                  onLoad={onLoad}
-                  loaded={loaded}
-                  $width={$width}
-                  $height={$height}
-                  $margin={$margin}
-                />
-              );
-            })}
-          </>
-          <Placeholder $width={$width} $margin={$margin} />
-          <Placeholder $width={$width} $margin={$margin} />
-          <Placeholder $width={$width} $margin={$margin} />
-          <Placeholder $width={$width} $margin={$margin} />
+          {products.map((product) => {
+            return (
+              <Product
+                key={product.id}
+                product={product}
+                onLoad={onLoad}
+                loaded={loaded}
+                $width={$width}
+                $height={$height}
+                $margin={$margin}
+              />
+            );
+          })}
+          {appendPros}
         </ProductsWrap>
       </ProductsContainer>
       {/* {loaded && !productErrorMessage ? (

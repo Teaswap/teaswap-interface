@@ -18,6 +18,7 @@ import {
   setErrorMessage,
 } from '../../../redux/slices/productSlice/productSlice';
 import { Navbar } from '../../../components'
+import Pagination from '../../../components/Pagination/Index';
 
 const CategoryTitleContainer = styled.section`
   display: flex;
@@ -63,6 +64,8 @@ const CategorizedProductPage = () => {
   const {
     products,
     category,
+    page,
+    productCount,
     productErrorMessage,
     handleCategoryProductMoreButton,
     handleGetProductFromCategory,
@@ -94,7 +97,6 @@ const CategorizedProductPage = () => {
           />
         ) : (
           <>
-
             <Products
               products={products}
               id={id}
@@ -103,6 +105,9 @@ const CategorizedProductPage = () => {
             />
           </>
         )}
+        <Pagination count={productCount} page={page} handleChange={(_page) => {
+          handleGetProductFromCategory(id, _page)
+        }} />
       </StandardNavPage>
     </>
   );

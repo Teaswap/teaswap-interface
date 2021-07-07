@@ -211,10 +211,6 @@ export const Products = ({
               );
             })}
           </>
-          <Placeholder $width={$width} $margin={$margin} />
-          <Placeholder $width={$width} $margin={$margin} />
-          <Placeholder $width={$width} $margin={$margin} />
-          <Placeholder $width={$width} $margin={$margin} />
         </ProductsWrap>
       </ProductsContainer>
 

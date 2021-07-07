@@ -30,7 +30,7 @@ const getProductCategoriesAPI = () => {
 const getProductsFromCategoryAPI = (id, page, queue) => {
   let { sort, order } = changeProductSort(queue);
   return fetch(
-    `${BASE_URL}/products/categories/${id}?_page=${page}&_sort=${sort}&_order=${order}`
+    `${BASE_URL}/products/categories/${id}?_page=${page}&_sort=${sort}&_limit=9&_order=${order}`
   ).then((res) => res.json());
 };
 
@@ -43,7 +43,7 @@ const getProductsFromVendorAPI = (id, page, limit, type) => {
 const searchProductAPI = (keyword, page, queue) => {
   let { sort, order } = changeProductSort(queue);
   return fetch(
-    `${BASE_URL}/products/search?_keyword=${keyword}&_page=${page}&_sort=${sort}&_order=${order}`
+    `${BASE_URL}/products/search?_keyword=${keyword}&_page=${page}&_limit=9&_sort=${sort}&_order=${order}`
   ).then((res) => res.json());
 };
 

@@ -106,13 +106,14 @@ export default function useProduct() {
     searchProduct(keyword, page)(dispatch);
   };
 
-  const handleGetProductFromCategory = (id) => {
-    getProductsFromCategory(id, 1)(dispatch);
+  const handleGetProductFromCategory = (id, page) => {
+    dispatch(setPage(page));
+    getProductsFromCategory(id, page)(dispatch);
   };
 
   const handleGetProductsFromVendor = (id, page, type) => {
     dispatch(setPage(page));
-    (getProductsFromVendor(id, page, 10, type)(dispatch)).then((res) => {
+    (getProductsFromVendor(id, page, 9, type)(dispatch)).then((res) => {
       if (res.message === 'not a Vendor') navigate('/nft');
     });
   };

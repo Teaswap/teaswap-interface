@@ -8,6 +8,7 @@ import useUser from '../../../hooks/userHooks/useUser';
 import useProduct from '../../../hooks/productHooks/useProduct';
 import { NavLink } from 'react-router-dom';
 import { NormalButton, Nav } from '../../../components/NFTButton';
+import Pagination from '../../../components/Pagination/Index';
 
 import {
   SellerInfo,
@@ -58,6 +59,8 @@ const VendorBackstagePage = () => {
     vendorInfo,
     products,
     productErrorMessage,
+    page,
+    productCount,
     handleVendorProductMoreButton,
     handleGetProductsFromVendor,
     handleGetUserById,
@@ -84,7 +87,7 @@ const VendorBackstagePage = () => {
       }else{
         setId(result.data.userId);
         handleGetUserById(result.data.userId);
-        handleGetProductsFromVendor(result.data.userId, productPage, productCat);
+        handleGetProductsFromVendor(result.data.userId, page, productCat);
       }
     });
     return () => {
@@ -94,11 +97,10 @@ const VendorBackstagePage = () => {
   }, []);
 
   const [productCat, setProductCat] = useState('all');
-  const [productPage, setProductPage] = useState(1);
 
   const changeCat = function(t) {
     setProductCat(t)
-    handleGetProductsFromVendor(id, productPage, t);
+    handleGetProductsFromVendor(id, page, t);
   }
 
   console.log('product cat', productCat)
@@ -149,6 +151,9 @@ const VendorBackstagePage = () => {
           handler={handleVendorProductMoreButton}
           productErrorMessage={productErrorMessage}
         />
+        <Pagination count={productCount} page={page} handleChange={(_page) => {
+          handleGetProductsFromVendor(id, _page, productCat)
+        }} />
       </StandardNavPage>
     </>
   );

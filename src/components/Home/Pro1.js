@@ -22,7 +22,7 @@ export default [
     title: "CaoJunNFT Collectibles",
     number: "",
     desc: 'No.0565,8306,7615,9131',
-    link: '/nft/products/category/1',
+    link: 'https://www.icashrewards.io/tsanft',
     mediaType: 2,
     id: 3,
   },
