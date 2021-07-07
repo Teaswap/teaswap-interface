@@ -5,6 +5,7 @@ import { useParams } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { StandardNavPage } from '../../../components/Page';
 import useProduct from '../../../hooks/productHooks/useProduct';
+import Pagination from '../../../components/Pagination/Index';
 import {
   Banner,
   SellerInfo,
@@ -45,6 +46,8 @@ const VendorShopPage = () => {
     vendorInfo,
     products,
     productErrorMessage,
+    page,
+    productCount,
     setIsShowContact,
     handleClick,
     handleVendorProductMoreButton,
@@ -54,7 +57,7 @@ const VendorShopPage = () => {
 
   useEffect(() => {
     window.scroll(0, 0);
-    handleGetProductsFromVendor(id, productPage, productCat);
+    handleGetProductsFromVendor(id, 1, productCat);
     handleGetUserById(id);
     return () => {
       dispatch(setProducts([]));
@@ -66,11 +69,10 @@ const VendorShopPage = () => {
   const {t} = useTranslation();
 
   const [productCat, setProductCat] = useState('all');
-  const [productPage, setProductPage] = useState(1);
 
   const changeCat = function(t) {
     setProductCat(t)
-    handleGetProductsFromVendor(id, productPage, t);
+    handleGetProductsFromVendor(id, page, t);
   }
   
   return (
@@ -136,6 +138,9 @@ const VendorShopPage = () => {
           handler={handleVendorProductMoreButton}
           productErrorMessage={productErrorMessage}
         />
+        <Pagination count={productCount} page={page} handleChange={(_page) => {
+          handleGetProductsFromVendor(id, _page, productCat)
+        }} />
       </StandardNavPage>
     </>
   );

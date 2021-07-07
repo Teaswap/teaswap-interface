@@ -82,9 +82,9 @@ export const getClientOrder = () => (dispatch) => {
   });
 };
 
-export const getSellerOrder = (order) => (dispatch) => {
+export const getSellerOrder = () => (dispatch) => {
   dispatch(setIsLoading(true));
-  return getSellerOrderAPI(order).then((res) => {
+  return getSellerOrderAPI().then((res) => {
     if (!res || res.ok === 0)
       return dispatch(setErrorMessage(res ? res.message : "no data"));
     dispatch(setOrder(res.data));

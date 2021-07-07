@@ -29,6 +29,7 @@ import {useMultipleContractSingleData} from "../../state/multicall/hooks";
 import {STAKING_REWARDS_INTERFACE} from "../../constants/abis/staking-rewards";
 import {BUSD, CJAI, NFTEXCHANGE, SHIH, UNI, ZERO_ADDRESS,BETH} from "../../constants";
 import {ChainId} from "@teaswap/uniswap-sdk";
+import { setErrorMessage } from '../../state/user/actions';
 
 function averageTime(count, products) {
   let totalTime = 0;
@@ -112,6 +113,7 @@ export default function useProduct() {
   };
 
   const handleGetProductsFromVendor = (id, page, type) => {
+    setErrorMessage('')
     dispatch(setPage(page));
     (getProductsFromVendor(id, page, 9, type)(dispatch)).then((res) => {
       if (res.message === 'not a Vendor') navigate('/nft');

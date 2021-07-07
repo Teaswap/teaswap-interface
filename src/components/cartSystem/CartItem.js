@@ -152,8 +152,8 @@ export default function CartItem({ cart }) {
           </IconContainer>
         )} */}
       </Top>
-      {cart.cartDetail.map((Item) => (
-        <ItemDetail Item={Item} key={Item.productId} />
+      {cart.cartDetail.map((Item, index) => (
+        <ItemDetail Item={Item} key={index} />
       ))}
     </Container>
   );

@@ -87,7 +87,7 @@ const VendorBackstagePage = () => {
       }else{
         setId(result.data.userId);
         handleGetUserById(result.data.userId);
-        handleGetProductsFromVendor(result.data.userId, page, productCat);
+        handleGetProductsFromVendor(result.data.userId, 1, productCat);
       }
     });
     return () => {
