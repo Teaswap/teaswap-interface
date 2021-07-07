@@ -200,9 +200,9 @@ export default function useProductForm(id) {
   const handleResaleProduct = (product,reSalePrice,reSaleToken) => {
     // checkDataValidity();
     // if (!hasError) {
-    product.price=reSalePrice;
-    product.extoken=reSaleToken;
-    updateProduct(product.id,product)(dispatch);
+    // product.price=reSalePrice;
+    // product.extoken=reSaleToken;
+    updateProduct(product.id,product,reSalePrice,reSaleToken)(dispatch);
     // }
     // navigate('/nft/users/backstage')
   };

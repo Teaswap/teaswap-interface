@@ -1,7 +1,7 @@
 export default [ 
   {
     picture_url: process.env.PUBLIC_URL + '/nft/pro1/1.gif',
-    title: "CJA NFT Collectibles",
+    title: "CJAI NFT Collectibles",
     number: "No. 0605",
     desc: 'TSA NFT Studio',
     link: '/nft/products/category/1',
@@ -46,8 +46,8 @@ export default [
   },
   {
     picture_url: process.env.PUBLIC_URL + '/nft/pro1/6.gif',
-    title: "CJAI Collectibles",
-    number: "No.7611",
+    title: "CJAI NFT  Collectibles",
+    number: "No.7611 (2)",
     desc: '',
     link: '/nft/products/category/1',
     mediaType: 1,
@@ -55,9 +55,9 @@ export default [
   },
   {
     picture_url: process.env.PUBLIC_URL + '/nft/pro1/7.png',
-    title: "CJAI Collectibles",
+    title: "CaoJunNFT Collectibles",
     number: "No.7611",
-    desc: `pring's News`,
+    desc: `Spring's News`,
     link: '/nft/products/category/1',
     mediaType: 1,
     id: 7
@@ -90,12 +90,13 @@ export default [
     id: 10
   },
   {
-    picture_url: process.env.PUBLIC_URL + '/nft/pro1/11.gif',
+    picture_url: process.env.PUBLIC_URL + '/nft/pro1/12.gif',
     title: "CJAI Collectibles",
-    number: "Fishing Lake No.7611",
-    desc: ``,
+    number: "No.8304 (2)",
+    desc: `Purple Pavilion and Cyan Cloud`,
     link: '/nft/products/category/1',
     mediaType: 1,
     id: 11
   },
+
 ]

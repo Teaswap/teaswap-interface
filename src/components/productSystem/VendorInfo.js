@@ -94,10 +94,6 @@ const InfoWrap = styled(InfoItem)`
   ${InfoItemTitle} {
     min-width: 150px;
     font-size: ${FONT.xs};
-
-    &:after {
-      content: ' : ';
-    }
   }
 
   ${InfoItem} {
@@ -128,20 +124,16 @@ const VendorInfoItem = () => {
   return (
     <InfoWrap>
       <InfoItem>
-        <InfoItemTitle>{t('Created')}</InfoItemTitle>
-        <InfoItemBlock>{userCreated}</InfoItemBlock>
+        <InfoItemTitle>{t('Created')} : {userCreated}</InfoItemTitle>
       </InfoItem>
       <InfoItem>
-        <InfoItemTitle>{t('Sold')}</InfoItemTitle>
-        <InfoItemBlock>{userSold}</InfoItemBlock>
+        <InfoItemTitle>{t('Sold')} : {userSold}</InfoItemTitle>
       </InfoItem>
       <InfoItem>
-        <InfoItemTitle>{t('Like')}</InfoItemTitle>
-        <InfoItemBlock>{vendorInfo.likes}</InfoItemBlock>
+        <InfoItemTitle>{t('Like')} : {vendorInfo.likes}</InfoItemTitle>
       </InfoItem>
       <InfoItem>
-        <InfoItemTitle>{t('View')}</InfoItemTitle>
-        <InfoItemBlock>{vendorInfo.views}</InfoItemBlock>
+        <InfoItemTitle>{t('View')} : {vendorInfo.views}</InfoItemTitle>
       </InfoItem>
     </InfoWrap>
   );

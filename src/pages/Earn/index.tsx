@@ -16,6 +16,7 @@ import StakeBox from '../../components/general/StakeBox'
 // import { unwrappedToken } from '../../utils/wrappedCurrency'
 
 const PageWrapper = styled.div`
+  margin-top:  30px;
   width: 100%;
   text-align: center;
   display: flex;
@@ -96,7 +97,9 @@ export default function Earn() {
               console.log(stakingInfo, showCat)
               switch(showCat) {
                 case 0:
-                  break;
+                  let d2 = new Date().getTime()
+                  if(stakingInfo.periodFinish && d2 < new Date(stakingInfo.periodFinish).getTime()) break;
+                  return;
                 case 1:
                   if (stakingInfo.tokens[1].symbol != 'TSA') return;
                   break;

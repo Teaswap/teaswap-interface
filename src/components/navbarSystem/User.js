@@ -7,7 +7,9 @@ import { useNavigate } from 'react-router-dom';
 import { shortenAddress } from '../../utils'
 
 const UserContainer = styled.div`
-  position: relative;
+  position: absolute;
+  top: -55px;
+  right: 10px;
   &:hover {
     & div {
       opacity: 1;
@@ -116,11 +118,11 @@ export default function User() {
                 {shortenAddress(address)}
               </OptionItem>
             )}
-            <OptionItem>
+            {/* <OptionItem>
               <OptionName onClick={() => navigate('/nft/users/me')}>
                 Edit
               </OptionName>
-            </OptionItem>
+            </OptionItem> */}
             <OptionItem>
               <OptionName onClick={() => navigate('/nft/orders/client')}>
                 History

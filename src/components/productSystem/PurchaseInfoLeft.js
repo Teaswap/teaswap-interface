@@ -63,14 +63,16 @@ export const InfoItem = styled.div`
   margin-top: ${DISTANCE.sm};
   display: flex;
   padding-bottom: ${DISTANCE.sm};
+  display: flex;
+  flex-direction: column;
   &:not(:last-child) {
     border-bottom: 1px solid ${COLOR.cccccc};
   }
 `;
 
 export const InfoItemTitle = styled.div`
-  width: 150px;
   padding-right: 20px;
+  padding-bottom: 20px;
   font-size: 13px;
   color: ${COLOR.text_2};
   word-break: break-all;
@@ -106,7 +108,7 @@ export const FreightIntro = ({ product }) => {
     <>
       <InfoTitle>{t('Additional Details')}</InfoTitle>
       <InfoItem>
-        <InfoItemTitle>{t('Biding Price')}</InfoItemTitle>
+        <InfoItemTitle>{t('Bid history')}</InfoItemTitle>
         <InfoBlock>{product.delivery === '0' ? t('Bid') : t('Auction')}</InfoBlock>
         {product.Carts && product.Carts.map((cart, index) => {
           return (
@@ -118,7 +120,7 @@ export const FreightIntro = ({ product }) => {
         })}
       </InfoItem>
       <InfoItem>
-        <InfoItemTitle>{t('Trade History')}</InfoItemTitle>
+        <InfoItemTitle>{t('Trading History')}</InfoItemTitle>
         {product.Orders && product.Orders.map((order, index) => {
           return (
             <>
@@ -133,10 +135,12 @@ export const FreightIntro = ({ product }) => {
       <InfoItem>
         <InfoItemTitle>{t('Provenance')}</InfoItemTitle>
         <div>
-          <p>Creator: {Creator.address}</p>
-          <p>Owner: {vendorInfo.address}</p>
-          <p>Contract Address: {product.delivery_location}</p>
-          <p>Token ID: {product.tokenId}</p>
+          <p>Creator : {Creator.address}</p>
+          <p>Owner : {vendorInfo.address}</p>
+          <p>Contract Address : <span style={{cursor: 'pointer'}} onClick={() => {
+            window.open(`https://bscscan.com/address/${product.delivery_location}`)
+          }}>{product.delivery_location}</span></p>
+          <p>Token ID : {product.tokenId}</p>
         </div>
       </InfoItem>
       <InfoItem style={{ borderBottom: 'none' }}>

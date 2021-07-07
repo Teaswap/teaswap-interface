@@ -12,10 +12,15 @@ const ProductCategoryItem = styled.li`
   cursor: pointer;
   font-size: 13px;
   float: left;
+  min-width: 127px;
+  height: 40px;
+  padding: 10px;
+  box-shadow: 3px 3px 2px rgb(0 0 0 / 7%);
+  color: ${COLOR.gray};
   & p {
+    width: 100%;
     padding: 0;
-    margin-left: -5px;
-    color: ${COLOR.gray};
+    text-align: center;
     min-width: fit-content;
     &:hover {
       color: ${COLOR.dark_gray};
@@ -24,6 +29,10 @@ const ProductCategoryItem = styled.li`
       margin-top: 6px;
       margin-bottom: 6px;
     }
+  }
+  :hover{
+    color: ${COLOR.dark_gray};
+    box-shadow: 3px 3px 2px rgb(0 0 0 / 17%);
   }
   a{
     :hover {

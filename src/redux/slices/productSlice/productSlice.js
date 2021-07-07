@@ -254,19 +254,20 @@ export const updateProduct = (
     mediaType,
     remark, // 備註
     tokenid
-  }
+  },
+  reSalePrice,reSaleToken
 ) => (dispatch) => {
   return updateProductAPI(id, {
     ProductCategoryId,
     name,
     picture_url,
     info,
-    price,
+    price:reSalePrice,
     quantity,
     delivery, // 出貨方式  0:面交、1:郵寄
     delivery_location,
     royalty,
-    extoken,
+    extoken:reSaleToken,
     mediaType,
     remark, // 備註
     tokenid

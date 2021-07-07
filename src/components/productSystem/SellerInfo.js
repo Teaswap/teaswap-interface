@@ -255,7 +255,7 @@ export const SellerInfoMobile = ({
           </Buttons>
         </InfoTop>
       </VendorInfoWrap>
-      <InfoItem products={products} />
+      <InfoItem vendorInfo={vendorInfo} />
     </InfoContainer>
   );
 };

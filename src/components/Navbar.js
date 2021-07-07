@@ -21,6 +21,7 @@ const NavbarContainer = styled.div`
   width: 100%;
   max-width: 1400px;
   margin: 0 auto;
+  margin-top: 30px;
   height: ${(props) => (props.$size === 'sm' ? '65px' : '135px')};
   background: #fcfcfc;
   padding: 25px;
@@ -31,6 +32,7 @@ const NavbarContainer = styled.div`
   ${MEDIA_QUERY.sm} {
     height: ${(props) => (props.$size === 'sm' ? '65px' : '115px')};
     padding: 10px;
+    margin: 20px 0;
   }
 `;
 
@@ -60,11 +62,13 @@ const LeftSide = styled.div`
 `;
 
 const RightSide = styled.div`
+  display; flex;
   ${MEDIA_QUERY.md} {
   }
 `;
 
 const OptionList = styled.div`
+  position: relative;
   display: flex;
   align-items: center;
   ${MEDIA_QUERY.md} {
@@ -75,6 +79,12 @@ const OptionList = styled.div`
 const Empty = styled.div`
   width: 90px;
 `;
+
+const CatTitle = styled.span`
+  ${MEDIA_QUERY.sm}{
+    display: none;
+  }
+`
 
 const Navbar = () => {
   const location = useLocation();
@@ -118,12 +128,13 @@ const Navbar = () => {
       }
     >
       <NavbarTop>
-        <LeftSide>
+        {/* <LeftSide>
           <Logo />
-        </LeftSide>
+        </LeftSide> */}
+        <CatTitle className="all-category-title">Categories</CatTitle>
         <RightSide>
           <OptionList>
-            {isAdmin && <Nav children={'管理後台'} path={'/nft/admin'} />}
+            {/* {isAdmin && <Nav children={'管理後台'} path={'/nft/admin'} />} */}
             {userId && (
               <>
                 <User />
@@ -142,6 +153,7 @@ const Navbar = () => {
             {/*  </>*/}
             {/*)}*/}
           </OptionList>
+          <SearchBar />
         </RightSide>
       </NavbarTop>
 
@@ -156,7 +168,6 @@ const Navbar = () => {
               />
             ))}
           </div>
-          <SearchBar />
         </NavbarBottom>
       )}
     </NavbarContainer>

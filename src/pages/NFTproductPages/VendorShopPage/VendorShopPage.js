@@ -89,7 +89,7 @@ const VendorShopPage = () => {
             <AiOutlineUser title="Edit Contact" size="30"/>
           </NavLink>
         </div> */}
-        {isMobile ? (
+        {/* {isMobile ? (
           <SellerInfoMobile
             vendorInfo={vendorInfo}
             products={products}
@@ -99,7 +99,7 @@ const VendorShopPage = () => {
             setIsShowContact={setIsShowContact}
             handleClick={handleClick}
           />
-        ) : (
+        ) : ( */}
           <SellerInfo
             vendorInfo={vendorInfo}
             products={products}
@@ -109,7 +109,7 @@ const VendorShopPage = () => {
             setIsShowContact={setIsShowContact}
             handleClick={handleClick}
           />
-        )}
+        {/* )} */}
         <Announcement announcement={vendorInfo.description} />
         <SellerProductTitle>
           <div className='page-tabs'>
