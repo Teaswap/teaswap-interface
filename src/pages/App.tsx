@@ -76,7 +76,7 @@ import { CartPage, CheckoutPage } from './NFTcartPages';
 
 import {
   ClientOrdersPage,
-  VendorOrdersPage,
+  // VendorOrdersPage,
   OrderDetailPage,
 } from './NFTorderPages/';
 
@@ -248,10 +248,7 @@ export default function App() {
 
                 <Route path={'/orders'}>
                   <Route path={':id'} element={<OrderDetailPage/>}/>
-                  <Route path={'/bidding'} element={<ClientOrdersPage/>}/>
-                  <Route path={'/sale'} element={<ClientOrdersPage/>}/>
-                  <Route path={'/purchase'} element={<ClientOrdersPage/>}/>
-                  <Route path={'/vendor'} element={<VendorOrdersPage/>}/>
+                  <Route path={'/'} element={<ClientOrdersPage/>}/>
                 </Route>
 
                 <Route path={'/admin'}>

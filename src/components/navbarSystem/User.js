@@ -124,7 +124,7 @@ export default function User() {
               </OptionName>
             </OptionItem> */}
             <OptionItem>
-              <OptionName onClick={() => navigate('/nft/orders/bidding')}>
+              <OptionName onClick={() => navigate('/nft/orders')}>
                 History
               </OptionName>
             </OptionItem>
