@@ -219,7 +219,7 @@ export const postProduct = ({
   });
 };
 
-export const setPrice = (id,price)=>(dispatch)=>{
+export const setPrice = (id,price,userid)=>(dispatch)=>{
   return setPriceAPI(id,price).then((res) => {
     if (res.ok === 0) {
       return dispatch(setErrorMessage(res ? res.message : 'something wrong'));
@@ -227,7 +227,7 @@ export const setPrice = (id,price)=>(dispatch)=>{
     if ( res.ok === 2 ) {
       const readyToOrderItems = [{
         ProductId: id,
-        UserId: product.UserId,
+        UserId: userid,
         product_quantity: 1,
       }]
       return createOrderAPI(readyToOrderItems).then((res) => {

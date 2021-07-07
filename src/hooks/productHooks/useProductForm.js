@@ -211,7 +211,7 @@ export default function useProductForm(id) {
     // checkDataValidity();
     // if (!hasError) {
     product.price=price;
-    setPrice(product.id,price)(dispatch);
+    setPrice(product.id,price,product.UserId)(dispatch);
     // }
     // navigate('/nft/users/backstage')
   };

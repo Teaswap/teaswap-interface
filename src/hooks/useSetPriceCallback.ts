@@ -9,6 +9,7 @@ import {
 import {useTranslation} from "react-i18next";
 import {useCallback, useMemo} from "react";
 import {TransactionResponse} from "@ethersproject/providers";
+import BigNumber from "bignumber.js";
 
 export enum setPriceState {
     UNKNOWN,
@@ -33,13 +34,14 @@ export function useSetPriceCallback(
         return !setPriceSubmitted? pendingSetPrice ? setPriceState.PENDING : setPriceState.NOT_SET: setPriceState.SETED
     }, [pendingSetPrice])
 
+    const priceNumber = new BigNumber(price).multipliedBy(new BigNumber(10).pow(18))
 
     const setPrice = useCallback(async (): Promise<void> => {
         if(NFTExContract){
             if(price>0){
                 const setargs = [
                     orderid,
-                    price
+                    priceNumber.toFixed()
                 ]
                 console.log(setargs)
                 NFTExContract.setPrice(

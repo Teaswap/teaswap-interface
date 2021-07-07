@@ -122,7 +122,7 @@ const Product = ({ product, onLoad, loaded, $width, $height, $margin }) => {
   useEffect(() => {
     if (setPrice === setPriceState.SETED) {
       setPriceSubmitted(true)
-      handleSetPrice(product,price)
+      handleSetPrice(product,newPrice)
     }
   }, [setPrice, setPriceSubmitted])
 
@@ -223,7 +223,7 @@ const Product = ({ product, onLoad, loaded, $width, $height, $margin }) => {
     <Modal className="new-modal" isOpen={isPrice} onDismiss={dismissPrice} maxHeight={90}>
       <div className="new-modal">
         <p>{t('Set Price')}</p>
-        <input type="text" className="input-primary" />
+        <input type="text" className="input-primary" onChange={(e)=>setNewPrice(e.target.value)}/>
         <div className="modal-btns">
           <span className='btn-sm-100 btn-primary' onClick={setPriceCallback}>{t("Confirm")}</span>
           <span className='btn-sm-100 btn-primary' onClick={dismissPrice}>{t("Cancel")}</span>

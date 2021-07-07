@@ -62,7 +62,7 @@ export default function useCart() {
 
   const handleDeleteProductInCart = (id) => {
     // todo for simon
-    // deleteCartItem(id)(dispatch);
+    deleteCartItem(id)(dispatch);
   };
   const handleDeleteCart = (id) => {
     deleteCartItemsBySeller(id)(dispatch);
