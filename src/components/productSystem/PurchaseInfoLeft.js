@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import useProduct from '../../hooks/productHooks/useProduct';
 import { MEDIA_QUERY } from '../../constants/style';
 import { useTranslation } from 'react-i18next';
+import {truncStr} from '../../utils/strUtil'
 
 const ProductPictureContainer = styled.div`
   position: relative;
@@ -103,32 +104,29 @@ export const ProductIntro = ({ product }) => {
 
 export const FreightIntro = ({ product }) => {
   const {t} = useTranslation();
-  const { vendorInfo, Creator } = useProduct();
+  const { vendorInfo, Creator, productCarts, productOrders, handleTokenSwitch } = useProduct();
+  console.log('product orders', productOrders)
   return (
     <>
       <InfoTitle>{t('Additional Details')}</InfoTitle>
       <InfoItem>
-        <InfoItemTitle>{t('Bid history')}</InfoItemTitle>
-        <InfoBlock>{product.delivery === '0' ? t('Bid') : t('Auction')}</InfoBlock>
-        {product.Carts && product.Carts.map((cart, index) => {
+        <InfoItemTitle>{t('Bidding')}</InfoItemTitle>
+        {/* <InfoBlock>{product.delivery === '0' ? t('Bid') : t('Auction')}</InfoBlock> */}
+        {productCarts && productCarts.map((cart, index) => {
           return (
-            <>
-              <span>order.bidprice</span>
-              <span>order.createdAt</span>
-            </>
+            <p>
+              Bid: <span>{cart.bidprice} {handleTokenSwitch(product.extoken)}</span> at <span>{'  ' + cart.createdAt}</span>
+            </p>
           )
         })}
       </InfoItem>
       <InfoItem>
         <InfoItemTitle>{t('Trading History')}</InfoItemTitle>
-        {product.Orders && product.Orders.map((order, index) => {
+        {productOrders && productOrders.map((order, index) => {
           return (
-            <>
-              <span>order.seller_name</span>
-              <span>order.client_name</span>
-              <span>order.is_completed</span>
-              <span>order.createdAt</span>
-            </>
+            <p>
+              From: <span>{truncStr(order.Order.seller_name)}</span> To: <span>{truncStr(order.Order.client_name)}</span> at <span>{new Date(order.Order.createdAt).toLocaleDateString()}</span>
+            </p>
           )
         })}
       </InfoItem>

@@ -43,7 +43,6 @@ const Table = styled.table`
   text-align: center;
   table-layout: fixed;
   border-collapse: collapse;
-  margin-top: ${DISTANCE.lg};
 `;
 const NameContainer = styled.tr``;
 const Name = styled.th`
@@ -116,7 +115,10 @@ const ClientOrdersPage = () => {
 
   return (
     <>
-      <ThickNavPage>
+      <ThickNavPage style={{
+        width: '1400px',
+        overflow: 'scroll'
+      }}>
         <Container>
           <Tabs tabs={tabs} value={tab} handleChange={(v) => {
             switch(v){

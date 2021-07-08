@@ -101,7 +101,7 @@ export default function ItemDetail({ Item }) {
     setAttempting(true)
     if (exContract && canBidid!='') {
       if (item.productExtoken===ZERO_ADDRESS){
-        exContract.withdrawBidBNB(JSBI.BigInt(item.noworderid),((new BigNumber(item.bidprice)).mul(new BigNumber("1000000000000000000"))).toFixed(),{gasLimit: 3500000})
+        exContract.withdrawBidBNB(item.noworderid.toString(),((new BigNumber(item.bidprice)).mul(new BigNumber("1000000000000000000"))).toFixed(),{gasLimit: 3500000})
             .then((response) => {
               addTransaction(response, {
                 summary: t('withdrawbid#'+item.noworderid)
@@ -115,7 +115,7 @@ export default function ItemDetail({ Item }) {
       }else{
 
           console.log("item:"+JSON.stringify(item))
-          exContract.withdrawBid(JSBI.BigInt(item.noworderid),((new BigNumber(item.bidprice)).multipliedBy(new BigNumber("1000000000000000000"))).toFixed(), { gasLimit: 1000000 })
+          exContract.withdrawBid(item.noworderid.toString(),new BigNumber(item.bidprice).times(new BigNumber(10).pow(18)).toString(), { gasLimit: 1000000 })
               .then((response) => {
                 addTransaction(response, {
                   summary: t('withdraw#'+item.noworderid)
@@ -197,6 +197,7 @@ export default function ItemDetail({ Item }) {
         ) : (
           <Price>{formatter.format(Item.price)} {handleTokenSwitch(Item.productExtoken)}</Price>
         )}
+        <Price>Bid: {formatter.format(Item.bidprice)} {handleTokenSwitch(Item.productExtoken)}</Price>
         {checked || isPaying ? null : (
           <Container onClick={onCancelBid}>
             <IconComponent kind="delete" />
