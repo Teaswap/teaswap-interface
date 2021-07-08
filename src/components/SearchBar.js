@@ -11,7 +11,7 @@ const SearchBarContainer = styled.div`
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  width: 320px;
+  width: 220px;
   height: 32px;
   border-radius: 0px;
   & div {

@@ -261,9 +261,13 @@
   text-align: left;
   cursor: pointer;
   color: #7f7f7f;
+  border-bottom: 1px solid #ccc;
 }
 .dropdown-menu-item:first{
   margin-top: 10px;
+}
+.dropdown-menu-item:last-child{
+  border-bottom: none;
 }
 .dropdown-menu-item:hover{
   background-color: #eeeeee;
