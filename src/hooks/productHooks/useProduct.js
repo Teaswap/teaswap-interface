@@ -84,7 +84,7 @@ export default function useProduct() {
   const handleGetProduct = (id, page) => {
     dispatch(setPage(page));
     (getProduct(id)(dispatch)).then((res) => {
-      if (!res.product || ![1, 3].includes(Number(res.product.status))) {
+      if (!res.product || ![0, 1, 3].includes(Number(res.product.status))) {
         return navigate('/');
       }
       (getProductsFromVendor(res.vendorInfo.id, page, 4)(dispatch)).then(
