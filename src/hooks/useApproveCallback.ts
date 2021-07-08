@@ -180,6 +180,8 @@ export function useApproveNFTCallback(
       return
     }
 
+    console.log("tokenID:"+tokenId)
+
     const estimatedGas = await nftContract.estimateGas.approve(to, tokenId).catch(() => {
       // general fallback for tokens who restrict approval amounts
       return nftContract.estimateGas.approve(to, tokenId)
