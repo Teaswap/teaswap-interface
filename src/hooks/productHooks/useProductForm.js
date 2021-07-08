@@ -202,7 +202,7 @@ export default function useProductForm(id) {
     // if (!hasError) {
     // product.price=reSalePrice;
     // product.extoken=reSaleToken;
-    updateProduct(product.id,product,reSalePrice,reSaleToken)(dispatch);
+    updateProduct(product.id,product,reSalePrice,reSaleToken,'0')(dispatch);
     // }
     // navigate('/nft/users/backstage')
   };

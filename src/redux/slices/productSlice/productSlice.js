@@ -269,7 +269,7 @@ export const updateProduct = (
     remark, // 備註
     tokenid
   },
-  reSalePrice,reSaleToken
+  reSalePrice,reSaleToken,status
 ) => (dispatch) => {
   return updateProductAPI(id, {
     ProductCategoryId,
@@ -282,6 +282,7 @@ export const updateProduct = (
     delivery_location,
     royalty,
     extoken:reSaleToken,
+    status:status,
     mediaType,
     remark, // 備註
     tokenid

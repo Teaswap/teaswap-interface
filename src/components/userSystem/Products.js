@@ -161,15 +161,11 @@ const Product = ({ product, onLoad, loaded, $width, $height, $margin }) => {
           {product.status != '1' && (
             <span onClick={() => {
               setIsProof(true)
-            }} className="dropdown-menu-item">{t("Proof")}</span>
+            }} className="dropdown-menu-item">{t("Approve")}</span>
           )}
           <span onClick={() => {
             setIsTransfer(true)
           }} className="dropdown-menu-item">{t("Transfer")}</span>
-          <span onClick={() => {
-            setIsProof(true)
-          }} className="short-btn">{t("Approve")}</span>
-        <span style={{marginLeft: '10px', color: '#7f7f7f'}}>{product.status == '1' ? 'My Artwork' : 'Pending'}</span>
         <span onClick={() => {
           setIsPrice(true)
         }} className="dropdown-menu-item">{t("Set Price")}</span>

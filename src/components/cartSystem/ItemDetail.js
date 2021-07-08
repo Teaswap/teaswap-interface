@@ -92,6 +92,8 @@ export default function ItemDetail({ Item }) {
 
 
   const onCancelBid = ()=>{
+        console.log("cartitemid: "+Item.cartItemId)
+      console.log("attemping:"+attempting)
     setCanBidid(Item.cartItemId)
   }
 
@@ -99,7 +101,7 @@ export default function ItemDetail({ Item }) {
     setAttempting(true)
     if (exContract && canBidid!='') {
       if (item.productExtoken===ZERO_ADDRESS){
-        exContract.withdrawBidBNB(JSBI.BigInt(item.noworderid),((new BigNumber(item.bidprice)).mul(new BigNumber("1000000000000000000"))).toFixed(),{gasLimit: 3500000})
+        exContract.withdrawBidBNB(item.noworderid.toString(),((new BigNumber(item.bidprice)).mul(new BigNumber("1000000000000000000"))).toFixed(),{gasLimit: 3500000})
             .then((response) => {
               addTransaction(response, {
                 summary: t('withdrawbid#'+item.noworderid)
@@ -113,7 +115,7 @@ export default function ItemDetail({ Item }) {
       }else{
 
           console.log("item:"+JSON.stringify(item))
-          exContract.withdrawBid(JSBI.BigInt(item.noworderid),((new BigNumber(item.bidprice)).mul(new BigNumber("1000000000000000000"))).toFixed(), { gasLimit: 1000000 })
+          exContract.withdrawBid(item.noworderid.toString(),new BigNumber(item.bidprice).times(new BigNumber(10).pow(18)).toString(), { gasLimit: 1000000 })
               .then((response) => {
                 addTransaction(response, {
                   summary: t('withdraw#'+item.noworderid)
@@ -150,13 +152,13 @@ export default function ItemDetail({ Item }) {
           <LoopCircleLoading />;
         </LoadingBackground>
       )}
-      {!attempting && !hash && (
+      {!attempting && (
       <Modal className="new-modal" isOpen={canBidid!=''} onDismiss={dismissCan} maxHeight={90}>
         <div className="new-modal">
           <p>{t('Withdraw Bid')}</p>
-          <input type="text" className="input-primary" />
+
           <div className="modal-btns">
-            <span className='btn-sm-100 btn-primary' onClick={() => onWithdrawBid(Item)}>{t("Confirm")}</span>
+            <span className='btn-sm-100 btn-primary' onClick={()=>onWithdrawBid(Item)}>{t("Confirm")}</span>
             <span className='btn-sm-100 btn-primary' onClick={dismissCan}>{t("Cancel")}</span>
           </div>
         </div>
