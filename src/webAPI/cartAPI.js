@@ -81,7 +81,8 @@ export const createOrder = (readyToOrderItems) => {
   }).then((res) => res.json());
 };
 // 訂單完成
-export const completeOrder = (id) => {
+export const
+    completeOrder = (id) => {
   const token = getAuthToken();
   return fetch(`${BASE_URL}/orders/${id}/complete`, {
     method: "PATCH",

@@ -121,6 +121,7 @@ const updateProductAPI = (
     delivery_location,
     royalty,
     extoken,
+    status,
     mediaType,
     remark, // 備註
     tokenid
@@ -145,6 +146,7 @@ const updateProductAPI = (
       delivery_location,
       royalty,
       extoken,
+      status,
       mediaType,
       remark, // 備註
       tokenid
