@@ -153,7 +153,9 @@ export const VendorInfo = () => {
             />
           </a>
         </AvatarContainer>
-        <VendorName>{vendorInfo.nickname}</VendorName>
+        <a class='a-link' href={`/nft/products/vendor/${vendorInfo.id}`}>
+          <VendorName>{vendorInfo.nickname}</VendorName>
+        </a>
       </VendorInfoTop>
       {/*<Buttons />*/}
       <VendorInfoItem/>
