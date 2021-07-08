@@ -156,7 +156,7 @@ export default function ItemDetail({ Item }) {
           <p>{t('Withdraw Bid')}</p>
           <input type="text" className="input-primary" />
           <div className="modal-btns">
-            <span className='btn-sm-100 btn-primary' onClick={onWithdrawBid(Item)}>{t("Confirm")}</span>
+            <span className='btn-sm-100 btn-primary' onClick={() => onWithdrawBid(Item)}>{t("Confirm")}</span>
             <span className='btn-sm-100 btn-primary' onClick={dismissCan}>{t("Cancel")}</span>
           </div>
         </div>
@@ -195,6 +195,7 @@ export default function ItemDetail({ Item }) {
         ) : (
           <Price>{formatter.format(Item.price)} {handleTokenSwitch(Item.productExtoken)}</Price>
         )}
+        <Price>Bid: {formatter.format(Item.bidprice)} {handleTokenSwitch(Item.productExtoken)}</Price>
         {checked || isPaying ? null : (
           <Container onClick={onCancelBid}>
             <IconComponent kind="delete" />

@@ -62,6 +62,12 @@ export const productSlice = createSlice({
     setProduct: (state, action) => {
       state.product = action.payload;
     },
+    setProductCarts: (state, action) => {
+      state.productCarts = action.payload;
+    },
+    setProductOrders: (state, action) => {
+      state.productOrders = action.payload;
+    },
     setCategories: (state, action) => {
       state.categories = action.payload;
     },
@@ -85,6 +91,8 @@ export const {
   setUserCreated,
   setUserSold,
   setProduct,
+  setProductCarts,
+  setProductOrders,
   setCategories,
   setCategory,
   setErrorMessage,
@@ -109,12 +117,14 @@ export const getProduct = (id) => (dispatch) => {
     if (res.ok === 0) {
       return dispatch(setErrorMessage(res ? res.message : 'something wrong'));
     }
-    const { vendorInfo, Creator, category, product, userCreated, userSold } = res.data;
+    const { vendorInfo, Creator, category, product, userCreated, userSold, Carts, Orders } = res.data;
     dispatch(setCreator(Creator));
     dispatch(setVendorInfo(vendorInfo));
     dispatch(setUserCreated(userCreated));
     dispatch(setUserSold(userSold));
     dispatch(setProduct(product));
+    dispatch(setProductCarts(Carts));
+    dispatch(setProductOrders(Orders));
     dispatch(setCategory(category));
     return res.data;
   });
@@ -296,6 +306,8 @@ export const deleteProduct = (id) => (_) => {
 export const selectProductCategories = (state) => state.product.categories;
 export const selectProducts = (state) => state.product.products;
 export const selectProduct = (state) => state.product.product;
+export const selectProductCarts = (state) => state.product.productCarts;
+export const selectProductOrders = (state) => state.product.productOrders;
 export const selectCategory = (state) => state.product.category;
 export const selectErrorMessage = (state) => state.product.errorMessage;
 export const selectProductCount = (state) => state.product.productCount;

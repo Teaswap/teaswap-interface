@@ -11,6 +11,8 @@ import {
   selectProductCount,
   selectProductCategories,
   selectProduct,
+  selectProductCarts,
+  selectProductOrders,
   selectProducts,
   selectPage,
   selectCategory,
@@ -55,6 +57,8 @@ export default function useProduct() {
   const Creator = useSelector(selectCreator);
   const productCategories = useSelector(selectProductCategories);
   const product = useSelector(selectProduct);
+  const productCarts = useSelector(selectProductCarts);
+  const productOrders = useSelector(selectProductOrders);
   const products = useSelector(selectProducts);
   const productCount = useSelector(selectProductCount);
   const userCreated = useSelector(selectUserCreated);
@@ -80,7 +84,7 @@ export default function useProduct() {
   const handleGetProduct = (id, page) => {
     dispatch(setPage(page));
     (getProduct(id)(dispatch)).then((res) => {
-      if (!res.product || Number(res.product.status) !== 1) {
+      if (!res.product || ![1, 3].includes(Number(res.product.status))) {
         return navigate('/');
       }
       (getProductsFromVendor(res.vendorInfo.id, page, 4)(dispatch)).then(
@@ -184,6 +188,8 @@ export default function useProduct() {
     productCategories,
     averageShippingTime,
     product,
+    productCarts,
+    productOrders,
     products,
     category,
     productCount,
