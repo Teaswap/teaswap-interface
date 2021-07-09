@@ -51,6 +51,8 @@ export default function MintModal({ isOpen, onDismiss, mintInfo,lastId }: mintMo
   const {  account } = useActiveWeb3React()
   const { t } = useTranslation()
 
+  console.log('mintInfo', mintInfo)
+
 
   // track and parse user input
   const [approvalSubmitted, setApprovalSubmitted] = useState<boolean>(false)
