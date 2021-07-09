@@ -134,6 +134,8 @@ export default function SetArtwork() {
       <RightSide>
         <Description>
           {"Support： PNG, JPG , GIF, Video and Audio; Suggested ratio 3:4; Size <10MB"}
+          <br />
+          {"Mint an NFT charges 0.01BNB"}
         </Description>
         <Label>
           <InputFile id="uploadArtwork" type='file'  onChange={handleChangePicture} />
