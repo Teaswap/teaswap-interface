@@ -127,7 +127,7 @@ export const addQuantity = (quantity, id) => (dispatch) => {
 };
 export const deleteCartItem = (id) => (dispatch) => {
   return deleteItem(id).then((res) => {
-    dispatch(getCartItem());
+    getCartItem()(dispatch);
     return res;
   });
 };

@@ -115,7 +115,7 @@ export default function ItemDetail({ Item }) {
       }else{
 
           console.log("item:"+JSON.stringify(item))
-          exContract.withdrawBid(item.noworderid.toString(),new BigNumber(item.bidprice).times(new BigNumber(10).pow(18)).toString(), { gasLimit: 1000000 })
+          exContract.withdrawBid(item.noworderid.toString(),new BigNumber(item.bidprice).times(new BigNumber(10).pow(18)).toFixed(), { gasLimit: 1000000 })
               .then((response) => {
                 addTransaction(response, {
                   summary: t('withdraw#'+item.noworderid)
