@@ -187,5 +187,5 @@ export {
   updateProductAPI,
   deleteProductAPI,
   postPictureAPI,
-    setPriceAPI
+  setPriceAPI
 };
