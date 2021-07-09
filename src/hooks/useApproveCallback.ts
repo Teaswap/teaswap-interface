@@ -118,7 +118,8 @@ export function useApproveCallbackFromTrade(trade?: Trade, allowedSlippage = 0) 
 export function useApproveNFTCallback(
     to?: string,
     lastTokenId?: number,
-    tokenAddress?:string
+    tokenAddress?:string,
+    isreSale?:boolean
 ): [ApprovalState, () => Promise<void>  ] {
 
   const tokenIdres = useNFTLastId(tokenAddress)
@@ -128,7 +129,10 @@ export function useApproveNFTCallback(
     console.log("tokenIdres:"+tokenIdres)
     console.log("lastTokenId:"+lastTokenId)
 
-      if (tokenIdres) {
+    if(isreSale){
+      return lastTokenId
+    }
+    if (tokenIdres) {
           return tokenIdres-1
       }else{
           return undefined
@@ -179,6 +183,8 @@ export function useApproveNFTCallback(
       console.error('no spender')
       return
     }
+
+    console.log("tokenID:"+tokenId)
 
     const estimatedGas = await nftContract.estimateGas.approve(to, tokenId).catch(() => {
       // general fallback for tokens who restrict approval amounts

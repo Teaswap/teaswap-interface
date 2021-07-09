@@ -110,7 +110,7 @@ const Product = ({ product, onLoad, loaded, $width, $height, $margin }) => {
   const [setPriced, setSetPriced] = useState(false)
   const [newPrice, setNewPrice] = useState(0)
   const [reSalePrice, setReSalePrice] = useState(0)
-  const [approval, approveCallback] = useApproveNFTCallback(NFTEXCHANGE[ChainId.BSC_MAINNET],product.tokenid,product.delivery_location)
+  const [approval, approveCallback] = useApproveNFTCallback(NFTEXCHANGE[ChainId.BSC_MAINNET],product.tokenid,product.delivery_location,true)
   const [setPrice,setPriceCallback] = useSetPriceCallback(product.orderid,newPrice)
   const {handleResaleProduct,handleSetPrice} = useProductForm()
   console.log("approval:"+approval)
