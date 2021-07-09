@@ -34,6 +34,7 @@ import { MEDIA_QUERY } from '../../constants/style'
 import {Countdown} from "./Countdown";
 
 const PageWrapper = styled(AutoColumn)`
+  margin-top: 50px;
   max-width: 640px;
   width: 100%;
   box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.1), 0px 4px 8px rgba(0, 0, 0, 0.08), 0px 16px 24px rgba(0, 0, 0, 0.06),
@@ -42,6 +43,7 @@ const PageWrapper = styled(AutoColumn)`
   ${MEDIA_QUERY.sm} {
     width: 86%;
     margin: 0 auto;
+    margin-top: 30px;
   }
 `
 
