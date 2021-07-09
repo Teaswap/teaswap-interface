@@ -125,7 +125,7 @@ export const FreightIntro = ({ product }) => {
         {productOrders && productOrders.map((order, index) => {
           return (
             <p>
-              From: <span>{truncStr(order.Order.seller_name)}</span> To: <span>{truncStr(order.Order.client_name)}</span> at <span>{new Date(order.Order.createdAt).toLocaleDateString()}</span>
+              {/* From: <span>{truncStr(order.Order.seller_name)}</span> To: <span>{truncStr(order.Order.client_name)}</span> at <span>{new Date(order.Order.createdAt).toLocaleDateString()}</span> */}
             </p>
           )
         })}
