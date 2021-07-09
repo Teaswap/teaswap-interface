@@ -139,6 +139,8 @@ export function useApproveNFTCallback(
       }
   },[tokenIdres])
 
+  console.log("tokenid:"+tokenId)
+
   const currentAllowance = useNFTAllowance(tokenAddress,tokenId)
   const pendingApproval = useHasPendingNFTApproval(tokenAddress, to,tokenId)
 
@@ -174,6 +176,7 @@ export function useApproveNFTCallback(
       return
     }
 
+    console.log("tokenIDinApprove:"+tokenId)
     if (tokenId === undefined) {
       console.error('missing tokenId to approve')
       return
