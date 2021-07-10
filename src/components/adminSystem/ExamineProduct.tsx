@@ -269,6 +269,7 @@ export default function ExamineProduct() {
 
             <ProductsItem key={index} product={product} setPassedProducts={(status:any , product:ProductInterface) => {
               // const status = e.target.value === '通過' ? '1' : '2';
+              console.log('ProductsItem', status, product)
               if(status === '1'){
                 // let products: Array<ProductInterface> = passedProducts
                 passedProducts.push(product)
