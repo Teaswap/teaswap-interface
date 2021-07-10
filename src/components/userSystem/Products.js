@@ -115,9 +115,10 @@ const Product = ({ product, onLoad, loaded, $width, $height, $margin }) => {
   const {handleResaleProduct,handleSetPrice} = useProductForm()
   console.log("approval:"+approval)
   useEffect(() => {
-    if (approval === ApprovalState.APPROVED) {
+    debugger
+    if (approval === ApprovalState.APPROVED && productPrice > 0) {
       setApprovalSubmitted(true)
-      handleResaleProduct(product,productPrice,productToken)
+      handleResaleProduct(product,parseFloat(productPrice),productToken)
     }
   }, [approval, approvalSubmitted])
 
@@ -135,6 +136,7 @@ const Product = ({ product, onLoad, loaded, $width, $height, $margin }) => {
 
   const [showMenu, setShowMenu] = useState(false)
   const [isTransfer, setIsTransfer] = useState(false)
+  const [setPriceError, setSetPriceError] = useState('')
 
   const dismissPrice = () => {
     setIsPrice(false)
@@ -234,8 +236,14 @@ const Product = ({ product, onLoad, loaded, $width, $height, $margin }) => {
             textareaRows={1}
             value={productPrice}
         />
+        {setPriceError}
         <div className="modal-btns">
-          <span className='btn-sm-100 btn-primary' onClick={approveCallback}>{t("Confirm")}</span>
+          <span className='btn-sm-100 btn-primary' onClick={(e) => {
+            if (parseFloat(productPrice) <= 0) {
+              setSetPriceError('价格不可为0')
+            }
+            approveCallback(e)
+          }}>{t("Confirm")}</span>
           <span className='btn-sm-100 btn-primary' onClick={dismissProof}>{t("Cancel")}</span>
         </div>
       </div>

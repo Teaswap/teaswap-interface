@@ -202,6 +202,7 @@ export default function useProductForm(id) {
     // if (!hasError) {
     // product.price=reSalePrice;
     // product.extoken=reSaleToken;
+    debugger
     updateProduct(product.id,product,reSalePrice,reSaleToken,'0')(dispatch);
     // }
     // navigate('/nft/users/backstage')
@@ -221,6 +222,7 @@ export default function useProductForm(id) {
     checkDataValidity();
     setIsSubmitClicked(true);
     if (!hasError) {
+      debugger
       updateProduct(id, formData)(dispatch);
       navigate('/nft/users/backstage');
     }

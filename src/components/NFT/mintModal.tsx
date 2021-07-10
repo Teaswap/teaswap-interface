@@ -102,6 +102,7 @@ export default function MintModal({ isOpen, onDismiss, mintInfo,lastId }: mintMo
     console.log("approval:"+approval)
   useEffect(() => {
     if (approval === ApprovalState.PENDING) {
+      debugger
       setApprovalSubmitted(true)
       handleSubmitProduct(mintInfo,lastId)
     }
