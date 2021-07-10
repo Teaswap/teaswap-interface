@@ -42,7 +42,7 @@ export default function ExamineSelector(props) {
     <ExamineContainer>
       <Selector
         onChange={(e) => {
-          handleChangeSelector(e, product)
+          // handleChangeSelector(e, product)
           const status = e.target.value === '通過' ? '1' : '2';
           setPassedProducts(status, product)
         }}
