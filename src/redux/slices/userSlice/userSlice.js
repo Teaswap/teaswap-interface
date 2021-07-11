@@ -86,7 +86,7 @@ export const uploadAvatar = (data) => (dispatch) => {
       return dispatch(
         setErrorMessage(result ? result.message : 'something wrong')
       );
-    getMe()(dispatch);
+    // getMe()(dispatch);
     return result;
   });
 };
@@ -103,7 +103,7 @@ export const uploadBanner = (data) => (dispatch) => {
       return dispatch(
         setErrorMessage(result ? result.message : 'something wrong')
       );
-    getMe()(dispatch);
+    // getMe()(dispatch);
     return result;
   });
 };

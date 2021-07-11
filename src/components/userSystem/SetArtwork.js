@@ -116,16 +116,14 @@ const LoadingMask = styled.div`
   align-items: center;
 `;
 
-export default function SetArtwork() {
+export default function SetArtwork({productPictureUrl, handleChangePicture, setProductPictureUrl}) {
   const {t} = useTranslation()
 
   const{
     uploadError,
     isCheckImage,
     isLoadingUpload,
-    productPictureUrl,
     setIsCheckImage,
-    handleChangePicture
   } = useProductForm()
 
   return (
@@ -138,7 +136,7 @@ export default function SetArtwork() {
           {"Mint an NFT charges 0.01BNB"}
         </Description>
         <Label>
-          <InputFile id="uploadArtwork" type='file'  onChange={handleChangePicture} />
+          <InputFile id="uploadArtwork" type='file'  onChange={(e) => handleChangePicture(e, setProductPictureUrl)} />
           {t("Choose File")}
         </Label>
         {isCheckImage && (

@@ -117,7 +117,8 @@ const PostProductPage = () => {
     hasDelivery,
     // hasProductQuantity,
     productPictureUrl,
-    // handleChangePicture,
+    setProductPictureUrl,
+    handleChangePicture,
     checkInputError,
     productCategory,
     productName,
@@ -388,7 +389,7 @@ const PostProductPage = () => {
           />
         </QuestionBox> */}
         <QuestionTitle>{t('Upload Artwork')}</QuestionTitle>
-        <SetArtwork/>
+        <SetArtwork productPictureUrl={productPictureUrl} handleChangePicture={handleChangePicture} setProductPictureUrl={setProductPictureUrl}/>
 
         <InputItem
           title={t('Category')}

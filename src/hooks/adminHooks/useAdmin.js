@@ -89,7 +89,7 @@ export default function useAdmin() {
     //   setPassedProducts(passedProducts.filter(v => v.id != product.id))
     }
     // product.status = status
-    handleUpdateProductStatus(product.id, status);
+    // handleUpdateProductStatus(product.id, status);
   };
 
   const handleSearchingUsers = (value) => {
