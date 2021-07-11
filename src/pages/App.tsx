@@ -152,24 +152,6 @@ function TopLevelModals() {
   return <AddressClaimModal isOpen={open} onDismiss={toggle}/>
 }
 
-// const Providers: React.FC = ({ children }) => {
-//   return (
-//
-//     <UseWalletProvider
-//       chainId={56}
-//       connectors={{
-//         walletconnect: { rpcUrl: 'https://bsc-dataseed.binance.org/' },
-//       }}
-//     >
-//       <FarmsProvider>
-//         {children}
-//       </FarmsProvider>
-//
-//     </UseWalletProvider>
-//
-//   )
-// }
-
 export default function App() {
   useInactiveListener()
   return (
