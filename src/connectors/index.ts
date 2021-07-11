@@ -32,7 +32,7 @@ export const injected = new InjectedConnector({
 
 // mainnet only
 export const walletconnect = new WalletConnectConnector({
-  rpc: { 1: 'https://bsc-dataseed.binance.org/' },
+  rpc: { 56: 'https://bsc-dataseed.binance.org/' },
   bridge: 'https://bridge.walletconnect.org',
   qrcode: true,
   pollingInterval: 15000
