@@ -33,4 +33,13 @@
     width: 100%;
     padding: 10px;
   }
+  .nft-category{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  .nft-category > li{
+    margin: 10px 0;
+  }
 }
+
