@@ -376,7 +376,7 @@ export default function Header() {
         <HeaderRow>
           <UniIcon style={{ marginTop: '3px'}}>
             <NavLink to={'/drops'}>
-              <img height="40px" style={{ marginTop: 0 }} src={isDark ? LogoDark : Logo} alt="logo" />
+              <img height="50px" style={{ marginTop: 0 }} src={isDark ? LogoDark : Logo} alt="logo" />
             </NavLink>
           </UniIcon>
           <HeaderLinks style={{ fontSize: '13px'}}>
