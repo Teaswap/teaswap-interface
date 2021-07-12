@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { Nav, NormalButton } from './NFTButton';
-import { User, Cart, Notification } from './navbarSystem';
+import { User } from './navbarSystem';
 import { Logo, SearchBar, CategoryItemBox } from '../components';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import useUser from '../hooks/userHooks/useUser';
 import useProduct from '../hooks/productHooks/useProduct';
 import useLogout from '../hooks/userHooks/useLogout';
@@ -14,6 +14,7 @@ import {
 } from '../redux/slices/generalSlice/generalSlice';
 import { useSelector } from 'react-redux';
 import { selectUser } from '../redux/slices/userSlice/userSlice'
+import {AiOutlineShoppingCart} from 'react-icons/ai'
 
 const NavbarContainer = styled.div`
   position: relative;
@@ -21,7 +22,7 @@ const NavbarContainer = styled.div`
   width: 100%;
   max-width: 1400px;
   margin: 0 auto;
-  margin-top: 30px;
+  margin-top: 80px;
   height: ${(props) => (props.$size === 'sm' ? '65px' : '135px')};
   background: #fcfcfc;
   padding: 25px;
@@ -30,7 +31,7 @@ const NavbarContainer = styled.div`
     padding: 10px;
   }
   ${MEDIA_QUERY.sm} {
-    height: ${(props) => (props.$size === 'sm' ? '65px' : '115px')};
+    height: ${(props) => (props.$size === 'sm' ? '65px' : '200px')};
     padding: 10px;
     margin: 20px 0;
   }
@@ -83,9 +84,20 @@ const Empty = styled.div`
 const CatTitle = styled.span`
   margin-left: 10px;
   font-size: 20px;
+  font-weight: bold;
   ${MEDIA_QUERY.sm}{
     display: none;
   }
+`
+
+const H5Cart = styled.span`
+  display: none;
+  ${MEDIA_QUERY.sm}{
+    display: block;
+  }
+  position: absolute;
+  right: 30px;
+  top: 3px;
 `
 
 const Navbar = () => {
@@ -123,6 +135,8 @@ const Navbar = () => {
 
   }, [user]);
 
+  const navigate = useNavigate();
+
   return (
     <NavbarContainer
       $size={
@@ -135,6 +149,9 @@ const Navbar = () => {
         </LeftSide> */}
         <CatTitle className="all-category-title">Categories</CatTitle>
         <RightSide>
+          <H5Cart>
+            <AiOutlineShoppingCart size={25} onClick={() =>  navigate('/nft/cart')} />
+          </H5Cart> 
           <OptionList>
             {/* {isAdmin && <Nav children={'管理後台'} path={'/nft/admin'} />} */}
             {userId && (
@@ -161,7 +178,7 @@ const Navbar = () => {
 
       {(currentPath === '/nft' || currentPath.includes('products')) && (
         <NavbarBottom>
-          <div>
+          <div className="nft-category">
             {productCategories.map((category) => (
               <CategoryItemBox
                 text={category.name}

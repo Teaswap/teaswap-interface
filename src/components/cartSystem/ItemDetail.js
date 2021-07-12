@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import React, {useEffect, useState} from "react";
 import { IconComponent } from "../../components";
-import { COLOR, FONT } from "../../constants/style";
+import { COLOR, FONT, MEDIA_QUERY } from "../../constants/style";
 import useCart from "../../hooks/cartHooks/useCart";
 import { LoopCircleLoading } from "react-loadingg";
 import { useDispatch } from "react-redux";
@@ -27,10 +27,17 @@ const CartInfo = styled.div`
   min-width: 400px;
   justify-content: space-around;
   align-items: center;
+  ${MEDIA_QUERY.sm}{
+    min-width: 100px;
+    padding: 10px;
+  }
 `;
 const ProductName = styled.p`
   color: ${COLOR.text_2};
   font-size: ${FONT.sm};
+  ${MEDIA_QUERY.sm}{
+    display: none;
+  }
 `;
 const Photo = styled.div`
   width: 90px;

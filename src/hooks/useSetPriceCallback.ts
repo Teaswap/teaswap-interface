@@ -67,9 +67,5 @@ export function useSetPriceCallback(
         }
     }, [price])
 
-
-
-
-
     return [state, setPrice]
 }

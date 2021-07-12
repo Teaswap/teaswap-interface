@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import styled from "styled-components";
 import IconComponent from "../Icon";
 import { Nav } from "../NFTButton";
-import { COLOR, DISTANCE, EFFECT, FONT } from "../../constants/style";
+import { COLOR, DISTANCE, EFFECT, FONT, MEDIA_QUERY } from "../../constants/style";
 import { selectCarts } from "../../redux/slices/cartSlice/cartSlice";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
@@ -13,8 +13,7 @@ import useProduct from "../../hooks/productHooks/useProduct";
 
 const UserContainer = styled.div`
   position: relative;
-
-  &:hover {
+  ${MEDIA_QUERY.sm}{
     & div {
       opacity: 1;
       visibility: visible;
