@@ -29,10 +29,15 @@ export function useSetPriceCallback(
     const {t} = useTranslation()
     const addTransaction = useTransactionAdder()
 
+    // console.log("pendingSetPricepoutset:"+pendingSetPrice)
+    // console.log("setPriceSubmittedoutset:"+setPriceSubmitted)
+
     // check the current mint status
     const state:setPriceState = useMemo(() => {
+        console.log("pendingSetPrice:"+pendingSetPrice)
+        console.log("setPriceSubmitted:"+setPriceSubmitted)
         return !setPriceSubmitted? pendingSetPrice ? setPriceState.PENDING : setPriceState.NOT_SET: setPriceState.SETED
-    }, [pendingSetPrice])
+    }, [pendingSetPrice,setPriceSubmitted])
 
     const priceNumber = new BigNumber(price).multipliedBy(new BigNumber(10).pow(18))
     console.log("newprice:"+price)

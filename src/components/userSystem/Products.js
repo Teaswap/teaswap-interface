@@ -99,7 +99,7 @@ const Product = ({ product, onLoad, loaded, $width, $height, $margin }) => {
     hasProductPrice,
     setProductPrice,
   } = useProductForm()
-
+  console.log("product:"+JSON.stringify(product))
   const {handleTokenSwitch} = useProduct();
   const formatter = new Intl.NumberFormat();
   const {t} = useTranslation();
@@ -123,6 +123,7 @@ const Product = ({ product, onLoad, loaded, $width, $height, $margin }) => {
   }, [approval, approvalSubmitted])
 
   useEffect(() => {
+    console.log("setprice:"+setPrice)
     if (setPrice === setPriceState.SETED) {
       setPriceSubmitted(true)
       handleSetPrice(product,newPrice)

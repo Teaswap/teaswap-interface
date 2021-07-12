@@ -11,7 +11,7 @@ import {MintInfoInterface} from "../../hooks/useMintCallback";
 // helper that can take a ethers library transaction response and add it to the list of transactions
 export function useTransactionAdder(): (
   response: TransactionResponse,
-  customData?: { summary?: string; approval?: { tokenAddress: string; spender: string }; claim?: { recipient: string };mint?:MintInfoInterface; setprice?: {orderid:number,price:number}; nftapproval?: { tokenAddress: string; spender: string;tokenId: number } }
+  customData?: { summary?: string; approval?: { tokenAddress: string; spender: string }; claim?: { recipient: string };mint?:MintInfoInterface; setprice?: {orderid:number;price:number}; nftapproval?: { tokenAddress: string; spender: string;tokenId: number } }
 ) => void {
   const { chainId, account } = useActiveWeb3React()
   const dispatch = useDispatch<AppDispatch>()
