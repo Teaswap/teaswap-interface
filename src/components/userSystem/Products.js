@@ -253,7 +253,7 @@ const Product = ({ product, onLoad, loaded, $width, $height, $margin }) => {
         <p>{t('Set Price')}</p>
         <input type="text" className="input-primary" onChange={(e)=>setNewPrice(e.target.value)}/>
         <div className="modal-btns">
-          <span className='btn-sm-100 btn-primary' onClick={setPriceCallback}>{t("Confirm")}</span>
+          <span className='btn-sm-100 btn-primary' onClick={(e)=>setPriceCallback(e)}>{t("Confirm")}</span>
           <span className='btn-sm-100 btn-primary' onClick={dismissPrice}>{t("Cancel")}</span>
         </div>
       </div>

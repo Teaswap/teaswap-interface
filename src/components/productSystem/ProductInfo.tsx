@@ -325,7 +325,7 @@ export const ProductInfo = ({product,user}:{ product:ProductInterface ,user:user
         }])(dispatch);
 
       }else {
-        handleAddProduct(product.id, product.quantity, user.id, bidValue)
+        handleAddProduct(product.id, product.quantity, user.id, bidValue,product.orderId)
       }
 
     }

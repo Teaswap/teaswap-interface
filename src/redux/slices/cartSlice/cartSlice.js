@@ -103,9 +103,9 @@ export const getCartItem = () => (dispatch) => {
   });
 };
 
-export const addCartItem = (productId, quantity, id, price) => (dispatch) => {
+export const addCartItem = (productId, quantity, id, price,orderid) => (dispatch) => {
   dispatch(setIsLoading(true));
-  return addItem(productId, quantity, id, price).then((res) => {
+  return addItem(productId, quantity, id, price,orderid).then((res) => {
     getCartItem()(dispatch);
     dispatch(setIsLoading(false));
     return res;

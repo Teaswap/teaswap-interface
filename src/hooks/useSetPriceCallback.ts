@@ -35,8 +35,9 @@ export function useSetPriceCallback(
     }, [pendingSetPrice])
 
     const priceNumber = new BigNumber(price).multipliedBy(new BigNumber(10).pow(18))
-
+    console.log("newprice:"+price)
     const setPrice = useCallback(async (): Promise<void> => {
+        console.log("callbacknewprice:"+price)
         if(NFTExContract){
             if(price>0){
                 const setargs = [
@@ -59,7 +60,7 @@ export function useSetPriceCallback(
 
             }
         }
-    }, [])
+    }, [price])
 
 
 

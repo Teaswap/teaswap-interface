@@ -170,8 +170,8 @@ export default function useCart() {
   const handleSelectQuantity = (e) => {
     dispatch(setQuantity(e.target.value));
   };
-  const handleAddProduct = (productId, quantity, userId, price) => {
-    (addCartItem(productId, quantity, userId, price)(dispatch)).then((res) => {
+  const handleAddProduct = (productId, quantity, userId, price,orderid) => {
+    (addCartItem(productId, quantity, userId, price,orderid)(dispatch)).then((res) => {
       if (res.ok === 1 || quantity === 1) {
         dispatch(setHasAdd(true));
       }
