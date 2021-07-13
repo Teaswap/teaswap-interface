@@ -19,11 +19,12 @@ const AntTab = withStyles((theme) => ({
     minWidth: 72,
     fontWeight: theme.typography.fontWeightRegular,
     marginRight: theme.spacing(4),
+    fontsize:'13px',
     fontFamily: [
+      'Roboto',
       '-apple-system',
       'BlinkMacSystemFont',
       '"Segoe UI"',
-      'Roboto',
       '"Helvetica Neue"',
       'Arial',
       'sans-serif',
@@ -34,12 +35,10 @@ const AntTab = withStyles((theme) => ({
     '&:hover': {
       color: '#00B1B0',
       opacity: 1,
-      fontsize : '13px',
     },
     '&$selected': {
       color: '#00B1B0',
-      fontWeight: theme.typography.fontWeightMedium,
-      fontsize : '13px',
+     // fontWeight: theme.typography.fontWeightMedium,
     },
     '&:focus': {
       color: '#00B1B0',
