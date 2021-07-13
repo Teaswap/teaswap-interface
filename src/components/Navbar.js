@@ -14,7 +14,8 @@ import {
 } from '../redux/slices/generalSlice/generalSlice';
 import { useSelector } from 'react-redux';
 import { selectUser } from '../redux/slices/userSlice/userSlice'
-import {AiOutlineShoppingCart} from 'react-icons/ai'
+import IconComponent from './Icon';
+
 
 const NavbarContainer = styled.div`
   position: relative;
@@ -150,7 +151,7 @@ const Navbar = () => {
         <CatTitle className="all-category-title">Categories</CatTitle>
         <RightSide>
           <H5Cart>
-            <AiOutlineShoppingCart size={25} onClick={() =>  navigate('/nft/cart')} />
+            <IconComponent kind={'shopping-cart'}></IconComponent>
           </H5Cart> 
           <OptionList>
             {/* {isAdmin && <Nav children={'管理後台'} path={'/nft/admin'} />} */}
