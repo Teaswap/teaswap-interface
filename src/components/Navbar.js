@@ -150,8 +150,8 @@ const Navbar = () => {
         </LeftSide> */}
         <CatTitle className="all-category-title">Categories</CatTitle>
         <RightSide>
-          <H5Cart>
-            <IconComponent kind={'shopping-cart'}  onClick={() =>  navigate('/nft/cart')} ></IconComponent>
+          <H5Cart onClick={() =>  navigate('/nft/cart')} >
+            <IconComponent kind={'shopping-cart'} ></IconComponent>
           </H5Cart> 
           <OptionList>
             {/* {isAdmin && <Nav children={'管理後台'} path={'/nft/admin'} />} */}
