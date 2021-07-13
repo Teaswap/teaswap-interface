@@ -34,10 +34,12 @@ const AntTab = withStyles((theme) => ({
     '&:hover': {
       color: '#00B1B0',
       opacity: 1,
+      fontsize : '13px',
     },
     '&$selected': {
       color: '#00B1B0',
-      //fontWeight: theme.typography.fontWeightMedium,
+      fontWeight: theme.typography.fontWeightMedium,
+      fontsize : '13px',
     },
     '&:focus': {
       color: '#00B1B0',
