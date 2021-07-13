@@ -19,7 +19,7 @@ const AntTab = withStyles((theme) => ({
     minWidth: 72,
     fontWeight: theme.typography.fontWeightRegular,
     marginRight: theme.spacing(4),
-    fontsize:'13px',
+    //fontsize:'13px',
     fontFamily: [
       'Roboto',
       '-apple-system',
