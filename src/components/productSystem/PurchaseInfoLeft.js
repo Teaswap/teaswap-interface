@@ -112,22 +112,46 @@ export const FreightIntro = ({ product }) => {
       <InfoItem>
         <InfoItemTitle>{t('Bidding')}</InfoItemTitle>
         {/* <InfoBlock>{product.delivery === '0' ? t('Bid') : t('Auction')}</InfoBlock> */}
+        {productCarts && productCarts.length > 0 && (
+           <p className="trading-line">
+            <span>Product Price</span>
+            <span>Bid Price</span>
+            <span>Date</span>
+          </p>
+        )}
         {productCarts && productCarts.map((cart, index) => {
           return (
-            <p>
-              Bid: <span>{cart.bidprice} {handleTokenSwitch(product.extoken)}</span> at <span>{'  ' + cart.createdAt}</span>
+            <p className="trading-line">
+              <span>{cart.product_price} {handleTokenSwitch(cart.extoken)}</span>
+              <span>{cart.bidprice} {handleTokenSwitch(cart.extoken)}</span>
+              <span>{new Date(cart.createdAt).toLocaleDateString()}</span>
             </p>
           )
         })}
       </InfoItem>
       <InfoItem>
         <InfoItemTitle>{t('Trading History')}</InfoItemTitle>
-        {productOrders && productOrders.map((order, index) => {
-          return (
-            <p>
-              {/* From: <span>{truncStr(order.Order.seller_name)}</span> To: <span>{truncStr(order.Order.client_name)}</span> at <span>{new Date(order.Order.createdAt).toLocaleDateString()}</span> */}
+        {productOrders && productOrders.length > 0 && (
+            <p className="trading-line">
+              <span>Event</span>
+              <span>Price</span>
+              <span>From</span>
+              <span>To</span>
+              <span>Date</span>
             </p>
-          )
+        )}
+        {productOrders && productOrders.map((order, index) => {
+          if (order.Order)
+            return (
+              <p className="trading-line">
+                <span>Buy</span>
+                <span>{(order.product_price)} {handleTokenSwitch(order.extoken)}</span>
+                <span>{truncStr(order.Order.seller_name)}</span>
+                <span>{truncStr(order.Order.client_name)}</span>
+                <span>{new Date(order.Order.createdAt).toLocaleDateString()}</span>
+              </p>
+            )
+          else return (<> </>)
         })}
       </InfoItem>
       <InfoItem>

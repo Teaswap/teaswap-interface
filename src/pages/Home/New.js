@@ -52,51 +52,6 @@ const HomePageProducts = styled.div`
   width: 100%;
 `;
 
-// const BtnSection = styled.div`
-//   width: 100%;
-//   display: flex;
-//   justify-content: flex-end;
-// `;
-
-// const StyledLink = styled.a`
-//   text-decoration: none;
-//   cursor: pointer;
-//   font-weight: 500;
-
-//   :hover {
-//     text-decoration: none;
-//     color: inherit;
-//   }
-
-//   :focus {
-//     outline: none;
-//     text-decoration: none;
-//     color: inherit;
-//   }
-
-//   :active {
-//     text-decoration: none;
-//     color: inherit;
-//   }
-// `
-
-// const JoinUs = styled.span`
-//   width: 157px;
-//   height: 31px;
-//   color: #474747;
-//   border: 1px solid #474747;
-//   text-align: center;
-//   line-height: 40px;
-//   align-self: flex-end;
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   :hover{
-//     background: #7f7f7f;
-//     color: #ffffff;
-//   }
-// `
-
 const Nav = styled.div`
   width: 100%;
   max-width: 1320px;

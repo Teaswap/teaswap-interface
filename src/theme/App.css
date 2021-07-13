@@ -273,3 +273,13 @@
   background-color: #eeeeee;
   color: #474747;
 }
+.trading-line {
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  justify-content: space-around;
+}
+.trading-line > span{
+  color: #474747;
+  flex: 1;
+}
