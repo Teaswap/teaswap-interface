@@ -86,9 +86,9 @@ const CatTitle = styled.span`
   margin-left: 10px;
   font-size: 20px;
   font-weight: bold;
-  ${MEDIA_QUERY.sm}{
-    display: none;
-  }
+  // ${MEDIA_QUERY.sm}{
+  //   display: none;
+  // }
 `
 
 const H5Cart = styled.span`
@@ -151,7 +151,7 @@ const Navbar = () => {
         <CatTitle className="all-category-title">Categories</CatTitle>
         <RightSide>
           <H5Cart>
-            <IconComponent kind={'shopping-cart'}></IconComponent>
+            <IconComponent kind={'shopping-cart'}  onClick={() =>  navigate('/nft/cart')} ></IconComponent>
           </H5Cart> 
           <OptionList>
             {/* {isAdmin && <Nav children={'管理後台'} path={'/nft/admin'} />} */}
