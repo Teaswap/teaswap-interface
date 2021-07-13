@@ -32,7 +32,7 @@ const AntTab = withStyles((theme) => ({
       '"Segoe UI Symbol"',
     ].join(','),
     '&:hover': {
-      color: '#40a9ff',
+      color: '#00B1B0',
       opacity: 1,
     },
     '&$selected': {
