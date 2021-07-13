@@ -12,7 +12,7 @@ const Footer: React.FC = () => {
     <StyledFooter>
       <StyledFooterInner>
         <StyledFooterItemLeft style={{ marginBottom: 20, width: '150px', textAlign: 'left' }}>
-          <img height="50px" style={{ marginTop: -8 }} width="86" src={Logo} alt="logo" />
+          <img height="50px" style={{ marginTop: -8 }} width="" src={Logo} alt="logo" />
           <StyledFooterItemTitle>© 2021 TEAsWAP</StyledFooterItemTitle>
           {/* <StyledLink  target="_blank" href={'mailto:support@teaswap.art'}>support@teaswap.art</StyledLink> */}
         </StyledFooterItemLeft>

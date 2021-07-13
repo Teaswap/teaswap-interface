@@ -374,7 +374,7 @@ export default function Header() {
           <UniBalanceContent setShowUniBalanceModal={setShowUniBalanceModal} />
         </Modal>
         <HeaderRow>
-          <UniIcon style={{ marginTop: '3px'}}>
+          <UniIcon style={{ marginTop: '-6px'}}>
             <NavLink to={'/drops'}>
               <img height="50px" style={{ marginTop: 0 }} src={isDark ? LogoDark : Logo} alt="logo" />
             </NavLink>

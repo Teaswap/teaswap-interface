@@ -148,7 +148,7 @@ const HomePage = () => {
   return (
     <Page>
       <CarouselBox />
-      <div style={{marginTop: '120px'}} className="page-title3"> INSPIRING CREATIVITY </div>
+      <div style={{marginTop: '60px'}} className="page-title3"> INSPIRING CREATIVITY </div>
       <div style={{marginTop: '10px', marginBottom: "100px"}} className="page-title3"> NFT FOR GOOD </div>
       <IframeComponent iframe={iframe2} />
       <TitleSection>
