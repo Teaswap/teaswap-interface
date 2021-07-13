@@ -37,7 +37,7 @@ const AntTab = withStyles((theme) => ({
     },
     '&$selected': {
       color: '#00B1B0',
-      fontWeight: theme.typography.fontWeightMedium,
+      //fontWeight: theme.typography.fontWeightMedium,
     },
     '&:focus': {
       color: '#00B1B0',
