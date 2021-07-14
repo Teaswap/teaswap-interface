@@ -6,7 +6,7 @@ import Typography from '@material-ui/core/Typography';
 
 const AntTabs = withStyles({
   root: {
-    borderBottom: '1px solid #e8e8e8',
+    borderBottom: '1px solid #e8e8e8',fontsize:'14px',
   },
   indicator: {
     backgroundColor: '#DCDCDC',
