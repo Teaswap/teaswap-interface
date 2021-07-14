@@ -19,7 +19,7 @@ const AntTab = withStyles((theme) => ({
     minWidth: 72,
     fontWeight: theme.typography.fontWeightRegular,
     marginRight: theme.spacing(4),
-    //fontsize:'13px',
+    fontsize:'14px',
     fontFamily: [
       'Roboto',
       '-apple-system',
@@ -38,7 +38,7 @@ const AntTab = withStyles((theme) => ({
     },
     '&$selected': {
       color: '#00B1B0',
-     // fontWeight: theme.typography.fontWeightMedium,
+      fontWeight: theme.typography.fontWeightMedium,
     },
     '&:focus': {
       color: '#00B1B0',
