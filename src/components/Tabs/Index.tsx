@@ -6,7 +6,7 @@ import Typography from '@material-ui/core/Typography';
 
 const AntTabs = withStyles({
   root: {
-    borderBottom: '1px solid #e8e8e8',fontsize:'14px',
+    borderBottom: '1px solid #e8e8e8', fontSize: '14px',
   },
   indicator: {
     backgroundColor: '#DCDCDC',
@@ -19,7 +19,7 @@ const AntTab = withStyles((theme) => ({
     minWidth: 72,
     fontWeight: theme.typography.fontWeightRegular,
     marginRight: theme.spacing(4),
-    fontsize:'14px',
+    fontSize: '14px',
     fontFamily: [
       'Roboto',
       '-apple-system',
