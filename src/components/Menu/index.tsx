@@ -20,26 +20,30 @@ import { useNavigate } from 'react-router-dom';
 //   }
 // `
 
-const StyledMenuButton = styled.button`
-  width: 100%;
-  height: 100%;
+const StyledMenuButton = styled.span`
+  width: 20px;
+  background-position: center;
   border: none;
   margin: 0;
   padding: 0;
   height: 35px;
   background-color: #ffffff;
-  border: 1px solid ${({ theme }) => theme.lightGray};
+  // border: 1px solid ${({ theme }) => theme.lightGray};
   color: ${({ theme }) => theme.gray};
   font-weight: 500;
   cursor: pointer;
+  background-image: url(${process.env.PUBLIC_URL + '/profile.png'});
+  background-repeat: no-repeat;
+  background-size: contain;
   :hover,
   :focus {
-    border: 1px solid ${({ theme }) => theme.darkGray};
+    background-image: url(${process.env.PUBLIC_URL + '/profile_active.png'});
   }
-  // background-color: ${({ theme }) => lighten(0.05, theme.primary1)};
+  // // background-color: ${({ theme }) => lighten(0.05, theme.primary1)};
 
   padding: 0.15rem 0.5rem;
   border-radius: 0px;
+
 `
 
 const StyledMenu = styled.div`
@@ -104,7 +108,7 @@ export default function Menu() {
     // https://github.com/DefinitelyTyped/DefinitelyTyped/issues/30451
     <StyledMenu ref={node as any}>
       <StyledMenuButton onClick={toggle}>
-        Activity
+        {/* <img height="30" src={process.env.PUBLIC_URL + '/profile.png'} alt="" /> */}
         {/* <StyledMenuIcon /> */}
       </StyledMenuButton>
 

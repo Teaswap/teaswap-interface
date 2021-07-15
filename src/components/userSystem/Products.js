@@ -277,13 +277,14 @@ export default function Products({
   $padding,
   $justify,
 }) {
-  const { loaded, onLoad } = useProduct();
-  const leftCount = 9 % products.length
+  const { loaded, onLoad, getLeftCountForProduct } = useProduct();
   const appendPros = []
+  const leftCount = getLeftCountForProduct({length: products.length})
   for(let i = 0; i < leftCount; i++) {
     appendPros.push(<Placeholder $width={$width} $margin={$margin} />)
   }
   console.log('appendPros', leftCount, appendPros)
+
   return (
     <>
       <ProductsContainer $padding={$padding}>

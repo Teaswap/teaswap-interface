@@ -10,9 +10,6 @@ export const StandardNavPage = styled.div`
     margin: 0 auto;
     padding: 30px;
   }
-  ${MEDIA_QUERY.sm} {
-    padding: 0px;
-  }
 ;
 `;
 

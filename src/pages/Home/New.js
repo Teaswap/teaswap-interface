@@ -11,6 +11,7 @@ import useProduct from '../../hooks/productHooks/useProduct';
 import {
   setErrorMessage,
 } from '../../redux/slices/productSlice/productSlice';
+import { useNavigate } from "react-router"
 import HomeProducts from '../../components/Home/Products'
 import products1 from '../../components/Home/Pro1'
 import products2 from '../../components/Home/Pro2'
@@ -21,6 +22,7 @@ import products5 from '../../components/Home/Pro5'
 // import { useTranslation } from 'react-i18next'
 // import ConTitle from '../../components/Content/Title';
 // import ConSubTitle from '../../components/Content/SubTitle';
+
 
 
 const Page = styled.div`
@@ -99,6 +101,7 @@ const HomePage = () => {
   // const changeCat = function(t) {
   //   setProducts([products1, products2, products3][t-1])
   // }
+  const navigate = useNavigate()
 
   return (
     <Page>
@@ -133,7 +136,14 @@ const HomePage = () => {
         <HomeProducts products={products3} />
         <p className="products-title">Charity Event</p>
         <HomeProducts products={products4} />
-        <p className="products-title">Sold</p>
+        <p className="products-title">Sold
+          <span onClick={() => navigate('/nft/products/category/0')} style={{
+            marginLeft: "20px",
+            color: "#474747",
+            fontSize: "20px",
+            cursor: "pointer",
+          }}>View all</span>
+        </p>
         <HomeProducts products={products5} />
 
         {/* <HomePageProducts>
