@@ -12,6 +12,7 @@ import {useNFTExchangeContract} from "../../hooks/useContract";
 import {useTransactionAdder} from "../../state/transactions/hooks";
 import BigNumber from "bignumber.js";
 import { useNFTLastOrderId} from "../../state/wallet/hooks";
+import Pagination from '../../components/Pagination/Index';
 
 const ExamineProductContainer = styled.div`
   margin: ${DISTANCE.md} 0;
@@ -131,7 +132,15 @@ const ProductsItem = ({key, product, setPassedProducts}:productItemProps ) => {
 
 export default function ExamineProduct() {
 
-  const { products, handleGetUnCheckProducts,  passedProduct,handleUpdateProductsOrderid } = useAdmin();
+  const { 
+    products, 
+    handleGetUnCheckProducts, 
+    passedProduct,
+    handleUpdateProductsOrderid,
+    page,
+    count,
+    setPage
+  } = useAdmin();
   
   // var initialPP:= []
   var [passedProducts, setPassedProducts] = useState([] as  Array<ProductInterface>);
@@ -286,7 +295,12 @@ export default function ExamineProduct() {
         <ActionButton onClick={handleBatchAddOrder}>
           送出
         </ActionButton>
+        
       </BottomContainer>
+      <Pagination count={count} page={page} handleChange={(_page: any) => {
+          setPage(_page)
+          handleGetUnCheckProducts(_page)
+        }} />
     </ExamineProductContainer>
   );
 }

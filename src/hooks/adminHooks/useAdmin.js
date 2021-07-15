@@ -24,6 +24,7 @@ export default function useAdmin() {
   const mails = useSelector(selectMails);
   const mail = useSelector(selectMail);
   const [value, setValue] = useState('');
+  const [page, setPage] = useState(1);
   const [isChecked, setIsChecked] = useState(false);
   const [isSearch, setIsSearch] = useState(false);
   const [keyword, setKeyword] = useState('');
@@ -129,6 +130,7 @@ export default function useAdmin() {
   return {
     users,
     products,
+    page,
     count,
     mail,
     mails,
@@ -140,6 +142,7 @@ export default function useAdmin() {
     isChecked,
     isSearch,
     setProductParams,
+    setPage,
     setThousandths,
     setValue,
     setIsChecked,

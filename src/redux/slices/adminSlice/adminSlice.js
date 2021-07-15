@@ -59,6 +59,7 @@ export const getUnCheckProducts = (page) => (dispatch) => {
       return dispatch(
         setErrorMessage(result ? result.message : 'something wrong')
       );
+    dispatch(setCount(result.data.count));
     dispatch(setProducts(result.data.products));
     return result;
   });
