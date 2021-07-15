@@ -42,6 +42,7 @@ const StyledMenuButton = styled.span`
   // // background-color: ${({ theme }) => lighten(0.05, theme.primary1)};
 
   padding: 0.15rem 0.5rem;
+  margin: 0 0 0 0.75rem
   border-radius: 0px;
 
 `
