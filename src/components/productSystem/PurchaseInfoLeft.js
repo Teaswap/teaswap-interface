@@ -55,7 +55,7 @@ const ProductInfoWrap = styled.div`
   line-height: 1.5rem;
   width: 100%;
   font-weight: normal;
-  color: ${COLOR.dark_gray};
+  color: ${COLOR.black};
   white-space: pre-line;
   word-break: break-all;
 `;
