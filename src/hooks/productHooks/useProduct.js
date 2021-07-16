@@ -76,6 +76,12 @@ export default function useProduct() {
     setLoaded(true);
   };
 
+  const getLeftCountForProduct = ({length, limit}) => {
+    limit = limit || 9;
+    const leftCount = limit % length
+    return leftCount
+  }
+
   // const handleGETHasNFT = (string) => {
   //   const earnedAmounts = useMultipleContractSingleData(rewardsAddresses, STAKING_REWARDS_INTERFACE, 'earned', accountArg)
   //   const totalSupplies = useMultipleContractSingleData(rewardsAddresses, STAKING_REWARDS_INTERFACE, 'totalSupply')
@@ -216,6 +222,7 @@ export default function useProduct() {
     handleGetProductsFromVendor,
     handleChangeProductSort,
     handleGetUserById,
-    handleTokenSwitch
+    handleTokenSwitch,
+    getLeftCountForProduct
   };
 }

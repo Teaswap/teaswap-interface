@@ -20,6 +20,7 @@ import useCart from "../../../hooks/cartHooks/useCart";
 import CartItem from "../../../components/cartSystem/CartItem";
 import useProduct from "../../../hooks/productHooks/useProduct";
 import { truncStr } from '../../../utils/strUtil'
+import { useTranslation } from "react-i18next";
 
 const Title = styled.p`
   color: ${COLOR.black};
@@ -112,6 +113,7 @@ const ClientOrdersPage = () => {
 
   const tabs = [BID_TAB, SALE_TAB, BUY_TAB]
   const [tab, setTab] = useState(BID_TAB)
+  const { t } = useTranslation();
 
   return (
     <>
@@ -141,17 +143,19 @@ const ClientOrdersPage = () => {
           { tab != BID_TAB && (
             <Table>
               <NameContainer>
-                <Name>編號</Name>
-                <Name>买家</Name>
-                <Name>卖家</Name>
-                <Name>下单时间</Name>
-                <Name>總金額</Name>
-                <Name>狀態</Name>
+                <Name>{t('Item')}</Name>
+                <Name>{t("Order-No")}</Name>
+                <Name>{t("Buyer")}</Name>
+                <Name>{t("Seller")}</Name>
+                <Name>{t("Date")}</Name>
+                <Name>{t("Amount")}</Name>
+                <Name>{t("Status")}</Name>
               </NameContainer>
               {orders &&
                 orders.map((order) => (
                   order.Order_items.map((item) => (
                     <ContentContainer key={order.id}>
+                      <img src={order.Order_items[0].product_picture_url} width="100" height="100" />
                       <Content> {order.order_number} </Content>
                       <Content> {truncStr(order.client_name)} </Content>
                       <Content> {truncStr(order.seller_name)} </Content>

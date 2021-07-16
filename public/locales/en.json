@@ -415,5 +415,12 @@
   "Add NFT": "Add NFT",
   "Enter price": "Enter price",
   "Put On sale": "Put On sale",
-  "Enter receiver address": "Enter receiver address"
+  "Enter receiver address": "Enter receiver address",
+  "Item": "Item",
+  "Order-No": "Order No.",
+  "Buyer": "Buyer",
+  "Seller": "Seller",
+  "Date": "Date",
+  "Status": "Status",
+  "Amount": "Amount"
 }

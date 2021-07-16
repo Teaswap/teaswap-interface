@@ -411,5 +411,12 @@
   "Add NFT": "添加 NFT",
   "Enter price": "输入价格",
   "Put On sale": "确定上架",
-  "Enter receiver address": "接收者地址"
+  "Enter receiver address": "接收者地址",
+  "Item": "产品",
+  "Order-No": "订单编号 ",
+  "Buyer": "买家",
+  "Seller": "卖家",
+  "Date": "时间",
+  "Status": "状态",
+  "Amount": "总金额"
 }

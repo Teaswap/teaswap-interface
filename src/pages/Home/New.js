@@ -11,6 +11,7 @@ import useProduct from '../../hooks/productHooks/useProduct';
 import {
   setErrorMessage,
 } from '../../redux/slices/productSlice/productSlice';
+import { useNavigate } from "react-router"
 import HomeProducts from '../../components/Home/Products'
 import products1 from '../../components/Home/Pro1'
 import products2 from '../../components/Home/Pro2'
@@ -21,6 +22,7 @@ import products5 from '../../components/Home/Pro5'
 // import { useTranslation } from 'react-i18next'
 // import ConTitle from '../../components/Content/Title';
 // import ConSubTitle from '../../components/Content/SubTitle';
+
 
 
 const Page = styled.div`
@@ -51,51 +53,6 @@ const HomePageProducts = styled.div`
   margin: 0px 0;
   width: 100%;
 `;
-
-// const BtnSection = styled.div`
-//   width: 100%;
-//   display: flex;
-//   justify-content: flex-end;
-// `;
-
-// const StyledLink = styled.a`
-//   text-decoration: none;
-//   cursor: pointer;
-//   font-weight: 500;
-
-//   :hover {
-//     text-decoration: none;
-//     color: inherit;
-//   }
-
-//   :focus {
-//     outline: none;
-//     text-decoration: none;
-//     color: inherit;
-//   }
-
-//   :active {
-//     text-decoration: none;
-//     color: inherit;
-//   }
-// `
-
-// const JoinUs = styled.span`
-//   width: 157px;
-//   height: 31px;
-//   color: #474747;
-//   border: 1px solid #474747;
-//   text-align: center;
-//   line-height: 40px;
-//   align-self: flex-end;
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   :hover{
-//     background: #7f7f7f;
-//     color: #ffffff;
-//   }
-// `
 
 const Nav = styled.div`
   width: 100%;
@@ -144,11 +101,12 @@ const HomePage = () => {
   // const changeCat = function(t) {
   //   setProducts([products1, products2, products3][t-1])
   // }
+  const navigate = useNavigate()
 
   return (
     <Page>
       <CarouselBox />
-      <div style={{marginTop: '120px'}} className="page-title3"> INSPIRING CREATIVITY </div>
+      <div style={{marginTop: '60px'}} className="page-title3"> INSPIRING CREATIVITY </div>
       <div style={{marginTop: '10px', marginBottom: "100px"}} className="page-title3"> NFT FOR GOOD </div>
       <IframeComponent iframe={iframe2} />
       <TitleSection>
@@ -178,7 +136,14 @@ const HomePage = () => {
         <HomeProducts products={products3} />
         <p className="products-title">Charity Event</p>
         <HomeProducts products={products4} />
-        <p className="products-title">Sold</p>
+        <p className="products-title">Sold
+          <span onClick={() => navigate('/nft/products/category/0')} style={{
+            marginLeft: "20px",
+            color: "#474747",
+            fontSize: "20px",
+            cursor: "pointer",
+          }}>View all</span>
+        </p>
         <HomeProducts products={products5} />
 
         {/* <HomePageProducts>

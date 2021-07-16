@@ -6,10 +6,10 @@ import Typography from '@material-ui/core/Typography';
 
 const AntTabs = withStyles({
   root: {
-    borderBottom: '1px solid #e8e8e8',
+    borderBottom: '1px solid #e8e8e8', fontSize: '14px',
   },
   indicator: {
-    backgroundColor: '#1890ff',
+    backgroundColor: '#DCDCDC',
   },
 })(Tabs);
 
@@ -19,11 +19,12 @@ const AntTab = withStyles((theme) => ({
     minWidth: 72,
     fontWeight: theme.typography.fontWeightRegular,
     marginRight: theme.spacing(4),
+    fontSize: '14px',
     fontFamily: [
+      'Roboto',
       '-apple-system',
       'BlinkMacSystemFont',
       '"Segoe UI"',
-      'Roboto',
       '"Helvetica Neue"',
       'Arial',
       'sans-serif',
@@ -32,15 +33,15 @@ const AntTab = withStyles((theme) => ({
       '"Segoe UI Symbol"',
     ].join(','),
     '&:hover': {
-      color: '#40a9ff',
+      color: '#474747',
       opacity: 1,
     },
     '&$selected': {
-      color: '#1890ff',
+      color: '#474747',
       fontWeight: theme.typography.fontWeightMedium,
     },
     '&:focus': {
-      color: '#40a9ff',
+      color: '#474747',
     },
   },
   selected: {},

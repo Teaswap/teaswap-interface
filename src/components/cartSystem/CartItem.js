@@ -16,8 +16,8 @@ const Container = styled.div`
 `;
 
 const Top = styled.div`
-  background: #b6deea;
-  border: 2px solid #b6deea;
+  background: #DCDCDC;
+  border: 2px solid #DCDCDC;
   padding: 15px;
   border-radius: 0px 0px 0 0;
   display: flex;

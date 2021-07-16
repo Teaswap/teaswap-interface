@@ -19,7 +19,7 @@ const ProductsWrap = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: flex-start;
+  justify-content: space-between;
   ${MEDIA_QUERY.sm}{
     justify-content: center;
   }
@@ -30,19 +30,16 @@ const ProductContainer = styled.div`
   ${MEDIA_QUERY.lg} {
     width: 45%;
     margin: 0 2.5%;
-    margin-top: 30px;
   }
   ${MEDIA_QUERY.md} {
     width: 60%;
     margin: 0 20%;
-    margin-top: 30px;
   }
   ${MEDIA_QUERY.sm}{
     width: 90%;
     margin: 0;
-    margin-top: 30px;
   }
-  margin: 0 1.5%;
+  margin-top: 50px;
   border-width: 0 0 0 0;
   border-style: solid solid solid solid;
   border-color: rgba(176, 169, 134, 1) rgba(176, 169, 134, 1) rgba(176, 169, 134, 1) rgba(176, 169, 134, 1);
@@ -50,7 +47,6 @@ const ProductContainer = styled.div`
   box-shadow: 0 4px 10px 0 rgb(0 0 0 / 10%);
   overflow: hidden;
   transform: translateZ(0);
-  margin-top: 20px;
   font-size: 15px;
   color: #000000;
   font-weight: bold;
@@ -189,9 +185,16 @@ export const Products = ({
   $padding,
   $justify,
 }) => {
-  const { loaded, onLoad } = useProduct();
+  const { loaded, onLoad, getLeftCountForProduct } = useProduct();
   const productsArray = useSelector(selectProducts);
   const productCount = useSelector(selectProductCount);
+  const appendPros = []
+  const leftCount = getLeftCountForProduct({length: products.length})
+  for(let i = 0; i < leftCount; i++) {
+    appendPros.push(<Placeholder $width={$width} $margin={$margin} />)
+  }
+  console.log('appendPros', leftCount, appendPros)
+
   return (
     <>
       <ProductsContainer $padding={$padding}>
@@ -210,6 +213,7 @@ export const Products = ({
                 />
               );
             })}
+            {appendPros}
           </>
         </ProductsWrap>
       </ProductsContainer>

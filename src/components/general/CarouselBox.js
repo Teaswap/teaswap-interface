@@ -1,6 +1,7 @@
 import React from 'react';
 import Carousel from 'nuka-carousel';
 import styled from 'styled-components';
+import { isMobile } from 'react-device-detect'
 
 const preBtnSty = {
   backgroundColor: "rgba(0, 0, 0, 0.2)",
@@ -31,13 +32,12 @@ const CarouselBox = () => {
         nextButtonStyle: preBtnSty
       }}
     >
-      {/* <img src={process.env.PUBLIC_URL + '/nft_banner1.png'} alt="" /> */}
-      <img src={process.env.PUBLIC_URL + '/big_banner_TSA.png'} alt="" />
-      <img src={process.env.PUBLIC_URL + '/big_banner_CJAI.png'} alt="" />
+      {!isMobile && (<img src={process.env.PUBLIC_URL + '/big_banner_TSA.png'} alt="" />)}
+      {!isMobile && (<img src={process.env.PUBLIC_URL + '/big_banner_CJAI.png'} alt="" />)}
+
+      {isMobile && (<img src={process.env.PUBLIC_URL + '/mobile_banner_tsa.png'} alt="" />)}
+      {isMobile && (<img src={process.env.PUBLIC_URL + '/mobile_banner_cjai.png'} alt="" />)}
     
-      {/* <img src={process.env.PUBLIC_URL + '/homepage-banner3.png'} alt="" /> */}
-      {/* <img src={process.env.PUBLIC_URL + '/homepage-banner4.jpg'} alt="" /> */}
-      {/* <img src={process.env.PUBLIC_URL + '/homepage-banner5.png'} alt="" /> */}
 
     </Carousel>
   );

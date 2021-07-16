@@ -135,6 +135,9 @@ const VendorBackstagePage = () => {
             <span className={productCat == 'collected' ? 'active-page-tab' : 'page-tab'} onClick={() => changeCat('collected')}>
               Collected
             </span>
+            <span className={productCat == 'collected' ? 'active-page-tab' : 'page-tab'} onClick={() => changeCat('created')}>
+              Created
+            </span>
           </div>
           <div>
             <NavLink style={{ minWidth: 'fit-content' }} to={'/nft'}>

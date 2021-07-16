@@ -14,7 +14,8 @@ import {
 } from '../redux/slices/generalSlice/generalSlice';
 import { useSelector } from 'react-redux';
 import { selectUser } from '../redux/slices/userSlice/userSlice'
-import {AiOutlineShoppingCart} from 'react-icons/ai'
+import IconComponent from './Icon';
+
 
 const NavbarContainer = styled.div`
   position: relative;
@@ -85,9 +86,9 @@ const CatTitle = styled.span`
   margin-left: 10px;
   font-size: 20px;
   font-weight: bold;
-  ${MEDIA_QUERY.sm}{
-    display: none;
-  }
+  // ${MEDIA_QUERY.sm}{
+  //   display: none;
+  // }
 `
 
 const H5Cart = styled.span`
@@ -149,8 +150,8 @@ const Navbar = () => {
         </LeftSide> */}
         <CatTitle className="all-category-title">Categories</CatTitle>
         <RightSide>
-          <H5Cart>
-            <AiOutlineShoppingCart size={25} onClick={() =>  navigate('/nft/cart')} />
+          <H5Cart onClick={() =>  navigate('/nft/cart')} >
+            <IconComponent kind={'shopping-cart'} ></IconComponent>
           </H5Cart> 
           <OptionList>
             {/* {isAdmin && <Nav children={'管理後台'} path={'/nft/admin'} />} */}

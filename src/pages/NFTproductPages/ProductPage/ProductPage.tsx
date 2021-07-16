@@ -61,7 +61,6 @@ const OtherProductTitle = styled.div`
 `;
 
 const MoreLink = styled.a`
-  margin: 0 20px;
   color: #7f7f7f;
   display: inline-block;
   text-decoration: none;
