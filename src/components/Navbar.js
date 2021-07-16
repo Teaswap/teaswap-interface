@@ -84,6 +84,7 @@ const Empty = styled.div`
 
 const CatTitle = styled.span`
   margin-left: 10px;
+  margin-top: -35px;
   font-size: 20px;
   font-weight: bold;
   // ${MEDIA_QUERY.sm}{
