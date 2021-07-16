@@ -6,7 +6,7 @@ import useUser from '../../hooks/userHooks/useUser';
 import useProduct from '../../hooks/productHooks/useProduct';
 import { useTranslation } from 'react-i18next'
 import { AiFillTwitterSquare, AiFillEdit, AiFillInstagram } from "react-icons/ai";
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { ExternalLink } from '../../theme';
 
 const InfoBlock = styled.section`
@@ -49,7 +49,8 @@ const SellerName = styled.div`
   font-weight: bold;
   margin-right: 26px;
   width: 90%;
-  margin: 0 auto
+  margin: 0 auto;
+  cursor: pointer;
 `;
 
 const InfoBottom = styled.div`
@@ -96,10 +97,13 @@ const ContactInfoTitle = styled.div`
   min-width: max-content;
 `;
 
-const InfoLeft = ({ vendorInfo, onLoad, loaded }) => {
+const InfoLeft = ({vendorInfo, onLoad, loaded }) => {
+  const navigate = useNavigate()  
   return (
     <div className="user-left">
-      <div className="user-avatar-div flex-center">
+      <div style={{cursor: 'pointer'}} onClick={() => {
+        navigate(`/nft/products/vendor/${vendorInfo.userId}`)
+       }} className="user-avatar-div flex-center">
         <img
           className="user-avatar"
           src={vendorInfo.avatar_url}
@@ -108,7 +112,11 @@ const InfoLeft = ({ vendorInfo, onLoad, loaded }) => {
         />
       </div>
       <InfoContainer>
-        <SellerName>{vendorInfo.nickname}</SellerName>
+        <SellerName  onClick={() => {
+          navigate(`/nft/products/vendor/${vendorInfo.userId}`)
+        }} >
+          {vendorInfo.nickname}
+        </SellerName>
           {/*<ActionButton $margin={20}>+ 加入關注</ActionButton>*/}
           <div className="user-icons">
             <ExternalLink className="margin10" href={`${vendorInfo.instagram}`}>
@@ -178,7 +186,7 @@ const InfoRight = ({ email }) => {
   );
 };
 
-export default function SellerInfo({ onLoad, loaded, vendorInfo, products }) {
+export default function SellerInfo({onLoad, loaded, vendorInfo, products }) {
   return (
     <InfoBlock>
       <InfoLeft
