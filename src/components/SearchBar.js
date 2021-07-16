@@ -73,7 +73,7 @@ const SearchBar = () => {
             setSearchBarWidth('0')
             setSearchBarDisplay('none')
           }
-        }} size="20" style={{marginLeft: '-30px', cursor: 'pointer'}} color="#7f7f7f" />
+        }} size="15" style={{marginLeft: '-30px', cursor: 'pointer'}} color="#7f7f7f" />
     </SearchBarContainer>
   );
 };
