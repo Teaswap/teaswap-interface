@@ -11,7 +11,7 @@ import {MintInfoInterface} from "../../hooks/useMintCallback";
 // helper that can take a ethers library transaction response and add it to the list of transactions
 export function useTransactionAdder(): (
   response: TransactionResponse,
-  customData?: { summary?: string; approval?: { tokenAddress: string; spender: string }; claim?: { recipient: string };mint?:MintInfoInterface; setprice?: {orderid:number;price:number}; nftapproval?: { tokenAddress: string; spender: string;tokenId: number } }
+  customData?: { summary?: string; approval?: { tokenAddress: string; spender: string }; claim?: { recipient: string };mint?:MintInfoInterface; setprice?: {orderid:number;price:number};bid?:{orderid:string;price:string};withdrawBid?:{orderid:number;price:number}; nftapproval?: { tokenAddress: string; spender: string;tokenId: number } }
 ) => void {
   const { chainId, account } = useActiveWeb3React()
   const dispatch = useDispatch<AppDispatch>()
@@ -25,8 +25,10 @@ export function useTransactionAdder(): (
         claim,
           mint,
           setprice,
+          bid,
+          withdrawBid,
           nftapproval
-      }: { summary?: string; claim?: { recipient: string }; approval?: { tokenAddress: string; spender: string }; mint?: MintInfoInterface; setprice?: {orderid:number,price:number}; nftapproval?: { tokenAddress: string; spender: string;tokenId: number } } = {}
+      }: { summary?: string; claim?: { recipient: string }; approval?: { tokenAddress: string; spender: string }; mint?: MintInfoInterface; setprice?: {orderid:number;price:number};bid?:{orderid:string;price:string}; withdrawBid?:{orderid:number;price:number};nftapproval?: { tokenAddress: string; spender: string;tokenId: number } } = {}
     ) => {
       if (!account) return
       if (!chainId) return
@@ -35,14 +37,14 @@ export function useTransactionAdder(): (
       if (!hash) {
         throw Error('No transaction hash found.')
       }
-      dispatch(addTransaction({ hash, from: account, chainId, approval, summary, claim,mint, setprice, nftapproval }))
+      dispatch(addTransaction({ hash, from: account, chainId, approval, summary, claim,mint, setprice, bid,withdrawBid,nftapproval }))
     },
     [dispatch, chainId, account]
   )
 }
 
 // returns all the transactions for the current chain
-export function useAllTransactions(): { [txHash: string]: TransactionDetails } {
+export function                                                                             useAllTransactions(): { [txHash: string]: TransactionDetails } {
   const { chainId } = useActiveWeb3React()
 
   const state = useSelector<AppState, AppState['transactions']>(state => state.transactions)
@@ -154,17 +156,100 @@ export function useUserHasSubmittedSetPrice(
     orderid:number,price:number
 ): { setPriceSubmitted: boolean; setPirceTxn: TransactionDetails | undefined } {
     const allTransactions = useAllTransactions()
-
+    console.log("allTransactions:"+JSON.stringify(allTransactions))
     // get the txn if it has been submitted
     const setPirceTxn = useMemo(() => {
+        console.log("hasSubmitorderid:"+orderid)
+        console.log("hasSubmitprice:"+price)
         const txnIndex = Object.keys(allTransactions).find(hash => {
             const tx = allTransactions[hash]
-            return tx.setprice && tx.setprice.orderid === orderid && tx.setprice.price === price
+            return tx.setprice && tx.receipt?.status===1 &&tx.setprice.orderid === orderid && tx.setprice.price === price
         })
+        console.log("txnIndex:"+txnIndex)
         return txnIndex && allTransactions[txnIndex] ? allTransactions[txnIndex] : undefined
     }, [orderid,price, allTransactions])
-
+    console.log("setPirceTxn:"+JSON.stringify(setPirceTxn))
     return { setPriceSubmitted: Boolean(setPirceTxn), setPirceTxn }
+}
+
+export function useHasPendingBid(orderid:string,price:string): boolean {
+    const allTransactions = useAllTransactions()
+    return useMemo(
+        () =>
+            price!='0' &&
+            Object.keys(allTransactions).some(hash => {
+                const tx = allTransactions[hash]
+                if (!tx) return false
+                if (tx.receipt) {
+                    return false
+                } else {
+                    const bid = tx.bid
+                    if (!bid) return false
+                    return isTransactionRecent(tx)
+                }
+            }),
+        [allTransactions, orderid,price]
+    )
+}
+
+export function useUserHasSubmittedBid(
+    orderid:string,price:string
+): { bidSubmitted: boolean; bidTxn: TransactionDetails | undefined } {
+    const allTransactions = useAllTransactions()
+    console.log("allTransactions:"+JSON.stringify(allTransactions))
+    // get the txn if it has been submitted
+    const bidTxn = useMemo(() => {
+        // console.log("hasSubmitorderid:"+orderid)
+        // console.log("hasSubmitprice:"+price)
+        const txnIndex = Object.keys(allTransactions).find(hash => {
+            const tx = allTransactions[hash]
+            return tx.bid && tx.receipt?.status===1 && tx.bid.orderid === orderid && tx.bid.price === price
+        })
+        console.log("txnIndex:"+txnIndex)
+        return txnIndex && allTransactions[txnIndex] ? allTransactions[txnIndex] : undefined
+    }, [orderid,price, allTransactions])
+    console.log("bid:"+JSON.stringify(bidTxn))
+    return { bidSubmitted: Boolean(bidTxn), bidTxn }
+}
+
+export function useHasPendingWithdrawBid(orderid:number,price:number): boolean {
+    const allTransactions = useAllTransactions()
+    return useMemo(
+        () =>
+            price!=0 &&
+            Object.keys(allTransactions).some(hash => {
+                const tx = allTransactions[hash]
+                if (!tx) return false
+                if (tx.receipt) {
+                    return false
+                } else {
+                    const bid = tx.withdrawBid
+                    if (!bid) return false
+                    return isTransactionRecent(tx)
+                }
+            }),
+        [allTransactions, orderid,price]
+    )
+}
+
+export function useUserHasSubmittedWithdrawBid(
+    orderid:number,price:number
+): { withdrawBidSubmitted: boolean; withdrawBidTxn: TransactionDetails | undefined } {
+    const allTransactions = useAllTransactions()
+    // console.log("allTransactions:"+JSON.stringify(allTransactions))
+    // get the txn if it has been submitted
+    const withdrawBidTxn = useMemo(() => {
+        // console.log("hasSubmitorderid:"+orderid)
+        // console.log("hasSubmitprice:"+price)
+        const txnIndex = Object.keys(allTransactions).find(hash => {
+            const tx = allTransactions[hash]
+            return tx.withdrawBid && tx.receipt?.status===1 && tx.withdrawBid.orderid === orderid && tx.withdrawBid.price === price
+        })
+        console.log("txnIndex:"+txnIndex)
+        return txnIndex && allTransactions[txnIndex] ? allTransactions[txnIndex] : undefined
+    }, [orderid,price, allTransactions])
+    console.log("bid:"+JSON.stringify(withdrawBidTxn))
+    return { withdrawBidSubmitted: Boolean(withdrawBidTxn), withdrawBidTxn }
 }
 
 // watch for submissions to claim

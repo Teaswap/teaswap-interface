@@ -211,7 +211,7 @@ export default function useProductForm(id) {
   const handleSetPrice = (product,price) => {
     // checkDataValidity();
     // if (!hasError) {
-    product.price=price;
+    // product.price=price;
     setPrice(product.id,price,product.UserId)(dispatch);
     // }
     // navigate('/nft/users/backstage')

@@ -126,7 +126,7 @@ const Product = ({ product, onLoad, loaded, $width, $height, $margin }) => {
 
     console.log("setprice:"+setPrice)
     if (setPrice === setPriceState.SETED) {
-      setPriceSubmitted(true)
+      setSetPriceSubmitted(true)
       handleSetPrice(product,newPrice)
     }
   }, [setPrice, setPriceSubmitted])
@@ -145,6 +145,7 @@ const Product = ({ product, onLoad, loaded, $width, $height, $margin }) => {
     setIsProof(false)
     setIsTransfer(false)
     setShowMenu(false)
+    setSetPriceSubmitted(false)
   }
 
   return (

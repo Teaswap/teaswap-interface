@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import React, {useEffect, useState} from "react";
+import React, {useEffect, useMemo, useState} from "react";
 import { IconComponent } from "../../components";
 import { COLOR, FONT, MEDIA_QUERY } from "../../constants/style";
 import useCart from "../../hooks/cartHooks/useCart";
@@ -16,7 +16,13 @@ import {AutoColumn} from "../Column";
 import {TYPE} from "../../theme";
 import {useTranslation} from "react-i18next";
 import BigNumber from "bignumber.js";
-import {addTransaction} from "../../state/transactions/actions";
+import {
+    useHasPendingBid,
+    useHasPendingWithdrawBid,
+    useTransactionAdder,
+    useUserHasSubmittedBid, useUserHasSubmittedWithdrawBid
+} from "../../state/transactions/hooks";
+import {bidState} from "../productSystem/ProductInfo";
 
 
 
@@ -63,6 +69,14 @@ const LoadingBackground = styled.div`
   background: ${COLOR.bg_mask};
   z-index: 2;
 `;
+
+export const withdrawBidState = {
+    UNKNOWN:0,
+    NOT_WITHDRAWBID:1,
+    PENDING:2,
+    WITHDRAWBIDED:3
+};
+
 export default function ItemDetail({ Item }) {
     const {t} = useTranslation();
   const dispatch = useDispatch();
@@ -104,14 +118,25 @@ export default function ItemDetail({ Item }) {
     setCanBidid(Item.cartItemId)
   }
 
-  const onWithdrawBid = (item)=>{
+    const addTransaction = useTransactionAdder()
+    const pendingWithdrawBid = useHasPendingWithdrawBid(Item.noworderid,Item.bidprice)
+    const {withdrawBidSubmitted,} = useUserHasSubmittedWithdrawBid(Item.noworderid,Item.bidprice)
+
+
+    const bState = useMemo(() => {
+        return !withdrawBidSubmitted? pendingWithdrawBid ? withdrawBidState.PENDING : withdrawBidState.NOT_WITHDRAWBID: withdrawBidState.WITHDRAWBIDED
+    }, [pendingWithdrawBid,withdrawBidSubmitted])
+
+
+    const onWithdrawBid = (item)=>{
     setAttempting(true)
     if (exContract && canBidid!='') {
       if (item.productExtoken===ZERO_ADDRESS){
         exContract.withdrawBidBNB(item.noworderid.toString(),((new BigNumber(item.bidprice)).mul(new BigNumber("1000000000000000000"))).toFixed(),{gasLimit: 3500000})
             .then((response) => {
               addTransaction(response, {
-                summary: t('withdrawbid#'+item.noworderid)
+                summary: t('withdrawbid#'+item.noworderid),
+                withdrawBid:{orderid:item.noworderid,price:item.bidprice}
               })
               setHash(response.hash)
             })
@@ -125,7 +150,8 @@ export default function ItemDetail({ Item }) {
           exContract.withdrawBid(item.noworderid.toString(),new BigNumber(item.bidprice).times(new BigNumber(10).pow(18)).toFixed(), { gasLimit: 1000000 })
               .then((response) => {
                 addTransaction(response, {
-                  summary: t('withdraw#'+item.noworderid)
+                  summary: t('withdraw#'+item.noworderid),
+                  withdrawBid:{orderid:item.noworderid,price:item.bidprice}
                 })
                 setHash(response.hash)
               })
@@ -145,11 +171,10 @@ export default function ItemDetail({ Item }) {
   }
 
     useEffect(() => {
-        if (attempting && hash) {
+        if (attempting && hash && bState===withdrawBidState.WITHDRAWBIDED) {
             handleDeleteProductInCart(Item.cartItemId)
-
         }
-    }, [attempting, hash])
+    }, [attempting, hash,bState])
     
 
   return (
