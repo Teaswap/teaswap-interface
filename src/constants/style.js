@@ -1,7 +1,7 @@
 export const COLOR = {
   text_1: '#235474',
-  //text_2: '#929295',
-  text_2: '#303030',
+  text_2: '#929295',
+ // text_2: '#474747',
   text_3: '#54aa98',
   text_alert: '#f44335',
   //hover: '#6dd0cd',
