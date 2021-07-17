@@ -127,6 +127,9 @@ const VendorShopPage = () => {
             <span className={productCat == 'collected' ? 'active-page-tab' : 'page-tab'} onClick={() => changeCat('collected')}>
               Collected
             </span>
+            <span className={productCat == 'collected' ? 'active-page-tab' : 'page-tab'} onClick={() => changeCat('created')}>
+              Created
+            </span>
           </div>
             <NavLink style={{ minWidth: 'fit-content' }} to={'/nft'}>
               <NormalButton className="btn-sm-100" >{t('Buy NFT')}</NormalButton>

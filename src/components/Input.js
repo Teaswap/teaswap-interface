@@ -3,7 +3,7 @@ import { EFFECT, MEDIA_QUERY } from '../constants/style';
 
 export const InputSearch = styled.input`
   width: 0;
-  height: 45px;
+  height: 30px;
   outline: none;
   border: none;
   margin-left: 10px;

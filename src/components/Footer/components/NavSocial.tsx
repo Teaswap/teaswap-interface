@@ -45,6 +45,7 @@ const StyledNav = styled.nav`
   flex-wrap: wrap;
   width: 100%;
   margin-top: 16px;
+  
 `
 
 const StyledLink = styled.a`

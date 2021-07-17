@@ -149,6 +149,7 @@ const VendorBackstagePage = () => {
           </div>
         </SellerProductTitle>
         <Products
+          productCat={productCat}
           products={products}
           id={id}
           handler={handleVendorProductMoreButton}

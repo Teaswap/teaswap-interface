@@ -20,6 +20,7 @@ const BannerContainer = styled.div`
 `;
 
 const BannerImg = styled.img`
+  margin-top: 15px;
   position: relative;
   width: 100%;
   height: 250px;

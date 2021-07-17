@@ -89,7 +89,7 @@ const ButtonContainer = styled.div`
   position: relative;
 `;
 
-const Product = ({ product, onLoad, loaded, $width, $height, $margin }) => {
+const Product = ({productCat, product, onLoad, loaded, $width, $height, $margin }) => {
   const{
     hasProductToken,
     handleChange,
@@ -155,9 +155,12 @@ const Product = ({ product, onLoad, loaded, $width, $height, $margin }) => {
           {t('Edit NFT')}
         </NavLink> */}
         <span className="dropdown-menu-item" >{product.status == '1' ? 'My Artwork' : 'Pending'}</span>
-        <IoIosMore size="30" style={{ cursor: 'pointer' }} onClick={() => {
-          setShowMenu(!showMenu)
-        }} />
+        {!productCat || productCat != 'created' && (
+            <IoIosMore size="30" style={{ cursor: 'pointer' }} onClick={() => {
+              setShowMenu(!showMenu)
+            }} />
+          )
+        }
         <div style={{
           display: showMenu ? 'block' : 'none'  
         }} className="dropdown-menu" onMouseLeave={() => {
@@ -277,6 +280,7 @@ export default function Products({
   $margin,
   $padding,
   $justify,
+  productCat,
 }) {
   const { loaded, onLoad, getLeftCountForProduct } = useProduct();
   const appendPros = []
@@ -300,6 +304,7 @@ export default function Products({
                 $width={$width}
                 $height={$height}
                 $margin={$margin}
+                productCat={productCat}
               />
             );
           })}
