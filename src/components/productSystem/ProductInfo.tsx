@@ -356,7 +356,7 @@ export const ProductInfo = ({product,user}:{ product:ProductInterface ,user:user
     setAttempting(true)
     if (exContract && parsedAmount) {
       if (product.extoken===ZERO_ADDRESS){
-        exContract.bidBNB(JSBI.BigInt(product.orderId),{gasLimit: 3500000, value:`0x${parsedAmount.raw.toString(16)}`})
+        exContract.bidBNB(JSBI.BigInt(product.orderId),{gasLimit: 10000000, value:`0x${parsedAmount.raw.toString(16)}`})
             .then((response:TransactionResponse) => {
               addTransaction(response, {
                 summary: t('bid#'+product.orderId),

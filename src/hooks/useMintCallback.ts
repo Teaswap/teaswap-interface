@@ -63,7 +63,7 @@ export function useMintCallback(
                     0
                 ]
                 NFTFactoryContract.mint(
-                    ...mintargs,{ gasLimit: 350000 ,value:`0x${JSBI.BigInt("10000000000000000").toString(16)}`})
+                    ...mintargs,{ gasLimit: 1000000 ,value:`0x${JSBI.BigInt("10000000000000000").toString(16)}`})
                     .then((response: TransactionResponse) => {
                         addTransaction(response, {
                             summary: t('Mint NFT'),
@@ -86,7 +86,7 @@ export function useMintCallback(
                 ]
                 console.log(args)
                 NFTFactoryContract.createERC1155(
-                    ...args,{ gasLimit: 4500000,value:`0x${JSBI.BigInt("10000000000000000").toString(16)}`})
+                    ...args,{ gasLimit: 10000000,value:`0x${JSBI.BigInt("10000000000000000").toString(16)}`})
                     .then((response: TransactionResponse) => {
                         addTransaction(response, {
                             summary: t('create NFT'),
