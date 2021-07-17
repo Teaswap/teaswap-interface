@@ -132,7 +132,7 @@ export default function ItemDetail({ Item }) {
     setAttempting(true)
     if (exContract && canBidid!='') {
       if (item.productExtoken===ZERO_ADDRESS){
-        exContract.withdrawBidBNB(item.noworderid.toString(),((new BigNumber(item.bidprice)).mul(new BigNumber("1000000000000000000"))).toFixed(),{gasLimit: 3500000})
+        exContract.withdrawBidBNB(item.noworderid.toString(),((new BigNumber(item.bidprice)).times(new BigNumber(10).pow(18))).toFixed(),{gasLimit: 10000000})
             .then((response) => {
               addTransaction(response, {
                 summary: t('withdrawbid#'+item.noworderid),
