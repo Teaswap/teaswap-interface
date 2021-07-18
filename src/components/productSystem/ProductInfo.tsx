@@ -499,7 +499,7 @@ export const ProductInfo = ({product,user}:{ product:ProductInterface ,user:user
         <ShoppingBuy onClick={handleAlert}>
         {t('Buy Now')}
         </ShoppingBuy>
-        )}
+      )}
       <Remind />
     </ProductInfoContainer>
   );
