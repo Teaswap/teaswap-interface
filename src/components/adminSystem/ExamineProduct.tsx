@@ -236,24 +236,24 @@ export default function ExamineProduct() {
             return exchangeContract.estimateGas.batchAddOrder(nfts, ids,amounts ,owners,prices,royalties,exchangeTokens)
         })
 
-        exchangeContract
+        await exchangeContract
           .batchAddOrder(nfts, ids,amounts ,owners,prices,royalties,exchangeTokens, {
               gasLimit: calculateGasMargin(estimatedGas)
           })
-          .then((response: TransactionResponse) => {
+          .then(async (response: TransactionResponse) => {
               addTransaction(response, {
                   summary: 'batchaddorder ',
               })
               const pids = tableIds.join(",")
-              handleUpdateProductsOrderid(pids,orderIds)
+              await handleUpdateProductsOrderid(pids,orderIds)
+              window.location.reload()
           })
           .catch((error: Error) => {
               console.debug('Failed to add order', error)
               throw error
           })
-        const pids = tableIds.join(",")
-        handleUpdateProductsOrderid(pids,orderIds)
-        window.location.reload()
+        // const pids = tableIds.join(",")
+        // handleUpdateProductsOrderid(pids,orderIds)
     }
 
   return (
