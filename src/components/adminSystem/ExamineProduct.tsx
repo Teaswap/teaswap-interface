@@ -246,7 +246,7 @@ export default function ExamineProduct() {
               })
               const pids = tableIds.join(",")
               await handleUpdateProductsOrderid(pids,orderIds)
-              window.location.reload()
+              // window.location.reload()
           })
           .catch((error: Error) => {
               console.debug('Failed to add order', error)
