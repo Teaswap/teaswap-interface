@@ -34,7 +34,7 @@ const InputDescription = styled.p`
 
 const Text = styled.p`
   color: ${COLOR.black};
-  font-size: ${FONT.md};
+  font-size: ${FONT.xsm};
   margin: ${DISTANCE.md} 0 ${DISTANCE.sm} 0;
 `;
 
