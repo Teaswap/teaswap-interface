@@ -27,6 +27,7 @@ export const FONT = {
   lg: '24px',
   md: '18px',
   sm: '16px',
+  xsm: '14px',
   xs: '13px',
   xss: '12px',
 };

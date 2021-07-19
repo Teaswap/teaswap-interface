@@ -21,14 +21,14 @@ const FontWrapper = styled.div`
 
 const InputName = styled.h2`
   color: ${COLOR.black};
-  font-size: 14px;
+  font-size: ${FONT.xsm};
   margin: ${DISTANCE.sm} 0;
   font-weight: normal;
 `;
 
 const InputDescription = styled.p`
   color: ${COLOR.text_1};
-  font-size: ${FONT.sm};
+  font-size: ${FONT.xsm};
   margin: ${DISTANCE.xs} 0;
 `;
 
@@ -136,7 +136,7 @@ export default function VendorInfoForm({ successMode, setSuccessMode, isAdminSta
           value={portfolio}
           onChange={(e) => setPortfolio(e.target.value)}
         />
-        <InputName>{t("Twitter ID and Followers")}</InputName>
+        <InputName>{t("Twitter link")}</InputName>
         <InputComponent
           type='text'
           name='twitter'
@@ -145,7 +145,7 @@ export default function VendorInfoForm({ successMode, setSuccessMode, isAdminSta
           value={twitter}
           onChange={(e) => setTwitter(e.target.value)}
         />
-        <InputName>{t("Instagram ID and Followers")}</InputName>
+        <InputName>{t("Instagram Link")}</InputName>
         <InputComponent
           type='text'
           name='instagram'
