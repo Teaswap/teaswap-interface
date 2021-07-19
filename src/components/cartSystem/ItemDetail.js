@@ -23,6 +23,7 @@ import {
     useUserHasSubmittedBid, useUserHasSubmittedWithdrawBid
 } from "../../state/transactions/hooks";
 import {bidState} from "../productSystem/ProductInfo";
+import { useNavigate } from 'react-router-dom'
 
 
 
@@ -53,6 +54,7 @@ const PhotoImg = styled.img`
   width: 100%;
   height: 100%;
   object-fit: cover;
+  cursor: pointer;
 `;
 const Price = styled.p`
   font-weight: bold;
@@ -177,6 +179,8 @@ export default function ItemDetail({ Item }) {
     }, [attempting, hash,bState])
     
 
+  const navigate = useNavigate()
+
   return (
     <>
       {isLoading && (
@@ -197,14 +201,14 @@ export default function ItemDetail({ Item }) {
       </Modal>
       )}
         {attempting && !hash && (
-            <Modal>
+          <Modal>
             <LoadingView onDismiss={dismissCan}>
                 <AutoColumn gap="12px" justify={'center'}>
                     <TYPE.largeHeader>{t('Withdraw bid')}</TYPE.largeHeader>
                     <TYPE.body fontSize={20}>{Item.bidprice} {exToken.symbol}</TYPE.body>
                 </AutoColumn>
             </LoadingView>
-            </Modal>
+          </Modal>
         )}
         {attempting && hash && (
             <Modal>
@@ -220,7 +224,7 @@ export default function ItemDetail({ Item }) {
         )}
       <CartInfo>
         <Photo>
-          <PhotoImg src={Item.pictureUrl}></PhotoImg>
+          <PhotoImg onClick={() => navigate(`/nft/products/${Item.productId}`)} src={Item.pictureUrl}></PhotoImg>
         </Photo>
         <ProductName>{Item.productName}</ProductName>
         {/* <ChooseQuantity Item={Item} /> */}

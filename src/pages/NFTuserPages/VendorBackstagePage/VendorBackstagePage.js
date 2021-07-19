@@ -32,8 +32,7 @@ const SellerProductTitle = styled.div`
   flex-wrap: wrap;
   align-items: center;
   ${MEDIA_QUERY.sm} {
-    width: 90%;
-    padding: 0px 5%;
+    width: 100%;
   }
 `;
 
@@ -107,7 +106,7 @@ const VendorBackstagePage = () => {
 
   return (
     <>
-      <Banner banner={vendorInfo.banner_url} loaded={loaded} onLoad={onLoad} />
+      <Banner banner={vendorInfo.banner_url || 'https://i.imgur.com/3zpk96J.jpg'} loaded={loaded} onLoad={onLoad} />
       <StandardNavPage>
         <SellerInfo
           vendorInfo={vendorInfo}

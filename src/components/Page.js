@@ -8,7 +8,6 @@ export const StandardNavPage = styled.div`
   position: relative;
   ${MEDIA_QUERY.md} {
     margin: 0 auto;
-    padding: 30px;
   }
 ;
 `;

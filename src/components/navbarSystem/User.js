@@ -102,7 +102,7 @@ export default function User() {
   }, [user,isVendor]);
 
   return (
-    <UserContainer>
+    <UserContainer id="UserContainer">
       <IconComponent kind={'user-circle'} />
       <OptionWrapper>
         <OptionInner>

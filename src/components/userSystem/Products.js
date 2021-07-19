@@ -115,7 +115,6 @@ const Product = ({productCat, product, onLoad, loaded, $width, $height, $margin 
   const {handleResaleProduct,handleSetPrice} = useProductForm()
   console.log("approval:"+approval)
   useEffect(() => {
-    debugger
     if (approval === ApprovalState.APPROVED && productPrice > 0) {
       setApprovalSubmitted(true)
       handleResaleProduct(product,parseFloat(productPrice),productToken)
