@@ -75,8 +75,11 @@ const OptionName = styled.p`
   color: ${COLOR.black};
   font-size: ${FONT.xs};
   cursor: pointer;
+  padding: 2px;
   &:hover {
     color: ${COLOR.btn_primary};
+    background: #eeeeee;
+    border-bottom: 1px solid #ccc;
   }
 `;
 
