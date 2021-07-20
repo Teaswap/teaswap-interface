@@ -10,6 +10,7 @@ const RadioLabel = styled.label`
   color: #474747;
   // width: 150px;
   margin: 5px 10px;
+  font-size: 12px;
 `;
 
 export const Radio = ({
