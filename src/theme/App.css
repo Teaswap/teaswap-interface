@@ -40,11 +40,11 @@
   justify-content: center;
   align-items: center;
   padding-bottom: 30px;
-  width: 90%;
-  font-size: 14px;
+  width: 85%;
+  font-size: 12px;
 }
 .declare-checkbox > input{
-  width: 35px;
+  width: 20px;
   height: 35px;
   margin-right: 10px;
 }

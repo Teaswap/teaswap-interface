@@ -526,7 +526,7 @@ export default PostProductPage;
 const QuestionTitle = styled.div`
   margin-bottom: 10px;
   color: #474747;
-  font-size: 14px;
+  font-size: 12px;
   width: 100%;
   max-width: 600px;
   text-align: left;
