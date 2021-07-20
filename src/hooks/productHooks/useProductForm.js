@@ -228,7 +228,8 @@ export default function useProductForm(id) {
     }
   };
 
-  const handleChangePicture = (e, setProductPictureUrl) => {
+  const handleChangePicture = (e, setProductPictureUrl, setIsCheckImage, setIsLoadingUpload, setUploadError) => {
+    debugger
     const formData = new FormData();
     console.log('handleChangePicture', e.target.files[0])
     console.log('productMediaType', productMediaType)
@@ -278,6 +279,8 @@ export default function useProductForm(id) {
     hasProductRoyalty,
 
     setIsCheckImage,
+    setIsLoadingUpload,
+    setUploadError,
     setProductName,
     setProductInfo,
     setProductCategory,
