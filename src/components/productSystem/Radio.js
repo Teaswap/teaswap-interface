@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { COLOR } from '../../constants/style';
 const RadioInput = styled.input`
   margin-right: 10px;
-  font-size: 14px;
+  font-size: 12px;
 `;
 
 const RadioLabel = styled.label`

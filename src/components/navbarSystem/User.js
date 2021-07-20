@@ -68,6 +68,7 @@ const OptionList = styled.ul`
 
 const OptionItem = styled.li`
   margin: ${DISTANCE.xs} 0;
+  list-style-type: none;
 `;
 
 const OptionName = styled.p`
@@ -110,7 +111,7 @@ export default function User() {
             {address && (
               <OptionItem
                 style={{
-                  color: COLOR.text_1,
+                  color: COLOR.black,
                   margin: '15px 0',
 
                 }}
