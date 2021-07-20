@@ -161,11 +161,11 @@ export const FreightIntro = ({ product }) => {
       <InfoItem>
         <InfoItemTitle>{t('Provenance')}</InfoItemTitle>
         <div>
-          <p>Creator : {Creator.address}</p>
-          <p>Owner : {vendorInfo.address}</p>
+          <p>Creator : {hideAddr(Creator.address)}</p>
+          <p>Owner : {hideAddr(vendorInfo.address)}</p>
           <p>Contract Address : <span style={{cursor: 'pointer'}} onClick={() => {
             window.open(`https://bscscan.com/address/${product.delivery_location}`)
-          }}>{product.delivery_location}</span></p>
+          }}>{hideAddr(product.delivery_location)}</span></p>
           <p>Token ID : {product.tokenId}</p>
         </div>
       </InfoItem>

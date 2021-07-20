@@ -19,7 +19,7 @@ import Tabs from '../../../components/Tabs/Index'
 import useCart from "../../../hooks/cartHooks/useCart";
 import CartItem from "../../../components/cartSystem/CartItem";
 import useProduct from "../../../hooks/productHooks/useProduct";
-import { truncStr } from '../../../utils/strUtil'
+import { hideAddr } from '../../../utils/strUtil'
 import { useTranslation } from "react-i18next";
 
 const Title = styled.p`
@@ -162,8 +162,8 @@ const ClientOrdersPage = () => {
                     <ContentContainer key={order.id}>
                       <img onClick={() => navigate(`/nft/products/${order.Order_items[0].ProductId}`)} style={{cursor: 'pointer'}} src={order.Order_items[0].product_picture_url} width="100" height="100" />
                       <Content> {order.order_number} </Content>
-                      <Content> {truncStr(order.client_name)} </Content>
-                      <Content> {truncStr(order.seller_name)} </Content>
+                      <Content> {hideAddr(order.client_name)} </Content>
+                      <Content> {hideAddr(order.seller_name)} </Content>
                       <Content>
                         {new Date(order.createdAt).toLocaleDateString()}
                       </Content>
