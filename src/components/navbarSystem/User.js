@@ -53,7 +53,7 @@ const OptionWrapper = styled.div`
 `;
 
 const OptionInner = styled.div`
-  padding-top: 9px;
+  padding-top: 2px;
   z-index: 1;
   position: relative;
   width: 150px;
@@ -63,7 +63,7 @@ const OptionInner = styled.div`
 const OptionList = styled.ul`
   border: 1px solid #e5e5e6;
   border-radius: 0px;
-  padding: 10px 30px 20px 30px;
+  padding: 10px;
 `;
 
 const OptionItem = styled.li`
