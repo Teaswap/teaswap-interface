@@ -87,7 +87,8 @@ const MenuItem = styled.div`
   padding: 10px;
   :hover {
     color: #474747;
-    background: #ccc;
+    background: #eeeeee;
+    border-bottom: 1px solid #ccc;
     transition: all 0.5s;
     -webkit-transition: all 0.5s;
     -moz-transition: all 0.5s;
@@ -152,7 +153,7 @@ export default function Menu() {
                 {t('Get TSA')}
               </MenuItem>
               <MenuItem onClick={openClaimModal}>
-                {t('AirDrop')}
+                {t('Airdrop')}
               </MenuItem>
             </>
           )}

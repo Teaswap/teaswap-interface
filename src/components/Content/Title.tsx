@@ -4,7 +4,7 @@ import { MEDIA_QUERY } from '../../constants/style'
 
 const Title = styled.span`
   color: ${({ theme }) => theme.darkGray};
-  font-size: 28px;
+  font-size: 19px;
   margin-bottom: 20px;
   ${MEDIA_QUERY.sm} {
     margin-bottom: 10px;

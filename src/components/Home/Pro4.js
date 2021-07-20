@@ -1,13 +1,13 @@
 export default [ 
-  {
-    picture_url: process.env.PUBLIC_URL + '/nft/pro4/1.gif',
-    title: "ShihNFT No.1 WAPO",
-    number: "",
-    desc: '',
-    link: '/nft/products/category/1',
-    mediaType: 1,
-    id: 1
-  },
+  // {
+  //   picture_url: process.env.PUBLIC_URL + '/nft/pro4/1.gif',
+  //   title: "ShihNFT No.1 WAPO",
+  //   number: "",
+  //   desc: '',
+  //   link: '/nft/products/category/1',
+  //   mediaType: 1,
+  //   id: 1
+  // },
   {
     picture_url: process.env.PUBLIC_URL + '/nft/pro4/2.gif',
     title: "ShihNFT No.2 water-color-cats",
@@ -124,5 +124,15 @@ export default [
     link: '/nft/products/category/1',
     mediaType: 1,
     id: 14
-  }
+  },
+  {
+    picture_url: process.env.PUBLIC_URL + '/nft/pro4/15.gif',
+    title: "Shih CryptoPunk No. 17",
+    number: "",
+    desc: 'Jelly King-Scientific Name Gelatin Ursidae',
+    link: '/nft/products/category/1',
+    mediaType: 1,
+    id: 15
+  },
+  
 ]
