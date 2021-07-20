@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import useProduct from '../../hooks/productHooks/useProduct';
 import { MEDIA_QUERY } from '../../constants/style';
 import { useTranslation } from 'react-i18next';
-import {truncStr} from '../../utils/strUtil'
+import {hideAddr} from '../../utils/strUtil'
 
 const ProductPictureContainer = styled.div`
   position: relative;
@@ -114,6 +114,8 @@ export const FreightIntro = ({ product }) => {
         {/* <InfoBlock>{product.delivery === '0' ? t('Bid') : t('Auction')}</InfoBlock> */}
         {productCarts && productCarts.length > 0 && (
            <p className="trading-line">
+            <span>Event</span>
+            <span>Address</span>
             <span>Product Price</span>
             <span>Bid Price</span>
             <span>Date</span>
@@ -122,6 +124,8 @@ export const FreightIntro = ({ product }) => {
         {productCarts && productCarts.map((cart, index) => {
           return (
             <p className="trading-line">
+              <span>bid</span>
+              <span>{hideAddr(cart.userAddress)}</span>
               <span>{cart.product_price} {handleTokenSwitch(cart.extoken)}</span>
               <span>{cart.bidprice} {handleTokenSwitch(cart.extoken)}</span>
               <span>{new Date(cart.createdAt).toLocaleDateString()}</span>
@@ -146,8 +150,8 @@ export const FreightIntro = ({ product }) => {
               <p className="trading-line">
                 <span>Buy</span>
                 <span>{(order.product_price)} {handleTokenSwitch(order.extoken)}</span>
-                <span>{truncStr(order.Order.seller_name)}</span>
-                <span>{truncStr(order.Order.client_name)}</span>
+                <span>{hideAddr(order.Order.seller_address)}</span>
+                <span>{hideAddr(order.Order.client_address)}</span>
                 <span>{new Date(order.Order.createdAt).toLocaleDateString()}</span>
               </p>
             )

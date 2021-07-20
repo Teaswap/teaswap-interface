@@ -41,15 +41,6 @@ const AvatarContainer = styled.div`
     height: 100%;
   }
 
-  &:before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    background: url(${process.env.PUBLIC_URL}/logo-g.svg) center/cover no-repeat;
-  }
 `;
 
 const VendorAvatar = styled.img`

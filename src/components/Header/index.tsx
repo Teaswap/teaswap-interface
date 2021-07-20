@@ -381,7 +381,7 @@ export default function Header() {
           </UniIcon>
           <HeaderLinks style={{ fontSize: '13px'}}>
             <StyledNavLink id={`swap-nav-link`} to={'/drops'}>
-              {t('DROPS')}
+              {t('NEW DROPS')}
             </StyledNavLink>
             <StyledNavLink id={`NFT-nav-link`} to={'/nft/products/category/1'} >
               {t('NFT')}
