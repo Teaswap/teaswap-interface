@@ -9,7 +9,7 @@ import { shortenAddress } from '../../utils'
 const UserContainer = styled.div`
   position: absolute;
   top: -85px;
-  right: 10px;
+  right: -10px;
   &:hover {
     & div {
       opacity: 1;
