@@ -25,6 +25,7 @@
   }
   .page-tabs{
     width: 100%;
+    justify-content: space-between;
   }
   .category-title{
     padding-left: 10px;
@@ -40,6 +41,9 @@
   }
   .nft-category > li{
     margin: 10px 0;
+  }
+  .page-tab, .active-page-tab{
+    margin-right: 0px;
   }
 }
 

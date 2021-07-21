@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   getUser,
 } from "../../../redux/slices/orderSlice/orderSlice";
@@ -19,7 +19,7 @@ import Tabs from '../../../components/Tabs/Index'
 import useCart from "../../../hooks/cartHooks/useCart";
 import CartItem from "../../../components/cartSystem/CartItem";
 import useProduct from "../../../hooks/productHooks/useProduct";
-import { truncStr } from '../../../utils/strUtil'
+import { hideAddr } from '../../../utils/strUtil'
 import { useTranslation } from "react-i18next";
 
 const Title = styled.p`
@@ -47,20 +47,23 @@ const Table = styled.table`
 `;
 const NameContainer = styled.tr``;
 const Name = styled.th`
-  font-size: ${FONT.md};
+  font-size: ${FONT.xsm};
   color: ${COLOR.black};
   border-bottom: solid 1px ${COLOR.cccccc};
   padding: ${DISTANCE.sm};
 `;
 const ContentContainer = styled.tr``;
 const Content = styled.td`
-  font-size: ${FONT.md};
+  font-size: ${FONT.xsm};
   color: ${COLOR.text_2};
   border-bottom: solid 1px ${COLOR.cccccc};
   padding: ${DISTANCE.sm};
   cursor: pointer;
   &:hover:nth-child(1) {
     color: ${COLOR.hover};
+  }
+  & img{
+    cursor: pointer;
   }
 `;
 const OrderContent = styled(Link)`
@@ -115,6 +118,8 @@ const ClientOrdersPage = () => {
   const [tab, setTab] = useState(BID_TAB)
   const { t } = useTranslation();
 
+  const navigate = useNavigate()
+
   return (
     <>
       <ThickNavPage style={{
@@ -155,10 +160,10 @@ const ClientOrdersPage = () => {
                 orders.map((order) => (
                   order.Order_items.map((item) => (
                     <ContentContainer key={order.id}>
-                      <img src={order.Order_items[0].product_picture_url} width="100" height="100" />
+                      <img onClick={() => navigate(`/nft/products/${order.Order_items[0].ProductId}`)} style={{cursor: 'pointer'}} src={order.Order_items[0].product_picture_url} width="100" height="100" />
                       <Content> {order.order_number} </Content>
-                      <Content> {truncStr(order.client_name)} </Content>
-                      <Content> {truncStr(order.seller_name)} </Content>
+                      <Content> {hideAddr(order.client_name)} </Content>
+                      <Content> {hideAddr(order.seller_name)} </Content>
                       <Content>
                         {new Date(order.createdAt).toLocaleDateString()}
                       </Content>

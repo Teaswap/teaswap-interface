@@ -422,5 +422,6 @@
   "Seller": "Seller",
   "Date": "Date",
   "Status": "Status",
-  "Amount": "Amount"
+  "Amount": "Amount",
+  "transaction-pending-do-not-leave-page": "Transaction is pending. Please do not leave the page."
 }

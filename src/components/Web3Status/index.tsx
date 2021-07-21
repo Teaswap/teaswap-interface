@@ -175,6 +175,19 @@ function Web3StatusInner() {
   const pending = sortedRecentTransactions.filter(tx => !tx.receipt).map(tx => tx.hash)
 
   const hasPendingTransactions = !!pending.length
+  if (hasPendingTransactions) {
+    window.onbeforeunload = function(e: Event) {
+      e = e || window.event;
+      // 兼容IE8和Firefox 4之前的版本
+      if (e) {
+        e.returnValue = t('transaction-pending-do-not-leave-page');
+      }
+      // Chrome, Safari, Firefox 4+, Opera 12+ , IE 9+
+      return 'transaction-pending-do-not-leave-page';
+    }
+  }else{
+    window.onbeforeunload = null;
+  }
   const hasSocks = useHasSocks()
   const toggleWalletModal = useWalletModalToggle()
 

@@ -399,5 +399,6 @@
   "Seller": "卖家",
   "Date": "时间",
   "Status": "状态",
-  "Amount": "总金额"
+  "Amount": "总金额",
+  "transaction-pending-do-not-leave-page": "交行正在处理，请不要离开"
 }

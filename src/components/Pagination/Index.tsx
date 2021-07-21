@@ -6,7 +6,7 @@ const useStyles = makeStyles((theme) =>
   createStyles({
     root: {
       '& > *': {
-        marginTop: theme.spacing(3),
+        marginTop: theme.spacing(6),
       },
 			display: 'flex',
 			justifyContent: 'flex-end'

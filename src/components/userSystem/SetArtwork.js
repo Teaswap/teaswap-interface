@@ -27,13 +27,13 @@ const PreviewAvatar = styled.img`
 
 const RightSide = styled.div`
   min-width: max-content;
-  font-size: 14px;
+  font-size: 12px;
 
 `;
 
 const Description = styled.p`
   color: #474747;
-  font-size: 14px;
+  font-size: 12px;
   margin-bottom: ${DISTANCE.sm};
   ${MEDIA_QUERY.sm} {
     width: 80%;
@@ -124,6 +124,8 @@ export default function SetArtwork({productPictureUrl, handleChangePicture, setP
     isCheckImage,
     isLoadingUpload,
     setIsCheckImage,
+    setIsLoadingUpload,
+    setUploadError
   } = useProductForm()
 
   return (
@@ -136,7 +138,7 @@ export default function SetArtwork({productPictureUrl, handleChangePicture, setP
           {"Mint an NFT charges 0.01BNB"}
         </Description>
         <Label>
-          <InputFile id="uploadArtwork" type='file'  onChange={(e) => handleChangePicture(e, setProductPictureUrl)} />
+          <InputFile id="uploadArtwork" type='file'  onChange={(e) => handleChangePicture(e, setProductPictureUrl, setIsCheckImage, setIsLoadingUpload, setUploadError)} />
           {t("Choose File")}
         </Label>
         {isCheckImage && (

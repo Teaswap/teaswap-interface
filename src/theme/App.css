@@ -40,11 +40,11 @@
   justify-content: center;
   align-items: center;
   padding-bottom: 30px;
-  width: 90%;
-  font-size: 14px;
+  width: 85%;
+  font-size: 12px;
 }
 .declare-checkbox > input{
-  width: 35px;
+  width: 20px;
   height: 35px;
   margin-right: 10px;
 }
@@ -282,4 +282,13 @@
 .trading-line > span{
   color: #474747;
   flex: 1;
+}
+.global-modal-text{
+  position: fixed;
+  width: 200px;
+  height: 500px;
+  color: #fff;
+  margin: auto;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 10000;
 }

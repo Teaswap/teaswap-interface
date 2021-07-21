@@ -11,7 +11,7 @@ import { ApplicationModal } from '../../state/application/actions'
 import { useModalOpen, useToggleModal } from '../../state/application/hooks'
 
 // import { ExternalLink } from '../../theme'
-import { ButtonPrimary } from '../Button'
+// import { ButtonPrimary } from '../Button'
 import { useNavigate } from 'react-router-dom';
 
 // const StyledMenuIcon = styled(MenuIcon)`
@@ -59,7 +59,6 @@ const StyledMenu = styled.div`
 
 const MenuFlyout = styled.span`
   min-width: 12.125rem;
-  background-color: ${({ theme }) => theme.bg3};
   box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.01), 0px 4px 8px rgba(0, 0, 0, 0.04), 0px 16px 24px rgba(0, 0, 0, 0.04),
     0px 24px 32px rgba(0, 0, 0, 0.01);
   border-radius: 0px;
@@ -72,25 +71,31 @@ const MenuFlyout = styled.span`
   right: 0rem;
   z-index: 100;
   align-items: center;
-
+  background-color: #ffffff;
   ${({ theme }) => theme.mediaWidth.upToMedium`
     top: -17.25rem;
   `};
 `
 
-// const MenuItem = styled(ExternalLink)`
-//   flex: 1;
-//   padding: 0.5rem 0.5rem;
-//   color: ${({ theme }) => theme.text2};
-//   :hover {
-//     color: ${({ theme }) => theme.text1};
-//     cursor: pointer;
-//     text-decoration: none;
-//   }
-//   > svg {
-//     margin-right: 8px;
-//   }
-// `
+const MenuItem = styled.div`
+  width: 80%;
+  margin: 0 auto;
+  text-align: left;
+  color: #7f7f7f;
+  font-size: 13px;
+  cursor: pointer;
+  padding: 10px;
+  :hover {
+    color: #474747;
+    background: #eeeeee;
+    border-bottom: 1px solid #ccc;
+    transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    -o-transition: all 0.5s;
+  }
+`
 
 // const CODE_LINK = 'https://github.com/KodamaSakuno/uniswap-interface'
 
@@ -137,19 +142,19 @@ export default function Menu() {
           </MenuItem> */}
           {account && (
             <>
-              <ButtonPrimary onClick={() => {
+              <MenuItem onClick={() => {
                 navigate('/nft/users/backstage')
-              }} padding="8px 8px" width="80%" borderRadius="0px" mt="0.5rem">
+              }}>
                 {t('My Profile')}
-              </ButtonPrimary>
-              <ButtonPrimary onClick={() => {
+              </MenuItem>
+              <MenuItem onClick={() => {
                 navigate('/swap')
-              }} padding="8px 8px" width="80%" borderRadius="0px" mt="0.5rem">
+              }}>
                 {t('Get TSA')}
-              </ButtonPrimary>
-              <ButtonPrimary onClick={openClaimModal} padding="8px 8px" width="80%" borderRadius="0px" mt="0.5rem">
-                {t('AirDrop')}
-              </ButtonPrimary>
+              </MenuItem>
+              <MenuItem onClick={openClaimModal}>
+                {t('Airdrop')}
+              </MenuItem>
             </>
           )}
         </MenuFlyout>
