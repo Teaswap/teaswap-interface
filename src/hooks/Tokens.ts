@@ -51,7 +51,7 @@ function parseStringOrBytes32(str: string | undefined, bytes32: string | undefin
 // undefined if invalid or does not exist
 // null if loading
 // otherwise returns the token
-export function useToken(tokenAddress?: string): Token | undefined | null {
+export function useToken(tokenAddress?: string,isNFT?:boolean): Token | undefined | null {
   const { chainId } = useActiveWeb3React()
   const tokens = useAllTokens()
 
@@ -61,28 +61,40 @@ export function useToken(tokenAddress?: string): Token | undefined | null {
   const tokenContractBytes32 = useBytes32TokenContract(address ? address : undefined, false)
   const token: Token | undefined = address ? tokens[address] : undefined
 
-  const tokenName = useSingleCallResult(token ? undefined : tokenContract, 'name', undefined, NEVER_RELOAD)
+  const tokenName = useSingleCallResult(token ? undefined : tokenContract, 'name', undefined)
   const tokenNameBytes32 = useSingleCallResult(
     token ? undefined : tokenContractBytes32,
     'name',
     undefined,
     NEVER_RELOAD
   )
-  const symbol = useSingleCallResult(token ? undefined : tokenContract, 'symbol', undefined, NEVER_RELOAD)
+  const symbol = useSingleCallResult(token ? undefined : tokenContract, 'symbol', undefined)
   const symbolBytes32 = useSingleCallResult(token ? undefined : tokenContractBytes32, 'symbol', undefined, NEVER_RELOAD)
   const decimals = useSingleCallResult(token ? undefined : tokenContract, 'decimals', undefined, NEVER_RELOAD)
 
   return useMemo(() => {
     if (token) return token
     if (!chainId || !address) return undefined
-    if (decimals.loading || symbol.loading || tokenName.loading) return null
-    if (decimals.result) {
+    if ((decimals.loading && !isNFT) || symbol.loading || tokenName.loading) return null
+    if (decimals.result && !isNFT) {
       return new Token(
         chainId,
         address,
         decimals.result[0],
         parseStringOrBytes32(symbol.result?.[0], symbolBytes32.result?.[0], 'UNKNOWN'),
         parseStringOrBytes32(tokenName.result?.[0], tokenNameBytes32.result?.[0], 'Unknown Token')
+      )
+    }
+    console.log("isNFT:"+isNFT)
+    if(isNFT){
+      console.log("symbol:"+JSON.stringify(symbol))
+      console.log("name:"+JSON.stringify(tokenName))
+      return new Token(
+          chainId,
+          address,
+          0,
+          symbol.result?.[0],
+          tokenName.result?.[0]
       )
     }
     return undefined
@@ -101,8 +113,8 @@ export function useToken(tokenAddress?: string): Token | undefined | null {
   ])
 }
 
-export function useCurrency(currencyId: string | undefined): Currency | null | undefined {
+export function useCurrency(currencyId: string | undefined,isNFT?:boolean): Currency | null | undefined {
   const isETH = currencyId?.toUpperCase() === 'BNB'
-  const token = useToken(isETH ? undefined : currencyId)
+  const token = useToken(isETH ? undefined : currencyId,isNFT)
   return isETH ? ETHER : token
 }

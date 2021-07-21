@@ -228,7 +228,7 @@ export default function PoolCard({ stakingInfo }: { stakingInfo: StakingInfo }) 
         <TYPE.black> {t('totalDeposited')}</TYPE.black>
         <TYPE.black fontWeight='bolder'>
           {stakingInfo.totalStakedAmount
-            ? `${stakingInfo.totalStakedAmount.toFixed(4, { groupSeparator: ',' })} `
+            ? `${stakingInfo.totalStakedAmount.toFixed(currency0.decimals>4?4:0, { groupSeparator: ',' })} `
             : `${valueOfTotalStakedAmountInWETH?.toSignificant(4, { groupSeparator: ',' }) ?? '-'} `}
         </TYPE.black>
       </RowBetween>

@@ -14,7 +14,7 @@ import {
   BNB_BAKE_LP,
   DOGGY,
   SAFEMOON,
-  BNB_SHIH_LP, BUSD_SHIH_LP, B_USDT, USDT_SHIH_LP, BNB_BUSD_LP, BNB_ETH_LP, BNB_WBTC_LP, BNB_TSA_LP
+  BNB_SHIH_LP, BUSD_SHIH_LP, B_USDT, USDT_SHIH_LP, BNB_BUSD_LP, BNB_ETH_LP, BNB_WBTC_LP, BNB_TSA_LP, GensisNFT
 } from '../../constants'
 import { IDO_ABI_INTERFACE, STAKING_REWARDS_INTERFACE } from '../../constants/abis/staking-rewards'
 import { useActiveWeb3React } from '../../hooks'
@@ -32,78 +32,99 @@ export const STAKING_REWARDS_INFO: {
     tokens: [Token, Token]
     stakingRewardAddress: string
     iconUrl: string
+    cate:string
   }[]
 } = {
   [ChainId.BSC_MAINNET]: [
     {
+      tokens: [GensisNFT, ICASH],
+      stakingRewardAddress: '0xc31a92F4976C2Af1869a21AC9EB1F5AFd6b92148',
+      iconUrl: "/icashgensisi.png",
+      cate:"NFT"
+    },
+    {
       tokens: [BNB_TSA_LP, UNI[ChainId.BSC_MAINNET]],
       stakingRewardAddress: '0xA1f2Bc4cBB56b02cB1329C8ca633155c02Fc6Cb8',
-      iconUrl: "/bnbtsastaketsa.png"
+      iconUrl: "/bnbtsastaketsa.png",
+      cate:"TSA"
     },
     {
       tokens: [SHIH,UNI[ChainId.BSC_MAINNET]],
       stakingRewardAddress:'0xB2919b8d401dEA262B1E62876Fa1B7aAc287B05E',
-      iconUrl: "/shih_TSA_icon.png"
+      iconUrl: "/shih_TSA_icon.png",
+      cate:"TSA"
     },
     {
       tokens:[BNB_BUSD_LP, UNI[ChainId.BSC_MAINNET]],
       stakingRewardAddress: '0x787B60d70b997Cdae2a4475aeCD4a94E3111c0F7',
-      iconUrl:"/BNB_BUSD.png"
+      iconUrl:"/BNB_BUSD.png",
+      cate:"TSA"
     },
     {
       tokens:[BNB_ETH_LP, UNI[ChainId.BSC_MAINNET]],
       stakingRewardAddress: '0x870c010312AB1914eD3c21C3CdA51f7464f17c13',
-      iconUrl:"/BNB_ETH.png"
+      iconUrl:"/BNB_ETH.png",
+      cate:"TSA"
     },
     {
       tokens:[BNB_WBTC_LP, UNI[ChainId.BSC_MAINNET]],
       stakingRewardAddress: '0x72318628bBA4Bc395713eE9B0c96b19814d3AeC0',
-      iconUrl:"/BNB_WBTC.png"
+      iconUrl:"/BNB_WBTC.png",
+      cate:"TSA"
     },
     {
       tokens:[B_USDT, UNI[ChainId.BSC_MAINNET]],
       stakingRewardAddress: '0x7964E3aAC5D7E0F4b6d70d9758365fC935EeD17f',
-      iconUrl:"/USDT_TSA.png"
+      iconUrl:"/USDT_TSA.png",
+      cate:"TSA"
     },
     {
       tokens:[USDT_SHIH_LP, SHIH],
       stakingRewardAddress: '0x7FFCC2AeBE2AC2008D23B23A33A707038a9d0003',
-      iconUrl:"/USDT_SHIH.png"
+      iconUrl:"/USDT_SHIH.png",
+      cate:"TSA"
     },
     {
       tokens:[CJAI, SHIH],
       stakingRewardAddress: '0x46c292ae7946d730F76163DF633578E2dE13049c',
-      iconUrl:"/CJAI_SHIH.png"
+      iconUrl:"/CJAI_SHIH.png",
+      cate:"SHIH"
     },
     {
       tokens:[BUSD_SHIH_LP, UNI[ChainId.BSC_MAINNET]],
       stakingRewardAddress: '0x1162f2D625Cb80f713e941d1aC3d7f0D34109aec',
-      iconUrl:"/BUSD_shih.png"
+      iconUrl:"/BUSD_shih.png",
+      cate:"TSA"
     },
     {
       tokens: [BNB_SHIH_LP, SHIH],
       stakingRewardAddress: '0x5c26Af070A595d779aB14d2dA545409F9aDA598f',
-      iconUrl: "/shihbnb_icon.jpeg"
+      iconUrl: "/shihbnb_icon.jpeg",
+      cate:"SHIH"
     },
     {
       tokens: [SHIH, CJAI],
       stakingRewardAddress: '0xA066432B6f34760b4420C0ff044e8e6D014bCa4b',
-      iconUrl: "/shih_icon.jpeg"
+      iconUrl: "/shih_icon.jpeg",
+      cate:"CJAI"
     },
     {
       tokens: [DOGGY, SHIH],
       stakingRewardAddress: '0xb15C94cb098864951538cDbAb648CaaDf535f899',
-      iconUrl: "/doggy_icon.png"
+      iconUrl: "/doggy_icon.png",
+      cate:"SHIH"
     },
     {
       tokens: [SAFEMOON, SHIH],
       stakingRewardAddress: '0x39BaBd84e5815bDEFC26294aDA42b19427083721',
-      iconUrl: "/safemoon_icon.png"
+      iconUrl: "/safemoon_icon.png",
+      cate:"SHIH"
     },
     {
       tokens: [PAYABLEETH[ChainId.BSC_MAINNET], UNI[ChainId.BSC_MAINNET]],
       stakingRewardAddress: '0xfE93a00Cf957ba4DC84dF48AC698505e7E17F631',
-      iconUrl: "/bnb_icon.webp"
+      iconUrl: "/bnb_icon.webp",
+      cate:"TSA"
     },
     // 0xfE93a00Cf957ba4DC84dF48AC698505e7E17F631 stakeBNB()
     // 0xb71fa06476fC11dd160A2D6B06A5B5797C03a096 stake()
@@ -114,42 +135,51 @@ export const STAKING_REWARDS_INFO: {
     {
       tokens: [BNB_BAKE_LP, UNI[ChainId.BSC_MAINNET]],
       stakingRewardAddress: '0x7bA8Fd959814b0959573CB4830BF81dbf789396e',
-      iconUrl: "/blp_icon.webp"
+      iconUrl: "/blp_icon.webp",
+      cate:"TSA"
     },
     {
       tokens: [BUSD, UNI[ChainId.BSC_MAINNET]],
       stakingRewardAddress: '0x7Cc95C5c821370960865aCf43DebbA42CeC22405',
-      iconUrl: "/busd_icon.webp"
+      iconUrl: "/busd_icon.webp",
+      cate:"TSA"
     },
     {
       tokens: [DOGE, UNI[ChainId.BSC_MAINNET]],
       stakingRewardAddress:'0x96c51D3FAb14f27b5D9E45CDB43235d703B5e211',
-      iconUrl: "/doge_icon.webp"
+      iconUrl: "/doge_icon.webp",
+      cate:"TSA"
     },
     {
       tokens: [BAKE, UNI[ChainId.BSC_MAINNET]],
       stakingRewardAddress:'0x727408110931e052F112af167722b5f63a0a7E44',
-      iconUrl: "/bake_icon.webp"
+      iconUrl: "/bake_icon.webp",
+      cate:"TSA"
     },
     {
       tokens: [SHIB, UNI[ChainId.BSC_MAINNET]],
       stakingRewardAddress:'0xF22AF684c4389c7899777660D3ec29b9745C6222',
-      iconUrl: "/shib_icon.webp"
+      iconUrl: "/shib_icon.webp",
+      cate:"TSA"
+
     },
     {
       tokens: [UNI[ChainId.BSC_MAINNET],ICASH],
       stakingRewardAddress:'0x26a346dDbb7ea083c85c696Cfa77F84C8bd4109d',
-      iconUrl: "/icash_icon.webp"
+      iconUrl: "/icash_icon.webp",
+      cate:"ICASH"
     },
     {
       tokens: [UNI[ChainId.BSC_MAINNET],SHIH],
       stakingRewardAddress:'0x667202a1Dc34EFA5f54580C8E69f8128573786f4',
-      iconUrl: "/shih_icon.webp"
+      iconUrl: "/shih_icon.webp",
+      cate:"SHIH"
     },
     {
       tokens: [UNI[ChainId.BSC_MAINNET], CJAI],
       stakingRewardAddress: '0x261f94f98327b17649eda469c958deaac4c479d5',
-      iconUrl: "/caojunnft_icon.webp"
+      iconUrl: "/caojunnft_icon.webp",
+      cate:"CJAI"
     }
   ]
 }
@@ -180,6 +210,8 @@ export interface StakingInfo {
   tokens: [Token, Token]
   // the amount of token currently staked, or undefined if no account
   stakedAmount: TokenAmount
+
+  cate:string
   // the amount of reward token earned by the active account, or undefined if no account
   earnedAmount: TokenAmount
   // the total amount of token staked in the contract
@@ -265,15 +297,13 @@ export function useStakingInfo(stakingRewardAddress?:string | null): StakingInfo
     rewardsAddresses,
     STAKING_REWARDS_INTERFACE,
     'rewardRate',
-    undefined,
-    NEVER_RELOAD
+    undefined
   )
   const periodFinishes = useMultipleContractSingleData(
     rewardsAddresses,
     STAKING_REWARDS_INTERFACE,
     'periodFinish',
-    undefined,
-    NEVER_RELOAD
+    undefined
   )
 
   return useMemo(() => {
@@ -315,6 +345,20 @@ export function useStakingInfo(stakingRewardAddress?:string | null): StakingInfo
           periodFinishState.error||
             rewardsDurationState.error
         ) {
+          // console.log(balanceState?.error)
+          // console.log(earnedAmountState?.error)
+          // console.log(unclaimedAmountState.error)
+          // console.log(totalSupplyState.error)
+          // console.log(rewardRateState.error)
+          // console.log(periodFinishState.error)
+          // console.log(rewardsDurationState.error)
+          console.log("address:"+rewardsAddress)
+          console.log("balances:"+JSON.stringify(balances))
+          console.log("earnedAmounts:"+JSON.stringify(earnedAmounts))
+          console.log("unClaimedAmounts:"+JSON.stringify(unClaimedAmounts))
+          console.log("totalSupplies:"+JSON.stringify(totalSupplies))
+          console.log("rewardRates:"+JSON.stringify(rewardRates))
+          console.log("periodFinishs:"+JSON.stringify(periodFinishes))
           console.error('Failed to load staking rewards info')
           return memo
         }
@@ -342,7 +386,7 @@ export function useStakingInfo(stakingRewardAddress?:string | null): StakingInfo
           totalRewardRate: TokenAmount
         ): TokenAmount => {
           return new TokenAmount(
-            uni,
+              totalRewardRate.token,
             JSBI.greaterThan(totalStakedAmount.raw, JSBI.BigInt(0))
               ? JSBI.divide(JSBI.multiply(totalRewardRate.raw, stakedAmount.raw), totalStakedAmount.raw)
               : JSBI.BigInt(0)
@@ -359,6 +403,7 @@ export function useStakingInfo(stakingRewardAddress?:string | null): StakingInfo
           stakingRewardAddress: rewardsAddress,
           tokens: info[index].tokens,
           iconUrl: info[index].iconUrl,
+          cate: info[index].cate,
           periodFinish: periodFinishMs > 0 ? new Date(periodFinishMs) : undefined,
           earnedAmount: new TokenAmount(info[index].tokens[1], JSBI.BigInt(earnedAmountState?.result?.[0] ?? 0)),
           unclaimAmount:unClaimedAmount,

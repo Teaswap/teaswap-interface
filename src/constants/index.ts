@@ -98,6 +98,14 @@ export const USDT_TSA_LP = new Token(
   'USDT_TSA_LP'
 )
 
+export const GensisNFT = new Token(
+    ChainId.BSC_MAINNET,
+    '0x69eF3AeE75113BE968790883B0B91d7D0989309b',
+    0,
+    'Genesis NFT',
+    'Genesis Collection'
+)
+
 export const BNB_BUSD_LP = new Token(
     ChainId.BSC_MAINNET,
     '0x559e3d9611e9cb8a77c11335bdac49621382188b',

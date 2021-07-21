@@ -123,7 +123,7 @@ const Manage = ()=>{
   const params = useParams()
 
   // get currencies and pair
-  const [currencyA, currencyB] = [useCurrency(params.currencyIdA), useCurrency(params.currencyIdB)]
+  const [currencyA, currencyB] = [useCurrency(params.currencyIdA,true), useCurrency(params.currencyIdB)]
   const tokenA = wrappedCurrency(currencyA ?? undefined, chainId)
   const tokenB = wrappedCurrency(currencyB ?? undefined, chainId)
 
@@ -134,7 +134,9 @@ const Manage = ()=>{
   const userETHBlance = useETHBalances(account ? [account] : [])?.[account ?? '']
   const userTokenAmount = useTokenBalance(account ?? undefined, stakingInfo?.stakedAmount?.token)
   const userLiquidityUnstaked = currencyA===ETHER? userETHBlance : userTokenAmount
-
+  console.log("rewardAddress:"+params.stakingRewardAddress)
+  console.log("stakingInfo:"+JSON.stringify(stakingInfo))
+  console.log("userTokenAmount:"+userTokenAmount)
   // detect existing unstaked LP position to show add button if none found
   // const userLiquidityUnstaked = useTokenBalance(account ?? undefined, stakingInfo?.stakedAmount?.token)
   const showAddLiquidityButton = Boolean(stakingInfo?.stakedAmount?.equalTo('0') && userLiquidityUnstaked?.equalTo('0'))
@@ -262,7 +264,7 @@ const Manage = ()=>{
             {/*</TYPE.body>*/}
             <TYPE.body fontSize={24} fontWeight={500}>
               {stakingInfo?.totalStakedAmount
-                ? `${stakingInfo?.totalStakedAmount.toFixed(4, { groupSeparator: ',' })} ${currencyA?.symbol}`
+                ? `${stakingInfo?.totalStakedAmount.toFixed(!currencyA?.decimals?0:4, { groupSeparator: ',' })} ${currencyA?.symbol}`
                 : `${stakingInfo?.totalStakedAmount?.toSignificant(4, { groupSeparator: ',' }) ?? '-'} ${currencyA?.symbol}`}
             </TYPE.body>
           </AutoColumn>
@@ -308,7 +310,7 @@ const Manage = ()=>{
                 borderRadius="0px"
                 width={'fit-content'}
                 as={Link}
-                to={currencyA?.symbol?.includes("BLP")?  `/add` : `/swap`}
+                to={stakingInfo?.cate!="NFT" ? currencyA?.symbol?.includes("BLP")?  `/add` : `/swap`:`/nft`}
               >
                 {`GET ${currencyA?.symbol}`}
               </ButtonPrimary>
