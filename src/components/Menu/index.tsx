@@ -87,8 +87,7 @@ const MenuItem = styled.div`
   padding: 10px;
   :hover {
     color: #474747;
-    background: #eeeeee;
-    border-bottom: 1px solid #ccc;
+    background: #eeeeee;   
     transition: all 0.5s;
     -webkit-transition: all 0.5s;
     -moz-transition: all 0.5s;
@@ -96,7 +95,7 @@ const MenuItem = styled.div`
     -o-transition: all 0.5s;
   }
 `
-
+// border-bottom: 1px solid #ccc;
 // const CODE_LINK = 'https://github.com/KodamaSakuno/uniswap-interface'
 
 export default function Menu() {
