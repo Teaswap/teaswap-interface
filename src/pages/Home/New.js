@@ -34,7 +34,7 @@ const Page = styled.div`
 const Section = styled.div`
   margin: 0 auto;
   margin-top: 0;
-  padding: 20px 0;
+  padding: 0px 0;
   height: auto;
   max-width: 1320px;
   padding-bottom: 200px;
@@ -45,7 +45,7 @@ const  TitleSection = styled.div`
   flex-direction: column;
   align-items: center;
   margin-top: 50px;
-  padding: 10px;
+  padding: 2px;
   color: #474747;
 `;
 
