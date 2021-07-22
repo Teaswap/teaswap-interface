@@ -33,11 +33,11 @@ const ProductName = styled.div`
   width:  100%;
   max-width: 520px;
   word-break: break-all;
-  font-weight: bold;
-  font-size: 18px;
+  
+  font-size: 19px;
   color: ${COLOR.text_2};
 `;
-
+// font-weight: normal;
 const ProductPrice = styled.div`
   margin-top: ${DISTANCE.md};
   font-weight: bold;
