@@ -31,10 +31,10 @@ const ProductInfoContainer = styled.div`
 `;
 const ProductName = styled.div`
   width:  100%;
-  max-width: 500px;
+  max-width: 520px;
   word-break: break-all;
   font-weight: bold;
-  font-size: 14px;
+  font-size: 18px;
   color: ${COLOR.text_2};
 `;
 
