@@ -34,7 +34,7 @@ const ProductName = styled.div`
   max-width: 520px;
   word-break: break-all;
   
-  font-size: 19px;
+  font-size: 18px;
   color: ${COLOR.text_2};
 `;
 // font-weight: normal;
