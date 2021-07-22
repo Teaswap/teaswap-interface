@@ -63,7 +63,7 @@ export default [
     id: 7
   },
   {
-    picture_url: process.env.PUBLIC_URL + '/nft/pro1/HeavenAndEarth_01.png',
+    picture_url: process.env.PUBLIC_URL + '/nft/pro1/HeavenAndEarth_01.gif',
     title: "Heaven and Earth No. 1",
     number: "",
     desc: ``,
