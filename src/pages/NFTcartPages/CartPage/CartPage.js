@@ -65,18 +65,7 @@ const LoadingMessage = styled.div`
 `;
 
 
-// const Wrapper = styled.div`
-//   width: 50vw;
-//   margin: 0 auto;
-//   padding: 10px 0;
-//   display: flex;
-//   flex-direction: column;
-//   align-items: left;
-//   width: 99%;
-//   font-size: 20px;
-//   font-weight: bold;
 
-// `;
 
 const CartPage = () => {
   const dispatch = useDispatch();
@@ -103,7 +92,8 @@ const CartPage = () => {
         </LoadingMessage>
       )}
       <ThickNavPage>
-     
+      <Wrapper>
+        <Title>Bidding Orders</Title>
         <Container>
           {carts &&
             carts.filter((cart) => {
@@ -120,7 +110,7 @@ const CartPage = () => {
                 <CartItem key={index} cart={cart} />
               ))}
         </Container>
-       
+        </Wrapper>
       </ThickNavPage>
     </>
   );
