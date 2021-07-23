@@ -119,7 +119,7 @@ export default function User() {
               <OptionItem
                 style={{
                   color: COLOR.black,
-                  margin: '2px 0',
+                  margin: '6px 0',
                   padding: '0px 0px 0px 10px',
 
                 }}
