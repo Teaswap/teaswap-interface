@@ -103,8 +103,7 @@ const CartPage = () => {
         </LoadingMessage>
       )}
       <ThickNavPage>
-      <Wrapper>
-        
+     
         <Container>
           {carts &&
             carts.filter((cart) => {
