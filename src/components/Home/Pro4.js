@@ -31,7 +31,7 @@ export default [
     title: "ShihNFT No.4 The Not-A-Rocket Boots",
     number: "",
     desc: '',
-    link: '/nft/products/category/1',
+    link: 'https://www.teaswap.live/hotbids',
     mediaType: 1,
     id: 4
   },
@@ -40,7 +40,7 @@ export default [
     title: "ShihNFT No.5 lightning -9000",
     number: "",
     desc: '',
-    link: '/nft/products/category/1',
+    link: 'https://www.teaswap.live/hotbids',
     mediaType: 1,
     id: 5
   },
@@ -49,7 +49,7 @@ export default [
     title: "ShihNFT No.6 Neon",
     number: "",
     desc: '',
-    link: '/nft/products/category/1',
+    link: 'https://www.teaswap.live/hotbids',
     mediaType: 1,
     id: 6
   },
@@ -58,7 +58,7 @@ export default [
     title: "ShihNFT No.7 Moon Taro -Scientific name Cricetinae -C",
     number: "",
     desc: '',
-    link: '/nft/products/category/1',
+    link: 'https://www.teaswap.live/hotbids',
     mediaType: 1,
     id: 7
   },

@@ -18,7 +18,7 @@ const QuestionBox = styled.div`
 const QuestionTitle = styled.div`
   margin-bottom: 10px;
   color: #474747;
-  font-size: 14px;
+  font-size: 12px;
 `;
 
 const ErrorMessage = styled.div`

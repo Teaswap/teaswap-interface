@@ -9,7 +9,7 @@ import { shortenAddress } from '../../utils'
 const UserContainer = styled.div`
   position: absolute;
   top: -85px;
-  right: 10px;
+  right: -10px;
   &:hover {
     & div {
       opacity: 1;
@@ -53,7 +53,7 @@ const OptionWrapper = styled.div`
 `;
 
 const OptionInner = styled.div`
-  padding-top: 9px;
+  padding-top: 2px;
   z-index: 1;
   position: relative;
   width: 150px;
@@ -63,22 +63,28 @@ const OptionInner = styled.div`
 const OptionList = styled.ul`
   border: 1px solid #e5e5e6;
   border-radius: 0px;
-  padding: 10px 30px 20px 30px;
+  padding: 0px;
 `;
 
 const OptionItem = styled.li`
   margin: ${DISTANCE.xs} 0;
+  list-style-type: none;
 `;
 
 const OptionName = styled.p`
   color: ${COLOR.black};
   font-size: ${FONT.xs};
   cursor: pointer;
+  height: 25px;
+  padding-left: 10px;
   &:hover {
     color: ${COLOR.btn_primary};
+    background: #eeeeee;
+    
+    
   }
 `;
-
+//border-bottom: 1px solid #ccc;
 export default function User() {
   const navigate = useNavigate();
   const [username, setUsername] = useState('');
@@ -110,8 +116,9 @@ export default function User() {
             {address && (
               <OptionItem
                 style={{
-                  color: COLOR.text_1,
-                  margin: '15px 0',
+                  color: COLOR.black,
+                  margin: '2px 0',
+                  padding: '0px 0px 0px 10px',
 
                 }}
               >
