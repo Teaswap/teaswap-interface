@@ -29,7 +29,7 @@ const Wrapper = styled.div`
   padding: 30px 0;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: left;
   
   width: 100%;
 
@@ -140,7 +140,7 @@ const ClientOrdersPage = () => {
       }}>
       <Wrapper>
         <Title>History</Title>
-      </Wrapper>
+      
         <Container>
           <Tabs tabs={tabs} value={tab} handleChange={(v) => {
             switch(v){
@@ -192,6 +192,7 @@ const ClientOrdersPage = () => {
             </Table>
           )}
         </Container>
+        </Wrapper>
       </ThickNavPage>
     </>
   );
