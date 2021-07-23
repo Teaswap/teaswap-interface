@@ -61,21 +61,22 @@ const OptionInner = styled.div`
 `;
 
 const OptionList = styled.ul`
-  border: 1px solid #e5e5e6;
+  
   border-radius: 0px;
   padding: 0px;
 `;
-
+// border: 1px solid #e5e5e6;
 const OptionItem = styled.li`
-  margin: ${DISTANCE.xs} 0;
+  
+  margin: 0px;
   list-style-type: none;
 `;
-
+// margin: ${DISTANCE.xs} 0;
 const OptionName = styled.p`
   color: ${COLOR.black};
   font-size: ${FONT.xs};
   cursor: pointer;
-  height: 25px;
+  height: 27px;
   padding-left: 10px;
   &:hover {
     color: ${COLOR.btn_primary};
