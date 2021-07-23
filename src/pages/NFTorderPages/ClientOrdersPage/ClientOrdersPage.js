@@ -126,9 +126,7 @@ const ClientOrdersPage = () => {
         width: '1400px',
         overflow: 'scroll'
       }}>
-         <Wrapper>
-        <Title>History</Title>
-      </Wrapper>
+
         <Container>
           <Tabs tabs={tabs} value={tab} handleChange={(v) => {
             switch(v){
