@@ -333,18 +333,25 @@ export const ProductInfo = ({product,user}:{ product:ProductInterface ,user:user
   }, [pendingBid,bidSubmitted])
 
   useEffect(() => {
-    console.log("bidState:"+bState)
+    console.log("bidState:"+bState, attempting, hash, bidValue)
+    // todo bug 
+    /**
+     * bidState:2 true 0xff859545e2b954b5905075d2e35ed7c1ed7d13da53e4467f4e84a931eb1048f2 10400
+       bidState:2 false  10400
+       bidState:3 false  10400
+     **/
     if (attempting && hash && bState===bidState.BIDED) {
       if(bidValue === product.price.toString()){
-        console.log("product:"+JSON.stringify(product))
+        console.log("bidState product:"+JSON.stringify(product))
         createOrder([{
           ProductId: product.id,
           UserId: product.UserId,
           product_quantity: product.quantity,
         }])(dispatch);
-
+        wrappedOnDismiss()
       }else {
         handleAddProduct(product.id, product.quantity, user.id, bidValue,product.orderId)
+        wrappedOnDismiss()
       }
 
     }
@@ -455,7 +462,7 @@ export const ProductInfo = ({product,user}:{ product:ProductInterface ,user:user
               </Form>
           )}
           {attempting && !hash && (
-              <LoadingView onDismiss={wrappedOnDismiss}>
+              <LoadingView onDismiss={() => {}}>
                 <AutoColumn gap="12px" justify={'center'}>
                   <TYPE.largeHeader>{t('NFT Biding')}</TYPE.largeHeader>
                   <TYPE.body fontSize={20}>{parsedAmount?.toSignificant(4)} {exToken.symbol}</TYPE.body>
@@ -464,7 +471,7 @@ export const ProductInfo = ({product,user}:{ product:ProductInterface ,user:user
           )}
           {attempting && hash && (
             
-              <SubmittedView onDismiss={wrappedOnDismiss} hash={hash}>
+              <SubmittedView onDismiss={() => {}} hash={hash}>
                   <AutoColumn gap="12px" justify={'center'}>
                     <TYPE.largeHeader>{t('transactionSubmitted')}</TYPE.largeHeader>
                     <TYPE.body fontSize={20}>
