@@ -61,11 +61,11 @@ const OptionInner = styled.div`
 `;
 
 const OptionList = styled.ul`
-  
+border: 1px solid #e5e5e6;
   border-radius: 0px;
   padding: 0px;
 `;
-// border: 1px solid #e5e5e6;
+
 const OptionItem = styled.li`
   
   margin: 0px;
@@ -78,6 +78,7 @@ const OptionName = styled.p`
   cursor: pointer;
   height: 27px;
   padding-left: 10px;
+  margin: 0px;
   &:hover {
     color: ${COLOR.btn_primary};
     background: #eeeeee;
