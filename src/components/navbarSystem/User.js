@@ -63,7 +63,7 @@ const OptionInner = styled.div`
 const OptionList = styled.ul`
   border: 1px solid #e5e5e6;
   border-radius: 0px;
-  padding: 10px;
+  padding: 0px;
 `;
 
 const OptionItem = styled.li`
@@ -75,14 +75,16 @@ const OptionName = styled.p`
   color: ${COLOR.black};
   font-size: ${FONT.xs};
   cursor: pointer;
-  padding: 2px;
+  height: 25px;
+  padding-left: 10px;
   &:hover {
     color: ${COLOR.btn_primary};
     background: #eeeeee;
-    border-bottom: 1px solid #ccc;
+    
+    
   }
 `;
-
+//border-bottom: 1px solid #ccc;
 export default function User() {
   const navigate = useNavigate();
   const [username, setUsername] = useState('');
@@ -115,7 +117,8 @@ export default function User() {
               <OptionItem
                 style={{
                   color: COLOR.black,
-                  margin: '15px 0',
+                  margin: '2px 0',
+                  padding: '0px 0px 0px 10px',
 
                 }}
               >

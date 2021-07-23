@@ -250,18 +250,18 @@
   right: 0;
   background-color: #ffffff;
   border: 1px solid #ccc;
-  padding: 20px;
+  padding: 0px;
   z-index: 1000;
   display: flex;
   flex-direction: column;
 }
 .dropdown-menu-item {
   display: block;
-  padding: 10px 25px;
+  padding: 10px 35px;
   text-align: left;
   cursor: pointer;
   color: #7f7f7f;
-  border-bottom: 1px solid #ccc;
+  /* border-bottom: 1px solid #ccc; */
 }
 .dropdown-menu-item:first{
   margin-top: 10px;
