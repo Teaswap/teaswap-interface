@@ -30,9 +30,9 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  //${MEDIA_QUERY.sm} {
+  
   width: 100%;
- // }
+
 `;
 const Title = styled.p`
   color: ${COLOR.black};
