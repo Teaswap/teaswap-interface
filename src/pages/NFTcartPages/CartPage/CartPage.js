@@ -39,7 +39,7 @@ const PayTitle = styled.p`
   width: 30%;
 `;
 const Container = styled.div`
-  margin-top: 100px;
+  margin-top: 15px;
   width: 100%;
   max-width: 1230px;
 `;
