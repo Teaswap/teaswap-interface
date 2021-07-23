@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useEffect } from 'react'
+import React, {useState, useCallback, useEffect, useMemo} from 'react'
 import { useTranslation } from 'react-i18next'
 // import useIsArgentWallet from '../../hooks/useIsArgentWallet'
 import useTransactionDeadline from '../../hooks/useTransactionDeadline'
@@ -13,7 +13,7 @@ import CurrencyInputPanel from '../CurrencyInputPanel'
 import {ChainId, CurrencyAmount, TokenAmount} from '@teaswap/uniswap-sdk'
 import { useActiveWeb3React } from '../../hooks'
 import { maxAmountSpend } from '../../utils/maxAmountSpend'
-import { useStakingContract } from '../../hooks/useContract'
+import {useERC1155Contract, useStakingContract} from '../../hooks/useContract'
 import { useApproveCallback, ApprovalState} from '../../hooks/useApproveCallback'
 // import { splitSignature } from 'ethers/lib/utils'
 import { StakingInfo, useDerivedStakeInfo } from '../../state/stake/hooks'
@@ -22,7 +22,8 @@ import { TransactionResponse } from '@ethersproject/providers'
 import { useTransactionAdder } from '../../state/transactions/hooks'
 import { LoadingView, SubmittedView } from '../ModalViews'
 import {PAYABLEETH, ZERO_ADDRESS} from "../../constants";
-
+import {useSingleCallResult} from "../../state/multicall/hooks";
+import { InputItem } from '../productSystem'
 const HypotheticalRewardRate = styled.div<{ dim: boolean }>`
   display: flex;
   justify-content: space-between;
@@ -45,18 +46,35 @@ interface StakingModalProps {
 }
 
 export default function StakingModal({ isOpen, onDismiss, stakingInfo, userLiquidityUnstaked }: StakingModalProps) {
-  const {  chainId } = useActiveWeb3React()
+  const {  account, chainId } = useActiveWeb3React()
   const { t } = useTranslation()
-
+  const isNFT = stakingInfo.cate==="NFT"?true:false
   // track and parse user input
   const [typedValue, setTypedValue] = useState('')
-  const { parsedAmount, error } = useDerivedStakeInfo(typedValue, stakingInfo.stakedAmount.token, userLiquidityUnstaked)
+  const { parsedAmount, error } = useDerivedStakeInfo(typedValue, stakingInfo.stakedAmount.token, userLiquidityUnstaked,isNFT)
   const parsedAmountWrapped = wrappedStakeCurrencyAmount(parsedAmount, chainId)
-  console.log(parsedAmount?.raw)
-  console.log(parsedAmount?.currency.symbol)
+  console.log("parseAmount："+parsedAmount?.raw)
+  console.log("parseAmountSymbol："+parsedAmount?.currency.symbol)
   const [approvalSubmitted, setApprovalSubmitted] = useState<boolean>(false)
 
 
+  const nftcontract = useERC1155Contract(stakingInfo.tokens[0]?.address, false)
+
+  const inputs = useMemo(() => [account??undefined], [account])
+  const tokenids = useSingleCallResult(isNFT?nftcontract:undefined, 'tokensOfOwner', inputs).result?.[0]
+  console.log("tokenids:"+JSON.stringify(tokenids))
+
+  const tokenidarray = useMemo(()=>{
+    let array = []
+    if(tokenids){
+      for(let i = 0;i<tokenids.length;i++){
+        console.log("tokenids "+i+" :"+tokenids[i].toString())
+        array.push({id:i,name:tokenids[i].toString(),value:tokenids[i].toString()})
+      }
+    }
+    console.log("tokenidarray:"+JSON.stringify(array))
+    return array
+  }, [tokenids])
 
   let hypotheticalRewardRate: TokenAmount = new TokenAmount(stakingInfo.rewardRate.token, '0')
   if (parsedAmountWrapped?.greaterThan('0')) {
@@ -86,14 +104,15 @@ export default function StakingModal({ isOpen, onDismiss, stakingInfo, userLiqui
 
   const deadline = useTransactionDeadline()
   const [signatureData, setSignatureData] = useState<{ v: number; r: string; s: string; deadline: number } | null>(null)
-  const [approval, approveCallback] = useApproveCallback(parsedAmount, stakingInfo.stakingRewardAddress)
+  // const [tokenid, setTokenid] = useState('')
+  const [approval, approveCallback] = useApproveCallback(parsedAmount, stakingInfo.stakingRewardAddress,isNFT,isNFT?typedValue:undefined)
 
   useEffect(() => {
     if (approval === ApprovalState.PENDING) {
       setApprovalSubmitted(true)
     }
+    console.log("approval:"+approval)
   }, [approval, approvalSubmitted])
-
 
   // const isArgentWallet = useIsArgentWallet()
   const stakingContract = useStakingContract(stakingInfo.stakingRewardAddress)
@@ -114,7 +133,7 @@ export default function StakingModal({ isOpen, onDismiss, stakingInfo, userLiqui
                 console.log(error)
               })
         }else{
-          stakingContract.stake(`0x${parsedAmount.raw.toString(16)}`, { gasLimit: 350000 })
+          stakingContract.stake(isNFT?BigInt(typedValue):`0x${parsedAmount.raw.toString(16)}`, { gasLimit: 350000 })
               .then((response: TransactionResponse) => {
                 addTransaction(response, {
                   summary: t('depositLiquidity')
@@ -245,6 +264,10 @@ export default function StakingModal({ isOpen, onDismiss, stakingInfo, userLiqui
   //       }
   //     })
   // }
+  const handleChange =(setValue: React.Dispatch<React.SetStateAction<string>>)=> (e:React.ChangeEvent<HTMLInputElement>) => {
+    console.log(e, e?.target?.value)
+    setValue(e?.target?.value)
+  };
 
   return (
     <Modal isOpen={isOpen} onDismiss={wrappedOnDismiss} maxHeight={90}>
@@ -254,18 +277,35 @@ export default function StakingModal({ isOpen, onDismiss, stakingInfo, userLiqui
             <TYPE.mediumHeader>{t('deposit')}</TYPE.mediumHeader>
             <CloseIcon onClick={wrappedOnDismiss} />
           </RowBetween>
-          <CurrencyInputPanel
-            value={typedValue}
-            onUserInput={onUserInput}
-            onMax={handleMax}
-            showMaxButton={!atMaxAmount}
-            currency={stakingInfo.stakedAmount.token}
-            pair={null}
-            label={''}
-            disableCurrencySelect={true}
-            customBalanceText={'Available to deposit: '}
-            id="stake-liquidity-token"
-          />
+          {!isNFT && (
+              <CurrencyInputPanel
+                  value={typedValue}
+                  onUserInput={onUserInput}
+                  onMax={handleMax}
+                  showMaxButton={!atMaxAmount}
+                  currency={stakingInfo.stakedAmount.token}
+                  pair={null}
+                  label={''}
+                  disableCurrencySelect={true}
+                  customBalanceText={'Available to deposit: '}
+                  id="stake-liquidity-token"
+              />
+          )}
+          {isNFT && (
+              <InputItem
+                  title={t('choose tokenid')}
+                  type={'radio'}
+                  options={tokenidarray}
+                  hasValue={true}
+                  errorMessage={t('please choose tokenid')}
+                  handleChange={handleChange(setTypedValue)}
+                  value={typedValue}
+                  label={t('tokenid')}
+                  isNumber={false}
+                  productPictureUrl={undefined}
+                  textareaRows = {1}
+              />
+          )}
 
           <HypotheticalRewardRate dim={!hypotheticalRewardRate.greaterThan('0')}>
             <div>

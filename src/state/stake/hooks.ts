@@ -296,14 +296,12 @@ export function useStakingInfo(stakingRewardAddress?:string | null): StakingInfo
   const rewardRates = useMultipleContractSingleData(
     rewardsAddresses,
     STAKING_REWARDS_INTERFACE,
-    'rewardRate',
-    undefined
+    'rewardRate'
   )
   const periodFinishes = useMultipleContractSingleData(
     rewardsAddresses,
     STAKING_REWARDS_INTERFACE,
-    'periodFinish',
-    undefined
+    'periodFinish'
   )
 
   return useMemo(() => {
@@ -440,18 +438,20 @@ export function useTotalUniEarned(): TokenAmount | undefined {
 export function useDerivedStakeInfo(
   typedValue: string,
   stakingToken: Token,
-  userLiquidityUnstaked: TokenAmount|CurrencyAmount | undefined
+  userLiquidityUnstaked: TokenAmount|CurrencyAmount | undefined,
+  isNFT?:boolean
 ): {
   parsedAmount?: CurrencyAmount
   error?: string
 } {
   const { account } = useActiveWeb3React()
   const { t } = useTranslation()
+  console.log("typedValue:"+typedValue)
 
   const parsedInput: CurrencyAmount | undefined = tryParseAmount(typedValue, stakingToken)
 
   const parsedAmount =
-    parsedInput && userLiquidityUnstaked && JSBI.lessThanOrEqual(parsedInput.raw, userLiquidityUnstaked.raw)
+    parsedInput && userLiquidityUnstaked && (JSBI.lessThanOrEqual(parsedInput.raw, userLiquidityUnstaked.raw)||isNFT)
       ? parsedInput
       : undefined
 
