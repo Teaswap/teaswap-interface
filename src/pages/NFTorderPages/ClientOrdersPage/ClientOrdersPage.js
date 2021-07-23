@@ -31,6 +31,8 @@ const Wrapper = styled.div`
   flex-direction: column;
   align-items: left;
   width: 99%;
+  font-size: 20px;
+  font-weight: bold;
 
 `;
 
