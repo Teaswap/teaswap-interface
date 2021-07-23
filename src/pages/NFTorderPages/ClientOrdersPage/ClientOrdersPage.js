@@ -26,14 +26,14 @@ import { useTranslation } from "react-i18next";
 const Wrapper = styled.div`
   width: 50vw;
   margin: 0 auto;
-  padding: 30px 0;
+  padding: 10px 0;
   display: flex;
   flex-direction: column;
   align-items: left;
-  
-  width: 100%;
+  width: 99%;
 
 `;
+
 const Title = styled.p`
   color: ${COLOR.black};
   font-size: ${FONT.lg};
