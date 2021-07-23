@@ -34,15 +34,15 @@ export function useSetPriceCallback(
 
     // check the current mint status
     const state:setPriceState = useMemo(() => {
-        console.log("pendingSetPrice:"+pendingSetPrice)
-        console.log("setPriceSubmitted:"+setPriceSubmitted)
+        console.log('useSetPriceCallback', "pendingSetPrice:"+pendingSetPrice)
+        console.log('useSetPriceCallback', "setPriceSubmitted:"+setPriceSubmitted)
         return !setPriceSubmitted? pendingSetPrice ? setPriceState.PENDING : setPriceState.NOT_SET: setPriceState.SETED
     }, [pendingSetPrice,setPriceSubmitted])
 
     const priceNumber = new BigNumber(price).multipliedBy(new BigNumber(10).pow(18))
-    console.log("newprice:"+price)
+    console.log('useSetPriceCallback', "newprice:"+price)
     const setPrice = useCallback(async (): Promise<void> => {
-        console.log("callbacknewprice:"+price)
+        console.log('useSetPriceCallback', "callbacknewprice:"+price)
         if(NFTExContract){
             if(price>0){
                 const setargs = [
