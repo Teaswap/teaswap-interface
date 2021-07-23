@@ -87,7 +87,7 @@ const Web3StatusConnect = styled(Web3StatusGeneric)<{ faded?: boolean }>`
 `
 
 const Web3StatusConnected = styled(Web3StatusGeneric)`
-  height: 35px;
+  height: 24px;
   background-color: #ffffff;
   border: 1px solid ${({ theme }) => theme.lightGray};
   color: ${({ theme }) => theme.gray};
