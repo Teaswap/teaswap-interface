@@ -21,8 +21,11 @@ const PreviewAvatar = styled.img`
   width: 432px;
   height: 576px
   border-radius: 0px;
-  object-fit: cover;
+  object-fit: contain;
   cursor: pointer;
+  ${MEDIA_QUERY.sm}{
+    width: 90%;
+  }
 `;
 
 const RightSide = styled.div`
