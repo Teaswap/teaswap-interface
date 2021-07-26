@@ -33,6 +33,7 @@ import {
   RedirectPathToSwapOnly,
   RedirectToSwap,
   RedirectPathToHomeOnly,
+  RedirectPathToNftOnly,
 } from './Swap/redirects'
 
 import Vote from './Vote'
@@ -196,7 +197,7 @@ export default function App() {
               <Route element={<RedirectPathToHomeOnly/>}/>
 
               <Route path={'/nft'}>
-                <Route path={'/'} element={<Home/>}/>
+                <Route path={'/'} element={<RedirectPathToNftOnly/>}/>
                 <Route path={'/about'} element={<AboutUsPage/>}/>
                 <Route path={'/entrance'} element={<EntrancePage/>}/>
                 <Route path={'/login'} element={<LoginPage/>}/>
