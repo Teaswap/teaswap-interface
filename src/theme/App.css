@@ -228,6 +228,7 @@
   max-width: 1320px;
   margin-top: 150px;
   margin-bottom: 80px;
+  font-weight: bold;
 }
 .drop-product div:last-child{
   color: #474747;
