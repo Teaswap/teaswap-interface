@@ -76,7 +76,7 @@ const OptionName = styled.p`
   color: ${COLOR.black};
   font-size: ${FONT.xs};
   cursor: pointer;
-  height: 27px;
+  height: 32px;
   padding-left: 10px;
   margin: 0px;
   &:hover {
@@ -119,7 +119,7 @@ export default function User() {
               <OptionItem
                 style={{
                   color: COLOR.black,
-                  margin: '6px 0',
+                  margin: '10px 0',
                   padding: '0px 0px 0px 10px',
 
                 }}
