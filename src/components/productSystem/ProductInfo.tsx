@@ -483,7 +483,8 @@ export const ProductInfo = ({product,user}:{ product:ProductInterface ,user:user
         </Modal>
       )}
       <ProductName>{product.name || 'Loading...'}</ProductName>
-      <ProductPrice>{product.price+" "+exToken.symbol}</ProductPrice>
+      <ProductPrice>{product.price+" "+exToken.symbol} &nbsp;&nbsp;&nbsp;  Royalty: {product.royalty/100}%</ProductPrice>
+      <ProductPrice></ProductPrice>
       <ProductQuantitySelector quantity={product.quantity} />
       {user ? (
         <ShoppingCart

@@ -186,7 +186,8 @@ const ClientOrdersPage = () => {
                       </Content>
                       <Content>{item.product_price + handleTokenSwitch(item.Product.extoken)}</Content>
                       <Content>
-                        {order.is_completed ? '已完成' : '未完成' }
+                        {/* {order.is_completed ? '已完成' : '未完成' } */}
+                        {t("Complete")}
                       </Content>
                     </ContentContainer>
                   ))

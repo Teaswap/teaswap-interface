@@ -145,7 +145,7 @@ const Manage = ()=>{
   const [showUnstakingModal, setShowUnstakingModal] = useState<boolean>(false)
   const [showClaimRewardModal, setShowClaimRewardModal] = useState<boolean>(false)
 
-  console.log("stakingInfo:"+JSON.stringify(stakingInfo), showStakingModal, showUnstakingModal, showClaimRewardModal)
+  console.log("stakingInfo:", stakingInfo, showStakingModal, showUnstakingModal, showClaimRewardModal)
 
   // fade cards if nothing staked or nothing earned yet
   const disableTop = !stakingInfo?.stakedAmount || stakingInfo.stakedAmount.equalTo(JSBI.BigInt(0))

@@ -158,7 +158,7 @@ const Navbar = () => {
             {/* {isAdmin && <Nav children={'管理後台'} path={'/nft/admin'} />} */}
             {userId && (
               <>
-                <User />
+                {/* <User /> */}
                 {/* <Cart /> */}
                 {/* <Notification /> */}
               </>

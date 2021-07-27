@@ -147,6 +147,11 @@ export default function Menu() {
                 {t('My Profile')}
               </MenuItem>
               <MenuItem onClick={() => {
+                navigate('/nft/orders')
+              }}>
+                {t('History')}
+              </MenuItem>
+              <MenuItem onClick={() => {
                 navigate('/swap')
               }}>
                 {t('Get TSA')}
