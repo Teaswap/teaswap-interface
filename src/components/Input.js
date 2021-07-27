@@ -3,9 +3,9 @@ import { EFFECT, MEDIA_QUERY } from '../constants/style';
 
 export const InputSearch = styled.input`
   width: 0;
-  height: 30px;
+  height: 35px;
   outline: none;
-  border: none;
+  border: 1px solid #e6e6e6;
   margin-left: 10px;
   letter-spacing: 0.1rem;
   line-height: 1.5rem;
