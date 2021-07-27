@@ -11,8 +11,10 @@ export const InputSearch = styled.input`
   line-height: 1.5rem;
   background: rgba(0, 0, 0, 0);
   box-shadow: ${EFFECT.shadowLight};
+  border: 1px solid #7f7f7f;
   focus: {
     transform: scale(500px, 0.5);
+    border: 1px solid #474747;
   }
 `;
 
