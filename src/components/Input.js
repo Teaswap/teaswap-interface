@@ -10,7 +10,7 @@ export const InputSearch = styled.input`
   letter-spacing: 0.1rem;
   line-height: 1.5rem;
   background: rgba(0, 0, 0, 0);
-  //box-shadow: ${EFFECT.shadowLight};
+  box-shadow: ${EFFECT.shadowLight};
 
   focus: {
     transform: scale(500px, 0.5);
@@ -45,7 +45,7 @@ export const InputComponent = styled.input`
 export const TextAreaComponent = styled.textarea`
   width: calc(100% - 10px);
   max-width: 600px;
-  box-shadow: ${EFFECT.shadowInput};
+ // box-shadow: ${EFFECT.shadowInput};
   border-radius: 0px;
   letter-spacing: 0.1rem;
   line-height: 1.5rem;
