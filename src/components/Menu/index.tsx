@@ -84,7 +84,7 @@ const MenuItem = styled.div`
   color: #7f7f7f;
   font-size: 13px;
   cursor: pointer;
-  padding: 10px;
+  padding: 10px 10px 10px 15px;
   :hover {
     color: #474747;
     background: #eeeeee;   

@@ -74,7 +74,7 @@ const MenuFlyout = styled.span`
 
 const MenuItem = styled(ExternalLink)`
   flex: 1;
-  padding: 0.5rem 0.5rem;
+  padding: 0.5rem 1rem;
   color: ${({ theme }) => theme.text2};
   :hover {
     color: ${({ theme }) => theme.text1};

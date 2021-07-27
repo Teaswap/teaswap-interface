@@ -31,13 +31,15 @@ export const InputComponent = styled.input`
   margin: ${(props) => (props.$margin === 0 ? '0' : '20px')};
   padding-left: 10px;
   border: 1px solid #7f7f7f;
+  :hover,
+  :focus {
+    border: 1px solid #474747;
+  }
+
   ${MEDIA_QUERY.sm} {
     width: 90%;
   }
-  focus: {
-  
-    border: 1px solid #474747;
-  }
+
 `;
 
 export const TextAreaComponent = styled.textarea`

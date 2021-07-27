@@ -253,7 +253,7 @@
   top: 30px;
   right: 0;
   background-color: #ffffff;
-  border: 1px solid #ccc;
+  /* border: 1px solid #ccc; */
   padding: 0px;
   z-index: 1000;
   display: flex;
@@ -261,7 +261,7 @@
 }
 .dropdown-menu-item {
   display: block;
-  padding: 10px 35px;
+  padding: 10px 22px;
   text-align: left;
   cursor: pointer;
   color: #7f7f7f;
