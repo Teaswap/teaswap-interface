@@ -10,7 +10,7 @@ export const InputSearch = styled.input`
   letter-spacing: 0.1rem;
   line-height: 1.5rem;
   background: rgba(0, 0, 0, 0);
-  box-shadow: ${EFFECT.shadowLight};
+  //box-shadow: ${EFFECT.shadowLight};
 
   focus: {
     transform: scale(500px, 0.5);
@@ -22,8 +22,8 @@ export const InputComponent = styled.input`
   height: 30px;
   width: calc(100% - 6px);
   max-width: 600px;
-  // border-width: 1px;
-  // box-shadow: ${EFFECT.shadowInput};
+  //  border-width: 1px;
+  //  box-shadow: ${EFFECT.shadowInput};
   border-radius: 0px;
   letter-spacing: 0.1rem;
   line-height: 1.5rem;
