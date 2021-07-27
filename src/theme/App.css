@@ -117,7 +117,7 @@
   padding:0 20px;
 }
 .page-tab, .active-page-tab{
-  margin-right: 30px;
+  /* margin-right: 30px; */
   color: #7f7f7f;
   font-size: 13px;
   cursor: pointer;
@@ -125,6 +125,9 @@
 }
 .active-page-tab{
   color: #474747;
+}
+.active-page-tab:hover{
+  background: #eeeeee;
 }
 .page-tab:hover {
   color: #474747;
