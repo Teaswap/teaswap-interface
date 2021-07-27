@@ -11,10 +11,10 @@ export const InputSearch = styled.input`
   line-height: 1.5rem;
   background: rgba(0, 0, 0, 0);
   box-shadow: ${EFFECT.shadowLight};
-  border: 1px solid #7f7f7f;
+
   focus: {
     transform: scale(500px, 0.5);
-    border: 1px solid #474747;
+   
   }
 `;
 
@@ -22,7 +22,7 @@ export const InputComponent = styled.input`
   height: 30px;
   width: calc(100% - 6px);
   max-width: 600px;
-  border-width: 1px;
+  // border-width: 1px;
   // box-shadow: ${EFFECT.shadowInput};
   border-radius: 0px;
   letter-spacing: 0.1rem;
@@ -30,8 +30,13 @@ export const InputComponent = styled.input`
   padding: 3px;
   margin: ${(props) => (props.$margin === 0 ? '0' : '20px')};
   padding-left: 10px;
+  border: 1px solid #7f7f7f;
   ${MEDIA_QUERY.sm} {
     width: 90%;
+  }
+  focus: {
+  
+    border: 1px solid #474747;
   }
 `;
 
