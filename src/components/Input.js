@@ -31,7 +31,7 @@ export const InputComponent = styled.input`
   margin: ${(props) => (props.$margin === 0 ? '0' : '20px')};
   outline: none;
   padding-left: 10px;
-  border: 1px solid #7f7f7f;
+  border: 1px solid #cccccc;
   :hover,
   :focus {
     border: 1px solid #474747;

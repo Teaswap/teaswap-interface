@@ -64,14 +64,14 @@ const NameContainer = styled.tr``;
 const Name = styled.th`
   font-size: ${FONT.xsm};
   color: ${COLOR.black};
-  border-bottom: solid 1px ${COLOR.cccccc};
+  border-bottom: solid 1px ${COLOR.eeeeee};
   padding: ${DISTANCE.sm};
 `;
 const ContentContainer = styled.tr``;
 const Content = styled.td`
   font-size: ${FONT.xsm};
   color: ${COLOR.text_2};
-  border-bottom: solid 1px ${COLOR.cccccc};
+  border-bottom: solid 1px ${COLOR.eeeeee};
   padding: ${DISTANCE.sm};
   cursor: pointer;
   &:hover:nth-child(1) {
@@ -178,7 +178,7 @@ const ClientOrdersPage = () => {
                 orders.map((order) => (
                   order.Order_items.map((item) => (
                     <ContentContainer key={order.id}>
-                      <img onClick={() => navigate(`/nft/products/${order.Order_items[0].ProductId}`)} style={{cursor: 'pointer' , padding: '10px' }} src={order.Order_items[0].product_picture_url} width="120" height="120" />
+                      <img onClick={() => navigate(`/nft/products/${order.Order_items[0].ProductId}`)} style={{cursor: 'pointer' , padding: '15px' }} src={order.Order_items[0].product_picture_url} width="120" height="120" />
                       <Content> {order.order_number} </Content>
                       <Content> {hideAddr(order.client_name)} </Content>
                       <Content> {hideAddr(order.seller_name)} </Content>
