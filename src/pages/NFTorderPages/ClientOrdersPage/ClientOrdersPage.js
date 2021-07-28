@@ -142,6 +142,7 @@ const ClientOrdersPage = () => {
         overflow: 'scroll'
       }}>
       <Wrapper>
+        <div>
         <Title>History</Title>
         <span onClick={() => navigate('/staking')} style={{
             marginLeft: "20px",
@@ -150,6 +151,7 @@ const ClientOrdersPage = () => {
             cursor: "pointer",
             float: "right",
           }}>Stake TSA</span>
+          </div>
         <Container>
           <Tabs tabs={tabs} value={tab} handleChange={(v) => {
             switch(v){
