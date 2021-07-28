@@ -48,7 +48,7 @@ interface StakingModalProps {
 export default function StakingModal({ isOpen, onDismiss, stakingInfo, userLiquidityUnstaked }: StakingModalProps) {
   const {  account, chainId } = useActiveWeb3React()
   const { t } = useTranslation()
-  const isNFT = stakingInfo.cate==="NFT"?true:false
+  const isNFT = stakingInfo?.cate==="NFT"?true:false
   // track and parse user input
   const [typedValue, setTypedValue] = useState('')
   const { parsedAmount, error } = useDerivedStakeInfo(typedValue, stakingInfo.stakedAmount.token, userLiquidityUnstaked,isNFT)

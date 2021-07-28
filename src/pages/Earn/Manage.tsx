@@ -121,15 +121,16 @@ const Manage = ()=>{
   const { account, chainId } = useActiveWeb3React()
   const { t } = useTranslation()
   const params = useParams()
+  const stakingInfo = useStakingInfo(params.stakingRewardAddress)?.[0]
 
   // get currencies and pair
-  const [currencyA, currencyB] = [useCurrency(params.currencyIdA,true), useCurrency(params.currencyIdB)]
+  const [currencyA, currencyB] = [useCurrency(params.currencyIdA,stakingInfo?.cate==='NFT'), useCurrency(params.currencyIdB)]
   const tokenA = wrappedCurrency(currencyA ?? undefined, chainId)
   const tokenB = wrappedCurrency(currencyB ?? undefined, chainId)
 
   // const [, stakingTokenPair] = usePair(tokenA, tokenB)
   // const stakingInfo = useStakingInfo(stakingTokenPair)?.[0]
-  const stakingInfo = useStakingInfo(params.stakingRewardAddress)?.[0]
+
 
   const userETHBlance = useETHBalances(account ? [account] : [])?.[account ?? '']
   const userTokenAmount = useTokenBalance(account ?? undefined, stakingInfo?.stakedAmount?.token)
@@ -214,13 +215,19 @@ const Manage = ()=>{
 
   const timeUntilGenesis = begin - time
   const timeUntilEnd = end - time
+  let hasGetInfo = false
+  hasGetInfo = useMemo(()=>{
+    if(stakingInfo){ return true}
+    if(!stakingInfo&&hasGetInfo){return true}
+    return false
+  },[stakingInfo,hasGetInfo])
 
 
   return (
     <PageWrapper gap="lg" justify="center">
 
 
-      {stakingInfo && (
+      {hasGetInfo && (
 
           <StakingModal
             isOpen={showStakingModal}
