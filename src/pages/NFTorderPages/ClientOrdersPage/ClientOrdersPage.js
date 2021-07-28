@@ -71,7 +71,7 @@ const ContentContainer = styled.tr``;
 const Content = styled.td`
   font-size: ${FONT.xsm};
   color: ${COLOR.text_2};
-  border-bottom: solid 1px ${COLOR.cccccc};
+  border-bottom: solid .5px ${COLOR.cccccc};
   padding: ${DISTANCE.sm};
   cursor: pointer;
   &:hover:nth-child(1) {
