@@ -64,14 +64,14 @@ const NameContainer = styled.tr``;
 const Name = styled.th`
   font-size: ${FONT.xsm};
   color: ${COLOR.black};
-  border-bottom: solid 1px ${COLOR.eeeeee};
+  border-bottom: solid 1px ${COLOR.cccccc};
   padding: ${DISTANCE.sm};
 `;
 const ContentContainer = styled.tr``;
 const Content = styled.td`
   font-size: ${FONT.xsm};
   color: ${COLOR.text_2};
-  border-bottom: solid 1px ${COLOR.eeeeee};
+  border-bottom: solid 1px ${COLOR.cccccc};
   padding: ${DISTANCE.sm};
   cursor: pointer;
   &:hover:nth-child(1) {
