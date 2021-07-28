@@ -39,6 +39,7 @@ const Wrapper = styled.div`
 const Title = styled.p`
   color: ${COLOR.black};
   font-size: ${FONT.lg};
+  margin-left: 20px;
 `;
 const Message = styled.p`
   color: ${COLOR.text_2};
@@ -47,8 +48,8 @@ const Message = styled.p`
   text-align: center;
 `;
 const Container = styled.p`
-  margin: 50px auto;
-  width: 80%;
+  margin: 10px auto;
+  width: 100%;
   padding: ${DISTANCE.xs};
   min-width: ${MEDIA_QUERY_MD.md};
 `;

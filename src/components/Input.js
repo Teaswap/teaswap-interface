@@ -29,6 +29,7 @@ export const InputComponent = styled.input`
   line-height: 1.5rem;
   padding: 3px;
   margin: ${(props) => (props.$margin === 0 ? '0' : '20px')};
+  outline: none;
   padding-left: 10px;
   border: 1px solid #7f7f7f;
   :hover,
@@ -50,5 +51,6 @@ export const TextAreaComponent = styled.textarea`
   letter-spacing: 0.1rem;
   line-height: 1.5rem;
   padding: 5px;
+  outline: none;
   margin: ${(props) => (props.$margin === 0 ? '0' : '20px')};
 `;
