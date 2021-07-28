@@ -178,7 +178,7 @@ const ClientOrdersPage = () => {
                 orders.map((order) => (
                   order.Order_items.map((item) => (
                     <ContentContainer key={order.id}>
-                      <img onClick={() => navigate(`/nft/products/${order.Order_items[0].ProductId}`)} style={{cursor: 'pointer'}} src={order.Order_items[0].product_picture_url} width="100" height="100" />
+                      <img onClick={() => navigate(`/nft/products/${order.Order_items[0].ProductId}`)} style={{cursor: 'pointer' , padding: '10px' }} src={order.Order_items[0].product_picture_url} width="120" height="120" />
                       <Content> {order.order_number} </Content>
                       <Content> {hideAddr(order.client_name)} </Content>
                       <Content> {hideAddr(order.seller_name)} </Content>

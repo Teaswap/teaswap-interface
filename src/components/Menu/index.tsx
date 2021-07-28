@@ -154,7 +154,7 @@ export default function Menu() {
               <MenuItem onClick={() => {
                 navigate('/swap')
               }}>
-                {t('Get TSA')}
+                {t('Get $TSA')}
               </MenuItem>
               <MenuItem onClick={openClaimModal}>
                 {t('Airdrop')}
