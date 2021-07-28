@@ -40,6 +40,8 @@ const Title = styled.p`
   color: ${COLOR.black};
   font-size: ${FONT.lg};
   margin-left: 20px;
+  width: 10%;
+  float: left;
 `;
 const Message = styled.p`
   color: ${COLOR.text_2};
@@ -147,7 +149,7 @@ const ClientOrdersPage = () => {
         <span onClick={() => navigate('/staking')} style={{
             marginLeft: "20px",
             color: "#474747",
-            fontSize: "20px",
+            fontSize: "18px",
             cursor: "pointer",
             float: "right",
           }}>Stake TSA</span>
