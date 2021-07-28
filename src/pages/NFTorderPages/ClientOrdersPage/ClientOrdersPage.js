@@ -36,7 +36,7 @@ const Wrapper = styled.div`
 
 `;
 
-const Title = styled.p`
+const Title = styled.div`
   color: ${COLOR.black};
   font-size: ${FONT.lg};
   margin-left: 20px;
