@@ -143,13 +143,7 @@ const ClientOrdersPage = () => {
       }}>
       <Wrapper>
         <Title>History</Title>
-        <span onClick={() => navigate('/staking')} style={{
-            marginLeft: "20px",
-            color: "#474747",
-            fontSize: "20px",
-            cursor: "pointer",
-            float: right;
-          }}>Stake TSA</span>
+
         <Container>
           <Tabs tabs={tabs} value={tab} handleChange={(v) => {
             switch(v){
