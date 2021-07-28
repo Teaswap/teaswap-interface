@@ -22,9 +22,24 @@ import useProduct from "../../../hooks/productHooks/useProduct";
 import { hideAddr } from '../../../utils/strUtil'
 import { useTranslation } from "react-i18next";
 
+
+const Wrapper = styled.div`
+  width: 50vw;
+  margin: 0 auto;
+  padding: 10px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  width: 99%;
+  font-size: 20px;
+  font-weight: bold;
+
+`;
+
 const Title = styled.p`
   color: ${COLOR.black};
   font-size: ${FONT.lg};
+  margin-left: 20px;
 `;
 const Message = styled.p`
   color: ${COLOR.text_2};
@@ -33,8 +48,8 @@ const Message = styled.p`
   text-align: center;
 `;
 const Container = styled.p`
-  margin: 50px auto;
-  width: 80%;
+  margin: 10px auto;
+  width: 100%;
   padding: ${DISTANCE.xs};
   min-width: ${MEDIA_QUERY_MD.md};
 `;
@@ -126,6 +141,9 @@ const ClientOrdersPage = () => {
         width: '1400px',
         overflow: 'scroll'
       }}>
+      <Wrapper>
+        <Title>History</Title>
+      
         <Container>
           <Tabs tabs={tabs} value={tab} handleChange={(v) => {
             switch(v){
@@ -169,7 +187,8 @@ const ClientOrdersPage = () => {
                       </Content>
                       <Content>{item.product_price + handleTokenSwitch(item.Product.extoken)}</Content>
                       <Content>
-                        {order.is_completed ? '已完成' : '未完成' }
+                        {/* {order.is_completed ? '已完成' : '未完成' } */}
+                        {t("Complete")}
                       </Content>
                     </ContentContainer>
                   ))
@@ -177,6 +196,7 @@ const ClientOrdersPage = () => {
             </Table>
           )}
         </Container>
+        </Wrapper>
       </ThickNavPage>
     </>
   );

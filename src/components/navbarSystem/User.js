@@ -61,22 +61,24 @@ const OptionInner = styled.div`
 `;
 
 const OptionList = styled.ul`
-  border: 1px solid #e5e5e6;
+border: 1px solid #e5e5e6;
   border-radius: 0px;
   padding: 0px;
 `;
 
 const OptionItem = styled.li`
-  margin: ${DISTANCE.xs} 0;
+  
+  margin: 0px;
   list-style-type: none;
 `;
-
+// margin: ${DISTANCE.xs} 0;
 const OptionName = styled.p`
   color: ${COLOR.black};
   font-size: ${FONT.xs};
   cursor: pointer;
-  height: 25px;
+  height: 32px;
   padding-left: 10px;
+  margin: 0px;
   &:hover {
     color: ${COLOR.btn_primary};
     background: #eeeeee;
@@ -117,7 +119,7 @@ export default function User() {
               <OptionItem
                 style={{
                   color: COLOR.black,
-                  margin: '2px 0',
+                  margin: '10px 0',
                   padding: '0px 0px 0px 10px',
 
                 }}
@@ -137,7 +139,7 @@ export default function User() {
             </OptionItem>
             <OptionItem>
               <OptionName onClick={() => navigate('/nft/cart')}>
-                Cart
+                Bidding
               </OptionName>
             </OptionItem>
             {/* {!isVendor && (

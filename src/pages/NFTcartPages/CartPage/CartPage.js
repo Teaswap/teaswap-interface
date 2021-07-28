@@ -16,12 +16,7 @@ import PayDetail from "../../../components/cartSystem/PayDetail.js";
 import { LoopCircleLoading } from "react-loadingg";
 import { getCartItem } from "../../../redux/slices/cartSlice/cartSlice";
 import useCart from "../../../hooks/cartHooks/useCart";
-const Title = styled.p`
-  color: ${COLOR.text_2};
-  font-size: ${FONT.lg};
-  width: 30%;
-  padding: ${DISTANCE.xs};
-`;
+
 
 export const ThickNavPage = styled.div`
   width: 90%;
@@ -44,14 +39,38 @@ const PayTitle = styled.p`
   width: 30%;
 `;
 const Container = styled.div`
-  margin-top: 100px;
+  margin-top: 15px;
   width: 100%;
   max-width: 1230px;
 `;
 
+// const Title = styled.p`
+//   color: ${COLOR.text_2};
+//   font-size: ${FONT.lg};
+//   width: 30%;
+//   padding: ${DISTANCE.xs};
+// `;
+
+// const Wrapper = styled.div`
+//   display: flex;
+//   align-items: center;
+// `;
 const Wrapper = styled.div`
+  width: 50vw;
+  margin: 0 auto;
+  padding: 10px 0;
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  align-items: left;
+  width: 99%;
+  font-size: 20px;
+  font-weight: bold;
+
+`;
+
+const Title = styled.p`
+  color: ${COLOR.black};
+  font-size: ${FONT.lg};
 `;
 const IconWrapper = styled.div``;
 const LoadingMessage = styled.div`
@@ -63,6 +82,9 @@ const LoadingMessage = styled.div`
   background: ${COLOR.bg_mask};
   z-index: 2;
 `;
+
+
+
 
 const CartPage = () => {
   const dispatch = useDispatch();
@@ -89,6 +111,8 @@ const CartPage = () => {
         </LoadingMessage>
       )}
       <ThickNavPage>
+      <Wrapper>
+        <Title>Bidding Orders</Title>
         <Container>
           {carts &&
             carts.filter((cart) => {
@@ -105,6 +129,7 @@ const CartPage = () => {
                 <CartItem key={index} cart={cart} />
               ))}
         </Container>
+        </Wrapper>
       </ThickNavPage>
     </>
   );

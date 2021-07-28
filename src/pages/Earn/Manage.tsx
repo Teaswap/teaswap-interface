@@ -136,7 +136,6 @@ const Manage = ()=>{
   const userTokenAmount = useTokenBalance(account ?? undefined, stakingInfo?.stakedAmount?.token)
   const userLiquidityUnstaked = currencyA===ETHER? userETHBlance : userTokenAmount
   console.log("rewardAddress:"+params.stakingRewardAddress)
-  console.log("stakingInfo:"+JSON.stringify(stakingInfo))
   console.log("userTokenAmount:"+userTokenAmount)
   // detect existing unstaked LP position to show add button if none found
   // const userLiquidityUnstaked = useTokenBalance(account ?? undefined, stakingInfo?.stakedAmount?.token)
@@ -146,6 +145,8 @@ const Manage = ()=>{
   const [showStakingModal, setShowStakingModal] = useState<boolean>(false)
   const [showUnstakingModal, setShowUnstakingModal] = useState<boolean>(false)
   const [showClaimRewardModal, setShowClaimRewardModal] = useState<boolean>(false)
+
+  console.log("stakingInfo:", stakingInfo, showStakingModal, showUnstakingModal, showClaimRewardModal)
 
   // fade cards if nothing staked or nothing earned yet
   const disableTop = !stakingInfo?.stakedAmount || stakingInfo.stakedAmount.equalTo(JSBI.BigInt(0))

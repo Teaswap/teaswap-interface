@@ -23,10 +23,10 @@ import SetArtwork from '../../../components/userSystem/SetArtwork'
 
 
 const Wrapper = styled.div`
-  width: 86%;
+  width: 100%;
   max-width: 820px
   margin: 0 auto;
-  padding: 40px;
+  padding: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -35,7 +35,7 @@ const Wrapper = styled.div`
   box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.1), 0px 4px 8px rgba(0, 0, 0, 0.1), 0px 16px 24px rgba(0, 0, 0, 0.1),
     0px 24px 32px rgba(0, 0, 0, 0.1);
   ${MEDIA_QUERY.sm} {
-    width: calc(100% -20px);
+    width: 100%;
     padding: 10px;
     padding-left: 10px;
     padding-bottom: 50px;

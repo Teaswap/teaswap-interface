@@ -58,7 +58,7 @@ const StyledMenu = styled.div`
 `
 
 const MenuFlyout = styled.span`
-  min-width: 12.125rem;
+  min-width: 8rem;
   box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.01), 0px 4px 8px rgba(0, 0, 0, 0.04), 0px 16px 24px rgba(0, 0, 0, 0.04),
     0px 24px 32px rgba(0, 0, 0, 0.01);
   border-radius: 0px;
@@ -84,7 +84,7 @@ const MenuItem = styled.div`
   color: #7f7f7f;
   font-size: 13px;
   cursor: pointer;
-  padding: 10px;
+  padding: 10px 10px 10px 15px;
   :hover {
     color: #474747;
     background: #eeeeee;   
@@ -145,6 +145,11 @@ export default function Menu() {
                 navigate('/nft/users/backstage')
               }}>
                 {t('My Profile')}
+              </MenuItem>
+              <MenuItem onClick={() => {
+                navigate('/nft/orders')
+              }}>
+                {t('History')}
               </MenuItem>
               <MenuItem onClick={() => {
                 navigate('/swap')

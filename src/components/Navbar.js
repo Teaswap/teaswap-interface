@@ -23,7 +23,7 @@ const NavbarContainer = styled.div`
   width: 100%;
   max-width: 1400px;
   margin: 0 auto;
-  margin-top: 80px;
+  margin-top: 30px;
   height: ${(props) => (props.$size === 'sm' ? '65px' : '135px')};
   background: #fcfcfc;
   padding: 25px;
@@ -158,7 +158,7 @@ const Navbar = () => {
             {/* {isAdmin && <Nav children={'管理後台'} path={'/nft/admin'} />} */}
             {userId && (
               <>
-                <User />
+                {/* <User /> */}
                 {/* <Cart /> */}
                 {/* <Notification /> */}
               </>
