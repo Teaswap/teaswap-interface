@@ -64,7 +64,8 @@ const postProductAPI = ({
   extoken,
   mediaType,
   remark, // 備註
-  tokenid
+  tokenid,
+  sale_copyright
 }) => {
   debugger
   const token = localStorage.getItem('token');
@@ -87,7 +88,8 @@ const postProductAPI = ({
       extoken,
       mediaType,
       remark,
-      tokenid
+      tokenid,
+      sale_copyright
     }),
   })
     .then((res) => res.json())
@@ -125,7 +127,8 @@ const updateProductAPI = (
     status,
     mediaType,
     remark, // 備註
-    tokenid
+    tokenid,
+    sale_copyright,
   }
 ) => {
   const token = localStorage.getItem('token');
@@ -151,7 +154,8 @@ const updateProductAPI = (
       status,
       mediaType,
       remark, // 備註
-      tokenid
+      tokenid,
+      sale_copyright
     }),
   }).then((res) => res.json());
 };

@@ -151,6 +151,7 @@ export default function useProductForm(id) {
     extoken: productToken,
     mediaType:productMediaType,
     remark,
+    sale_copyright: saleCopyright,
   };
 
   useEffect(() => {
