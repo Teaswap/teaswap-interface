@@ -41,7 +41,8 @@ const CartInfo = styled.tr`
 `;
 const ProductName = styled.td`
   color: ${COLOR.text_2};
-  font-size: ${FONT.sm};
+  font-size: ${FONT.xsm};
+  border-bottom: solid .5px #cccccc;
   ${MEDIA_QUERY.sm}{
     display: none;
   }
