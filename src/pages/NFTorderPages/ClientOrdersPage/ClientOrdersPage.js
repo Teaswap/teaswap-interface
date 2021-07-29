@@ -152,6 +152,7 @@ const ClientOrdersPage = () => {
             fontSize: "18px",
             cursor: "pointer",
             float: "right",
+            marginRight: "10px",
           }}>Stake TSA</span>
           </div>
         <Container>

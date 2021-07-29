@@ -27,7 +27,7 @@ const SearchTitleContainer = styled.section`
 
 const NavbarWrapper = styled.div`
   position : relative;
-  top : -40px;
+  top : 1px;
   width : 100%;
 `;
 
