@@ -485,7 +485,7 @@ export const ProductInfo = ({product,user}:{ product:ProductInterface ,user:user
       )}
       <ProductName>{product.name || 'Loading...'}</ProductName>
       <ProductPrice>{product.price+" "+exToken.symbol} &nbsp;&nbsp;&nbsp;  Royalty: {product.royalty/100}%</ProductPrice>
-      <ProductPrice>Sale Copyright: {product.sale_copyright ? 'Yes' : 'No'}</ProductPrice>
+      <ProductPrice>Copyright Transferred: {product.sale_copyright ? 'Yes' : 'No'}</ProductPrice>
       <ProductPrice></ProductPrice>
       <ProductQuantitySelector quantity={product.quantity} />
       {user ? (
