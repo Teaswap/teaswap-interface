@@ -20,7 +20,7 @@ export const InputSearch = styled.input`
 
 export const InputComponent = styled.input`
   height: 30px;
-  width: calc(100% - 6px);
+  width: calc(100% - 10px);
   max-width: 600px;
   //  border-width: 1px;
   //  box-shadow: ${EFFECT.shadowInput};
@@ -31,7 +31,7 @@ export const InputComponent = styled.input`
   margin: ${(props) => (props.$margin === 0 ? '0' : '20px')};
   outline: none;
   padding-left: 10px;
-  border: 1px solid #7f7f7f;
+  border: 1px solid #cccccc;
   :hover,
   :focus {
     border: 1px solid #474747;
@@ -53,4 +53,9 @@ export const TextAreaComponent = styled.textarea`
   padding: 5px;
   outline: none;
   margin: ${(props) => (props.$margin === 0 ? '0' : '20px')};
+  border: 1px solid #cccccc;
+  :hover,
+  :focus {
+    border: 1px solid #474747;
+  }
 `;

@@ -36,10 +36,12 @@ const Wrapper = styled.div`
 
 `;
 
-const Title = styled.p`
+const Title = styled.div`
   color: ${COLOR.black};
   font-size: ${FONT.lg};
   margin-left: 20px;
+  width: 10%;
+  float: left;
 `;
 const Message = styled.p`
   color: ${COLOR.text_2};
@@ -71,7 +73,7 @@ const ContentContainer = styled.tr``;
 const Content = styled.td`
   font-size: ${FONT.xsm};
   color: ${COLOR.text_2};
-  border-bottom: solid 1px ${COLOR.cccccc};
+  border-bottom: solid .5px ${COLOR.cccccc};
   padding: ${DISTANCE.sm};
   cursor: pointer;
   &:hover:nth-child(1) {
@@ -142,8 +144,17 @@ const ClientOrdersPage = () => {
         overflow: 'scroll'
       }}>
       <Wrapper>
+        <div>
         <Title>History</Title>
-      
+        <span onClick={() => navigate('/staking')} style={{
+            marginLeft: "20px",
+            color: "#474747",
+            fontSize: "18px",
+            cursor: "pointer",
+            float: "right",
+            marginRight: "10px",
+          }}>Stake TSA</span>
+          </div>
         <Container>
           <Tabs tabs={tabs} value={tab} handleChange={(v) => {
             switch(v){
@@ -178,7 +189,7 @@ const ClientOrdersPage = () => {
                 orders.map((order) => (
                   order.Order_items.map((item) => (
                     <ContentContainer key={order.id}>
-                      <img onClick={() => navigate(`/nft/products/${order.Order_items[0].ProductId}`)} style={{cursor: 'pointer'}} src={order.Order_items[0].product_picture_url} width="100" height="100" />
+                      <img onClick={() => navigate(`/nft/products/${order.Order_items[0].ProductId}`)} style={{cursor: 'pointer' , padding: '15px' }} src={order.Order_items[0].product_picture_url} width="120" height="120" />
                       <Content> {order.order_number} </Content>
                       <Content> {hideAddr(order.client_name)} </Content>
                       <Content> {hideAddr(order.seller_name)} </Content>
