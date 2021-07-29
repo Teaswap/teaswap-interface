@@ -1,23 +1,12 @@
 import styled from "styled-components";
 import React from "react";
 import { IconComponent } from "../../components";
-import {
-  COLOR,
-  FONT,
-  MEDIA_QUERY_MD,
-  DISTANCE,
-} from "../../../constants/style";
+import { COLOR, FONT } from "../../constants/style";
+
 import ItemDetail from "./ItemDetail";
 import useCart from "../../hooks/cartHooks/useCart";
 import {useTranslation} from "react-i18next";
 
-const NameContainer = styled.tr``;
-const Name = styled.th`
-  font-size: ${FONT.xsm};
-  color: ${COLOR.black};
-  border-bottom: solid 1px ${COLOR.cccccc};
-  padding: ${DISTANCE.sm};
-`;
 const Container = styled.div`
   margin: 0 auto;
   width: 100%;
@@ -28,8 +17,9 @@ const Container = styled.div`
 `;
 
 const Top = styled.div`
-  background: #EDEEF2;
-  border: 1px solid #EDEEF2;
+  background: #DCDCDC;
+  border: 1px solid #DCDCDC;
+  padding: 15px;
   border-radius: 0px 0px 0 0;
   display: flex;
   justify-content: space-between;
@@ -167,22 +157,15 @@ export default function CartItem({ cart }) {
         </Seller>
       </Top>
       <Table>
-        {/* <thead>
+        <thead>
           <tr style={{height: "60px"}}>
-            <th>{t("Item")}</th>
+            <th>{t("Product")}</th>
             <th>{t("Name")}</th>
             <th>{t("Price")}</th>
             <th>{t("Bidprice")}</th>
             <th>{t("Cancel")}</th>
           </tr>
-        </thead> */}
-              <NameContainer>
-                <Name>{t('Item')}</Name>
-                <Name>{t("Name")}</Name>
-                <Name>{t("Price")}</Name>
-                <Name>{t("Bidprice")}</Name>
-                <Name>{t("Cancel")}</Name>
-              </NameContainer>
+        </thead>
         <tbody>
           {cart.cartDetail.map((Item, index) => (
             <ItemDetail Item={Item} key={index} />
