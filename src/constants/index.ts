@@ -80,7 +80,7 @@ export const NFTFACTORY: { [chainId in ChainId]?: string } = {
 }
 
 export const NFTEXCHANGE: { [chainId in ChainId]?: string } = {
-  [ChainId.BSC_MAINNET]:'0x50F1DE017f1Dd26d12B93471574F88E82B6007B1'
+  [ChainId.BSC_MAINNET]:'0xf11f8eab67334a3e4d464dE7613D55b564C24F67'
 }
 //0xf11f8eab67334a3e4d464dE7613D55b564C24F67
 //0x50F1DE017f1Dd26d12B93471574F88E82B6007B1
@@ -95,8 +95,8 @@ export const USDT_TSA_LP = new Token(
   ChainId.BSC_MAINNET,
   '0xcedeebd6127b65bb4b56d86b92eb4dd9bf28988a',
   18,
-  'U_T_BLP',
-  'USDT_TSA_LP'
+  'USDT_TSA BLP',
+  'USDT_TSA BakeryLP'
 )
 
 export const GensisNFT = new Token(
@@ -105,6 +105,22 @@ export const GensisNFT = new Token(
     0,
     'Genesis NFT',
     'Genesis Collection'
+)
+
+export const TSAMetaverse = new Token(
+    ChainId.BSC_MAINNET,
+    '0x1aa3DfE63CDad8A66fCEb00FBC99b29a9f956ed8',
+    0,
+    'TSANFT Metaverse',
+    'TSANFT Metaverse Collection'
+)
+
+export const ShihCryptoPunk = new Token(
+    ChainId.BSC_MAINNET,
+    '0xa0fa21d79c48B2c4A03c5e717e84C18D07C547E5',
+    0,
+    'Shih CryptoPunk NFT',
+    'Shih CryptoPunk Collection'
 )
 
 export const BNB_BUSD_LP = new Token(
@@ -177,6 +193,62 @@ export const USDT_SHIH_LP = new Token(
     18,
     'USDT_SHIH BLP',
     'USDT_SHIH_BakeryLP'
+)
+
+export const TSA_SHIB_LP = new Token(
+    ChainId.BSC_MAINNET,
+    '0x7fb4ce3d4dc4fe078557be3969476c7066096276',
+    18,
+    'TSA_SHIB BLP',
+    'TSA_SHIB_BakeryLP'
+)
+
+export const TSA_SHIH_LP = new Token(
+    ChainId.BSC_MAINNET,
+    '0xac260f8ff6eca1da77d0ca18120acc46bdcb4049',
+    18,
+    'TSA_SHIH BLP',
+    'TSA_SHIH_BakeryLP'
+)
+
+export const TSA_BAKE_LP = new Token(
+    ChainId.BSC_MAINNET,
+    '0x5df97c1666ac2268f4af5ca84b64eb28ae25bad6',
+    18,
+    'TSA_BAKE BLP',
+    'TSA_BAKE_BakeryLP'
+)
+
+export const TSA_DOGE_LP = new Token(
+    ChainId.BSC_MAINNET,
+    '0x350bed8350905a9fae538ece34476b009a677b88',
+    18,
+    'TSA_DOGE BLP',
+    'TSA_DOGE_BakeryLP'
+)
+
+export const TSA_BUSD_LP = new Token(
+    ChainId.BSC_MAINNET,
+    '0x8dd10e4f461c37a8c7cb16715c2980b31a292a1b',
+    18,
+    'TSA_BUSD BLP',
+    'TSA_BUSD_BakeryLP'
+)
+
+export const TSA_CAKE_LP = new Token(
+    ChainId.BSC_MAINNET,
+    '0x451480148483867e7c53f22bbe78eb3a2192a257',
+    18,
+    'TSA_CAKE BLP',
+    'TSA_CAKE_BakeryLP'
+)
+
+export const ICASH_BUSD_LP = new Token(
+    ChainId.BSC_MAINNET,
+    '0xa8a1cee15c15a68036c7e652f764ef4f33d62ff4',
+    18,
+    'ICASH_BUSD BLP',
+    'ICASH_BUSD_BakeryLP'
 )
 
 export const B_DAI = new Token(
