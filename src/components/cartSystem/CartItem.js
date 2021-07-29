@@ -170,13 +170,20 @@ export default function CartItem({ cart }) {
       </Top>
       <Table>
         <thead>
-          <tr style={{height: "60px"}}>
+          {/* <tr style={{height: "60px"}}>
             <th>{t("Item")}</th>
             <th>{t("Name")}</th>
             <th>{t("Price")}</th>
             <th>{t("Bidprice")}</th>
             <th>{t("Cancel")}</th>
-          </tr>
+          </tr> */}
+          <TableContainer style={{height: "60px"}}>
+            <Tableth>{t("Item")}</Tableth>
+            <Tableth>{t("Name")}</Tableth>
+            <Tableth>{t("Price")}</Tableth>
+            <Tableth>{t("Bidprice")}</Tableth>
+            <Tableth>{t("Cancel")}</Tableth>
+          </TableContainer>
         </thead>
         <tbody>
           {cart.cartDetail.map((Item, index) => (
