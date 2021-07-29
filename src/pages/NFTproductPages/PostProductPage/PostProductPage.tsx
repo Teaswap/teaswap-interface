@@ -290,6 +290,7 @@ const PostProductPage = () => {
               productRoyalty: productRoyalty,
               productToken: productToken,
               productMediaType: productMediaType,
+              saleCopyright: saleCopyright,
               remark: remark}}
             lastId = {lastId}
           />

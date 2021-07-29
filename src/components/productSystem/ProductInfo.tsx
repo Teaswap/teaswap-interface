@@ -173,7 +173,8 @@ interface ProductInterface{
   tokenId: string,
   orderId: string,
   status: number,
-  createdAt:string
+  createdAt:string,
+  sale_copyright: number,
 }
 
 const ProductQuantitySelector = ({quantity}:{quantity:number}) => {
