@@ -57,9 +57,10 @@ const PhotoImg = styled.img`
   cursor: pointer;
 `;
 const Price = styled.td`
-  font-weight: bold;
-  color: ${COLOR.text_1};
-  font-size: ${FONT.sm};
+  
+  color: ${COLOR.text_2};
+  font-size: ${FONT.xsm};
+  border-bottom: solid .5px ${COLOR.cccccc};
 `;
 const Container = styled.td`
   display: flex;
