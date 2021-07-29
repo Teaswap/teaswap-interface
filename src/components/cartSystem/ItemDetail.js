@@ -67,7 +67,7 @@ const Container = styled.td`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 90px;
+  height: 100px;
   border-bottom: solid .5px #cccccc;
 `;
 const LoadingBackground = styled.div`

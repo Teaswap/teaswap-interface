@@ -43,7 +43,7 @@ export const NormalButton = styled(ButtonWrapper)`
   padding: 5px 10px;
   margin: 0px ${(props) => (props.$margin === 0 ? 0 : 20)}px;
   min-width: max-content;
-  font-size: 14px;
+  font-size: 13px;
   background-color: #ffffff;
   color:  #7f7f7f;
   border: 1px solid #7f7f7f;
