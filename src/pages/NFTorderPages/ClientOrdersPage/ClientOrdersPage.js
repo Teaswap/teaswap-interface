@@ -152,8 +152,8 @@ const ClientOrdersPage = () => {
             fontSize: "18px",
             cursor: "pointer",
             float: "right",
-            marginRight: "10px",
-          }}>Stake TSA</span>
+            marginRight: "150px",
+          }}>Stake $TSA</span>
           </div>
         <Container>
           <Tabs tabs={tabs} value={tab} handleChange={(v) => {

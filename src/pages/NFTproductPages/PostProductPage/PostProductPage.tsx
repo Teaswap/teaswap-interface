@@ -500,7 +500,7 @@ const PostProductPage = () => {
             {t('Mint')}
           </Button>
           <NavLink className="a-link"  to='/nft/users/backstage'>
-            <Button >{t('My Account')}</Button>
+            <Button >{t('Back to Account')}</Button>
           </NavLink>
           {productErrorMessage && (
               <ErrorMessageContainer>{productErrorMessage}</ErrorMessageContainer>
