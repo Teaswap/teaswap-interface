@@ -130,7 +130,11 @@ const PostProductPage = () => {
     productRoyalty,
     remark,
     productToken,
-    productMediaType
+    productMediaType,
+
+    hasSaleCopyright,
+    saleCopyright,
+    setSaleCopyright,
   } = useProductFrom();
   // setProductQuantity(1);
 
@@ -142,37 +146,6 @@ const PostProductPage = () => {
   // const [hash, setHash] = useState('')
   // const [attempting, setAttempting] = useState(false)
   const [showMintModal, setShowMintModal] = useState<boolean>(false)
-
-  // const { submitted, mintTxn } = useUserHasSubmittedMint(account ?? undefined)
-  // const mintConfirmed = Boolean(mintTxn?.receipt)
-  // const [creating, setCreating] = useState(false)
-  // const wrappedOnDismiss = () => {
-  //   setHash('')
-  //   setAttempting(false)
-    // const conAddress = useUserFirstToken(account?account:user.address,chainId?chainId:ChainId.BSC_MAINNET)
-
-    // // while(!deliveryLocation||deliveryLocation==''){
-    // //   alert(t('New NFT, please wait for contract deployed'))
-    // // }
-    // setDeliveryLocation(conAddress?.nftaddress)
-    // sleep('2000')
-  //   alert(t('Apply success, please wait for audit'))
-  //
-  //
-  // }
-  // once confirmed txn is found, if modal is closed open, mark as not attempting regradless
-  // useEffect(() => {
-  //   if (mintConfirmed && attempting) {
-  //     setAttempting(false)
-  //     console.log(JSON.stringify(mintTxn))
-  //     navigate('/nft/users/backstage')
-  //   }
-  // }, [attempting, mintConfirmed, submitted])
-
-  // const sleep = (time:string) => {
-  //   const startTime = new Date().getTime() + parseInt(time, 10);
-  //   while(new Date().getTime() < startTime) {}
-  // }
 
   const handleShowMintModel = () => {
     if(!checkInputError()){
@@ -459,6 +432,23 @@ const PostProductPage = () => {
           errorMessage={t('please choose')}
           handleChange={handleChange(setDelivery)}
           value={delivery}
+          isNumber={false}
+          productPictureUrl={undefined}
+          textareaRows={1}
+        />
+
+        <InputItem
+          label={t('Sale Copyright')}
+          title={t('copyright')}
+          type={'radio'}
+          options={[
+            { name: t('No'), id: '0',value:0 },
+            { name: t('Yes'), id: '1',value:1 },
+          ]}
+          hasValue={hasSaleCopyright}
+          errorMessage={t('please choose')}
+          handleChange={handleChange(setSaleCopyright)}
+          value={saleCopyright}
           isNumber={false}
           productPictureUrl={undefined}
           textareaRows={1}
