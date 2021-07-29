@@ -439,7 +439,7 @@ const PostProductPage = () => {
         />
 
         <InputItem
-          label={t('Sale Copyright')}
+          label={t('Copyright Transferred')}
           title={t('copyright')}
           type={'radio'}
           options={[
