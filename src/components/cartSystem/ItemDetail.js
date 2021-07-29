@@ -68,6 +68,7 @@ const Container = styled.td`
   justify-content: center;
   align-items: center;
   height: 90px;
+  border-bottom: solid .5px #cccccc;
 `;
 const LoadingBackground = styled.div`
   position: fixed;

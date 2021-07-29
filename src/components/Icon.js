@@ -12,7 +12,7 @@ const Icon = styled.i`
   background-size: 20px;
   height : 30px;
   width : 30px;
-  border-bottom: solid .5px #cccccc;
+
 `;
 
 export default function IconComponent({ kind, margin, color }) {
