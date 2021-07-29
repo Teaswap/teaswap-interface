@@ -178,18 +178,7 @@ const Product = ({productCat, product, onLoad, loaded, $width, $height, $margin 
         }} className="dropdown-menu-item">{t("Set Price")}</span>
         </div>
       </ButtonContainer>
-      {product.status == '1' && (
-        <NavLink style={{marginTop: '20px', display:"block"}} to={`/nft/products/${product.id}`}>
-          <ProductPicture
-            src={product.picture_url}
-            style={{ opacity: loaded ? 1 : 0 }}
-            onLoad={onLoad}
-            $width={$width}
-            $height={$height}
-          />
-        </NavLink>
-      )}
-      {product.status !== '1' && (
+      <NavLink style={{marginTop: '20px', display:"block"}} to={`/nft/products/${product.id}`}>
         <ProductPicture
           src={product.picture_url}
           style={{ opacity: loaded ? 1 : 0 }}
@@ -197,8 +186,7 @@ const Product = ({productCat, product, onLoad, loaded, $width, $height, $margin 
           $width={$width}
           $height={$height}
         />
-      )}
-      
+      </NavLink>
       <ProductName>
         <NavLink className="a-link" to={`/nft/products/${product.id}`}>{product.name}</NavLink>
       </ProductName>

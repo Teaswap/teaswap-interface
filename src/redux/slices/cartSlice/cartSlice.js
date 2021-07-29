@@ -142,7 +142,7 @@ export const createOrder = (readyToOrderItems) => (dispatch) => {
   return createOrderAPI(readyToOrderItems).then((res) => {
     dispatch(setIsLoading(false));
     dispatch(setOrderNumber(res.orderId));
-    completeOrder(res.orderId).then((res)=>{console.log(JSON.stringify(res))});
+    // completeOrder(res.orderId).then((res)=>{console.log(JSON.stringify(res))});
   });
 };
 

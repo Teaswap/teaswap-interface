@@ -30,6 +30,7 @@ export interface MintInfoInterface{
     productRoyalty:number,
     productToken:string,
     productMediaType:string,
+    saleCopyright: number,
     remark:string
 }
 

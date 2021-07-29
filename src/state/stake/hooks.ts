@@ -14,7 +14,16 @@ import {
   BNB_BAKE_LP,
   DOGGY,
   SAFEMOON,
-  BNB_SHIH_LP, BUSD_SHIH_LP, B_USDT, USDT_SHIH_LP, BNB_BUSD_LP, BNB_ETH_LP, BNB_WBTC_LP, BNB_TSA_LP, GensisNFT
+  BNB_SHIH_LP,
+  BUSD_SHIH_LP,
+  B_USDT,
+  USDT_SHIH_LP,
+  BNB_BUSD_LP,
+  BNB_ETH_LP,
+  BNB_WBTC_LP,
+  BNB_TSA_LP,
+  GensisNFT,
+  TSA_SHIH_LP, TSA_SHIB_LP, TSA_BAKE_LP, TSA_DOGE_LP, TSA_BUSD_LP, USDT_TSA_LP,  TSA_CAKE_LP
 } from '../../constants'
 import { IDO_ABI_INTERFACE, STAKING_REWARDS_INTERFACE } from '../../constants/abis/staking-rewards'
 import { useActiveWeb3React } from '../../hooks'
@@ -36,12 +45,86 @@ export const STAKING_REWARDS_INFO: {
   }[]
 } = {
   [ChainId.BSC_MAINNET]: [
+    // {
+    //   tokens: [ShihCryptoPunk, ICASH],
+    //   stakingRewardAddress: '0xc31a92F4976C2Af1869a21AC9EB1F5AFd6b92148',
+    //   iconUrl: "/icashgensisi.png",
+    //   cate:"NFT"
+    // },
+    // {
+    //   tokens: [TSAMetaverse, ICASH],
+    //   stakingRewardAddress: '0xc31a92F4976C2Af1869a21AC9EB1F5AFd6b92148',
+    //   iconUrl: "/icashgensisi.png",
+    //   cate:"NFT"
+    // },
     {
       tokens: [GensisNFT, ICASH],
       stakingRewardAddress: '0xc31a92F4976C2Af1869a21AC9EB1F5AFd6b92148',
       iconUrl: "/icashgensisi.png",
       cate:"NFT"
     },
+    {
+      tokens: [TSA_SHIH_LP, UNI[ChainId.BSC_MAINNET]],
+      stakingRewardAddress: '0xF197A37087780f912149bacbffD1E980972bA8c7',
+      iconUrl: "/TSA_SHIH_TSA.png",
+      cate:"TSA"
+    },
+    {
+      tokens: [TSA_SHIB_LP, UNI[ChainId.BSC_MAINNET]],
+      stakingRewardAddress: '0x8ceF0d0C8286efe7EbD2386031F56BE670178A16',
+      iconUrl: "/TSA_SHIB_TSA.png",
+      cate:"TSA"
+    },
+    {
+      tokens: [TSA_BAKE_LP, UNI[ChainId.BSC_MAINNET]],
+      stakingRewardAddress: '0x062BC25d301c33B5dEc9D83fa5B4Cc5519746DE8',
+      iconUrl: "/TSA_BAKE_TSA.png",
+      cate:"TSA"
+    },
+    {
+      tokens: [TSA_CAKE_LP, UNI[ChainId.BSC_MAINNET]],
+      stakingRewardAddress: '0xfE74D780C7F636fE6FEa515e8df1499aedf54a35',
+      iconUrl: "/TSA_CAKE_TSA.png",
+      cate:"TSA"
+    },
+    {
+      tokens: [TSA_DOGE_LP, UNI[ChainId.BSC_MAINNET]],
+      stakingRewardAddress: '0xD405a51b8e3D77adBe3f4c4fE9104FEecC951B57',
+      iconUrl: "/TSA_DOGE_TSA.png",
+      cate:"TSA"
+    },
+    {
+      tokens: [TSA_BUSD_LP, UNI[ChainId.BSC_MAINNET]],
+      stakingRewardAddress: '0x38c566a8ab2572f5dcb50699F330D3020ba0013c',
+      iconUrl: "/TSA_BUSD_TSA.png",
+      cate:"TSA"
+    },
+    {
+      tokens: [USDT_TSA_LP, UNI[ChainId.BSC_MAINNET]],
+      stakingRewardAddress: '0xE6307914A93541046be4dACB36E78B162E9d0428',
+      iconUrl: "/USDT_TSA_TSA.png",
+      cate:"TSA"
+    },
+    // {
+    //   tokens: [ETH_TSA_LP, UNI[ChainId.BSC_MAINNET]],
+    //   stakingRewardAddress: '0xA1f2Bc4cBB56b02cB1329C8ca633155c02Fc6Cb8',
+    //   iconUrl: "/bnbtsastaketsa.png",
+    //   cate:"TSA"
+    // },
+    {
+      tokens: [UNI[ChainId.BSC_MAINNET],ICASH],
+      stakingRewardAddress:'0x26a346dDbb7ea083c85c696Cfa77F84C8bd4109d',
+      iconUrl: "/icash_icon.webp",
+      cate:"ICASH"
+    },
+      //0x26a346dDbb7ea083c85c696Cfa77F84C8bd4109d
+    {
+      tokens: [UNI[ChainId.BSC_MAINNET], CJAI],
+      stakingRewardAddress: '0x1D4928Aa85e20F70BBc8E95E32F5eAcE1D96A01f',
+      iconUrl: "/TSA_CJAI.png",
+      cate:"CJAI"
+    },
+      //0x261f94f98327b17649eda469c958deaac4c479d5
     {
       tokens: [BNB_TSA_LP, UNI[ChainId.BSC_MAINNET]],
       stakingRewardAddress: '0xA1f2Bc4cBB56b02cB1329C8ca633155c02Fc6Cb8',
@@ -164,22 +247,10 @@ export const STAKING_REWARDS_INFO: {
 
     },
     {
-      tokens: [UNI[ChainId.BSC_MAINNET],ICASH],
-      stakingRewardAddress:'0x26a346dDbb7ea083c85c696Cfa77F84C8bd4109d',
-      iconUrl: "/icash_icon.webp",
-      cate:"ICASH"
-    },
-    {
       tokens: [UNI[ChainId.BSC_MAINNET],SHIH],
       stakingRewardAddress:'0x667202a1Dc34EFA5f54580C8E69f8128573786f4',
       iconUrl: "/shih_icon.webp",
       cate:"SHIH"
-    },
-    {
-      tokens: [UNI[ChainId.BSC_MAINNET], CJAI],
-      stakingRewardAddress: '0x261f94f98327b17649eda469c958deaac4c479d5',
-      iconUrl: "/caojunnft_icon.webp",
-      cate:"CJAI"
     }
   ]
 }

@@ -27,8 +27,8 @@ import { useNavigate } from 'react-router-dom'
 
 
 
-const CartInfo = styled.div`
-  display: flex;
+const CartInfo = styled.tr`
+  display: table-row;
   padding: 40px;
   width: 100%;
   min-width: 400px;
@@ -39,14 +39,14 @@ const CartInfo = styled.div`
     padding: 10px;
   }
 `;
-const ProductName = styled.p`
+const ProductName = styled.td`
   color: ${COLOR.text_2};
   font-size: ${FONT.sm};
   ${MEDIA_QUERY.sm}{
     display: none;
   }
 `;
-const Photo = styled.div`
+const Photo = styled.td`
   width: 90px;
   height: 90px;
 `;
@@ -56,12 +56,17 @@ const PhotoImg = styled.img`
   object-fit: cover;
   cursor: pointer;
 `;
-const Price = styled.p`
+const Price = styled.td`
   font-weight: bold;
   color: ${COLOR.text_1};
   font-size: ${FONT.sm};
 `;
-const Container = styled.div``;
+const Container = styled.td`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90px;
+`;
 const LoadingBackground = styled.div`
   position: fixed;
   top: 0;

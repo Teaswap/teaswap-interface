@@ -114,6 +114,7 @@ export function useToken(tokenAddress?: string,isNFT?:boolean): Token | undefine
 }
 
 export function useCurrency(currencyId: string | undefined,isNFT?:boolean): Currency | null | undefined {
+
   const isETH = currencyId?.toUpperCase() === 'BNB'
   const token = useToken(isETH ? undefined : currencyId,isNFT)
   return isETH ? ETHER : token

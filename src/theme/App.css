@@ -90,7 +90,7 @@
   border: 1px solid #ccc;
 }
 .user-avatar{
-  width: 50%; 
+  width: auto; 
   height: 50%;
 }
 .flex-center{

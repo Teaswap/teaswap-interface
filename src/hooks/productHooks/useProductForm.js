@@ -25,6 +25,7 @@ export default function useProductForm(id) {
   const [deliveryTime, setDeliveryTime] = useState('');
   const [deliveryLocation, setDeliveryLocation] = useState('');
   const [delivery, setDelivery] = useState(0);
+  const [saleCopyright, setSaleCopyright] = useState(0);
   const [paymentMethod, setPaymentMethod] = useState('');
   const [remark, setRemark] = useState('');
   const [productQuantity, setProductQuantity] = useState('');
@@ -41,6 +42,7 @@ export default function useProductForm(id) {
   const [hasProductPrice, setHasProductPrice] = useState('');
   const [hasDeliveryTime, setHasDeliveryTime] = useState('');
   const [hasDelivery, setHasDelivery] = useState('');
+  const [hasSaleCopyright, setHasSaleCopyright] = useState('');
   const [hasPaymentMethod, setHasPaymentMethod] = useState('');
   const [hasProductQuantity, setHasProductQuantity] = useState('');
 
@@ -128,6 +130,7 @@ export default function useProductForm(id) {
       setProductRoyalty(product.royalty);
       setProductToken(product.token);
       setDelivery(product.delivery);
+      setSaleCopyright(product.sale_copyright);
       setPaymentMethod(product.payment_method);
       setRemark(product.remark);
     }
@@ -148,6 +151,7 @@ export default function useProductForm(id) {
     extoken: productToken,
     mediaType:productMediaType,
     remark,
+    sale_copyright: saleCopyright,
   };
 
   useEffect(() => {
@@ -190,7 +194,8 @@ export default function useProductForm(id) {
         extoken: mintInfo.productToken,
         mediaType:mintInfo.productMediaType,
         remark: mintInfo.remark,
-        tokenid:tokenId
+        tokenid:tokenId,
+        sale_copyright: mintInfo.saleCopyright,
       };
       postProduct(mintData)(dispatch);
     // }
@@ -202,7 +207,6 @@ export default function useProductForm(id) {
     // if (!hasError) {
     // product.price=reSalePrice;
     // product.extoken=reSaleToken;
-    debugger
     updateProduct(product.id,product,reSalePrice,reSaleToken,'0')(dispatch);
     // }
     // navigate('/nft/users/backstage')
@@ -254,6 +258,7 @@ export default function useProductForm(id) {
     productRoyalty,
     productToken,
     delivery,
+    saleCopyright,
     deliveryTime,
     deliveryLocation,
     paymentMethod,
@@ -306,6 +311,9 @@ export default function useProductForm(id) {
     handleSubmitProduct,
     checkInputError,
     handleSetPrice,
-    handleResaleProduct
+    handleResaleProduct,
+    hasSaleCopyright,
+    saleCopyright,
+    setSaleCopyright,
   };
 }

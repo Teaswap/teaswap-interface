@@ -5,6 +5,7 @@ import { COLOR, FONT } from "../../constants/style";
 
 import ItemDetail from "./ItemDetail";
 import useCart from "../../hooks/cartHooks/useCart";
+import {useTranslation} from "react-i18next";
 
 const Container = styled.div`
   margin: 0 auto;
@@ -112,6 +113,12 @@ const ModalIconContainer = styled.div`
   margin-top: 10px;
   margin-right: 10px;
 `;
+
+const Table = styled.table`
+  width: 100%;
+  text-align: center;
+`
+
 export default function CartItem({ cart }) {
   const {
     handleDeleteCart,
@@ -130,6 +137,8 @@ export default function CartItem({ cart }) {
     .map((data) => Object.values(data)[6] * Object.values(data)[7])
     .reduce((acc, cur) => acc + cur);
 
+  const { t } = useTranslation();
+
   return (
     <Container>
       {errorMessage && (
@@ -146,15 +155,23 @@ export default function CartItem({ cart }) {
         <Seller>
           <Name isSelect={isSelect}>{cart.sellerName}</Name>
         </Seller>
-        {/* {isPaying || checked ? null : (
-          <IconContainer onClick={() => handleDeleteCart(SellerId)}>
-            <IconComponent kind="close-black" />
-          </IconContainer>
-        )} */}
       </Top>
-      {cart.cartDetail.map((Item, index) => (
-        <ItemDetail Item={Item} key={index} />
-      ))}
+      <Table>
+        <thead>
+          <tr style={{height: "60px"}}>
+            <th>{t("Product")}</th>
+            <th>{t("Name")}</th>
+            <th>{t("Price")}</th>
+            <th>{t("Bidprice")}</th>
+            <th>{t("Cancel")}</th>
+          </tr>
+        </thead>
+        <tbody>
+          {cart.cartDetail.map((Item, index) => (
+            <ItemDetail Item={Item} key={index} />
+          ))}
+        </tbody>
+      </Table>
     </Container>
   );
 }

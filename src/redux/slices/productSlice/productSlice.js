@@ -209,7 +209,8 @@ export const postProduct = ({
   extoken,
   mediaType,
   remark, // 備註
-  tokenid
+  tokenid,
+  sale_copyright
 }) => (dispatch) => {
   return postProductAPI({
     ProductCategoryId,
@@ -224,7 +225,8 @@ export const postProduct = ({
     extoken,
     mediaType,
     remark, // 備註
-    tokenid
+    tokenid,
+    sale_copyright
   }).then((res) => {
     if (res.ok === 0) {
       return dispatch(setErrorMessage(res ? res.message : 'something wrong'));
@@ -267,7 +269,8 @@ export const updateProduct = (
     extoken,
     mediaType,
     remark, // 備註
-    tokenid
+    tokenid,
+    sale_copyright
   },
   reSalePrice,reSaleToken,status
 ) => (dispatch) => {
@@ -285,7 +288,8 @@ export const updateProduct = (
     status:status,
     mediaType,
     remark, // 備註
-    tokenid
+    tokenid,
+    sale_copyright
   }).then((res) => {
     if (res.ok === 0) {
       return dispatch(setErrorMessage(res ? res.message : 'something wrong'));
