@@ -1,11 +1,23 @@
 import styled from "styled-components";
 import React from "react";
 import { IconComponent } from "../../components";
-import { COLOR, FONT } from "../../constants/style";
+import {  
+  COLOR,
+  FONT,
+  MEDIA_QUERY_MD,
+  DISTANCE, } from "../../constants/style";
 
 import ItemDetail from "./ItemDetail";
 import useCart from "../../hooks/cartHooks/useCart";
 import {useTranslation} from "react-i18next";
+
+const TableContainer = styled.tr``;
+const Tableth = styled.th`
+  font-size: ${FONT.xsm};
+  color: ${COLOR.black};
+  border-bottom: solid 1px ${COLOR.cccccc};
+  padding: ${DISTANCE.sm};
+`;
 
 const Container = styled.div`
   margin: 0 auto;
@@ -159,7 +171,7 @@ export default function CartItem({ cart }) {
       <Table>
         <thead>
           <tr style={{height: "60px"}}>
-            <th>{t("Product")}</th>
+            <th>{t("Item")}</th>
             <th>{t("Name")}</th>
             <th>{t("Price")}</th>
             <th>{t("Bidprice")}</th>
