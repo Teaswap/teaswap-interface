@@ -123,21 +123,12 @@ const BodyWrapper = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  padding-top: 60px;
+  padding-top: 70px;
   align-items: center;
   flex: 1;
   overflow-y: auto;
   overflow-x: hidden;
   z-index: 10;
-
-  ${({ theme }) => theme.mediaWidth.upToSmall`
-    padding: 16px;
-    padding-top: 2rem;
-  `};
-  z-index: 1;
-  ${MEDIA_QUERY.sm} {
-    padding: 0;
-  }
 `
 
 const Marginer = styled.div`
