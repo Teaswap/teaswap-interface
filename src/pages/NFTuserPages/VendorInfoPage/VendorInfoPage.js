@@ -15,10 +15,12 @@ import {
   SetPermission,
 } from '../../../components/userSystem';
 import { ThickNavPage } from '../../../components/Page';
+import { ThickestNavPage } from '../../../components/Page';
 import { useTranslation } from 'react-i18next'
 
 const Wrapper = styled.div`
   width: 50vw;
+  max-width: 820px
   margin: 0 auto;
   padding: 30px 0;
   display: flex;
@@ -102,7 +104,7 @@ const VendorInfoPage = () => {
   }, []);
 
   return (
-    <ThickNavPage>
+    <ThickestNavPage>
       <Wrapper>
         <Title>{t('Featured Artists Information')}</Title>
         {/*<Announcement />*/}
@@ -122,7 +124,7 @@ const VendorInfoPage = () => {
         </PageBottom>
         
       </Wrapper>
-    </ThickNavPage>
+    </ThickestNavPage>
   );
 };
 

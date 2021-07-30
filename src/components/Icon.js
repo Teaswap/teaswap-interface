@@ -9,9 +9,10 @@ const IconContainer = styled.div`
 const Icon = styled.i`
   background: url(${process.env.PUBLIC_URL}/svg/${(props) => props.kind}.svg)
   center no-repeat;
-  background-size: 30px;
+  background-size: 20px;
   height : 30px;
   width : 30px;
+
 `;
 
 export default function IconComponent({ kind, margin, color }) {

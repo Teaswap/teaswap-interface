@@ -45,7 +45,7 @@ export const ButtonsBox = ({ handler, productErrorMessage }) => {
         {t('Mint')}
       </Button>
       <NavLink to='/nft/users/backstage'>
-        <Button $margin={0}>{t('My Account')}</Button>
+        <Button $margin={0}>{t('Back to Account')}</Button>
       </NavLink>
       {productErrorMessage && (
         <ErrorMessageContainer>{productErrorMessage}</ErrorMessageContainer>

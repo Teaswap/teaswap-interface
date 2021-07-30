@@ -1,10 +1,23 @@
 import styled from "styled-components";
 import React from "react";
 import { IconComponent } from "../../components";
-import { COLOR, FONT } from "../../constants/style";
+import {  
+  COLOR,
+  FONT,
+  MEDIA_QUERY_MD,
+  DISTANCE, } from "../../constants/style";
 
 import ItemDetail from "./ItemDetail";
 import useCart from "../../hooks/cartHooks/useCart";
+import {useTranslation} from "react-i18next";
+
+const TableContainer = styled.tr``;
+const Tableth = styled.th`
+  font-size: ${FONT.xsm};
+  color: ${COLOR.black};
+  border-bottom: solid 1px ${COLOR.cccccc};
+  padding: ${DISTANCE.sm};
+`;
 
 const Container = styled.div`
   margin: 0 auto;
@@ -16,9 +29,9 @@ const Container = styled.div`
 `;
 
 const Top = styled.div`
-  background: #DCDCDC;
-  border: 2px solid #DCDCDC;
-  padding: 15px;
+  background: #EDEEF2;
+  border: 1px solid #EDEEF2;
+ 
   border-radius: 0px 0px 0 0;
   display: flex;
   justify-content: space-between;
@@ -112,6 +125,12 @@ const ModalIconContainer = styled.div`
   margin-top: 10px;
   margin-right: 10px;
 `;
+
+const Table = styled.table`
+  width: 100%;
+  text-align: center;
+`
+
 export default function CartItem({ cart }) {
   const {
     handleDeleteCart,
@@ -130,6 +149,8 @@ export default function CartItem({ cart }) {
     .map((data) => Object.values(data)[6] * Object.values(data)[7])
     .reduce((acc, cur) => acc + cur);
 
+  const { t } = useTranslation();
+
   return (
     <Container>
       {errorMessage && (
@@ -146,15 +167,30 @@ export default function CartItem({ cart }) {
         <Seller>
           <Name isSelect={isSelect}>{cart.sellerName}</Name>
         </Seller>
-        {/* {isPaying || checked ? null : (
-          <IconContainer onClick={() => handleDeleteCart(SellerId)}>
-            <IconComponent kind="close-black" />
-          </IconContainer>
-        )} */}
       </Top>
-      {cart.cartDetail.map((Item, index) => (
-        <ItemDetail Item={Item} key={index} />
-      ))}
+      <Table>
+        <thead>
+          {/* <tr style={{height: "60px"}}>
+            <th>{t("Item")}</th>
+            <th>{t("Name")}</th>
+            <th>{t("Price")}</th>
+            <th>{t("Bidprice")}</th>
+            <th>{t("Cancel")}</th>
+          </tr> */}
+          <TableContainer style={{height: "60px"}}>
+            <Tableth>{t("Item")}</Tableth>
+            <Tableth>{t("Name")}</Tableth>
+            <Tableth>{t("Price")}</Tableth>
+            <Tableth>{t("Bidprice")}</Tableth>
+            <Tableth>{t("Cancel")}</Tableth>
+          </TableContainer>
+        </thead>
+        <tbody>
+          {cart.cartDetail.map((Item, index) => (
+            <ItemDetail Item={Item} key={index} />
+          ))}
+        </tbody>
+      </Table>
     </Container>
   );
 }

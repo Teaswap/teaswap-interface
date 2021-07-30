@@ -28,7 +28,7 @@ const RightSide = styled.div`
 
 const Description = styled.p`
   color: #474747;
-  font-size: 14px;
+  font-size: 12px;
   margin-bottom: ${DISTANCE.md};
   ${MEDIA_QUERY.sm} {
     width: 80%;

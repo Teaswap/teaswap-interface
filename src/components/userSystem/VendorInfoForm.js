@@ -21,7 +21,7 @@ const FontWrapper = styled.div`
 
 const InputName = styled.h2`
   color: ${COLOR.black};
-  font-size: ${FONT.xsm};
+  font-size: ${FONT.xss};
   margin: ${DISTANCE.sm} 0;
   font-weight: normal;
 `;

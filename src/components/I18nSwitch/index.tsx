@@ -119,9 +119,9 @@ export default function I18nSwitch() {
           <MenuItem>
             <div onClick={() => changeLanguage('zh-CN')}>简体中文</div>
           </MenuItem>
-          <MenuItem>
+          {/* <MenuItem>
             <div onClick={() => changeLanguage('zh-TW')}>繁體中文</div>
-          </MenuItem>
+          </MenuItem> */}
         </MenuFlyout>
       )}
     </StyledMenu>
