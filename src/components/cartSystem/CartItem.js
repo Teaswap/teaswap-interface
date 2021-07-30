@@ -47,7 +47,7 @@ const Check = styled.input`
 `;
 const Name = styled.p`
   margin: 8px 11px;
-  color: ${COLOR.white};
+  color: ${COLOR.dark_gray};
   font-size: ${FONT.sm};
 `;
 const SendDetail = styled.div`
