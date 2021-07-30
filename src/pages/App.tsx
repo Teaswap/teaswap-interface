@@ -5,7 +5,7 @@ import styled from 'styled-components'
 import AddressClaimModal from '../components/claim/AddressClaimModal'
 import Header from '../components/Header'
 import Polling from '../components/Header/Polling'
-import URLWarning from '../components/Header/URLWarning'
+// import URLWarning from '../components/Header/URLWarning'
 import Popups from '../components/Popups'
 import Web3ReactManager from '../components/Web3ReactManager'
 import { ApplicationModal } from '../state/application/actions'
@@ -123,7 +123,7 @@ const BodyWrapper = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  // padding-top: 60px;
+  padding-top: 60px;
   align-items: center;
   flex: 1;
   overflow-y: auto;
@@ -160,7 +160,7 @@ export default function App() {
       {/*<Route element={<GoogleAnalyticsReporter/>}/>*/}
       <Route element={<DarkModeQueryParamReader/>}/>
       <AppWrapper>
-        <URLWarning/>
+        {/* <URLWarning/> */}
         <HeaderWrapper>
           <Header/>
         </HeaderWrapper>

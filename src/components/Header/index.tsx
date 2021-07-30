@@ -325,12 +325,11 @@ const StyledNavLink = styled(NavLink).attrs({
 const HeaderRoot = styled.div`
   display: flex;
   flex-direction: column;
-  width: 96%;
-  margin:0 auto;
-  // padding-top: 30px;
-  ${MEDIA_QUERY.sm} {
-    width: 100%;
-  }
+  width: 100%;
+  position: fixed;
+  padding: 10px 2%;
+  z-index: 1000;
+  background-color: #fff;
 `
 
 
@@ -367,7 +366,7 @@ export default function Header() {
   // const openClaimModal = useToggleModal(ApplicationModal.ADDRESS_CLAIM)
 
   return (
-    <HeaderRoot>
+    <HeaderRoot id="header-root">
       <HeaderFrame>
         <ClaimModal />
         <Modal isOpen={showUniBalanceModal} onDismiss={() => setShowUniBalanceModal(false)}>
