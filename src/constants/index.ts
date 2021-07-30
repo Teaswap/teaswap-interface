@@ -151,8 +151,8 @@ export const ETH_TSA_LP = new Token(
   ChainId.BSC_MAINNET,
   '0xc31173132a36c2453693d9e46d776d4b669b158f',
   18,
-  'E_T_BLP',
-  'ETH_TSA_LP'
+  'ETH_TSA BLP',
+  'ETH_TSA BakeryLP'
 )
 
 export const BNB_BAKE_LP = new Token(

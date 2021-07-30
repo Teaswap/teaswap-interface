@@ -23,7 +23,16 @@ import {
   BNB_WBTC_LP,
   BNB_TSA_LP,
   GensisNFT,
-  TSA_SHIH_LP, TSA_SHIB_LP, TSA_BAKE_LP, TSA_DOGE_LP, TSA_BUSD_LP, USDT_TSA_LP,  TSA_CAKE_LP
+  TSA_SHIH_LP,
+  TSA_SHIB_LP,
+  TSA_BAKE_LP,
+  TSA_DOGE_LP,
+  TSA_BUSD_LP,
+  USDT_TSA_LP,
+  TSA_CAKE_LP,
+  ETH_TSA_LP,
+  ShihCryptoPunk,
+  TSAMetaverse
 } from '../../constants'
 import { IDO_ABI_INTERFACE, STAKING_REWARDS_INTERFACE } from '../../constants/abis/staking-rewards'
 import { useActiveWeb3React } from '../../hooks'
@@ -45,18 +54,18 @@ export const STAKING_REWARDS_INFO: {
   }[]
 } = {
   [ChainId.BSC_MAINNET]: [
-    // {
-    //   tokens: [ShihCryptoPunk, ICASH],
-    //   stakingRewardAddress: '0xc31a92F4976C2Af1869a21AC9EB1F5AFd6b92148',
-    //   iconUrl: "/icashgensisi.png",
-    //   cate:"NFT"
-    // },
-    // {
-    //   tokens: [TSAMetaverse, ICASH],
-    //   stakingRewardAddress: '0xc31a92F4976C2Af1869a21AC9EB1F5AFd6b92148',
-    //   iconUrl: "/icashgensisi.png",
-    //   cate:"NFT"
-    // },
+    {
+      tokens: [ShihCryptoPunk, ICASH],
+      stakingRewardAddress: '0x444D41EaF847f1ed1B009fc4f6B2A5123D5F1027',
+      iconUrl: "/safemoon_icon.png",
+      cate:"NFT"
+    },
+    {
+      tokens: [TSAMetaverse, ICASH],
+      stakingRewardAddress: '0x252196bE53Bf4f481Ca1D30849E9eACb5F0134AC',
+      iconUrl: "/doge_icon.webp",
+      cate:"NFT"
+    },
     {
       tokens: [GensisNFT, ICASH],
       stakingRewardAddress: '0xc31a92F4976C2Af1869a21AC9EB1F5AFd6b92148',
@@ -105,16 +114,16 @@ export const STAKING_REWARDS_INFO: {
       iconUrl: "/USDT_TSA_TSA.png",
       cate:"TSA"
     },
-    // {
-    //   tokens: [ETH_TSA_LP, UNI[ChainId.BSC_MAINNET]],
-    //   stakingRewardAddress: '0xA1f2Bc4cBB56b02cB1329C8ca633155c02Fc6Cb8',
-    //   iconUrl: "/bnbtsastaketsa.png",
-    //   cate:"TSA"
-    // },
+    {
+      tokens: [ETH_TSA_LP, UNI[ChainId.BSC_MAINNET]],
+      stakingRewardAddress: '0x226141bA188cbEd9C8D39c237F29eC3F5bA5A43B',
+      iconUrl: "/ETH_TSA_TSA.png",
+      cate:"TSA"
+    },
     {
       tokens: [UNI[ChainId.BSC_MAINNET],ICASH],
-      stakingRewardAddress:'0x26a346dDbb7ea083c85c696Cfa77F84C8bd4109d',
-      iconUrl: "/icash_icon.webp",
+      stakingRewardAddress:'0xaf5e13E7F1DC210EAAaD7C4B87Ea310c84899DAD',
+      iconUrl: "/TSA_ICASH.png",
       cate:"ICASH"
     },
       //0x26a346dDbb7ea083c85c696Cfa77F84C8bd4109d
