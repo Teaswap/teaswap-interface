@@ -37,7 +37,7 @@ export default [
   },
   {
     picture_url: process.env.PUBLIC_URL + '/nft/pro1/beginning.png',
-    title: "TSANFT ",
+    title: "TSANFT",
     number: "No.75",
     desc: '',
     link: 'https://www.teaswap.art/nft/products/category/4',
@@ -45,7 +45,7 @@ export default [
     id: 5,
   },
   {
-    picture_url: process.env.PUBLIC_URL + '/nft/pro1/HaHa.gif',
+    picture_url: process.env.PUBLIC_URL + '/nft/pro1/haha.gif',
     title: "TSANFT",
     number: "No.73",
     desc: '',
