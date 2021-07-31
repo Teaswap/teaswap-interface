@@ -42,7 +42,6 @@ const PageWrapper = styled(AutoColumn)`
   0px 24px 32px rgba(0, 0, 0, 0.04);
   padding: 1rem;
   ${MEDIA_QUERY.sm} {
-    width: 86%;
     margin: 0 auto;
     margin-top: 30px;
   }
@@ -55,7 +54,6 @@ const PositionInfo = styled(AutoColumn)<{ dim: any }>`
   opacity: ${({ dim }) => (dim ? 0.6 : 1)};
   padding: 1rem;
   ${MEDIA_QUERY.sm} {
-    width: 86%;
     margin: 0 auto;
   }
 `
@@ -391,6 +389,13 @@ const Manage = ()=>{
                     thousandsSeparator={','}
                     duration={1}
                   />
+                </TYPE.largeHeader>
+                <TYPE.black fontSize={16} fontWeight={500}>
+                 
+                </TYPE.black>
+              </RowBetween>
+              <RowBetween style={{ alignItems: 'baseline' }}>
+                <TYPE.largeHeader fontSize={36} fontWeight={600}>
                 </TYPE.largeHeader>
                 <TYPE.black fontSize={16} fontWeight={500}>
                   <span role="img" aria-label="wizard-icon" style={{ marginRight: '8px ' }}>
