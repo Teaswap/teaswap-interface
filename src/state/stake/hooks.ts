@@ -22,7 +22,6 @@ import {
   BNB_ETH_LP,
   BNB_WBTC_LP,
   BNB_TSA_LP,
-  GensisNFT,
   TSA_SHIH_LP,
   TSA_SHIB_LP,
   TSA_BAKE_LP,
@@ -64,12 +63,12 @@ export const STAKING_REWARDS_INFO: {
     //   iconUrl: "/doge_icon.webp",
     //   cate:"NFT"
     // },
-    {
-      tokens: [GensisNFT, ICASH],
-      stakingRewardAddress: '0x045f42d19f4Ef66dE873c8C36cde4BF3BBec601F',
-      iconUrl: "/icashgensisi.png",
-      cate:"NFT"
-    },
+    // {
+    //   tokens: [GensisNFT, ICASH],
+    //   stakingRewardAddress: '0x045f42d19f4Ef66dE873c8C36cde4BF3BBec601F',
+    //   iconUrl: "/icashgensisi.png",
+    //   cate:"NFT"
+    // },
     {
       tokens: [TSA_SHIH_LP, UNI[ChainId.BSC_MAINNET]],
       stakingRewardAddress: '0xF197A37087780f912149bacbffD1E980972bA8c7',
