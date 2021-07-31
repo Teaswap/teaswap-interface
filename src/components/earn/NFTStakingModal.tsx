@@ -9,10 +9,8 @@ import { RowBetween } from '../Row'
 import { TYPE, CloseIcon } from '../../theme'
 import { ButtonConfirmed, ButtonError } from '../Button'
 import ProgressCircles from '../ProgressSteps'
-import CurrencyInputPanel from '../CurrencyInputPanel'
 import {ChainId, CurrencyAmount, TokenAmount} from '@teaswap/uniswap-sdk'
 import { useActiveWeb3React } from '../../hooks'
-import { maxAmountSpend } from '../../utils/maxAmountSpend'
 import {useERC1155Contract, useStakingContract} from '../../hooks/useContract'
 import {ApprovalState, useApproveNFTCallback} from '../../hooks/useApproveCallback'
 // import { splitSignature } from 'ethers/lib/utils'
@@ -103,7 +101,7 @@ export default function NFTStakingModal({ isOpen, onDismiss, stakingInfo, userLi
   // const stakeTokenContract = useTokenContract(stakingInfo.tokens[0].address)
 
   const deadline = useTransactionDeadline()
-  const [signatureData, setSignatureData] = useState<{ v: number; r: string; s: string; deadline: number } | null>(null)
+  // const [signatureData, setSignatureData] = useState<{ v: number; r: string; s: string; deadline: number } | null>(null)
   // const [tokenid, setTokenid] = useState('')
   const [approval, approveCallback] = useApproveNFTCallback(stakingInfo.stakingRewardAddress,Number.parseInt(typedValue),stakingInfo.tokens[0].address,true)
 
@@ -120,8 +118,8 @@ export default function NFTStakingModal({ isOpen, onDismiss, stakingInfo, userLi
     setAttempting(true)
     if (stakingContract && parsedAmount && deadline) {
       if (approval === ApprovalState.APPROVED) {
-        if(stakingInfo.stakedAmount.token.address===ZERO_ADDRESS||stakingInfo.stakedAmount.token===PAYABLEETH[ChainId.BSC_MAINNET]){
-          stakingContract.stakeBNB({ gasLimit: 350000, value:`0x${parsedAmount.raw.toString(16)}` })
+        if (stakingInfo.stakedAmount.token.address === ZERO_ADDRESS || stakingInfo.stakedAmount.token === PAYABLEETH[ChainId.BSC_MAINNET]) {
+          stakingContract.stakeBNB({gasLimit: 350000, value: `0x${parsedAmount.raw.toString(16)}`})
               .then((response: TransactionResponse) => {
                 addTransaction(response, {
                   summary: t('depositLiquidity')
@@ -132,8 +130,8 @@ export default function NFTStakingModal({ isOpen, onDismiss, stakingInfo, userLi
                 setAttempting(false)
                 console.log(error)
               })
-        }else{
-          stakingContract.stake(isNFT?BigInt(typedValue):`0x${parsedAmount.raw.toString(16)}`, { gasLimit: 350000 })
+        } else {
+          stakingContract.stake(isNFT ? BigInt(typedValue) : `0x${parsedAmount.raw.toString(16)}`, {gasLimit: 350000})
               .then((response: TransactionResponse) => {
                 addTransaction(response, {
                   summary: t('depositLiquidity')
@@ -145,46 +143,48 @@ export default function NFTStakingModal({ isOpen, onDismiss, stakingInfo, userLi
                 console.log(error)
               })
         }
-
-      } else if (signatureData) {
-        stakingContract
-          .stakeWithPermit(
-            `0x${parsedAmount.raw.toString(16)}`,
-            signatureData.deadline,
-            signatureData.v,
-            signatureData.r,
-            signatureData.s,
-            { gasLimit: 350000 }
-          )
-          .then((response: TransactionResponse) => {
-            addTransaction(response, {
-              summary: t('depositLiquidity')
-            })
-            setHash(response.hash)
-          })
-          .catch((error: any) => {
-            setAttempting(false)
-            console.log(error)
-          })
-      } else {
-        setAttempting(false)
-        throw new Error(t('attempting-to-stake-without-approval-or-a-signature-please-contact-support'))
       }
     }
+
+    //   } else if (signatureData) {
+    //     stakingContract
+    //       .stakeWithPermit(
+    //         `0x${parsedAmount.raw.toString(16)}`,
+    //         signatureData.deadline,
+    //         signatureData.v,
+    //         signatureData.r,
+    //         signatureData.s,
+    //         { gasLimit: 350000 }
+    //       )
+    //       .then((response: TransactionResponse) => {
+    //         addTransaction(response, {
+    //           summary: t('depositLiquidity')
+    //         })
+    //         setHash(response.hash)
+    //       })
+    //       .catch((error: any) => {
+    //         setAttempting(false)
+    //         console.log(error)
+    //       })
+    //   } else {
+    //     setAttempting(false)
+    //     throw new Error(t('attempting-to-stake-without-approval-or-a-signature-please-contact-support'))
+    //   }
+    // }
   }
 
   // wrapped onUserInput to clear signatures
-  const onUserInput = useCallback((typedValue: string) => {
-    setSignatureData(null)
-    setTypedValue(typedValue)
-  }, [])
+  // const onUserInput = useCallback((typedValue: string) => {
+  //   setSignatureData(null)
+  //   setTypedValue(typedValue)
+  // }, [])
 
   // used for max input button
-  const maxAmountInput = maxAmountSpend(userLiquidityUnstaked)
-  const atMaxAmount = Boolean(maxAmountInput && parsedAmount?.equalTo(maxAmountInput))
-  const handleMax = useCallback(() => {
-    maxAmountInput && onUserInput(maxAmountInput.toExact())
-  }, [maxAmountInput, onUserInput])
+  // const maxAmountInput = maxAmountSpend(userLiquidityUnstaked)
+  // const atMaxAmount = Boolean(maxAmountInput && parsedAmount?.equalTo(maxAmountInput))
+  // const handleMax = useCallback(() => {
+  //   maxAmountInput && onUserInput(maxAmountInput.toExact())
+  // }, [maxAmountInput, onUserInput])
 
 
   // async function onAttemptToApprove() {
@@ -277,21 +277,6 @@ export default function NFTStakingModal({ isOpen, onDismiss, stakingInfo, userLi
             <TYPE.mediumHeader>{t('deposit')}</TYPE.mediumHeader>
             <CloseIcon onClick={wrappedOnDismiss} />
           </RowBetween>
-          {!isNFT && (
-              <CurrencyInputPanel
-                  value={typedValue}
-                  onUserInput={onUserInput}
-                  onMax={handleMax}
-                  showMaxButton={!atMaxAmount}
-                  currency={stakingInfo.stakedAmount.token}
-                  pair={null}
-                  label={''}
-                  disableCurrencySelect={true}
-                  customBalanceText={'Available to deposit: '}
-                  id="stake-liquidity-token"
-              />
-          )}
-          {isNFT && (
               <InputItem
                   title={t('choose tokenid')}
                   type={'radio'}
@@ -305,7 +290,6 @@ export default function NFTStakingModal({ isOpen, onDismiss, stakingInfo, userLi
                   productPictureUrl={undefined}
                   textareaRows = {1}
               />
-          )}
 
           <HypotheticalRewardRate dim={!hypotheticalRewardRate.greaterThan('0')}>
             <div>
@@ -336,7 +320,7 @@ export default function NFTStakingModal({ isOpen, onDismiss, stakingInfo, userLi
               {error ?? t('deposit')}
             </ButtonError>
           </RowBetween>
-          <ProgressCircles steps={[approval === ApprovalState.APPROVED || signatureData !== null]} disabled={true} />
+          <ProgressCircles steps={[approval === ApprovalState.APPROVED ]} disabled={true} />
         </ContentWrapper>
       )}
       {attempting && !hash && (

@@ -216,19 +216,19 @@ const Manage = ()=>{
 
   const timeUntilGenesis = begin - time
   const timeUntilEnd = end - time
-  let hasGetInfo = false
-  hasGetInfo = useMemo(()=>{
-    if(stakingInfo){ return true}
-    if(!stakingInfo&&hasGetInfo){return true}
-    return false
-  },[stakingInfo,hasGetInfo])
+  // let hasGetInfo = false
+  // hasGetInfo = useMemo(()=>{
+  //   if(stakingInfo){ return true}
+  //   if(!stakingInfo&&hasGetInfo){return true}
+  //   return false
+  // },[stakingInfo,hasGetInfo])
 
 
   return (
     <PageWrapper gap="lg" justify="center">
 
 
-      {hasGetInfo && stakingInfo?.cate!='NFT' && (
+      {stakingInfo && stakingInfo?.cate!='NFT' && (
 
           <StakingModal
             isOpen={showStakingModal}
@@ -237,7 +237,7 @@ const Manage = ()=>{
             userLiquidityUnstaked={userLiquidityUnstaked}
           />
         )}
-      {hasGetInfo && stakingInfo?.cate==='NFT' && (
+      {stakingInfo && stakingInfo?.cate==='NFT' && (
 
           <NFTStakingModal
               isOpen={showStakingModal}
