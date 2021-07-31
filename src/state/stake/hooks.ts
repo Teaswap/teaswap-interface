@@ -66,7 +66,7 @@ export const STAKING_REWARDS_INFO: {
     // },
     {
       tokens: [GensisNFT, ICASH],
-      stakingRewardAddress: '0x3964AdE57824FA5b754934D79CccA0481Ac70346',
+      stakingRewardAddress: '0x045f42d19f4Ef66dE873c8C36cde4BF3BBec601F',
       iconUrl: "/icashgensisi.png",
       cate:"NFT"
     },
