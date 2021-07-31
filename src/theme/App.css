@@ -296,3 +296,18 @@
   background-color: rgba(0, 0, 0, 0.8);
   z-index: 10000;
 }
+#client-orders{
+  max-width: 1400px;
+  width: 100%;
+}
+.orders-go-stake{
+  color: #474747;
+  font-size: 18px;
+  cursor: pointer;
+  float: right;
+  margin-right: 150px;
+}
+.client-order-tables {
+  width: 100%;
+  overflow-x: scroll;
+}

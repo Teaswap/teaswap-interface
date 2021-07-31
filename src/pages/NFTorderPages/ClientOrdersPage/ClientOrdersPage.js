@@ -14,6 +14,7 @@ import {
   FONT,
   MEDIA_QUERY_MD,
   DISTANCE,
+  MEDIA_QUERY,
 } from "../../../constants/style";
 import Tabs from '../../../components/Tabs/Index'
 import useCart from "../../../hooks/cartHooks/useCart";
@@ -76,6 +77,7 @@ const Content = styled.td`
   border-bottom: solid .5px ${COLOR.cccccc};
   padding: ${DISTANCE.sm};
   cursor: pointer;
+  word-break: break-all;
   &:hover:nth-child(1) {
     color: ${COLOR.hover};
   }
@@ -102,6 +104,15 @@ const LoadingMessage = styled.div`
   background: ${COLOR.bg_mask};
   z-index: 2;
 `;
+
+const OrderImg = styled.img`
+  width: 120px;
+  cursor: pointer;
+  ${MEDIA_QUERY.sm}{
+    width: 50px;
+    transform: translate(0, 100%);
+  }
+`
 
 const ClientOrdersPage = () => {
   const dispatch = useDispatch();
@@ -139,21 +150,11 @@ const ClientOrdersPage = () => {
 
   return (
     <>
-      <ThickNavPage style={{
-        width: '1400px',
-        overflow: 'scroll'
-      }}>
+      <ThickNavPage id="client-orders">
       <Wrapper>
         <div>
         <Title>History</Title>
-        <span onClick={() => navigate('/staking')} style={{
-            marginLeft: "20px",
-            color: "#474747",
-            fontSize: "18px",
-            cursor: "pointer",
-            float: "right",
-            marginRight: "150px",
-          }}>Stake $TSA</span>
+        <span onClick={() => navigate('/staking')} className="orders-go-stake">Stake $TSA</span>
           </div>
         <Container>
           <Tabs tabs={tabs} value={tab} handleChange={(v) => {
@@ -175,36 +176,40 @@ const ClientOrdersPage = () => {
               ))
           )}
           { tab != BID_TAB && (
-            <Table>
-              <NameContainer>
-                <Name>{t('Item')}</Name>
-                <Name>{t("Order-No")}</Name>
-                <Name>{t("Buyer")}</Name>
-                <Name>{t("Seller")}</Name>
-                <Name>{t("Date")}</Name>
-                <Name>{t("Amount")}</Name>
-                <Name>{t("Status")}</Name>
-              </NameContainer>
-              {orders &&
-                orders.map((order) => (
-                  order.Order_items.map((item) => (
-                    <ContentContainer key={order.id}>
-                      <img onClick={() => navigate(`/nft/products/${order.Order_items[0].ProductId}`)} style={{cursor: 'pointer' , padding: '15px' }} src={order.Order_items[0].product_picture_url} width="120" height="120" />
-                      <Content> {order.order_number} </Content>
-                      <Content> {hideAddr(order.client_name)} </Content>
-                      <Content> {hideAddr(order.seller_name)} </Content>
-                      <Content>
-                        {new Date(order.createdAt).toLocaleDateString()}
-                      </Content>
-                      <Content>{item.product_price + handleTokenSwitch(item.Product.extoken)}</Content>
-                      <Content>
-                        {/* {order.is_completed ? '已完成' : '未完成' } */}
-                        {t("Complete")}
-                      </Content>
-                    </ContentContainer>
-                  ))
-                ))}
-            </Table>
+            <div className="client-order-tables">
+              <Table>
+                <NameContainer>
+                  <Name>{t('Item')}</Name>
+                  <Name>{t("Order-No")}</Name>
+                  <Name>{t("Buyer")}</Name>
+                  <Name>{t("Seller")}</Name>
+                  <Name>{t("Date")}</Name>
+                  <Name>{t("Amount")}</Name>
+                  <Name>{t("Status")}</Name>
+                </NameContainer>
+                {orders &&
+                  orders.map((order) => (
+                    order.Order_items.map((item) => (
+                      <ContentContainer key={order.id}>
+                        <OrderImg 
+                          onClick={() => navigate(`/nft/products/${order.Order_items[0].ProductId}`)} 
+                          src={order.Order_items[0].product_picture_url} />
+                        <Content> {order.order_number} </Content>
+                        <Content> {hideAddr(order.client_name)} </Content>
+                        <Content> {hideAddr(order.seller_name)} </Content>
+                        <Content>
+                          {new Date(order.createdAt).toLocaleDateString()}
+                        </Content>
+                        <Content>{item.product_price + handleTokenSwitch(item.Product.extoken)}</Content>
+                        <Content>
+                          {/* {order.is_completed ? '已完成' : '未完成' } */}
+                          {t("Complete")}
+                        </Content>
+                      </ContentContainer>
+                    ))
+                  ))}
+              </Table>
+            </div>
           )}
         </Container>
         </Wrapper>
