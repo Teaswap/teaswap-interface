@@ -9,9 +9,8 @@ import { useTotalSupply } from '../../data/TotalSupply'
 import { useActiveWeb3React } from '../../hooks'
 import { useMerkleDistributorContract } from '../../hooks/useContract'
 import useCurrentBlockTimestamp from '../../hooks/useCurrentBlockTimestamp'
-import { useTotalUniEarned } from '../../state/stake/hooks'
 import { useAggregateUniBalance, useTokenBalance } from '../../state/wallet/hooks'
-import { StyledInternalLink, TYPE, UniTokenAnimated } from '../../theme'
+import {  TYPE, UniTokenAnimated } from '../../theme'
 import { computeUniCirculation } from '../../utils/computeUniCirculation'
 import useUSDCPrice from '../../utils/useUSDCPrice'
 import { AutoColumn } from '../Column'
@@ -48,7 +47,7 @@ export default function UniBalanceContent({ setShowUniBalanceModal }: { setShowU
 
   const total = useAggregateUniBalance()
   const uniBalance: TokenAmount | undefined = useTokenBalance(account ?? undefined, uni)
-  const uniToClaim: TokenAmount | undefined = useTotalUniEarned()
+  // const uniToClaim: TokenAmount | undefined = useTotalUniEarned()
 
   const totalSupply: TokenAmount | undefined = useTotalSupply(uni)
   const uniPrice = useUSDCPrice(uni)
@@ -91,12 +90,12 @@ export default function UniBalanceContent({ setShowUniBalanceModal }: { setShowU
                 <RowBetween>
                   <TYPE.white color="white">{t('unclaimed')}:</TYPE.white>
                   <TYPE.white color="white">
-                    {uniToClaim?.toFixed(4, { groupSeparator: ',' })}{' '}
-                    {uniToClaim && uniToClaim.greaterThan('0') && (
-                      <StyledInternalLink onClick={() => setShowUniBalanceModal(false)} to="/best">
-                        ({t('claim')})
-                      </StyledInternalLink>
-                    )}
+                    {/*{uniToClaim?.toFixed(4, { groupSeparator: ',' })}{' '}*/}
+                    {/*{uniToClaim && uniToClaim.greaterThan('0') && (*/}
+                    {/*  <StyledInternalLink onClick={() => setShowUniBalanceModal(false)} to="/">*/}
+                    {/*    ({t('claim')})*/}
+                    {/*  </StyledInternalLink>*/}
+                    {/*)}*/}
                   </TYPE.white>
                 </RowBetween>
               </AutoColumn>

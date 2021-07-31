@@ -5,8 +5,7 @@ import {
   updateItem,
   deleteItem,
   deleteItemsBySeller,
-  createOrder as createOrderAPI,
-  completeOrder
+  createOrder as createOrderAPI
 } from "../../../webAPI/cartAPI";
 
 export const cartSlice = createSlice({

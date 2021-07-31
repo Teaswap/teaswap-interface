@@ -32,6 +32,7 @@ import usePrevious from '../../hooks/usePrevious'
 import { BIG_INT_ZERO } from '../../constants'
 import { MEDIA_QUERY } from '../../constants/style'
 import {Countdown} from "./Countdown";
+import NFTStakingModal from "../../components/earn/NFTStakingModal";
 
 const PageWrapper = styled(AutoColumn)`
   margin-top: 50px;
@@ -121,6 +122,7 @@ const Manage = ()=>{
   const { account, chainId } = useActiveWeb3React()
   const { t } = useTranslation()
   const params = useParams()
+  console.log("param:"+JSON.stringify(params))
   const stakingInfo = useStakingInfo(params.stakingRewardAddress)?.[0]
 
   // get currencies and pair
@@ -228,7 +230,7 @@ const Manage = ()=>{
     <PageWrapper gap="lg" justify="center">
 
 
-      {hasGetInfo && (
+      {hasGetInfo && stakingInfo?.cate!='NFT' && (
 
           <StakingModal
             isOpen={showStakingModal}
@@ -237,6 +239,15 @@ const Manage = ()=>{
             userLiquidityUnstaked={userLiquidityUnstaked}
           />
         )}
+      {hasGetInfo && stakingInfo?.cate==='NFT' && (
+
+          <NFTStakingModal
+              isOpen={showStakingModal}
+              onDismiss={() => setShowStakingModal(false)}
+              stakingInfo={stakingInfo}
+              userLiquidityUnstaked={userLiquidityUnstaked}
+          />
+      )}
       {stakingInfo && (
           <UnstakingModal
             isOpen={showUnstakingModal}
