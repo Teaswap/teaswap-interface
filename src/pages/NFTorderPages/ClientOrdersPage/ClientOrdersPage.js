@@ -110,6 +110,7 @@ const OrderImg = styled.img`
   cursor: pointer;
   ${MEDIA_QUERY.sm}{
     width: 50px;
+    height: 50px;
     transform: translate(0, 100%);
   }
 `

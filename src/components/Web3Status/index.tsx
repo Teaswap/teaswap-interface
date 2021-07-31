@@ -27,7 +27,7 @@ import { RowBetween } from '../Row'
 import WalletModal from '../WalletModal'
 // import useUser from '../../hooks/userHooks/useUser'
 import { useSelector } from 'react-redux'
-import {selectIsUserLoading, selectUserId} from '../../redux/slices/generalSlice/generalSlice'
+import {selectIsUserLoading} from '../../redux/slices/generalSlice/generalSlice'
 
 const IconWrapper = styled.div<{ size?: number }>`
   ${({ theme }) => theme.flexColumnNoWrap};
@@ -193,10 +193,10 @@ function Web3StatusInner() {
 
   const { handleBind } = useLogin();
   const isUserLoading = useSelector(selectIsUserLoading);
-  const userId = useSelector(selectUserId);
+  // const userId = useSelector(selectUserId);
 
   useEffect(() => {
-    if(account && !userId && !isUserLoading){
+    if(account && !isUserLoading){
       handleBind(account,chainId);
     }
   }, [account]);
