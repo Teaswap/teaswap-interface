@@ -487,6 +487,7 @@ export const ProductInfo = ({product,user}:{ product:ProductInterface ,user:user
       <ProductPrice>{product.price+" "+exToken.symbol} </ProductPrice>
       <ProductName style={{fontSize: '12px', marginTop: '10px'}}>Copyright Transferred: {product.sale_copyright ? 'Yes' : 'No'} &nbsp;&nbsp;&nbsp;  Royalty: {product.royalty/100}% </ProductName>
       <ProductQuantitySelector quantity={product.quantity} />
+      <ProductName style={{fontSize: '12px', marginTop: '10px'}}>You must place a bid that is higher than the current bid. </ProductName>
       {user ? (
         <ShoppingCart
           onClick={()=>handlebidModal(0)}
