@@ -56,8 +56,8 @@ export function useV1ExchangeContract(address?: string, withSignerIfPossible?: b
   return useContract(address, V1_EXCHANGE_ABI, withSignerIfPossible)
 }
 
-export function useTokenContract(tokenAddress?: string, withSignerIfPossible?: boolean): Contract | null {
-  return useContract(tokenAddress, ERC20_ABI, withSignerIfPossible)
+export function useTokenContract(tokenAddress?: string, withSignerIfPossible?: boolean,isNFT?:boolean): Contract | null {
+  return useContract(tokenAddress, isNFT?ERC1155Collection_ABI:ERC20_ABI, withSignerIfPossible)
 }
 
 export function useWETHContract(withSignerIfPossible?: boolean): Contract | null {

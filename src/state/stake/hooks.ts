@@ -1,5 +1,5 @@
 import { ChainId, CurrencyAmount, JSBI, Token, TokenAmount } from '@teaswap/uniswap-sdk'
-import { useMemo } from 'react'
+import {useMemo} from 'react'
 import { useTranslation } from 'react-i18next'
 import {
   UNI,
@@ -30,9 +30,7 @@ import {
   TSA_BUSD_LP,
   USDT_TSA_LP,
   TSA_CAKE_LP,
-  ETH_TSA_LP,
-  ShihCryptoPunk,
-  TSAMetaverse
+  ETH_TSA_LP
 } from '../../constants'
 import { IDO_ABI_INTERFACE, STAKING_REWARDS_INTERFACE } from '../../constants/abis/staking-rewards'
 import { useActiveWeb3React } from '../../hooks'
@@ -54,21 +52,21 @@ export const STAKING_REWARDS_INFO: {
   }[]
 } = {
   [ChainId.BSC_MAINNET]: [
-    {
-      tokens: [ShihCryptoPunk, ICASH],
-      stakingRewardAddress: '0x444D41EaF847f1ed1B009fc4f6B2A5123D5F1027',
-      iconUrl: "/safemoon_icon.png",
-      cate:"NFT"
-    },
-    {
-      tokens: [TSAMetaverse, ICASH],
-      stakingRewardAddress: '0x252196bE53Bf4f481Ca1D30849E9eACb5F0134AC',
-      iconUrl: "/doge_icon.webp",
-      cate:"NFT"
-    },
+    // {
+    //   tokens: [ShihCryptoPunk, ICASH],
+    //   stakingRewardAddress: '0x444D41EaF847f1ed1B009fc4f6B2A5123D5F1027',
+    //   iconUrl: "/safemoon_icon.png",
+    //   cate:"NFT"
+    // },
+    // {
+    //   tokens: [TSAMetaverse, ICASH],
+    //   stakingRewardAddress: '0x252196bE53Bf4f481Ca1D30849E9eACb5F0134AC',
+    //   iconUrl: "/doge_icon.webp",
+    //   cate:"NFT"
+    // },
     {
       tokens: [GensisNFT, ICASH],
-      stakingRewardAddress: '0xc31a92F4976C2Af1869a21AC9EB1F5AFd6b92148',
+      stakingRewardAddress: '0x3964AdE57824FA5b754934D79CccA0481Ac70346',
       iconUrl: "/icashgensisi.png",
       cate:"NFT"
     },
@@ -340,10 +338,186 @@ export interface IdoInfo {
 
 }
 
-// gets the staking info from the network for the active chain id
-export function useStakingInfo(stakingRewardAddress?:string | null): StakingInfo[] {
+export function useStakingInfo(stakingRewardAddress:string): StakingInfo[] {
   const { chainId, account } = useActiveWeb3React()
 
+  const info = useMemo(
+      () =>
+          chainId
+              ? STAKING_REWARDS_INFO[chainId]?.filter(stakingRewardInfo =>
+              stakingRewardInfo.stakingRewardAddress===stakingRewardAddress
+          ) ?? []
+              : [],
+      [chainId, stakingRewardAddress]
+  )
+
+  const uni = chainId ? UNI[chainId] : undefined
+
+
+
+  const rewardsAddresses = useMemo(() => info.map(({ stakingRewardAddress }) => stakingRewardAddress), [info])
+
+  console.log("stakingRewardAddressout:"+stakingRewardAddress)
+  console.log("infoout:"+JSON.stringify(info))
+  console.log("rewardsAddressesout"+JSON.stringify(rewardsAddresses))
+
+  const accountArg = useMemo(() => [account ?? undefined], [account])
+
+  // get all the info from the staking rewards contracts
+  const balances = useMultipleContractSingleData(rewardsAddresses, STAKING_REWARDS_INTERFACE, 'balanceOf', accountArg)
+  const earnedAmounts = useMultipleContractSingleData(rewardsAddresses, STAKING_REWARDS_INTERFACE, 'earned', accountArg)
+  const unClaimedAmounts = useMultipleContractSingleData(rewardsAddresses, STAKING_REWARDS_INTERFACE, 'rewards', accountArg)
+  const totalSupplies = useMultipleContractSingleData(rewardsAddresses, STAKING_REWARDS_INTERFACE, 'totalSupply')
+
+  // const startTimes = useMultipleContractSingleData(rewardsAddresses, STAKING_REWARDS_INTERFACE, 'startTime')
+  const rewardsDurations = useMultipleContractSingleData(rewardsAddresses, STAKING_REWARDS_INTERFACE, 'rewardsDuration')
+  // tokens per second, constants
+  const rewardRates = useMultipleContractSingleData(
+      rewardsAddresses,
+      STAKING_REWARDS_INTERFACE,
+      'rewardRate'
+  )
+  const periodFinishes = useMultipleContractSingleData(
+      rewardsAddresses,
+      STAKING_REWARDS_INTERFACE,
+      'periodFinish'
+  )
+
+  return useMemo(() => {
+    if (!chainId || !uni) return []
+
+    return rewardsAddresses.reduce<StakingInfo[]>((memo, rewardsAddress, index) => {
+      // these two are dependent on account
+      const balanceState = balances[index]
+      const earnedAmountState = earnedAmounts[index]
+      const unclaimedAmountState = unClaimedAmounts[index]
+
+      // these get fetched regardless of account
+      const totalSupplyState = totalSupplies[index]
+      const rewardRateState = rewardRates[index]
+      const periodFinishState = periodFinishes[index]
+      // const startTimeState = startTimes[index]
+      const rewardsDurationState = rewardsDurations[index]
+
+      if (
+          // these may be undefined if not logged in
+          !balanceState?.loading &&
+          !earnedAmountState?.loading &&
+          // always need these
+          totalSupplyState &&
+          !totalSupplyState.loading &&
+          rewardRateState &&
+          !rewardRateState.loading &&
+          periodFinishState &&
+          !periodFinishState.loading &&
+          rewardsDurationState &&
+          !rewardsDurationState.loading
+      ) {
+        if (
+            balanceState?.error ||
+            earnedAmountState?.error ||
+            unclaimedAmountState.error||
+            totalSupplyState.error ||
+            rewardRateState.error ||
+            periodFinishState.error||
+            rewardsDurationState.error
+        ) {
+          // console.log(balanceState?.error)
+          // console.log(earnedAmountState?.error)
+          // console.log(unclaimedAmountState.error)
+          // console.log(totalSupplyState.error)
+          // console.log(rewardRateState.error)
+          // console.log(periodFinishState.error)
+          // console.log(rewardsDurationState.error)
+          console.log("address:"+rewardsAddress)
+          console.log("balances:"+JSON.stringify(balances))
+          console.log("earnedAmounts:"+JSON.stringify(earnedAmounts))
+          console.log("unClaimedAmounts:"+JSON.stringify(unClaimedAmounts))
+          console.log("totalSupplies:"+JSON.stringify(totalSupplies))
+          console.log("rewardRates:"+JSON.stringify(rewardRates))
+          console.log("periodFinishs:"+JSON.stringify(periodFinishes))
+          console.error('Failed to load staking rewards info')
+          memo.push({
+            stakingRewardAddress: rewardsAddress,
+            tokens: info[index].tokens,
+            iconUrl: info[index].iconUrl,
+            cate: info[index].cate,
+            periodFinish: undefined,
+            earnedAmount: new TokenAmount(info[index].tokens[1], JSBI.BigInt(earnedAmountState?.result?.[0] ?? 0)),
+            unclaimAmount:new TokenAmount(info[index].tokens[1], JSBI.BigInt(0)),
+            rewardRate: new TokenAmount(info[index].tokens[1], JSBI.BigInt(0)),
+            totalRewardRate: new TokenAmount(info[index].tokens[1], JSBI.BigInt(0)),
+            stakedAmount: new TokenAmount(info[index].tokens[0], JSBI.BigInt(0)),
+            totalStakedAmount: new TokenAmount(info[index].tokens[0], JSBI.BigInt(0)),
+            rewardsDuration: 0,
+            getHypotheticalRewardRate:(stakedAmount,
+                                       totalStakedAmount,
+                                       totalRewardRate)=>{return new TokenAmount(info[index].tokens[1], JSBI.BigInt(0))}
+          })
+          return memo
+        }
+
+        // get the LP token
+        const tokens = info[index].tokens
+        //
+        // const dummyPair = new Pair(new TokenAmount(tokens[0], '0'), new TokenAmount(tokens[1], '0'))
+        // //
+        // // check for account, if no account set to 0
+        //
+        // const stakedAmount = new TokenAmount(dummyPair.liquidityToken, JSBI.BigInt(balanceState?.result?.[0] ?? 0))
+        // const totalStakedAmount = new TokenAmount(dummyPair.liquidityToken, JSBI.BigInt(totalSupplyState.result?.[0]))
+        const stakedAmount = new TokenAmount(tokens[0], JSBI.BigInt(balanceState?.result?.[0] ?? 0))
+        const unClaimedAmount = new TokenAmount(tokens[1],JSBI.BigInt(unclaimedAmountState?.result?.[0] ?? 0))
+        const totalStakedAmount = new TokenAmount(tokens[0], JSBI.BigInt(totalSupplyState.result?.[0]))
+
+
+
+        const totalRewardRate = new TokenAmount(tokens[1], JSBI.BigInt(rewardRateState.result?.[0]))
+
+        const getHypotheticalRewardRate = (
+            stakedAmount: TokenAmount,
+            totalStakedAmount: TokenAmount,
+            totalRewardRate: TokenAmount
+        ): TokenAmount => {
+          return new TokenAmount(
+              totalRewardRate.token,
+              JSBI.greaterThan(totalStakedAmount.raw, JSBI.BigInt(0))
+                  ? JSBI.divide(JSBI.multiply(totalRewardRate.raw, stakedAmount.raw), totalStakedAmount.raw)
+                  : JSBI.BigInt(0)
+          )
+        }
+
+        const individualRewardRate = getHypotheticalRewardRate(stakedAmount, totalStakedAmount, totalRewardRate)
+
+        const periodFinishMs = periodFinishState.result?.[0]?.mul(1000)?.toNumber()
+        // const startTimeMs = startTimeState.result?.[0]?.mul(1000)?.toNumber()
+        const rewardsDuration = rewardsDurationState.result?.[0]?.toNumber()
+
+        memo.push({
+          stakingRewardAddress: rewardsAddress,
+          tokens: info[index].tokens,
+          iconUrl: info[index].iconUrl,
+          cate: info[index].cate,
+          periodFinish: periodFinishMs > 0 ? new Date(periodFinishMs) : undefined,
+          earnedAmount: new TokenAmount(info[index].tokens[1], JSBI.BigInt(earnedAmountState?.result?.[0] ?? 0)),
+          unclaimAmount:unClaimedAmount,
+          rewardRate: individualRewardRate,
+          totalRewardRate: totalRewardRate,
+          stakedAmount: stakedAmount,
+          totalStakedAmount: totalStakedAmount,
+          rewardsDuration: rewardsDuration,
+          getHypotheticalRewardRate
+        })
+      }
+      return memo
+    }, [])
+  }, [balances, chainId, earnedAmounts, info, periodFinishes, rewardRates, rewardsAddresses, totalSupplies, uni])
+}
+
+// gets the staking info from the network for the active chain id
+export function useAllStakingInfo(): StakingInfo[] {
+  const { chainId, account } = useActiveWeb3React()
+  const stakingRewardAddress = undefined
   const info = useMemo(
     () =>
       chainId
@@ -360,7 +534,13 @@ export function useStakingInfo(stakingRewardAddress?:string | null): StakingInfo
 
   const uni = chainId ? UNI[chainId] : undefined
 
+
+
   const rewardsAddresses = useMemo(() => info.map(({ stakingRewardAddress }) => stakingRewardAddress), [info])
+
+  console.log("stakingRewardAddressout:"+stakingRewardAddress)
+  console.log("infoout:"+JSON.stringify(info))
+  console.log("rewardsAddressesout"+JSON.stringify(rewardsAddresses))
 
   const accountArg = useMemo(() => [account ?? undefined], [account])
 
@@ -501,7 +681,7 @@ export function useStakingInfo(stakingRewardAddress?:string | null): StakingInfo
 export function useTotalUniEarned(): TokenAmount | undefined {
   const { chainId } = useActiveWeb3React()
   const uni = chainId ? UNI[chainId] : undefined
-  const stakingInfos = useStakingInfo()
+  const stakingInfos = useAllStakingInfo()
 
   return useMemo(() => {
     if (!uni) return undefined

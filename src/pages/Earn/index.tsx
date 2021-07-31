@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import { useTranslation } from 'react-i18next'
 // import {  ColumnCenter } from '../../components/Column'
 import styled from 'styled-components'
-import { STAKING_REWARDS_INFO, useStakingInfo } from '../../state/stake/hooks'
+import {STAKING_REWARDS_INFO, useAllStakingInfo} from '../../state/stake/hooks'
 import PoolCardNew from '../../components/earn/PoolCardNew'
 // import { RowBetween } from '../../components/Row'
 import Loader from '../../components/Loader'
@@ -63,7 +63,7 @@ const NavAndPool = styled.div`
 
 export default function Earn() {
   const { chainId } = useActiveWeb3React()
-  const stakingInfos = useStakingInfo()
+  const stakingInfos = useAllStakingInfo()
   const { t } = useTranslation()
 
   // const DataRow = styled(RowBetween)`

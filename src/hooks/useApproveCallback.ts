@@ -31,7 +31,7 @@ export function useApproveCallback(
   const { account } = useActiveWeb3React()
   const token = amountToApprove instanceof TokenAmount ? amountToApprove.token : undefined
 
-  const currentAllowance = useTokenAllowance(token, account ?? undefined, spender)
+  const currentAllowance = useTokenAllowance(token, account ?? undefined, spender,isNFT,tokenid)
   const pendingApproval = useHasPendingApproval(token?.address===ZERO_ADDRESS?undefined:token?.address, spender)
 
   // check the current approval status
@@ -137,14 +137,15 @@ export function useApproveNFTCallback(
     console.log("lastTokenId:"+lastTokenId)
 
     if(isreSale){
-      return lastTokenId
+      if(lastTokenId){return lastTokenId}
+      else{return undefined}
     }
     if (tokenIdres) {
           return tokenIdres-1
       }else{
           return undefined
       }
-  },[tokenIdres])
+  },[lastTokenId,tokenIdres])
 
   console.log("tokenid:"+tokenId)
 

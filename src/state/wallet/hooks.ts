@@ -13,7 +13,6 @@ import {
 import { isAddress } from '../../utils'
 import {useSingleContractMultipleData, useMultipleContractSingleData, useSingleCallResult} from '../multicall/hooks'
 import { useUserUnclaimedAmount } from '../claim/hooks'
-import { useTotalUniEarned } from '../stake/hooks'
 import {NFTToken} from "../user/actions";
 import {ERC1155Collection_INTERFACE} from "../../constants/abis/erc1155";
 
@@ -299,7 +298,7 @@ export function useAggregateUniBalance(): TokenAmount | undefined {
 
   const uniBalance: TokenAmount | undefined = useTokenBalance(account ?? undefined, uni)
   const uniUnclaimed: TokenAmount | undefined = useUserUnclaimedAmount(account)
-  const uniUnHarvested: TokenAmount | undefined = useTotalUniEarned()
+  // const uniUnHarvested: TokenAmount | undefined = useTotalUniEarned()
 
   if (!uni) return undefined
 
@@ -307,7 +306,7 @@ export function useAggregateUniBalance(): TokenAmount | undefined {
     uni,
     JSBI.add(
       JSBI.add(uniBalance?.raw ?? JSBI.BigInt(0), uniUnclaimed?.raw ?? JSBI.BigInt(0)),
-      uniUnHarvested?.raw ?? JSBI.BigInt(0)
+      JSBI.BigInt(0)
     )
   )
 }
