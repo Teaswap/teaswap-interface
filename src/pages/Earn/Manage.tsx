@@ -391,6 +391,13 @@ const Manage = ()=>{
                   />
                 </TYPE.largeHeader>
                 <TYPE.black fontSize={16} fontWeight={500}>
+                 
+                </TYPE.black>
+              </RowBetween>
+              <RowBetween style={{ alignItems: 'baseline' }}>
+                <TYPE.largeHeader fontSize={36} fontWeight={600}>
+                </TYPE.largeHeader>
+                <TYPE.black fontSize={16} fontWeight={500}>
                   <span role="img" aria-label="wizard-icon" style={{ marginRight: '8px ' }}>
                     ⚡
                   </span>
