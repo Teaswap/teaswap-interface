@@ -34,7 +34,7 @@ const NavbarContainer = styled.div`
   ${MEDIA_QUERY.sm} {
     height: ${(props) => (props.$size === 'sm' ? '65px' : '200px')};
     padding: 10px;
-    margin: 20px 0;
+    margin: 65px 0;
   }
 `;
 
@@ -151,9 +151,6 @@ const Navbar = () => {
         </LeftSide> */}
         <CatTitle className="all-category-title">Categories</CatTitle>
         <RightSide>
-          <H5Cart onClick={() =>  navigate('/nft/cart')} >
-            <IconComponent kind={'shopping-cart'} ></IconComponent>
-          </H5Cart> 
           <OptionList>
             {/* {isAdmin && <Nav children={'管理後台'} path={'/nft/admin'} />} */}
             {userId && (

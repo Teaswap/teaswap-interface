@@ -10,6 +10,7 @@ import {
 import ItemDetail from "./ItemDetail";
 import useCart from "../../hooks/cartHooks/useCart";
 import {useTranslation} from "react-i18next";
+import { hideAddr } from '../../utils/strUtil'
 
 const TableContainer = styled.tr``;
 const Tableth = styled.th`
@@ -165,32 +166,27 @@ export default function CartItem({ cart }) {
       )}
       <Top>
         <Seller>
-          <Name isSelect={isSelect}>{cart.sellerName}</Name>
+          <Name isSelect={isSelect}>{hideAddr(cart.sellerName)}</Name>
         </Seller>
       </Top>
-      <Table>
-        <thead>
-          {/* <tr style={{height: "60px"}}>
-            <th>{t("Item")}</th>
-            <th>{t("Name")}</th>
-            <th>{t("Price")}</th>
-            <th>{t("Bidprice")}</th>
-            <th>{t("Cancel")}</th>
-          </tr> */}
-          <TableContainer style={{height: "60px"}}>
-            <Tableth>{t("Item")}</Tableth>
-            <Tableth>{t("Name")}</Tableth>
-            <Tableth>{t("Price")}</Tableth>
-            <Tableth>{t("Bidprice")}</Tableth>
-            <Tableth>{t("Cancel")}</Tableth>
-          </TableContainer>
-        </thead>
-        <tbody>
-          {cart.cartDetail.map((Item, index) => (
-            <ItemDetail Item={Item} key={index} />
-          ))}
-        </tbody>
-      </Table>
+      <div className="client-order-tables">
+        <Table>
+          <thead>
+            <TableContainer style={{height: "60px"}}>
+              <Tableth>{t("Item")}</Tableth>
+              <Tableth>{t("Name")}</Tableth>
+              <Tableth>{t("Price")}</Tableth>
+              <Tableth>{t("Bidprice")}</Tableth>
+              <Tableth>{t("Cancel")}</Tableth>
+            </TableContainer>
+          </thead>
+          <tbody>
+            {cart.cartDetail.map((Item, index) => (
+              <ItemDetail Item={Item} key={index} />
+            ))}
+          </tbody>
+        </Table>
+      </div>
     </Container>
   );
 }

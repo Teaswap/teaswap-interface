@@ -45,5 +45,13 @@
   .page-tab, .active-page-tab{
     margin-right: 0px;
   }
+  .orders-go-stake{
+    margin-right: 0px;
+  }
+  .MuiTab-root{
+    padding: 0;
+    max-width: 30% !important;
+    word-wrap: break-word;
+  }
 }
 
