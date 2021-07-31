@@ -484,9 +484,8 @@ export const ProductInfo = ({product,user}:{ product:ProductInterface ,user:user
         </Modal>
       )}
       <ProductName>{product.name || 'Loading...'}</ProductName>
-      <ProductPrice>{product.price+" "+exToken.symbol} &nbsp;&nbsp;&nbsp;  Royalty: {product.royalty/100}%</ProductPrice>
-      <ProductPrice>Copyright Transferred: {product.sale_copyright ? 'Yes' : 'No'}</ProductPrice>
-      <ProductPrice></ProductPrice>
+      <ProductPrice>{product.price+" "+exToken.symbol} </ProductPrice>
+      <ProductName style={{fontSize: '12px', marginTop: '10px'}}>Copyright Transferred: {product.sale_copyright ? 'Yes' : 'No'} &nbsp;&nbsp;&nbsp;  Royalty: {product.royalty/100}% </ProductName>
       <ProductQuantitySelector quantity={product.quantity} />
       {user ? (
         <ShoppingCart
