@@ -197,7 +197,7 @@ const Product = ({productCat, product, onLoad, loaded, $width, $height, $margin 
       </VendorName>
       {/* <ProductPrice>{formatter.format(product.price)}</ProductPrice> */}
       <ProductPrice>
-        {formatter.format(product.price)} 
+        {product.price} 
         <span style={{fontSize: '9px'}}>{' ' + handleTokenSwitch(product.extoken)}</span>
     </ProductPrice>
     <Modal isOpen={isProof} onDismiss={dismissPrice} maxHeight={90}>
