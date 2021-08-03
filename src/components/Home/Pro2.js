@@ -80,4 +80,22 @@ export default [
     mediaType: 1,
     id: 9
   },
+  {
+    picture_url: process.env.PUBLIC_URL + '/nft/pro2/LOT101.png',
+    title: "TSA Metaverse LOT #101",
+    number: "",
+    desc: ``,
+    link: 'https://www.teaswap.art/nft/products/vendor/263751',
+    mediaType: 1,
+    id: 10
+  },
+  {
+    picture_url: process.env.PUBLIC_URL + '/nft/pro2/LOT107.png',
+    title: "TSA Metaverse LOT #107",
+    number: "",
+    desc: ``,
+    link: 'https://www.teaswap.art/nft/products/vendor/263751',
+    mediaType: 1,
+    id: 11
+  },
 ]
