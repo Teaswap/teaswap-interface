@@ -281,11 +281,16 @@
   width: 100%;
   padding: 10px;
   display: flex;
-  justify-content: space-around;
 }
 .trading-line > span{
   color: #474747;
+  display: block;
+  min-width: 100px;
+  word-wrap: break-word;
   flex: 1;
+}
+.trading-line > span.addr{
+  min-width: 150px;
 }
 .global-modal-text{
   position: fixed;

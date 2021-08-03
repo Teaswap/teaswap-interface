@@ -67,6 +67,8 @@ export const InfoItem = styled.div`
   padding-bottom: ${DISTANCE.sm};
   display: flex;
   flex-direction: column;
+  width: 100%;
+  overflow: scroll;
   &:not(:last-child) {
     border-bottom: 1px solid ${COLOR.cccccc};
   }
@@ -116,7 +118,7 @@ export const FreightIntro = ({ product }) => {
         {productCarts && productCarts.length > 0 && (
            <p className="trading-line">
             <span>Event</span>
-            <span>Address</span>
+            <span className="addr">Address</span>
             <span>Product Price</span>
             <span>Bid Price</span>
             <span>Date</span>
@@ -140,8 +142,8 @@ export const FreightIntro = ({ product }) => {
             <p className="trading-line">
               <span>Event</span>
               <span>Price</span>
-              <span>From</span>
-              <span>To</span>
+              <span className="addr">From</span>
+              <span className="addr">To</span>
               <span>Date</span>
             </p>
         )}
