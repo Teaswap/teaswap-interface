@@ -156,6 +156,11 @@ export default function Menu() {
               }}>
                 {t('Get $TSA')}
               </MenuItem>
+              <MenuItem onClick={() => {
+                navigate('/staking')
+              }}>
+                {t('Stake $TSA')}
+              </MenuItem>
               <MenuItem onClick={openClaimModal}>
                 {t('Airdrop')}
               </MenuItem>
