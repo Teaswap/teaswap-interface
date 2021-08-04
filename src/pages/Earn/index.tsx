@@ -94,7 +94,6 @@ export default function Earn() {
             <span style={{ color: '#ffffff' }}>{t('noActiveRewards')}</span>
           ) : (
             stakingInfos?.map(stakingInfo => {
-              console.log(stakingInfo, showCat)
               switch(showCat) {
                 case 0:
                   let d2 = new Date().getTime()
