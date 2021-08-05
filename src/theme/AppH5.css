@@ -53,5 +53,8 @@
     max-width: 30% !important;
     word-wrap: break-word;
   }
+  .closer-btn{
+    margin-top: 0px;
+  }
 }
 
