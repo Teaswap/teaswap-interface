@@ -30,7 +30,7 @@ const List = ()=>{
           {t('Create')}
         </StyledLink>
         {minted && (
-          <StyledLink to='/nft/users/backstage'>
+          <StyledLink className="CreateButton" to='/nft/users/backstage'>
            {t('My Account')}
           </StyledLink>
         )}
