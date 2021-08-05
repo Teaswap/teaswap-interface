@@ -49,6 +49,7 @@ const PurchaseInfo = styled.section`
 const OtherProductWrap = styled.div`
   padding-bottom: 0;
   border-bottom: none;
+  padding: 10px;
   ${MEDIA_QUERY} {
     display: flex;
     justify-content: space-between;

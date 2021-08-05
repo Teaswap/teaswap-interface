@@ -166,7 +166,7 @@ export const Product = ({ product, onLoad, loaded, $width, $height, $margin }) =
       }
       {product.price && (<ProductPrice>
         <TYPE.darkGray fontSize={12}>
-        {formatter.format(product.price)} 
+        {product.price} 
         <span style={{fontSize: '9px'}}>{' ' + handleTokenSwitch(product.extoken)}</span>
         </TYPE.darkGray>
       </ProductPrice>)

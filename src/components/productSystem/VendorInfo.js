@@ -9,6 +9,7 @@ import {
   InfoItemTitle,
 } from '../../components/productSystem';
 import { useTranslation } from 'react-i18next'
+import { hideAddr } from '../../utils/strUtil';
 
 const VendorInfoContainer = styled.div`
   display: flex;
@@ -145,7 +146,7 @@ export const VendorInfo = () => {
           </a>
         </AvatarContainer>
         <a class='a-link' href={`/nft/products/vendor/${vendorInfo.id}`}>
-          <VendorName>{vendorInfo.nickname}</VendorName>
+          <VendorName>{hideAddr(vendorInfo.nickname)}</VendorName>
         </a>
       </VendorInfoTop>
       {/*<Buttons />*/}

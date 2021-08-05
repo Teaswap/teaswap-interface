@@ -67,6 +67,7 @@ export const InfoItem = styled.div`
   padding-bottom: ${DISTANCE.sm};
   display: flex;
   flex-direction: column;
+  width: 100%;
   &:not(:last-child) {
     border-bottom: 1px solid ${COLOR.cccccc};
   }
@@ -110,13 +111,13 @@ export const FreightIntro = ({ product }) => {
   return (
     <>
       <InfoTitle>{t('Additional Details')}</InfoTitle>
-      <InfoItem>
+      <InfoItem className="scroll-table">
         <InfoItemTitle>{t('Bidding')}</InfoItemTitle>
         {/* <InfoBlock>{product.delivery === '0' ? t('Bid') : t('Auction')}</InfoBlock> */}
         {productCarts && productCarts.length > 0 && (
            <p className="trading-line">
             <span>Event</span>
-            <span>Address</span>
+            <span className="addr">Address</span>
             <span>Product Price</span>
             <span>Bid Price</span>
             <span>Date</span>
@@ -134,14 +135,14 @@ export const FreightIntro = ({ product }) => {
           )
         })}
       </InfoItem>
-      <InfoItem>
+      <InfoItem className="scroll-table">
         <InfoItemTitle>{t('Trading History')}</InfoItemTitle>
         {productOrders && productOrders.length > 0 && (
             <p className="trading-line">
               <span>Event</span>
               <span>Price</span>
-              <span>From</span>
-              <span>To</span>
+              <span className="addr">From</span>
+              <span className="addr">To</span>
               <span>Date</span>
             </p>
         )}

@@ -177,12 +177,12 @@ interface ProductInterface{
   sale_copyright: number,
 }
 
-const ProductQuantitySelector = ({quantity}:{quantity:number}) => {
+const ProductQuantitySelector = ({quantity, status}:{quantity:number, status: number}) => {
   const { handleSelectQuantity } = useCart();
   const {t} = useTranslation();
   return (
     <>
-      {quantity > 0 && (
+      {status == 1 && (
         <ProductQuantityContainer>
           <label>{t('Number')}</label>
           <ProductCountSelect onChange={(e) => handleSelectQuantity(e)}>
@@ -190,9 +190,14 @@ const ProductQuantitySelector = ({quantity}:{quantity:number}) => {
           </ProductCountSelect>
         </ProductQuantityContainer>
       )}
-      {quantity == 0 && (
+      {status == 0 && (
         <ProductQuantityContainer>
-          <SoldOutMessage>{t('Sold Out')}</SoldOutMessage>
+          <SoldOutMessage>{t('Unlisted')}</SoldOutMessage>
+        </ProductQuantityContainer>
+      )}
+      {status == 3 && (
+        <ProductQuantityContainer>
+          <SoldOutMessage>{t('Sold out')}</SoldOutMessage>
         </ProductQuantityContainer>
       )}
     </>
@@ -486,7 +491,8 @@ export const ProductInfo = ({product,user}:{ product:ProductInterface ,user:user
       <ProductName>{product.name || 'Loading...'}</ProductName>
       <ProductPrice>{product.price+" "+exToken.symbol} </ProductPrice>
       <ProductName style={{fontSize: '12px', marginTop: '10px'}}>Copyright Transferred: {product.sale_copyright ? 'Yes' : 'No'} &nbsp;&nbsp;&nbsp;  Royalty: {product.royalty/100}% </ProductName>
-      <ProductQuantitySelector quantity={product.quantity} />
+      <ProductQuantitySelector status={product.status} quantity={product.quantity} />
+      <ProductName style={{fontSize: '12px', marginTop: '10px'}}>You must place a bid that is higher than the current bid. </ProductName>
       {user ? (
         <ShoppingCart
           onClick={()=>handlebidModal(0)}

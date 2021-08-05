@@ -21,6 +21,7 @@ const updateUserAPI = (data) => {
       },
       body: JSON.stringify({
         nickname: data.nickname,
+        email: data.email,
         description: data.description ? data.description : '',
         portfolio: data.portfolio ? data.portfolio : '',
         twitter: data.twitter ? data.twitter : '',
