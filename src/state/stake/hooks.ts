@@ -7,7 +7,7 @@ import {
   PAYABLEETH,
   CJAI,
   DOGE,
-  SHIB,
+  // SHIB,
   SHIH,
   ICASH,
   BAKE,
@@ -23,15 +23,20 @@ import {
   BNB_WBTC_LP,
   BNB_TSA_LP,
   TSA_SHIH_LP,
-  TSA_SHIB_LP,
+  // TSA_SHIB_LP,
   TSA_BAKE_LP,
   TSA_DOGE_LP,
   TSA_BUSD_LP,
   USDT_TSA_LP,
   TSA_CAKE_LP,
-  ETH_TSA_LP
+  ETH_TSA_LP,
+  // GensisNFT
 } from '../../constants'
-import { IDO_ABI_INTERFACE, STAKING_REWARDS_INTERFACE } from '../../constants/abis/staking-rewards'
+import {
+  IDO_ABI_INTERFACE,
+  NFTSTAKE_ABI_INTERFACE,
+  STAKING_REWARDS_INTERFACE
+} from '../../constants/abis/staking-rewards'
 import { useActiveWeb3React } from '../../hooks'
 import { NEVER_RELOAD, useMultipleContractSingleData } from '../multicall/hooks'
 import { tryParseAmount } from '../swap/hooks'
@@ -69,18 +74,19 @@ export const STAKING_REWARDS_INFO: {
     //   iconUrl: "/icashgensisi.png",
     //   cate:"NFT"
     // },
+
     {
       tokens: [TSA_SHIH_LP, UNI[ChainId.BSC_MAINNET]],
       stakingRewardAddress: '0xF197A37087780f912149bacbffD1E980972bA8c7',
       iconUrl: "/TSA_SHIH_TSA.png",
       cate:"TSA"
     },
-    {
-      tokens: [TSA_SHIB_LP, UNI[ChainId.BSC_MAINNET]],
-      stakingRewardAddress: '0x8ceF0d0C8286efe7EbD2386031F56BE670178A16',
-      iconUrl: "/TSA_SHIB_TSA.png",
-      cate:"TSA"
-    },
+    // {
+    //   tokens: [TSA_SHIB_LP, UNI[ChainId.BSC_MAINNET]],
+    //   stakingRewardAddress: '0x8ceF0d0C8286efe7EbD2386031F56BE670178A16',
+    //   iconUrl: "/TSA_SHIB_TSA.png",
+    //   cate:"TSA"
+    // },
     {
       tokens: [TSA_BAKE_LP, UNI[ChainId.BSC_MAINNET]],
       stakingRewardAddress: '0x062BC25d301c33B5dEc9D83fa5B4Cc5519746DE8',
@@ -123,14 +129,26 @@ export const STAKING_REWARDS_INFO: {
       iconUrl: "/TSA_ICASH.png",
       cate:"ICASH"
     },
-      //0x26a346dDbb7ea083c85c696Cfa77F84C8bd4109d
+    {
+      tokens: [UNI[ChainId.BSC_MAINNET],ICASH],
+      stakingRewardAddress:'0x26a346dDbb7ea083c85c696Cfa77F84C8bd4109d',
+      iconUrl: "/TSA_ICASH.png",
+      cate:"ICASH"
+    },
+    //   //0x26a346dDbb7ea083c85c696Cfa77F84C8bd4109d
     {
       tokens: [UNI[ChainId.BSC_MAINNET], CJAI],
       stakingRewardAddress: '0x1D4928Aa85e20F70BBc8E95E32F5eAcE1D96A01f',
       iconUrl: "/TSA_CJAI.png",
       cate:"CJAI"
     },
-      //0x261f94f98327b17649eda469c958deaac4c479d5
+    {
+      tokens: [UNI[ChainId.BSC_MAINNET], CJAI],
+      stakingRewardAddress: '0x261f94f98327b17649eda469c958deaac4c479d5',
+      iconUrl: "/TSA_CJAI.png",
+      cate:"CJAI"
+    },
+    //   //0x261f94f98327b17649eda469c958deaac4c479d5
     {
       tokens: [BNB_TSA_LP, UNI[ChainId.BSC_MAINNET]],
       stakingRewardAddress: '0xA1f2Bc4cBB56b02cB1329C8ca633155c02Fc6Cb8',
@@ -221,6 +239,7 @@ export const STAKING_REWARDS_INFO: {
     //   tokens: [USDT_TSA_LP, UNI[ChainId.BSC_MAINNET]],
     //   stakingRewardAddress: '0xbD1308B84f0648aa89B7AcB1039767d52CF4Dc17'
     // },
+
     {
       tokens: [BNB_BAKE_LP, UNI[ChainId.BSC_MAINNET]],
       stakingRewardAddress: '0x7bA8Fd959814b0959573CB4830BF81dbf789396e',
@@ -245,13 +264,13 @@ export const STAKING_REWARDS_INFO: {
       iconUrl: "/bake_icon.webp",
       cate:"TSA"
     },
-    {
-      tokens: [SHIB, UNI[ChainId.BSC_MAINNET]],
-      stakingRewardAddress:'0xF22AF684c4389c7899777660D3ec29b9745C6222',
-      iconUrl: "/shib_icon.webp",
-      cate:"TSA"
-
-    },
+    // {
+    //   tokens: [SHIB, UNI[ChainId.BSC_MAINNET]],
+    //   stakingRewardAddress:'0xF22AF684c4389c7899777660D3ec29b9745C6222',
+    //   iconUrl: "/shib_icon.webp",
+    //   cate:"TSA"
+    //
+    // },
     {
       tokens: [UNI[ChainId.BSC_MAINNET],SHIH],
       stakingRewardAddress:'0x667202a1Dc34EFA5f54580C8E69f8128573786f4',
@@ -363,8 +382,8 @@ export function useStakingInfo(stakingRewardAddress:string): StakingInfo[] {
   const accountArg = useMemo(() => [account ?? undefined], [account])
 
   // get all the info from the staking rewards contracts
-  const balances = useMultipleContractSingleData(rewardsAddresses, STAKING_REWARDS_INTERFACE, 'balanceOf', accountArg)
-  const earnedAmounts = useMultipleContractSingleData(rewardsAddresses, STAKING_REWARDS_INTERFACE, 'earned', accountArg)
+  const balances = useMultipleContractSingleData(rewardsAddresses, NFTSTAKE_ABI_INTERFACE, 'balanceOf', accountArg)
+  const earnedAmounts = useMultipleContractSingleData(rewardsAddresses, NFTSTAKE_ABI_INTERFACE, 'earned', accountArg)
   const unClaimedAmounts = useMultipleContractSingleData(rewardsAddresses, STAKING_REWARDS_INTERFACE, 'rewards', accountArg)
   const totalSupplies = useMultipleContractSingleData(rewardsAddresses, STAKING_REWARDS_INTERFACE, 'totalSupply')
 
@@ -436,23 +455,23 @@ export function useStakingInfo(stakingRewardAddress:string): StakingInfo[] {
           console.log("rewardRates:"+JSON.stringify(rewardRates))
           console.log("periodFinishs:"+JSON.stringify(periodFinishes))
           console.error('Failed to load staking rewards info')
-          memo.push({
-            stakingRewardAddress: rewardsAddress,
-            tokens: info[index].tokens,
-            iconUrl: info[index].iconUrl,
-            cate: info[index].cate,
-            periodFinish: undefined,
-            earnedAmount: new TokenAmount(info[index].tokens[1], JSBI.BigInt(earnedAmountState?.result?.[0] ?? 0)),
-            unclaimAmount:new TokenAmount(info[index].tokens[1], JSBI.BigInt(0)),
-            rewardRate: new TokenAmount(info[index].tokens[1], JSBI.BigInt(0)),
-            totalRewardRate: new TokenAmount(info[index].tokens[1], JSBI.BigInt(0)),
-            stakedAmount: new TokenAmount(info[index].tokens[0], JSBI.BigInt(0)),
-            totalStakedAmount: new TokenAmount(info[index].tokens[0], JSBI.BigInt(0)),
-            rewardsDuration: 0,
-            getHypotheticalRewardRate:(stakedAmount,
-                                       totalStakedAmount,
-                                       totalRewardRate)=>{return new TokenAmount(info[index].tokens[1], JSBI.BigInt(0))}
-          })
+          // memo.push({
+          //   stakingRewardAddress: rewardsAddress,
+          //   tokens: info[index].tokens,
+          //   iconUrl: info[index].iconUrl,
+          //   cate: info[index].cate,
+          //   periodFinish: undefined,
+          //   earnedAmount: new TokenAmount(info[index].tokens[1], JSBI.BigInt(earnedAmountState?.result?.[0] ?? 0)),
+          //   unclaimAmount:new TokenAmount(info[index].tokens[1], JSBI.BigInt(0)),
+          //   rewardRate: new TokenAmount(info[index].tokens[1], JSBI.BigInt(0)),
+          //   totalRewardRate: new TokenAmount(info[index].tokens[1], JSBI.BigInt(0)),
+          //   stakedAmount: new TokenAmount(info[index].tokens[0], JSBI.BigInt(0)),
+          //   totalStakedAmount: new TokenAmount(info[index].tokens[0], JSBI.BigInt(0)),
+          //   rewardsDuration: 0,
+          //   getHypotheticalRewardRate:(stakedAmount,
+          //                              totalStakedAmount,
+          //                              totalRewardRate)=>{return new TokenAmount(info[index].tokens[1], JSBI.BigInt(0))}
+          // })
           return memo
         }
 
@@ -510,12 +529,12 @@ export function useStakingInfo(stakingRewardAddress:string): StakingInfo[] {
       }
       return memo
     }, [])
-  }, [balances, chainId, earnedAmounts, info, periodFinishes, rewardRates, rewardsAddresses, totalSupplies, uni])
+  }, [balances, chainId, earnedAmounts, info, periodFinishes, rewardRates, rewardsAddresses, totalSupplies,unClaimedAmounts, rewardsDurations ,uni])
 }
 
 // gets the staking info from the network for the active chain id
 export function useAllStakingInfo(): StakingInfo[] {
-  const { chainId, account } = useActiveWeb3React()
+  const { chainId,account } = useActiveWeb3React()
   const stakingRewardAddress = undefined
   const info = useMemo(
     () =>
@@ -544,8 +563,10 @@ export function useAllStakingInfo(): StakingInfo[] {
   const accountArg = useMemo(() => [account ?? undefined], [account])
 
   // get all the info from the staking rewards contracts
-  const balances = useMultipleContractSingleData(rewardsAddresses, STAKING_REWARDS_INTERFACE, 'balanceOf', accountArg)
-  const earnedAmounts = useMultipleContractSingleData(rewardsAddresses, STAKING_REWARDS_INTERFACE, 'earned', accountArg)
+  const balances = useMultipleContractSingleData(rewardsAddresses, NFTSTAKE_ABI_INTERFACE, 'balanceOf', accountArg)
+  // console.log(JSON.stringify(balances))
+  const earnedAmounts = useMultipleContractSingleData(rewardsAddresses, NFTSTAKE_ABI_INTERFACE, 'earned', accountArg)
+  // console.log(JSON.stringify(earnedAmounts))
   const unClaimedAmounts = useMultipleContractSingleData(rewardsAddresses, STAKING_REWARDS_INTERFACE, 'rewards', accountArg)
   const totalSupplies = useMultipleContractSingleData(rewardsAddresses, STAKING_REWARDS_INTERFACE, 'totalSupply')
 
@@ -565,6 +586,9 @@ export function useAllStakingInfo(): StakingInfo[] {
 
   return useMemo(() => {
     if (!chainId || !uni) return []
+    console.log("balances:"+JSON.stringify(balances))
+    console.log("earnedAmounts:"+JSON.stringify(earnedAmounts))
+    console.log("unClaimedAmounts:"+JSON.stringify(unClaimedAmounts))
 
     return rewardsAddresses.reduce<StakingInfo[]>((memo, rewardsAddress, index) => {
       // these two are dependent on account
@@ -594,8 +618,8 @@ export function useAllStakingInfo(): StakingInfo[] {
           !rewardsDurationState.loading
       ) {
         if (
-          balanceState?.error ||
-          earnedAmountState?.error ||
+          // balanceState?.error ||
+          // earnedAmountState?.error ||
             unclaimedAmountState.error||
           totalSupplyState.error ||
           rewardRateState.error ||
@@ -617,6 +641,7 @@ export function useAllStakingInfo(): StakingInfo[] {
           console.log("rewardRates:"+JSON.stringify(rewardRates))
           console.log("periodFinishs:"+JSON.stringify(periodFinishes))
           console.error('Failed to load staking rewards info')
+
           return memo
         }
 
@@ -630,7 +655,11 @@ export function useAllStakingInfo(): StakingInfo[] {
         // const stakedAmount = new TokenAmount(dummyPair.liquidityToken, JSBI.BigInt(balanceState?.result?.[0] ?? 0))
         // const totalStakedAmount = new TokenAmount(dummyPair.liquidityToken, JSBI.BigInt(totalSupplyState.result?.[0]))
         const stakedAmount = new TokenAmount(tokens[0], JSBI.BigInt(balanceState?.result?.[0] ?? 0))
+        // const stakedAmount = new TokenAmount(tokens[0], JSBI.BigInt(0))
+
         const unClaimedAmount = new TokenAmount(tokens[1],JSBI.BigInt(unclaimedAmountState?.result?.[0] ?? 0))
+        // const unClaimedAmount = new TokenAmount(tokens[1],JSBI.BigInt( 0))
+
         const totalStakedAmount = new TokenAmount(tokens[0], JSBI.BigInt(totalSupplyState.result?.[0]))
 
 
@@ -663,6 +692,7 @@ export function useAllStakingInfo(): StakingInfo[] {
           cate: info[index].cate,
           periodFinish: periodFinishMs > 0 ? new Date(periodFinishMs) : undefined,
           earnedAmount: new TokenAmount(info[index].tokens[1], JSBI.BigInt(earnedAmountState?.result?.[0] ?? 0)),
+          // earnedAmount: new TokenAmount(info[index].tokens[1], JSBI.BigInt(0)),
           unclaimAmount:unClaimedAmount,
           rewardRate: individualRewardRate,
           totalRewardRate: totalRewardRate,
@@ -674,7 +704,7 @@ export function useAllStakingInfo(): StakingInfo[] {
       }
       return memo
     }, [])
-  }, [balances, chainId, earnedAmounts, info, periodFinishes, rewardRates, rewardsAddresses, totalSupplies, uni])
+  }, [ chainId,unClaimedAmounts,balances,earnedAmounts, info, periodFinishes, rewardRates, rewardsAddresses, totalSupplies, uni])
 }
 
 export function useTotalUniEarned(): TokenAmount | undefined {
