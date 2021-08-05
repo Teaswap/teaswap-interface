@@ -316,3 +316,8 @@
   width: 100%;
   overflow-x: scroll;
 }
+.scroll-table{
+  overflow-x: scroll;
+  overflow-y: scroll;
+  max-height: 400px;
+}

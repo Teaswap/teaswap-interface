@@ -68,7 +68,6 @@ export const InfoItem = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  overflow: scroll;
   &:not(:last-child) {
     border-bottom: 1px solid ${COLOR.cccccc};
   }
@@ -112,7 +111,7 @@ export const FreightIntro = ({ product }) => {
   return (
     <>
       <InfoTitle>{t('Additional Details')}</InfoTitle>
-      <InfoItem>
+      <InfoItem className="scroll-table">
         <InfoItemTitle>{t('Bidding')}</InfoItemTitle>
         {/* <InfoBlock>{product.delivery === '0' ? t('Bid') : t('Auction')}</InfoBlock> */}
         {productCarts && productCarts.length > 0 && (
@@ -136,7 +135,7 @@ export const FreightIntro = ({ product }) => {
           )
         })}
       </InfoItem>
-      <InfoItem>
+      <InfoItem className="scroll-table">
         <InfoItemTitle>{t('Trading History')}</InfoItemTitle>
         {productOrders && productOrders.length > 0 && (
             <p className="trading-line">

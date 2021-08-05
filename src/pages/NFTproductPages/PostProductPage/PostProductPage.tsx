@@ -35,8 +35,7 @@ const Wrapper = styled.div`
   box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.1), 0px 4px 8px rgba(0, 0, 0, 0.1), 0px 16px 24px rgba(0, 0, 0, 0.1),
     0px 24px 32px rgba(0, 0, 0, 0.1);
   ${MEDIA_QUERY.sm} {
-    width: 100%;
-    padding: 10px;
+    width: 90%;
     padding-left: 10px;
     padding-bottom: 50px;
   }
@@ -518,7 +517,7 @@ const QuestionTitle = styled.div`
   margin-bottom: 10px;
   color: #474747;
   font-size: 12px;
-  width: 100%;
+  width: 90%;
   max-width: 600px;
   text-align: left;
 `;
