@@ -41,7 +41,7 @@ const Text = styled.p`
 const ErrorMessage = styled.span`
   color: ${COLOR.text_alert};
   font-size: ${FONT.xss};
-  margin: 0 15px;
+  margin: 0 1px;
   white-space: nowrap;
 `;
 
