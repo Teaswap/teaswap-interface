@@ -164,11 +164,11 @@ export default function Menu() {
               <MenuItem onClick={openClaimModal}>
                 {t('Airdrop')}
               </MenuItem>
-              <MenuItem onClick={() => {
+              {/* <MenuItem onClick={() => {
                 navigate('https://www.binance.org/en/bridge')
               }}>
                 {t('Bridge to Ethereum')}
-              </MenuItem>
+              </MenuItem> */}
             </>
           )}
         </MenuFlyout>
