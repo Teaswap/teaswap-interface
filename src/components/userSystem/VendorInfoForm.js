@@ -42,6 +42,7 @@ const ErrorMessage = styled.span`
   color: ${COLOR.text_alert};
   font-size: ${FONT.xss};
   margin: 0 15px;
+  white-space: nowrap;
 `;
 
 export default function VendorInfoForm({ successMode, setSuccessMode, isAdminStatus, goPost }) {
@@ -97,7 +98,7 @@ export default function VendorInfoForm({ successMode, setSuccessMode, isAdminSta
   return (
     <>
       <FontWrapper action='' novalidate=''>
-        <InputName>{t('Enter your email to get started')}<AiFillStar color="red" size='10' /></InputName>
+        <InputName>{t('Enter your email to get started ')}<AiFillStar color="red" size='10' /></InputName>
         <InputComponent
           type='text'
           name='email'
