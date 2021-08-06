@@ -58,7 +58,7 @@ const StyledMenu = styled.div`
 `
 
 const MenuFlyout = styled.span`
-  min-width: 8rem;
+  min-width: 10rem;
   box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.01), 0px 4px 8px rgba(0, 0, 0, 0.04), 0px 16px 24px rgba(0, 0, 0, 0.04),
     0px 24px 32px rgba(0, 0, 0, 0.01);
   border-radius: 0px;
@@ -82,7 +82,7 @@ const MenuItem = styled.div`
   margin: 0 auto;
   text-align: left;
   color: #7f7f7f;
-  font-size: 13px;
+  font-size: 11px;
   cursor: pointer;
   padding: 10px 10px 10px 15px;
   :hover {
@@ -163,6 +163,11 @@ export default function Menu() {
               </MenuItem>
               <MenuItem onClick={openClaimModal}>
                 {t('Airdrop')}
+              </MenuItem>
+              <MenuItem onClick={() => {
+                navigate('https://www.binance.org/en/bridge')
+              }}>
+                {t('Bridge to Ethereum')}
               </MenuItem>
             </>
           )}
