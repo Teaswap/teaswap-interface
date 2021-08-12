@@ -164,8 +164,7 @@ export default function Menu() {
               <MenuItem onClick={openClaimModal}>
                 {t('Airdrop')}
               </MenuItem>
-              <MenuItem id="link" target="_blank" href="https://www.binance.org/en/bridge">
-            
+              <MenuItem onClick={() => window.open("https://www.binance.org/en/bridge")}>
               Bridge to Ethereum
           </MenuItem>
               {/* <MenuItem onClick={() => {
