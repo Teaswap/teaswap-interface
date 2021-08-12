@@ -32,8 +32,8 @@ const CarouselBox = () => {
         nextButtonStyle: preBtnSty
       }}
     >
-      {!isMobile && (<img src={process.env.PUBLIC_URL + '/big_banner_TSA.png'} alt="" />)}
       {!isMobile && (<img src={process.env.PUBLIC_URL + '/big_banner_TSABanner3.png'} alt="" />)}
+      {!isMobile && (<img src={process.env.PUBLIC_URL + '/big_banner_TSA.png'} alt="" />)}
       {!isMobile && (<img src={process.env.PUBLIC_URL + '/big_banner_CJAI.png'} alt="" />)}
       
 

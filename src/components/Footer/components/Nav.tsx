@@ -41,6 +41,7 @@ const StyledNav = styled.nav`
   display: flex;
   justify-content: flex-end;
   width: 100%;
+  margin-top: -3px;
   margin-right: 20px;
   flex-wrap: wrap;
 `
