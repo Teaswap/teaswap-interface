@@ -29,7 +29,7 @@ import {
   TSA_BUSD_LP,
   USDT_TSA_LP,
   TSA_CAKE_LP,
-  ETH_TSA_LP,
+  ETH_TSA_LP, GensisNFT,
   // GensisNFT
 } from '../../constants'
 import {
@@ -68,12 +68,12 @@ export const STAKING_REWARDS_INFO: {
     //   iconUrl: "/doge_icon.webp",
     //   cate:"NFT"
     // },
-    // {
-    //   tokens: [GensisNFT, ICASH],
-    //   stakingRewardAddress: '0x045f42d19f4Ef66dE873c8C36cde4BF3BBec601F',
-    //   iconUrl: "/icashgensisi.png",
-    //   cate:"NFT"
-    // },
+    {
+      tokens: [GensisNFT, ICASH],
+      stakingRewardAddress: '0x353E596DB5B84026ba7905D6461CF2fb0604E7AE',
+      iconUrl: "/icashgensisi.png",
+      cate:"NFT"
+    },
 
     {
       tokens: [TSA_SHIH_LP, UNI[ChainId.BSC_MAINNET]],
@@ -553,12 +553,11 @@ export function useAllStakingInfo(): StakingInfo[] {
   const uni = chainId ? UNI[chainId] : undefined
 
 
-
   const rewardsAddresses = useMemo(() => info.map(({ stakingRewardAddress }) => stakingRewardAddress), [info])
 
-  console.log("stakingRewardAddressout:"+stakingRewardAddress)
-  console.log("infoout:"+JSON.stringify(info))
-  console.log("rewardsAddressesout"+JSON.stringify(rewardsAddresses))
+  // console.log("stakingRewardAddressout:"+stakingRewardAddress)
+  // console.log("infoout:"+JSON.stringify(info))
+  // console.log("rewardsAddressesout"+JSON.stringify(rewardsAddresses))
 
   const accountArg = useMemo(() => [account ?? undefined], [account])
 
@@ -586,9 +585,9 @@ export function useAllStakingInfo(): StakingInfo[] {
 
   return useMemo(() => {
     if (!chainId || !uni) return []
-    console.log("balances:"+JSON.stringify(balances))
-    console.log("earnedAmounts:"+JSON.stringify(earnedAmounts))
-    console.log("unClaimedAmounts:"+JSON.stringify(unClaimedAmounts))
+    // console.log("balances:"+JSON.stringify(balances))
+    // console.log("earnedAmounts:"+JSON.stringify(earnedAmounts))
+    // console.log("unClaimedAmounts:"+JSON.stringify(unClaimedAmounts))
 
     return rewardsAddresses.reduce<StakingInfo[]>((memo, rewardsAddress, index) => {
       // these two are dependent on account
@@ -618,8 +617,8 @@ export function useAllStakingInfo(): StakingInfo[] {
           !rewardsDurationState.loading
       ) {
         if (
-          // balanceState?.error ||
-          // earnedAmountState?.error ||
+          balanceState?.error ||
+          earnedAmountState?.error ||
             unclaimedAmountState.error||
           totalSupplyState.error ||
           rewardRateState.error ||
@@ -633,6 +632,7 @@ export function useAllStakingInfo(): StakingInfo[] {
           // console.log(rewardRateState.error)
           // console.log(periodFinishState.error)
           // console.log(rewardsDurationState.error)
+          console.log("index:"+index)
           console.log("address:"+rewardsAddress)
           console.log("balances:"+JSON.stringify(balances))
           console.log("earnedAmounts:"+JSON.stringify(earnedAmounts))
