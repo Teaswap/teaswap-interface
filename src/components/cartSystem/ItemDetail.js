@@ -239,7 +239,8 @@ export default function ItemDetail({ Item }) {
           <Price>{formatter.format(Item.price)} {handleTokenSwitch(Item.productExtoken)}</Price>
         )}
         <Price>Bid: {formatter.format(Item.bidprice)} {handleTokenSwitch(Item.productExtoken)}</Price>
-        {checked || isPaying ? null : (
+        <ProductName>{Item.status == 0 ? 'bidding' : Item.status == 1 ? 'trading' : 'withdrawn'}</ProductName>
+        {Item.status == 0 && (
           <Container onClick={onCancelBid}>
             <IconComponent kind="delete" />
           </Container>

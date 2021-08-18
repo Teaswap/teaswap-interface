@@ -177,6 +177,7 @@ export default function CartItem({ cart }) {
               <Tableth>{t("Name")}</Tableth>
               <Tableth>{t("Price")}</Tableth>
               <Tableth>{t("Bidprice")}</Tableth>
+              <Tableth>{t("Status")}</Tableth>
               <Tableth>{t("Cancel")}</Tableth>
             </TableContainer>
           </thead>

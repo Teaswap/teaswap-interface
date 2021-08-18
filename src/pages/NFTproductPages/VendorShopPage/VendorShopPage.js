@@ -79,7 +79,7 @@ const VendorShopPage = () => {
     <>
       <StandardNavPage>
         <Banner
-          banner={vendorInfo.banner_url}
+          banner={vendorInfo.banner_url || 'https://i.imgur.com/3zpk96J.jpg'}
           loaded={loaded}
           onLoad={onLoad}
         />
