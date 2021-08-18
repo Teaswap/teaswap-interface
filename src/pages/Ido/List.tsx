@@ -45,8 +45,20 @@ const List = ()=>{
   console.log(t('tokensAvailable'), useTranslation())
   const products = [
     {
+      image: GridImg6,
+      Learn: "https://www.teaswap.live/tsametaverse",
+      author: "TSA Metaverse Lot Offering",
+      medium: "https://youtu.be/u-R5AwHFkl8",
+      info: "TSA Metaverse Park is partnered with iCashRewards VR Center to develop a digital piece of TSA NFT real estate, a total of 200,000 lots will be available. Each lot is a unique (non-fungible) token that functions as your entrance to access TSA Metaverse Park.",
+      joinUs: "#",
+      when: "When: 08.26 21:30 EST",
+      end:new Date(1721958400000),
+      duration:3600,
+      sign: NewImg
+    },
+    {
       image: GridImg4,
-      Learn: "https://www.caojunnft.com/",
+      Learn: "https://www.teaswap.live/tsabroadway",
       author: "TSA Broadway Series Collectibles",
       medium: "https://www.youtube.com/watch?v=6OqBxO0xQT0",
       info: t("iroinfo1"),
@@ -57,18 +69,6 @@ const List = ()=>{
       end: undefined,
       duration:259200,
       sign: EndedImg
-    },
-    {
-      image: GridImg6,
-      Learn: "https://www.caojunnft.com/",
-      author: "TSA Metaverse Lot Offering",
-      medium: "https://www.youtube.com/watch?v=pOAeWCHo7Bg&t=6s",
-      info: "TSA Metaverse Park is partnered with iCashRewards VR Center to develop a digital piece of TSA NFT real estate, a total of 200,000 lots will be available. Each lot is a unique (non-fungible) token that functions as your entrance to access TSA Metaverse Park.",
-      joinUs: "#",
-      when: "When: 08.26 21:30 EST",
-      end:new Date(1721958400000),
-      duration:3600,
-      sign: NewImg
     },
     {
       image: GridImg5,
