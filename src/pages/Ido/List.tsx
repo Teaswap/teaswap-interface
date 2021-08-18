@@ -55,6 +55,7 @@ const List = ()=>{
       end:new Date(1721958400000),
       duration:3600,
       sign: NewImg
+      
     },
     {
       image: GridImg4,
@@ -132,7 +133,8 @@ const List = ()=>{
                 <img  width="100%" src={v.image} onClick={() => window.open("https://www.teaswap.art/nft/products/vendor/263751")}/>
                 
                 <Learn>
-                  <ExternalLink href={v.Learn}>
+                  <ExternalLink  onClick={() => window.open('{v.Learn}')}>
+                        {/* href={v.Learn}> */}
                     <Learn>
                       {"Learn >"}
                     </Learn>
