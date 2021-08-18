@@ -128,7 +128,9 @@ const List = ()=>{
           {products.map((v, i) => {
             return (
               <Grid key={i}>
-                <img  width="100%" src={v.image}/>
+               
+                <img  width="100%" src={v.image} onClick={() => window.open("https://www.teaswap.art/nft/products/vendor/263751")}/>
+                
                 <Learn>
                   <ExternalLink href={v.Learn}>
                     <Learn>
