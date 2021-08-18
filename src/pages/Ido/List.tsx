@@ -133,8 +133,7 @@ const List = ()=>{
                 <img  width="100%" src={v.image} onClick={() => window.open("https://www.teaswap.art/nft/products/vendor/263751")}/>
                 
                 <Learn>
-                  <ExternalLink  onClick={() => window.open('{v.Learn}')}>
-                        {/* href={v.Learn}> */}
+                  <ExternalLink href={v.Learn}>
                     <Learn>
                       {"Learn >"}
                     </Learn>
