@@ -16,7 +16,6 @@ import { ExternalLink } from '../../theme'
 
 import EndedImg from '../../assets/images/sign/ended.png'
 import NewImg from '../../assets/images/sign/new.png'
-import ComingImg from '../../assets/images/sign/comingsoon.png'
 
 import IncubatorBox from '../../components/general/IncubatorBox'
 import { ButtonPrimary } from '../../components/Button'
@@ -143,9 +142,9 @@ const List = ()=>{
                   <span>{v.author}</span>
                   <p style={{display: 'flex'}}>
                     {"Read"}
-                    <StyledLink to={v.medium}>
+                    <ExternalLink href={v.medium}>
                       <img style={{marginLeft: "10px"}} width="26" height="26" src={YoutobeImg} />
-                    </StyledLink>
+                    </ExternalLink>
                   </p>
                 </Read>
                 <Spe></Spe>
