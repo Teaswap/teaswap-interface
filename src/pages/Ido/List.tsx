@@ -143,9 +143,9 @@ const List = ()=>{
                   <span>{v.author}</span>
                   <p style={{display: 'flex'}}>
                     {"Read"}
-                    <ExternalLink to={v.medium}>
+                    <StyledLink to={v.medium}>
                       <img style={{marginLeft: "10px"}} width="26" height="26" src={YoutobeImg} />
-                    </ExternalLink>
+                    </StyledLink>
                   </p>
                 </Read>
                 <Spe></Spe>
