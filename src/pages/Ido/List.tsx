@@ -142,6 +142,7 @@ const List = ()=>{
                   <span>{v.author}</span>
                   <p style={{display: 'flex'}}>
                     {"Read"}
+                    <StyledLink to={v.medium}>youtubelink</StyledLink>
                     <ExternalLink href={v.medium}>
                       <img style={{marginLeft: "10px"}} width="26" height="26" src={YoutobeImg} />
                     </ExternalLink>
