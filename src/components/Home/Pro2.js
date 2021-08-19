@@ -99,7 +99,7 @@ export default [
   //   id: 11
   // },
   {
-    picture_url: process.env.PUBLIC_URL + '/nft/pro2/01-119.png',
+    picture_url: process.env.PUBLIC_URL + '/nft/pro2/01-119.gif',
     title: "TSA Metaverse LOT #119",
     number: "",
     desc: ``,
@@ -108,7 +108,7 @@ export default [
     id: 12
   },
   {
-    picture_url: process.env.PUBLIC_URL + '/nft/pro2/02-123.png',
+    picture_url: process.env.PUBLIC_URL + '/nft/pro2/02-123.gif',
     title: "TSA Metaverse LOT #123",
     number: "",
     desc: ``,
@@ -117,7 +117,7 @@ export default [
     id: 13
   },
   {
-    picture_url: process.env.PUBLIC_URL + '/nft/pro2/03-125.png',
+    picture_url: process.env.PUBLIC_URL + '/nft/pro2/03-125.gif',
     title: "TSA Metaverse LOT #125",
     number: "",
     desc: ``,
@@ -126,7 +126,7 @@ export default [
     id: 14
   },
   {
-    picture_url: process.env.PUBLIC_URL + '/nft/pro2/04-126.png',
+    picture_url: process.env.PUBLIC_URL + '/nft/pro2/04-126.gif',
     title: "TSA Metaverse LOT #126",
     number: "",
     desc: ``,
