@@ -134,4 +134,85 @@ export default [
     mediaType: 1,
     id: 15
   },
+  {
+    picture_url: process.env.PUBLIC_URL + '/nft/pro2/Norse mythology No.84.jpg',
+    title: "Norse mythology No. 84",
+    number: "",
+    desc: ``,
+    link: 'https://www.teaswap.live/tsametaverse',
+    mediaType: 1,
+    id: 16
+  },
+  {
+    picture_url: process.env.PUBLIC_URL + '/nft/pro2/Norse mythology No.85.png',
+    title: "Norse mythology No. 85",
+    number: "",
+    desc: ``,
+    link: 'https://www.teaswap.live/tsametaverse',
+    mediaType: 1,
+    id: 17
+  },
+  {
+    picture_url: process.env.PUBLIC_URL + '/nft/pro2/Norse mythology No.86.jpg',
+    title: "Norse mythology No. 86",
+    number: "",
+    desc: ``,
+    link: 'https://www.teaswap.live/tsametaverse',
+    mediaType: 1,
+    id: 18
+  },
+  {
+    picture_url: process.env.PUBLIC_URL + '/nft/pro2/Norse mythology No.87.png',
+    title: "Norse mythology No. 87",
+    number: "",
+    desc: ``,
+    link: 'https://www.teaswap.live/tsametaverse',
+    mediaType: 1,
+    id: 19
+  },
+  {
+    picture_url: process.env.PUBLIC_URL + '/nft/pro2/Norse mythology No.88.jpg',
+    title: "Norse mythology No. 88",
+    number: "",
+    desc: ``,
+    link: 'https://www.teaswap.live/tsametaverse',
+    mediaType: 1,
+    id: 20
+  },
+  {
+    picture_url: process.env.PUBLIC_URL + '/nft/pro2/Norse mythology No.89.png',
+    title: "Norse mythology No. 89",
+    number: "",
+    desc: ``,
+    link: 'https://www.teaswap.live/tsametaverse',
+    mediaType: 1,
+    id: 21
+  },
+  {
+    picture_url: process.env.PUBLIC_URL + '/nft/pro2/Norse mythology No.90.png',
+    title: "Norse mythology No. 90",
+    number: "",
+    desc: ``,
+    link: 'https://www.teaswap.live/tsametaverse',
+    mediaType: 1,
+    id: 22
+  },
+  {
+    picture_url: process.env.PUBLIC_URL + '/nft/pro2/Norse mythology No.91.png',
+    title: "Norse mythology No. 91",
+    number: "",
+    desc: ``,
+    link: 'https://www.teaswap.live/tsametaverse',
+    mediaType: 1,
+    id: 23
+  },
+  {
+    picture_url: process.env.PUBLIC_URL + '/nft/pro2/Norse mythology No.92.png',
+    title: "Norse mythology No. 92",
+    number: "",
+    desc: ``,
+    link: 'https://www.teaswap.live/tsametaverse',
+    mediaType: 1,
+    id: 24
+  },
 ]
