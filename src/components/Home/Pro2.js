@@ -80,22 +80,58 @@ export default [
     mediaType: 1,
     id: 9
   },
+  // {
+  //   picture_url: process.env.PUBLIC_URL + '/nft/pro2/LOT101.png',
+  //   title: "TSA Metaverse LOT #101",
+  //   number: "",
+  //   desc: ``,
+  //   link: 'https://www.teaswap.art/nft/products/vendor/263751',
+  //   mediaType: 1,
+  //   id: 10
+  // },
+  // {
+  //   picture_url: process.env.PUBLIC_URL + '/nft/pro2/LOT107.png',
+  //   title: "TSA Metaverse LOT #107",
+  //   number: "",
+  //   desc: ``,
+  //   link: 'https://www.teaswap.art/nft/products/vendor/263751',
+  //   mediaType: 1,
+  //   id: 11
+  // },
   {
-    picture_url: process.env.PUBLIC_URL + '/nft/pro2/LOT101.png',
-    title: "TSA Metaverse LOT #101",
+    picture_url: process.env.PUBLIC_URL + '/nft/pro2/01-119.gif',
+    title: "TSA Metaverse LOT #119",
     number: "",
     desc: ``,
     link: 'https://www.teaswap.art/nft/products/vendor/263751',
     mediaType: 1,
-    id: 10
+    id: 12
   },
   {
-    picture_url: process.env.PUBLIC_URL + '/nft/pro2/LOT107.png',
-    title: "TSA Metaverse LOT #107",
+    picture_url: process.env.PUBLIC_URL + '/nft/pro2/02-123.gif',
+    title: "TSA Metaverse LOT #123",
     number: "",
     desc: ``,
     link: 'https://www.teaswap.art/nft/products/vendor/263751',
     mediaType: 1,
-    id: 11
+    id: 13
+  },
+  {
+    picture_url: process.env.PUBLIC_URL + '/nft/pro2/03-125.gif',
+    title: "TSA Metaverse LOT #125",
+    number: "",
+    desc: ``,
+    link: 'https://www.teaswap.art/nft/products/vendor/263751',
+    mediaType: 1,
+    id: 14
+  },
+  {
+    picture_url: process.env.PUBLIC_URL + '/nft/pro2/04-126.gif',
+    title: "TSA Metaverse LOT #126",
+    number: "",
+    desc: ``,
+    link: 'https://www.teaswap.art/nft/products/vendor/263751',
+    mediaType: 1,
+    id: 15
   },
 ]

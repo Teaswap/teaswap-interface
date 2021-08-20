@@ -7,15 +7,15 @@ import {MEDIA_QUERY} from '../../constants/style';
 import GridImg4 from '../../assets/images/grid_img4.webp'
 import GridImg5 from '../../assets/images/grid_img5.webp'
 import GridImg1 from '../../assets/images/grid_img1.webp'
-import GridImg2 from '../../assets/images/grid_img2.webp'
+//import GridImg2 from '../../assets/images/grid_img2.webp'
 import GridImg3 from '../../assets/images/grid_img3.webp'
+import GridImg6 from '../../assets/images/grid_img6.webp'
 import YoutobeImg from '../../assets/images/youtube.png'
 import { ExternalLink } from '../../theme'
 
 
 import EndedImg from '../../assets/images/sign/ended.png'
 import NewImg from '../../assets/images/sign/new.png'
-import ComingImg from '../../assets/images/sign/comingsoon.png'
 
 import IncubatorBox from '../../components/general/IncubatorBox'
 import { ButtonPrimary } from '../../components/Button'
@@ -44,30 +44,31 @@ const List = ()=>{
   console.log(t('tokensAvailable'), useTranslation())
   const products = [
     {
+      image: GridImg6,
+      Learn: "https://www.teaswap.live/tsametaverse",
+      author: "TSA Metaverse Lot Offering",
+      medium: "https://youtu.be/u-R5AwHFkl8",
+      info: "TSA Metaverse Park is partnered with iCashRewards VR Center to develop a digital piece of TSA NFT real estate, a total of 200,000 lots will be available. Each lot is a unique (non-fungible) token that functions as your entrance to access TSA Metaverse Park.",
+      joinUs: "#",
+      when: "When: 08.26 21:30 EST",
+      end:new Date(1721958400000),
+      duration:3600,
+      sign: NewImg
+      
+    },
+    {
       image: GridImg4,
-      Learn: "https://www.caojunnft.com/",
+      Learn: "https://www.teaswap.live/tsabroadway",
       author: "TSA Broadway Series Collectibles",
       medium: "https://www.youtube.com/watch?v=6OqBxO0xQT0",
       info: t("iroinfo1"),
       info2: ``,
       joinUs: "/iro/bnb/0x5f99ACF13CAff815DD9cB4A415c0fB34e9F4545b/0x887Ed22FAF9C4B985ecB019eA54A5185350AE214",
       // joinUs: "#",
-      when: "When: 06.16 21:30 EST",
+      when: "When: Ended",
       end: undefined,
       duration:259200,
-      sign: NewImg
-    },
-    {
-      image: GridImg2,
-      Learn: "https://www.caojunnft.com/",
-      author: "Gus Bawab NFTs",
-      medium: "https://www.youtube.com/watch?v=xMX2oPlPtF8",
-      info: "We are proud that his work “Persistence” found its way to the Elysee, the French presidential Palace in 2016.",
-      joinUs: "#",
-      when: "When: TBD",
-      end:new Date(1721958400000),
-      duration:3600,
-      sign: ComingImg
+      sign: EndedImg
     },
     {
       image: GridImg5,
@@ -127,7 +128,9 @@ const List = ()=>{
           {products.map((v, i) => {
             return (
               <Grid key={i}>
-                <img  width="100%" src={v.image}/>
+               
+                <img  width="100%" src={v.image} onClick={() => window.open("https://www.teaswap.art/nft/products/vendor/263751")}/>
+                
                 <Learn>
                   <ExternalLink href={v.Learn}>
                     <Learn>
@@ -139,9 +142,10 @@ const List = ()=>{
                   <span>{v.author}</span>
                   <p style={{display: 'flex'}}>
                     {"Read"}
-                    <StyledLink to={v.medium}>
+                    {/* <StyledLink to={v.medium}>youtubelink</StyledLink> */}
+                    <ExternalLink href={v.medium}>
                       <img style={{marginLeft: "10px"}} width="26" height="26" src={YoutobeImg} />
-                    </StyledLink>
+                    </ExternalLink>
                   </p>
                 </Read>
                 <Spe></Spe>
