@@ -136,7 +136,7 @@ export default [
   },
   {
     picture_url: process.env.PUBLIC_URL + '/nft/pro2/Norse mythology No.84.jpg',
-    title: "Norse mythology No. 84",
+    title: "No 90.歐德姆布拉Audhumbla",
     number: "",
     desc: ``,
     link: 'https://www.teaswap.live/tsametaverse',
@@ -145,7 +145,7 @@ export default [
   },
   {
     picture_url: process.env.PUBLIC_URL + '/nft/pro2/Norse mythology No.85.png',
-    title: "Norse mythology No. 85",
+    title: "No 85. 贝斯特拉Bestla",
     number: "",
     desc: ``,
     link: 'https://www.teaswap.live/tsametaverse',
@@ -154,7 +154,7 @@ export default [
   },
   {
     picture_url: process.env.PUBLIC_URL + '/nft/pro2/Norse mythology No.86.jpg',
-    title: "Norse mythology No. 86",
+    title: "No 87. 弗丽嘉 Frigg",
     number: "",
     desc: ``,
     link: 'https://www.teaswap.live/tsametaverse',
@@ -163,7 +163,7 @@ export default [
   },
   {
     picture_url: process.env.PUBLIC_URL + '/nft/pro2/Norse mythology No.87.png',
-    title: "Norse mythology No. 87",
+    title: "No 92.尤彌爾Ymir",
     number: "",
     desc: ``,
     link: 'https://www.teaswap.live/tsametaverse',
@@ -172,7 +172,7 @@ export default [
   },
   {
     picture_url: process.env.PUBLIC_URL + '/nft/pro2/Norse mythology No.88.jpg',
-    title: "Norse mythology No. 88",
+    title: "No 84. 奥丁 Odin",
     number: "",
     desc: ``,
     link: 'https://www.teaswap.live/tsametaverse',
@@ -181,7 +181,7 @@ export default [
   },
   {
     picture_url: process.env.PUBLIC_URL + '/nft/pro2/Norse mythology No.89.png',
-    title: "Norse mythology No. 89",
+    title: "No 86. 布利Buri",
     number: "",
     desc: ``,
     link: 'https://www.teaswap.live/tsametaverse',
@@ -190,7 +190,7 @@ export default [
   },
   {
     picture_url: process.env.PUBLIC_URL + '/nft/pro2/Norse mythology No.90.png',
-    title: "Norse mythology No. 90",
+    title: "No 89. 密米爾Mímir",
     number: "",
     desc: ``,
     link: 'https://www.teaswap.live/tsametaverse',
@@ -199,7 +199,7 @@ export default [
   },
   {
     picture_url: process.env.PUBLIC_URL + '/nft/pro2/Norse mythology No.91.png',
-    title: "Norse mythology No. 91",
+    title: "No 91.瑟洛特格尔密尔Thrudgelmir",
     number: "",
     desc: ``,
     link: 'https://www.teaswap.live/tsametaverse',
@@ -208,7 +208,7 @@ export default [
   },
   {
     picture_url: process.env.PUBLIC_URL + '/nft/pro2/Norse mythology No.92.png',
-    title: "Norse mythology No. 92",
+    title: "No 88. 苏尔特尔Surtr",
     number: "",
     desc: ``,
     link: 'https://www.teaswap.live/tsametaverse',
