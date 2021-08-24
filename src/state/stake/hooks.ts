@@ -7,7 +7,7 @@ import {
   PAYABLEETH,
   CJAI,
   DOGE,
-  // SHIB,
+  SHIB,
   SHIH,
   ICASH,
   BAKE,
@@ -23,7 +23,7 @@ import {
   BNB_WBTC_LP,
   BNB_TSA_LP,
   TSA_SHIH_LP,
-  // TSA_SHIB_LP,
+  TSA_SHIB_LP,
   TSA_BAKE_LP,
   TSA_DOGE_LP,
   TSA_BUSD_LP,
@@ -89,12 +89,12 @@ export const STAKING_REWARDS_INFO: {
       iconUrl: "/TSA_SHIH_TSA.png",
       cate:"TSA"
     },
-    // {
-    //   tokens: [TSA_SHIB_LP, UNI[ChainId.BSC_MAINNET]],
-    //   stakingRewardAddress: '0x8ceF0d0C8286efe7EbD2386031F56BE670178A16',
-    //   iconUrl: "/TSA_SHIB_TSA.png",
-    //   cate:"TSA"
-    // },
+    {
+      tokens: [TSA_SHIB_LP, UNI[ChainId.BSC_MAINNET]],
+      stakingRewardAddress: '0x8ceF0d0C8286efe7EbD2386031F56BE670178A16',
+      iconUrl: "/TSA_SHIB_TSA.png",
+      cate:"TSA"
+    },
     {
       tokens: [TSA_BAKE_LP, UNI[ChainId.BSC_MAINNET]],
       stakingRewardAddress: '0x062BC25d301c33B5dEc9D83fa5B4Cc5519746DE8',
@@ -272,13 +272,13 @@ export const STAKING_REWARDS_INFO: {
       iconUrl: "/bake_icon.webp",
       cate:"TSA"
     },
-    // {
-    //   tokens: [SHIB, UNI[ChainId.BSC_MAINNET]],
-    //   stakingRewardAddress:'0xF22AF684c4389c7899777660D3ec29b9745C6222',
-    //   iconUrl: "/shib_icon.webp",
-    //   cate:"TSA"
-    //
-    // },
+    {
+      tokens: [SHIB, UNI[ChainId.BSC_MAINNET]],
+      stakingRewardAddress:'0xF22AF684c4389c7899777660D3ec29b9745C6222',
+      iconUrl: "/shib_icon.webp",
+      cate:"TSA"
+
+    },
     {
       tokens: [UNI[ChainId.BSC_MAINNET],SHIH],
       stakingRewardAddress:'0x667202a1Dc34EFA5f54580C8E69f8128573786f4',
