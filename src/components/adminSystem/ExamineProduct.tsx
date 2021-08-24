@@ -212,7 +212,7 @@ export default function ExamineProduct() {
           prices.push( priceNumber.toFixed() )
           royalties.push(pProduct.royalty)
           exchangeTokens.push(pProduct.extoken)
-          orderIds.push({orderid:(Number(lastId)+i).toString()})
+          orderIds.push({orderid:  Math.round(Math.random() * 100000000).toString()})
           tableIds.push(pProduct.id.toString())
           setNfts(nfts)
           setIds(ids)
@@ -232,12 +232,12 @@ export default function ExamineProduct() {
 
         if(passedProducts.length===0){ return }
 
-        const estimatedGas = await exchangeContract.estimateGas.batchAddOrder(nfts, ids,amounts ,owners,prices,royalties,exchangeTokens).catch(() => {
-            return exchangeContract.estimateGas.batchAddOrder(nfts, ids,amounts ,owners,prices,royalties,exchangeTokens)
+        const estimatedGas = await exchangeContract.estimateGas.batchAddOrder(orderIds, nfts, ids,amounts ,owners,prices,royalties,exchangeTokens).catch(() => {
+            return exchangeContract.estimateGas.batchAddOrder(orderIds, nfts, ids,amounts ,owners,prices,royalties,exchangeTokens)
         })
 
         await exchangeContract
-          .batchAddOrder(nfts, ids,amounts ,owners,prices,royalties,exchangeTokens, {
+          .batchAddOrder(orderIds, nfts, ids,amounts ,owners,prices,royalties,exchangeTokens, {
               gasLimit: calculateGasMargin(estimatedGas)
           })
           .then(async (response: TransactionResponse) => {
