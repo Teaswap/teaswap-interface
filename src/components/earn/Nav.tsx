@@ -10,23 +10,33 @@ const Nav = (props: any) => {
       <img src={FlameImg} style={{marginTop: '10px'}} width="30px" height="30px" />
       <StyledNav>
         <StyledLink onClick={() => props.handleCatChange(0)}>
-          Hot
+          <span className={props.cat == 0 ? "stake-active" : ''}>
+            Hot
+          </span>
         </StyledLink>
         <StyledLink style={{padding:"0 14px"}}> </StyledLink>
         <StyledLink onClick={() => props.handleCatChange(1)}>
-          Earn TSA
+          <span className={props.cat == 1 ? "stake-active" : ''}>
+            Earn TSA
+          </span>
         </StyledLink>
         <StyledLink style={{padding:"0 14px"}}> </StyledLink>
         <StyledLink onClick={() => props.handleCatChange(2)}>
-          TSA Staking
+          <span className={props.cat == 2 ? "stake-active" : ''}>
+            TSA Staking
+          </span>
         </StyledLink>
         <StyledLink style={{padding:"0 14px"}}> </StyledLink>
         <StyledLink onClick={() => props.handleCatChange(3)}>
-          NFT Pool
+          <span className={props.cat == 3 ? "stake-active" : ''}>
+            NFT Pool
+          </span>
         </StyledLink>
         <StyledLink style={{padding:"0 14px"}}> </StyledLink>
         <StyledLink onClick={() => props.handleCatChange(4)}>
-          Ended
+          <span className={props.cat == 4 ? "stake-active" : ''}>
+            Ended
+          </span>
         </StyledLink>
         {/* <StyledLink target="_blank" href="https://t.me/bestswap_com">
           Announcement

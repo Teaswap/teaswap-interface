@@ -331,3 +331,6 @@
   background-color: #B3B3B3;
   cursor: pointer;
 }
+.stake-active{
+  text-decoration: underline;
+}
