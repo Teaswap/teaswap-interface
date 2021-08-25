@@ -46,7 +46,7 @@ const AuthorInfo = styled(ColumnCenter)`
   justify-content: space-between;
   flex-wrap: wrap;
   margin: 0 auto;
-  margin-top: 80px;
+  margin-top: 40px;
   align-items: flex-start;
   ${MEDIA_QUERY.sm} {
     flex-direction: column-reverse;
@@ -242,7 +242,7 @@ const Index = ({params}: Props)=>{
       {/* </RowBetween> */}
       <AuthorInfo>
         <Author>
-          <img src={process.env.PUBLIC_URL + '/iro4.webp'} width="100%" style={{marginBottom: '0px' , marginTop: '30px'}}/>
+          <img src={process.env.PUBLIC_URL + '/iro4.webp'} width="100%" style={{marginBottom: '0px' , marginTop: '50px'}}/>
         </Author>
         <Box>
           <PoolData>
