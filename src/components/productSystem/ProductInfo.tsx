@@ -15,7 +15,7 @@ import {
   useUserHasSubmittedBid
 } from "../../state/transactions/hooks";
 import {ApprovalState, useApproveCallback} from "../../hooks/useApproveCallback";
-import {BETH, BUSD, CJAI, NFTEXCHANGE, PAYABLEETH, SHIH, UNI, ZERO_ADDRESS} from "../../constants";
+import {BETH, BUSD, CJAI, NFTEXCHANGE, PAYABLEETH, SHIH, TSALOT, UNI, ZERO_ADDRESS} from "../../constants";
 import {TransactionResponse} from "@ethersproject/providers";
 import {useETHBalances, useTokenBalance} from "../../state/wallet/hooks";
 import {ChainId, ETHER, JSBI} from "@teaswap/uniswap-sdk";
@@ -25,6 +25,7 @@ import {TYPE} from "../../theme";
 import {useDerivedBidInfo} from "../../state/stake/hooks";
 import {useNFTExchangeContract} from "../../hooks/useContract";
 import CurrencyInputPanel from "../CurrencyInputPanel";
+import {calculateGasMargin} from "../../utils";
 
 const ProductInfoContainer = styled.div`
   width: 80%;
@@ -275,7 +276,8 @@ export const ProductInfo = ({product,user}:{ product:ProductInterface ,user:user
     { name: 'TSA',address:UNI[ChainId.BSC_MAINNET].address,token:UNI[ChainId.BSC_MAINNET] },
     { name: 'Shih',address:SHIH.address,token:SHIH },
     { name: 'CJAI',address:CJAI.address,token:CJAI },
-    { name: 'ETH',address:BETH.address,token:BETH }
+    { name: 'ETH',address:BETH.address,token:BETH },
+    { name: 'LOT',address:TSALOT.address,token:TSALOT}
   ]
   const {
     errorMessage,
@@ -369,7 +371,12 @@ export const ProductInfo = ({product,user}:{ product:ProductInterface ,user:user
     setAttempting(true)
     if (exContract && parsedAmount) {
       if (product.extoken===ZERO_ADDRESS){
-        exContract.bidBNB(JSBI.BigInt(product.orderId),{gasLimit: 10000000, value:`0x${parsedAmount.raw.toString(16)}`})
+
+        const estimatedGas = await exContract.estimateGas.bidBNB(JSBI.BigInt(product.orderId),{value:`0x${parsedAmount.raw.toString(16)}`}).catch(() => {
+          return exContract.estimateGas.bidBNB(JSBI.BigInt(product.orderId),{value:`0x${parsedAmount.raw.toString(16)}`})
+        })
+
+        exContract.bidBNB(JSBI.BigInt(product.orderId),{gasLimit: calculateGasMargin(estimatedGas), value:`0x${parsedAmount.raw.toString(16)}`})
             .then((response:TransactionResponse) => {
               addTransaction(response, {
                 summary: t('bid#'+product.orderId),
@@ -384,7 +391,12 @@ export const ProductInfo = ({product,user}:{ product:ProductInterface ,user:user
       }else{
         if (approval === ApprovalState.APPROVED) {
           console.log("product:"+JSON.stringify(product))
-          exContract.bid(JSBI.BigInt(product.orderId),`0x${parsedAmount.raw.toString(16)}`, { gasLimit: 1000000 })
+
+          const estimatedGas = await exContract.estimateGas.bid(JSBI.BigInt(product.orderId),`0x${parsedAmount.raw.toString(16)}`).catch(() => {
+            return exContract.estimateGas.bid(JSBI.BigInt(product.orderId),`0x${parsedAmount.raw.toString(16)}`)
+          })
+
+          exContract.bid(JSBI.BigInt(product.orderId),`0x${parsedAmount.raw.toString(16)}`, { gasLimit: calculateGasMargin(estimatedGas) })
               .then((response:TransactionResponse) => {
                 addTransaction(response, {
                   summary: t('bid#'+product.orderId),

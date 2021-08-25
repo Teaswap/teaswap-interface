@@ -80,7 +80,7 @@ export const NFTFACTORY: { [chainId in ChainId]?: string } = {
 }
 
 export const NFTEXCHANGE: { [chainId in ChainId]?: string } = {
-  [ChainId.BSC_MAINNET]:'0xf11f8eab67334a3e4d464dE7613D55b564C24F67'
+  [ChainId.BSC_MAINNET]:'0x56f1C01A4784914BAF0E77ca834a623c12663B03'
 }
 //0xf11f8eab67334a3e4d464dE7613D55b564C24F67
 //0x50F1DE017f1Dd26d12B93471574F88E82B6007B1
@@ -523,7 +523,8 @@ export const tokenOptions = [
   { id: '3', name: 'TSA',value:UNI[ChainId.BSC_MAINNET].address },
   { id: '4', name: 'Shih',value:SHIH.address },
   { id: '5', name: 'CJAI',value:CJAI.address },
-  { id: '6', name: 'ETH',value:BETH.address}
+  { id: '6', name: 'ETH',value:BETH.address},
+  { id: '7', name: 'LOT',value:TSALOT.address}
 ]
 
 export const NetworkContextName = 'NETWORK'

@@ -10,6 +10,7 @@ import {useTranslation} from "react-i18next";
 import {useCallback, useMemo} from "react";
 import {TransactionResponse} from "@ethersproject/providers";
 import BigNumber from "bignumber.js";
+import {calculateGasMargin} from "../utils";
 
 export enum setPriceState {
     UNKNOWN,
@@ -50,8 +51,13 @@ export function useSetPriceCallback(
                     priceNumber.toFixed()
                 ]
                 console.log(setargs)
+
+                const estimatedGas = await NFTExContract.estimateGas.setPrice(...setargs).catch(() => {
+                    return NFTExContract.estimateGas.setPrice(...setargs)
+                })
+
                 NFTExContract.setPrice(
-                    ...setargs,{ gasLimit: 4500000})
+                    ...setargs,{ gasLimit: calculateGasMargin(estimatedGas)})
                     .then((response: TransactionResponse) => {
                         addTransaction(response, {
                             summary: t('set price'),
