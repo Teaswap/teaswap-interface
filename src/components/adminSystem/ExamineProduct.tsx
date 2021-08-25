@@ -202,7 +202,7 @@ export default function ExamineProduct() {
             return
         }
 
-      let tempOrderId = [] as Array<string>
+      let tempOrderId = [] as Array<any>
 
       for(let i = 0;i<passedProducts.length;i++){
           let pProduct:ProductInterface = passedProducts[i]
@@ -216,7 +216,7 @@ export default function ExamineProduct() {
           exchangeTokens.push(pProduct.extoken)
           let orderId = Math.round(Math.random() * 100000000)
           orderIds.push({orderid: orderId})
-          tempOrderId.push(BigInt(orderId).toString())
+          tempOrderId.push(new BigNumber(orderId).toFixed())
           tableIds.push(pProduct.id.toString())
           setNfts(nfts)
           setIds(ids)
