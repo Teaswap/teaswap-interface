@@ -242,7 +242,7 @@ const Index = ({params}: Props)=>{
       {/* </RowBetween> */}
       <AuthorInfo>
         <Author>
-          <img src={process.env.PUBLIC_URL + '/iro4.webp'} width="100%" style={{marginBottom: '0px' , marginTop: '50px'}}/>
+          <img src={process.env.PUBLIC_URL + '/iro4.webp'} width="100%" style={{marginBottom: '0px' , marginTop: '60px'}}/>
         </Author>
         <Box>
           <PoolData>
