@@ -321,3 +321,13 @@
   overflow-y: scroll;
   max-height: 400px;
 }
+.iro-btn{
+  display: block;
+  align-self: right;
+  width: 256px;
+  height: 40px;
+  line-height: 40px;
+  color: #333333;
+  background-color: #B3B3B3;
+  cursor: pointer;
+}

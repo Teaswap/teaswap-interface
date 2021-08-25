@@ -78,7 +78,7 @@ const Box = styled(ColumnCenter)`
   transform: translateZ(0);
   margin: 0px;
   margin-left: 40px;
-  margin-top: 40px;
+  // margin-top: 40px;
   padding: 20px;
   padding-bottom: 20px;
   ${MEDIA_QUERY.sm} {
@@ -209,8 +209,8 @@ const Index = ({params}: Props)=>{
   return (
     <PageWrapper>
       <img style={{marginBottom: "20px"}} onClick={() => {
-        window.open("https://docs.google.com/forms/d/e/1FAIpQLSfA-dOW15tyN6dfyZScvcEmT3lC13K9ThFBTruiFD0wOVsoUQ/viewform")
-      }} width="100%" src={process.env.PUBLIC_URL + '/incubator_banner.png'} alt="" />
+        // window.open("https://docs.google.com/forms/d/e/1FAIpQLSfA-dOW15tyN6dfyZScvcEmT3lC13K9ThFBTruiFD0wOVsoUQ/viewform")
+      }} width="100%" src={process.env.PUBLIC_URL + '/iro_banner4.webp'} alt="" />
       {params.idoAddress == '0xF72ECaD992CebB0138aC13b616199f131F847b04' && (
         <ConTitle con="CaoJun NFT Collectibles" />
       )}
@@ -241,52 +241,9 @@ const Index = ({params}: Props)=>{
         <DoubleCurrencyLogo currency0={currencyA ?? undefined} currency1={currencyB ?? undefined} size={24} /> */}
       {/* </RowBetween> */}
       <AuthorInfo>
-          {params.idoAddress == '0xF72ECaD992CebB0138aC13b616199f131F847b04' && (
-            <Author>
-              <img src={process.env.PUBLIC_URL + '/cjainft.png'} width="150" style={{marginBottom: '0px'}}/>
-              <div className="iro-title">CaoJun Limited Edition of NFT Collectibles</div>
-              <div className="iro-title1">Key terms for CJAI NFT Collectibles & Initial Art Offering ("IRO"): </div>
-              <ol style={{fontSize: '15px', textAlign: 'left', lineHeight: "28px"}}>
-                <li>​Total Edition of CaoJunNFT Collectibles released: 600</li>
-                <li>Total TSA released for CJAI IRO: 15,000,000</li>
-                <li>List TSA Token on TeaSwap, BakerySwap and SwapAll for trading and liquidity farming;</li>
-                <li>Able to stake TSA to earn CJAI and iCASH, Deposit TSA-BNB BLP to earn TSA, Deposit TSA-BUSD to earn TSA, and Deposit TSA-USDT BLP to earn TSA.</li>
-                <li>100,000 $TSA can be exchanged with 1 CaoJun NFT, and 1 CaoJun NFT can be converted into one exclusive physical CaoJun Limited Edition of NFT Collectible ("CaoJun NFT Collectible"). The NFT and $TSA will be burned afterward.</li>
-                <li>The CaoJun NFT will be available at the CaoJun NFT Collectibles (under NFT Broadway tab), and can only be purchased with $TSA</li>
-                <li>No minimum: Users can buy fractions of $TSA Offering for CaoJun NFT Collectibles</li>
-              </ol>
-              <div style={{lineHeight: '30px', fontSize: '15px'}}>  Details : 
-                <ExternalLink href="https://www.caojunnft.com">
-                  https://www.caojunnft.com
-                </ExternalLink>
-              </div>
-            </Author>
-          )}
-          {params.idoAddress == '0x887Ed22FAF9C4B985ecB019eA54A5185350AE214' && (
-            <Author>
-              <div className="iro-title">{t("irobigtitle")}</div>
-              <div className="iro-title1">
-                {t("irotitle")} 
-              </div>
-              <ol style={{fontSize: '15px', textAlign: 'left', lineHeight: "28px"}}>
-                <li>{t("irocon1")}</li>
-                <li>{t("irocon2")}</li>
-                <li>{t("irocon3")}</li>
-                <li>{t("irocon4")}</li>
-                <li>{t("irocon5")}</li>
-                <li>{t("irocon6")}</li>
-                <li>{t("irocon7")}</li>
-                <li>{t("irocon8")}</li>
-                <li>{t("irocon9")}</li>
-              </ol>
-              {/* <div style={{lineHeight: '30px', fontSize: '15px'}}>  Details : 
-                <ExternalLink href="https://www.caojunnft.com">
-                  https://www.caojunnft.com
-                </ExternalLink>
-              </div> */}
-            </Author>
-          )}
-          
+        <Author>
+          <img src={process.env.PUBLIC_URL + '/iro4.webp'} width="100%" style={{marginBottom: '0px'}}/>
+        </Author>
         <Box>
           <PoolData>
             <AutoColumn className="padding-column" gap="sm">
@@ -478,64 +435,77 @@ const Index = ({params}: Props)=>{
           </PositionInfo>
         </Box>
       </AuthorInfo>
+      <AuthorInfo style={{justifyContent: "center"}}>
+        <Author style={{maxWidth: "849px"}}>
+          {/* <div className="iro-title">Key terms for TSA Metaverse Lot Offering:</div> */}
+          <div className="iro-title1">Key terms for TSA Metaverse Lot Offering:</div>
+          <ol style={{fontSize: '15px', textAlign: 'left', lineHeight: "28px", paddingLeft: '18px'}}>
+            <li>​Total 200,000 lots will be available. Made up of virtual LAND, limited editions of virtual property, entertainment, various of avatars and more. $ lot=0.15 BNB</li>
+            <li>Each lot is a unique (non-fungible) token that functions as your entrance to access TSA Metaverse Park.</li>
+            <li>$lot can be used to  buy TSA Metaverse Lot ( under the NFT TAB “ Virtual World”) , $Lot will be burned afterward.</li>
+            <li>TSA Metaverse Lot is based on ERC721 protocol can be traded on TSA NFT Marketplace after offering and can only be purchased with $lot</li>
+            <li>
+              Each user can buy maximum of 100 $lot.  No Minimum.
+            </li>
+            <li>
+              TSA Metaverse Lot allows NFT collectors to stake, yield farm TSA & iCash on https://www.teaswap.art/staking, or resell to the market for BNB, BUSD, ETH or TSA.
+            </li>
+            <li>
+              Collectors can buy a predesigned 3D location and assets to customize their lot through TSA Studio and incorporate into the LOT.
+            </li>
+            <li>
+              Collectors can host events, enjoy VR experiences in shopping and entertainment - surf the waves at the Beach, play soccer, and social network.
+            </li>
+            <li>
+              First 100 Collectors are entitled to access one Metaverse VIP room anytime.
+            </li>
+          </ol>
+        </Author>
+      </AuthorInfo>
 
-
-
-      {params.idoAddress == '0xF72ECaD992CebB0138aC13b616199f131F847b04' && (
-        <IframeComponent iframe={iframe} />
-      )}
-      {params.idoAddress == '0x887Ed22FAF9C4B985ecB019eA54A5185350AE214' && (
         <div style={{
           width: '90%',
-          maxWidth: '1000px',
+          maxWidth: '849px',
           textAlign: 'left',
           margin: '0 auto'
         }}>
+          <p>
+            Note: We are in early development of  launching TSA Metaverse Park but growing.
+          </p>
           <p>Details :</p>
-          <p>English： <ExternalLink href="https://www.teaswap.live/tsabroadway">https://www.teaswap.live/tsabroadway</ExternalLink></p>
-          <p>中文信息： <ExternalLink href="https://zh.teaswap.live/tsabroadway">https://zh.teaswap.live/tsabroadway</ExternalLink></p>
+          <p>English： 
+            <ExternalLink href="https://www.teaswap.live/tsametaverse">
+              : https://www.teaswap.live/tsametaverse
+            </ExternalLink>
+          </p>
+          <p>中文信息： 
+            <ExternalLink href="https://zh.teaswap.live/tsametaverse">
+               https://zh.teaswap.live/tsametaverse
+            </ExternalLink>
+          </p>
         </div>
-      )}
-      {params.idoAddress == '0x887Ed22FAF9C4B985ecB019eA54A5185350AE214' && (
-        <IframeComponent iframe={iframe2} />
-      )}
-      {params.idoAddress == '0xF72ECaD992CebB0138aC13b616199f131F847b04' && (
-        <div style={{
-          color: "#474747",
-          marginTop: '50px'
+      <IframeComponent iframe={iframe} />
+
+      <div style={{
+        maxWidth: '849px',
+        width: '100%',
+        margin: '0 auto',
+        marginTop: '60px',
+        display: 'flex',
+        justifyContent: 'space-around',
+        paddingBottom: '60px'
+      }}>
+        <span className="link-btn iro-btn" onClick={() => {
+          window.open("https://www.teaswap.art/nft/products/vendor/263751")
         }}>
-        ** Converting into one exclusive CaoJun NFT limited edition of digital collectible  or original collectibles ? 
-          <ExternalLink href={"https://docs.google.com/forms/d/e/1FAIpQLSfKQ5ESZ_843cjHGBwKuObT79bfjUPQ3XHOJpy9vw2VFbAZVA/viewform"}>
-            Submit Now .
-          </ExternalLink>
-        </div>
-      )}
-      {params.idoAddress == '0x887Ed22FAF9C4B985ecB019eA54A5185350AE214' && (
-        <div style={{
-          maxWidth: '849px',
-          width: '100%',
-          margin: '0 auto',
-          marginTop: '60px',
-          display: 'flex',
-          justifyContent: 'flex-end',
-          paddingBottom: '60px'
+          Buy NFT
+        </span>
+        <span className="link-btn iro-btn" onClick={() => {
+          window.open("https://www.teaswap.art/staking")
         }}>
-          <span className="link-btn" style={{
-            display: 'block',
-            alignSelf: 'right',
-            width: '256px',
-            height: '40px',
-            lineHeight: '40px',
-            color: '#333333',
-            backgroundColor: '#DBDBDB',
-            cursor: 'pointer'
-          }} onClick={() => {
-            window.open("https://docs.google.com/forms/d/e/1FAIpQLSfIocxm-bnEI3CvQF0caJDjIp0Kz-BDbIRig_kC7vBo0L7p3Q/viewform")
-          }}>
-            Redeem NFT
-          </span>
-        </div>
-      )}
+          Stake NFT
+        </span>
+      </div>
       
     </PageWrapper>
   )
@@ -563,7 +533,6 @@ function IframeComponent(props: any) {
   );
 }
 
-const iframe = '<iframe frameborder="0" allowfullscreen="1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" title="YouTube video player" style="margin-top: 30px; width: 100%; height: 100%; " src="https://www.youtube.com/embed/xa8OBoVx2yk?autoplay=0&amp;mute=0&amp;controls=1&amp;loop=0&amp;origin=https%3A%2F%2Fwww.teaswap.live&amp;playsinline=1&amp;enablejsapi=1&amp;widgetid=1" id="widget2"></iframe>'; 
-const iframe2 = '<iframe frameborder="0" allowfullscreen="1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" title="YouTube video player" style="margin-top: 30px; width: 100%; height: 100%; " src="https://www.youtube.com/embed/QVuiElOqJ5Y?autoplay=0&amp;mute=0&amp;controls=1&amp;loop=0&amp;origin=https%3A%2F%2Fwww.teaswap.live&amp;playsinline=1&amp;enablejsapi=1&amp;widgetid=1" id="widget2"></iframe>'; 
+const iframe = '<iframe frameborder="0" allowfullscreen="1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" title="YouTube video player" style="margin-top: 30px; width: 100%; height: 100%; " src="https://www.youtube.com/embed/u-R5AwHFkl8?autoplay=0&amp;mute=0&amp;controls=1&amp;loop=0&amp;origin=https%3A%2F%2Fwww.teaswap.live&amp;playsinline=1&amp;enablejsapi=1&amp;widgetid=1" id="widget2"></iframe>'; 
 
 export default Index;
