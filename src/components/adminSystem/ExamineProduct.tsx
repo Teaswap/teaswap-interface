@@ -61,7 +61,7 @@ export interface userMiniInterface {
 }
 
 export interface orderidsjason {
-    orderid: string,
+    orderid: number,
 }
 
 
@@ -161,7 +161,7 @@ export default function ExamineProduct() {
   const [prices,setPrices] = useState([] as Array<string>)
   const [royalties,setRoyalties] = useState([] as Array<number>)
   const [exchangeTokens,setExchangeTokens] = useState([] as Array<string>)
-  const [orderIds,setOrderIds] = useState([] as Array<orderidsjason>)
+  const [orderIds, setOrderIds] = useState([] as Array<orderidsjason>)
     const [tableIds,setTableIds] = useState([] as Array<string>)
     const [passProducts, setPassProducts] = useState([] as Array<ProductInterface>)
   const lastIdres = useNFTLastOrderId(NFTEXCHANGE[ChainId.BSC_MAINNET])
@@ -202,6 +202,8 @@ export default function ExamineProduct() {
             return
         }
 
+      let tempOrderId = [] as Array<BigNumber>
+
       for(let i = 0;i<passedProducts.length;i++){
           let pProduct:ProductInterface = passedProducts[i]
           let priceNumber = new BigNumber(pProduct.price).multipliedBy(new BigNumber(10).pow(18))
@@ -212,7 +214,9 @@ export default function ExamineProduct() {
           prices.push( priceNumber.toFixed() )
           royalties.push(pProduct.royalty)
           exchangeTokens.push(pProduct.extoken)
-          orderIds.push({orderid:  Math.round(Math.random() * 100000000).toString()})
+          let orderId = Math.round(Math.random() * 100000000)
+          orderIds.push({orderid: orderId})
+          tempOrderId.push(new BigNumber(orderId))
           tableIds.push(pProduct.id.toString())
           setNfts(nfts)
           setIds(ids)
@@ -232,12 +236,12 @@ export default function ExamineProduct() {
 
         if(passedProducts.length===0){ return }
 
-        const estimatedGas = await exchangeContract.estimateGas.batchAddOrder(orderIds, nfts, ids,amounts ,owners,prices,royalties,exchangeTokens).catch(() => {
-            return exchangeContract.estimateGas.batchAddOrder(orderIds, nfts, ids,amounts ,owners,prices,royalties,exchangeTokens)
+        const estimatedGas = await exchangeContract.estimateGas.batchAddOrder(tempOrderId, nfts, ids,amounts ,owners,prices,royalties,exchangeTokens).catch(() => {
+            return exchangeContract.estimateGas.batchAddOrder(tempOrderId, nfts, ids,amounts ,owners,prices,royalties,exchangeTokens)
         })
 
         await exchangeContract
-          .batchAddOrder(orderIds, nfts, ids,amounts ,owners,prices,royalties,exchangeTokens, {
+          .batchAddOrder(tempOrderId, nfts, ids,amounts ,owners,prices,royalties,exchangeTokens, {
               gasLimit: calculateGasMargin(estimatedGas)
           })
           .then(async (response: TransactionResponse) => {
