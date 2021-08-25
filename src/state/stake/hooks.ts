@@ -30,7 +30,7 @@ import {
   USDT_TSA_LP,
   TSA_CAKE_LP,
   ETH_TSA_LP,
-  TSALOT,
+  TSALOT, TSAMetaverse, TSALOTNFT,
   // GensisNFT
 } from '../../constants'
 import {
@@ -57,18 +57,18 @@ export const STAKING_REWARDS_INFO: {
   }[]
 } = {
   [ChainId.BSC_MAINNET]: [
-    // {
-    //   tokens: [ShihCryptoPunk, ICASH],
-    //   stakingRewardAddress: '0x444D41EaF847f1ed1B009fc4f6B2A5123D5F1027',
-    //   iconUrl: "/safemoon_icon.png",
-    //   cate:"NFT"
-    // },
-    // {
-    //   tokens: [TSAMetaverse, ICASH],
-    //   stakingRewardAddress: '0x252196bE53Bf4f481Ca1D30849E9eACb5F0134AC',
-    //   iconUrl: "/doge_icon.webp",
-    //   cate:"NFT"
-    // },
+    {
+      tokens: [TSALOTNFT, UNI[ChainId.BSC_MAINNET]],
+      stakingRewardAddress: '0x69013dF3E6bf8eB4F19ed3b3DF54F24B951B5B10',
+      iconUrl: "/NFT23.png",
+      cate:"NFT"
+    },
+    {
+      tokens: [TSAMetaverse, ICASH],
+      stakingRewardAddress: '0xD7204007C62Edb5E68ec180527092F345B6c2c3a',
+      iconUrl: "/NFT22.png",
+      cate:"NFT"
+    },
     // {
     //   tokens: [GensisNFT, ICASH],
     //   stakingRewardAddress: '0x353E596DB5B84026ba7905D6461CF2fb0604E7AE',

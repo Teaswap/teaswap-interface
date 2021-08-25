@@ -117,6 +117,14 @@ export const TSAMetaverse = new Token(
     'TSANFT Metaverse Collection'
 )
 
+export const TSALOTNFT = new Token(
+    ChainId.BSC_MAINNET,
+    '0x057a1Bd7A6C87Ec2E483667126FAEaE3C18cE8E2',
+    0,
+    'TSALOT NFT',
+    'TSA Metaverse LOT Collection'
+)
+
 export const ShihCryptoPunk = new Token(
     ChainId.BSC_MAINNET,
     '0xa0fa21d79c48B2c4A03c5e717e84C18D07C547E5',
