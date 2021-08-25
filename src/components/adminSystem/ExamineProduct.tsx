@@ -202,7 +202,7 @@ export default function ExamineProduct() {
             return
         }
 
-      let tempOrderId = [] as Array<BigNumber>
+      let tempOrderId = [] as Array<string>
 
       for(let i = 0;i<passedProducts.length;i++){
           let pProduct:ProductInterface = passedProducts[i]
@@ -216,7 +216,7 @@ export default function ExamineProduct() {
           exchangeTokens.push(pProduct.extoken)
           let orderId = Math.round(Math.random() * 100000000)
           orderIds.push({orderid: orderId})
-          tempOrderId.push(new BigNumber(orderId))
+          tempOrderId.push(BigInt(orderId).toString())
           tableIds.push(pProduct.id.toString())
           setNfts(nfts)
           setIds(ids)
@@ -235,6 +235,7 @@ export default function ExamineProduct() {
         if(!exchangeContract){ return }
 
         if(passedProducts.length===0){ return }
+        console.log('tempOrderId', tempOrderId)
 
         const estimatedGas = await exchangeContract.estimateGas.batchAddOrder(tempOrderId, nfts, ids,amounts ,owners,prices,royalties,exchangeTokens).catch(() => {
             return exchangeContract.estimateGas.batchAddOrder(tempOrderId, nfts, ids,amounts ,owners,prices,royalties,exchangeTokens)
