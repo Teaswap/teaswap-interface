@@ -8,7 +8,7 @@ import { useDispatch } from "react-redux";
 import useProduct from "../../hooks/productHooks/useProduct";
 import Modal from "../Modal";
 import {useNFTExchangeContract} from "../../hooks/useContract";
-import {BETH, BUSD, CJAI, NFTEXCHANGE, PAYABLEETH, SHIH, UNI, ZERO_ADDRESS} from "../../constants";
+import {BETH, BUSD, CJAI, NFTEXCHANGE, PAYABLEETH, SHIH, UNI, ZERO_ADDRESS,TSALOT} from "../../constants";
 import {ChainId, JSBI} from "@teaswap/uniswap-sdk";
 import {TransactionResponse} from "@ethersproject/providers";
 import {LoadingView, SubmittedView} from "../ModalViews";
@@ -107,7 +107,8 @@ export default function ItemDetail({ Item }) {
         { name: 'TSA',address:UNI[ChainId.BSC_MAINNET].address,token:UNI[ChainId.BSC_MAINNET] },
         { name: 'Shih',address:SHIH.address,token:SHIH },
         { name: 'CJAI',address:CJAI.address,token:CJAI },
-        { name: 'ETH',address:BETH.address,token:BETH }
+        { name: 'ETH',address:BETH.address,token:BETH },
+        { name: 'LOT',address:TSALOT.address,token:TSALOT}
     ]
 
     let exToken = PAYABLEETH[ChainId.BSC_MAINNET]

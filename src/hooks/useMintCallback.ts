@@ -8,6 +8,7 @@ import {useNFTFactoryContract} from './useContract'
 import {userInterface} from "../state/user/actions";
 import {useTranslation} from "react-i18next";
 import {useHasPendingMint, useTransactionAdder, useUserHasSubmittedMint} from "../state/transactions/hooks";
+import {calculateGasMargin} from "../utils";
 // import {useActiveWeb3React} from "./index";
 
 export enum mintState {
@@ -63,8 +64,13 @@ export function useMintCallback(
                     mintInfo.productRoyalty,
                     0
                 ]
+
+                const estimatedGas = await NFTFactoryContract.estimateGas.mint(...mintargs,{value:`0x${JSBI.BigInt("10000000000000000").toString(16)}`}).catch(() => {
+                    return NFTFactoryContract.estimateGas.mint(...mintargs,{value:`0x${JSBI.BigInt("10000000000000000").toString(16)}`})
+                })
+
                 NFTFactoryContract.mint(
-                    ...mintargs,{ gasLimit: 1000000 ,value:`0x${JSBI.BigInt("10000000000000000").toString(16)}`})
+                    ...mintargs,{ gasLimit: calculateGasMargin(estimatedGas) ,value:`0x${JSBI.BigInt("10000000000000000").toString(16)}`})
                     .then((response: TransactionResponse) => {
                         addTransaction(response, {
                             summary: t('Mint NFT'),
@@ -86,8 +92,13 @@ export function useMintCallback(
                     mintInfo.account
                 ]
                 console.log(args)
+
+                const estimatedGas = await NFTFactoryContract.estimateGas.createERC1155(...args,{value:`0x${JSBI.BigInt("10000000000000000").toString(16)}`}).catch(() => {
+                    return NFTFactoryContract.estimateGas.createERC1155(...args,{value:`0x${JSBI.BigInt("10000000000000000").toString(16)}`})
+                })
+
                 NFTFactoryContract.createERC1155(
-                    ...args,{ gasLimit: 10000000,value:`0x${JSBI.BigInt("10000000000000000").toString(16)}`})
+                    ...args,{ gasLimit: calculateGasMargin(estimatedGas),value:`0x${JSBI.BigInt("10000000000000000").toString(16)}`})
                     .then((response: TransactionResponse) => {
                         addTransaction(response, {
                             summary: t('create NFT'),
