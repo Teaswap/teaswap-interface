@@ -63,8 +63,8 @@ const Author = styled(ColumnCenter)`
   color: #7f7f7f;
   font-size: 13px;
   ${MEDIA_QUERY.sm} {
-    margin-top: 30px;
-    width: 96%;
+    margin-top: 20px;
+    width: 92%;
   }
 `
 
@@ -242,7 +242,7 @@ const Index = ({params}: Props)=>{
       {/* </RowBetween> */}
       <AuthorInfo>
         <Author>
-          <img src={process.env.PUBLIC_URL + '/iro4.webp'} width="100%" style={{marginBottom: '0px'}}/>
+          <img src={process.env.PUBLIC_URL + '/iro4.webp'} width="100%" style={{marginBottom: '0px' , marginTop: '30px'}}/>
         </Author>
         <Box>
           <PoolData>
