@@ -84,7 +84,7 @@ const Box = styled(ColumnCenter)`
   ${MEDIA_QUERY.sm} {
     margin-left: 0;
     margin-top: 0;
-    width: 80%;
+    width: 90%;
   }
 `
 
@@ -208,7 +208,7 @@ const Index = ({params}: Props)=>{
 
   return (
     <PageWrapper>
-      <img style={{marginBottom: "20px" , marginTop:"20px"}} onClick={() => {
+      <img style={{marginBottom: "5px" , marginTop:"20px"}} onClick={() => {
         // window.open("https://docs.google.com/forms/d/e/1FAIpQLSfA-dOW15tyN6dfyZScvcEmT3lC13K9ThFBTruiFD0wOVsoUQ/viewform")
       }} width="100%" src={process.env.PUBLIC_URL + '/iro_banner4.webp'} alt="" />
       {params.idoAddress == '0xF72ECaD992CebB0138aC13b616199f131F847b04' && (
