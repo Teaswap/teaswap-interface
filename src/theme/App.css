@@ -332,5 +332,6 @@
   cursor: pointer;
 }
 .stake-active{
-  text-decoration: underline;
+  /* text-decoration: underline; */
+  border-bottom: 1px solid #7f7f7f
 }
