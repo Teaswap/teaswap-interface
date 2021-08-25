@@ -302,6 +302,10 @@ export const IFO_REWARDS_INFO: {
     {
       tokens: [PAYABLEETH[ChainId.BSC_MAINNET], UNI[ChainId.BSC_MAINNET]],
       idoAddress: '0xF72ECaD992CebB0138aC13b616199f131F847b04'
+    },
+    {
+      tokens: [PAYABLEETH[ChainId.BSC_MAINNET], TSALOT],
+      idoAddress: '0x171c28cB2E92FdD367d4Dbb46200D9Ad5953a04a'
     }
   ]
 }
