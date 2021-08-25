@@ -440,7 +440,7 @@ const Index = ({params}: Props)=>{
           {/* <div className="iro-title">Key terms for TSA Metaverse Lot Offering:</div> */}
           <div className="iro-title1">Key terms for TSA Metaverse Lot Offering:</div>
           <ol style={{fontSize: '15px', textAlign: 'left', lineHeight: "28px", paddingLeft: '18px'}}>
-            <li>​Total 200,000 lots will be available. Made up of virtual LAND, limited editions of virtual property, entertainment, various of avatars and more. $ lot=0.15 BNB</li>
+            <li>​Total 200,000 lots will be available. Made up of virtual LAND, limited editions of virtual property, entertainment, various of avatars and more. $ lot=0.13 BNB</li>
             <li>Each lot is a unique (non-fungible) token that functions as your entrance to access TSA Metaverse Park.</li>
             <li>$lot can be used to  buy TSA Metaverse Lot ( under the NFT TAB “ Virtual World”) , $Lot will be burned afterward.</li>
             <li>TSA Metaverse Lot is based on ERC721 protocol can be traded on TSA NFT Marketplace after offering and can only be purchased with $lot</li>
