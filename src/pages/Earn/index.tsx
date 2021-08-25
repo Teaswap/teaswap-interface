@@ -85,7 +85,7 @@ export default function Earn() {
         <ConSubTitle con={"An amazing yield farm on Binance Smart Chain."} />
       </TopSection> */}
       <NavAndPool>
-        <Nav handleCatChange={changeCate} />
+        <Nav cat={showCat} handleCatChange={changeCate} />
       
         <PoolSection>
           {stakingRewardsExist && stakingInfos?.length === 0 ? (
