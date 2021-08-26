@@ -372,11 +372,11 @@ export const ProductInfo = ({product,user}:{ product:ProductInterface ,user:user
     if (exContract && parsedAmount) {
       if (product.extoken===ZERO_ADDRESS){
 
-        const estimatedGas = await exContract.estimateGas.bidBNB(JSBI.BigInt(product.orderId),{value:`0x${parsedAmount.raw.toString(16)}`}).catch(() => {
-          return exContract.estimateGas.bidBNB(JSBI.BigInt(product.orderId),{value:`0x${parsedAmount.raw.toString(16)}`})
+        const estimatedGas = await exContract.estimateGas.bidBNB(JSBI.BigInt(product.orderId).toString(),{value:`0x${parsedAmount.raw.toString(16)}`}).catch(() => {
+          return exContract.estimateGas.bidBNB(JSBI.BigInt(product.orderId).toString(),{value:`0x${parsedAmount.raw.toString(16)}`})
         })
 
-        exContract.bidBNB(JSBI.BigInt(product.orderId),{gasLimit: calculateGasMargin(estimatedGas), value:`0x${parsedAmount.raw.toString(16)}`})
+        exContract.bidBNB(JSBI.BigInt(product.orderId).toString(),{gasLimit: calculateGasMargin(estimatedGas), value:`0x${parsedAmount.raw.toString(16)}`})
             .then((response:TransactionResponse) => {
               addTransaction(response, {
                 summary: t('bid#'+product.orderId),
@@ -393,7 +393,7 @@ export const ProductInfo = ({product,user}:{ product:ProductInterface ,user:user
           console.log("product:"+JSON.stringify(product))
 
           const estimatedGas = await exContract.estimateGas.bid(JSBI.BigInt(product.orderId).toString(),`0x${parsedAmount.raw.toString(16)}`).catch(() => {
-            return exContract.estimateGas.bid(JSBI.BigInt(product.orderId),`0x${parsedAmount.raw.toString(16)}`)
+            return exContract.estimateGas.bid(JSBI.BigInt(product.orderId).toString(),`0x${parsedAmount.raw.toString(16)}`)
           })
 
           exContract.bid(JSBI.BigInt(product.orderId).toString(),`0x${parsedAmount.raw.toString(16)}`, { gasLimit: calculateGasMargin(estimatedGas) })
