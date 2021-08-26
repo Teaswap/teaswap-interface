@@ -392,11 +392,11 @@ export const ProductInfo = ({product,user}:{ product:ProductInterface ,user:user
         if (approval === ApprovalState.APPROVED) {
           console.log("product:"+JSON.stringify(product))
 
-          const estimatedGas = await exContract.estimateGas.bid(JSBI.BigInt(product.orderId),`0x${parsedAmount.raw.toString(16)}`).catch(() => {
+          const estimatedGas = await exContract.estimateGas.bid(JSBI.BigInt(product.orderId).toString(),`0x${parsedAmount.raw.toString(16)}`).catch(() => {
             return exContract.estimateGas.bid(JSBI.BigInt(product.orderId),`0x${parsedAmount.raw.toString(16)}`)
           })
 
-          exContract.bid(JSBI.BigInt(product.orderId),`0x${parsedAmount.raw.toString(16)}`, { gasLimit: calculateGasMargin(estimatedGas) })
+          exContract.bid(JSBI.BigInt(product.orderId).toString(),`0x${parsedAmount.raw.toString(16)}`, { gasLimit: calculateGasMargin(estimatedGas) })
               .then((response:TransactionResponse) => {
                 addTransaction(response, {
                   summary: t('bid#'+product.orderId),
