@@ -202,7 +202,7 @@ const Product = ({productCat, product, onLoad, loaded, $width, $height, $margin 
     </ProductPrice>
     <Modal isOpen={isProof} onDismiss={dismissPrice} maxHeight={90}>
       <div className="new-modal">
-        <p>{t('Put On sale')}</p>
+        <p>{t('Put On Sale')}</p>
         <InputItem
             title={t('Token')}
             label={t('Which token will you charge for your NFT?')}

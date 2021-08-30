@@ -445,7 +445,7 @@ export const ProductInfo = ({product,user}:{ product:ProductInterface ,user:user
                 <IconContainer onClick={wrappedOnDismiss}>
                   <IconComponent kind='close-black' margin={0} color={COLOR.dark_gray}/>
                 </IconContainer>
-                <InputName>{t('Input biding price')}</InputName>
+                <InputName>{t('Input bidding price')}</InputName>
                 <CurrencyInputPanel
                     id='bidprice'
                     currency={exToken.address===ZERO_ADDRESS?ETHER:exToken}
@@ -504,7 +504,7 @@ export const ProductInfo = ({product,user}:{ product:ProductInterface ,user:user
       <ProductPrice>{product.price+" "+exToken.symbol} </ProductPrice>
       <ProductName style={{fontSize: '12px', marginTop: '10px'}}>Copyright Transferred: {product.sale_copyright ? 'Yes' : 'No'} &nbsp;&nbsp;&nbsp;  Royalty: {product.royalty/100}% </ProductName>
       <ProductQuantitySelector status={product.status} quantity={product.quantity} />
-      <ProductName style={{fontSize: '12px', marginTop: '10px'}}>You must place a bid that is higher than the current bid. </ProductName>
+      {/* <ProductName style={{fontSize: '12px', marginTop: '10px'}}>You must place a bid that is higher than the current bid. </ProductName> */}
       {user ? (
         <ShoppingCart
           onClick={()=>handlebidModal(0)}
