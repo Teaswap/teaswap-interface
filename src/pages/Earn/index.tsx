@@ -109,6 +109,7 @@ export default function Earn() {
                   if (stakingInfo.tokens[0].symbol == 'TSA' && stakingInfo.tokens[1].symbol == 'CJAI') break;
                   if (stakingInfo.tokens[0].symbol == 'CJAI' && stakingInfo.tokens[1].symbol == 'TSA') break;
                   if (stakingInfo.tokens[0].symbol == 'Shih' && stakingInfo.tokens[1].symbol == 'CJAI') break;
+                  if (stakingInfo.cate == 'NFT') break;
                   return;
                 case 4 :
                   let d = new Date().getTime()
