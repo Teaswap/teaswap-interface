@@ -496,7 +496,7 @@ const Index = ({params}: Props)=>{
         paddingBottom: '60px'
       }}>
         <span className="link-btn iro-btn" onClick={() => {
-          window.open("https://www.teaswap.art/nft/products/vendor/263751")
+          window.open("https://www.teaswap.art/nft/products/vendor/264202")
         }}>
           Buy NFT
         </span>

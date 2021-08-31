@@ -201,7 +201,7 @@ const ClientOrdersPage = () => {
                         <Content>
                           {new Date(order.createdAt).toLocaleDateString()}
                         </Content>
-                        <Content>{item.product_price + handleTokenSwitch(item.Product.extoken)}</Content>
+                        <Content>{item.product_price + handleTokenSwitch(item.extoken)}</Content>
                         <Content>
                           {/* {order.is_completed ? '已完成' : '未完成' } */}
                           {t("Complete")}
