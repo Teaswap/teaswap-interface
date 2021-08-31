@@ -27,7 +27,8 @@ const PageWrapper = styled(AutoColumn)`
   margin-top: 80px;
   width: 100%;
   padding: 1rem;
-  box-shadow: 0px 0px 1px rgb(0 0 0 / 1%), 0px 4px 8px rgb(0 0 0 / 4%), 0px 16px 24px rgb(0 0 0 / 4%), 0px 24px 32px rgb(0 0 0 / 1%);
+  // box-shadow: 0px 0px 1px rgb(0 0 0 / 1%), 0px 4px 8px rgb(0 0 0 / 4%), 0px 16px 24px rgb(0 0 0 / 4%), 0px 24px 32px rgb(0 0 0 / 1%);
+  box-shadow: 0 4px 10px 0 rgb(0 0 0 / 65%);
   ${MEDIA_QUERY.sm} {
     width: 80%;
   }
