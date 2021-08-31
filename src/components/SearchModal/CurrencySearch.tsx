@@ -58,6 +58,7 @@ CurrencySearchProps) {
   const [searchQuery, setSearchQuery] = useState<string>('')
   const [invertSearchOrder, setInvertSearchOrder] = useState<boolean>(false)
   const allTokens = useAllTokens()
+  console.log('all tokens: ', allTokens, showCommonBases)
 
   // if they input an address, use it
   const isAddressSearch = isAddress(searchQuery)
