@@ -30,7 +30,7 @@ import {
   USDT_TSA_LP,
   TSA_CAKE_LP,
   ETH_TSA_LP,
-  TSALOT, TSAMetaverse, TSALOTNFT,
+  TSALOT, TSAMetaverse, TSALOTNFT, BTC_TSA_LP,
   // GensisNFT
 } from '../../constants'
 import {
@@ -77,6 +77,31 @@ export const STAKING_REWARDS_INFO: {
     // },
 //0x761e061cdec33C7e0F7071854CF41caE718ECBc0
       //0x353E596DB5B84026ba7905D6461CF2fb0604E7AE
+
+    {
+      tokens: [BTC_TSA_LP, UNI[ChainId.BSC_MAINNET]],
+      stakingRewardAddress: '0x00433e18DC3256d2Dd3702F703EA6355a098B571',
+      iconUrl: "/BTCTSA.png",
+      cate:"TSA"
+    },
+    {
+      tokens: [BNB_SHIH_LP, SHIH],
+      stakingRewardAddress: '0x4395c1Dc164F3e1B5592D2735b54ef6041F4C64c',
+      iconUrl: "/BNBSHIH.png",
+      cate:"TSA"
+    },
+    {
+      tokens: [BNB_TSA_LP, CJAI],
+      stakingRewardAddress: '0xd17F1294f49659f7E396972Af0065c35F0FB647d',
+      iconUrl: "/BNBCJAI.png",
+      cate:"TSA"
+    },
+    {
+      tokens: [BNB_TSA_LP, TSALOT],
+      stakingRewardAddress: '0x2c9Ff22c9845050F7739CC030D45bd266EB74015',
+      iconUrl: "/BNBLOT.png",
+      cate:"TSA"
+    },
     {
       tokens: [UNI[ChainId.BSC_MAINNET], TSALOT],
       stakingRewardAddress: '0x00AFAd5f02Dd3F3093c392b6172E7b8109A6F6D8',

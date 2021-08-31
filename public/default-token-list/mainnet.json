@@ -3,7 +3,7 @@
   "timestamp": "2021-04-12T05:05:10.290Z",
   "version": {
     "major": 1,
-    "minor": 14,
+    "minor": 15,
     "patch": 26
   },
   "tags": {},
@@ -724,6 +724,22 @@
       "decimals": 18,
       "chainId": 56,
       "logoURI": "https://www.teaswap.art/default-token-list/images/0x74926b3d118a63f6958922d3dc05eb9c6e6e00c6.png"
+    },
+    {
+      "name": "CJAI",
+      "address": "0x26c1a317c4cdea9408bf9a82b4c7645bffdfea21",
+      "symbol": "CJAI",
+      "decimals": 18,
+      "chainId": 56,
+      "logoURI": "https://www.teaswap.art/default-token-list/images/0x26c1a317c4cdea9408bf9a82b4c7645bffdfea21.png"
+    },
+    {
+      "name": "TSALOT",
+      "address": "0x1729552618376F8a179c0F61F9FE789C77b230FE",
+      "symbol": "LOT",
+      "decimals": 18,
+      "chainId": 56,
+      "logoURI": "https://www.teaswap.art/default-token-list/images/0x1729552618376F8a179c0F61F9FE789C77b230FE.png"
     },
     {
       "name": "TEAsWAP.ART",

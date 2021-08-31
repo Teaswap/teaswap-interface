@@ -101,6 +101,30 @@ export const USDT_TSA_LP = new Token(
   'USDT_TSA BakeryLP'
 )
 
+export const BTC_TSA_LP = new Token(
+    ChainId.BSC_MAINNET,
+    '0x17cc384dc8057ef2d06ee2e9c5102cba1118971a',
+    18,
+    'BTC_TSA BLP',
+    'BTC_TSA BakeryLP'
+)
+
+export const BNB_CJAI_LP = new Token(
+    ChainId.BSC_MAINNET,
+    '0xfa833a21c87856cf1c853e131bae0d6fc71fe5f8',
+    18,
+    'BNB_CJAI BLP',
+    'BNB_CJAI BakeryLP'
+)
+
+export const BNB_LOT_LP = new Token(
+    ChainId.BSC_MAINNET,
+    '0x56d01ce3ba0425b4cdfe8ac17ed890f0da760205',
+    18,
+    'BNB_LOT BLP',
+    'BNB_LOT BakeryLP'
+)
+
 export const GensisNFT = new Token(
     ChainId.BSC_MAINNET,
     '0x69eF3AeE75113BE968790883B0B91d7D0989309b',
