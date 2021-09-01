@@ -39,7 +39,7 @@ export const MenuItem = styled(RowBetween)`
 export const SearchInput = styled.input`
   position: relative;
   display: flex;
-  padding: 16px;
+  padding: 12px;
   align-items: center;
   // width: 100%;
   white-space: nowrap;
@@ -52,7 +52,7 @@ export const SearchInput = styled.input`
   border: 1px solid ${({ theme }) => theme.bg3};
   -webkit-appearance: none;
 
-  font-size: 18px;
+  font-size: 16px;
 
   ::placeholder {
     color: ${({ theme }) => theme.text3};
