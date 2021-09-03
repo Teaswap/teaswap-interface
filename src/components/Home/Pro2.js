@@ -98,60 +98,60 @@ export default [
   //   mediaType: 1,
   //   id: 11
   // },
-  {
-    picture_url: process.env.PUBLIC_URL + '/nft/pro2/01-119.gif',
-    title: "TSA Metaverse LOT #119",
-    number: "",
-    desc: ``,
-    link: 'https://www.teaswap.art/nft/products/vendor/263751',
-    mediaType: 1,
-    id: 12
-  },
-  {
-    picture_url: process.env.PUBLIC_URL + '/nft/pro2/02-123.gif',
-    title: "TSA Metaverse LOT #123",
-    number: "",
-    desc: ``,
-    link: 'https://www.teaswap.art/nft/products/vendor/263751',
-    mediaType: 1,
-    id: 13
-  },
-  {
-    picture_url: process.env.PUBLIC_URL + '/nft/pro2/03-125.gif',
-    title: "TSA Metaverse LOT #125",
-    number: "",
-    desc: ``,
-    link: 'https://www.teaswap.art/nft/products/vendor/263751',
-    mediaType: 1,
-    id: 14
-  },
-  {
-    picture_url: process.env.PUBLIC_URL + '/nft/pro2/04-126.gif',
-    title: "TSA Metaverse LOT #126",
-    number: "",
-    desc: ``,
-    link: 'https://www.teaswap.art/nft/products/vendor/263751',
-    mediaType: 1,
-    id: 15
-  },
-  {
-    picture_url: process.env.PUBLIC_URL + '/nft/pro2/Norse mythology No.84.jpg',
-    title: "No 90.歐德姆布拉Audhumbla",
-    number: "",
-    desc: ``,
-    link: 'https://www.teaswap.live/tsametaverse',
-    mediaType: 1,
-    id: 16
-  },
-  {
-    picture_url: process.env.PUBLIC_URL + '/nft/pro2/Norse mythology No.85.png',
-    title: "No 85. 贝斯特拉Bestla",
-    number: "",
-    desc: ``,
-    link: 'https://www.teaswap.live/tsametaverse',
-    mediaType: 1,
-    id: 17
-  },
+  // {
+  //   picture_url: process.env.PUBLIC_URL + '/nft/pro2/01-119.gif',
+  //   title: "TSA Metaverse LOT #119",
+  //   number: "",
+  //   desc: ``,
+  //   link: 'https://www.teaswap.art/nft/products/vendor/263751',
+  //   mediaType: 1,
+  //   id: 12
+  // },
+  // {
+  //   picture_url: process.env.PUBLIC_URL + '/nft/pro2/02-123.gif',
+  //   title: "TSA Metaverse LOT #123",
+  //   number: "",
+  //   desc: ``,
+  //   link: 'https://www.teaswap.art/nft/products/vendor/263751',
+  //   mediaType: 1,
+  //   id: 13
+  // },
+  // {
+  //   picture_url: process.env.PUBLIC_URL + '/nft/pro2/03-125.gif',
+  //   title: "TSA Metaverse LOT #125",
+  //   number: "",
+  //   desc: ``,
+  //   link: 'https://www.teaswap.art/nft/products/vendor/263751',
+  //   mediaType: 1,
+  //   id: 14
+  // },
+  // {
+  //   picture_url: process.env.PUBLIC_URL + '/nft/pro2/04-126.gif',
+  //   title: "TSA Metaverse LOT #126",
+  //   number: "",
+  //   desc: ``,
+  //   link: 'https://www.teaswap.art/nft/products/vendor/263751',
+  //   mediaType: 1,
+  //   id: 15
+  // },
+  // {
+  //   picture_url: process.env.PUBLIC_URL + '/nft/pro2/Norse mythology No.84.jpg',
+  //   title: "No 90.歐德姆布拉Audhumbla",
+  //   number: "",
+  //   desc: ``,
+  //   link: 'https://www.teaswap.live/tsametaverse',
+  //   mediaType: 1,
+  //   id: 16
+  // },
+  // {
+  //   picture_url: process.env.PUBLIC_URL + '/nft/pro2/Norse mythology No.85.png',
+  //   title: "No 85. 贝斯特拉Bestla",
+  //   number: "",
+  //   desc: ``,
+  //   link: 'https://www.teaswap.live/tsametaverse',
+  //   mediaType: 1,
+  //   id: 17
+  // },
   {
     picture_url: process.env.PUBLIC_URL + '/nft/pro2/Norse mythology No.86.jpg',
     title: "No 87. 弗丽嘉 Frigg",
@@ -161,15 +161,15 @@ export default [
     mediaType: 1,
     id: 18
   },
-  {
-    picture_url: process.env.PUBLIC_URL + '/nft/pro2/Norse mythology No.87.png',
-    title: "No 92.尤彌爾Ymir",
-    number: "",
-    desc: ``,
-    link: 'https://www.teaswap.live/tsametaverse',
-    mediaType: 1,
-    id: 19
-  },
+  // {
+  //   picture_url: process.env.PUBLIC_URL + '/nft/pro2/Norse mythology No.87.png',
+  //   title: "No 92.尤彌爾Ymir",
+  //   number: "",
+  //   desc: ``,
+  //   link: 'https://www.teaswap.live/tsametaverse',
+  //   mediaType: 1,
+  //   id: 19
+  // },
   {
     picture_url: process.env.PUBLIC_URL + '/nft/pro2/Norse mythology No.88.jpg',
     title: "No 84. 奥丁 Odin",
@@ -197,22 +197,22 @@ export default [
     mediaType: 1,
     id: 22
   },
-  {
-    picture_url: process.env.PUBLIC_URL + '/nft/pro2/Norse mythology No.91.png',
-    title: "No 91.瑟洛特格尔密尔Thrudgelmir",
-    number: "",
-    desc: ``,
-    link: 'https://www.teaswap.live/tsametaverse',
-    mediaType: 1,
-    id: 23
-  },
-  {
-    picture_url: process.env.PUBLIC_URL + '/nft/pro2/Norse mythology No.92.png',
-    title: "No 88. 苏尔特尔Surtr",
-    number: "",
-    desc: ``,
-    link: 'https://www.teaswap.live/tsametaverse',
-    mediaType: 1,
-    id: 24
-  },
+  // {
+  //   picture_url: process.env.PUBLIC_URL + '/nft/pro2/Norse mythology No.91.png',
+  //   title: "No 91.瑟洛特格尔密尔Thrudgelmir",
+  //   number: "",
+  //   desc: ``,
+  //   link: 'https://www.teaswap.live/tsametaverse',
+  //   mediaType: 1,
+  //   id: 23
+  // },
+  // {
+  //   picture_url: process.env.PUBLIC_URL + '/nft/pro2/Norse mythology No.92.png',
+  //   title: "No 88. 苏尔特尔Surtr",
+  //   number: "",
+  //   desc: ``,
+  //   link: 'https://www.teaswap.live/tsametaverse',
+  //   mediaType: 1,
+  //   id: 24
+  // },
 ]
