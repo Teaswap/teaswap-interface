@@ -26,6 +26,8 @@ import {useDerivedBidInfo} from "../../state/stake/hooks";
 import {useNFTExchangeContract} from "../../hooks/useContract";
 import CurrencyInputPanel from "../CurrencyInputPanel";
 import {calculateGasMargin} from "../../utils";
+import useProduct from '../../hooks/productHooks/useProduct';
+import { LastBid } from '../../utils/strUtil';
 
 const ProductInfoContainer = styled.div`
   width: 80%;
@@ -263,7 +265,7 @@ export enum bidState {
   BIDED
 }
 
-export const ProductInfo = ({product,user}:{ product:ProductInterface ,user:userMiniInterface}) => {
+export const ProductInfo = ({product,user}:{ product:ProductInterface, user:userMiniInterface}) => {
   const dispatch = useDispatch();
   // const {user} = useUser();
   // const { user } = useOrder();
@@ -365,6 +367,9 @@ export const ProductInfo = ({product,user}:{ product:ProductInterface ,user:user
     }
   }, [attempting, hash,bState])
 
+  const { productCarts } = useProduct();
+  console.log('productCarts Productinfo', productCarts)
+  
   // const isArgentWallet = useIsArgentWallet()
   const exContract = useNFTExchangeContract(NFTEXCHANGE[ChainId.BSC_MAINNET])
   async function onBid() {
@@ -458,6 +463,9 @@ export const ProductInfo = ({product,user}:{ product:ProductInterface ,user:user
                     onUserInput={(typed) => setBidValue(typed)}
                     customBalanceText={'Available to buy: '}
                 />
+                <p>
+                  Last Bid: {LastBid(productCarts )}
+                </p>
                 <TwoButton>
                   <ButtonConfirmed
                       onClick={approveCallback}

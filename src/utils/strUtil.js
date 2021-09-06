@@ -9,3 +9,15 @@ export const hideAddr = (str) => {
 	if (str.length < 16) return str
 	return str.slice(0, 8) + '...' + str.slice(-8)
 };
+
+export const LastBid = (Carts) => {
+	if (Carts.length == 0) 
+		return 'no bid';
+	let Cart = Carts[0];
+	Carts.forEach(v => {
+		if (v.id > Cart.id) {
+			Cart=v
+		}
+	})	
+	return Cart.bidprice
+}

@@ -107,7 +107,7 @@ export const ProductIntro = ({ product }) => {
 export const FreightIntro = ({ product }) => {
   const {t} = useTranslation();
   const { vendorInfo, Creator, productCarts, productOrders, handleTokenSwitch } = useProduct();
-  console.log('product orders', productOrders)
+  console.log('productCarts FreightIntro', productCarts)
   return (
     <>
       <InfoTitle>{t('Additional Details')}</InfoTitle>

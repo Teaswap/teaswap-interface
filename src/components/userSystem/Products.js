@@ -12,6 +12,7 @@ import useProductForm from "../../hooks/productHooks/useProductForm";
 import {setPriceState, useSetPriceCallback} from "../../hooks/useSetPriceCallback";
 import {InputItem} from "../productSystem";
 import { IoIosMore } from 'react-icons/io'
+import { LastBid } from "../../utils/strUtil"
 
 const ProductsContainer = styled.div`
   padding: 0px 10px 50px 10px;
@@ -245,6 +246,9 @@ const Product = ({productCat, product, onLoad, loaded, $width, $height, $margin 
       <div className="new-modal">
         <p>{t('Set Price')}</p>
         <input type="text" className="input-primary" onChange={(e)=>setNewPrice(e.target.value)}/>
+        <p>
+          Last Bid: {LastBid(product.Cart_items)}
+        </p>
         <div className="modal-btns">
           <span className='btn-sm-100 btn-primary' onClick={(e)=>setPriceCallback(e)}>{t("Confirm")}</span>
           <span className='btn-sm-100 btn-primary' onClick={dismissPrice}>{t("Cancel")}</span>
