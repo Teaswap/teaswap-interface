@@ -81,6 +81,8 @@ const ProductPrice = styled.div`
   font-size: ${FONT.xs};
   color: ${COLOR.text_2};
   text-align: left;
+  display: flex;
+  justify-content: space-between;
 `;
 
 const ButtonContainer = styled.div`
@@ -203,8 +205,10 @@ const Product = ({productCat, product, onLoad, loaded, $width, $height, $margin 
           <span style={{fontSize: '9px'}}>{' ' + handleTokenSwitch(product.extoken)}</span>
         </span>
         <span>
-          {product.Cart_items && product.Cart_items.length>0 (
-            <span>Best Offer {LastBid(product.Cart_items) + handleTokenSwitch(product.Cart_items[0].extoken)}</span>
+          {product.Cart_items && product.Cart_items.length>0 && (
+            <span>Best Offer {LastBid(product.Cart_items) }
+              <span style={{fontSize: '9px'}}>{handleTokenSwitch(product.Cart_items[0].extoken)}</span>
+            </span>
           )}
         </span>
     </ProductPrice>
