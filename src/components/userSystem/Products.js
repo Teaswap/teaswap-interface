@@ -198,8 +198,15 @@ const Product = ({productCat, product, onLoad, loaded, $width, $height, $margin 
       </VendorName>
       {/* <ProductPrice>{formatter.format(product.price)}</ProductPrice> */}
       <ProductPrice>
-        {product.price} 
-        <span style={{fontSize: '9px'}}>{' ' + handleTokenSwitch(product.extoken)}</span>
+        <span>
+          {product.price} 
+          <span style={{fontSize: '9px'}}>{' ' + handleTokenSwitch(product.extoken)}</span>
+        </span>
+        <span>
+          {product.Cart_items && product.Cart_items.length>0 (
+            <span>Best Offer {LastBid(product.Cart_items) + handleTokenSwitch(product.Cart_items[0].extoken)}</span>
+          )}
+        </span>
     </ProductPrice>
     <Modal isOpen={isProof} onDismiss={dismissPrice} maxHeight={90}>
       <div className="new-modal">

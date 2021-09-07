@@ -11,7 +11,7 @@ export const hideAddr = (str) => {
 };
 
 export const LastBid = (Carts) => {
-	if (Carts.length == 0) 
+	if (!Carts || Carts.length == 0) 
 		return 'no bid';
 	let Cart = Carts[0];
 	Carts.forEach(v => {
