@@ -544,13 +544,13 @@ export const ProductInfo = ({product,user}:{ product:ProductInterface, user:user
       )}
       <ul className="product-like-ul">
         {/* <li><AiOutlineLike className="p-icon" /> {vendorInfo.likes}</li> */}
-        <li   style={{  margin: '6px 0 0 0px'}}><AiTwotoneHeart    className="p-icon" />
+        <li   style={{ height: '20px' , width: '15%', margin: '6px 0 0 0px'}}><AiTwotoneHeart    className="p-icon" />
         <div  style={{fontSize: '12px' ,paddingLeft: '2px'}}>{vendorInfo.likes}</div></li>
         
-        <li  style={{ height: '20px', margin: '6px 0 0 25px'}}><AiOutlineEye       className="p-icon"/>
+        <li  style={{height: '20px' , width: '15%', margin: '6px 0 0 0px'}}><AiOutlineEye       className="p-icon"/>
         <div style={{fontSize: '12px' ,paddingLeft: '2px'}}>{vendorInfo.views}</div></li>
 
-        <li  style={{ margin: '6px 0 0 25px'}}><AiOutlineShareAlt  className="p-icon"/>
+        <li  style={{height: '20px' , width: '15%', margin: '6px 0 0 0px'}}><AiOutlineShareAlt  className="p-icon"/>
         <div style={{fontSize: '12px' ,paddingLeft: '2px'}}>{vendorInfo.Share}Share</div></li>
 
         <li></li>
