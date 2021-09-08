@@ -28,8 +28,13 @@ import CurrencyInputPanel from "../CurrencyInputPanel";
 import {calculateGasMargin} from "../../utils";
 import useProduct from '../../hooks/productHooks/useProduct';
 import { LastBid } from '../../utils/strUtil';
-import { AiOutlineLike, AiOutlineEye, AiOutlineShareAlt } from "react-icons/ai";
+import { AiOutlineEye, AiOutlineShareAlt, AiTwotoneHeart } from "react-icons/ai";
 
+// const Container = styled.li`
+
+//   width: 18px;
+//   height: 16px;
+// `;
 const ProductInfoContainer = styled.div`
   width: 80%;
 `;
@@ -512,12 +517,7 @@ export const ProductInfo = ({product,user}:{ product:ProductInterface, user:user
       <ProductName>{product.name || 'Loading...'}</ProductName>
       <ProductPrice>{product.price+" "+exToken.symbol} </ProductPrice>
       <ProductName style={{fontSize: '12px', marginTop: '10px'}}>Copyright Transferred: {product.sale_copyright ? 'Yes' : 'No'} &nbsp;&nbsp;&nbsp;  Royalty: {product.royalty/100}% </ProductName>
-      <ul className="product-like-ul">
-        <li><AiOutlineLike className="p-icon" /> {vendorInfo.likes}</li>
-        <li><AiOutlineEye  className="p-icon"/> {vendorInfo.views}</li>
-        <li><AiOutlineShareAlt  className="p-icon"/> Share</li>
-        <li></li>
-      </ul>
+      
       <ProductQuantitySelector status={product.status} quantity={product.quantity} />
       {/* <ProductName style={{fontSize: '12px', marginTop: '10px'}}>You must place a bid that is higher than the current bid. </ProductName> */}
       {user ? (
@@ -542,7 +542,19 @@ export const ProductInfo = ({product,user}:{ product:ProductInterface, user:user
         {t('Buy Now')}
         </ShoppingBuy>
       )}
+      <ul className="product-like-ul">
+        {/* <li><AiOutlineLike className="p-icon" /> {vendorInfo.likes}</li> */}
+        <li   style={{  margin: '6px 0 0 0px'}}><AiTwotoneHeart    className="p-icon" />
+        <div  style={{fontSize: '12px' ,paddingLeft: '2px'}}>{vendorInfo.likes}</div></li>
+        
+        <li  style={{ height: '20px', margin: '6px 0 0 25px'}}><AiOutlineEye       className="p-icon"/>
+        <div style={{fontSize: '12px' ,paddingLeft: '2px'}}>{vendorInfo.views}</div></li>
 
+        <li  style={{ margin: '6px 0 0 25px'}}><AiOutlineShareAlt  className="p-icon"/>
+        <div style={{fontSize: '12px' ,paddingLeft: '2px'}}>{vendorInfo.Share}</div></li>
+
+        <li></li>
+      </ul>
       <Remind />
     </ProductInfoContainer>
   );

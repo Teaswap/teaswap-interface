@@ -352,12 +352,14 @@
   color: #929295;
   align-items: center;
   display: flex;
+  width: 25px ;
+  height: 25px;
 }
 .product-like-ul > li:first-child{
   margin-left: 0;
 }
 .product-like-ul > li > .p-icon{
-  width: 25px;
-  height: 25px;
+  width: 30px;
+  height: 30px;
   cursor: pointer;
 }

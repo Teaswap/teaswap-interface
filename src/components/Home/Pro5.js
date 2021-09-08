@@ -4,7 +4,7 @@ export default [
     title: "TSANFT No.29 Metaverse",
     number: "",
     desc: 'sold for 12400 TSA',
-    link: '/nft/products/category/0',
+    link: '/nft/products/category/3',
     mediaType: 1,
     id: 1
   },
@@ -13,7 +13,7 @@ export default [
     title: "TSANFT No.30 Metaverse",
     number: "",
     desc: 'sold for 12400 TSA',
-    link: '/nft/products/category/0',
+    link: '/nft/products/category/3',
     mediaType: 1,
     id: 1
   },
@@ -31,7 +31,7 @@ export default [
     title: "TSANFT No.28 Metaverse",
     number: "",
     desc: 'sold for 12400 TSA',
-    link: '/nft/products/category/0',
+    link: '/nft/products/category/3',
     mediaType: 1,
     id: 1
   },
@@ -40,7 +40,7 @@ export default [
     title: "TSANFT No.27 Metaverse",
     number: "",
     desc: 'sold for 12400 TSA',
-    link: '/nft/products/category/0',
+    link: '/nft/products/category/3',
     mediaType: 1,
     id: 1
   },
@@ -67,7 +67,7 @@ export default [
     title: "Shih CryptoPunk No.15 Ocean Token",
     number: "",
     desc: 'Sold for 10,000 TSA',
-    link: '/nft/products/category/0',
+    link: '/nft/products/category/6',
     mediaType: 1,
     id: 1
   },
@@ -76,7 +76,7 @@ export default [
     title: "Shih CryptoPunk No. 19",
     number: "",
     desc: 'Sold for 910,000 Shih',
-    link: '/nft/products/category/0',
+    link: '/nft/products/category/6',
     mediaType: 1,
     id: 1
   },
@@ -85,7 +85,7 @@ export default [
     title: "TSANFT No. 66 Metaverse",
     number: "",
     desc: 'Sold for 0.001 ETH',
-    link: '/nft/products/category/0',
+    link: '/nft/products/category/3',
     mediaType: 1,
     id: 1
   },
