@@ -551,7 +551,7 @@ export const ProductInfo = ({product,user}:{ product:ProductInterface, user:user
         <div style={{fontSize: '12px' ,paddingLeft: '2px'}}>{vendorInfo.views}</div></li>
 
         <li  style={{ margin: '6px 0 0 25px'}}><AiOutlineShareAlt  className="p-icon"/>
-        <div style={{fontSize: '12px' ,paddingLeft: '2px'}}>{vendorInfo.Share}</div></li>
+        <div style={{fontSize: '12px' ,paddingLeft: '2px'}}>{vendorInfo.Share}Share</div></li>
 
         <li></li>
       </ul>
