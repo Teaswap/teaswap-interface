@@ -54,7 +54,7 @@ export const NormalButton = styled(ButtonWrapper)`
 `;
 
 export const GreyBtn = styled(ButtonPrimary)`
-  margin: 40px 0 30px 0;
+  margin: 40px 0 25px 0;
   padding: 0px;
   width: 286px;
   height: 40px;
