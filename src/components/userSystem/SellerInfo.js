@@ -27,7 +27,7 @@ const Avatar = styled.img`
 
 const InfoContainer = styled.div`
   align-self: center;
-  height: 130px;
+  // height: 130px;
   min-width: max-content;
   display: flex;
   flex-direction: column;
@@ -101,7 +101,7 @@ const InfoLeft = ({vendorInfo, onLoad, loaded }) => {
   const navigate = useNavigate()  
   return (
     <div className="user-left">
-      <div style={{cursor: 'pointer'}} onClick={() => {
+      <div style={{cursor: 'pointer', marginTop: -100}} onClick={() => {
         navigate(`/nft/products/vendor/${vendorInfo.userId}`)
        }} className="user-avatar-div flex-center">
         <img
