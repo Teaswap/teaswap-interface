@@ -81,7 +81,7 @@ const ProductPage = () => {
     products,
     category,
     productErrorMessage,
-    handleGetProduct,
+    handleGetProduct
   } = useProduct();
 
   useEffect(() => {

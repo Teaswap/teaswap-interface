@@ -26,6 +26,7 @@ import {
   getUserById,
   selectUserCreated,
   selectUserSold,
+  likeProduct,
 } from '../../redux/slices/productSlice/productSlice';
 
 import { tokenOptions} from "../../constants";
@@ -112,6 +113,10 @@ export default function useProduct() {
   const handleGetProducts = (page) => {
     dispatch(setPage(page));
     getProducts(page)(dispatch);
+  };
+
+  const handleLikeProduct = (id) => {
+    likeProduct(id)(dispatch);
   };
 
   const handleGetProductCategories = () => getProductCategories()(dispatch);
@@ -223,6 +228,7 @@ export default function useProduct() {
     handleChangeProductSort,
     handleGetUserById,
     handleTokenSwitch,
-    getLeftCountForProduct
+    getLeftCountForProduct,
+    handleLikeProduct
   };
 }

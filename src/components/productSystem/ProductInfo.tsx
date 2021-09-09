@@ -21,7 +21,7 @@ import {useETHBalances, useTokenBalance} from "../../state/wallet/hooks";
 import {ChainId, ETHER, JSBI} from "@teaswap/uniswap-sdk";
 import {LoadingView, SubmittedView} from "../ModalViews";
 import {AutoColumn} from "../Column";
-import {TYPE} from "../../theme";
+import {TYPE, ExternalLink} from "../../theme";
 import {useDerivedBidInfo} from "../../state/stake/hooks";
 import {useNFTExchangeContract} from "../../hooks/useContract";
 import CurrencyInputPanel from "../CurrencyInputPanel";
@@ -184,6 +184,8 @@ interface ProductInterface{
   status: number,
   createdAt:string,
   sale_copyright: number,
+  views: number,
+  likes: number,
 }
 
 const ProductQuantitySelector = ({quantity, status}:{quantity:number, status: number}) => {
@@ -373,7 +375,7 @@ export const ProductInfo = ({product,user}:{ product:ProductInterface, user:user
     }
   }, [attempting, hash,bState])
 
-  const { vendorInfo, productCarts } = useProduct();
+  const { productCarts, handleLikeProduct } = useProduct();
   console.log('productCarts Productinfo', productCarts)
   
   // const isArgentWallet = useIsArgentWallet()
@@ -543,14 +545,19 @@ export const ProductInfo = ({product,user}:{ product:ProductInterface, user:user
         </ShoppingBuy>
       )}
       <ul className="product-like-ul">
-        <li><AiTwotoneHeart  className="p-icon" />
-        <div>{vendorInfo.likes} </div></li>
+        <li><AiTwotoneHeart onClick={() => {
+          handleLikeProduct(product.id)
+        }} className="p-icon" />
+        <div>{product.likes} </div></li>
         
         <li><AiOutlineEye   className="p-icon"/>
-        <div>{vendorInfo.views} </div></li>
+        <div>{product.views} </div></li>
 
-        <li><AiOutlineShareAlt  className="p-icon"/>
-        <div>{vendorInfo.Share}Share</div></li>
+        <li>
+          <ExternalLink href={`https://www.twitter.com/intent/tweet?url=${window.location.href}&text=${product.name}`}>
+            <AiOutlineShareAlt className="p-icon"/> Share
+          </ExternalLink>
+        </li>
 
         <li></li>
       </ul>

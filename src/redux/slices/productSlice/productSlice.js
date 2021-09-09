@@ -10,7 +10,8 @@ import {
   postProductAPI,
   updateProductAPI,
   deleteProductAPI,
-  setPriceAPI
+  setPriceAPI,
+  likeProductAPI
 } from '../../../webAPI/productAPI';
 import {completeOrder, createOrder as createOrderAPI} from "../../../webAPI/cartAPI";
 import {setIsLoading, setOrderNumber} from "../cartSlice/cartSlice";
@@ -111,6 +112,21 @@ export const getProducts = (page) => (dispatch) => {
     dispatch(setProductCount(count));
   });
 };
+
+export const likeProduct = (id) => (dispatch) => {
+  likeProductAPI(id).then((res) => {
+    if (res.ok === 0) {
+      if (typeof res.message === 'object') {
+        return dispatch(setErrorMessage('something wrong'));
+      }
+      return dispatch(setErrorMessage(res ? res.message : 'something wrong'));
+    }
+    const { product } = res.data;
+    dispatch(setProduct(product));
+  });
+};
+
+
 
 export const getProduct = (id) => (dispatch) => {
   return getProductAPI(id).then((res) => {
