@@ -70,10 +70,11 @@
   flex-wrap: wrap;
 }
 .user-icons{
-  width: 50%;
-  margin: 0 auto;
+  width: 100%;
+  /* margin: 0 auto; */
   display: flex;
   justify-content: flex-start;
+  margin-left: 40px;
 }
 .margin10{
   margin: 10px;
