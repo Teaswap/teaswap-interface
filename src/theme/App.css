@@ -70,7 +70,7 @@
   flex-wrap: wrap;
 }
 .user-icons{
-  width: 90%;
+  width: 50%;
   margin: 0 auto;
   display: flex;
   justify-content: flex-start;
@@ -80,7 +80,7 @@
 }
 .user-left{
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: flex-start;
 }
 .user-avatar-div{
