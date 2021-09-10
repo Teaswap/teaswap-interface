@@ -70,17 +70,18 @@
   flex-wrap: wrap;
 }
 .user-icons{
-  width: 90%;
-  margin: 0 auto;
+  width: 100%;
+  /* margin: 0 auto; */
   display: flex;
   justify-content: flex-start;
+  margin-left: 40px;
 }
 .margin10{
   margin: 10px;
 }
 .user-left{
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: flex-start;
 }
 .user-avatar-div{

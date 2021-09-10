@@ -48,9 +48,10 @@ const SellerName = styled.div`
   color: #474747;
   font-weight: bold;
   margin-right: 26px;
-  width: 90%;
-  margin: 0 auto;
+  width: 100%;
+  // margin: 0 auto;
   cursor: pointer;
+  margin-left: 40px;
 `;
 
 const InfoBottom = styled.div`
@@ -120,13 +121,13 @@ const InfoLeft = ({vendorInfo, onLoad, loaded }) => {
           {/*<ActionButton $margin={20}>+ 加入關注</ActionButton>*/}
           <div className="user-icons">
             <ExternalLink className="margin10" href={`${vendorInfo.instagram}`}>
-              <AiFillInstagram color="#7a7a7a" title="twitter" size="30"/>
+              <AiFillInstagram color="#7a7a7a" title="twitter" size="20"/>
             </ExternalLink>
             <ExternalLink className="margin10" href={`${vendorInfo.twitter}`}>
-              <AiFillTwitterSquare color="#7a7a7a" title="twitter" size="30"/>
+              <AiFillTwitterSquare color="#7a7a7a" title="twitter" size="20"/>
             </ExternalLink>
             <NavLink className="margin10" style={{ minWidth: 'fit-content' }} to={`/nft/users/vendor/${vendorInfo.userId}`}>
-              <AiFillEdit color="#7a7a7a" title="Edit Contact" size="30"/>
+              <AiFillEdit color="#7a7a7a" title="Edit Contact" size="20"/>
             </NavLink>
           </div>
       </InfoContainer>
