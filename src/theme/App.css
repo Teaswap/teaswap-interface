@@ -93,6 +93,8 @@
 .user-avatar{
   width: auto; 
   height: 50%;
+  margin-top: -200px;
+  z-index: 10;
 }
 .flex-center{
   display: flex;

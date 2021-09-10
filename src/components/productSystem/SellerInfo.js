@@ -135,8 +135,10 @@ const InfoLeft = ({ vendorInfo, onLoad, loaded }) => {
           onLoad={onLoad}
         />
       </div>
-      <InfoContainer>
-        <SellerName>{vendorInfo.nickname}</SellerName>
+      <InfoContainer style={{
+        marginTop: -100
+      }}>
+        <SellerName style={{marginLeft: 40}}>{vendorInfo.nickname}</SellerName>
           {/*<ActionButton $margin={20}>+ 加入關注</ActionButton>*/}
           <div className="user-icons">
             <ExternalLink className="margin10" href={`${vendorInfo.twitter}`}>
@@ -277,12 +279,6 @@ export const SellerInfo = ({
         loaded={loaded}
       />
       <InfoMiddle vendorInfo={vendorInfo} products={products} />
-      {/* <InfoRight
-        email={vendorInfo.email}
-        isShowContact={isShowContact}
-        setIsShowContact={setIsShowContact}
-        handleClick={handleClick}
-      /> */}
     </InfoBlock>
   );
 };

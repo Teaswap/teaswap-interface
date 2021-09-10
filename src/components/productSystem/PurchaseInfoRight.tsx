@@ -66,6 +66,8 @@ export interface ProductInterface{
     status: number,
     createdAt:string,
     sale_copyright: number,
+    views: number,
+    likes: number,
 }
 
 interface infoRightProps {
