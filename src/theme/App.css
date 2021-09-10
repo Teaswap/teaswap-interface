@@ -364,11 +364,12 @@
   height: 20px;
   cursor: pointer;
 }
-.product-like-ul > li > a{
+.product-like-ul > li  .svg-icon{
   width: 20px;
   height: 20px;
   cursor: pointer;
 }
+
 .product-like-ul > li   div{
   font-size: 12px;
   padding-left: 2px ;

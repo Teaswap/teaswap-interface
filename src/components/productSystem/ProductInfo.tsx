@@ -554,8 +554,10 @@ export const ProductInfo = ({product,user}:{ product:ProductInterface, user:user
         <div>{product.views} </div></li>
 
         <li>
-          <ExternalLink className="p-icon" href={`https://www.twitter.com/intent/tweet?url=${window.location.href}&text=${product.name}`}>
-            <AiOutlineShareAlt className="p-icon"/> Share
+          <ExternalLink href={`https://www.twitter.com/intent/tweet?url=${window.location.href}&text=${product.name}`}>
+           
+            <AiOutlineShareAlt className="svg-icon"/> Share
+           
           </ExternalLink>
         </li>
 
