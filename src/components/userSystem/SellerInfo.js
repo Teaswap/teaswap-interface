@@ -47,11 +47,10 @@ const SellerName = styled.div`
   font-size: 13px;
   color: #474747;
   font-weight: bold;
-  margin-right: 26px;
   width: 100%;
   // margin: 0 auto;
   cursor: pointer;
-  margin-left: 40px;
+  margin-left: 30px;
 `;
 
 const InfoBottom = styled.div`
@@ -117,6 +116,7 @@ const InfoLeft = ({vendorInfo, onLoad, loaded }) => {
           navigate(`/nft/products/vendor/${vendorInfo.userId}`)
         }} >
           {vendorInfo.nickname}
+          '56_0x14fbB0EF8c21070342DAdc71CE68c4ceee873552'
         </SellerName>
           {/*<ActionButton $margin={20}>+ 加入關注</ActionButton>*/}
           <div className="user-icons">
