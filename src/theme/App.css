@@ -364,6 +364,11 @@
   height: 20px;
   cursor: pointer;
 }
+.product-like-ul > li > a{
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
 .product-like-ul > li   div{
   font-size: 12px;
   padding-left: 2px ;
