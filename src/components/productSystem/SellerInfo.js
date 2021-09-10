@@ -44,7 +44,7 @@ const Avatar = styled.img`
 
 const InfoContainer = styled.div`
   align-self: center;
-  height: 130px;
+  height: 110px;
   min-width: max-content;
   display: flex;
   flex-direction: column;
