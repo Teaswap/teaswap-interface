@@ -28,7 +28,7 @@ import CurrencyInputPanel from "../CurrencyInputPanel";
 import {calculateGasMargin} from "../../utils";
 import useProduct from '../../hooks/productHooks/useProduct';
 import { LastBid } from '../../utils/strUtil';
-import { AiOutlineEye, AiTwotoneHeart } from "react-icons/ai";
+import { AiOutlineEye, AiFillHeart } from "react-icons/ai";
 import { GiShare} from "react-icons/gi";
 
 // const Container = styled.li`
@@ -546,7 +546,7 @@ export const ProductInfo = ({product,user}:{ product:ProductInterface, user:user
         </ShoppingBuy>
       )}
       <ul className="product-like-ul">
-        <li><AiTwotoneHeart onClick={() => {
+        <li><AiFillHeart onClick={() => {
           handleLikeProduct(product.id)
         }} className="p-icon" />
         <div>{product.likes} </div></li>
