@@ -368,6 +368,7 @@
   width: 20px;
   height: 20px;
   cursor: pointer;
+  float: left;
 }
 
 .product-like-ul > li   div{
