@@ -131,7 +131,7 @@ const InfoLeft = ({ vendorInfo, onLoad, loaded }) => {
         <img
           className="user-avatar"
           src={vendorInfo.avatar_url  || 'https://i.imgur.com/PFVXOOM.png'}
-          style={{ opacity: loaded ? 1 : 0 }}
+          style={{ opacity: loaded ? 1 : 0, }}
           onLoad={onLoad}
         />
       </div>
