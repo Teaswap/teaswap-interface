@@ -86,8 +86,9 @@ const InfoBottom = styled.div`
 `;
 
 const InfoBottomItem = styled.div`
-  margin: 5px 20px 5px 0;
-  width: 90px;
+  margin: 5px 10px 5px 10px;
+  // width: 90px;
+  text-align: center;
 `;
 
 const InfoName = styled.p`
