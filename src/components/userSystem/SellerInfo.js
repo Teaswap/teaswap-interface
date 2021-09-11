@@ -26,7 +26,7 @@ const Avatar = styled.img`
 `;
 
 const InfoContainer = styled.div`
-  align-self: center;
+  align-self: end;
   // height: 130px;
   min-width: max-content;
   display: flex;
