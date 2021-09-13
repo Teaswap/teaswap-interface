@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { isMobile } from 'react-device-detect'
 
 const preBtnSty = {
-  backgroundColor: "rgba(0, 0, 0, 0.2)",
+  backgroundColor: "rgba(0, 0, 0, 0)",
   width: '40px',
   height: '40px',
   borderRadius: '20px',

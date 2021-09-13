@@ -1,7 +1,13 @@
 import React from 'react'
 import Carousel from 'nuka-carousel';
 import { useNavigate } from 'react-router';
-
+const preBtnSty = {
+  backgroundColor: "rgba(0, 0, 0, 0)",
+  width: '40px',
+  height: '40px',
+  borderRadius: '20px',
+  // display: 'none'
+}
 export default function HomeProducts({products}) {
 	const isMobile = window.innerWidth <= 500
 	const navigate = useNavigate()
@@ -24,6 +30,8 @@ export default function HomeProducts({products}) {
 					fill: 'white',
 					margin: '0 5px',
 				},
+				prevButtonStyle: preBtnSty,
+        nextButtonStyle: preBtnSty
 			}}
 		>
 			{products.map((product) => {
