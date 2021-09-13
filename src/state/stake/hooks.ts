@@ -330,12 +330,14 @@ export const IFO_REWARDS_INFO: {
     },
     {
       tokens: [PAYABLEETH[ChainId.BSC_MAINNET], TSALOT],
-      idoAddress: '0x171c28cB2E92FdD367d4Dbb46200D9Ad5953a04a'
+      idoAddress: '0x1Ef0d833Ad1b1D76da36bb28bEF37Ee86874571E'
     }
   ]
 }
 
 //0xb222571f700a9f0A86a4e70A5dA16d9Da8b9E042
+//0x1Ef0d833Ad1b1D76da36bb28bEF37Ee86874571E
+//0x171c28cB2E92FdD367d4Dbb46200D9Ad5953a04a
 export interface StakingInfo {
   // the address of the reward contract
   stakingRewardAddress: string
