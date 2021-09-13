@@ -11,7 +11,7 @@ const AnnouncementContainer = styled.section`
   width: calc(100% 100px);
   min-height: 130px;
   background: ${COLOR.bg_secondary};
-  padding: 20px 50px;
+  padding: 20px 30px;
   font-size: ${FONT.xs};
   ${MEDIA_QUERY.sm} {
     width: 90%;
