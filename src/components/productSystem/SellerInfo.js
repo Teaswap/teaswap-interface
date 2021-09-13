@@ -44,7 +44,7 @@ const Avatar = styled.img`
 
 const InfoContainer = styled.div`
   align-self: center;
-  height: 130px;
+  height: 110px;
   min-width: max-content;
   display: flex;
   flex-direction: column;
@@ -86,8 +86,9 @@ const InfoBottom = styled.div`
 `;
 
 const InfoBottomItem = styled.div`
-  margin: 5px 20px 5px 0;
-  width: 90px;
+  margin: 5px 10px 5px 10px;
+  // width: 90px;
+  text-align: center;
 `;
 
 const InfoName = styled.p`
@@ -142,13 +143,13 @@ const InfoLeft = ({ vendorInfo, onLoad, loaded }) => {
           {/*<ActionButton $margin={20}>+ 加入關注</ActionButton>*/}
           <div className="user-icons">
             <ExternalLink className="margin10" href={`${vendorInfo.twitter}`}>
-              <AiFillInstagram color="#7a7a7a" title="twitter" size="30"/>
+              <AiFillInstagram color="#7a7a7a" title="twitter" size="20"/>
             </ExternalLink>
             <ExternalLink className="margin10" href={`${vendorInfo.twitter}`}>
-              <AiFillTwitterSquare color="#7a7a7a" title="twitter" size="30"/>
+              <AiFillTwitterSquare color="#7a7a7a" title="twitter" size="20"/>
             </ExternalLink>
             <span style={{cursor: 'pointer'}} className="margin10">
-              <AiFillLike size="30" color="#7a7a7a" title={t("Follow")} />
+              <AiFillLike size="20" color="#7a7a7a" title={t("Follow")} />
             </span>
           </div>
       </InfoContainer>

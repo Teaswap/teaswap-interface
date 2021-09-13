@@ -74,7 +74,7 @@
   /* margin: 0 auto; */
   display: flex;
   justify-content: flex-start;
-  margin-left: 40px;
+  margin-left: 18px;
 }
 .margin10{
   margin: 10px;
@@ -364,6 +364,13 @@
   height: 20px;
   cursor: pointer;
 }
+.product-like-ul > li  .svg-icon{
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  float: left;
+}
+
 .product-like-ul > li   div{
   font-size: 12px;
   padding-left: 2px ;

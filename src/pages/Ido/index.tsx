@@ -15,7 +15,7 @@ const Index = ()=>{
 
   return (
     <>
-      {params.idoAddress == '0x171c28cB2E92FdD367d4Dbb46200D9Ad5953a04a' && (
+      {params.idoAddress == '0x1Ef0d833Ad1b1D76da36bb28bEF37Ee86874571E' && (
           <Index4 params={p} />
       )}
       {params.idoAddress == '0xF72ECaD992CebB0138aC13b616199f131F847b04' && (
