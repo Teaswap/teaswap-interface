@@ -11,7 +11,7 @@ import {MintInfoInterface} from "../../hooks/useMintCallback";
 // helper that can take a ethers library transaction response and add it to the list of transactions
 export function useTransactionAdder(): (
   response: TransactionResponse,
-  customData?: { summary?: string; approval?: { tokenAddress: string; spender: string }; claim?: { recipient: string };mint?:MintInfoInterface; setprice?: {orderid:number;price:number};bid?:{orderid:string;price:string};withdrawBid?:{orderid:number;price:number}; nftapproval?: { tokenAddress: string; spender: string;tokenId: number } }
+  customData?: { summary?: string; approval?: { tokenAddress: string; spender: string }; claim?: { recipient: string };mint?:MintInfoInterface; setprice?: {orderid:number;price:number};bid?:{orderid:string;price:string};withdrawBid?:{orderid:number;price:number}; nftapproval?: { tokenAddress: string; spender: string;tokenId: number }; transfer?:{nftAddress:string,tokenid:number,toAddress:string} }
 ) => void {
   const { chainId, account } = useActiveWeb3React()
   const dispatch = useDispatch<AppDispatch>()
@@ -27,8 +27,9 @@ export function useTransactionAdder(): (
           setprice,
           bid,
           withdrawBid,
-          nftapproval
-      }: { summary?: string; claim?: { recipient: string }; approval?: { tokenAddress: string; spender: string }; mint?: MintInfoInterface; setprice?: {orderid:number;price:number};bid?:{orderid:string;price:string}; withdrawBid?:{orderid:number;price:number};nftapproval?: { tokenAddress: string; spender: string;tokenId: number } } = {}
+          nftapproval,
+          transfer
+      }: { summary?: string; claim?: { recipient: string }; approval?: { tokenAddress: string; spender: string }; mint?: MintInfoInterface; setprice?: {orderid:number;price:number};bid?:{orderid:string;price:string}; withdrawBid?:{orderid:number;price:number};nftapproval?: { tokenAddress: string; spender: string;tokenId: number };transfer?:{nftAddress:string,tokenid:number,toAddress:string} } = {}
     ) => {
       if (!account) return
       if (!chainId) return
@@ -37,7 +38,7 @@ export function useTransactionAdder(): (
       if (!hash) {
         throw Error('No transaction hash found.')
       }
-      dispatch(addTransaction({ hash, from: account, chainId, approval, summary, claim,mint, setprice, bid,withdrawBid,nftapproval }))
+      dispatch(addTransaction({ hash, from: account, chainId, approval, summary, claim,mint, setprice, bid,withdrawBid,nftapproval,transfer }))
     },
     [dispatch, chainId, account]
   )
@@ -170,6 +171,45 @@ export function useUserHasSubmittedSetPrice(
     }, [orderid,price, allTransactions])
     console.log("setPirceTxn:"+JSON.stringify(setPirceTxn))
     return { setPriceSubmitted: Boolean(setPirceTxn), setPirceTxn }
+}
+
+export function useHasPendingTransfer(nftAddress:string,tokenid:number,toAddress:string): boolean {
+    const allTransactions = useAllTransactions()
+    return useMemo(
+        () =>
+            toAddress != '' &&
+            Object.keys(allTransactions).some(hash => {
+                const tx = allTransactions[hash]
+                if (!tx) return false
+                if (tx.receipt) {
+                    return false
+                } else {
+                    const transfer = tx.transfer
+                    if (!transfer) return false
+                    return isTransactionRecent(tx)
+                }
+            }),
+        [allTransactions, tokenid,nftAddress,toAddress]
+    )
+}
+
+export function useUserHasSubmittedTransfer(
+    nftAddress:string,tokenid:number,toAddress:string
+): { transferSubmitted: boolean; transferTxn: TransactionDetails | undefined } {
+    const allTransactions = useAllTransactions()
+    console.log("allTransactions:"+JSON.stringify(allTransactions))
+    // get the txn if it has been submitted
+    const transferTxn = useMemo(() => {
+
+        const txnIndex = Object.keys(allTransactions).find(hash => {
+            const tx = allTransactions[hash]
+            return tx.transfer && tx.receipt?.status===1 &&tx.transfer.tokenid === tokenid && tx.transfer.nftAddress === nftAddress && tx.transfer.toAddress === toAddress
+        })
+        console.log("txnIndex:"+txnIndex)
+        return txnIndex && allTransactions[txnIndex] ? allTransactions[txnIndex] : undefined
+    }, [nftAddress,tokenid,toAddress, allTransactions])
+    console.log("transferTxn:"+JSON.stringify(transferTxn))
+    return { transferSubmitted: Boolean(transferTxn), transferTxn }
 }
 
 export function useHasPendingBid(orderid:string,price:string): boolean {

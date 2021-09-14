@@ -5,10 +5,11 @@ import { postPictureAPI } from '../../webAPI/productAPI';
 import {
   postProduct,
   updateProduct,
-  setPrice
+  setPrice, transfer
 } from '../../redux/slices/productSlice/productSlice';
 import { useTranslation } from 'react-i18next'
 import {MintInfoInterface} from "../useMintCallback";
+import useLogin from "../userHooks/useLogin";
 
 export default function useProductForm(id) {
   const navigate = useNavigate();
@@ -221,6 +222,20 @@ export default function useProductForm(id) {
     // navigate('/nft/users/backstage')
   };
 
+
+  const handleTransfer = (id,toAddress,chainId) => {
+    transfer(id,toAddress,chainId)
+  };
+
+  const checkisUser = (address) => {
+    // checkDataValidity();
+    // if (!hasError) {
+    // product.price=price;
+    // return isUser(address)(dispatch);
+    // }
+    // navigate('/nft/users/backstage')
+  };
+
   const handleSubmitEditForm = (e) => {
     e.preventDefault();
     checkDataValidity();
@@ -313,7 +328,8 @@ export default function useProductForm(id) {
     handleSetPrice,
     handleResaleProduct,
     hasSaleCopyright,
-    saleCopyright,
     setSaleCopyright,
+    handleTransfer,
+    checkisUser
   };
 }

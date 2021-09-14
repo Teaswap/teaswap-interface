@@ -25,6 +25,7 @@ export const addTransaction = createAction<{
   nftapproval?: { tokenAddress: string; spender: string;tokenId: number }
   summary?: string
   mint?:MintInfoInterface
+  transfer?:{nftAddress:string,tokenid:number,toAddress:string}
 }>('transactions/addTransaction')
 export const clearAllTransactions = createAction<{ chainId: ChainId }>('transactions/clearAllTransactions')
 export const finalizeTransaction = createAction<{

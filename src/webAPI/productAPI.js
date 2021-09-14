@@ -111,6 +111,26 @@ const setPriceAPI = (id,price)=>{
   }).then((res) => res.json());
 };
 
+const transferAPI = (id,toAddress,chainid)=>{
+  const token = localStorage.getItem('token');
+
+  return fetch(`${BASE_URL}/products/transfer/${id}`, {
+    method: 'PATCH',
+    headers: {
+      'content-type': 'application/json',
+      authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify({
+      address:toAddress,
+      chainid:chainid
+    }),
+  }).then((res) => res.json());
+};
+
+const isUserAPI = (address)=>{
+  return fetch(`${BASE_URL}/users/isuser/${address}` ).then((res) => res.json());
+};
+
 const likeProductAPI = (id)=>{
   const token = localStorage.getItem('token');
   return fetch(`${BASE_URL}/products/like/${id}`, {
@@ -200,10 +220,12 @@ export {
   getProductsFromVendorAPI,
   searchProductAPI,
   getProductAPI,
+  isUserAPI,
   postProductAPI,
   updateProductAPI,
   deleteProductAPI,
   postPictureAPI,
   setPriceAPI,
-  likeProductAPI
+  likeProductAPI,
+  transferAPI
 };

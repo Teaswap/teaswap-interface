@@ -13,6 +13,8 @@ import {setPriceState, useSetPriceCallback} from "../../hooks/useSetPriceCallbac
 import {InputItem} from "../productSystem";
 import { IoIosMore } from 'react-icons/io'
 import { LastBid } from "../../utils/strUtil"
+import {TransferState, useTransferCallback} from "../../hooks/useTransferCallback";
+import {useActiveWeb3React} from "../../hooks";
 
 const ProductsContainer = styled.div`
   padding: 0px 10px 50px 10px;
@@ -106,16 +108,20 @@ const Product = ({productCat, product, onLoad, loaded, $width, $height, $margin 
   const {handleTokenSwitch} = useProduct();
   const formatter = new Intl.NumberFormat();
   const {t} = useTranslation();
+  const { chainId } = useActiveWeb3React()
   const [isProof, setIsProof] = useState(false)
   const [isPrice, setIsPrice] = useState(false)
   const [approvalSubmitted, setApprovalSubmitted] = useState(false)
   const [setPriceSubmitted, setSetPriceSubmitted] = useState(false)
+  const [transferSubmitted, setTransferSubmitted] = useState(false)
   const [setPriced, setSetPriced] = useState(false)
   const [newPrice, setNewPrice] = useState(0)
+  const [toAddress, setToAddress] = useState('')
   const [reSalePrice, setReSalePrice] = useState(0)
   const [approval, approveCallback] = useApproveNFTCallback(NFTEXCHANGE[ChainId.BSC_MAINNET],product.tokenid,product.delivery_location,true)
   const [setPrice, setPriceCallback] = useSetPriceCallback(product.orderid,newPrice)
-  const {handleResaleProduct,handleSetPrice} = useProductForm()
+  const [transfer, transferCallback] = useTransferCallback(product.orderid,newPrice)
+  const {handleResaleProduct,handleSetPrice,handleTransfer} = useProductForm()
   console.log("approval:"+approval)
   useEffect(() => {
     if (approval === ApprovalState.APPROVED && productPrice > 0) {
@@ -133,6 +139,15 @@ const Product = ({productCat, product, onLoad, loaded, $width, $height, $margin 
     }
   }, [setPrice, setPriceSubmitted])
 
+  useEffect(() => {
+
+    console.log("transfer:"+toAddress)
+    if (transfer === TransferState.SETED) {
+      setTransferSubmitted(true)
+      handleTransfer(product.id,toAddress,chainId)
+    }
+  }, [transfer, transferSubmitted])
+
 
   const dismissProof = () => {
     setIsProof(false)
@@ -149,6 +164,23 @@ const Product = ({productCat, product, onLoad, loaded, $width, $height, $margin 
     setShowMenu(false)
     setSetPriceSubmitted(false)
   }
+
+  const dismissTransfer = () => {
+    setIsPrice(false)
+    setIsProof(false)
+    setIsTransfer(false)
+    setToAddress('')
+    setShowMenu(false)
+    setSetPriceSubmitted(false)
+  }
+
+  // const clickTransfer = (e) => {
+  //
+  //     transferCallback(e)
+  //   }else{
+  //     alert("This Address is not TSA user!")
+  //   }
+  // }
 
   return (
     <ProductContainer $width={$width} $height={$height} $margin={$margin}>
@@ -266,6 +298,17 @@ const Product = ({productCat, product, onLoad, loaded, $width, $height, $margin 
         </div>
       </div>
     </Modal>
+      <Modal className="new-modal" isOpen={isTransfer} onDismiss={dismissTransfer} maxHeight={90}>
+        <div className="new-modal">
+          <p>{t('Transfer')}</p>
+          <input type="text" className="input-primary" onChange={(e)=>setToAddress(e.target.value)}/>
+
+          <div className="modal-btns">
+            <span className='btn-sm-100 btn-primary' onClick={(e)=>transferCallback(e)}>{t("Confirm")}</span>
+            <span className='btn-sm-100 btn-primary' onClick={dismissTransfer}>{t("Cancel")}</span>
+          </div>
+        </div>
+      </Modal>
     </ProductContainer>
   );
 };

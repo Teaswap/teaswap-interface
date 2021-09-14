@@ -11,7 +11,8 @@ import {
   updateProductAPI,
   deleteProductAPI,
   setPriceAPI,
-  likeProductAPI
+  likeProductAPI,
+  isUserAPI, transferAPI
 } from '../../../webAPI/productAPI';
 import {completeOrder, createOrder as createOrderAPI} from "../../../webAPI/cartAPI";
 import {setIsLoading, setOrderNumber} from "../cartSlice/cartSlice";
@@ -267,6 +268,25 @@ export const setPrice = (id,price,userid)=>(dispatch)=>{
       });
     }
     return res.message;
+  });
+};
+
+export const transfer = (id,toAddress,chainid)=>(dispatch)=>{
+  return transferAPI(id,toAddress,chainid).then((res) => {
+    if (res.ok === 0) {
+      return dispatch(setErrorMessage(res ? res.message : 'something wrong'));
+    }
+    return res.message;
+  });
+};
+
+export const isUser = (address)=>(dispatch)=>{
+  return isUserAPI(address).then((res) => {
+    if (res.ok === 1) {
+      return true;
+    }else{
+      return false;
+    }
   });
 };
 
