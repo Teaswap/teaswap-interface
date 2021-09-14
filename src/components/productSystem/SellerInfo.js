@@ -137,7 +137,7 @@ const InfoLeft = ({ vendorInfo, onLoad, loaded }) => {
         />
       </div>
       <InfoContainer style={{
-        marginTop: -100
+        marginTop: -80
       }}>
         <SellerName style={{marginLeft: 40}}>{vendorInfo.nickname}</SellerName>
           {/*<ActionButton $margin={20}>+ 加入關注</ActionButton>*/}
