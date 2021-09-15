@@ -224,7 +224,7 @@ export default function useProductForm(id) {
 
 
   const handleTransfer = (id,toAddress,chainId) => {
-    transfer(id,toAddress,chainId)
+    transfer(id,toAddress,chainId)(dispatch)
   };
 
   const checkisUser = (address) => {

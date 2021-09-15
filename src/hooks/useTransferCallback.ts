@@ -43,6 +43,9 @@ export function useTransferCallback(
     console.log('useTransferCallback', "tokenid:"+tokenid)
     const transfer = useCallback(async (): Promise<void> => {
         console.log('useTransferCallback', "callbacktokenid:"+tokenid)
+        console.log('useTransferCallback', "callbacknftAddress:"+nftAddress)
+        console.log('useTransferCallback', "callbacktoAddress:"+toAddress)
+        console.log('useTransferCallback', "callbackfromAddress:"+fromAddress)
         if(NFTContract){
             if(toAddress != '' && fromAddress){
                 const transferargs = [
@@ -52,11 +55,11 @@ export function useTransferCallback(
                 ]
                 console.log(transferargs)
 
-                const estimatedGas = await NFTContract.estimateGas.safeTransferFrom(...transferargs).catch(() => {
-                    return NFTContract.estimateGas.safeTransferFrom(...transferargs)
+                const estimatedGas = await NFTContract.estimateGas['safeTransferFrom(address,address,uint256)'](...transferargs).catch(() => {
+                    return NFTContract.estimateGas['safeTransferFrom(address,address,uint256)'](...transferargs)
                 })
 
-                NFTContract.safeTransferFrom(
+                NFTContract['safeTransferFrom(address,address,uint256)'](
                     ...transferargs,{ gasLimit: calculateGasMargin(estimatedGas)})
                     .then((response: TransactionResponse) => {
                         addTransaction(response, {
@@ -71,7 +74,7 @@ export function useTransferCallback(
 
             }
         }
-    }, [toAddress])
+    }, [toAddress,fromAddress])
 
     return [state, transfer]
 }

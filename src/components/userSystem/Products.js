@@ -108,7 +108,7 @@ const Product = ({productCat, product, onLoad, loaded, $width, $height, $margin 
   const {handleTokenSwitch} = useProduct();
   const formatter = new Intl.NumberFormat();
   const {t} = useTranslation();
-  const { chainId } = useActiveWeb3React()
+  const { account,chainId } = useActiveWeb3React()
   const [isProof, setIsProof] = useState(false)
   const [isPrice, setIsPrice] = useState(false)
   const [approvalSubmitted, setApprovalSubmitted] = useState(false)
@@ -120,7 +120,7 @@ const Product = ({productCat, product, onLoad, loaded, $width, $height, $margin 
   const [reSalePrice, setReSalePrice] = useState(0)
   const [approval, approveCallback] = useApproveNFTCallback(NFTEXCHANGE[ChainId.BSC_MAINNET],product.tokenid,product.delivery_location,true)
   const [setPrice, setPriceCallback] = useSetPriceCallback(product.orderid,newPrice)
-  const [transfer, transferCallback] = useTransferCallback(product.orderid,newPrice)
+  const [transfer, transferCallback] = useTransferCallback(product.tokenid,product.delivery_location,account ,toAddress)
   const {handleResaleProduct,handleSetPrice,handleTransfer} = useProductForm()
   console.log("approval:"+approval)
   useEffect(() => {
@@ -141,10 +141,12 @@ const Product = ({productCat, product, onLoad, loaded, $width, $height, $margin 
 
   useEffect(() => {
 
-    console.log("transfer:"+toAddress)
+    console.log("transfer:"+transfer)
     if (transfer === TransferState.SETED) {
+      console.log("====here we go!!!!")
       setTransferSubmitted(true)
       handleTransfer(product.id,toAddress,chainId)
+      setIsTransfer(false)
     }
   }, [transfer, transferSubmitted])
 
@@ -300,7 +302,7 @@ const Product = ({productCat, product, onLoad, loaded, $width, $height, $margin 
     </Modal>
       <Modal className="new-modal" isOpen={isTransfer} onDismiss={dismissTransfer} maxHeight={90}>
         <div className="new-modal">
-          <p>{t('Transfer')}</p>
+          <p>{t('Transfer Address')}</p>
           <input type="text" className="input-primary" onChange={(e)=>setToAddress(e.target.value)}/>
 
           <div className="modal-btns">
