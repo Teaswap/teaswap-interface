@@ -26,9 +26,10 @@ const Nav: React.FC = () => {
         News
       </StyledLink>
       <StyledLinkSep />
-      <StyledLink target="_blank" href={'mailto:support@teaswap.art'}>
+      <StyledLink target="_blank" href="https://www.teaswap.live/contact">
         Contact
       </StyledLink>
+      {/* </StyledNav>{'mailto:support@teaswap.art'}> */}
       {/* <StyledLink target="_blank" href="https://t.me/bestswap_com">
         Announcement
       </StyledLink> */}
