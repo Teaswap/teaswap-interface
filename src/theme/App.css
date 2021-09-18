@@ -85,10 +85,14 @@
   justify-content: flex-start;
 }
 .user-avatar-div{
-  /* width: 150px;  */
-  /* height: 150px; */
-  border-radius: 150px;
+  /*width: 150px;
+  *//*height: 150px;
+  */border-radius: 150px;
   margin-top: -100px;
+  -webkit-border-radius: 150px;
+  -moz-border-radius: 150px;
+  -ms-border-radius: 150px;
+  -o-border-radius: 150px;
 }
 .user-avatar{
   width: 75px; 
@@ -375,4 +379,17 @@
 .product-like-ul > li   div{
   font-size: 12px;
   padding-left: 2px ;
+}
+.react-3d-carousel{
+  height: 300px !important;
+  width: 100%;
+}
+.react-3d-carousel .nft-swiper-img{
+  height: 300px;
+}
+.nft-swiper{
+  height: 500px;
+  margin: 0 auto;
+  margin-top: 40px;
+  width: 80%;
 }

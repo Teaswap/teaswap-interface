@@ -19,6 +19,7 @@ import {
 } from '../../../redux/slices/productSlice/productSlice';
 import { Navbar } from '../../../components'
 import Pagination from '../../../components/Pagination/Index';
+import NFTSwiper from '../../../components/Swipers/NFTSwiper1.jsx';
 
 const CategoryTitleContainer = styled.section`
   display: flex;
@@ -85,6 +86,9 @@ const CategorizedProductPage = () => {
   }, [id, dispatch]);
   return (
     <>
+      {id == 1 && (
+        <NFTSwiper />
+      )}
       <NavbarWrapper >
         <Navbar />
       </NavbarWrapper>
