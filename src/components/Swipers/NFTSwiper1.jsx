@@ -2,8 +2,10 @@
 import React, { useRef, useState } from "react";
 import Carousel from "react-spring-3d-carousel";
 import Item from "./Item"
+import { useNavigate } from "react-router";
 
 export default function App() {
+  const navigate = useNavigate();
   let slides = [
     {
       key: 1,
@@ -27,7 +29,12 @@ export default function App() {
     },
     
   ].map((slide, index) => {
-    return { ...slide, onClick: () => setGoToSlide(index), onMouseOver: () => setGoToSlide(index) };
+    return { ...slide, onClick: () => {
+      if (index == goToSlide) {
+        navigate('/nft/products/vendor/264197')
+      }else
+        setGoToSlide(index)
+    }, onMouseOver: () => setGoToSlide(index) };
   }); 
   const[goToSlide, setGoToSlide] = useState(0)
   return (

@@ -5,7 +5,7 @@ const Item = ({img}) => {
 		<div className="nft-swiper" style={{
 			position: 'relative'
 		}}>
-    	<img className="nft-swiper-img" src={img}/>,
+    	<img className="nft-swiper-img" src={img}/>
 			<span style={{
 				position: 'absolute',
 				bottom: 20,
