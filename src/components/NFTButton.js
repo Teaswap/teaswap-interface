@@ -46,10 +46,11 @@ export const NormalButton = styled(ButtonWrapper)`
   font-size: 13px;
   background-color: #ffffff;
   color:  #7f7f7f;
-  border: 1px solid #7f7f7f;
+  border: 1px solid #cccccc;
   height: 42px;
   &:hover {
-    border: 1px solid #474747;
+    border: 1px solid #cccccc;
+    background: #eeeeee;
   }
 `;
 
