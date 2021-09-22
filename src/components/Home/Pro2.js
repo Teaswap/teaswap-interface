@@ -154,10 +154,10 @@ export default [
   // },
   {
     picture_url: process.env.PUBLIC_URL + '/nft/pro2/Norse mythology No.86.jpg',
-    title: "No 87. 弗丽嘉 Frigg",
+    title: "Norse Mythology NFT Frigg No. 5",
     number: "",
     desc: ``,
-    link: 'https://www.teaswap.live/tsametaverse',
+    link: 'https://www.teaswap.art/nft/products/vendor/264197',
     mediaType: 1,
     id: 18
   },
@@ -172,19 +172,19 @@ export default [
   // },
   {
     picture_url: process.env.PUBLIC_URL + '/nft/pro2/Norse mythology No.88.jpg',
-    title: "No 84. 奥丁 Odin",
+    title: "Norse Mythology NFT Odin No. 4",
     number: "",
     desc: ``,
-    link: 'https://www.teaswap.live/tsametaverse',
+    link: 'https://www.teaswap.art/nft/products/vendor/264197',
     mediaType: 1,
     id: 20
   },
   {
     picture_url: process.env.PUBLIC_URL + '/nft/pro2/Norse mythology No.89.png',
-    title: "No 86. 布利Buri",
+    title: "Norse Mythology NFT Búri No. 6",
     number: "",
     desc: ``,
-    link: 'https://www.teaswap.live/tsametaverse',
+    link: 'https://www.teaswap.art/nft/products/vendor/264197',
     mediaType: 1,
     id: 21
   },
@@ -193,7 +193,7 @@ export default [
     title: "No 89. 密米爾Mímir",
     number: "",
     desc: ``,
-    link: 'https://www.teaswap.live/tsametaverse',
+    link: 'https://www.teaswap.art/nft/products/vendor/264197',
     mediaType: 1,
     id: 22
   },
