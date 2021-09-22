@@ -150,7 +150,9 @@ export function useApproveNFTCallback(
   console.log("tokenid:"+tokenId)
 
   const currentAllowance = useNFTAllowance(tokenAddress,tokenId)
+  console.log("currentAllowance:", currentAllowance)
   const pendingApproval = useHasPendingNFTApproval(tokenAddress, to,tokenId)
+  console.log("pendingApproval:", pendingApproval)
 
   // check the current approval status
   const approvalState: ApprovalState = useMemo(() => {
@@ -165,6 +167,7 @@ export function useApproveNFTCallback(
             ? ApprovalState.PENDING
             : ApprovalState.NOT_APPROVED: ApprovalState.APPROVED
   }, [currentAllowance, pendingApproval, to,tokenAddress])
+  console.log("approvalState:", approvalState)
 
   const nftContract = useTokenContract(tokenAddress)
   const addTransaction = useTransactionAdder()
@@ -201,6 +204,8 @@ export function useApproveNFTCallback(
       // general fallback for tokens who restrict approval amounts
       return nftContract.estimateGas.approve(to, tokenId)
     })
+
+    console.log("estimatedGas:"+estimatedGas)
 
     return nftContract
         .approve(to, tokenId, {

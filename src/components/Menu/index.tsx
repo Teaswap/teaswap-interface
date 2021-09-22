@@ -166,7 +166,13 @@ export default function Menu() {
               </MenuItem>
               <MenuItem onClick={() => window.open("https://www.binance.org/en/bridge")}>
               Bridge to Ethereum
-          </MenuItem>
+              </MenuItem>
+              <MenuItem onClick={() => {
+                localStorage.clear();
+                window.location.href = window.location.href
+              }}>
+                Clear Cache
+              </MenuItem>
               {/* <MenuItem onClick={() => {
                 navigate('https://www.binance.org/en/bridge')
               }}>
