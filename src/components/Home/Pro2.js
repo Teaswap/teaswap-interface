@@ -189,8 +189,8 @@ export default [
     id: 21
   },
   {
-    picture_url: process.env.PUBLIC_URL + '/nft/pro2/Norse mythology No.90.png',
-    title: "No 89. 密米爾Mímir",
+    picture_url: process.env.PUBLIC_URL + '/nft/pro2/Norse mythology No.87.png',
+    title: "Norse Mythology NFT Ymir No. 2",
     number: "",
     desc: ``,
     link: 'https://www.teaswap.art/nft/products/vendor/264197',
