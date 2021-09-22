@@ -93,6 +93,7 @@ export function useHasPendingApproval(tokenAddress: string | undefined, spender:
 
 export function useHasPendingNFTApproval(tokenAddress: string | undefined, spender: string | undefined,tokenId: number | undefined): boolean {
     const allTransactions = useAllTransactions()
+    console.log('allTransactions: ', allTransactions)
     return useMemo(
         () =>
             typeof tokenAddress === 'string' &&
@@ -100,6 +101,7 @@ export function useHasPendingNFTApproval(tokenAddress: string | undefined, spend
             typeof tokenId === 'number' &&
             Object.keys(allTransactions).some(hash => {
                 const tx = allTransactions[hash]
+                console.log('tx: ', tx)
                 if (!tx) return false
                 if (tx.receipt) {
                     return false
