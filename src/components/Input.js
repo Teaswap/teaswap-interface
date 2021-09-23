@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { EFFECT, MEDIA_QUERY } from '../constants/style';
 
 export const InputSearch = styled.input`
+padding-left: .75rem;
   width: 0;
   height: 35px;
   outline: none;
