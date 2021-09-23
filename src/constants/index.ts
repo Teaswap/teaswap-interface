@@ -133,6 +133,22 @@ export const GensisNFT = new Token(
     'Genesis Collection'
 )
 
+export const TSAMetaverseAvatar = new Token(
+    ChainId.BSC_MAINNET,
+    '0xe2F923b956B53b9D94d5aDEB7e5aD9B108c00309',
+    0,
+    'TSANFT Avatar',
+    'TSA Metaverse Avatar Collection'
+)
+
+export const NorseMythology = new Token(
+    ChainId.BSC_MAINNET,
+    '0x6eB9D382f569715f098Cf2c144be2A087ce4bc45',
+    0,
+    'NorseMythology NFT',
+    'NorseMythology Collection'
+)
+
 export const TSAMetaverse = new Token(
     ChainId.BSC_MAINNET,
     '0x1aa3DfE63CDad8A66fCEb00FBC99b29a9f956ed8',

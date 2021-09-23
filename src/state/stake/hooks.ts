@@ -30,7 +30,7 @@ import {
   USDT_TSA_LP,
   TSA_CAKE_LP,
   ETH_TSA_LP,
-  TSALOT, TSAMetaverse, TSALOTNFT, BTC_TSA_LP,
+  TSALOT, TSAMetaverse, TSALOTNFT, BTC_TSA_LP, TSAMetaverseAvatar, NorseMythology
   // GensisNFT
 } from '../../constants'
 import {
@@ -57,6 +57,18 @@ export const STAKING_REWARDS_INFO: {
   }[]
 } = {
   [ChainId.BSC_MAINNET]: [
+    {
+      tokens: [TSAMetaverseAvatar, UNI[ChainId.BSC_MAINNET]],
+      stakingRewardAddress: '0x7e175b82F67123454d4Cd5be860Ec0cB684cD92C',
+      iconUrl: "/MATSA.png",
+      cate:"NFT"
+    },
+    {
+      tokens: [NorseMythology, UNI[ChainId.BSC_MAINNET]],
+      stakingRewardAddress: '0xe263E2f1C7CeF3D290fA3f29117130B9C2842fAC',
+      iconUrl: "/NMTSA.png",
+      cate:"NFT"
+    },
     {
       tokens: [TSALOTNFT, UNI[ChainId.BSC_MAINNET]],
       stakingRewardAddress: '0x69013dF3E6bf8eB4F19ed3b3DF54F24B951B5B10',
