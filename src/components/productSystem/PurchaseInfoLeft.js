@@ -150,7 +150,7 @@ export const FreightIntro = ({ product }) => {
           if (order.Order)
             return (
               <p className="trading-line">
-                <span>Buy</span>
+                <span>{order.Order.order_type == 1 ? 'Transfer' : 'Buy'}</span>
                 <span>{(order.product_price)} {handleTokenSwitch(order.extoken)}</span>
                 <ClickableAddr address={order.Order.seller_address} />
                 <ClickableAddr address={order.Order.client_address} />
