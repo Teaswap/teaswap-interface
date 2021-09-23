@@ -1,6 +1,6 @@
 {
   "name": "BEP20 Token List",
-  "timestamp": "2021-04-12T05:05:10.290Z",
+  "timestamp": "2021-09-12T05:05:10.290Z",
   "version": {
     "major": 1,
     "minor": 16,
@@ -716,22 +716,6 @@
       "decimals": 18,
       "chainId": 56,
       "logoURI": "https://www.teaswap.art/default-token-list/images/0x3668a68140a103947c83ef43333fe4711d59ba9f.png"
-    },
-    {
-      "name": "TSA Metaverse Avatar Collection",
-      "address": "0xe2F923b956B53b9D94d5aDEB7e5aD9B108c00309",
-      "symbol": "TSANFT Avatar",
-      "decimals": 0,
-      "chainId": 56,
-      "logoURI": "https://www.teaswap.art/default-token-list/images/0xe2F923b956B53b9D94d5aDEB7e5aD9B108c00309.png"
-    },
-    {
-      "name": "NorseMythology Collection",
-      "address": "0x6eB9D382f569715f098Cf2c144be2A087ce4bc45",
-      "symbol": "NorseMythology NFT",
-      "decimals": 0,
-      "chainId": 56,
-      "logoURI": "https://www.teaswap.art/default-token-list/images/0x6eB9D382f569715f098Cf2c144be2A087ce4bc45.png"
     },
     {
       "name": "DOGGY",
