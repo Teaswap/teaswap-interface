@@ -374,11 +374,12 @@
   height: 20px;
   cursor: pointer;
   float: left;
+  margin-right: 5px;
 }
 
 .product-like-ul > li   div{
   font-size: 12px;
-  padding-left: 2px ;
+  padding-left: 7px ;
 }
 .react-3d-carousel{
   height: 300px !important;

@@ -23,7 +23,7 @@ const NavSocial: React.FC = () => {
         <img src={insgramIcon}  width="31" height="31" />
       </StyledLink>
       <StyledLink style={{padding:"0 4px"}}> </StyledLink>
-      <StyledLink target="_blank" href="https://icashrewards.ca/">
+      <StyledLink target="_blank" href="https://bit.ly/2zaJE39">
         <img src={icashIcon}  width="31" height="31" />
       </StyledLink>
       <StyledLink style={{padding:"0 4px"}}> </StyledLink>

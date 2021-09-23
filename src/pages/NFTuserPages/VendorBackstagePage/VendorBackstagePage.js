@@ -143,7 +143,7 @@ const VendorBackstagePage = () => {
               <NormalButton className="btn-sm-100" >{t('Buy NFT')}</NormalButton>
             </NavLink>
             <NavLink style={{ minWidth: 'fit-content' }} to={'/nft/products/post'}>
-              <NormalButton className="btn-sm-100" >{t('Add NFT')}</NormalButton>
+              <NormalButton className="btn-sm-100" >{t('Insert NFT')}</NormalButton>
             </NavLink>
           </div>
         </SellerProductTitle>
