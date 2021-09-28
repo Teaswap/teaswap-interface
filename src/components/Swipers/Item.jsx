@@ -13,13 +13,13 @@ const Item = ({img}) => {
 				padding: '5px 10px',
 				backgroundColor: "#ffffff"
 			}}>🔥 PRESALE 10/01</span>
-			<span style={{
+			{/* <span style={{
 				position: 'absolute',
 				bottom: 5,
 				right: -95,
 				padding: '1px 4px',
 				backgroundColor: "#ffffff"
-			}}>sale price 0.18 ETH</span>
+			}}>sale price 0.18 ETH</span> */}
 		</div>
 	)
 };
