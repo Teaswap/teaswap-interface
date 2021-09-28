@@ -57,6 +57,7 @@ export default function StakingModal({ isOpen, onDismiss, stakingInfo, userLiqui
   console.log("parseAmountSymbol："+parsedAmount?.currency.symbol)
   const [approvalSubmitted, setApprovalSubmitted] = useState<boolean>(false)
 
+  console.log('StakingModal, stakingInfo', stakingInfo)
 
   const nftcontract = useERC1155Contract(stakingInfo.tokens[0]?.address, false)
 

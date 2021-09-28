@@ -127,6 +127,37 @@ const transferAPI = (id,toAddress,chainid)=>{
   }).then((res) => res.json());
 };
 
+const stakeAPI = (delivery_location, tokenid)=>{
+  const token = localStorage.getItem('token');
+
+  return fetch(`${BASE_URL}/products/stake`, {
+    method: 'PATCH',
+    headers: {
+      'content-type': 'application/json',
+      authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify({
+      delivery_location: delivery_location,
+      tokenid: tokenid
+    }),
+  }).then((res) => res.json());
+};
+
+const unstakeAPI = (delivery_location)=>{
+  const token = localStorage.getItem('token');
+
+  return fetch(`${BASE_URL}/products/unstake`, {
+    method: 'PATCH',
+    headers: {
+      'content-type': 'application/json',
+      authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify({
+      delivery_location: delivery_location
+    }),
+  }).then((res) => res.json());
+};
+
 const isUserAPI = (address)=>{
   return fetch(`${BASE_URL}/users/isuser/${address}` ).then((res) => res.json());
 };
@@ -227,5 +258,7 @@ export {
   postPictureAPI,
   setPriceAPI,
   likeProductAPI,
-  transferAPI
+  transferAPI,
+  stakeAPI,
+  unstakeAPI
 };

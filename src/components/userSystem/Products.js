@@ -190,7 +190,7 @@ const Product = ({productCat, product, onLoad, loaded, $width, $height, $margin 
         {/* <NavLink className="a-link" to={`/nft/products/edit/${product.id}`}>
           {t('Edit NFT')}
         </NavLink> */}
-        <span className="dropdown-menu-item" >{product.status == '1' ? 'My Artwork' : 'Pending'}</span>
+        <span className="dropdown-menu-item" >{product.staked == 1 ? 'Staked' : product.status == '1' ? 'My Artwork' : 'Pending'}</span>
         {!productCat || productCat != 'created' && (
             <IoIosMore size="30" style={{ cursor: 'pointer' }} onClick={() => {
               setShowMenu(!showMenu)

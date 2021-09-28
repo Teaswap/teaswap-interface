@@ -12,7 +12,8 @@ import {
   deleteProductAPI,
   setPriceAPI,
   likeProductAPI,
-  isUserAPI, transferAPI
+  isUserAPI,
+  transferAPI
 } from '../../../webAPI/productAPI';
 import {completeOrder, createOrder as createOrderAPI} from "../../../webAPI/cartAPI";
 import {setIsLoading, setOrderNumber} from "../cartSlice/cartSlice";

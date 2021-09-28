@@ -13,6 +13,7 @@ import { TransactionResponse } from '@ethersproject/providers'
 import { useTransactionAdder } from '../../state/transactions/hooks'
 import FormattedCurrencyAmount from '../FormattedCurrencyAmount'
 import { useActiveWeb3React } from '../../hooks'
+import { unstakeAPI } from '../../webAPI/productAPI'
 
 const ContentWrapper = styled(AutoColumn)`
   width: 100%;
@@ -39,6 +40,7 @@ export default function UnstakingModal({ isOpen, onDismiss, stakingInfo }: Staki
     setAttempting(false)
     onDismiss()
   }
+  console.log('UnstakingModal stakingInfo', stakingInfo)
 
   const stakingContract = useStakingContract(stakingInfo.stakingRewardAddress)
 
@@ -51,6 +53,8 @@ export default function UnstakingModal({ isOpen, onDismiss, stakingInfo }: Staki
           addTransaction(response, {
             summary: `Withdraw deposited token`
           })
+          console.log('UnstakingModal2 onwidthdraw', stakingInfo)
+          unstakeAPI(stakingInfo.tokens[0].address)
           setHash(response.hash)
         })
         .catch((error: any) => {

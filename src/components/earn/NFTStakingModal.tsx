@@ -22,6 +22,7 @@ import { LoadingView, SubmittedView } from '../ModalViews'
 import {PAYABLEETH, ZERO_ADDRESS} from "../../constants";
 import {useSingleCallResult} from "../../state/multicall/hooks";
 import { InputItem } from '../productSystem'
+import { stakeAPI } from '../../webAPI/productAPI'
 const HypotheticalRewardRate = styled.div<{ dim: boolean }>`
   display: flex;
   justify-content: space-between;
@@ -124,6 +125,8 @@ export default function NFTStakingModal({ isOpen, onDismiss, stakingInfo, userLi
                 addTransaction(response, {
                   summary: t('depositLiquidity')
                 })
+                console.log('NFTStakingModal1, typedValue', typedValue)
+                stakeAPI(stakingInfo.tokens[0].address, typedValue)
                 setHash(response.hash)
               })
               .catch((error: any) => {
@@ -136,6 +139,8 @@ export default function NFTStakingModal({ isOpen, onDismiss, stakingInfo, userLi
                 addTransaction(response, {
                   summary: t('depositLiquidity')
                 })
+                console.log('NFTStakingModal2, typedValue', typedValue)
+                stakeAPI(stakingInfo.tokens[0].address, typedValue)
                 setHash(response.hash)
               })
               .catch((error: any) => {
