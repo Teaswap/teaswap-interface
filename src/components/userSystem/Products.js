@@ -197,23 +197,26 @@ const Product = ({productCat, product, onLoad, loaded, $width, $height, $margin 
             }} />
           )
         }
-        <div style={{
-          display: showMenu ? 'block' : 'none'  
-        }} className="dropdown-menu" onMouseLeave={() => {
-          setShowMenu(false)
-        }}>
-          {product.status != '1' && (
+        {product.staked == 0 && (
+          <div style={{
+            display: showMenu ? 'block' : 'none'  
+          }} className="dropdown-menu" onMouseLeave={() => {
+            setShowMenu(false)
+          }}>
+            {product.status != '1' && (
+              <span onClick={() => {
+                setIsProof(true)
+              }} className="dropdown-menu-item">{t("Approve")}</span>
+            )}
             <span onClick={() => {
-              setIsProof(true)
-            }} className="dropdown-menu-item">{t("Approve")}</span>
-          )}
-          <span onClick={() => {
-            setIsTransfer(true)
-          }} className="dropdown-menu-item">{t("Transfer")}</span>
-        <span onClick={() => {
-          setIsPrice(true)
-        }} className="dropdown-menu-item">{t("Set Price")}</span>
-        </div>
+              setIsTransfer(true)
+            }} className="dropdown-menu-item">{t("Transfer")}</span>
+            <span onClick={() => {
+              setIsPrice(true)
+            }} className="dropdown-menu-item">{t("Set Price")}</span>
+          </div>
+        )}
+        
       </ButtonContainer>
       <NavLink style={{marginTop: '20px', display:"block"}} to={`/nft/products/${product.id}`}>
         <ProductPicture
