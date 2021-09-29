@@ -50,7 +50,7 @@ const List = ()=>{
       medium: "https://youtu.be/u-R5AwHFkl8",
       info: "TSA Metaverse Park is partnered with iCashRewards VR Center to develop a digital piece of TSA NFT real estate, a total of 200,000 lots will be available. Each lot is a unique (non-fungible) token that functions as your entrance to access TSA Metaverse Park.",
       joinUs: "/iro/bnb/0x1729552618376F8a179c0F61F9FE789C77b230FE/0x1Ef0d833Ad1b1D76da36bb28bEF37Ee86874571E",
-      when: "When: When: 09.28 -10.12 20:00 PST",
+      when: "When: 09.28 -10.12 20:00 PST",
       end:new Date(1721958400000),
       duration:3600,
       sign: NewImg
