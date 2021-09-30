@@ -31,7 +31,13 @@ export default function App() {
   ].map((slide, index) => {
     return { ...slide, onClick: () => {
       if (index == goToSlide) {
-        navigate('/nft/products/vendor/264197')
+        if(slides[index].key==4 || slides[index].key==2 || slides[index].key==1)
+        {
+          window.open('https://opensea.io/collection/tsanft')
+        }else{
+          navigate('/nft/products/vendor/264197')
+        }
+        
       }else
         setGoToSlide(index)
     }, onMouseOver: () => setGoToSlide(index) };
