@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Item = ({img}) => {
+const Item = ({img , amount}) => {
 	return (
 		<div className="nft-swiper" style={{
 			position: 'relative'
@@ -12,7 +12,7 @@ const Item = ({img}) => {
 				left: 10,				
 				padding: '5px 10px',
 				backgroundColor: "#ffffff"
-			}}>🔥 PRESALE 10/01</span>
+			}}>🔥 {amount}</span>
 			{/* <span style={{
 				position: 'absolute',
 				bottom: 5,
