@@ -60,13 +60,13 @@ export const STAKING_REWARDS_INFO: {
     {
       tokens: [UNI[ChainId.BSC_MAINNET],ICASH],
       stakingRewardAddress:'0x40A553dD94c3697BD8150f98B9aD8d6b78A02cC6',
-      iconUrl: "/TSA_ICASH.png",
+      iconUrl: "/TSAICASH.png",
       cate:"ICASH"
     },
     {
       tokens: [UNI[ChainId.BSC_MAINNET], CJAI],
       stakingRewardAddress: '0xBDa42D3D89fA802402f08e8e878AC43D320c03bb',
-      iconUrl: "/TSA_CJAI.png",
+      iconUrl: "/TSACJAI.png",
       cate:"CJAI"
     },
     {
