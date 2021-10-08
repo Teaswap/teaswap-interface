@@ -45,9 +45,8 @@ export default function App() {
     },
     {
       key: 7,
-      content: <Item img= {process.env.PUBLIC_URL  + '/nft/products/0027.png'} amount='PRESALE 10/10' />,
+      content: <Item img= {process.env.PUBLIC_URL  + '/nft/products/0027.png'} amount='PRESALE 10/12' />,
       link: 'https://www.teaswap.art/nft/products/vendor/264023',
-     
     },
    
     
