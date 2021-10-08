@@ -58,6 +58,24 @@ export const STAKING_REWARDS_INFO: {
 } = {
   [ChainId.BSC_MAINNET]: [
     {
+      tokens: [UNI[ChainId.BSC_MAINNET],ICASH],
+      stakingRewardAddress:'0x40A553dD94c3697BD8150f98B9aD8d6b78A02cC6',
+      iconUrl: "/TSA_ICASH.png",
+      cate:"ICASH"
+    },
+    {
+      tokens: [UNI[ChainId.BSC_MAINNET], CJAI],
+      stakingRewardAddress: '0xBDa42D3D89fA802402f08e8e878AC43D320c03bb',
+      iconUrl: "/TSA_CJAI.png",
+      cate:"CJAI"
+    },
+    {
+      tokens: [UNI[ChainId.BSC_MAINNET], TSALOT],
+      stakingRewardAddress: '0x2A7F95C8a708f88001b3e028310C1678ef5b95a7',
+      iconUrl: "/TSA_LOT.png",
+      cate:"NFT"
+    },
+    {
       tokens: [TSAMetaverseAvatar, UNI[ChainId.BSC_MAINNET]],
       stakingRewardAddress: '0x7e175b82F67123454d4Cd5be860Ec0cB684cD92C',
       iconUrl: "/MATSA.png",
