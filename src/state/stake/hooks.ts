@@ -73,7 +73,7 @@ export const STAKING_REWARDS_INFO: {
       tokens: [UNI[ChainId.BSC_MAINNET], TSALOT],
       stakingRewardAddress: '0x2A7F95C8a708f88001b3e028310C1678ef5b95a7',
       iconUrl: "/TSA_LOT.png",
-      cate:"NFT"
+      cate:"TSA"
     },
     {
       tokens: [TSAMetaverseAvatar, UNI[ChainId.BSC_MAINNET]],
