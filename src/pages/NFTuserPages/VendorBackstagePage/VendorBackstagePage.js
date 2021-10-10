@@ -81,7 +81,7 @@ const VendorBackstagePage = () => {
     window.scroll(0, 0);
     handleGetMe().then((result) => {
       // todo 自动
-      if (!result.data.is_vendor) {
+      if (!result.data || !result.data.is_vendor) {
         handleApplyForVendor()
         // navigate('/');
         setTimeout(() => {
