@@ -555,7 +555,7 @@ export const ProductInfo = ({product,user}:{ product:ProductInterface, user:user
         <div>{product.views} </div></li>
 
         <li>
-          <ExternalLink href={`https://www.twitter.com/intent/tweet?url=${window.location.href}&text=${product.name}`}>
+          <ExternalLink href={`https://www.twitter.com/intent/tweet?url=${window.location.href + " on TSANFT via @ArtTeaswap "}&text=${"Check out " + product.name}`}>
           
             <GiShare className="svg-icon"/> Share
            
