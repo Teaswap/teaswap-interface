@@ -9,6 +9,8 @@ import useProduct from '../../../hooks/productHooks/useProduct';
 import { NavLink } from 'react-router-dom';
 import { NormalButton, Nav } from '../../../components/NFTButton';
 import Pagination from '../../../components/Pagination/Index';
+import { useActiveWeb3React } from '../../../hooks'
+import Modal from '../../../components/Modal'
 
 import {
   SellerInfo,
@@ -46,6 +48,8 @@ const ButtonContainer = styled.div`
 `;
 
 const VendorBackstagePage = () => {
+  const { chainId } = useActiveWeb3React()
+  console.log('VendorBackstagePage chainId', chainId)
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [id, setId] = useState(null);
@@ -106,6 +110,13 @@ const VendorBackstagePage = () => {
 
   return (
     <>
+      {chainId != 56 && (<Modal isOpen={true} onDismiss={() => {}} maxHeight={90}>
+        <p style={{
+          padding: 20
+        }}> Please switch to a wallet that supports Binance Smart Chain network<br />
+        In order to trade & Mint assets, connect to a Binance Smart Chain network wallet. Please lock your current wallet and connect with a wallet that supports Binance Smart Chain network.
+        </p>
+      </Modal>)}
       <Banner banner={vendorInfo.banner_url || 'https://i.imgur.com/3zpk96J.jpg'} loaded={loaded} onLoad={onLoad} />
       <StandardNavPage>
         <SellerInfo
