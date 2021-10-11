@@ -15,7 +15,7 @@ export const LastBid = (Carts) => {
 		return 'no bid';
 	let Cart = Carts[0];
 	Carts.forEach(v => {
-		if (v.id > Cart.id) {
+		if (v.bidprice > Cart.bidprice) {
 			Cart=v
 		}
 	})	

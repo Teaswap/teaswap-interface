@@ -473,7 +473,7 @@ export const ProductInfo = ({product,user}:{ product:ProductInterface, user:user
                     customBalanceText={'Available to buy: '}
                 />
                 <p>
-                  Last Bid: {LastBid(productCarts )}
+                  Best Offer: {LastBid(productCarts )}
                 </p>
                 <TwoButton>
                   <ButtonConfirmed
