@@ -295,7 +295,7 @@ const Product = ({productCat, product, onLoad, loaded, $width, $height, $margin 
         <p>{t('Set Price')}</p>
         <input type="text" className="input-primary" onChange={(e)=>setNewPrice(e.target.value)}/>
         <p>
-          Last Bid: {LastBid(product.Cart_items)}
+          Best Offer: {LastBid(product.Cart_items)}
         </p>
         <div className="modal-btns">
           <span className='btn-sm-100 btn-primary' onClick={(e)=>setPriceCallback(e)}>{t("Confirm")}</span>
