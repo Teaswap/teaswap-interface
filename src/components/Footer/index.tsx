@@ -34,9 +34,11 @@ const Footer: React.FC = () => {
 const StyledFooterItemDiv = styled.div`
 width:100%;  
 text-align: center!important;
-font-size: 10px;
+font-size: 8px;
 font-weight: 500;
 color: #FFFFFF;
+font-family: Robot-thin,Roboto,Roboto Regular,Noto Sans TC,San serif,AtlasGrotesk ,Yuanti SC;
+
 `
 const StyledFooter = styled.footer`
   align-items: flex-start;
@@ -46,6 +48,8 @@ const StyledFooter = styled.footer`
   width: 100%;
   background: #303030;
   padding :45px;
+  font-family: Robot-thin,Roboto,Roboto Regular,Noto Sans TC,San serif,AtlasGrotesk ,Yuanti SC;
+
   ${({ theme }) => theme.mediaWidth.upToExtraSmall`
     padding-bottom: 40px;
   `} 
@@ -57,6 +61,8 @@ const StyledFooterInner = styled.div`
   width: 98%;
   padding: 50px 50px 54px;
   box-sizing: border-box;
+  font-family: Robot-thin,Roboto,Roboto Regular,Noto Sans TC,San serif,AtlasGrotesk ,Yuanti SC;
+
   ${MEDIA_QUERY.sm} {
     width: 98%;
   }
@@ -68,6 +74,8 @@ const StyledFooterItemLeft = styled.section`
   align-items: flex-start;
   justify-content: center;
   margin: 10px 0;
+  font-family: Robot-thin,Roboto,Roboto Regular,Noto Sans TC,San serif,AtlasGrotesk ,Yuanti SC;
+
   ${MEDIA_QUERY.sm} {
     display: none;
   }
@@ -82,9 +90,11 @@ const StyledFooterItem = styled.section`
 const StyledFooterSmallItemTitle = styled.span`
   font-size: 13px;
   font-weight: 500;
+  font-family: Robot-thin,Roboto,Roboto Regular,Noto Sans TC,San serif,AtlasGrotesk ,Yuanti SC;
+
   color: #FFFFFF;
   line-height: 24px;
-  min-width: 285px;
+  min-width: 324px;
   margin-top: 0px;
   text-align:center;
 `
