@@ -37,7 +37,7 @@ const Section = styled.div`
   padding: 0px 0;
   height: auto;
   max-width: 1320px;
-  padding-bottom: 200px;
+  padding-bottom: 20px;
 `;
 
 const  TitleSection = styled.div`

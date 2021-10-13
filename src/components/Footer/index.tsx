@@ -12,25 +12,44 @@ const Footer: React.FC = () => {
     <StyledFooter>
       <StyledFooterInner>
         <StyledFooterItemLeft style={{ marginBottom: 20, width: '150px', textAlign: 'left' }}>
-          <img height="40px" style={{ marginTop: -8 }} width="" src={Logo} alt="logo" />
-          <StyledFooterItemTitle>© 2021 TEAsWAP</StyledFooterItemTitle>
-          {/* <StyledLink  target="_blank" href={'mailto:support@teaswap.art'}>support@teaswap.art</StyledLink> */}
+          <img height="40px" style={{ marginTop: -8 }} width="" src={Logo} alt="logo"   />
+          <StyledFooterSmallItemTitle>The One Hub for NFT Creators and Influencers.</StyledFooterSmallItemTitle>
         </StyledFooterItemLeft>
         <StyledFooterItem>
           <Nav />
           <NavSocial />
         </StyledFooterItem>
-      </StyledFooterInner>
+      </StyledFooterInner> 
+      <StyledFooterItemDiv>
+                <div >
+                    <div >
+                        <span >© 2021 TSANFT All rights reserved.</span>
+                    </div>
+                </div>
+           
+      </StyledFooterItemDiv>
     </StyledFooter>
   )
 }
+const StyledFooterItemDiv = styled.div`
+width:100%;  
+text-align: center!important;
+font-size: 8px;
+font-weight: 500;
+color: #FFFFFF;
+font-family: Robot-thin,Roboto,Roboto Regular,Noto Sans TC,San serif,AtlasGrotesk ,Yuanti SC;
 
+`
 const StyledFooter = styled.footer`
   align-items: flex-start;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   width: 100%;
-  background: #7f7f7f;
+  background: #303030;
+  padding :45px;
+  font-family: Robot-thin,Roboto,Roboto Regular,Noto Sans TC,San serif,AtlasGrotesk ,Yuanti SC;
+
   ${({ theme }) => theme.mediaWidth.upToExtraSmall`
     padding-bottom: 40px;
   `} 
@@ -39,9 +58,11 @@ const StyledFooterInner = styled.div`
   align-items: flex-start;
   display: flex;
   justify-content: space-between;
-  width: 90%;
-  padding: 60px 15px 54px;
+  width: 98%;
+  padding: 50px 50px 54px;
   box-sizing: border-box;
+  font-family: Robot-thin,Roboto,Roboto Regular,Noto Sans TC,San serif,AtlasGrotesk ,Yuanti SC;
+
   ${MEDIA_QUERY.sm} {
     width: 98%;
   }
@@ -53,6 +74,8 @@ const StyledFooterItemLeft = styled.section`
   align-items: flex-start;
   justify-content: center;
   margin: 10px 0;
+  font-family: Robot-thin,Roboto,Roboto Regular,Noto Sans TC,San serif,AtlasGrotesk ,Yuanti SC;
+
   ${MEDIA_QUERY.sm} {
     display: none;
   }
@@ -64,15 +87,26 @@ const StyledFooterItem = styled.section`
   justify-content: center;
   margin: 10px 0;
 `
-
-const StyledFooterItemTitle = styled.span`
-  font-size: 10px;
+const StyledFooterSmallItemTitle = styled.span`
+  font-size: 13px;
   font-weight: 500;
+  font-family: Robot-thin,Roboto,Roboto Regular,Noto Sans TC,San serif,AtlasGrotesk ,Yuanti SC;
+
   color: #FFFFFF;
   line-height: 24px;
-  min-width: 100px;
-  margin-top: 22px;
+  min-width: 324px;
+  margin-top: 0px;
+  text-align:center;
 `
+
+// const StyledFooterItemTitle = styled.span`
+//   font-size: 10px;
+//   font-weight: 500;
+//   color: #FFFFFF;
+//   line-height: 24px;
+//   min-width: 170px;
+//   margin-top: 22px;
+// `
 // const StyledLink = styled.a`
 //   color: ${({ theme }) => theme.bg2};
 //   text-decoration: none;
