@@ -1,11 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import twitterIcon from '../../../assets/images/twitter_icon.webp';
-import telegramIcon from '../../../assets/images/telegram_icon.webp';
-import insgramIcon from '../../../assets/images/instgram_icon.webp';
-import icashIcon from '../../../assets/images/icashrewards.webp';
-import linkTrIcon from '../../../assets/images/linktr_icon.webp';
+import twitterIcon from '../../../assets/images/twitter_icon.png';
+import telegramIcon from '../../../assets/images/telegram_icon.png';
+import insgramIcon from '../../../assets/images/instgram_icon.png';
+import icashIcon from '../../../assets/images/icashrewards.png';
+import linkTrIcon from '../../../assets/images/linktr_icon.png';
 import { MEDIA_QUERY } from '../../../constants/style';
 
 const NavSocial: React.FC = () => {
@@ -45,7 +45,7 @@ const StyledNav = styled.nav`
   justify-content: flex-end;;
   flex-wrap: wrap;
   width: 100%;
-  margin-top: 16px;
+  margin-top: 29px;
   ${MEDIA_QUERY.sm} {
    // width: 200px;
    display: inline-block;

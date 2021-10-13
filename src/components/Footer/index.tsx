@@ -71,7 +71,7 @@ const StyledFooterInner = styled.div`
   ${MEDIA_QUERY.sm} {
     width: 98%;
     padding: 0px;
-    min-height: 300px;
+    min-height: 170px;
     display: inline-block;
     vertical-align: top;
   }
@@ -106,6 +106,9 @@ const StyledFooterSmallItemTitle = styled.span`
   min-width: 290px;
   margin-top: 0px;
   text-align:center;
+  ${MEDIA_QUERY.sm} {
+     display: none;
+  }
 `
 
 // const StyledFooterItemTitle = styled.span`
