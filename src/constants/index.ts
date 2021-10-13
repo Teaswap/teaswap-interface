@@ -574,7 +574,8 @@ export const tokenOptions = [
   { id: '4', name: 'Shih',value:SHIH.address },
   { id: '5', name: 'CJAI',value:CJAI.address },
   { id: '6', name: 'ETH',value:BETH.address},
-  { id: '7', name: 'LOT',value:TSALOT.address}
+  { id: '7', name: 'LOT',value:TSALOT.address},
+  { id: '8', name: 'ICASH',value:ICASH.address}
 ]
 
 export const NetworkContextName = 'NETWORK'

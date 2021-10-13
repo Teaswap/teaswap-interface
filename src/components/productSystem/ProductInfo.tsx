@@ -15,7 +15,7 @@ import {
   useUserHasSubmittedBid
 } from "../../state/transactions/hooks";
 import {ApprovalState, useApproveCallback} from "../../hooks/useApproveCallback";
-import {BETH, BUSD, CJAI, NFTEXCHANGE, PAYABLEETH, SHIH, TSALOT, UNI, ZERO_ADDRESS} from "../../constants";
+import {BETH, BUSD, CJAI, ICASH, NFTEXCHANGE, PAYABLEETH, SHIH, TSALOT, UNI, ZERO_ADDRESS} from "../../constants";
 import {TransactionResponse} from "@ethersproject/providers";
 import {useETHBalances, useTokenBalance} from "../../state/wallet/hooks";
 import {ChainId, ETHER, JSBI} from "@teaswap/uniswap-sdk";
@@ -288,7 +288,8 @@ export const ProductInfo = ({product,user}:{ product:ProductInterface, user:user
     { name: 'Shih',address:SHIH.address,token:SHIH },
     { name: 'CJAI',address:CJAI.address,token:CJAI },
     { name: 'ETH',address:BETH.address,token:BETH },
-    { name: 'LOT',address:TSALOT.address,token:TSALOT}
+    { name: 'LOT',address:TSALOT.address,token:TSALOT},
+    { name: 'ICASH',address:ICASH.address,token:ICASH}
   ]
   const {
     errorMessage,
