@@ -39,7 +39,7 @@ color: #FFFFFF;
 font-family: Robot-thin,Roboto,Roboto Regular,Noto Sans TC,San serif,AtlasGrotesk ,Yuanti SC;
 ${MEDIA_QUERY.sm}
   {
-    min-height: 60px;
+    min-height: 80px;
   }
 `
 const StyledFooter = styled.footer`
@@ -53,7 +53,7 @@ const StyledFooter = styled.footer`
   font-family: Robot-thin,Roboto,Roboto Regular,Noto Sans TC,San serif,AtlasGrotesk ,Yuanti SC;
   ${MEDIA_QUERY.sm}
   {
-    padding: 20px;
+    padding: 10px;
   }
   ${({ theme }) => theme.mediaWidth.upToExtraSmall`
     padding-bottom: 40px;
@@ -71,7 +71,7 @@ const StyledFooterInner = styled.div`
   ${MEDIA_QUERY.sm} {
     width: 98%;
     padding: 0px;
-    min-height: 170px;
+    //min-height: 170px;
     display: inline-block;
     vertical-align: top;
   }

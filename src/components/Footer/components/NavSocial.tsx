@@ -45,7 +45,7 @@ const StyledNav = styled.nav`
   justify-content: flex-end;;
   flex-wrap: wrap;
   width: 100%;
-  margin-top: 29px;
+  margin-top: 15px;
   ${MEDIA_QUERY.sm} {
    // width: 200px;
    display: inline-block;
