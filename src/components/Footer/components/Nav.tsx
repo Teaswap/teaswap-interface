@@ -45,6 +45,9 @@ const StyledNav = styled.nav`
   margin-top: -3px;
   margin-right: 20px;
   flex-wrap: wrap;
+  ${MEDIA_QUERY.sm} {
+    width: 300px;
+  }
 `
 const StyledNavLink = styled(NavLink)`
   color: ${({ theme }) => theme.bg2};

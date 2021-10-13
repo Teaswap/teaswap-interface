@@ -18,15 +18,13 @@ const Footer: React.FC = () => {
         <StyledFooterItem>
           <Nav />
           <NavSocial />
-        </StyledFooterItem>
+        </StyledFooterItem>  
+          
       </StyledFooterInner> 
-      <StyledFooterItemDiv>
-                <div >
-                    <div >
-                        <span >© 2021 TSANFT All rights reserved.</span>
-                    </div>
-                </div>
-           
+  <StyledFooterItemDiv>
+            <div>
+      <span >© 2021 TSANFT All rights reserved.</span>
+      </div>
       </StyledFooterItemDiv>
     </StyledFooter>
   )
@@ -34,11 +32,15 @@ const Footer: React.FC = () => {
 const StyledFooterItemDiv = styled.div`
 width:100%;  
 text-align: center!important;
-font-size: 8px;
+font-size: 10px;
 font-weight: 500;
 color: #FFFFFF;
-font-family: Robot-thin,Roboto,Roboto Regular,Noto Sans TC,San serif,AtlasGrotesk ,Yuanti SC;
 
+font-family: Robot-thin,Roboto,Roboto Regular,Noto Sans TC,San serif,AtlasGrotesk ,Yuanti SC;
+${MEDIA_QUERY.sm}
+  {
+    min-height: 60px;
+  }
 `
 const StyledFooter = styled.footer`
   align-items: flex-start;
@@ -49,7 +51,10 @@ const StyledFooter = styled.footer`
   background: #303030;
   padding :45px;
   font-family: Robot-thin,Roboto,Roboto Regular,Noto Sans TC,San serif,AtlasGrotesk ,Yuanti SC;
-
+  ${MEDIA_QUERY.sm}
+  {
+    padding: 20px;
+  }
   ${({ theme }) => theme.mediaWidth.upToExtraSmall`
     padding-bottom: 40px;
   `} 
@@ -65,10 +70,14 @@ const StyledFooterInner = styled.div`
 
   ${MEDIA_QUERY.sm} {
     width: 98%;
+    padding: 0px;
+    min-height: 300px;
+    display: inline-block;
+    vertical-align: top;
   }
 `
 
-const StyledFooterItemLeft = styled.section`
+const StyledFooterItemLeft = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -77,10 +86,10 @@ const StyledFooterItemLeft = styled.section`
   font-family: Robot-thin,Roboto,Roboto Regular,Noto Sans TC,San serif,AtlasGrotesk ,Yuanti SC;
 
   ${MEDIA_QUERY.sm} {
-    display: none;
+    // display: none;
   }
 `
-const StyledFooterItem = styled.section`
+const StyledFooterItem = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -88,13 +97,13 @@ const StyledFooterItem = styled.section`
   margin: 10px 0;
 `
 const StyledFooterSmallItemTitle = styled.span`
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 500;
   font-family: Robot-thin,Roboto,Roboto Regular,Noto Sans TC,San serif,AtlasGrotesk ,Yuanti SC;
 
   color: #FFFFFF;
   line-height: 24px;
-  min-width: 324px;
+  min-width: 290px;
   margin-top: 0px;
   text-align:center;
 `

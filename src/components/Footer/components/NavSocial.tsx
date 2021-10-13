@@ -6,6 +6,7 @@ import telegramIcon from '../../../assets/images/telegram_icon.webp';
 import insgramIcon from '../../../assets/images/instgram_icon.webp';
 import icashIcon from '../../../assets/images/icashrewards.webp';
 import linkTrIcon from '../../../assets/images/linktr_icon.webp';
+import { MEDIA_QUERY } from '../../../constants/style';
 
 const NavSocial: React.FC = () => {
   return (
@@ -45,6 +46,11 @@ const StyledNav = styled.nav`
   flex-wrap: wrap;
   width: 100%;
   margin-top: 16px;
+  ${MEDIA_QUERY.sm} {
+   // width: 200px;
+   display: inline-block;
+    text-align: center;
+  }
   
 `
 

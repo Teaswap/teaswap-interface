@@ -39,8 +39,8 @@ const CarouselBox = () => {
       {!isMobile && (<img src={process.env.PUBLIC_URL + '/big_banner_CJAI.png'} alt="" />)}
       
       
-      {isMobile && (<img src={process.env.PUBLIC_URL + '/3.png'} alt="" />)}
-      {isMobile && (<img src={process.env.PUBLIC_URL + '/4.png'} alt="" />)}
+      {isMobile && (<img src={process.env.PUBLIC_URL + '/mobile-mythology.png'} alt="" />)}
+      {isMobile && (<img src={process.env.PUBLIC_URL + '/Mobile-Holiday.png'} alt="" />)}
       {isMobile && (<img src={process.env.PUBLIC_URL + '/mobile_banner_tsa.png'} alt="" />)}
       {isMobile && (<img src={process.env.PUBLIC_URL + '/mobile_banner_cjai.png'} alt="" />)}
     
