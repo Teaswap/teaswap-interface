@@ -32,17 +32,35 @@ const CarouselBox = () => {
         nextButtonStyle: preBtnSty
       }}
     >
-      {!isMobile && (<img src={process.env.PUBLIC_URL + '/3.png'} alt="" />)}
-      {!isMobile && (<img src={process.env.PUBLIC_URL + '/4.png'} alt="" />)}
-      {!isMobile && (<img src={process.env.PUBLIC_URL + '/big_banner_TSABanner3.png'} alt="" />)}
-      {!isMobile && (<img src={process.env.PUBLIC_URL + '/big_banner_TSA.png'} alt="" />)}
-      {!isMobile && (<img src={process.env.PUBLIC_URL + '/big_banner_CJAI.png'} alt="" />)}
+      {!isMobile && (<img src={process.env.PUBLIC_URL + '/3.png'} alt="" onClick={() => {
+          window.open("https://www.teaswap.art/nft/products/category/1")
+        }}/>)}
+      {!isMobile && (<img src={process.env.PUBLIC_URL + '/4.png'} alt="" onClick={() => {
+          window.open("https://www.teaswap.art/nft/products/category/1")
+        }} />)}
+      {!isMobile && (<img src={process.env.PUBLIC_URL + '/big_banner_TSABanner3.png'} alt="" onClick={() => {
+          window.open("https://www.teaswap.art/nft/products/category/1")
+        }} />)}
+      {!isMobile && (<img src={process.env.PUBLIC_URL + '/big_banner_TSA.png'} alt="" onClick={() => {
+          window.open("https://www.teaswap.art/nft/products/category/1")
+        }}/>)}
+      {!isMobile && (<img src={process.env.PUBLIC_URL + '/big_banner_CJAI.png'} alt="" onClick={() => {
+          window.open("https://www.teaswap.art/nft/products/category/1")
+        }}/>)}
       
       
-      {isMobile && (<img src={process.env.PUBLIC_URL + '/mobile-mythology.png'} alt="" />)}
-      {isMobile && (<img src={process.env.PUBLIC_URL + '/Mobile-Holiday.png'} alt="" />)}
-      {isMobile && (<img src={process.env.PUBLIC_URL + '/mobile_banner_tsa.png'} alt="" />)}
-      {isMobile && (<img src={process.env.PUBLIC_URL + '/mobile_banner_cjai.png'} alt="" />)}
+      {isMobile && (<img src={process.env.PUBLIC_URL + '/mobile-mythology.png'} alt="" onClick={() => {
+          window.open("https://www.teaswap.art/nft/products/category/1")
+        }} />)}
+      {isMobile && (<img src={process.env.PUBLIC_URL + '/Mobile-Holiday.png'} alt=""  onClick={() => {
+          window.open("https://www.teaswap.art/nft/products/category/1")
+        }}/>)}
+      {isMobile && (<img src={process.env.PUBLIC_URL + '/mobile_banner_tsa.png'} alt=""  onClick={() => {
+          window.open("https://www.teaswap.art/nft/products/category/1")
+        }}/>)}
+      {isMobile && (<img src={process.env.PUBLIC_URL + '/mobile_banner_cjai.png'} alt="" onClick={() => {
+          window.open("https://www.teaswap.art/nft/products/category/1")
+        }} />)}
     
 
     </Carousel>
