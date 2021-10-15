@@ -51,7 +51,7 @@ const StyledNav = styled.nav`
    display: inline-block;
     text-align: center;
     margin-left: -15px;
-    margin-top: 20px;
+    margin-top: 44px;
   }
   
 `

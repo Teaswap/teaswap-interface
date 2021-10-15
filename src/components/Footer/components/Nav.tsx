@@ -47,6 +47,7 @@ const StyledNav = styled.nav`
   flex-wrap: wrap;
   ${MEDIA_QUERY.sm} {
     width: 300px;
+    margin-top: -10px;
   }
 `
 const StyledNavLink = styled(NavLink)`
