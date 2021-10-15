@@ -40,6 +40,7 @@ font-family: Robot-thin,Roboto,Roboto Regular,Noto Sans TC,San serif,AtlasGrotes
 ${MEDIA_QUERY.sm}
   {
     min-height: 80px;
+    margin-left: -15px;
   }
 `
 const StyledFooter = styled.footer`
@@ -51,13 +52,16 @@ const StyledFooter = styled.footer`
   background: #303030;
   padding :45px;
   font-family: Robot-thin,Roboto,Roboto Regular,Noto Sans TC,San serif,AtlasGrotesk ,Yuanti SC;
-  ${MEDIA_QUERY.sm}
-  {
-    padding: 10px;
-  }
+  
   ${({ theme }) => theme.mediaWidth.upToExtraSmall`
     padding-bottom: 40px;
   `} 
+  ${MEDIA_QUERY.sm}
+  {
+    padding: 10px;
+    padding-bottom: 20px;
+  }
+  
 `
 const StyledFooterInner = styled.div`
   align-items: flex-start;
@@ -71,7 +75,7 @@ const StyledFooterInner = styled.div`
   ${MEDIA_QUERY.sm} {
     width: 98%;
     padding: 0px;
-    //min-height: 170px;
+    min-height: 150px;
     display: inline-block;
     vertical-align: top;
   }
