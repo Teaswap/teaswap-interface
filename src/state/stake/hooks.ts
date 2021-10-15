@@ -106,9 +106,21 @@ export const STAKING_REWARDS_INFO: {
       cate:"TSA"
     },
     {
-      tokens: [BUSD, UNI[ChainId.BSC_MAINNET]],
-      stakingRewardAddress: '0x7Cc95C5c821370960865aCf43DebbA42CeC22405',
-      iconUrl: "/busd_icon.webp",
+      tokens: [ETH_TSA_LP, UNI[ChainId.BSC_MAINNET]],
+      stakingRewardAddress: '0x226141bA188cbEd9C8D39c237F29eC3F5bA5A43B',
+      iconUrl: "/ETH_TSA_TSA.png",
+      cate:"TSA"
+    },
+    {
+      tokens: [TSA_BUSD_LP, UNI[ChainId.BSC_MAINNET]],
+      stakingRewardAddress: '0x38c566a8ab2572f5dcb50699F330D3020ba0013c',
+      iconUrl: "/TSA_BUSD_TSA.png",
+      cate:"TSA"
+    },
+    {
+      tokens: [USDT_TSA_LP, UNI[ChainId.BSC_MAINNET]],
+      stakingRewardAddress: '0xE6307914A93541046be4dACB36E78B162E9d0428',
+      iconUrl: "/USDT_TSA_TSA.png",
       cate:"TSA"
     },
     // {
@@ -126,6 +138,8 @@ export const STAKING_REWARDS_INFO: {
       iconUrl: "/BTCTSA.png",
       cate:"TSA"
     },
+
+    
     {
       tokens: [BNB_SHIH_LP, SHIH],
       stakingRewardAddress: '0x4395c1Dc164F3e1B5592D2735b54ef6041F4C64c',
@@ -180,24 +194,9 @@ export const STAKING_REWARDS_INFO: {
       iconUrl: "/TSA_DOGE_TSA.png",
       cate:"TSA"
     },
-    {
-      tokens: [TSA_BUSD_LP, UNI[ChainId.BSC_MAINNET]],
-      stakingRewardAddress: '0x38c566a8ab2572f5dcb50699F330D3020ba0013c',
-      iconUrl: "/TSA_BUSD_TSA.png",
-      cate:"TSA"
-    },
-    {
-      tokens: [USDT_TSA_LP, UNI[ChainId.BSC_MAINNET]],
-      stakingRewardAddress: '0xE6307914A93541046be4dACB36E78B162E9d0428',
-      iconUrl: "/USDT_TSA_TSA.png",
-      cate:"TSA"
-    },
-    {
-      tokens: [ETH_TSA_LP, UNI[ChainId.BSC_MAINNET]],
-      stakingRewardAddress: '0x226141bA188cbEd9C8D39c237F29eC3F5bA5A43B',
-      iconUrl: "/ETH_TSA_TSA.png",
-      cate:"TSA"
-    },
+  
+   
+  
     {
       tokens: [UNI[ChainId.BSC_MAINNET],ICASH],
       stakingRewardAddress:'0xaf5e13E7F1DC210EAAaD7C4B87Ea310c84899DAD',
@@ -224,7 +223,7 @@ export const STAKING_REWARDS_INFO: {
       cate:"CJAI"
     },
     //   //0x261f94f98327b17649eda469c958deaac4c479d5
-
+  
     {
       tokens: [SHIH,UNI[ChainId.BSC_MAINNET]],
       stakingRewardAddress:'0xB2919b8d401dEA262B1E62876Fa1B7aAc287B05E',
@@ -316,7 +315,12 @@ export const STAKING_REWARDS_INFO: {
       iconUrl: "/blp_icon.webp",
       cate:"TSA"
     },
-   
+    {
+      tokens: [BUSD, UNI[ChainId.BSC_MAINNET]],
+      stakingRewardAddress: '0x7Cc95C5c821370960865aCf43DebbA42CeC22405',
+      iconUrl: "/busd_icon.webp",
+      cate:"TSA"
+    },
     {
       tokens: [DOGE, UNI[ChainId.BSC_MAINNET]],
       stakingRewardAddress:'0x96c51D3FAb14f27b5D9E45CDB43235d703B5e211',
