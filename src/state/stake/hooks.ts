@@ -99,6 +99,12 @@ export const STAKING_REWARDS_INFO: {
       iconUrl: "/NFT22.png",
       cate:"NFT"
     },
+    {
+      tokens: [BNB_TSA_LP, UNI[ChainId.BSC_MAINNET]],
+      stakingRewardAddress: '0xA1f2Bc4cBB56b02cB1329C8ca633155c02Fc6Cb8',
+      iconUrl: "/bnbtsastaketsa.png",
+      cate:"TSA"
+    },
     // {
     //   tokens: [GensisNFT, ICASH],
     //   stakingRewardAddress: '0x353E596DB5B84026ba7905D6461CF2fb0604E7AE',
@@ -212,12 +218,7 @@ export const STAKING_REWARDS_INFO: {
       cate:"CJAI"
     },
     //   //0x261f94f98327b17649eda469c958deaac4c479d5
-    {
-      tokens: [BNB_TSA_LP, UNI[ChainId.BSC_MAINNET]],
-      stakingRewardAddress: '0xA1f2Bc4cBB56b02cB1329C8ca633155c02Fc6Cb8',
-      iconUrl: "/bnbtsastaketsa.png",
-      cate:"TSA"
-    },
+
     {
       tokens: [SHIH,UNI[ChainId.BSC_MAINNET]],
       stakingRewardAddress:'0xB2919b8d401dEA262B1E62876Fa1B7aAc287B05E',
