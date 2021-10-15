@@ -49,7 +49,7 @@ const CarouselBox = () => {
         }}/>)}
       
       
-      {isMobile && (<img src={process.env.PUBLIC_URL + '/mobile-mythology.png'} alt="" onClick={() => {
+      {isMobile && (<img src={process.env.PUBLIC_URL + '/mobile-mythology.png'} width="100%" height="100%" alt="" onClick={() => {
           window.open("https://www.teaswap.art/nft/products/category/1")
         }} />)}
       {isMobile && (<img src={process.env.PUBLIC_URL + '/Mobile-Holiday.png'} alt=""  onClick={() => {

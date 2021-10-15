@@ -105,6 +105,12 @@ export const STAKING_REWARDS_INFO: {
       iconUrl: "/bnbtsastaketsa.png",
       cate:"TSA"
     },
+    {
+      tokens: [BUSD, UNI[ChainId.BSC_MAINNET]],
+      stakingRewardAddress: '0x7Cc95C5c821370960865aCf43DebbA42CeC22405',
+      iconUrl: "/busd_icon.webp",
+      cate:"TSA"
+    },
     // {
     //   tokens: [GensisNFT, ICASH],
     //   stakingRewardAddress: '0x353E596DB5B84026ba7905D6461CF2fb0604E7AE',
@@ -310,12 +316,7 @@ export const STAKING_REWARDS_INFO: {
       iconUrl: "/blp_icon.webp",
       cate:"TSA"
     },
-    {
-      tokens: [BUSD, UNI[ChainId.BSC_MAINNET]],
-      stakingRewardAddress: '0x7Cc95C5c821370960865aCf43DebbA42CeC22405',
-      iconUrl: "/busd_icon.webp",
-      cate:"TSA"
-    },
+   
     {
       tokens: [DOGE, UNI[ChainId.BSC_MAINNET]],
       stakingRewardAddress:'0x96c51D3FAb14f27b5D9E45CDB43235d703B5e211',
