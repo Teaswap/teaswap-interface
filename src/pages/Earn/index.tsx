@@ -14,6 +14,7 @@ import Nav from '../../components/earn/Nav'
 import { MEDIA_QUERY } from '../../constants/style'
 import StakeBox from '../../components/general/StakeBox'
 // import { unwrappedToken } from '../../utils/wrappedCurrency'
+import Switch from '@material-ui/core/Switch';
 
 const PageWrapper = styled.div`
   margin-top:  30px;
@@ -77,6 +78,9 @@ export default function Earn() {
     setShowCat(cat)
   }
 
+  console.log("stakinginfos", stakingInfos);
+  const [stakedOnly, setStakedOnly] = useState(false)
+
   const stakingRewardsExist = Boolean(typeof chainId === 'number' && (STAKING_REWARDS_INFO[chainId]?.length ?? 0) > 0)
   return (
     <PageWrapper >
@@ -85,7 +89,17 @@ export default function Earn() {
         <ConSubTitle con={"An amazing yield farm on Binance Smart Chain."} />
       </TopSection> */}
       <NavAndPool>
-        <Nav cat={showCat} handleCatChange={changeCate} />
+        <div style={{
+          width: '90%',
+          maxWidth: '1270px',
+          margin: '0 auto',
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center'
+        }}>
+          <Nav cat={showCat} handleCatChange={changeCate} />
+          <span> <Switch checked={stakedOnly} onChange={() => setStakedOnly(!stakedOnly)}/> staked only</span>
+        </div>
       
         <PoolSection>
           {stakingRewardsExist && stakingInfos?.length === 0 ? (
@@ -94,6 +108,11 @@ export default function Earn() {
             <span style={{ color: '#ffffff' }}>{t('noActiveRewards')}</span>
           ) : (
             stakingInfos?.map(stakingInfo => {
+              const isStaking = Boolean(stakingInfo.stakedAmount.greaterThan('0'))
+              const isUnclaim = Boolean(stakingInfo.unclaimAmount.greaterThan('0'))
+              if (stakedOnly && !isStaking && !isUnclaim) {
+                return;
+              }
               switch(showCat) {
                 case 0:
                   let d2 = new Date().getTime()

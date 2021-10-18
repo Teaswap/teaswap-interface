@@ -49,8 +49,8 @@ const Nav = (props: any) => {
 const Root = styled.div`
   display: flex;
   justify-content: flex-start;
-  width: 90%;
-  max-width: 1270px;
+  width: 70%;
+  max-width: 1170px;
   margin:0 auto;
 `
 

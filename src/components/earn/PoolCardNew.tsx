@@ -137,7 +137,7 @@ export default function PoolCard({ stakingInfo }: { stakingInfo: StakingInfo }) 
   const currency1 = unwrappedToken(token1)
 
   const isStaking = Boolean(stakingInfo.stakedAmount.greaterThan('0'))
-    const isUnclaim = Boolean(stakingInfo.unclaimAmount.greaterThan('0'))
+  const isUnclaim = Boolean(stakingInfo.unclaimAmount.greaterThan('0'))
 
   // const tokenIcon = stakingInfo.stakingRewardAddress == ''
 
