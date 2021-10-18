@@ -50,6 +50,8 @@ const StyledNav = styled.nav`
    // width: 200px;
    display: inline-block;
     text-align: center;
+    margin-left: -15px;
+    margin-top: 44px;
   }
   
 `
