@@ -460,7 +460,7 @@ export const ProductInfo = ({product,user}:{ product:ProductInterface, user:user
                 <IconContainer onClick={wrappedOnDismiss}>
                   <IconComponent kind='close-black' margin={0} color={COLOR.dark_gray}/>
                 </IconContainer>
-                <InputName>{t('Input bidding price')}</InputName>
+                <InputName>{t('Input purchase price')}</InputName>
                 <CurrencyInputPanel
                     id='bidprice'
                     currency={exToken.address===ZERO_ADDRESS?ETHER:exToken}
@@ -471,7 +471,7 @@ export const ProductInfo = ({product,user}:{ product:ProductInterface, user:user
                     disableCurrencySelect={true}
                     value = {bidValue}
                     onUserInput={(typed) => setBidValue(typed)}
-                    customBalanceText={'Available to buy: '}
+                    customBalanceText={'Available to bid: '}
                 />
                 <p>
                   Best Offer: {LastBid(productCarts )}
