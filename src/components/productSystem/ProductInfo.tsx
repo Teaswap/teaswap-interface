@@ -30,6 +30,7 @@ import useProduct from '../../hooks/productHooks/useProduct';
 import { LastBid } from '../../utils/strUtil';
 import { AiOutlineEye, AiFillHeart } from "react-icons/ai";
 import { GiShare} from "react-icons/gi";
+import { useActiveWeb3React } from '../../hooks';
 
 // const Container = styled.li`
 
@@ -280,7 +281,8 @@ export const ProductInfo = ({product,user}:{ product:ProductInterface, user:user
   // const { user } = useOrder();
   const [bidValue, setBidValue] = useState('');
   const [isBiding, setIsBiding] = useState(false);
-  const [, setWitch] = useState(0);
+  const [witch, setWitch] = useState(0);
+  const { chainId } = useActiveWeb3React();
   const tokenOptions = [
     { name: 'BNB',address:ZERO_ADDRESS,token:PAYABLEETH[ChainId.BSC_MAINNET] },
     { name: 'BUSD',address:BUSD.address,token:BUSD },
@@ -315,9 +317,12 @@ export const ProductInfo = ({product,user}:{ product:ProductInterface, user:user
   //   getUser()(dispatch);
   // }, [dispatch]);
 
-  const handlebidModal = (which:number)=>{
+  const handlebidModal = (which:number, price: string)=>{
     setIsBiding(true);
     setWitch(which);
+    if (which) {
+      setBidValue(price)
+    }
   };
 
   const [approvalSubmitted, setApprovalSubmitted] = useState(false)
@@ -455,12 +460,17 @@ export const ProductInfo = ({product,user}:{ product:ProductInterface, user:user
       )}
       {isBiding && (
         <Modal>
-          {!attempting && !hash && (
+          {chainId !== 56 && (
+            <Form>
+              <InputName>{t('Please switch to bsc mainnet to bid')}</InputName>
+            </Form>
+          )}
+          {!attempting && !hash && chainId == 56 && (
               <Form>
                 <IconContainer onClick={wrappedOnDismiss}>
                   <IconComponent kind='close-black' margin={0} color={COLOR.dark_gray}/>
                 </IconContainer>
-                <InputName>{t('Input purchase price')}</InputName>
+                <InputName>{t(witch == 1 ? 'Input purchase price' : 'Input bid price')}</InputName>
                 <CurrencyInputPanel
                     id='bidprice'
                     currency={exToken.address===ZERO_ADDRESS?ETHER:exToken}
@@ -471,7 +481,7 @@ export const ProductInfo = ({product,user}:{ product:ProductInterface, user:user
                     disableCurrencySelect={true}
                     value = {bidValue}
                     onUserInput={(typed) => setBidValue(typed)}
-                    customBalanceText={'Available to bid: '}
+                    customBalanceText={witch == 1 ? 'Available to buy: ' : 'Available to bid: '}
                 />
                 <p>
                   Best Offer: {LastBid(productCarts )}
@@ -526,7 +536,7 @@ export const ProductInfo = ({product,user}:{ product:ProductInterface, user:user
       {/* <ProductName style={{fontSize: '12px', marginTop: '10px'}}>You must place a bid that is higher than the current bid. </ProductName> */}
       {user ? (
         <ShoppingCart
-          onClick={()=>handlebidModal(0)}
+          onClick={()=>handlebidModal(0, product.price.toString())}
         >
           {t('Bid')}
         </ShoppingCart>
@@ -537,7 +547,7 @@ export const ProductInfo = ({product,user}:{ product:ProductInterface, user:user
       )}
       {user ? (
         <ShoppingBuy
-          onClick={()=>handlebidModal(1)}
+          onClick={()=>handlebidModal(1, product.price.toString())}
         >
           {t('Buy Now')}
         </ShoppingBuy>
