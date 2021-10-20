@@ -49,9 +49,13 @@ const Nav = (props: any) => {
 const Root = styled.div`
   display: flex;
   justify-content: flex-start;
-  width: 70%;
-  max-width: 1170px;
+  width: 85%;
+  //max-width: 1170px;
   margin:0 auto;
+  margin-left: 0px;
+  ${MEDIA_QUERY.sm}{
+     width: 90%;
+  }
 `
 
 const StyledNav = styled.nav`
@@ -61,8 +65,11 @@ const StyledNav = styled.nav`
   width: calc(100% 40px);
   margin-left: 10px;
   flex-wrap: wrap;
+  min-width: 1190px;
+  width: 75%;
   ${MEDIA_QUERY.sm}{
     margin-top: 10px;
+    min-width: 320px;
   }
 `
 
@@ -73,6 +80,9 @@ const StyledLink = styled.span`
   font-weight: 500;
   cursor: pointer;
   margin-top: 10px;
+  ${MEDIA_QUERY.sm}{
+    font-size: 13px;
+  }
 `
 
 export default Nav

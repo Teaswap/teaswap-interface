@@ -42,16 +42,17 @@ const PageWrapper = styled.div`
 // `
 
 const PoolSection = styled.div`
-  width: 1286px;
+  width: 1190px;
   margin: 0 auto;
   margin-top: 20px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: flex-start;
+  justify-content: center;
   ${MEDIA_QUERY.sm} {
-    width: 100%;
-    justify-content: center;
+    
+    justify-content: left;
   }
 `
 
@@ -61,7 +62,32 @@ const NavAndPool = styled.div`
   flex-direction: column;
   padding-top: 30px;
 `
-
+const NavSubAndPool =styled.div`
+  width: 74%;
+  //  maxWidth: 1270px;
+  // width: 85%;
+  margin: 0 auto;
+  display: flex;
+  justifyContent: space-between;
+  alignItems: center;
+  ${MEDIA_QUERY.sm} {
+   text-align: right;
+ 
+  }
+ 
+  ${MEDIA_QUERY.sm} {
+    width: 100%;
+    flex-direction: column;
+  }
+  `
+  const StakingOnlyDiv =styled.div`
+  max-width: 135px;
+  //margin-right: 50px;
+  ${MEDIA_QUERY.sm} {
+    margin-right: 15px;
+    min-width:320px;
+  }
+  `
 export default function Earn() {
   const { chainId } = useActiveWeb3React()
   const stakingInfos = useAllStakingInfo()
@@ -89,17 +115,12 @@ export default function Earn() {
         <ConSubTitle con={"An amazing yield farm on Binance Smart Chain."} />
       </TopSection> */}
       <NavAndPool>
-        <div style={{
-          width: '90%',
-          maxWidth: '1270px',
-          margin: '0 auto',
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center'
-        }}>
+        <NavSubAndPool>
           <Nav cat={showCat} handleCatChange={changeCate} />
+          <StakingOnlyDiv>
           <span> <Switch checked={stakedOnly} onChange={() => setStakedOnly(!stakedOnly)}/> staked only</span>
-        </div>
+          </StakingOnlyDiv>
+        </NavSubAndPool>
       
         <PoolSection>
           {stakingRewardsExist && stakingInfos?.length === 0 ? (
