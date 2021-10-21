@@ -49,7 +49,7 @@ const PoolSection = styled.div`
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: flex-start;
-  justify-content: center;
+  justify-content: left;
   ${MEDIA_QUERY.sm} {
     
     justify-content: center;
