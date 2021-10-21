@@ -52,7 +52,8 @@ const PoolSection = styled.div`
   justify-content: center;
   ${MEDIA_QUERY.sm} {
     
-    justify-content: left;
+    justify-content: center;
+    width: 100%;
   }
 `
 
@@ -63,7 +64,7 @@ const NavAndPool = styled.div`
   padding-top: 30px;
 `
 const NavSubAndPool =styled.div`
-  //width: 74%;
+ //width: 74%;
   width: 1092px;
   margin: 0 auto;
   display: flex;
