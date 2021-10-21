@@ -63,9 +63,8 @@ const NavAndPool = styled.div`
   padding-top: 30px;
 `
 const NavSubAndPool =styled.div`
-  width: 74%;
-  //  maxWidth: 1270px;
-  // width: 85%;
+  //width: 74%;
+  width: 1092px;
   margin: 0 auto;
   display: flex;
   justifyContent: space-between;
