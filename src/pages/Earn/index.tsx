@@ -42,7 +42,7 @@ const PageWrapper = styled.div`
 // `
 
 const PoolSection = styled.div`
-  width: 1190px;
+  width: 1125px;
   margin: 0 auto;
   margin-top: 20px;
   display: flex;
