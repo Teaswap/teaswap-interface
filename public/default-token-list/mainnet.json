@@ -3,7 +3,7 @@
   "timestamp": "2021-09-12T05:05:10.290Z",
   "version": {
     "major": 1,
-    "minor": 16,
+    "minor": 17,
     "patch": 27
   },
   "tags": {},
@@ -740,6 +740,14 @@
       "decimals": 18,
       "chainId": 56,
       "logoURI": "https://www.teaswap.art/default-token-list/images/0x1729552618376F8a179c0F61F9FE789C77b230FE.png"
+    },
+    {
+      "name": "Radio Caca V2 ",
+      "address": "0x12bb890508c125661e03b09ec06e404bc9289040",
+      "symbol": "RACA",
+      "decimals": 18,
+      "chainId": 56,
+      "logoURI": "https://www.teaswap.art/default-token-list/images/0x12bb890508c125661e03b09ec06e404bc9289040.png"
     },
     {
       "name": "TEAsWAP.ART",
