@@ -149,6 +149,14 @@ export const NorseMythology = new Token(
     'NorseMythology Collection'
 )
 
+export const TSANFTMetaverseII  = new Token(
+    ChainId.BSC_MAINNET,
+    '0x8DB099F2D73016CFBDaC978BC21E5470e7fBAaa0',
+    0,
+    'TSANFT Metaverse II',
+    'TSA HolderHFT Collection'
+)
+
 export const TSAMetaverse = new Token(
     ChainId.BSC_MAINNET,
     '0x1aa3DfE63CDad8A66fCEb00FBC99b29a9f956ed8',
@@ -227,6 +235,14 @@ export const BNB_TSA_LP = new Token(
     18,
     'BNB-TSA BLP',
     'BNB_TSA_BakeryLP'
+)
+
+export const TSA_RACA_LP = new Token(
+    ChainId.BSC_MAINNET,
+    '0x6a150ac32b9019ca1b7ba8d0e19a73b976890ce0',
+    18,
+    'TSA-RACA BLP',
+    'TSA_RACA_BakeryLP'
 )
 
 export const BUSD_SHIH_LP = new Token(
@@ -314,6 +330,14 @@ export const BUSD = new Token(
   18,
   'BUSD',
   'BUSD Token'
+)
+
+export const CAKE = new Token(
+    ChainId.BSC_MAINNET,
+    '0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82',
+    18,
+    'Cake',
+    'PancakeSwap Token'
 )
 
 
