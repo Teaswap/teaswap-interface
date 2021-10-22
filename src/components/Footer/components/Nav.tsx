@@ -42,9 +42,13 @@ const StyledNav = styled.nav`
   display: flex;
   justify-content: flex-end;
   width: 100%;
-  margin-top: -3px;
+  margin-top: -10px;
   margin-right: 20px;
   flex-wrap: wrap;
+  ${MEDIA_QUERY.sm} {
+    width: 300px;
+    margin-top: -10px;
+  }
 `
 const StyledNavLink = styled(NavLink)`
   color: ${({ theme }) => theme.bg2};

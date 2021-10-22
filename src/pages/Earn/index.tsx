@@ -14,6 +14,7 @@ import Nav from '../../components/earn/Nav'
 import { MEDIA_QUERY } from '../../constants/style'
 import StakeBox from '../../components/general/StakeBox'
 // import { unwrappedToken } from '../../utils/wrappedCurrency'
+import Switch from '@material-ui/core/Switch';
 
 const PageWrapper = styled.div`
   margin-top:  30px;
@@ -41,16 +42,18 @@ const PageWrapper = styled.div`
 // `
 
 const PoolSection = styled.div`
-  width: 1286px;
+  width: 1125px;
   margin: 0 auto;
   margin-top: 20px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: flex-start;
+  justify-content: left;
   ${MEDIA_QUERY.sm} {
-    width: 100%;
+    
     justify-content: center;
+    width: 100%;
   }
 `
 
@@ -60,7 +63,31 @@ const NavAndPool = styled.div`
   flex-direction: column;
   padding-top: 30px;
 `
-
+const NavSubAndPool =styled.div`
+ //width: 74%;
+  width: 1092px;
+  margin: 0 auto;
+  display: flex;
+  justifyContent: space-between;
+  alignItems: center;
+  ${MEDIA_QUERY.sm} {
+   text-align: right;
+ 
+  }
+ 
+  ${MEDIA_QUERY.sm} {
+    width: 100%;
+    flex-direction: column;
+  }
+  `
+  const StakingOnlyDiv =styled.div`
+  max-width: 135px;
+  //margin-right: 50px;
+  ${MEDIA_QUERY.sm} {
+    margin-right: 15px;
+    min-width:320px;
+  }
+  `
 export default function Earn() {
   const { chainId } = useActiveWeb3React()
   const stakingInfos = useAllStakingInfo()
@@ -77,6 +104,9 @@ export default function Earn() {
     setShowCat(cat)
   }
 
+  console.log("stakinginfos", stakingInfos);
+  const [stakedOnly, setStakedOnly] = useState(false)
+
   const stakingRewardsExist = Boolean(typeof chainId === 'number' && (STAKING_REWARDS_INFO[chainId]?.length ?? 0) > 0)
   return (
     <PageWrapper >
@@ -85,7 +115,12 @@ export default function Earn() {
         <ConSubTitle con={"An amazing yield farm on Binance Smart Chain."} />
       </TopSection> */}
       <NavAndPool>
-        <Nav cat={showCat} handleCatChange={changeCate} />
+        <NavSubAndPool>
+          <Nav cat={showCat} handleCatChange={changeCate} />
+          <StakingOnlyDiv>
+          <span> <Switch checked={stakedOnly} onChange={() => setStakedOnly(!stakedOnly)}/> staked only</span>
+          </StakingOnlyDiv>
+        </NavSubAndPool>
       
         <PoolSection>
           {stakingRewardsExist && stakingInfos?.length === 0 ? (
@@ -94,6 +129,11 @@ export default function Earn() {
             <span style={{ color: '#ffffff' }}>{t('noActiveRewards')}</span>
           ) : (
             stakingInfos?.map(stakingInfo => {
+              const isStaking = Boolean(stakingInfo.stakedAmount.greaterThan('0'))
+              const isUnclaim = Boolean(stakingInfo.unclaimAmount.greaterThan('0'))
+              if (stakedOnly && !isStaking && !isUnclaim) {
+                return;
+              }
               switch(showCat) {
                 case 0:
                   let d2 = new Date().getTime()

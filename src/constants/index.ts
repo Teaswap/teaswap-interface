@@ -571,9 +571,9 @@ export const tokenOptions = [
   { id: '1', name: 'BNB',value:ZERO_ADDRESS },
   { id: '2', name: 'BUSD',value:BUSD.address },
   { id: '3', name: 'TSA',value:UNI[ChainId.BSC_MAINNET].address },
+  { id: '6', name: 'ETH',value:BETH.address},
   { id: '4', name: 'Shih',value:SHIH.address },
   { id: '5', name: 'CJAI',value:CJAI.address },
-  { id: '6', name: 'ETH',value:BETH.address},
   { id: '7', name: 'LOT',value:TSALOT.address},
   { id: '8', name: 'ICASH',value:ICASH.address}
 ]

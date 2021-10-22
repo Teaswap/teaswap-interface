@@ -26,7 +26,7 @@ const Title = styled.span`
 const Wrapper = styled(AutoColumn)<{ showBackground: boolean; bgColor: any }>`
   text-align: center;
   width: 90%;
-  max-width: 360px;
+  max-width: 340px;
 
   // ${MEDIA_QUERY.lg} {
   //   width: 45%;
@@ -137,7 +137,7 @@ export default function PoolCard({ stakingInfo }: { stakingInfo: StakingInfo }) 
   const currency1 = unwrappedToken(token1)
 
   const isStaking = Boolean(stakingInfo.stakedAmount.greaterThan('0'))
-    const isUnclaim = Boolean(stakingInfo.unclaimAmount.greaterThan('0'))
+  const isUnclaim = Boolean(stakingInfo.unclaimAmount.greaterThan('0'))
 
   // const tokenIcon = stakingInfo.stakingRewardAddress == ''
 

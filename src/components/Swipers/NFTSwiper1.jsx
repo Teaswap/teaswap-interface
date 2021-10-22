@@ -15,37 +15,55 @@ export default function App() {
     },
     {
       key: 2,
-      content: <Item img="https://i.imgur.com/miBU6TC.jpg" amount= 'PRESALE 10/01'/>,
-      link:  process.env.PUBLIC_URL + '/nft/products/vendor/264197',
-      
-    },   
-    {
-      key: 3,
-      content: <Item img="https://i.imgur.com/WoHWbBf.jpg" amount= 'PRESALE 10/01'/>,
-      link: 'https://opensea.io/collection/tsanft',
+      content: <Item img= {process.env.PUBLIC_URL  + '/nft/products/0026.png'} amount= 'PRESALE 10/01' />,
+      link: 'https://www.teaswap.art/nft/products/vendor/264202',
       
     },
+    // {
+    //   key: 2,
+    //   content: <Item img="https://i.imgur.com/miBU6TC.jpg" amount= 'PRESALE 10/01'/>,
+    //   link:  process.env.PUBLIC_URL + '/nft/products/vendor/264197',
+    // https://i.imgur.com/WoHWbBf.jpg
+    // },   
+    // {
+    //   key: 2,
+    //   content: <Item img= {process.env.PUBLIC_URL  + '/nft/products/Wizard penguin.mp4'} amount= 'PRESALE 10/01'/>,
+    //   link:  process.env.PUBLIC_URL + '/nft/products/vendor/264197',
+      
+    // },   "https://i.imgur.com/WoHWbBf.jpg"
+  
     {
-      key: 4,
+      key: 3,
       content: <Item img= {process.env.PUBLIC_URL  + '/nft/products/1.jpg'} amount= 'PRESALE 10/06' />,
       link: 'https://www.teaswap.art/staking',     
       
     },
     {
-      key: 5,
+      key: 4,
       content: <Item img= {process.env.PUBLIC_URL  + '/nft/products/8.png'} amount= 'PRESALE 10/07' />,
       link: 'https://www.teaswap.art/nft/products/category/3',
       
     },
+  
+    {
+      key: 5,
+      content: <Item img= {process.env.PUBLIC_URL  + '/nft/products/0027.png'} amount='PRESALE 10/12' />,
+      link: 'https://www.teaswap.art/nft/products/vendor/264023',
+    },
     {
       key: 6,
-      content: <Item img= {process.env.PUBLIC_URL  + '/nft/products/0026.png'} amount= 'PRESALE 10/01' />,
-      link: 'https://www.teaswap.art/nft/products/vendor/264202',
+      content: <Item img= {process.env.PUBLIC_URL  + '/nft/products/4.png'} amount= 'PRESALE 10/26'/>,
+      link: 'https://opensea.io/collection/tsanft',
       
     },
     {
       key: 7,
-      content: <Item img= {process.env.PUBLIC_URL  + '/nft/products/0027.png'} amount='PRESALE 10/12' />,
+      content: <Item img= {process.env.PUBLIC_URL  + '/nft/products/9.png'} amount='PRESALE 10/26' />,
+      link: 'https://www.teaswap.art/nft/products/vendor/264023',
+    },
+    {
+      key: 8,
+      content: <Item img= {process.env.PUBLIC_URL  + '/nft/products/10.png'} amount='PRESALE 10/26' />,
       link: 'https://www.teaswap.art/nft/products/vendor/264023',
     },
    
