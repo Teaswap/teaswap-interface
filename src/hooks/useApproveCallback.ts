@@ -130,12 +130,10 @@ export function useApproveNFTCallback(
 ): [ApprovalState, () => Promise<void>  ] {
 
   const tokenIdres = useNFTLastId(tokenAddress)
-     console.log("tokenIdres:"+tokenIdres)
 
   const tokenId = useMemo(()=>{
     console.log("tokenIdres:"+tokenIdres)
     console.log("lastTokenId:"+lastTokenId)
-
     if(isreSale){
       if ( lastTokenId === undefined ) {
         return undefined;
