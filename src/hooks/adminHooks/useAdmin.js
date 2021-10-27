@@ -52,8 +52,8 @@ export default function useAdmin() {
   //   return []
   // },[passedProducts])
 
-  const handleGetUnCheckProducts = (page) =>
-    getUnCheckProducts(page)(dispatch).then((result) => result);
+  const handleGetUnCheckProducts = (keyword, page) =>
+    getUnCheckProducts(keyword, page)(dispatch).then((result) => result);
   const handleUpdateProductStatus = (id, status) =>
     updateProductStatus(id, status)(dispatch).then((result) => result);
   const handleUpdateProductsOrderid = (ids, orderids) =>

@@ -1,9 +1,9 @@
 import { BASE_URL } from '../constants/unit';
 
-const getUnCheckProductsAPI = (page) => {
+const getUnCheckProductsAPI = (keyword, page) => {
   const token = localStorage.getItem('token');
   const currentPage = page || 1;
-  return fetch(`${BASE_URL}/products?_page=${currentPage}&_status=checking`, {
+  return fetch(`${BASE_URL}/products?_page=${currentPage}&_status=checking&_keyword=${keyword}`, {
     headers: {
       authorization: `Bearer ${token}`,
     },

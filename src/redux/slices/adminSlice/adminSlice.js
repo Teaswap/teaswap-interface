@@ -51,10 +51,10 @@ export const {
   setMail,
 } = adminSlice.actions;
 
-export const getUnCheckProducts = (page) => (dispatch) => {
+export const getUnCheckProducts = (keyword, page) => (dispatch) => {
   dispatch(setProducts([]));
   dispatch(setErrorMessage(''));
-  return getUnCheckProductsAPI(page).then((result) => {
+  return getUnCheckProductsAPI(keyword, page).then((result) => {
     if (!result || result.ok === 0)
       return dispatch(
         setErrorMessage(result ? result.message : 'something wrong')

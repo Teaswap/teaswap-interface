@@ -149,7 +149,7 @@ export default function ExamineProduct() {
 
 
   useEffect(() => {
-    handleGetUnCheckProducts();
+    handleGetUnCheckProducts('', 0);
   }, []);
 
   const exchangeContract = useNFTExchangeContract(NFTEXCHANGE[ChainId.BSC_MAINNET])
@@ -261,8 +261,16 @@ export default function ExamineProduct() {
         // handleUpdateProductsOrderid(pids,orderIds)
     }
 
+  const [searchId, setSearchId] = useState("")
+
   return (
     <ExamineProductContainer>
+      <div style={{
+        padding: 20,
+      }} className="admin-prd-searchbar">
+        <input className="input-primary" style={{height: 42, marginRight: 20}} type="text" placeholder="Input product id please" value={searchId} onChange={(e) => setSearchId(e.target.value)} />
+        <span className="btn-sm-100 btn-primary"  onClick={() => handleGetUnCheckProducts(searchId, page)} >search</span>
+      </div>
       <ProductsTable>
         <ProductsThead>
           <ProductTr>
@@ -304,7 +312,7 @@ export default function ExamineProduct() {
       </BottomContainer>
       <Pagination count={count} page={page} handleChange={(_page: any) => {
           setPage(_page)
-          handleGetUnCheckProducts(_page)
+          handleGetUnCheckProducts(searchId, _page)
         }} />
     </ExamineProductContainer>
   );
