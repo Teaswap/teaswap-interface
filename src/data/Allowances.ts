@@ -22,7 +22,7 @@ export function useNFTAllowance(tokenAddress?:string,tokenId?:number): string | 
 
   const contract = useERC1155Contract(tokenAddress)
 
-  const inputs = useMemo(() => [(tokenId != undefined&&tokenId != NaN)?tokenId:undefined], [tokenId])
+  const inputs = useMemo(() => [(tokenId != undefined&&tokenId === tokenId)?tokenId:undefined], [tokenId])
   const spenderAddress = useSingleCallResult(contract, 'getApproved', inputs).result?.[0]
 
   return useMemo(() => (contract && spenderAddress ? spenderAddress.toString() : undefined), [
