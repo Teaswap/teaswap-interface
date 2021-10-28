@@ -35,7 +35,7 @@ export const walletconnect = new WalletConnectConnector({
   rpc: { 56: 'https://bsc-dataseed.binance.org/' },
   bridge: 'https://bridge.walletconnect.org',
   qrcode: true,
-  pollingInterval: 15000
+  // pollingInterval: 15000
 })
 
 // mainnet only

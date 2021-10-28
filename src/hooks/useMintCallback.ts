@@ -19,6 +19,7 @@ export enum mintState {
 }
 
 export interface MintInfoInterface{
+    tokenUrl:string,
     ProductCategoryId:number,
     productInfo:string,
     productPrice:number,
@@ -59,7 +60,7 @@ export function useMintCallback(
                     mintInfo.delivertyLocation,
                     mintInfo.account,
                     1,
-                    mintInfo.productPictureUrl,
+                    mintInfo.tokenUrl,
                     mintInfo.productName,
                     mintInfo.productRoyalty,
                     0

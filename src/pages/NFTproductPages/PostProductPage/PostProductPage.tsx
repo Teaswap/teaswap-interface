@@ -20,6 +20,8 @@ import MintModal  from "../../../components/NFT/mintModal"
 
 import { ActionButton } from '../../../components/NFTButton'
 import SetArtwork from '../../../components/userSystem/SetArtwork'
+import { BASE_URL } from '../../../constants/unit'
+const md5 = require('js-md5');
 
 
 const Wrapper = styled.div`
@@ -145,9 +147,11 @@ const PostProductPage = () => {
   // const [hash, setHash] = useState('')
   // const [attempting, setAttempting] = useState(false)
   const [showMintModal, setShowMintModal] = useState<boolean>(false)
+  const [tokenUrl, setTokenUrl] = useState("")
 
   const handleShowMintModel = () => {
     if(!checkInputError()){
+      setTokenUrl(BASE_URL + '/tokenurl/' + md5(productPictureUrl))
       setShowMintModal(true)
     }else{
       alert(t('have some input error!'))
@@ -277,6 +281,7 @@ const PostProductPage = () => {
             isOpen={showMintModal}
             onDismiss={() => setShowMintModal(false)}
             mintInfo={{
+              tokenUrl: tokenUrl, 
               ProductCategoryId: productCategory,
               productInfo: productInfo,
               productPrice: productPrice,
@@ -291,7 +296,7 @@ const PostProductPage = () => {
               productMediaType: productMediaType,
               saleCopyright: saleCopyright,
               remark: remark}}
-            lastId = {lastId}
+              lastId = {lastId}
           />
         )
       }
