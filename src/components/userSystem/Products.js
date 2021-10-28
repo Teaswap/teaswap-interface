@@ -244,7 +244,7 @@ const Product = ({productCat, product, onLoad, loaded, $width, $height, $margin 
         <span>
           {product.Cart_items && product.Cart_items.length>0 && (
             <span>Best Offer {LastBid(product.Cart_items) }
-              <span style={{fontSize: '9px'}}>{handleTokenSwitch(product.Cart_items[0].extoken)}</span>
+              <span style={{fontSize: '9px'}}>{' ' + handleTokenSwitch(product.Cart_items[0].extoken)}</span>
             </span>
           )}
         </span>
