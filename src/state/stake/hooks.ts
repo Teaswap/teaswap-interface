@@ -71,11 +71,24 @@ export const STAKING_REWARDS_INFO: {
       cate:"NFT"
     },
     {
-      tokens: [TSA_RACA_LP, CAKE],
-      stakingRewardAddress: '0x0f9e20D57Ea62Cde88e3076132B6d011eeAA4407',
-      iconUrl: "/raca_ckae.png",
-      cate:"TSA"
+      tokens: [TSALOTNFT, UNI[ChainId.BSC_MAINNET]],
+      stakingRewardAddress: '0x69013dF3E6bf8eB4F19ed3b3DF54F24B951B5B10',
+      iconUrl: "/NFT23.png",
+      cate:"NFT"
     },
+    {
+      tokens: [TSAMetaverseAvatar, UNI[ChainId.BSC_MAINNET]],
+      stakingRewardAddress: '0x7e175b82F67123454d4Cd5be860Ec0cB684cD92C',
+      iconUrl: "/MATSA.png",
+      cate:"NFT"
+    },
+    {
+      tokens: [NorseMythology, UNI[ChainId.BSC_MAINNET]],
+      stakingRewardAddress: '0xe263E2f1C7CeF3D290fA3f29117130B9C2842fAC',
+      iconUrl: "/NMTSA.png",
+      cate:"NFT"
+    },
+    
     {
       tokens: [UNI[ChainId.BSC_MAINNET],ICASH],
       stakingRewardAddress:'0x40A553dD94c3697BD8150f98B9aD8d6b78A02cC6',
@@ -94,24 +107,8 @@ export const STAKING_REWARDS_INFO: {
       iconUrl: "/TSA_LOT.png",
       cate:"TSA"
     },
-    {
-      tokens: [TSAMetaverseAvatar, UNI[ChainId.BSC_MAINNET]],
-      stakingRewardAddress: '0x7e175b82F67123454d4Cd5be860Ec0cB684cD92C',
-      iconUrl: "/MATSA.png",
-      cate:"NFT"
-    },
-    {
-      tokens: [NorseMythology, UNI[ChainId.BSC_MAINNET]],
-      stakingRewardAddress: '0xe263E2f1C7CeF3D290fA3f29117130B9C2842fAC',
-      iconUrl: "/NMTSA.png",
-      cate:"NFT"
-    },
-    {
-      tokens: [TSALOTNFT, UNI[ChainId.BSC_MAINNET]],
-      stakingRewardAddress: '0x69013dF3E6bf8eB4F19ed3b3DF54F24B951B5B10',
-      iconUrl: "/NFT23.png",
-      cate:"NFT"
-    },
+   
+  
     
     {
       tokens: [BNB_TSA_LP, UNI[ChainId.BSC_MAINNET]],
@@ -152,7 +149,12 @@ export const STAKING_REWARDS_INFO: {
       iconUrl: "/BTCTSA.png",
       cate:"TSA"
     },
-
+    {
+      tokens: [TSA_RACA_LP, CAKE],
+      stakingRewardAddress: '0x0f9e20D57Ea62Cde88e3076132B6d011eeAA4407',
+      iconUrl: "/raca_ckae.png",
+      cate:"TSA"
+    },
     
     {
       tokens: [BNB_SHIH_LP, SHIH],
