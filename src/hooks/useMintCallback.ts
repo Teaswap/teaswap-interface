@@ -65,6 +65,7 @@ export function useMintCallback(
                     mintInfo.productRoyalty,
                     0
                 ]
+                console.log('mintargs1', mintargs)
 
                 const estimatedGas = await NFTFactoryContract.estimateGas.mint(...mintargs,{value:`0x${JSBI.BigInt("10000000000000000").toString(16)}`}).catch(() => {
                     return NFTFactoryContract.estimateGas.mint(...mintargs,{value:`0x${JSBI.BigInt("10000000000000000").toString(16)}`})
@@ -87,12 +88,12 @@ export function useMintCallback(
                     mintInfo.user.banner_url?mintInfo.user.banner_url:'https://static.wixstatic.com/media/faa61f_5b2f06d9bee14f369a0a3b7d31761b98~mv2.png',
                     mintInfo.user.nickname+ ' Collection',
                     mintInfo.user.nickname+'NFT',
-                    mintInfo.productPictureUrl,
+                    mintInfo.tokenUrl,
                     mintInfo.productName,
                     mintInfo.productRoyalty,
                     mintInfo.account
                 ]
-                console.log(args)
+                console.log('mintargs2', args)
 
                 const estimatedGas = await NFTFactoryContract.estimateGas.createERC1155(...args,{value:`0x${JSBI.BigInt("10000000000000000").toString(16)}`}).catch(() => {
                     return NFTFactoryContract.estimateGas.createERC1155(...args,{value:`0x${JSBI.BigInt("10000000000000000").toString(16)}`})

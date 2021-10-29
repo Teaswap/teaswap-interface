@@ -151,7 +151,6 @@ const PostProductPage = () => {
 
   const handleShowMintModel = () => {
     if(!checkInputError()){
-      setTokenUrl(BASE_URL + '/tokenurl/' + md5(productPictureUrl))
       setShowMintModal(true)
     }else{
       alert(t('have some input error!'))
@@ -246,6 +245,9 @@ const PostProductPage = () => {
     }
   },[lastIdres])
 
+  useMemo(() => {
+    setTokenUrl(BASE_URL + '/products/tokenurl/' + md5(productPictureUrl))
+  }, [productPictureUrl])
 
   //
   // useEffect(() => {
