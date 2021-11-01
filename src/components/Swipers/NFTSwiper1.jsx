@@ -58,9 +58,14 @@ export default function App() {
     },
     {
       key: 7,
-      content: <Item img= {process.env.PUBLIC_URL  + '/nft/products/9.png'} amount='PRESALE 10/26' />,
+      content: <Item img= {process.env.PUBLIC_URL  + '/nft/products/Penguin Island.png'} amount='PRESALE 11/04' />,
       link: 'https://www.teaswap.art/nft/products/vendor/264023',
     },
+    // {
+    //   key: 7,
+    //   content: <Item img= {process.env.PUBLIC_URL  + '/nft/products/9.png'} amount='PRESALE 10/26' />,
+    //   link: 'https://www.teaswap.art/nft/products/vendor/264023',
+    // },
     // {
     //   key: 8,
     //   content: <Item img= {process.env.PUBLIC_URL  + '/nft/products/10.png'} amount='PRESALE 10/26' />,
