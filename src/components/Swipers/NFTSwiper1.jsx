@@ -9,7 +9,7 @@ export default function App() {
   let slides = [   
     {
       key: 1,
-      content: <Item img="https://i.imgur.com/LwG4Tg1.jpg" amount= 'PRESALE 10/01'/>,
+      content: <Item img={process.env.PUBLIC_URL  + '/nft/products/Wizard penguin.gif'} amount= 'PRESALE 10/01'/>,
       link: 'https://opensea.io/collection/tsanft',
       
     },
@@ -47,7 +47,7 @@ export default function App() {
   
     {
       key: 5,
-      content: <Item img= {process.env.PUBLIC_URL  + '/nft/products/0027.png'} amount='PRESALE 10/12' />,
+      content: <Item img= {process.env.PUBLIC_URL  + '/nft/products/10_1.gif'} amount='PRESALE 10/12' />,
       link: 'https://www.teaswap.art/nft/products/vendor/264023',
     },
     {
