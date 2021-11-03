@@ -57,7 +57,18 @@ export const STAKING_REWARDS_INFO: {
   }[]
 } = {
   [ChainId.BSC_MAINNET]: [
-    
+    {
+      tokens: [USDT_TSA_LP, UNI[ChainId.BSC_MAINNET]],
+      stakingRewardAddress: '0xa8e0A6e980ce25FADC2Dca703a71464Af9320E24',
+      iconUrl: "/TSA-USDT-TSA.png",
+      cate:"TSA"
+    },
+    {
+      tokens: [TSA_BUSD_LP, UNI[ChainId.BSC_MAINNET]],
+      stakingRewardAddress: '0xD7204007C62Edb5E68ec180527092F345B6c2c3a',
+      iconUrl: "/TSA-BUSD-TSA.png",
+      cate:"TSA"
+    },
     {
       tokens: [TSAMetaverse, ICASH],
       stakingRewardAddress: '0xD7204007C62Edb5E68ec180527092F345B6c2c3a',
