@@ -8,7 +8,7 @@ const Item = ({img , amount}) => {
     	<img className="nft-swiper-img" src={img}/>
 			<span style={{
 				position: 'absolute',
-				top: 10,
+				top: 461,
 				left: 10,				
 				padding: '5px 10px',
 				backgroundColor: "#ffffff"
