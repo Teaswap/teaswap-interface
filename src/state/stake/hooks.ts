@@ -70,15 +70,15 @@ export const STAKING_REWARDS_INFO: {
       cate:"TSA"
     },
     {
-      tokens: [TSAMetaverse, ICASH],
-      stakingRewardAddress: '0xD7204007C62Edb5E68ec180527092F345B6c2c3a',
-      iconUrl: "/NFT22.png",
-      cate:"NFT"
-    },
-    {
       tokens: [TSANFTMetaverseII, TSALOT],
       stakingRewardAddress: '0x3741356c5f297834134D7249c0e3d588869a1a94',
       iconUrl: "/metaverse_lot.png",
+      cate:"NFT"
+    },
+    {
+      tokens: [TSAMetaverse, ICASH],
+      stakingRewardAddress: '0xD7204007C62Edb5E68ec180527092F345B6c2c3a',
+      iconUrl: "/NFT22.png",
       cate:"NFT"
     },
     {
