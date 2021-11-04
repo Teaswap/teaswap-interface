@@ -65,7 +65,7 @@ export const STAKING_REWARDS_INFO: {
     },
     {
       tokens: [TSA_BUSD_LP, UNI[ChainId.BSC_MAINNET]],
-      stakingRewardAddress: '0xD7204007C62Edb5E68ec180527092F345B6c2c3a',
+      stakingRewardAddress: '0x57C235425b6A352858cA44103EA685AB208120E4',
       iconUrl: "/TSA-BUSD-TSA.png",
       cate:"TSA"
     },
