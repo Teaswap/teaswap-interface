@@ -11,7 +11,8 @@ const Item = ({img , amount}) => {
 				top: 461,
 				left: 10,				
 				padding: '5px 10px',
-				backgroundColor: "#ffffff"
+				color: "#000000"
+				//backgroundColor: "#ffffff"
 			}}>🔥 {amount}</span>
 			{/* <span style={{
 				position: 'absolute',
