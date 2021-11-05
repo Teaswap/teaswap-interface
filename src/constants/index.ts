@@ -295,7 +295,7 @@ export const TSA_DOGE_LP = new Token(
 
 export const TSA_BUSD_LP = new Token(
     ChainId.BSC_MAINNET,
-    '0x57C235425b6A352858cA44103EA685AB208120E4',
+    '0x8dD10e4f461c37a8c7CB16715c2980B31A292a1b',
     18,
     'TSA_BUSD BLP',
     'TSA_BUSD_BakeryLP'
