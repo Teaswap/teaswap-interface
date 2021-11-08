@@ -58,18 +58,6 @@ export const STAKING_REWARDS_INFO: {
 } = {
   [ChainId.BSC_MAINNET]: [
     {
-      tokens: [USDT_TSA_LP, UNI[ChainId.BSC_MAINNET]],
-      stakingRewardAddress: '0xa8e0A6e980ce25FADC2Dca703a71464Af9320E24',
-      iconUrl: "/TSA-USDT-TSA.png",
-      cate:"TSA"
-    },
-    {
-      tokens: [TSA_BUSD_LP, UNI[ChainId.BSC_MAINNET]],
-      stakingRewardAddress: '0x57C235425b6A352858cA44103EA685AB208120E4',
-      iconUrl: "/TSA-BUSD-TSA.png",
-      cate:"TSA"
-    },
-    {
       tokens: [TSANFTMetaverseII, TSALOT],
       stakingRewardAddress: '0x3741356c5f297834134D7249c0e3d588869a1a94',
       iconUrl: "/metaverse_lot.png",
@@ -81,6 +69,15 @@ export const STAKING_REWARDS_INFO: {
       iconUrl: "/NFT22.png",
       cate:"NFT"
     },
+    {
+      tokens: [NorseMythology, UNI[ChainId.BSC_MAINNET]],
+      stakingRewardAddress: '0xe263E2f1C7CeF3D290fA3f29117130B9C2842fAC',
+      iconUrl: "/NMTSA.png",
+      cate:"NFT"
+    },
+   
+    
+    
     {
       tokens: [TSALOTNFT, UNI[ChainId.BSC_MAINNET]],
       stakingRewardAddress: '0x69013dF3E6bf8eB4F19ed3b3DF54F24B951B5B10',
@@ -94,10 +91,16 @@ export const STAKING_REWARDS_INFO: {
       cate:"NFT"
     },
     {
-      tokens: [NorseMythology, UNI[ChainId.BSC_MAINNET]],
-      stakingRewardAddress: '0xe263E2f1C7CeF3D290fA3f29117130B9C2842fAC',
-      iconUrl: "/NMTSA.png",
-      cate:"NFT"
+      tokens: [TSA_BUSD_LP, UNI[ChainId.BSC_MAINNET]],
+      stakingRewardAddress: '0x57C235425b6A352858cA44103EA685AB208120E4',
+      iconUrl: "/TSA-BUSD-TSA.png",
+      cate:"TSA"
+    },
+    {
+      tokens: [USDT_TSA_LP, UNI[ChainId.BSC_MAINNET]],
+      stakingRewardAddress: '0xa8e0A6e980ce25FADC2Dca703a71464Af9320E24',
+      iconUrl: "/TSA-USDT-TSA.png",
+      cate:"TSA"
     },
     
     {
