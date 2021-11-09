@@ -135,7 +135,7 @@ export function useApproveNFTCallback(
     console.log("tokenIdres:"+tokenIdres)
     console.log("lastTokenId:"+lastTokenId)
     if(isreSale){
-      if ( lastTokenId === undefined ) {
+      if ( lastTokenId === undefined || lastTokenId !== lastTokenId) {
         return undefined;
       }else{
         return lastTokenId;
