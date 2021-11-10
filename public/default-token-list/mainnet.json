@@ -3,7 +3,7 @@
   "timestamp": "2021-09-12T05:05:10.290Z",
   "version": {
     "major": 1,
-    "minor": 18,
+    "minor": 19,
     "patch": 27
   },
   "tags": {},
@@ -745,7 +745,7 @@
       "name": "FLOKI",
       "address": "0x2b3f34e9d4b127797ce6244ea341a83733ddd6e4",
       "symbol": "FLOKI",
-      "decimals": 18,
+      "decimals": 9,
       "chainId": 56,
       "logoURI": "https://www.teaswap.art/default-token-list/images/0x2b3f34e9d4b127797ce6244ea341a83733ddd6e4.png"
     },
