@@ -263,7 +263,7 @@ export const USDT_SHIH_LP = new Token(
 
 export const TSA_SHIB_LP = new Token(
     ChainId.BSC_MAINNET,
-    '0x7fb4ce3d4dc4fe078557be3969476c7066096276',
+    '0x3596048e577a5c1342b466cd5f4b0329e42cc69e',
     18,
     'TSA_SHIB BLP',
     'TSA_SHIB_BakeryLP'
@@ -299,6 +299,14 @@ export const TSA_BUSD_LP = new Token(
     18,
     'TSA_BUSD BLP',
     'TSA_BUSD_BakeryLP'
+)
+
+export const TSA_FLOKI_LP = new Token(
+    ChainId.BSC_MAINNET,
+    '0xc11b1e49da84612615b9ef46670704fce899fb58',
+    18,
+    'TSA_FLOKI BLP',
+    'TSA_FLOKI_BakeryLP'
 )
 
 export const TSA_CAKE_LP = new Token(

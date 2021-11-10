@@ -30,7 +30,16 @@ import {
   USDT_TSA_LP,
   TSA_CAKE_LP,
   ETH_TSA_LP,
-  TSALOT, TSAMetaverse, TSALOTNFT, BTC_TSA_LP, TSAMetaverseAvatar, NorseMythology, TSA_RACA_LP, CAKE, TSANFTMetaverseII
+  TSALOT,
+  TSAMetaverse,
+  TSALOTNFT,
+  BTC_TSA_LP,
+  TSAMetaverseAvatar,
+  NorseMythology,
+  TSA_RACA_LP,
+  CAKE,
+  TSANFTMetaverseII,
+  TSA_SHIB_LP, TSA_FLOKI_LP
   // GensisNFT
 } from '../../constants'
 import {
@@ -89,6 +98,30 @@ export const STAKING_REWARDS_INFO: {
       stakingRewardAddress: '0x7e175b82F67123454d4Cd5be860Ec0cB684cD92C',
       iconUrl: "/MATSA.png",
       cate:"NFT"
+    },
+    {
+      tokens: [TSA_DOGE_LP, UNI[ChainId.BSC_MAINNET]],
+      stakingRewardAddress: '0x1d02b6De10984b0503c805C483Fda63c3ef0cd10',
+      iconUrl: "/TSA-DOGE-TSA.png",
+      cate:"TSA"
+    },
+    {
+      tokens: [TSA_CAKE_LP, UNI[ChainId.BSC_MAINNET]],
+      stakingRewardAddress: '0x4f8659B91fD7A1f928E1F213E1015DCfFf447615',
+      iconUrl: "/TSA-CAKE-TSA.png",
+      cate:"TSA"
+    },
+    {
+      tokens: [TSA_SHIB_LP, UNI[ChainId.BSC_MAINNET]],
+      stakingRewardAddress: '0x9dDD67dE8e42255Ab5547F55Ed0AD6832d5649EE',
+      iconUrl: "/TSA-SHIB-TSA.png",
+      cate:"TSA"
+    },
+    {
+      tokens: [TSA_FLOKI_LP, UNI[ChainId.BSC_MAINNET]],
+      stakingRewardAddress: '0xA9D4b720bD372fA4ea501CC034947791F2EE456D',
+      iconUrl: "/TSA-FLOKI-TSA.png",
+      cate:"TSA"
     },
     {
       tokens: [TSA_BUSD_LP, UNI[ChainId.BSC_MAINNET]],
