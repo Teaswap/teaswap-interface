@@ -18,16 +18,16 @@ export default function App() {
   let slides = [   
     {
       key: 1,
-      content: <Item img={process.env.PUBLIC_URL  + '/nft/products/Wizard penguin.gif'}  amount= 'PRESALE 10/01'/>,
+      content: <Item img={process.env.PUBLIC_URL  + '/nft/products/07Punk Penguin.png'}  amount= 'PRESALE 10/01'/>,
       link: 'https://www.teaswap.art/nft/products/vendor/265054',
       
     },
-    {
-      key: 2,
-      content: <Item img= {process.env.PUBLIC_URL  + '/nft/products/lots.gif'} amount= 'PRESALE 10/01' />,
-      link: 'https://www.teaswap.art/nft/products/vendor/264202',
+    // {
+    //   key: 2,
+    //   content: <Item img= {process.env.PUBLIC_URL  + '/nft/products/lots.gif'} amount= 'PRESALE 10/01' />,
+    //   link: 'https://www.teaswap.art/nft/products/vendor/264202',
       
-    },
+    // },
     // {
     //   key: 2,
     //   content: <Item img="https://i.imgur.com/miBU6TC.jpg" amount= 'PRESALE 10/01'/>,
@@ -42,31 +42,31 @@ export default function App() {
     // },   "https://i.imgur.com/WoHWbBf.jpg"
   
     {
-      key: 3,
+      key: 2,
       content: <Item img= {process.env.PUBLIC_URL  + '/nft/products/NMsquare.png'} amount= 'PRESALE 10/06' />,
       link: 'https://www.teaswap.art/nft/products/vendor/264197',     
       
     },
     {
-      key: 4,
+      key: 3,
       content: <Item img= {process.env.PUBLIC_URL  + '/nft/products/square.png'} amount= 'PRESALE 10/07' />,
       link: 'https://www.teaswap.art/nft/products/category/3',
       
     },
   
+    // {
+    //   key: 5,
+    //   content: <Item img= {process.env.PUBLIC_URL  + '/nft/products/10_1.gif'} amount='PRESALE 10/12' />,
+    //   link: 'https://www.teaswap.art/nft/products/vendor/264197',
+    // },
     {
-      key: 5,
-      content: <Item img= {process.env.PUBLIC_URL  + '/nft/products/10_1.gif'} amount='PRESALE 10/12' />,
-      link: 'https://www.teaswap.art/nft/products/vendor/264197',
-    },
-    {
-      key: 6,
+      key: 4,
       content: <Item img= {process.env.PUBLIC_URL  + '/nft/products/penguin_01.gif'} amount= 'PRESALE 10/26'/>,
       link: 'https://www.teaswap.art/nft/products/vendor/265054',
       
     },
     {
-      key: 7,
+      key: 5,
       content: <Item img= {process.env.PUBLIC_URL  + '/nft/products/Penguin Island.png'} amount='PRESALE 11/04' />,
       link: 'https://www.teaswap.art/nft/products/vendor/265054',
     },
