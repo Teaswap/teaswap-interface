@@ -5,7 +5,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">    
-	<title>Document</title>
+	<title>Meta</title>
 	<style>
 		*{
 			margin: 0;
@@ -18,27 +18,16 @@
 			overflow-x: hidden;
 		}
 		#con{
-			width:100vw;
+			width: 100vw;
 			min-height: 100vh;
 			background-image: url("images/back.png");
 			background-repeat: no-repeat;
-    	    background-position-x: center;
-		    background-size: contain; 
+    	background-position-x: center;
 		}
-		/*#FitImage
-		{
-		
-         max-width: 100%; 
-        max-height: 100%; 
-        display: block; remove extra space below image 
-
-
-		}*/
 		.all, #id3, #id4, #fixed, #id5{
 			width: 100vw;
 			height: 100vh;
 		}
-
 		#id3{
 			position: relative;
 			padding-top: 50%;
@@ -50,7 +39,7 @@
 		#left, #right{
 			position: absolute;
 			bottom: 0;
-			width: 100%;
+			width: 60%;
 		}
 		#left{
 			left: -100%;
@@ -61,38 +50,25 @@
 		#id4{
 			position: relative;
 			text-align: center;
-			height: 300px; 
 		}
-		/* .band
-		{
-			background-size: contain; 
-
-		} */
 		#bot{
 			width: 0;
 			margin:0 auto;
 			margin-left: 50%;
-    	margin-top: -300%;
+    	margin-top: -200%;
     	transform: translate(-50%, 0);
 		}
 		#band{
-			width:100vw;
-			/* min-height: 300px;  */
-			background-image: url("images/band.png");
-
-			/* min-width: 1520;
-			width: 1520px; */
 			margin: 0 auto;
-        	transform: translate(0, 0);
-			margin-top: -117%;
+			margin-left: 50%;
+    	transform: translate(-50%, 0);
+			margin-top: -63%;
 			z-index: 1;
-			
 		}
 		.swiper-container {
 			height: 80%;
 			margin: 0 auto;
     	overflow: hidden;
-		/* margin-top: 10%; */
 		}  
 		.swiper-slide {
       text-align: center;
@@ -125,36 +101,23 @@
 		#id5 {
 			display: flex;
 			flex-direction: column;
-			min-height: 1000px;
-			
 		}
 		#id5 > .coming{
-			/* margin-top: 10%; */
 			height: 40%;
 			text-align: center;
 			display: flex;
 			flex-direction: column;
 			justify-content: center;
-			/* width: 800px; */
-		}
-		 .imgclass{
-				width: 900px;
-
 		}
 		#id5 > .images{
-		
 			height: 60%;
-		
-			
 		}
-		/* #id5 > .coming > .title{
+		#id5 > .coming > .title{
 			font-size: 132px;
-			font-weight: bold;
 		}
 		#id5 > .coming > .subtitle{
-			font-size: 36px;
-			font-weight: bold;
-		} */
+			font-size: 64px;
+		}
 		.fade-in-text{
 			/* animation-delay: 1s; */
 			animation-duration: 3s;
@@ -177,33 +140,31 @@
 		<div class="all"></div>
 		<div class="all"></div>
 		<div id="id3">
-			<!-- this is the middle of id 3 -->
-		
+			this is the middle of id 3
 		</div>
 		<div id="id4">
-			<img id="bot" src="./images/bot.png" />
-			<img id="band" class="band" src="./images/band.png" />
+			<img id="bot" src="/images/bot.png" />
+			<img id="band" src="/images/band.png" />
 		</div>
-		<div id="id5" >
+		<div id="id5">
 			<div id="coming" class="coming">
+				<img style="margin:0 auto; width: 60%;" src="/images/coming soon.png" />
 				<!-- <p class="title">Coming Soon</p>
-				<p class="subtitle">TAS MetaPlay, bridge the gap to better investment opportunities</p>
-				<p class="subtitle">between DeFi world and Virtual world</p> -->
-				<center><img class="imgclass" src="./images/coming soon.png" /></center>
+				<p class="subtitle">TAS MetaPlay, bridge the gap to better investment opportunities between DeFi world and Virtual world</p> -->
 			</div>
 			<div class="images">
 				<div class="swiper-container">
 					<div class="swiper-wrapper">
-							<div class="swiper-slide"><img src="./images/slide1.png" /></div>
-							<div class="swiper-slide"><img src="./images/slide2.png" /></div>
-							<div class="swiper-slide"><img src="./images/slide3.png" /></div>
+							<div class="swiper-slide"><img src="/images/slide1.png" /></div>
+							<div class="swiper-slide"><img src="/images/slide2.png" /></div>
+							<div class="swiper-slide"><img src="/images/slide3.png" /></div>
 					</div>
 				</div>
 			</div>
 		</div>
 		<div id="fixed">
-			<img id="left" src="./images/left.png" />
-			<img id="right" src="./images/right.png" />
+			<img id="left" src="/images/left.png" />
+			<img id="right" src="/images/right.png" />
 		</div>
 	</div>
 	<script src="https://unpkg.com/swiper/swiper-bundle.js"> </script>  
@@ -219,14 +180,9 @@
 			// console.log("node start and windows.scrollY", node3Start, window.scrollY)
 			if (oldScroll == window.screenY) return
 			if (oldScroll < window.scrollY) {
-				if (window.scrollY + node5.offsetHeight > node5.offsetTop) {
+				if (window.scrollY + node5.offsetHeight > node5.offsetTop + 50) {
 					// 滚入id5
 					window.scrollTo(0, document.body.scrollHeight);
-					// window.scrollTo({
-					// 	top: document.body.scrollHeight,
-					// 	left: 0,
-					// 	behavior: 'smooth'
-					// });
 					document.getElementById("coming").classList.add('fade-in-text')
 				}
 				// console.log('scroll down')
@@ -236,9 +192,11 @@
 				}
 			}else{
 				// console.log('scroll up')
+				if (window.scrollY + node5.offsetHeight < node5.offsetTop) {
+					document.getElementById("coming").classList.remove('fade-in-text')
+				}
 			}
 			leftLeft()
-
 			
 			oldScroll = window.scrollY
 			// console.groupEnd()
@@ -290,7 +248,7 @@
 			}
 			if (l < 0){
 				// 未过id3 50%
-				bot.style.width = "200%"
+				bot.style.width = "140%"
 				bot.style.opacity = 0
 			}else if (l > 50) {
 				// 已滚过id3100%
@@ -298,7 +256,7 @@
 				bot.style.opacity = 1
 			}else{
 				// 滚入id3 50%v -100%
-				bot.style.width = (200 - 2 * l) + "%"
+				bot.style.width = (150 - l) + "%"
 				if (l < 9){
 					bot.style.opacity = 1 - l * 0.9
 				}else{
