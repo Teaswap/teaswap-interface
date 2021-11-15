@@ -15,7 +15,7 @@ const StakeBox = () => {
       style={{
         width: '100%',
         margin: '0 auto',
-        marginTop: '20px'
+        marginTop: '-15px'
       }}
       autoplay={false}
       wrapAround={false}
