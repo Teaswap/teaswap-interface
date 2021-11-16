@@ -23,14 +23,21 @@
 			background-image: url("images/back.png");
 			background-repeat: no-repeat;
     	background-position-x: center;
+			background-size: auto 200vh;
+		}
+		@media (min-width: 1900px){
+			#con {
+				background-size: 100% 200vh;
+			}	
 		}
 		.all, #id3, #id4, #fixed, #id5{
 			width: 100vw;
 			height: 100vh;
+			text-align: center;
 		}
 		#id3{
 			position: relative;
-			padding-top: 50%;
+			margin-top: -50%;
 		}
 		#fixed{
 			position: fixed;
@@ -52,18 +59,20 @@
 			text-align: center;
 		}
 		#bot{
+			position: absolute;
+			top: -20%;
 			width: 0;
 			margin:0 auto;
 			margin-left: 50%;
-    	margin-top: -200%;
     	transform: translate(-50%, 0);
 		}
 		#band{
 			margin: 0 auto;
 			margin-left: 50%;
     	transform: translate(-50%, 0);
-			margin-top: -63%;
 			z-index: 1;
+			width: auto;
+			height: 200vh;
 		}
 		.swiper-container {
 			height: 80%;
@@ -137,10 +146,11 @@
 </head>
 <body>
 	<div id="con">
+		<div class="all">
+			<img  style="margin:0 auto; width: 60%;" src="/images/title.png" />
+		</div>
 		<div class="all"></div>
-		<div class="all"></div>
-		<div id="id3"></div>
-		<div id="id4">
+		<div id="id3">
 			<img id="bot" src="/images/bot.png" />
 			<img id="band" src="/images/band.png" />
 		</div>
@@ -247,14 +257,17 @@
 			if (l < 0){
 				// 未过id3 50%
 				bot.style.width = "140%"
+				// bot.style.width  "-20%"
 				bot.style.opacity = 0
 			}else if (l > 50) {
 				// 已滚过id3100%
 				bot.style.width = "100%"
+				// bot.style.width = "-100%"
 				bot.style.opacity = 1
 			}else{
 				// 滚入id3 50%v -100%
 				bot.style.width = (150 - l) + "%"
+				// bot.style.top = "-" + (20 - 80/50 * l) + "%"
 				if (l < 9){
 					bot.style.opacity = 1 - l * 0.9
 				}else{
