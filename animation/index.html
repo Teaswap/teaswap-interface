@@ -6,6 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">    
 	<title>Meta</title>
+
 	<style>
 		*{
 			margin: 0;
@@ -20,9 +21,10 @@
 		#con{
 			width: 100vw;
 			min-height: 100vh;
-			background-image: url("images/back.png");
+			background-image: url("images/background_1115.png");
 			background-repeat: no-repeat;
     	background-position-x: center;
+		min-width: 100%;
 		}
 		.all, #id3, #id4, #fixed, #id5{
 			width: 100vw;
@@ -133,10 +135,17 @@
 				opacity: 1;
 			}
 		}
+	
+        
+   
 	</style>
 </head>
 <body>
 	<div id="con">
+		
+		
+		
+	
 		<div class="all"></div>
 		<div class="all"></div>
 		<div id="id3"></div>
@@ -164,9 +173,22 @@
 			<img id="left" src="/images/left.png" />
 			<img id="right" src="/images/right.png" />
 		</div>
+		
+	</div>
+	<div style="text-align:center">
+		<!-- <input onClick="window.location.href='www.google.com'" type="submit" Value="Go"> -->
+
+		<button onclick="myFunction()">HomePage</button>
 	</div>
 	<script src="https://unpkg.com/swiper/swiper-bundle.js"> </script>  
 	<script>
+		function  myFunction()
+		{
+			window.open('https://www.teaswap.art/drops');
+		}
+	</script>
+	<script>
+	
 		var node3 = document.getElementById("id3")
 		var fixed = document.getElementById("fixed")
 		var node3Height = node3.offsetHeight // scroll to end of node 3
