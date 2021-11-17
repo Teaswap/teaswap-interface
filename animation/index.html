@@ -142,6 +142,9 @@
 				opacity: 1;
 			}
 		}
+	
+        
+   
 	</style>
 </head>
 <body>
@@ -174,9 +177,22 @@
 			<img id="left" src="/images/left.png" />
 			<img id="right" src="/images/right.png" />
 		</div>
+		
+	</div>
+	<div style="text-align:center">
+		<!-- <input onClick="window.location.href='www.google.com'" type="submit" Value="Go"> -->
+
+		<button onclick="myFunction()">HomePage</button>
 	</div>
 	<script src="https://unpkg.com/swiper/swiper-bundle.js"> </script>  
 	<script>
+		function  myFunction()
+		{
+			window.open('https://www.teaswap.art/drops');
+		}
+	</script>
+	<script>
+	
 		var node3 = document.getElementById("id3")
 		var fixed = document.getElementById("fixed")
 		var node3Height = node3.offsetHeight // scroll to end of node 3
