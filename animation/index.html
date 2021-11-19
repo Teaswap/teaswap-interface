@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">    
-	<title>Meta</title>
-	<style>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">    
+  <title>meta</title>
+  <style>
 		*{
 			margin: 0;
 			padding: 0;
@@ -14,34 +14,57 @@
 		}
 		html, body{
 			width: 100%;
+      height: 100%;
+      overflow: hidden;
 			background-color: rgb(216, 201, 207);
 			overflow-x: hidden;
 		}
-		#con{
-			width: 100vw;
-			min-height: 100vh;
-			background-image: url("images/back.png");
-			background-repeat: no-repeat;
-    	background-position-x: center;
-			background-size: auto 200vh;
+    #con{
+      width: 100%;
+      /* position: fixed; */
+      text-align: center;
 		}
-		@media (min-width: 1900px){
-			#con {
-				background-size: 100% 200vh;
+    #imgs{
+      position: relative;
+      text-align: center;
+    }
+		#back{
+      width: 100%; 
+    }
+    #back{
+      /* min-height: 2466px; */
+    }
+    #bot{
+      width: 200%;
+      opacity: 0;
+      margin-top: -50%;
+      margin-left: 50%;
+      transform: translate(-50%, 0);
+    }
+    #band{
+      margin-top: -36%;
+      width: 100%;
+      transform: translate(0%, 0);
+    }
+		@media (min-width: 1935px){
+			#back, #bot, #band {
+				width: 100%;
 			}	
 		}
-		.all, #id3, #id4, #fixed, #id5{
-			width: 100vw;
-			height: 100vh;
-			text-align: center;
-		}
-		#id3{
-			position: relative;
-			margin-top: -50%;
-		}
-		#fixed{
+    #log{
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      width: 400px;
+      height: 20px;
+      color:red;
+    }
+    #fixed{
 			position: fixed;
 			bottom: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 100;
 		}
 		#left, #right{
 			position: absolute;
@@ -49,36 +72,19 @@
 			width: 60%;
 		}
 		#left{
-			left: -100%;
+			left: -60%;
 		}
 		#right {
-			right: -100%;
+			right: -60%;
 		}
-		#id4{
-			position: relative;
-			text-align: center;
-		}
-		#bot{
-			position: absolute;
-			top: -20%;
-			width: 0;
-			margin:0 auto;
-			margin-left: 50%;
-    	transform: translate(-50%, 0);
-		}
-		#band{
-			margin: 0 auto;
-			margin-left: 50%;
-    	transform: translate(-50%, 0);
-			z-index: 1;
-			width: auto;
-			height: 200vh;
-		}
-		.swiper-container {
+    .swiper-container {
 			height: 80%;
 			margin: 0 auto;
     	overflow: hidden;
-		}  
+		}
+    .swiper-wrapper{
+      margin: 0 auto;
+    }
 		.swiper-slide {
       text-align: center;
       font-size: 18px;
@@ -108,6 +114,8 @@
 			width: 100%;
 		}
 		#id5 {
+      width: 100%;
+      height: 100vh;
 			display: flex;
 			flex-direction: column;
 		}
@@ -117,190 +125,132 @@
 			display: flex;
 			flex-direction: column;
 			justify-content: center;
+      transform: translateY(30%);
+      opacity: 0;
 		}
 		#id5 > .images{
 			height: 60%;
 		}
-		#id5 > .coming > .title{
-			font-size: 132px;
-		}
-		#id5 > .coming > .subtitle{
-			font-size: 64px;
-		}
-		.fade-in-text{
-			/* animation-delay: 1s; */
-			animation-duration: 3s;
-		  animation-name: fade-in-text;
-		}
-		@keyframes fade-in-text {
-			from {
-				transform: translateY(20%); 
-				opacity: 0.1;
-			}
-			to {
-				transform: translateY(0%);
-				opacity: 1;
-			}
-		}
-	
-        
-   
-	</style>
+  </style>
 </head>
 <body>
-	<div id="con">
-		<div class="all">
-			<img  style="margin:0 auto; width: 60%;" src="/images/title.png" />
-		</div>
-		<div class="all"></div>
-		<div id="id3">
-			<img id="bot" src="/images/bot.png" />
-			<img id="band" src="/images/band.png" />
-		</div>
-		<div id="id5">
-			<div id="coming" class="coming">
-				<img style="margin:0 auto; width: 60%;" src="/images/coming soon.png" />
-				<!-- <p class="title">Coming Soon</p>
-				<p class="subtitle">TAS MetaPlay, bridge the gap to better investment opportunities between DeFi world and Virtual world</p> -->
-			</div>
-			<div class="images">
-				<div class="swiper-container">
-					<div class="swiper-wrapper">
-							<div class="swiper-slide"><img src="/images/slide1.png" /></div>
-							<div class="swiper-slide"><img src="/images/slide2.png" /></div>
-							<div class="swiper-slide"><img src="/images/slide3.png" /></div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div id="fixed">
-			<img id="left" src="/images/left.png" />
-			<img id="right" src="/images/right.png" />
-		</div>
-		
-	</div>
-	<div style="text-align:center">
-		<!-- <input onClick="window.location.href='www.google.com'" type="submit" Value="Go"> -->
-
-		<button onclick="myFunction()">HomePage</button>
-	</div>
-	<script src="https://unpkg.com/swiper/swiper-bundle.js"> </script>  
-	<script>
-		function  myFunction()
-		{
-			window.open('https://www.teaswap.art/drops');
-		}
-	</script>
-	<script>
-	
-		var node3 = document.getElementById("id3")
-		var fixed = document.getElementById("fixed")
-		var node3Height = node3.offsetHeight // scroll to end of node 3
-		var node3Start = node3.offsetTop  // scroll into node3
-		var oldScroll = window.scrollY
-		var node5 = document.getElementById('id5')
-		window.addEventListener('scroll', function(ev){
-			// console.group()
-			// console.log("node start and windows.scrollY", node3Start, window.scrollY)
-			if (oldScroll == window.screenY) return
-			if (oldScroll < window.scrollY) {
-				if (window.scrollY + node5.offsetHeight > node5.offsetTop + 50) {
-					// 滚入id5
-					window.scrollTo(0, document.body.scrollHeight);
-					document.getElementById("coming").classList.add('fade-in-text')
-				}
-				// console.log('scroll down')
-				if (window.scrollY > node3Start) {
-					// node3 in coming
-					// console.log(' node3 is in')
-				}
-			}else{
-				// console.log('scroll up')
-				if (window.scrollY + node5.offsetHeight < node5.offsetTop) {
-					document.getElementById("coming").classList.remove('fade-in-text')
-				}
-			}
-			leftLeft()
-			
-			oldScroll = window.scrollY
-			// console.groupEnd()
-		})
-		function leftLeft() {
-			var leftNode = document.getElementById('left')
-			var rightNode = document.getElementById('right')
-			var bot = document.getElementById("bot")
-			if (window.scrollY + node3.offsetHeight < node3.offsetTop) {
-				leftNode.style.left = "-100%"	
-				rightNode.style.right = "-100%"
-				return
-			}
-			if (window.screenY + node3.offsetHeight > node3.offsetTop + node3.offsetHeight * 0.5) {
-				leftNode.style.left = "0%"	
-				rightNode.style.right = "0%"	
-				leftNode.style.opacity = 0
-				rightNode.style.opacity = 0
-				return
-			}
-			let m = (window.scrollY + node3.offsetHeight - node3.offsetTop)
-			let z = node3.offsetHeight * 0.5
-			let l = m / z
-			l = l * 100
-			l = parseInt(l)
-			l = l - 100
-			// console.log("left ", node3.offsetHeight, window.scrollY, node3.offsetTop, l)
-			leftNode.style.opacity = 1	
-			rightNode.style.opacity = 1
-			if (l < -100){
-				// 还未滚入id3
-				leftNode.style.left = "-100%"	
-				rightNode.style.right = "-100%"
-			}else if(l > 0) {
-				// 已滚过id3 50% 
-				leftNode.style.left = "0%"	
-				rightNode.style.right = "0%"	
-				if (l < 9){
-					leftNode.style.opacity = 0.9 - l * 0.1
-					rightNode.style.opacity = 0.9 - l * 0.1
-				}else{
-					leftNode.style.opacity = 0
-					rightNode.style.opacity = 0
-				}
-			}else{
-				// 滚入3 0% - 50%
-				leftNode.style.left = l + "%"	
-				rightNode.style.right = l + "%"
-			}
-			if (l < 0){
-				// 未过id3 50%
-				bot.style.width = "140%"
-				// bot.style.width  "-20%"
-				bot.style.opacity = 0
-			}else if (l > 50) {
-				// 已滚过id3100%
-				bot.style.width = "100%"
-				// bot.style.width = "-100%"
-				bot.style.opacity = 1
-			}else{
-				// 滚入id3 50%v -100%
-				bot.style.width = (150 - l) + "%"
-				// bot.style.top = "-" + (20 - 80/50 * l) + "%"
-				if (l < 9){
-					bot.style.opacity = 1 - l * 0.9
-				}else{
-					bot.style.opacity = 1
-				}
-			}
-
-		}
-
-		var mySwiper = new Swiper ('.swiper-container', {
+  <div id="con">
+    <div id="imgs">
+      <img id="back" src="/images/back.png" />
+      <img id="bot" src="/images/bot.png" />
+      <img id="band" src="/images/band.png" />
+      <div id="id5">
+        <div id="coming" class="coming">
+          <img style="margin:0 auto; width: 60%;" src="/images/coming soon.png" />
+        </div>
+        <div class="images">
+          <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="/images/slide1.png" /></div>
+                <div class="swiper-slide"><img src="/images/slide2.png" /></div>
+                <div class="swiper-slide"><img src="/images/slide3.png" /></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="fixed">
+    <img id="left" src="/images/left.png" />
+    <img id="right" src="/images/right.png" />
+  </div>
+  <div id="log"></div>
+  <script src="https://unpkg.com/swiper/swiper-bundle.js"> </script>  
+  <script>
+    window.onload = function() {
+      var back = document.getElementById("back")
+      var bot = document.getElementById("bot")
+      var band = document.getElementById("band")
+      var imgs = document.getElementById("imgs")
+      var left = document.getElementById("left")
+      var right = document.getElementById("right")
+      var px = 0; // 滚动的位置
+      var leftFrame = 0; // 左右移动
+      var botFrame = 0;
+      var frameCount = 100;
+      var comingFrameCount = 400;
+      var coming = document.getElementById("coming")
+      var totalHeight = back.offsetHeight + bot.offsetHeight * 0.5 + band.offsetHeight * 0.67 - window.innerHeight; // 总的页面调试
+      // document.getElementById("con").style.height = totalHeight + "px"
+      var startScroll = back.offsetHeight - window.innerHeight
+      var startShowComing = startScroll +  bot.offsetHeight * 0.5 + band.offsetHeight * 0.67 - window.innerHeight/2
+      console.log("total height", totalHeight, back.offsetHeight)
+      var comingOpacity = 0;
+      window.onwheel = function(e) {
+        if (px > startScroll && px < startScroll + frameCount){
+          px += (e.deltaY * 0.01)
+          // left and with 
+          var leftTrans = ((px - startScroll) / frameCount) * 100
+          var trans = leftTrans - 60
+          if (leftTrans > 60) {
+            trans = 0
+            var opacity = 1 - (leftTrans - 60) * 0.1 // left opacity
+            opacity = opacity > 1 ? 1 : opacity < 0 ? 0 : opacity
+            left.style.opacity = opacity
+            right.style.opacity = opacity
+            var botWidth = 200 - leftTrans
+            botWidth = botWidth > 200 ? 200 : botWidth < 100 ? 100 : botWidth
+            bot.style.width = botWidth + "%"
+            bot.style.opacity = 1 - opacity 
+          }
+          left.style.left = trans + "%"
+          right.style.right =  trans + "%"
+        }else{
+          px += e.deltaY
+        }
+        // 滚动之前
+        if (px < startScroll) {
+          left.style.left = "-60%"
+          right.style.right = "-60%"
+          left.style.opacity = 1
+          right.style.opacity = 1
+          bot.style.opacity = 0
+          bot.style.width = '200%'
+        }
+        // 滚动完成
+        if (px > startScroll + frameCount) {
+          left.style.left = "0%"
+          right.style.right = "0%"
+          left.style.opacity = 0
+          right.style.opacity = 0
+          bot.style.opacity = 1
+          bot.style.width = '100%'
+        }
+        // coming soon 动画 
+        if (px > startShowComing && px < startShowComing + comingFrameCount){
+          var trans = 30 - (px - startShowComing) / comingFrameCount * 100
+          trans = trans < 0 ? 0 : trans > 30 ? 30 : trans // coming soon's translateY
+          comingOpacity = 1 - (trans / 30) // left opacity
+          comingOpacity = comingOpacity > 1 ? 1 : comingOpacity < 0 ? 0 : comingOpacity
+          console.log(trans, comingOpacity)
+          coming.style.transform = `translateY(${trans}%)`
+          coming.style.opacity = comingOpacity
+        }
+        px < 0 && (px = 0)
+        px > totalHeight && (px = totalHeight)
+        imgs.style.transform = `translate(0, -${px}px)`
+        document.getElementById("log").innerText = `e.deltaY:${e.deltaY} px:${px} totalHeight:${totalHeight} startShowComing:${startShowComing} leftTrans:${leftTrans} botWidth:${botWidth} backHeight:${back.offsetHeight} startScroll:${startScroll}`
+      }
+      window.onresize = function() {
+        totalHeight = back.offsetHeight + bot.offsetHeight + band.offsetHeight; 
+      }
+    }
+    window.onscroll = function(e) {
+      e.preventDefault();
+    }
+    var mySwiper = new Swiper ('.swiper-container', {
 			slidesPerView: 3,
       spaceBetween: 30,
 			centeredSlides: true,
 			autoplay: true,
 			depay: 2000,
 			loop: true,
-		})        
-	</script>
+		})     
+  </script>
 </body>
 </html>
