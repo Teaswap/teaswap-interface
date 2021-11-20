@@ -125,7 +125,7 @@
 			display: flex;
 			flex-direction: column;
 			justify-content: center;
-      transform: translateY(30%);
+      transform: translateY(60%);
       opacity: 0;
 		}
 		#id5 > .images{
@@ -174,7 +174,7 @@
       var leftFrame = 0; // 左右移动
       var botFrame = 0;
       var frameCount = 100;
-      var comingFrameCount = 400;
+      var comingFrameCount = window.innerHeight;
       var coming = document.getElementById("coming")
       var totalHeight = con.offsetHeight - window.innerHeight; // 总的页面调试
       // document.getElementById("con").style.height = totalHeight + "px"
@@ -224,9 +224,9 @@
         }
         // coming soon 动画 
         if (px > startShowComing && px < startShowComing + comingFrameCount){
-          var trans = 30 - (px - startShowComing) / comingFrameCount * 100
-          trans = trans < 0 ? 0 : trans > 30 ? 30 : trans // coming soon's translateY
-          comingOpacity = 1 - (trans / 30) // left opacity
+          var trans = 60 - (px - startShowComing) / comingFrameCount * 100
+          trans = trans < 0 ? 0 : trans > 60 ? 60 : trans // coming soon's translateY
+          comingOpacity = 1 - (trans / 60) // left opacity
           comingOpacity = comingOpacity > 1 ? 1 : comingOpacity < 0 ? 0 : comingOpacity
           console.log(trans, comingOpacity)
           coming.style.transform = `translateY(${trans}%)`
