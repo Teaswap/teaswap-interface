@@ -114,6 +114,7 @@
 			width: 100%;
 		}
 		#id5 {
+      position: relative;
       width: 100%;
       height: 100vh;
 			display: flex;
@@ -131,6 +132,15 @@
 		#id5 > .images{
 			height: 60%;
 		}
+    #link{
+      position: absolute;
+      bottom: 10px;
+      margin: 0 auto;
+      left: 50%;
+      transform: translateX(-50%);
+      text-decoration: none;
+      color:aqua;
+    }
   </style>
 </head>
 <body>
@@ -158,6 +168,7 @@
   <div id="fixed">
     <img id="left" src="/images/left.png" />
     <img id="right" src="/images/right.png" />
+    <a id="link" href="https://www.teaswap.art/staking">Join TSAMetaPlay Staking Pool</a>
   </div>
   <div id="log"></div>
   <script src="https://unpkg.com/swiper/swiper-bundle.js"> </script>  
