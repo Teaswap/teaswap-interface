@@ -35,7 +35,7 @@
       /* min-height: 2466px; */
     }
     #bot{
-      width: 200%;
+      width: 100%;
       opacity: 0;
       margin-top: -50%;
       margin-left: 50%;
@@ -46,11 +46,11 @@
       width: 100%;
       transform: translate(0%, 0);
     }
-		@media (min-width: 1935px){
+		/* @media (min-width: 1935px){
 			#back, #bot, #band {
 				width: 100%;
 			}	
-		}
+		} */
     #log{
       position: fixed;
       top: 20px;
@@ -163,6 +163,7 @@
   <script src="https://unpkg.com/swiper/swiper-bundle.js"> </script>  
   <script>
     window.onload = function() {
+      var con = document.getElementById("con")
       var back = document.getElementById("back")
       var bot = document.getElementById("bot")
       var band = document.getElementById("band")
@@ -175,10 +176,10 @@
       var frameCount = 100;
       var comingFrameCount = 400;
       var coming = document.getElementById("coming")
-      var totalHeight = back.offsetHeight + bot.offsetHeight * 0.5 + band.offsetHeight * 0.67 - window.innerHeight; // 总的页面调试
+      var totalHeight = con.offsetHeight - window.innerHeight; // 总的页面调试
       // document.getElementById("con").style.height = totalHeight + "px"
       var startScroll = back.offsetHeight - window.innerHeight
-      var startShowComing = startScroll +  bot.offsetHeight * 0.5 + band.offsetHeight * 0.67 - window.innerHeight/2
+      var startShowComing = startScroll +  bot.offsetHeight * 0.5 + band.offsetHeight * 0.64 - window.innerHeight/2
       console.log("total height", totalHeight, back.offsetHeight)
       var comingOpacity = 0;
       window.onwheel = function(e) {
