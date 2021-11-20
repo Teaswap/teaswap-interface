@@ -12,12 +12,12 @@ import { useActiveWeb3React } from '../../hooks'
 
 import Nav from '../../components/earn/Nav'
 import { MEDIA_QUERY } from '../../constants/style'
-import StakeBox from '../../components/general/StakeBox'
+// import StakeBox from '../../components/general/StakeBox'
 // import { unwrappedToken } from '../../utils/wrappedCurrency'
 import Switch from '@material-ui/core/Switch';
 
 const PageWrapper = styled.div`
-  margin-top:  30px;
+  margin-top:  15px;
   width: 100%;
   text-align: center;
   display: flex;
@@ -26,8 +26,15 @@ const PageWrapper = styled.div`
   padding-bottom: 30px;
   ${MEDIA_QUERY.sm} {
   }
-`
 
+
+// `
+// const ImgStyle = styled.img`
+// width: 100%;
+// margin: 0 auto;
+// marginTop: -15px;
+// outline: none;
+// `
 // const TopSection = styled(ColumnCenter)`
 //   width: 100%;
 //   text-align: center;
@@ -40,6 +47,8 @@ const PageWrapper = styled.div`
 //     font-size: 12px;
 //   }
 // `
+
+
 
 const PoolSection = styled.div`
   width: 1125px;
@@ -110,7 +119,8 @@ export default function Earn() {
   const stakingRewardsExist = Boolean(typeof chainId === 'number' && (STAKING_REWARDS_INFO[chainId]?.length ?? 0) > 0)
   return (
     <PageWrapper >
-      <StakeBox />
+      {/* <StakeBox /> */} 
+      <img  src={process.env.PUBLIC_URL + '/tsa_metaplay.jpg'} width="100%" />
       {/* <TopSection >
         <ConSubTitle con={"An amazing yield farm on Binance Smart Chain."} />
       </TopSection> */}
