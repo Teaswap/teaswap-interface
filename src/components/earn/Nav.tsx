@@ -15,6 +15,12 @@ const Nav = (props: any) => {
           </span>
         </StyledLink>
         <StyledLink style={{padding:"0 14px"}}> </StyledLink>
+        <StyledLink onClick={() => props.handleCatChange(3)}>
+          <span className={props.cat == 3 ? "stake-active" : ''}>
+            NFT Pool
+          </span>
+        </StyledLink>
+        <StyledLink style={{padding:"0 14px"}}> </StyledLink>
         <StyledLink onClick={() => props.handleCatChange(1)}>
           <span className={props.cat == 1 ? "stake-active" : ''}>
             Earn TSA
@@ -27,12 +33,7 @@ const Nav = (props: any) => {
           </span>
         </StyledLink>
         <StyledLink style={{padding:"0 14px"}}> </StyledLink>
-        <StyledLink onClick={() => props.handleCatChange(3)}>
-          <span className={props.cat == 3 ? "stake-active" : ''}>
-            NFT Pool
-          </span>
-        </StyledLink>
-        <StyledLink style={{padding:"0 14px"}}> </StyledLink>
+
         <StyledLink onClick={() => props.handleCatChange(4)}>
           <span className={props.cat == 4 ? "stake-active" : ''}>
             Ended
