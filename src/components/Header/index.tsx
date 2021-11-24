@@ -382,14 +382,15 @@ export default function Header() {
             <StyledNavLink id={`swap-nav-link`} to={'/drops'}>
               {t('DROPS')}
             </StyledNavLink>
-            <StyledNavLink id={`NFT-nav-link`} to={'/staking'} >
-              {t('Earn')}
-              {/* <span>↗</span> */}
-            </StyledNavLink>
             <StyledNavLink id={`NFT-nav-link`} to={'/nft/products/category/1'} >
               {t('NFT')}
               {/* <span>↗</span> */}
             </StyledNavLink>
+            <StyledNavLink id={`NFT-nav-link`} to={'/staking'} >
+              {t('Earn')}
+              {/* <span>↗</span> */}
+            </StyledNavLink>
+           
             <StyledNavLink id={`Incubator-nav-link`} to={'/iro'}>
               {t('Incubator')}
             </StyledNavLink>
