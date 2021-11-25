@@ -1,12 +1,59 @@
 export default [ 
   {
+    picture_url: process.env.PUBLIC_URL + '/nft/pro1/Ch1.jpg',
+    title: "Penguin Punk #27",
+    number: "",
+    desc: '',
+    link: 'https://www.teaswap.art/nft/products/category/1',
+    mediaType: 1,
+    id: 1,
+  },
+  {
+    picture_url: process.env.PUBLIC_URL + '/nft/pro1/Ch2.jpg',
+    title: "Penguin Punk #26",
+    number: "",
+    desc: '',
+    link: 'https://www.teaswap.art/nft/products/category/1',
+    mediaType: 1,
+    id: 2,
+  },
+  {
+    picture_url: process.env.PUBLIC_URL + '/nft/pro1/Ch3.jpg',
+    title: "Penguin Punk #25",
+    number: "",
+    desc: '',
+    link: 'https://www.teaswap.art/nft/products/category/1',
+    mediaType: 1,
+    id: 3,
+  },
+  {
+    picture_url: process.env.PUBLIC_URL + '/nft/pro1/Ch4.jpg',
+    title: "Penguin Punk #24",
+    number: "",
+    desc: '',
+    link: 'https://www.teaswap.art/nft/products/category/1',
+    mediaType: 1,
+    id: 4,
+  },
+  {
+    picture_url: process.env.PUBLIC_URL + '/nft/pro1/Ch5.jpg',
+    title: "Penguin Punk #23",
+    number: "",
+    desc: '',
+    link: 'https://www.teaswap.art/nft/products/category/1',
+    mediaType: 1,
+    id: 5,
+  },
+
+
+  {
     picture_url: process.env.PUBLIC_URL + '/nft/pro1/1.jpg',
     title: "Hamburg Penguin #20",
     number: "",
     desc: '',
     link: 'https://www.teaswap.art/nft/products/category/1',
     mediaType: 1,
-    id: 1,
+    id: 6,
   },
   {
     picture_url: process.env.PUBLIC_URL + '/nft/pro1/2.jpg',
@@ -15,7 +62,7 @@ export default [
     desc: '',
     link: 'https://www.teaswap.art/nft/products/category/1',
     mediaType: 1,
-    id: 2,
+    id: 7,
   },
   {
     picture_url: process.env.PUBLIC_URL + '/nft/pro1/3.jpg',
@@ -24,7 +71,7 @@ export default [
     desc: '',
     link: 'https://www.teaswap.art/nft/products/category/1',
     mediaType: 1,
-    id: 3,
+    id: 8,
   },
   {
     picture_url: process.env.PUBLIC_URL + '/nft/pro1/4.jpg',
@@ -33,7 +80,7 @@ export default [
     desc: '',
     link: 'https://www.teaswap.art/nft/products/category/1',
     mediaType: 1,
-    id: 4,
+    id: 9,
   },
   {
     picture_url: process.env.PUBLIC_URL + '/nft/pro1/5.jpg',
@@ -42,7 +89,7 @@ export default [
     desc: '',
     link: 'https://www.teaswap.art/nft/products/category/1',
     mediaType: 1,
-    id: 5,
+    id: 10,
   },
 
   
@@ -53,7 +100,7 @@ export default [
     desc: 'TSA NFT Studio',
     link: '/nft/products/category/5',
     mediaType: 1,
-    id: 6,
+    id: 11,
   },
   {
     picture_url: process.env.PUBLIC_URL + '/nft/pro1/haha.gif',
@@ -62,7 +109,7 @@ export default [
     desc: '',
     link: 'https://www.teaswap.art/nft/products/category/1',
     mediaType: 1,
-    id: 8,
+    id: 12,
   },
   {
     picture_url: process.env.PUBLIC_URL + '/nft/pro1/Rhythm.gif',
@@ -71,7 +118,7 @@ export default [
     desc: '',
     link: 'https://www.teaswap.art/nft/products/category/1',
     mediaType: 1,
-    id: 9
+    id: 13,
   },
   {
     picture_url: process.env.PUBLIC_URL + '/nft/pro1/HeavenAndEarth_09.gif',
@@ -80,7 +127,7 @@ export default [
     desc: ``,
     link: 'https://www.teaswap.live/hotbids-digitalnft',
     mediaType: 1,
-    id: 10
+    id: 14,
   },
   {
     picture_url: process.env.PUBLIC_URL + '/nft/pro1/HeavenAndEarth_11.gif',
@@ -89,7 +136,7 @@ export default [
     desc: ``,
     link: 'https://www.teaswap.live/hotbids-digitalnft',
     mediaType: 1,
-    id: 11
+    id: 15
   },
 
 ]

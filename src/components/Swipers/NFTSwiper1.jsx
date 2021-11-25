@@ -18,31 +18,31 @@ export default function App() {
   let slides = [   
     {
       key: 1,
-      content: <Item img={process.env.PUBLIC_URL  + '/nft/products/11Sushi Penguin.png'}  amount= 'PRESALE 11/18'/>,
+      content: <Item img={process.env.PUBLIC_URL  + '/nft/products/Ch1.jpg'}  amount= 'PRESALE 12/01'/>,
       link: 'https://treasureland.market/collection/0x8db099f2d73016cfbdac978bc21e5470e7fbaaa0?chain_id=56',
       
     },
     {
       key: 2,
-      content: <Item img={process.env.PUBLIC_URL  + '/nft/products/12Chinese food Penguin.png'}  amount= 'PRESALE 11/18'/>,
+      content: <Item img={process.env.PUBLIC_URL  + '/nft/products/Ch2.jpg'}  amount= 'PRESALE 12/01'/>,
       link: 'https://treasureland.market/collection/0x8db099f2d73016cfbdac978bc21e5470e7fbaaa0?chain_id=56',
       
     },
     {
       key: 3,
-      content: <Item img={process.env.PUBLIC_URL  + '/nft/products/13hot dog Penguin.png'}  amount= 'PRESALE 11/18'/>,
+      content: <Item img={process.env.PUBLIC_URL  + '/nft/products/Ch3.jpg'}  amount= 'PRESALE 12/01'/>,
       link: 'https://treasureland.market/collection/0x8db099f2d73016cfbdac978bc21e5470e7fbaaa0?chain_id=56',
       
     },
     {
       key: 4,
-      content: <Item img={process.env.PUBLIC_URL  + '/nft/products/14milkshake Penguin.png'}  amount= 'PRESALE 11/18'/>,
+      content: <Item img={process.env.PUBLIC_URL  + '/nft/products/Ch4.jpg'}  amount= 'PRESALE 12/01'/>,
       link: 'https://treasureland.market/collection/0x8db099f2d73016cfbdac978bc21e5470e7fbaaa0?chain_id=56',
       
     },
     {
       key: 5,
-      content: <Item img={process.env.PUBLIC_URL  + '/nft/products/15hamburger.png'}  amount= 'PRESALE 11/18'/>,
+      content: <Item img={process.env.PUBLIC_URL  + '/nft/products/Ch5.jpg'}  amount= 'PRESALE 12/01'/>,
       link: 'https://treasureland.market/collection/0x8db099f2d73016cfbdac978bc21e5470e7fbaaa0?chain_id=56',
       
     },
