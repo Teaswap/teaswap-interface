@@ -102,6 +102,68 @@ export const STAKING_REWARDS_INFO: {
       iconUrl: "/TSA-BUSD-TSA.png",
       cate:"TSA"
     },
+    
+    
+    
+
+    {
+      tokens: [TSA_CAKE_LP, UNI[ChainId.BSC_MAINNET]],
+      stakingRewardAddress: '0x4f8659B91fD7A1f928E1F213E1015DCfFf447615',
+      iconUrl: "/TSA-CAKE-TSA.png",
+      cate:"TSA"
+    },   
+    {
+      tokens: [USDT_TSA_LP, UNI[ChainId.BSC_MAINNET]],
+      stakingRewardAddress: '0xa8e0A6e980ce25FADC2Dca703a71464Af9320E24',
+      iconUrl: "/TSA-USDT-TSA.png",
+      cate:"TSA"
+    },
+    {
+      tokens: [BNB_TSA_LP, UNI[ChainId.BSC_MAINNET]],
+      stakingRewardAddress: '0xA1f2Bc4cBB56b02cB1329C8ca633155c02Fc6Cb8',
+      iconUrl: "/bnbtsastaketsa.png",
+      cate:"TSA"
+    }, 
+    
+    
+//past here
+{
+  tokens: [BNB_SHIH_LP, SHIH],
+  stakingRewardAddress: '0x4395c1Dc164F3e1B5592D2735b54ef6041F4C64c',
+  iconUrl: "/BNBSHIH.png",
+  cate:"TSA"
+},
+{
+  tokens: [BNB_TSA_LP, CJAI],
+  stakingRewardAddress: '0xd17F1294f49659f7E396972Af0065c35F0FB647d',
+  iconUrl: "/BNBCJAI.png",
+  cate:"TSA"
+},
+{
+  tokens: [BNB_TSA_LP, TSALOT],
+  stakingRewardAddress: '0x2c9Ff22c9845050F7739CC030D45bd266EB74015',
+  iconUrl: "/BNBLOT.png",
+  cate:"TSA"
+},
+
+    {
+      tokens: [UNI[ChainId.BSC_MAINNET], CJAI],
+      stakingRewardAddress: '0xBDa42D3D89fA802402f08e8e878AC43D320c03bb',
+      iconUrl: "/TSACJAI.png",
+      cate:"CJAI"
+    },
+    {
+      tokens: [UNI[ChainId.BSC_MAINNET], TSALOT],
+      stakingRewardAddress: '0x2A7F95C8a708f88001b3e028310C1678ef5b95a7',
+      iconUrl: "/TSA_LOT.png",
+      cate:"TSA"
+    },
+    {
+      tokens: [UNI[ChainId.BSC_MAINNET],ICASH],
+      stakingRewardAddress:'0x40A553dD94c3697BD8150f98B9aD8d6b78A02cC6',
+      iconUrl: "/TSAICASH.png",
+      cate:"ICASH"
+    },  
     {
       tokens: [TSA_DOGE_LP, UNI[ChainId.BSC_MAINNET]],
       stakingRewardAddress: '0x1d02b6De10984b0503c805C483Fda63c3ef0cd10',
@@ -120,42 +182,9 @@ export const STAKING_REWARDS_INFO: {
       iconUrl: "/TSA-FLOKI-TSA.png",
       cate:"TSA"
     },
-    {
-      tokens: [TSA_CAKE_LP, UNI[ChainId.BSC_MAINNET]],
-      stakingRewardAddress: '0x4f8659B91fD7A1f928E1F213E1015DCfFf447615',
-      iconUrl: "/TSA-CAKE-TSA.png",
-      cate:"TSA"
-    },   
-    {
-      tokens: [USDT_TSA_LP, UNI[ChainId.BSC_MAINNET]],
-      stakingRewardAddress: '0xa8e0A6e980ce25FADC2Dca703a71464Af9320E24',
-      iconUrl: "/TSA-USDT-TSA.png",
-      cate:"TSA"
-    },
-    {
-      tokens: [BNB_TSA_LP, UNI[ChainId.BSC_MAINNET]],
-      stakingRewardAddress: '0xA1f2Bc4cBB56b02cB1329C8ca633155c02Fc6Cb8',
-      iconUrl: "/bnbtsastaketsa.png",
-      cate:"TSA"
-    },    
-    {
-      tokens: [UNI[ChainId.BSC_MAINNET], CJAI],
-      stakingRewardAddress: '0xBDa42D3D89fA802402f08e8e878AC43D320c03bb',
-      iconUrl: "/TSACJAI.png",
-      cate:"CJAI"
-    },
-    {
-      tokens: [UNI[ChainId.BSC_MAINNET], TSALOT],
-      stakingRewardAddress: '0x2A7F95C8a708f88001b3e028310C1678ef5b95a7',
-      iconUrl: "/TSA_LOT.png",
-      cate:"TSA"
-    },
-    {
-      tokens: [UNI[ChainId.BSC_MAINNET],ICASH],
-      stakingRewardAddress:'0x40A553dD94c3697BD8150f98B9aD8d6b78A02cC6',
-      iconUrl: "/TSAICASH.png",
-      cate:"ICASH"
-    },    
+
+    
+
     {
       tokens: [ETH_TSA_LP, UNI[ChainId.BSC_MAINNET]],
       stakingRewardAddress: '0x226141bA188cbEd9C8D39c237F29eC3F5bA5A43B',
@@ -191,24 +220,7 @@ export const STAKING_REWARDS_INFO: {
       cate:"TSA"
     },
     
-    {
-      tokens: [BNB_SHIH_LP, SHIH],
-      stakingRewardAddress: '0x4395c1Dc164F3e1B5592D2735b54ef6041F4C64c',
-      iconUrl: "/BNBSHIH.png",
-      cate:"TSA"
-    },
-    {
-      tokens: [BNB_TSA_LP, CJAI],
-      stakingRewardAddress: '0xd17F1294f49659f7E396972Af0065c35F0FB647d',
-      iconUrl: "/BNBCJAI.png",
-      cate:"TSA"
-    },
-    {
-      tokens: [BNB_TSA_LP, TSALOT],
-      stakingRewardAddress: '0x2c9Ff22c9845050F7739CC030D45bd266EB74015',
-      iconUrl: "/BNBLOT.png",
-      cate:"TSA"
-    },
+
     {
       tokens: [UNI[ChainId.BSC_MAINNET], TSALOT],
       stakingRewardAddress: '0x00AFAd5f02Dd3F3093c392b6172E7b8109A6F6D8',
