@@ -390,16 +390,12 @@ export default function Header() {
               {t('Earn')}
               {/* <span>↗</span> */}
             </StyledNavLink>
-           
-            <StyledNavLink id={`Incubator-nav-link`} to={'/iro'}>
-              {t('Incubator')}
-            </StyledNavLink>
-            {/* <StyledNavLink id={`Incubator-nav-link`} to={'/iro/bnb/0x5f99ACF13CAff815DD9cB4A415c0fB34e9F4545b/0x4aE03f6eaa8A21Ee3aeD47b97D5F44d2E2996d8a'}>
-              {t('NFT Incubator')}
-            </StyledNavLink> */}
             <StyledExternalLink id={`Gallery-nav-link`} href={'https://meta.teaswap.art/'}>
               {t('MetaPlay')}
             </StyledExternalLink>
+            <StyledNavLink id={`Incubator-nav-link`} to={'/iro'}>
+              {t('Incubator')}
+            </StyledNavLink>               
             <StyledNavLink to="/mint">
               {t('Create')}
             </StyledNavLink>
