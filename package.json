@@ -128,6 +128,7 @@
   },
   "license": "GPL-3.0-or-later",
   "dependencies": {
+    "@binance-chain/bsc-connector": "^1.0.0",
     "@material-ui/core": "^4.12.0",
     "@material-ui/lab": "^4.0.0-alpha.59",
     "@types/store": "^2.0.2",

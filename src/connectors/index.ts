@@ -3,6 +3,7 @@ import { InjectedConnector } from '@web3-react/injected-connector'
 import { WalletConnectConnector } from '@web3-react/walletconnect-connector'
 import { WalletLinkConnector } from '@web3-react/walletlink-connector'
 import { PortisConnector } from '@web3-react/portis-connector'
+import { BscConnector } from '@binance-chain/bsc-connector'
 
 import { FortmaticConnector } from './Fortmatic'
 import { NetworkConnector } from './NetworkConnector'
@@ -28,6 +29,10 @@ export function getNetworkLibrary(): Web3Provider {
 
 export const injected = new InjectedConnector({
   supportedChainIds: [1, 3, 4, 5, 42, 56, 97]
+})
+
+export const bsc = new BscConnector({
+  supportedChainIds: [56, 97] // later on 1 ethereum mainnet and 3 ethereum ropsten will be supported
 })
 
 // mainnet only

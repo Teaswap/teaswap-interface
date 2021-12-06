@@ -1,7 +1,7 @@
 import { ChainId, JSBI, Percent, Token, WETH } from '@teaswap/uniswap-sdk'
 import { AbstractConnector } from '@web3-react/abstract-connector'
 
-import { fortmatic, injected, portis, walletconnect, walletlink } from '../connectors'
+import { fortmatic, injected, portis, walletconnect, walletlink, bsc } from '../connectors'
 
 // export const ROUTER_ADDRESS = '0xDB7ef44D6689B7C74FdA0C2dD468e2FfD5E78bb2'
 
@@ -551,6 +551,15 @@ export const SUPPORTED_WALLETS: { [key: string]: WalletInfo } = {
     description: 'Easy-to-use browser extension.',
     href: null,
     color: '#E8831D'
+  },
+  BINANCE_WALLET: {
+    connector: bsc,
+    name: 'BinanceWallet',
+    iconName: 'binanceWallet.png',
+    description: 'Connect to Binance Wallet',
+    href: null,
+    color: '#4196FC',
+    mobile: true
   },
   WALLET_CONNECT: {
     connector: walletconnect,
