@@ -113,8 +113,8 @@ const VendorBackstagePage = () => {
       {chainId != 56 && (<Modal isOpen={true} onDismiss={() => {}} maxHeight={90}>
         <p style={{
           padding: 20
-        }}> Please switch to a wallet that supports Binance Smart Chain network<br />
-        In order to trade & mint assets, connect to a Binance Smart Chain network wallet. Please lock your current wallet and connect with a wallet that supports Binance Smart Chain network.
+        }}> Reminder:<br />
+        In order to trade & mint assets, please lock your current wallet and connect with a wallet that supports Binance Smart Chain network.
         </p>
       </Modal>)}
       <Banner banner={vendorInfo.banner_url || 'https://i.imgur.com/3zpk96J.jpg'} loaded={loaded} onLoad={onLoad} />
