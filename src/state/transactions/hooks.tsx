@@ -178,16 +178,20 @@ export function useUserHasSubmittedSetPrice(
 
 export function useHasPendingRevoke(orderid:number): boolean {
     const allTransactions = useAllTransactions()
+    console.log("useHasPendingRevoke allTransactions:", JSON.stringify(allTransactions))
+    console.log("useHasPendingRevoke orderid:", orderid)
     return useMemo(
         () =>
             orderid !=0 &&
             Object.keys(allTransactions).some(hash => {
                 const tx = allTransactions[hash]
+                console.log("useHasPendingRevoke hash:", hash, tx)
                 if (!tx) return false
                 if (tx.receipt) {
                     return false
                 } else {
                     if (!tx.revoke) return false
+                    console.log("useHasPendingRevoke isTransactionRecent:", isTransactionRecent(tx))
                     return isTransactionRecent(tx)
                 }
             }),
@@ -199,18 +203,19 @@ export function useUserHasSubmittedRevoke(
     orderid:number
 ): { revokeSubmitted: boolean; revokeTxn: TransactionDetails | undefined } {
     const allTransactions = useAllTransactions()
-    console.log("allTransactions:"+JSON.stringify(allTransactions))
+    console.log("useUserHasSubmittedRevoke allTransactions:"+JSON.stringify(allTransactions))
     // get the txn if it has been submitted
     const revokeTxn = useMemo(() => {
-        console.log("hasSubmitorderid:"+orderid)
+        console.log("useUserHasSubmittedRevoke hasSubmitorderid:"+orderid)
         const txnIndex = Object.keys(allTransactions).find(hash => {
             const tx = allTransactions[hash]
+            console.log('useUserHasSubmittedRevoke: ', tx)
             return tx.revoke && tx.receipt?.status===1 && tx.revoke.orderid === orderid
         })
-        console.log("txnIndex:"+txnIndex)
+        console.log("useUserHasSubmittedRevoke txnIndex:"+txnIndex)
         return txnIndex && allTransactions[txnIndex] ? allTransactions[txnIndex] : undefined
     }, [orderid, allTransactions])
-    console.log("setPirceTxn:"+JSON.stringify(revokeTxn))
+    console.log("useUserHasSubmittedRevoke: "+JSON.stringify(revokeTxn))
     return { revokeSubmitted: Boolean(revokeTxn), revokeTxn }
 }
 

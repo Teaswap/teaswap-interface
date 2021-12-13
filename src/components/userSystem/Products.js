@@ -150,6 +150,7 @@ const Product = ({productCat, product, onLoad, loaded, $width, $height, $margin 
   }, [transfer, transferSubmitted])
 
   useEffect(() => {
+    console.log('revoke: ', revoke, revokeSubmitted)
     if (revoke === revokeState.SETED) {
       setRevokeSubmitted(true)
       handleRevoke(product.id)

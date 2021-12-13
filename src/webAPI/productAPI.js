@@ -206,7 +206,6 @@ const updateProductAPI = (
 ) => {
   const token = localStorage.getItem('token');
   if (price <=0) return
-  debugger
   return fetch(`${BASE_URL}/products/${id}`, {
     method: 'PATCH',
     headers: {

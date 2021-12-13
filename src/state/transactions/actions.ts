@@ -28,6 +28,7 @@ export const addTransaction = createAction<{
   mint?:MintInfoInterface
   transfer?:{nftAddress:string,tokenid:number,toAddress:string}
 }>('transactions/addTransaction')
+
 export const clearAllTransactions = createAction<{ chainId: ChainId }>('transactions/clearAllTransactions')
 export const finalizeTransaction = createAction<{
   chainId: ChainId
