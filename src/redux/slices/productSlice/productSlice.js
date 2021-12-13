@@ -13,7 +13,8 @@ import {
   setPriceAPI,
   likeProductAPI,
   isUserAPI,
-  transferAPI
+  transferAPI,
+  revokeAPI
 } from '../../../webAPI/productAPI';
 import {completeOrder, createOrder as createOrderAPI} from "../../../webAPI/cartAPI";
 import {setIsLoading, setOrderNumber} from "../cartSlice/cartSlice";
@@ -101,8 +102,8 @@ export const {
   setErrorMessage,
 } = productSlice.actions;
 
-export const getProducts = (page) => (dispatch) => {
-  getProductsAPI(page).then((res) => {
+export const getProducts = (page, artworkType, catId, extoken) => (dispatch) => {
+  getProductsAPI(page, artworkType, catId, extoken).then((res) => {
     if (res.ok === 0) {
       if (typeof res.message === 'object') {
         return dispatch(setErrorMessage('something wrong'));
@@ -110,7 +111,7 @@ export const getProducts = (page) => (dispatch) => {
       return dispatch(setErrorMessage(res ? res.message : 'something wrong'));
     }
     const { count, products } = res.data;
-    // dispatch(pushProducts(products));
+    dispatch(setProducts(products));
     dispatch(setProductCount(count));
   });
 };
@@ -274,6 +275,15 @@ export const setPrice = (id,price,userid)=>(dispatch)=>{
 
 export const transfer = (id,toAddress,chainid)=>(dispatch)=>{
   return transferAPI(id,toAddress,chainid).then((res) => {
+    if (res.ok === 0) {
+      return dispatch(setErrorMessage(res ? res.message : 'something wrong'));
+    }
+    return res.message;
+  });
+};
+
+export const revoke = (id)=>(dispatch)=>{
+  return revokeAPI(id).then((res) => {
     if (res.ok === 0) {
       return dispatch(setErrorMessage(res ? res.message : 'something wrong'));
     }

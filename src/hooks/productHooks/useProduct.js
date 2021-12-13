@@ -113,9 +113,9 @@ export default function useProduct() {
     });
   };
 
-  const handleGetProducts = (page) => {
+  const handleGetProducts = (page, artworkType, catId, extoken) => {
     dispatch(setPage(page));
-    getProducts(page)(dispatch);
+    getProducts(page, artworkType, catId, extoken)(dispatch);
   };
 
   const handleLikeProduct = (id) => {

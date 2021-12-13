@@ -25,7 +25,8 @@ export interface TransactionDetails {
   lastCheckedBlockNumber?: number
   addedTime: number
   confirmedTime?: number
-  from: string
+  from: string,
+  revoke?: {orderid: number}
 }
 
 export interface TransactionState {

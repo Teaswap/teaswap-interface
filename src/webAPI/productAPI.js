@@ -19,8 +19,8 @@ function changeProductSort(queue) {
   return { sort, order };
 }
 
-const getProductsAPI = (page) => {
-  return fetch(`${BASE_URL}/products?_page=${page}`).then((res) => res.json());
+const getProductsAPI = (page, artworkType, catId, extoken) => {
+  return fetch(`${BASE_URL}/products?_page=${page}&_artworkType=${artworkType}&_catId=${catId}&_extoken=${extoken}`).then((res) => res.json());
 };
 
 const getProductCategoriesAPI = () => {
@@ -67,7 +67,6 @@ const postProductAPI = ({
   tokenid,
   sale_copyright
 }) => {
-  debugger
   const token = localStorage.getItem('token');
   return fetch(`${BASE_URL}/products/new`, {
     method: 'POST',
@@ -124,6 +123,18 @@ const transferAPI = (id,toAddress,chainid)=>{
       address:toAddress,
       chainid:chainid
     }),
+  }).then((res) => res.json());
+};
+
+const revokeAPI = (id)=>{
+  const token = localStorage.getItem('token');
+
+  return fetch(`${BASE_URL}/products/revoke/${id}`, {
+    method: 'PATCH',
+    headers: {
+      'content-type': 'application/json',
+      authorization: `Bearer ${token}`,
+    },
   }).then((res) => res.json());
 };
 
@@ -259,6 +270,7 @@ export {
   setPriceAPI,
   likeProductAPI,
   transferAPI,
+  revokeAPI,
   stakeAPI,
   unstakeAPI
 };

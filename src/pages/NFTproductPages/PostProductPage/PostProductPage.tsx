@@ -158,65 +158,6 @@ const PostProductPage = () => {
 
   }
 
-  // const onMint = (e: Event) => {
-  //   setAttempting(true)
-  //   if (NFTFactoryContract) {
-  //     if(NFTTokens && hasToken){
-  //       const mintargs = [
-  //         firstNftAddress,
-  //         account,
-  //         1,
-  //         productPictureUrl,
-  //         productName,
-  //         productRoyalty,
-  //         0
-  //       ]
-  //       NFTFactoryContract.mint(
-  //           ...mintargs,{ gasLimit: 350000 ,value:`0x${JSBI.BigInt("10000000000000000").toString(16)}`})
-  //           .then((response: TransactionResponse) => {
-  //             addTransaction(response, {
-  //               summary: t('Mint NFT')
-  //             })
-  //             setHash(response.hash)
-  //           })
-  //           .catch((error: any) => {
-  //             setAttempting(false)
-  //             console.log(error)
-  //           })
-  //     }else{
-  //       const args = [
-  //         user.banner_url?user.banner_url:'https://static.wixstatic.com/media/faa61f_5b2f06d9bee14f369a0a3b7d31761b98~mv2.png',
-  //         user.nickname+ ' Collection',
-  //         user.nickname+'NFT',
-  //         productPictureUrl,
-  //         productName,
-  //         productRoyalty,
-  //         account
-  //       ]
-  //       console.log(args)
-  //       NFTFactoryContract.createERC1155(
-  //           ...args,{ gasLimit: 4500000,value:`0x${JSBI.BigInt("10000000000000000").toString(16)}`})
-  //             .then((response: TransactionResponse) => {
-  //               addTransaction(response, {
-  //                 summary: t('create NFT')
-  //               })
-  //               setHash(response.hash)
-  //               // setCreating(true)
-  //
-  //             })
-  //             .catch((error: any) => {
-  //               setAttempting(false)
-  //               console.log(error)
-  //             })
-  //     }
-  //     handleSubmitAddForm(e)
-  //     } else {
-  //       setAttempting(false)
-  //       throw new Error(t('no factory'))
-  //     }
-  //   }
-
-
   useEffect(() => {
     handleGetProductCategories();
   }, []);
@@ -248,13 +189,6 @@ const PostProductPage = () => {
   useMemo(() => {
     setTokenUrl(BASE_URL + '/products/tokenurl/' + md5(productPictureUrl))
   }, [productPictureUrl])
-
-  //
-  // useEffect(() => {
-  //   if(hash && !creating){
-  //       handleSubmitProduct();
-  //   }
-  // }, [hash]);
 
 
   const mediaTypeOptions = [

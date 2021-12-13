@@ -17,6 +17,7 @@ export const addTransaction = createAction<{
   chainId: ChainId
   hash: string
   from: string
+  revoke?: {orderid: number},
   approval?: { tokenAddress: string; spender: string }
   claim?: { recipient: string }
   setprice?: {orderid:number;price:number}

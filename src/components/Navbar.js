@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import styled from 'styled-components';
 import { Nav, NormalButton } from './NFTButton';
 import { User } from './navbarSystem';
 import { Logo, SearchBar, CategoryItemBox } from '../components';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import useUser from '../hooks/userHooks/useUser';
 import useProduct from '../hooks/productHooks/useProduct';
 import useLogout from '../hooks/userHooks/useLogout';
@@ -15,7 +15,9 @@ import {
 import { useSelector } from 'react-redux';
 import { selectUser } from '../redux/slices/userSlice/userSlice'
 import IconComponent from './Icon';
-
+import { RadioBox } from './productSystem/RadioBox';
+import { useTranslation } from 'react-i18next';
+import {tokenOptions} from '../constants/index'
 
 const NavbarContainer = styled.div`
   position: relative;
@@ -24,15 +26,15 @@ const NavbarContainer = styled.div`
   max-width: 1400px;
   margin: 0 auto;
   margin-top: 30px;
-  height: ${(props) => (props.$size === 'sm' ? '65px' : '135px')};
+  // height: ${(props) => (props.$size === 'sm' ? '65px' : '135px')};
   background: #fcfcfc;
   padding: 25px;
   ${MEDIA_QUERY.lg} {
-    height: ${(props) => (props.$size === 'sm' ? '65px' : '165px')};
+    // height: ${(props) => (props.$size === 'sm' ? '65px' : '165px')};
     padding: 10px;
   }
   ${MEDIA_QUERY.sm} {
-    height: ${(props) => (props.$size === 'sm' ? '65px' : '200px')};
+    // height: ${(props) => (props.$size === 'sm' ? '65px' : '200px')};
     padding: 10px;
     margin: 65px 0;
   }
@@ -106,7 +108,7 @@ const Navbar = () => {
   const location = useLocation();
   const { setWalletUser } = useUser();
   const { walletUser } = useUser();
-  const { productCategories, handleGetProductCategories } = useProduct();
+  const {  page, handleGetProducts, productCategories, handleGetProductCategories } = useProduct();
   const { handleLogout } = useLogout();
   const currentPath = location.pathname;
   const userId = useSelector(selectUserId);
@@ -114,6 +116,23 @@ const Navbar = () => {
   const [isAdmin, setIsAdmin] = useState(false);
   const { handleGetMe } = useUser();
   const user = useSelector(selectUser);
+  const [showFilter, setShowFilter] = useState(false)
+  const {t} = useTranslation();
+  const [artworkType, setArtworkType] = useState(null) 
+  const [token, setToken] = useState(null) 
+  const [catId, setCatId] = useState() 
+
+  const mediaTypeOptions = [
+    { id: '1', name: 'Picture',value:'Picture' },
+    { id: '2', name: 'Gif',value:'Gif' },
+    { id: '3', name: 'Video',value:'Video' },
+    { id: '4', name: 'Audio',value:'Audio' },
+  ]
+
+  useMemo(() => {
+    if (artworkType || token || catId)
+      handleGetProducts(page, artworkType, catId, token)
+  }, [artworkType, token, catId])
 
   const handleClickLogout = () => {
     handleLogout();
@@ -149,7 +168,18 @@ const Navbar = () => {
         {/* <LeftSide>
           <Logo />
         </LeftSide> */}
-        <CatTitle className="all-category-title">Categories</CatTitle>
+        <div>
+          <CatTitle className="all-category-title">Categories</CatTitle>
+          <CatTitle style={{cursor: 'pointer'}} onClick={()=>{
+            if (showFilter) {
+              setToken(null)
+              setCatId(null)
+              setArtworkType(null)
+              handleGetProducts(page, null, null, null)
+            }
+            setShowFilter(!showFilter)
+          }} className="all-category-title">Filter</CatTitle>
+        </div>
         <RightSide>
           <OptionList>
             {/* {isAdmin && <Nav children={'管理後台'} path={'/nft/admin'} />} */}
@@ -174,6 +204,41 @@ const Navbar = () => {
           <SearchBar />
         </RightSide>
       </NavbarTop>
+      {showFilter && (
+        <NavbarBottom style={{margin: 30}}>
+          <div className='input-panel'>
+            <span className='label'>{t('ArtworkType')}: </span>
+            <RadioBox
+              title={t('ArtworkType')}
+              label={t('Artwork Type')}
+              options={mediaTypeOptions}
+              handleChange={(e) => setArtworkType(e.target.value)}
+              oldValue={artworkType}
+            />
+          </div>
+          <div className='input-panel'>
+            <span className='label'>{t('Token')}: </span>
+            <RadioBox
+              title={t('Token')}
+              label={t('Token')}
+              options={tokenOptions}
+              handleChange={(e) => setToken(e.target.value)}
+              oldValue={token}
+            />
+          </div>
+          <div className='input-panel'>
+            <span className='label'>{t('Categories')}: </span>
+            <RadioBox
+              title={t('Categories')}
+              label={t('Categories')}
+              options={productCategories}
+              handleChange={(e) => setCatId(e.target.value)}
+              oldValue={catId}
+            />
+          </div>
+
+        </NavbarBottom>
+      )}
 
       {(currentPath === '/nft' || currentPath.includes('products')) && (
         <NavbarBottom>

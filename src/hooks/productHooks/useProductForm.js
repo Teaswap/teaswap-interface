@@ -5,7 +5,7 @@ import { postPictureAPI } from '../../webAPI/productAPI';
 import {
   postProduct,
   updateProduct,
-  setPrice, transfer
+  setPrice, transfer, revoke
 } from '../../redux/slices/productSlice/productSlice';
 import { useTranslation } from 'react-i18next'
 import {MintInfoInterface} from "../useMintCallback";
@@ -227,6 +227,10 @@ export default function useProductForm(id) {
     transfer(id,toAddress,chainId)(dispatch)
   };
 
+  const handleRevoke = (id) => {
+    revoke(id)(dispatch)
+  };
+
   const checkisUser = (address) => {
     // checkDataValidity();
     // if (!hasError) {
@@ -330,6 +334,7 @@ export default function useProductForm(id) {
     hasSaleCopyright,
     setSaleCopyright,
     handleTransfer,
-    checkisUser
+    checkisUser,
+    handleRevoke
   };
 }

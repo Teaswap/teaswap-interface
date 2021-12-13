@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { StandardNavPage } from '../../../components/Page';
 import { COLOR, FONT, MEDIA_QUERY } from '../../../constants/style';
 import styled from 'styled-components';
