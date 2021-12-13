@@ -39,7 +39,7 @@ import {
   TSA_RACA_LP,
   CAKE,
   TSANFTMetaverseII,
-  TSA_SHIB_LP, TSA_FLOKI_LP
+  TSA_SHIB_LP, TSA_FLOKI_LP, PenguinPunks
   // GensisNFT
 } from '../../constants'
 import {
@@ -66,6 +66,18 @@ export const STAKING_REWARDS_INFO: {
   }[]
 } = {
   [ChainId.BSC_MAINNET]: [
+    {
+      tokens: [PenguinPunks, UNI[ChainId.BSC_MAINNET]],
+      stakingRewardAddress: '0x64022bB71d9A5BE510837a967f64218B22C29280',
+      iconUrl: "/TSAPenguinPunks.png",
+      cate:"NFT"
+    },
+    {
+      tokens: [BNB_TSA_LP, UNI[ChainId.BSC_MAINNET]],
+      stakingRewardAddress: '0x32A06829c06D02ccd6bd75C77EF4E23e14C92891',
+      iconUrl: "/TSABNBTSA.png",
+      cate:"TSA"
+    },
     {
       tokens: [TSANFTMetaverseII, TSALOT],
       stakingRewardAddress: '0x3741356c5f297834134D7249c0e3d588869a1a94',

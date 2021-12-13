@@ -141,6 +141,14 @@ export const TSAMetaverseAvatar = new Token(
     'TSA Metaverse Avatar Collection'
 )
 
+export const PenguinPunks = new Token(
+    ChainId.BSC_MAINNET,
+    '0x325Cc08b140B643B1e23c50973Cd85f511Cc6D51',
+    0,
+    'Penguin PunksNFT',
+    'Penguin Punks Collection'
+)
+
 export const NorseMythology = new Token(
     ChainId.BSC_MAINNET,
     '0x6eB9D382f569715f098Cf2c144be2A087ce4bc45',
