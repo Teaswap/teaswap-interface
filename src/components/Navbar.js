@@ -89,6 +89,7 @@ const CatTitle = styled.span`
   margin-top: -35px;
   font-size: 20px;
   font-weight: bold;
+  text-decoration: underline;
   // ${MEDIA_QUERY.sm}{
   //   display: none;
   // }
@@ -206,10 +207,20 @@ const Navbar = () => {
       </NavbarTop>
       {showFilter && (
         <NavbarBottom style={{margin: 30}}>
+            <div className='input-panel'>
+            <span className='label'>{t('Categories')}: </span>
+            <RadioBox
+              title={t('Categories')}
+              label={t('Categories')}
+              options={productCategories}
+              handleChange={(e) => setCatId(e.target.value)}
+              oldValue={catId}
+            />
+          </div>
           <div className='input-panel'>
             <span className='label'>{t('ArtworkType')}: </span>
             <RadioBox
-              title={t('ArtworkType')}
+              title={t('Artwork Type')}
               label={t('Artwork Type')}
               options={mediaTypeOptions}
               handleChange={(e) => setArtworkType(e.target.value)}
@@ -226,16 +237,7 @@ const Navbar = () => {
               oldValue={token}
             />
           </div>
-          <div className='input-panel'>
-            <span className='label'>{t('Categories')}: </span>
-            <RadioBox
-              title={t('Categories')}
-              label={t('Categories')}
-              options={productCategories}
-              handleChange={(e) => setCatId(e.target.value)}
-              oldValue={catId}
-            />
-          </div>
+        
 
         </NavbarBottom>
       )}
