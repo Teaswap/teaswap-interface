@@ -15,6 +15,7 @@ import { IoIosMore } from 'react-icons/io'
 import { LastBid } from "../../utils/strUtil"
 import {TransferState, useTransferCallback} from "../../hooks/useTransferCallback";
 import {useActiveWeb3React} from "../../hooks";
+import { revokeState, useRevokeCallback } from '../../hooks/useRevokeCallback';
 
 const ProductsContainer = styled.div`
   padding: 0px 10px 50px 10px;
@@ -114,14 +115,16 @@ const Product = ({productCat, product, onLoad, loaded, $width, $height, $margin 
   const [approvalSubmitted, setApprovalSubmitted] = useState(false)
   const [setPriceSubmitted, setSetPriceSubmitted] = useState(false)
   const [transferSubmitted, setTransferSubmitted] = useState(false)
+  const [revokeSubmitted, setRevokeSubmitted] = useState(false)
   const [setPriced, setSetPriced] = useState(false)
   const [newPrice, setNewPrice] = useState(0)
   const [toAddress, setToAddress] = useState('')
   const [reSalePrice, setReSalePrice] = useState(0)
   const [approval, approveCallback] = useApproveNFTCallback(NFTEXCHANGE[ChainId.BSC_MAINNET],product.tokenid,product.delivery_location,true)
   const [setPrice, setPriceCallback] = useSetPriceCallback(product.orderid,newPrice)
+  const [revoke, revokeCallback] = useRevokeCallback(product.orderid)
   const [transfer, transferCallback] = useTransferCallback(product.tokenid,product.delivery_location,account ,toAddress)
-  const {handleResaleProduct,handleSetPrice,handleTransfer} = useProductForm()
+  const {handleResaleProduct,handleSetPrice,handleTransfer, handleRevoke} = useProductForm()
   console.log("approval:"+approval)
   useEffect(() => {
     if (approval === ApprovalState.APPROVED && productPrice > 0) {
@@ -131,8 +134,6 @@ const Product = ({productCat, product, onLoad, loaded, $width, $height, $margin 
   }, [approval, approvalSubmitted])
 
   useEffect(() => {
-
-    console.log("setprice:"+setPrice)
     if (setPrice === setPriceState.SETED) {
       setSetPriceSubmitted(true)
       handleSetPrice(product,newPrice)
@@ -140,8 +141,6 @@ const Product = ({productCat, product, onLoad, loaded, $width, $height, $margin 
   }, [setPrice, setPriceSubmitted])
 
   useEffect(() => {
-
-    console.log("transfer:"+transfer)
     if (transfer === TransferState.SETED) {
       console.log("====here we go!!!!")
       setTransferSubmitted(true)
@@ -149,6 +148,14 @@ const Product = ({productCat, product, onLoad, loaded, $width, $height, $margin 
       setIsTransfer(false)
     }
   }, [transfer, transferSubmitted])
+
+  useEffect(() => {
+    console.log('revoke: ', revoke, revokeSubmitted)
+    if (revoke === revokeState.SETED) {
+      setRevokeSubmitted(true)
+      handleRevoke(product.id)
+    }
+  }, [revoke, revokeSubmitted])
 
 
   const dismissProof = () => {
@@ -176,14 +183,6 @@ const Product = ({productCat, product, onLoad, loaded, $width, $height, $margin 
     setSetPriceSubmitted(false)
   }
 
-  // const clickTransfer = (e) => {
-  //
-  //     transferCallback(e)
-  //   }else{
-  //     alert("This Address is not TSA user!")
-  //   }
-  // }
-
   return (
     <ProductContainer $width={$width} $height={$height} $margin={$margin}>
       <ButtonContainer>
@@ -207,6 +206,11 @@ const Product = ({productCat, product, onLoad, loaded, $width, $height, $margin 
               <span onClick={() => {
                 setIsProof(true)
               }} className="dropdown-menu-item">{t("Approve")}</span>
+            )}
+            {product.status == '1' && (
+              <span onClick={() => {
+                revokeCallback()
+              }} className="dropdown-menu-item">{t("Revoke")}</span>
             )}
             <span onClick={() => {
               setIsTransfer(true)

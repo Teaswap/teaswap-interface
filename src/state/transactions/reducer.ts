@@ -25,7 +25,8 @@ export interface TransactionDetails {
   lastCheckedBlockNumber?: number
   addedTime: number
   confirmedTime?: number
-  from: string
+  from: string,
+  revoke?: {orderid: number}
 }
 
 export interface TransactionState {
@@ -38,12 +39,12 @@ export const initialState: TransactionState = {}
 
 export default createReducer(initialState, builder =>
   builder
-    .addCase(addTransaction, (transactions, { payload: { chainId, from, hash, approval, summary, claim,mint,setprice,bid,withdrawBid,nftapproval ,transfer} }) => {
+    .addCase(addTransaction, (transactions, { payload: { chainId, from, hash, approval, revoke, summary, claim,mint,setprice,bid,withdrawBid,nftapproval ,transfer} }) => {
       if (transactions[chainId]?.[hash]) {
         throw Error('Attempted to add existing transaction.')
       }
       const txs = transactions[chainId] ?? {}
-      txs[hash] = { hash, approval, summary, claim,mint,setprice,bid,withdrawBid,nftapproval, transfer, from, addedTime: now() }
+      txs[hash] = { hash, approval, revoke, summary, claim,mint,setprice,bid,withdrawBid,nftapproval, transfer, from, addedTime: now() }
       transactions[chainId] = txs
     })
     .addCase(clearAllTransactions, (transactions, { payload: { chainId } }) => {

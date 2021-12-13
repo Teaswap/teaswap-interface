@@ -394,3 +394,12 @@
   margin-top: 40px;
   width: 80%;
 }
+.input-panel {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+}
+.input-panel .label{
+  width: 100px;
+}

@@ -11,7 +11,7 @@ import {MintInfoInterface} from "../../hooks/useMintCallback";
 // helper that can take a ethers library transaction response and add it to the list of transactions
 export function useTransactionAdder(): (
   response: TransactionResponse,
-  customData?: { summary?: string; approval?: { tokenAddress: string; spender: string }; claim?: { recipient: string };mint?:MintInfoInterface; setprice?: {orderid:number;price:number};bid?:{orderid:string;price:string};withdrawBid?:{orderid:number;price:number}; nftapproval?: { tokenAddress: string; spender: string;tokenId: number }; transfer?:{nftAddress:string,tokenid:number,toAddress:string} }
+  customData?: { summary?: string; revoke?: {orderid: number}, approval?: { tokenAddress: string; spender: string }; claim?: { recipient: string };mint?:MintInfoInterface; setprice?: {orderid:number;price:number};bid?:{orderid:string;price:string};withdrawBid?:{orderid:number;price:number}; nftapproval?: { tokenAddress: string; spender: string;tokenId: number }; transfer?:{nftAddress:string,tokenid:number,toAddress:string} }
 ) => void {
   const { chainId, account } = useActiveWeb3React()
   const dispatch = useDispatch<AppDispatch>()
@@ -21,6 +21,7 @@ export function useTransactionAdder(): (
       response: TransactionResponse,
       {
         summary,
+        revoke,
         approval,
         claim,
           mint,
@@ -29,7 +30,7 @@ export function useTransactionAdder(): (
           withdrawBid,
           nftapproval,
           transfer
-      }: { summary?: string; claim?: { recipient: string }; approval?: { tokenAddress: string; spender: string }; mint?: MintInfoInterface; setprice?: {orderid:number;price:number};bid?:{orderid:string;price:string}; withdrawBid?:{orderid:number;price:number};nftapproval?: { tokenAddress: string; spender: string;tokenId: number };transfer?:{nftAddress:string,tokenid:number,toAddress:string} } = {}
+      }: { summary?: string; revoke?:{orderid: number}, claim?: { recipient: string }; approval?: { tokenAddress: string; spender: string }; mint?: MintInfoInterface; setprice?: {orderid:number;price:number};bid?:{orderid:string;price:string}; withdrawBid?:{orderid:number;price:number};nftapproval?: { tokenAddress: string; spender: string;tokenId: number };transfer?:{nftAddress:string,tokenid:number,toAddress:string} } = {}
     ) => {
       if (!account) return
       if (!chainId) return
@@ -38,13 +39,13 @@ export function useTransactionAdder(): (
       if (!hash) {
         throw Error('No transaction hash found.')
       }
-      dispatch(addTransaction({ hash, from: account, chainId, approval, summary, claim,mint, setprice, bid,withdrawBid,nftapproval,transfer }))
+      dispatch(addTransaction({ hash, from: account, chainId, revoke, approval, summary, claim,mint, setprice, bid,withdrawBid,nftapproval,transfer }))
     },
     [dispatch, chainId, account]
   )
 }
 
-// returns all the transactions for the current chain
+// returns all the transactions for the current chain from redux
 export function useAllTransactions(): { [txHash: string]: TransactionDetails } {
   const { chainId } = useActiveWeb3React()
 
@@ -173,6 +174,49 @@ export function useUserHasSubmittedSetPrice(
     }, [orderid,price, allTransactions])
     console.log("setPirceTxn:"+JSON.stringify(setPirceTxn))
     return { setPriceSubmitted: Boolean(setPirceTxn), setPirceTxn }
+}
+
+export function useHasPendingRevoke(orderid:number): boolean {
+    const allTransactions = useAllTransactions()
+    console.log("useHasPendingRevoke allTransactions:", JSON.stringify(allTransactions))
+    console.log("useHasPendingRevoke orderid:", orderid)
+    return useMemo(
+        () =>
+            orderid !=0 &&
+            Object.keys(allTransactions).some(hash => {
+                const tx = allTransactions[hash]
+                console.log("useHasPendingRevoke hash:", hash, tx)
+                if (!tx) return false
+                if (tx.receipt) {
+                    return false
+                } else {
+                    if (!tx.revoke) return false
+                    console.log("useHasPendingRevoke isTransactionRecent:", isTransactionRecent(tx))
+                    return isTransactionRecent(tx)
+                }
+            }),
+        [allTransactions, orderid]
+    )
+}
+
+export function useUserHasSubmittedRevoke(
+    orderid:number
+): { revokeSubmitted: boolean; revokeTxn: TransactionDetails | undefined } {
+    const allTransactions = useAllTransactions()
+    console.log("useUserHasSubmittedRevoke allTransactions:"+JSON.stringify(allTransactions))
+    // get the txn if it has been submitted
+    const revokeTxn = useMemo(() => {
+        console.log("useUserHasSubmittedRevoke hasSubmitorderid:"+orderid)
+        const txnIndex = Object.keys(allTransactions).find(hash => {
+            const tx = allTransactions[hash]
+            console.log('useUserHasSubmittedRevoke: ', tx)
+            return tx.revoke && tx.receipt?.status===1 && tx.revoke.orderid === orderid
+        })
+        console.log("useUserHasSubmittedRevoke txnIndex:"+txnIndex)
+        return txnIndex && allTransactions[txnIndex] ? allTransactions[txnIndex] : undefined
+    }, [orderid, allTransactions])
+    console.log("useUserHasSubmittedRevoke: "+JSON.stringify(revokeTxn))
+    return { revokeSubmitted: Boolean(revokeTxn), revokeTxn }
 }
 
 export function useHasPendingTransfer(nftAddress:string,tokenid:number,toAddress:string): boolean {
