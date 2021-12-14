@@ -89,6 +89,18 @@ const CatTitle = styled.span`
   margin-top: -35px;
   font-size: 20px;
   font-weight: bold;
+  //text-decoration: underline;
+  // ${MEDIA_QUERY.sm}{
+  //   display: none;
+  // }
+`
+
+const CatTitleFilter = styled.span`
+  margin-left: 10px;
+  margin-top: -35px;
+  font-size: 20px;
+  font-weight: bold;
+  text-decoration: underline;
   // ${MEDIA_QUERY.sm}{
   //   display: none;
   // }
@@ -170,7 +182,7 @@ const Navbar = () => {
         </LeftSide> */}
         <div>
           <CatTitle className="all-category-title">Categories</CatTitle>
-          <CatTitle style={{cursor: 'pointer'}} onClick={()=>{
+          <CatTitleFilter style={{cursor: 'pointer'}} onClick={()=>{
             if (showFilter) {
               setToken(null)
               setCatId(null)
@@ -178,7 +190,7 @@ const Navbar = () => {
               handleGetProducts(page, null, null, null)
             }
             setShowFilter(!showFilter)
-          }} className="all-category-title">Filter</CatTitle>
+          }} className="all-category-title">Filter</CatTitleFilter>
         </div>
         <RightSide>
           <OptionList>
@@ -206,10 +218,20 @@ const Navbar = () => {
       </NavbarTop>
       {showFilter && (
         <NavbarBottom style={{margin: 30}}>
+            <div className='input-panel'>
+            <span className='label'>{t('Categories')}: </span>
+            <RadioBox
+              title={t('Categories')}
+              label={t('Categories')}
+              options={productCategories}
+              handleChange={(e) => setCatId(e.target.value)}
+              oldValue={catId}
+            />
+          </div>
           <div className='input-panel'>
             <span className='label'>{t('ArtworkType')}: </span>
             <RadioBox
-              title={t('ArtworkType')}
+              title={t('Artwork Type')}
               label={t('Artwork Type')}
               options={mediaTypeOptions}
               handleChange={(e) => setArtworkType(e.target.value)}
@@ -226,16 +248,7 @@ const Navbar = () => {
               oldValue={token}
             />
           </div>
-          <div className='input-panel'>
-            <span className='label'>{t('Categories')}: </span>
-            <RadioBox
-              title={t('Categories')}
-              label={t('Categories')}
-              options={productCategories}
-              handleChange={(e) => setCatId(e.target.value)}
-              oldValue={catId}
-            />
-          </div>
+        
 
         </NavbarBottom>
       )}
