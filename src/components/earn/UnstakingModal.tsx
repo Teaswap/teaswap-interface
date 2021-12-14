@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, {useMemo, useState} from 'react'
 import Modal from '../Modal'
 import { AutoColumn } from '../Column'
 import styled from 'styled-components'
@@ -14,6 +14,9 @@ import { useTransactionAdder } from '../../state/transactions/hooks'
 import FormattedCurrencyAmount from '../FormattedCurrencyAmount'
 import { useActiveWeb3React } from '../../hooks'
 import { unstakeAPI } from '../../webAPI/productAPI'
+import {useSingleCallResult} from "../../state/multicall/hooks";
+import { InputItem } from '../productSystem'
+
 
 const ContentWrapper = styled(AutoColumn)`
   width: 100%;
@@ -24,9 +27,10 @@ interface StakingModalProps {
   isOpen: boolean
   onDismiss: () => void
   stakingInfo: StakingInfo
+  isNFT: boolean
 }
 
-export default function UnstakingModal({ isOpen, onDismiss, stakingInfo }: StakingModalProps) {
+export default function UnstakingModal({ isOpen, onDismiss, stakingInfo, isNFT }: StakingModalProps) {
   const { account } = useActiveWeb3React()
   const { t } = useTranslation()
 
@@ -34,6 +38,7 @@ export default function UnstakingModal({ isOpen, onDismiss, stakingInfo }: Staki
   const addTransaction = useTransactionAdder()
   const [hash, setHash] = useState<string | undefined>()
   const [attempting, setAttempting] = useState(false)
+  const [typedValue, setTypedValue] = useState('')
 
   function wrappedOndismiss() {
     setHash(undefined)
@@ -43,6 +48,20 @@ export default function UnstakingModal({ isOpen, onDismiss, stakingInfo }: Staki
   console.log('UnstakingModal stakingInfo', stakingInfo)
 
   const stakingContract = useStakingContract(stakingInfo.stakingRewardAddress)
+  const inputs = useMemo(() => [account??undefined], [account])
+  const tokenids = useSingleCallResult(stakingContract, 'userstakedIds', inputs).result?.[0]
+  console.log("stakedTokenids:"+JSON.stringify(tokenids))
+  const tokenidarray = useMemo(()=>{
+    let array = []
+    if(tokenids){
+      for(let i = 0;i<tokenids.length;i++){
+        console.log("tokenids "+i+" :"+tokenids[i].toString())
+        array.push({id:i,name:tokenids[i].toString(),value:tokenids[i].toString()})
+      }
+    }
+    console.log("tokenidarray:"+JSON.stringify(array))
+    return array
+  }, [tokenids])
 
   async function onWithdraw() {
     if (stakingContract && stakingInfo?.stakedAmount) {
@@ -61,6 +80,26 @@ export default function UnstakingModal({ isOpen, onDismiss, stakingInfo }: Staki
           setAttempting(false)
           console.log(error)
         })
+    }
+  }
+
+  async function onWithdrawSingle() {
+    if (stakingContract && stakingInfo?.stakedAmount) {
+      setAttempting(true)
+      await stakingContract
+          .withdraw(BigInt(typedValue),{ gasLimit: 1000000 })
+          .then((response: TransactionResponse) => {
+            addTransaction(response, {
+              summary: `Withdraw deposited token`
+            })
+            console.log('UnstakingModal2 onwidthdraw', stakingInfo)
+            unstakeAPI(stakingInfo.tokens[0].address)
+            setHash(response.hash)
+          })
+          .catch((error: any) => {
+            setAttempting(false)
+            console.log(error)
+          })
     }
   }
 
@@ -89,6 +128,10 @@ export default function UnstakingModal({ isOpen, onDismiss, stakingInfo }: Staki
   if (!stakingInfo?.stakedAmount) {
     error = error ?? t('enterAnAmount')
   }
+  const handleChange =(setValue: React.Dispatch<React.SetStateAction<string>>)=> (e:React.ChangeEvent<HTMLInputElement>) => {
+    console.log(e, e?.target?.value)
+    setValue(e?.target?.value)
+  };
 
   return (
     <Modal isOpen={isOpen} onDismiss={wrappedOndismiss} maxHeight={90}>
@@ -123,6 +166,27 @@ export default function UnstakingModal({ isOpen, onDismiss, stakingInfo }: Staki
           <ButtonError className="closer-btn" disabled={!!error} error={!!error && !!stakingInfo?.stakedAmount} onClick={onWithdraw}>
             {error ?? t('withdraw')}
           </ButtonError>
+          {isNFT && (
+              <RowBetween>
+                <InputItem
+                  title={t('choose tokenid')}
+                  type={'radio'}
+                  options={tokenidarray}
+                  hasValue={true}
+                  errorMessage={t('please choose tokenid')}
+                  handleChange={handleChange(setTypedValue)}
+                  value={typedValue}
+                  label={t('tokenid')}
+                  isNumber={false}
+                  productPictureUrl={undefined}
+                  textareaRows = {1}
+                />
+                <ButtonError className="closer-btn" disabled={!!error} error={!!error && !!stakingInfo?.stakedAmount} onClick={onWithdrawSingle}>
+                  {error ?? t('withdraw')}
+                </ButtonError>
+              </RowBetween>
+          )}
+
         </ContentWrapper>
       )}
       {attempting && !hash && (
