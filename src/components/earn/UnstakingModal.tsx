@@ -47,7 +47,7 @@ export default function UnstakingModal({ isOpen, onDismiss, stakingInfo, isNFT }
   }
   console.log('UnstakingModal stakingInfo', stakingInfo)
 
-  const stakingContract = useStakingContract(stakingInfo.stakingRewardAddress)
+  const stakingContract = useStakingContract(stakingInfo.stakingRewardAddress,isNFT)
   const inputs = useMemo(() => [account??undefined], [account])
   const tokenids = useSingleCallResult(stakingContract, 'userstakedIds', inputs).result?.[0]
   console.log("stakedTokenids:"+JSON.stringify(tokenids))
