@@ -39,7 +39,7 @@ import {
   TSA_RACA_LP,
   CAKE,
   TSANFTMetaverseII,
-  TSA_SHIB_LP, TSA_FLOKI_LP, PenguinPunks, TSAMetaPlay
+  TSA_SHIB_LP, TSA_FLOKI_LP, PenguinPunks
   // GensisNFT
 } from '../../constants'
 import {
