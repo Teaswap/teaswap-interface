@@ -165,7 +165,8 @@ export default function Menu() {
                 {t('Airdrop')}
               </MenuItem>
               <MenuItem onClick={() => window.open("https://www.binance.org/en/bridge")}>
-              Bridge to Ethereum
+              TSA Bridge
+              {/* Bridge to Ethereum */}
               </MenuItem>
               <MenuItem onClick={() => {
                 localStorage.clear();
