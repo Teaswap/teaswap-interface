@@ -66,9 +66,15 @@ export const STAKING_REWARDS_INFO: {
   }[]
 } = {
   [ChainId.BSC_MAINNET]: [
+    // {
+    //   tokens: [PenguinPunks, UNI[ChainId.BSC_MAINNET]],
+    //   stakingRewardAddress: '0x64022bB71d9A5BE510837a967f64218B22C29280',
+    //   iconUrl: "/TSAPenguinPunks.png",
+    //   cate:"NFT"
+    // },
     {
       tokens: [PenguinPunks, UNI[ChainId.BSC_MAINNET]],
-      stakingRewardAddress: '0x64022bB71d9A5BE510837a967f64218B22C29280',
+      stakingRewardAddress: '0xc4D4D745305696B6F1a11968e1EA64B8EC91099c',
       iconUrl: "/TSAPenguinPunks.png",
       cate:"NFT"
     },
