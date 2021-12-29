@@ -144,12 +144,17 @@ export default function Menu() {
               <MenuItem onClick={() => {
                 navigate('/nft/users/backstage')
               }}>
-                {t('My Profile')}
+                {t('Profile')}
               </MenuItem>
               <MenuItem onClick={() => {
-                navigate('/nft/users/referral')
+                navigate('/swap')
               }}>
-                {t('My Referral')}
+                {t('Buy TSA')}
+              </MenuItem>
+              <MenuItem onClick={() => {
+                navigate('/staking')
+              }}>
+                {t('Staking')}
               </MenuItem>
               <MenuItem onClick={() => {
                 navigate('/nft/orders')
@@ -157,23 +162,21 @@ export default function Menu() {
                 {t('History')}
               </MenuItem>
               <MenuItem onClick={() => {
-                navigate('/swap')
+                navigate('/nft/users/referral')
               }}>
-                {t('Get $TSA')}
-              </MenuItem>
-              <MenuItem onClick={() => {
-                navigate('/staking')
-              }}>
-                {t('Stake $TSA')}
-              </MenuItem>
-              <MenuItem onClick={openClaimModal}>
-                {t('Airdrop')}
+                {t('Referral')}
               </MenuItem>
               <MenuItem onClick={() => window.open("https://app.multichain.org/#/router")}>
               {/* https://www.binance.org/en/bridge */}
               Bridge TSA
               {/* Bridge to Ethereum */}
               </MenuItem>
+              
+              
+              <MenuItem onClick={openClaimModal}>
+                {t('Airdrop')}
+              </MenuItem>
+              
               <MenuItem onClick={() => {
                 localStorage.clear();
                 window.location.href = window.location.href

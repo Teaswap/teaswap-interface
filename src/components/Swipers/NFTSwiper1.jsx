@@ -18,13 +18,13 @@ export default function App() {
   let slides = [   
     {
       key: 1,
-      content: <Item img={'https://i.imgur.com/JkPOc7j.jpg'}  amount= 'PRESALE 12/27'/>,
+      content: <Item img={process.env.PUBLIC_URL  + '/nft/products/54.png'}  amount= 'PRESALE 12/27'/>,
       link: 'https://teaswap.art/nft/products/category/1',
       
     },
     {
       key: 2,
-      content: <Item img={'https://i.imgur.com/68B6pdC.jpg'}  amount= 'PRESALE 12/27'/>,
+      content: <Item img={process.env.PUBLIC_URL  + '/nft/products/55.png'}  amount= 'PRESALE 12/27'/>,
       link: 'https://teaswap.art/nft/products/category/1',
       
     },
