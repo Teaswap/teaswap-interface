@@ -62,6 +62,8 @@ import {
   VendorBackstagePage,
   // VendorContactPage,
   VendorInfoPage,
+  ReferralPage,
+  Invited
 } from './NFTuserPages';
 
 import {
@@ -185,6 +187,7 @@ export default function App() {
               <Route path="/remove/:currencyIdA/:currencyIdB" element={<RemoveLiquidity/>}/>
               <Route path="/staking/:currencyIdA/:currencyIdB/:stakingRewardAddress" element={<Manage/>}/>
               <Route path="/vote/:id" element={<VotePage/>}/>
+              <Route path="/invited/:account" element={<Invited/>}/>
               <Route element={<RedirectPathToHomeOnly/>}/>
 
               <Route path={'/nft'}>
@@ -202,6 +205,7 @@ export default function App() {
                   <Route path={'/:id'} element={<UserInfoPage/>}/>
                   <Route path={'/apply'} element={<ApplyForVendorPage/>}/>
                   <Route path={'/backstage'} element={<VendorBackstagePage/>}/>
+                  <Route path={'/referral'} element={<ReferralPage />}/>
                   {/*<Route path={'/contact/:id'} element={<VendorContactPage/>}/>*/}
                   <Route path={'/vendor/:id'} element={<VendorInfoPage/>}/>
                 </Route>

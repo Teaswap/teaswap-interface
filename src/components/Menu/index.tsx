@@ -147,6 +147,11 @@ export default function Menu() {
                 {t('My Profile')}
               </MenuItem>
               <MenuItem onClick={() => {
+                navigate('/nft/users/referral')
+              }}>
+                {t('My Referral')}
+              </MenuItem>
+              <MenuItem onClick={() => {
                 navigate('/nft/orders')
               }}>
                 {t('History')}

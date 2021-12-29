@@ -18,6 +18,7 @@ export default function Updater(): null {
 
   const blockNumberCallback = useCallback(
     (blockNumber: number) => {
+      console.log('blockNumberCallback', blockNumber)
       setState(state => {
         if (chainId === state.chainId) {
           if (typeof state.blockNumber !== 'number') return { chainId, blockNumber }
@@ -40,16 +41,19 @@ export default function Updater(): null {
       .then(blockNumberCallback)
       .catch(error => console.error(`Failed to get block number for chainId: ${chainId}`, error))
 
+    // 此处监听区块号变更 
     library.on('block', blockNumberCallback)
     return () => {
       library.removeListener('block', blockNumberCallback)
     }
   }, [dispatch, chainId, library, blockNumberCallback, windowVisible])
 
+  // todo 怎么个防抖动法？1000ms 内的相同请求间隔执行？
   const debouncedState = useDebounce(state, 100)
 
   useEffect(() => {
     if (!debouncedState.chainId || !debouncedState.blockNumber || !windowVisible) return
+    // 更新 redux 中区块号，驱动其他actions
     dispatch(updateBlockNumber({ chainId: debouncedState.chainId, blockNumber: debouncedState.blockNumber }))
   }, [windowVisible, dispatch, debouncedState.blockNumber, debouncedState.chainId])
 

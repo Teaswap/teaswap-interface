@@ -419,5 +419,6 @@
   "Date": "时间",
   "Status": "状态",
   "Amount": "总金额",
-  "transaction-pending-do-not-leave-page": "交行正在处理，请不要离开"
+  "transaction-pending-do-not-leave-page": "交行正在处理，请不要离开",
+  "referral-intro": "邀请奖励： 你将获得2% 的TSANFT 邀请销售奖励.  TSANFT保留隨時全權酌情因任何理由修改、變更或取消此邀请奖励的權利，無需事先通知。"
 }
