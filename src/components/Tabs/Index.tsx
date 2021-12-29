@@ -13,12 +13,12 @@ const AntTabs = withStyles({
   },
 })(Tabs);
 
-const AntTab = withStyles((theme) => ({
+const AntTab = withStyles(() => ({
   root: {
     textTransform: 'none',
     minWidth: 72,
-    fontWeight: theme.typography.fontWeightRegular,
-    marginRight: theme.spacing(4),
+    // fontWeight: theme.typography.fontWeightRegular,
+    // marginRight: theme.spacing(4),
     fontSize: '14px',
     fontFamily: [
       'Roboto',
@@ -38,7 +38,7 @@ const AntTab = withStyles((theme) => ({
     },
     '&$selected': {
       color: '#474747',
-      fontWeight: theme.typography.fontWeightMedium,
+      // fontWeight: theme.typography.fontWeightMedium,
     },
     '&:focus': {
       color: '#474747',
@@ -47,15 +47,15 @@ const AntTab = withStyles((theme) => ({
   selected: {},
 }))((props) => <Tab disableRipple {...props} />);
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   root: {
     flexGrow: 1,
   },
   padding: {
-    padding: theme.spacing(3),
+    // padding: theme.spacing(3),
   },
   demo1: {
-    backgroundColor: theme.palette.background.paper,
+    // backgroundColor: theme.palette.background.paper,
   },
 }));
 
