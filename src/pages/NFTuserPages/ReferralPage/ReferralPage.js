@@ -31,11 +31,15 @@ export default () => {
 
   return (
     <div>
-      <div className='invite-intro'>
+      {/* <div style="width=100%"> */}
+         <img src={process.env.PUBLIC_URL + '/Referralbanner.png'} width="100%" alt="" />
+         {/* </div> */}
+      {/* <div className='invite-intro'>
         <div className='invite-intro-text'>
+     
           {t('referral-intro')} 
         </div>
-      </div>
+      </div> */}
       <div className='invite-link'>
         <span>Share your referral link: </span>
         <input type="text" disabled value={referral_link} />
