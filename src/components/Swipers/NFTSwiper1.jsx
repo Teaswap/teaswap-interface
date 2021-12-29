@@ -18,32 +18,32 @@ export default function App() {
   let slides = [   
     {
       key: 1,
-      content: <Item img={process.env.PUBLIC_URL  + '/nft/products/Ch1.jpg'}  amount= 'PRESALE 12/01'/>,
-      link: 'https://treasureland.market/collection/0x8db099f2d73016cfbdac978bc21e5470e7fbaaa0?chain_id=56',
+      content: <Item img={'https://i.imgur.com/JkPOc7j.jpg'}  amount= 'PRESALE 12/27'/>,
+      link: 'https://teaswap.art/nft/products/category/1',
       
     },
     {
       key: 2,
-      content: <Item img={process.env.PUBLIC_URL  + '/nft/products/Ch2.jpg'}  amount= 'PRESALE 12/01'/>,
-      link: 'https://treasureland.market/collection/0x8db099f2d73016cfbdac978bc21e5470e7fbaaa0?chain_id=56',
+      content: <Item img={'https://i.imgur.com/68B6pdC.jpg'}  amount= 'PRESALE 12/27'/>,
+      link: 'https://teaswap.art/nft/products/category/1',
       
     },
     {
       key: 3,
-      content: <Item img={process.env.PUBLIC_URL  + '/nft/products/Ch3.jpg'}  amount= 'PRESALE 12/01'/>,
-      link: 'https://treasureland.market/collection/0x8db099f2d73016cfbdac978bc21e5470e7fbaaa0?chain_id=56',
+      content: <Item img={'https://i.imgur.com/PMNHcd0.jpg'}  amount= 'PRESALE 12/27'/>,
+      link: 'https://teaswap.art/nft/products/category/1',
       
     },
     {
       key: 4,
-      content: <Item img={process.env.PUBLIC_URL  + '/nft/products/Ch4.jpg'}  amount= 'PRESALE 12/01'/>,
-      link: 'https://treasureland.market/collection/0x8db099f2d73016cfbdac978bc21e5470e7fbaaa0?chain_id=56',
+      content: <Item img={'https://i.imgur.com/smcEu4m.jpg'}  amount= 'PRESALE 12/27'/>,
+      link: 'https://teaswap.art/nft/products/category/1',
       
     },
     {
       key: 5,
-      content: <Item img={process.env.PUBLIC_URL  + '/nft/products/Ch5.jpg'}  amount= 'PRESALE 12/01'/>,
-      link: 'https://treasureland.market/collection/0x8db099f2d73016cfbdac978bc21e5470e7fbaaa0?chain_id=56',
+      content: <Item img={'https://i.imgur.com/vCHmNn1.jpg'}  amount= 'PRESALE 12/27'/>,
+      link: 'https://teaswap.art/nft/products/category/1',
       
     },
 
