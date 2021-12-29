@@ -251,6 +251,7 @@ const Manage = ()=>{
             isOpen={showUnstakingModal}
             onDismiss={() => setShowUnstakingModal(false)}
             stakingInfo={stakingInfo}
+            isNFT = {stakingInfo?.cate==='NFT'}
           />
       )}
       {stakingInfo && (

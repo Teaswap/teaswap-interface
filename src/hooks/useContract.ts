@@ -5,6 +5,7 @@ import { abi as UNI_ABI } from '@uniswap/governance/build/Uni.json'
 import { abi as MERKLE_DISTRIBUTOR_ABI } from '@uniswap/merkle-distributor/build/MerkleDistributor.json'
 import {abi as IFO_ABI } from '../constants/abis/ifo.json'
 import {abi as STAKING_ABI} from '../constants/abis/stakingReward.json'
+import {abi as NFT_STAKING_ABI} from '../constants/abis/NFTStakeRewards.json'
 import {abi as NFTFactory_ABI} from '../constants/abis/NFTFactory.json'
 import {abi as ERC1155Collection_ABI} from '../constants/abis/ERC1155Collection.json'
 import {abi as NFTExchange_ABI} from '../constants/abis/nftexchange.json'
@@ -121,9 +122,13 @@ export function useUniContract(): Contract | null {
   return useContract(chainId ? UNI[chainId].address : undefined, UNI_ABI, true)
 }
 
-export function useStakingContract(stakingAddress?: string, withSignerIfPossible?: boolean): Contract | null {
-  return useContract(stakingAddress, STAKING_ABI, withSignerIfPossible)
+export function useStakingContract( stakingAddress?: string, isNFT?:boolean, withSignerIfPossible?: boolean): Contract | null {
+  return useContract(stakingAddress, isNFT?NFT_STAKING_ABI:STAKING_ABI, withSignerIfPossible)
 }
+
+// export function useNFTStakingContract(stakingAddress?: string, withSignerIfPossible?: boolean): Contract | null {
+//   return useContract(stakingAddress, NFT_STAKING_ABI, withSignerIfPossible)
+// }
 
 export function useNFTExchangeContract(NFTExchangeAddress?: string, withSignerIfPossible?: boolean): Contract | null {
   return useContract(NFTExchangeAddress, NFTExchange_ABI, withSignerIfPossible)
