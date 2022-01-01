@@ -36,6 +36,10 @@
   font-size: 12px;
   float:left;
 }
+.header-link
+{
+  margin-top: 40px;
+}
 .invite-link{
   width: 100%;
   max-width: 1445px;

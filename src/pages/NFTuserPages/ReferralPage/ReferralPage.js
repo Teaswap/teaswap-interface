@@ -32,7 +32,9 @@ export default () => {
   return (
     <div>
       {/* <div style="width=100%"> */}
+      <div className='header-link'>
          <img src={process.env.PUBLIC_URL + '/Referralbanner.png'} width="100%" alt="" />
+         </div>
          {/* </div> */}
       {/* <div className='invite-intro'>
         <div className='invite-intro-text'>
