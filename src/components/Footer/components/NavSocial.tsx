@@ -1,6 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 
+
+import coingeckoIcon from '../../../assets/images/coingecko.png';
 import twitterIcon from '../../../assets/images/twitter_icon.png';
 import telegramIcon from '../../../assets/images/telegram_icon.png';
 import insgramIcon from '../../../assets/images/instgram_icon.png';
@@ -11,7 +13,11 @@ import { MEDIA_QUERY } from '../../../constants/style';
 const NavSocial: React.FC = () => {
   return (
     <StyledNav>
-
+      <StyledLink target="_blank" href="https://www.coingecko.com/en/coins/teaswap-art">
+        <img src={coingeckoIcon}  width="31" height="31" />
+    
+      </StyledLink>
+      <StyledLink style={{padding:"0 4px"}}> </StyledLink>
       <StyledLink target="_blank" href="https://twitter.com/ArtTeaswap">
         <img src={twitterIcon}  width="31" height="31" />
       </StyledLink>
@@ -32,9 +38,7 @@ const NavSocial: React.FC = () => {
         <img src={linkTrIcon}  width="31" height="31" />
       </StyledLink>
       <StyledLink style={{padding:"0 4px"}}> </StyledLink>
-      {/* <StyledLink target="_blank" href="https://t.me/bestswap_com">
-        Announcement
-      </StyledLink> */}
+      
     </StyledNav>
   )
 }

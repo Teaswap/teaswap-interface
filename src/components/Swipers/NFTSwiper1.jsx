@@ -18,32 +18,32 @@ export default function App() {
   let slides = [   
     {
       key: 1,
-      content: <Item img={process.env.PUBLIC_URL  + '/nft/products/54.png'}  amount= 'PRESALE 12/27'/>,
-      link: 'https://teaswap.art/nft/products/category/1',
+      content: <Item img={process.env.PUBLIC_URL  + '/nft/products/w1.png'}  amount= 'PRESALE 01/07'/>,
+      link: 'https://www.teaswap.art/nft/products/category/1',
       
     },
     {
       key: 2,
-      content: <Item img={process.env.PUBLIC_URL  + '/nft/products/55.png'}  amount= 'PRESALE 12/27'/>,
-      link: 'https://teaswap.art/nft/products/category/1',
+      content: <Item img={process.env.PUBLIC_URL  + '/nft/products/w2.png'}  amount= 'PRESALE 01/07'/>,
+      link: 'https://www.teaswap.art/nft/products/category/1',
       
     },
     {
       key: 3,
-      content: <Item img={'https://i.imgur.com/PMNHcd0.jpg'}  amount= 'PRESALE 12/27'/>,
-      link: 'https://teaswap.art/nft/products/category/1',
+      content: <Item img={process.env.PUBLIC_URL  + '/nft/products/w3.png'}  amount= 'PRESALE 01/07'/>,
+      link: 'https://www.teaswap.art/nft/products/category/1',
       
     },
     {
       key: 4,
-      content: <Item img={'https://i.imgur.com/smcEu4m.jpg'}  amount= 'PRESALE 12/27'/>,
-      link: 'https://teaswap.art/nft/products/category/1',
+      content: <Item img={process.env.PUBLIC_URL  + '/nft/products/w4.png'}  amount= 'PRESALE 01/07'/>,
+      link: 'https://www.teaswap.art/nft/products/category/1',
       
     },
     {
       key: 5,
-      content: <Item img={'https://i.imgur.com/vCHmNn1.jpg'}  amount= 'PRESALE 12/27'/>,
-      link: 'https://teaswap.art/nft/products/category/1',
+      content: <Item img={process.env.PUBLIC_URL  + '/nft/products/w5.png'}  amount= 'PRESALE 01/07'/>,
+      link: 'https://www.teaswap.art/nft/products/category/1',
       
     },
 
