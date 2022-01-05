@@ -194,6 +194,18 @@ const updateAnnouncementAPI = (data) => {
   }).then((res) => res.json());
 };
 
+const myInvitesAPI = (page) => {
+  const token = localStorage.getItem('token');
+  return fetch(`${BASE_URL}/users/invites?_page=${page}`, {
+    method: 'GET',
+    headers: {
+      'content-type': 'application/json',
+      authorization: `Bearer ${token}`,
+    }
+  }).then((res) => res.json());
+};
+
+
 export {
   getMeAPI,
   updateUserAPI,
@@ -206,4 +218,5 @@ export {
   updateUserInfoAPI,
   applyForVendorAPI,
   updateAnnouncementAPI,
+  myInvitesAPI
 };

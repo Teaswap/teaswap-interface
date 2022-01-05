@@ -1,6 +1,6 @@
 export default [ 
   {
-    picture_url: process.env.PUBLIC_URL + '/nft/pro1/Ch1.jpg',
+    picture_url: process.env.PUBLIC_URL + '/nft/pro1/w1.png',
     title: "Penguin Punk #27",
     number: "",
     desc: '',
@@ -9,7 +9,7 @@ export default [
     id: 1,
   },
   {
-    picture_url: process.env.PUBLIC_URL + '/nft/pro1/Ch2.jpg',
+    picture_url: process.env.PUBLIC_URL + '/nft/pro1/w2.png',
     title: "Penguin Punk #26",
     number: "",
     desc: '',
@@ -18,7 +18,7 @@ export default [
     id: 2,
   },
   {
-    picture_url: process.env.PUBLIC_URL + '/nft/pro1/Ch3.jpg',
+    picture_url: process.env.PUBLIC_URL + '/nft/pro1/w3.png',
     title: "Penguin Punk #25",
     number: "",
     desc: '',
@@ -27,7 +27,7 @@ export default [
     id: 3,
   },
   {
-    picture_url: process.env.PUBLIC_URL + '/nft/pro1/Ch4.jpg',
+    picture_url: process.env.PUBLIC_URL + '/nft/pro1/w4.png',
     title: "Penguin Punk #24",
     number: "",
     desc: '',
@@ -36,7 +36,7 @@ export default [
     id: 4,
   },
   {
-    picture_url: process.env.PUBLIC_URL + '/nft/pro1/Ch5.jpg',
+    picture_url: process.env.PUBLIC_URL + '/nft/pro1/w5.png',
     title: "Penguin Punk #23",
     number: "",
     desc: '',

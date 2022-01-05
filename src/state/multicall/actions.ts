@@ -47,6 +47,7 @@ export const errorFetchingMulticallResults = createAction<{
   calls: Call[]
   fetchingBlockNumber: number
 }>('multicall/errorFetchingMulticallResults')
+
 export const updateMulticallResults = createAction<{
   chainId: number
   blockNumber: number

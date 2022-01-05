@@ -38,9 +38,13 @@ export const bindWalletUserAPI = (address,chainId) => {
     },
     body: JSON.stringify({
       address : address,
-      chainId : chainId
+      chainId : chainId,
+      inviteAccount: localStorage.getItem('invite_account')
     }),
-  }).then((res) => res.json());
+  }).then((res) => {
+    localStorage.removeItem('invite_account')
+    return res.json()
+  });
 };
 
 export const getMeAPI = () => {

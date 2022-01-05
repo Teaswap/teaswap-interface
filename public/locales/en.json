@@ -423,5 +423,7 @@
   "Date": "Date",
   "Status": "Status",
   "Amount": "Amount",
-  "transaction-pending-do-not-leave-page": "Transaction is pending. Please do not leave the page."
+  "transaction-pending-do-not-leave-page": "Transaction is pending. Please do not leave the page.",
+  "referral-intro": "Refer a friend and earn:  Refer your friends to join TSANFT sale, you can earn up to 40% commission of their purchase.",
+  "referral-note": "Note: TSANFT reserves the right in its sole discretion to amend or change or cancel this referral rewards at any time for any reasons without prior notice."
 }

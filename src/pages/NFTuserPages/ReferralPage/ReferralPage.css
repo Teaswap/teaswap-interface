@@ -1,0 +1,90 @@
+.invite-intro{
+  width: 100vw;
+  box-sizing: border-box;
+  font-size: 24px;
+  padding: 100px 20px;
+  background-color: #60a7ac;
+  color: aliceblue;
+  margin-top: 30px;
+}
+
+.invite-intro-text{
+  max-width: 1000px;
+  margin: 0 auto;
+
+}
+.invite-intro-note{
+  box-sizing: border-box;
+  width: 100%;
+  padding: 30px 10px;
+  max-width: 1440px;
+  margin: 0 auto;
+  /* width: 100vw;
+  box-sizing: border-box;
+  padding: 30px 10px;
+    max-width: 1440px; */
+  
+  /* padding: 100px 20px; */
+  /* background-color: #60a7ac; */
+  /* color: aliceblue; */
+  /* margin-top: 200px; */
+ 
+}
+.invite-intro-text-note{
+  /* max-width: 1000px; */
+  margin: 0 auto;
+  font-size: 12px;
+  float:left;
+}
+.header-link
+{
+  margin-top: 40px;
+}
+.invite-link{
+  width: 100%;
+  max-width: 1445px;
+  color: #666;
+  text-align: left;
+  margin: 0 auto;
+  margin-top: 30px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 15px;
+}
+.invite-link > span{
+  font-size: 16px;
+  margin-right: 12px;
+}
+.invite-link > input{
+  font-size: 16px;
+  margin-right: 12px;
+  width: inherit;
+}
+.css-zzms1-MuiSnackbar-root{
+  position: absolute !important;
+}
+#invites{
+  box-sizing: border-box;
+  width: 100%;
+  padding: 30px 10px;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+#invites > div{
+  color: #666;
+  font-size: 16px;
+}
+#invites > table{
+  width: 100%;
+  text-align: center;
+  margin-top: 15px;
+}
+#invites > table > thead{
+  background-color: #EDEEF2;
+  height: 40px;
+}
+#invites > table > tr{
+  height: 40px;
+  border-bottom: 1px solid #EDEEF2;
+}

@@ -18,32 +18,32 @@ export default function App() {
   let slides = [   
     {
       key: 1,
-      content: <Item img={process.env.PUBLIC_URL  + '/nft/products/Ch1.jpg'}  amount= 'PRESALE 12/01'/>,
-      link: 'https://treasureland.market/collection/0x8db099f2d73016cfbdac978bc21e5470e7fbaaa0?chain_id=56',
+      content: <Item img={process.env.PUBLIC_URL  + '/nft/products/w1.png'}  amount= 'PRESALE 01/07'/>,
+      link: 'https://www.teaswap.art/nft/products/category/1',
       
     },
     {
       key: 2,
-      content: <Item img={process.env.PUBLIC_URL  + '/nft/products/Ch2.jpg'}  amount= 'PRESALE 12/01'/>,
-      link: 'https://treasureland.market/collection/0x8db099f2d73016cfbdac978bc21e5470e7fbaaa0?chain_id=56',
+      content: <Item img={process.env.PUBLIC_URL  + '/nft/products/w2.png'}  amount= 'PRESALE 01/07'/>,
+      link: 'https://www.teaswap.art/nft/products/category/1',
       
     },
     {
       key: 3,
-      content: <Item img={process.env.PUBLIC_URL  + '/nft/products/Ch3.jpg'}  amount= 'PRESALE 12/01'/>,
-      link: 'https://treasureland.market/collection/0x8db099f2d73016cfbdac978bc21e5470e7fbaaa0?chain_id=56',
+      content: <Item img={process.env.PUBLIC_URL  + '/nft/products/w3.png'}  amount= 'PRESALE 01/07'/>,
+      link: 'https://www.teaswap.art/nft/products/category/1',
       
     },
     {
       key: 4,
-      content: <Item img={process.env.PUBLIC_URL  + '/nft/products/Ch4.jpg'}  amount= 'PRESALE 12/01'/>,
-      link: 'https://treasureland.market/collection/0x8db099f2d73016cfbdac978bc21e5470e7fbaaa0?chain_id=56',
+      content: <Item img={process.env.PUBLIC_URL  + '/nft/products/w4.png'}  amount= 'PRESALE 01/07'/>,
+      link: 'https://www.teaswap.art/nft/products/category/1',
       
     },
     {
       key: 5,
-      content: <Item img={process.env.PUBLIC_URL  + '/nft/products/Ch5.jpg'}  amount= 'PRESALE 12/01'/>,
-      link: 'https://treasureland.market/collection/0x8db099f2d73016cfbdac978bc21e5470e7fbaaa0?chain_id=56',
+      content: <Item img={process.env.PUBLIC_URL  + '/nft/products/w5.png'}  amount= 'PRESALE 01/07'/>,
+      link: 'https://www.teaswap.art/nft/products/category/1',
       
     },
 
