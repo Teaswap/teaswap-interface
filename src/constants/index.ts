@@ -341,6 +341,14 @@ export const ICASH_BUSD_LP = new Token(
     'ICASH_BUSD_BakeryLP'
 )
 
+export const MATIC_TSA_LP = new Token(
+  ChainId.BSC_MAINNET,
+  '0x94341c7fd36cab09a1ff2c055dbfc187a977651f',
+  18,
+  'MATIC_TSA BLP',
+  'MATIC_TSA_BakeryLP'
+)
+
 export const B_DAI = new Token(
   ChainId.BSC_MAINNET,
   '0x1AF3F329e8BE154074D8769D1FFa4eE058B1DBc3',
