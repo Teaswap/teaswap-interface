@@ -15,10 +15,10 @@ const Icon = styled.i`
 
 `;
 
-export default function IconComponent({ kind, margin, color }) {
+export default function IconComponent({ kind, margin, color, onClick }) {
   return (
     <IconContainer>
-      <Icon kind={kind} color={color} $margin={margin} />
+      <Icon kind={kind} color={color} $margin={margin} onClick={onClick} />
     </IconContainer>
   );
 }

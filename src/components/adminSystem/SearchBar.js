@@ -32,13 +32,15 @@ const SearchBar = ({ handleSearch }) => {
   return (
     <SearchBarContainer>
       <SearchArea>
-        <IconComponent kind={'search'} />
+        <IconComponent onClick={() => {
+          handleSearch(value);
+        }} kind={'search'} />
         <InputSearch
           value={value}
           onChange={handleChangeInput}
           placeholder='搜尋'
           onKeyDown={(e) => {
-            if (e.keyCode === 13 && value !== '') {
+            if (e.keyCode === 13) {
               handleSearch(value);
               setValue('');
             }
