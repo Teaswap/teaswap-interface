@@ -31,13 +31,19 @@ export default () => {
 
   return (
     <div>
-      <div className='invite-intro'>
+      {/* <div style="width=100%"> */}
+      <div className='header-link'>
+         <img src={process.env.PUBLIC_URL + '/Referralbanner.png'} width="100%" alt="" />
+         </div>
+         {/* </div> */}
+      {/* <div className='invite-intro'>
         <div className='invite-intro-text'>
+     
           {t('referral-intro')} 
         </div>
-      </div>
+      </div> */}
       <div className='invite-link'>
-        <span>Copy Referral Link: </span>
+        <span>Share your referral link: </span>
         <input type="text" disabled value={referral_link} />
         <AiOutlineCopy style={{cursor: 'pointer'}}
          onClick={() => {
@@ -52,8 +58,9 @@ export default () => {
           message="copied to clipboard"
         />
       </div>
+      
       <div id="invites">
-        <div>My Invites:</div>
+        <div>My invites:</div>
         <table>
           <thead>
             <td>UserId</td>
@@ -72,10 +79,20 @@ export default () => {
             )
           })}
         </table>
+     
+      
       </div>
+     
       <Pagination count={count} page={page} handleChange={(_page) => {
           setPage(_page)
         }} />
+
+
+<div className='invite-intro-note'>
+        <div className='invite-intro-text-note'>
+          {t('referral-note')} 
+        </div>
+      </div>
     </div>
   )
 }

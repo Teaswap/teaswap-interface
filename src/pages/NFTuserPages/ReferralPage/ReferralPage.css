@@ -7,13 +7,42 @@
   color: aliceblue;
   margin-top: 30px;
 }
+
 .invite-intro-text{
   max-width: 1000px;
   margin: 0 auto;
+
+}
+.invite-intro-note{
+  box-sizing: border-box;
+  width: 100%;
+  padding: 30px 10px;
+  max-width: 1440px;
+  margin: 0 auto;
+  /* width: 100vw;
+  box-sizing: border-box;
+  padding: 30px 10px;
+    max-width: 1440px; */
+  
+  /* padding: 100px 20px; */
+  /* background-color: #60a7ac; */
+  /* color: aliceblue; */
+  /* margin-top: 200px; */
+ 
+}
+.invite-intro-text-note{
+  /* max-width: 1000px; */
+  margin: 0 auto;
+  font-size: 12px;
+  float:left;
+}
+.header-link
+{
+  margin-top: 40px;
 }
 .invite-link{
   width: 100%;
-  max-width: 1440px;
+  max-width: 1445px;
   color: #666;
   text-align: left;
   margin: 0 auto;

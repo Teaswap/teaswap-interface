@@ -144,12 +144,7 @@ export default function Menu() {
               <MenuItem onClick={() => {
                 navigate('/nft/users/backstage')
               }}>
-                {t('My Profile')}
-              </MenuItem>
-              <MenuItem onClick={() => {
-                navigate('/nft/users/referral')
-              }}>
-                {t('My Referral')}
+                {t('Profile')}
               </MenuItem>
               <MenuItem onClick={() => {
                 navigate('/nft/orders')
@@ -159,12 +154,18 @@ export default function Menu() {
               <MenuItem onClick={() => {
                 navigate('/swap')
               }}>
-                {t('Get $TSA')}
+                {t('Buy TSA')}
               </MenuItem>
               <MenuItem onClick={() => {
                 navigate('/staking')
               }}>
-                {t('Stake $TSA')}
+                {t('Staking')}
+              </MenuItem>
+              
+              <MenuItem onClick={() => {
+                navigate('/nft/users/referral')
+              }}>
+                {t('Referral')}
               </MenuItem>
               <MenuItem onClick={openClaimModal}>
                 {t('Airdrop')}
@@ -174,6 +175,10 @@ export default function Menu() {
               Bridge TSA
               {/* Bridge to Ethereum */}
               </MenuItem>
+              
+              
+             
+              
               <MenuItem onClick={() => {
                 localStorage.clear();
                 window.location.href = window.location.href
