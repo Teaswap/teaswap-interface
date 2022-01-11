@@ -450,8 +450,9 @@ export const ProductInfo = ({product,user}:{ product:ProductInterface, user:user
       {errorMessage && (
         <Modal>
           <Form>
-            <IconContainer onClick={handleCloseAddProduct}>
-              <IconComponent kind='close-black' margin={0} color={COLOR.dark_gray}/>
+            <IconContainer >{/* onClick={handleCloseAddProduct} */}
+               
+              <IconComponent kind='close-black' margin={0} color={COLOR.dark_gray} onClick={handleCloseAddProduct}/>
             </IconContainer>
             {console.log(errorMessage)}
             Something wrong
@@ -467,8 +468,9 @@ export const ProductInfo = ({product,user}:{ product:ProductInterface, user:user
           )}
           {!attempting && !hash && chainId == 56 && (
               <Form>
-                <IconContainer onClick={wrappedOnDismiss}>
-                  <IconComponent kind='close-black' margin={0} color={COLOR.dark_gray}/>
+                <IconContainer >{/* onClick={wrappedOnDismiss} */}
+                
+                  <IconComponent kind='close-black' margin={0} color={COLOR.dark_gray} onClick={wrappedOnDismiss}/>
                 </IconContainer>
                 <InputName>{t(witch == 1 ? 'Input purchase price' : 'Input bid price')}</InputName>
                 <CurrencyInputPanel
