@@ -16,6 +16,8 @@ import { MEDIA_QUERY } from '../../constants/style'
 // import { unwrappedToken } from '../../utils/wrappedCurrency'
 import Switch from '@material-ui/core/Switch';
 
+import Modal from '../../components/Modal';
+
 const PageWrapper = styled.div`
   margin-top:  15px;
   width: 100%;
@@ -118,7 +120,17 @@ export default function Earn() {
 
   const stakingRewardsExist = Boolean(typeof chainId === 'number' && (STAKING_REWARDS_INFO[chainId]?.length ?? 0) > 0)
   return (
+    
     <PageWrapper >
+        
+      {chainId != 56 && (<Modal isOpen={true} onDismiss={() => {}} maxHeight={90}>
+        <p style={{
+          padding: 20
+        }}> Reminder:<br />
+        In order to trade & mint assets, please lock your current wallet and connect with a wallet that supports Binance Smart Chain network.
+        </p>
+      </Modal>)}
+      
       {/* <StakeBox /> */} 
       <img  src={process.env.PUBLIC_URL + '/tsa_metaplay.jpg'} width="100%" />
       {/* <TopSection >
@@ -175,5 +187,6 @@ export default function Earn() {
       
       {/* </AutoColumn> */}
     </PageWrapper>
+    
   )
 }
