@@ -141,6 +141,14 @@ export const TSAMetaPlay = new Token(
     'TSA MetaPlay Collection'
 )
 
+export const TSAMembership = new Token(
+  ChainId.BSC_MAINNET,
+  '0xe378d5c0aac7ed8b8ad06367c6aefe16c8c8cf77',
+  0,
+  'tsamembership30NFT',
+  'tsamembership30 Collection'
+)
+
 export const TSAMetaverseAvatar = new Token(
     ChainId.BSC_MAINNET,
     '0xe2F923b956B53b9D94d5aDEB7e5aD9B108c00309',
@@ -391,7 +399,7 @@ export const DOGE = new Token(
 
 export const SHIB = new Token(
     ChainId.BSC_MAINNET,
-    '0xf09a100c32d780f0a48754e43533f9fb374e85f9',
+    '0x2859e4544c4bb03966803b044a93563bd2d0dd4d',
     18,
     'SHIB',
     'Shiba Inu'
