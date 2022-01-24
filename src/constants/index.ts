@@ -145,7 +145,7 @@ export const TSAMembership = new Token(
   ChainId.BSC_MAINNET,
   '0xe378d5c0aac7ed8b8ad06367c6aefe16c8c8cf77',
   0,
-  'tsamembership30NFT',
+  'TSAMembershipNFT',
   'tsamembership30 Collection'
 )
 
