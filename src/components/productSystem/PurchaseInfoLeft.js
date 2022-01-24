@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { COLOR, FONT, DISTANCE } from '../../constants/style';
 import styled from 'styled-components';
 import useProduct from '../../hooks/productHooks/useProduct';
@@ -6,6 +6,11 @@ import { MEDIA_QUERY } from '../../constants/style';
 import { useTranslation } from 'react-i18next';
 import {hideAddr} from '../../utils/strUtil'
 import ClickableAddr from './ClickableAddr'
+import {AiOutlineEdit} from "react-icons/ai"
+import Modal from '../Modal';
+import { TextAreaComponent } from '../Input';
+import { Button } from '../../theme';
+import { setInfoAPI } from '../../webAPI/productAPI';
 
 const ProductPictureContainer = styled.div`
   position: relative;
@@ -80,6 +85,17 @@ export const InfoItemTitle = styled.div`
   color: ${COLOR.text_2};
   word-break: break-all;
 `;
+const EditInfoDiv = styled.div`
+  width: 94%;
+  max-width: 800px;
+  min-height: 300px;
+  margin: 0 auto;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`
 
 export const ProductPicture = ({ product }) => {
   const { loaded, onLoad } = useProduct();
@@ -94,12 +110,61 @@ export const ProductPicture = ({ product }) => {
   );
 };
 
-export const ProductIntro = ({ product }) => {
+export const ProductIntro = ({ product, user }) => {
   const {t} = useTranslation();
+  const [showEditInfo, setShowEditInfo] = useState(false)
+  const [info, setInfo] = useState()
+  const [infoText, setInfoText] = useState()
+  const [msg, setMsg] = useState()
+  const [saveText, setSaveText] = useState('Save')
+  const saveInfo = () => {
+    if (saveText !== 'Save') return
+    setSaveText('Saving')
+    setInfoAPI(product.id, info).then((res) => {
+      if (res.ok === 1) {
+        setShowEditInfo(false)
+        setInfoText(info)
+        setSaveText('Save')
+      }else{
+        setMsg(res.message)
+        setSaveText('Save')
+      }
+    }).catch(err=> {
+      setSaveText('Save')
+    })
+  }
+  useEffect(() => {
+    setInfo(product.info)
+    setInfoText(product.info)
+  }, [product])
   return (
     <>
-      <InfoTitle>{t('Description')}</InfoTitle>
-      <ProductInfoWrap>{product.info}</ProductInfoWrap>
+      <InfoTitle>
+        {t('Description')}
+        {product.UserId == user.userId && (
+          <span onClick={()=>setShowEditInfo(true)}>
+            <AiOutlineEdit style={{cursor: 'pointer'}} />
+          </span>
+        )}
+      </InfoTitle>
+      <ProductInfoWrap>{infoText}</ProductInfoWrap>
+      <Modal style={{
+        maxWidth: 800,
+        width: '100%'
+      }} isOpen={showEditInfo} onDismiss={() => setShowEditInfo(false)}>
+          <EditInfoDiv>
+            <TextAreaComponent
+              $margin={0}
+              rows={10}
+              onChange={(e) => {setInfo(e.target.value)}}
+              value={info}
+            ></TextAreaComponent>
+            {msg && (
+              <span style={{color: 'red'}}>{msg}</span>
+            )}
+            <Button onClick={saveInfo} style={{marginTop: 30}}>{t(saveText)}</Button>
+          </EditInfoDiv>
+      </Modal>
     </>
   );
 };

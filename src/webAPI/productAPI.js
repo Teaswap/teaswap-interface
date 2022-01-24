@@ -110,6 +110,21 @@ const setPriceAPI = (id,price)=>{
   }).then((res) => res.json());
 };
 
+const setInfoAPI = (id,info)=>{
+  const token = localStorage.getItem('token');
+
+  return fetch(`${BASE_URL}/products/productinfo/${id}`, {
+    method: 'PATCH',
+    headers: {
+      'content-type': 'application/json',
+      authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify({
+      info: info
+    }),
+  }).then((res) => res.json());
+};
+
 const transferAPI = (id,toAddress,chainid)=>{
   const token = localStorage.getItem('token');
 
@@ -271,5 +286,6 @@ export {
   transferAPI,
   revokeAPI,
   stakeAPI,
-  unstakeAPI
+  unstakeAPI,
+  setInfoAPI
 };

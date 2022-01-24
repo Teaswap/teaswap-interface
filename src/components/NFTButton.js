@@ -54,6 +54,10 @@ export const NormalButton = styled(ButtonWrapper)`
   }
 `;
 
+export const NavButton = styled(NormalButton)`
+  width: auto;
+`
+
 export const GreyBtn = styled(ButtonPrimary)`
   margin: 40px 0 25px 0;
   padding: 0px;
@@ -87,7 +91,7 @@ export function HelperButton() {
 export function Nav({ children, path, $margin }) {
   return (
     <NavLink style={{ minWidth: 'fit-content' }} to={path}>
-      <NormalButton $margin={$margin}>{children}</NormalButton>
+      <NavButton $margin={$margin}>{children}</NavButton>
     </NavLink>
   );
 }

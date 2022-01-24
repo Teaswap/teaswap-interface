@@ -85,27 +85,33 @@ export const STAKING_REWARDS_INFO: {
       cate:"TSA"
     },
     {
-      tokens: [PenguinPunks, UNI[ChainId.BSC_MAINNET]],
-      stakingRewardAddress: '0xc4D4D745305696B6F1a11968e1EA64B8EC91099c',
-      iconUrl: "/TSAPenguinPunks.png",
-      cate:"NFT"
-    },
-    {
       tokens: [BNB_TSA_LP, UNI[ChainId.BSC_MAINNET]],
       stakingRewardAddress: '0x32A06829c06D02ccd6bd75C77EF4E23e14C92891',
       iconUrl: "/TSABNBTSA.png",
       cate:"TSA"
     },
     {
-      tokens: [TSAMetaPlay, TSALOT],
-      stakingRewardAddress: '0xB2413a4BE600394bD5a6F42E003117580b33bA32',
-      iconUrl: "/TSALOT.png",
+      tokens: [TSA_BUSD_LP, UNI[ChainId.BSC_MAINNET]],
+      stakingRewardAddress: '0x57C235425b6A352858cA44103EA685AB208120E4',
+      iconUrl: "/TSA-BUSD-TSA.png",
+      cate:"TSA"
+    },
+    {
+      tokens: [PenguinPunks, UNI[ChainId.BSC_MAINNET]],
+      stakingRewardAddress: '0xc4D4D745305696B6F1a11968e1EA64B8EC91099c',
+      iconUrl: "/TSAPenguinPunks.png",
       cate:"NFT"
     },
     {
       tokens: [TSANFTMetaverseII, TSALOT],
       stakingRewardAddress: '0x3741356c5f297834134D7249c0e3d588869a1a94',
       iconUrl: "/metaverse_lot.png",
+      cate:"NFT"
+    },
+    {
+      tokens: [TSAMetaPlay, TSALOT],
+      stakingRewardAddress: '0xB2413a4BE600394bD5a6F42E003117580b33bA32',
+      iconUrl: "/TSALOT.png",
       cate:"NFT"
     },
     {
@@ -133,9 +139,9 @@ export const STAKING_REWARDS_INFO: {
       cate:"NFT"
     },
     {
-      tokens: [TSA_BUSD_LP, UNI[ChainId.BSC_MAINNET]],
-      stakingRewardAddress: '0x57C235425b6A352858cA44103EA685AB208120E4',
-      iconUrl: "/TSA-BUSD-TSA.png",
+      tokens: [USDT_TSA_LP, UNI[ChainId.BSC_MAINNET]],
+      stakingRewardAddress: '0xa8e0A6e980ce25FADC2Dca703a71464Af9320E24',
+      iconUrl: "/TSA-USDT-TSA.png",
       cate:"TSA"
     },
     {
@@ -144,12 +150,7 @@ export const STAKING_REWARDS_INFO: {
       iconUrl: "/TSA-CAKE-TSA.png",
       cate:"TSA"
     },   
-    {
-      tokens: [USDT_TSA_LP, UNI[ChainId.BSC_MAINNET]],
-      stakingRewardAddress: '0xa8e0A6e980ce25FADC2Dca703a71464Af9320E24',
-      iconUrl: "/TSA-USDT-TSA.png",
-      cate:"TSA"
-    },
+
     {
       tokens: [BNB_TSA_LP, UNI[ChainId.BSC_MAINNET]],
       stakingRewardAddress: '0xA1f2Bc4cBB56b02cB1329C8ca633155c02Fc6Cb8',
@@ -251,8 +252,6 @@ export const STAKING_REWARDS_INFO: {
       iconUrl: "/raca_ckae.png",
       cate:"TSA"
     },
-    
-
     {
       tokens: [UNI[ChainId.BSC_MAINNET], TSALOT],
       stakingRewardAddress: '0x00AFAd5f02Dd3F3093c392b6172E7b8109A6F6D8',

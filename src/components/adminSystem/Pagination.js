@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import useAdmin from '../../hooks/adminHooks/useAdmin';
-import { NormalButton } from '../NFTButton'
+import { NavButton } from '../NFTButton'
 import usePagination from '../../hooks/adminHooks/usePagination';
 
 const PaginationContainer = styled.div`
@@ -48,20 +48,20 @@ export default function Pagination({ propsFunction, propsParams }) {
     <PaginationContainer>
       {pageList.map((page, index) => {
         return page === currentPage ? (
-          <NormalButton
+          <NavButton
             style={{ background: '#75e2d38c' }}
             onClick={() => handleChangeCurrentPage(page)}
             key={index}
           >
             {page}
-          </NormalButton>
+          </NavButton>
         ) : (
-          <NormalButton
+          <NavButton
             onClick={() => handleChangeCurrentPage(page)}
             key={index}
           >
             {page}
-          </NormalButton>
+          </NavButton>
         );
       })}
     </PaginationContainer>

@@ -119,7 +119,7 @@ const ProductPage = () => {
           <ProductPicture product={product} />
           <div id="product-right">
             <ProductInfo user={user} product={product} />
-            <ProductIntro product={product} />
+            <ProductIntro user={user} product={product} />
             <FreightIntro product={product} />
             <VendorIntro
               products={products}
