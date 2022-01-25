@@ -132,7 +132,7 @@ export default function Earn() {
       </Modal>)}
       
       {/* <StakeBox /> */} 
-      <img  src={process.env.PUBLIC_URL + '/tsa_metaplay.jpg'} width="100%" />
+      <img  src={process.env.PUBLIC_URL + '/TSAStaking.png'} width="100%" />
       {/* <TopSection >
         <ConSubTitle con={"An amazing yield farm on Binance Smart Chain."} />
       </TopSection> */}
