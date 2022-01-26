@@ -19,7 +19,7 @@ import Switch from '@material-ui/core/Switch';
 import Modal from '../../components/Modal';
 
 const PageWrapper = styled.div`
-  margin-top:  15px;
+  margin-top:  51px;
   width: 100%;
   text-align: center;
   display: flex;
