@@ -45,12 +45,12 @@ const List = ()=>{
   const products = [
     {
       image: GridImg6,
-      Learn: "https://www.teaswap.live/tsametaverse",
-      author: "TSA Metaverse Lot Offering",
-      medium: "https://youtu.be/u-R5AwHFkl8",
-      info: "TSA Metaverse Park is partnered with iCashRewards VR Center to develop a digital piece of TSA NFT real estate, a total of 200,000 lots will be available. Each lot is a unique (non-fungible) token that functions as your entrance to access TSA Metaverse Park.",
+      Learn: "https://www.teaswap.live/tsapenguinpunks",
+      author: "Penguin Punks",
+      medium: "https://www.youtube.com/watch?v=Dfgq197zYTo&t=10s",
+      info: "Penguin Punks NFT Offering",
       joinUs: "tsapenguinpunks",
-      when: "When: 10.22 -12.31 20:00 PST",
+      when: "When: February 3, 2022",
       end:new Date(1640942516),
       duration:6048000,
       sign: NewImg
