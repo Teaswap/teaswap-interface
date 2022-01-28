@@ -10,6 +10,7 @@ import GridImg1 from '../../assets/images/grid_img1.webp'
 //import GridImg2 from '../../assets/images/grid_img2.webp'
 import GridImg3 from '../../assets/images/grid_img3.webp'
 import GridImg6 from '../../assets/images/grid_img6.webp'
+import GridImg7 from '../../assets/images/grid_image7.jpg'
 import YoutobeImg from '../../assets/images/youtube.png'
 import { ExternalLink } from '../../theme'
 
@@ -44,13 +45,13 @@ const List = ()=>{
   console.log(t('tokensAvailable'), useTranslation())
   const products = [
     {
-      image: GridImg6,
+      image: GridImg7,
       Learn: "https://www.teaswap.live/tsapenguinpunks",
-      author: "Penguin Punks",
+      author: "Penguin Punks- The Gateway Into The Metaverse",
       medium: "https://www.youtube.com/watch?v=Dfgq197zYTo&t=10s",
-      info: "Penguin Punks NFT Offering",
+      info: "Located in the TSA MetaPlay Park, you will find 12,888 unique TSA Penguins playing around on the Sandbox TSA Meta & TSA MetaPlay Franchise. The NFTs come in different rarity levels: N (Normal ), R (Rare) & SR ( Super Rare).",
       joinUs: "tsapenguinpunks",
-      when: "When: February 3, 2022",
+      when: "When: February 10, 2022",
       end:new Date(1640942516),
       duration:6048000,
       sign: NewImg
@@ -280,18 +281,15 @@ const StyledLink = styled(NavLink)`
   text-decoration: none;
   cursor: pointer;
   font-weight: 500;
-
   :hover {
     text-decoration: none;
     color: inherit;
   }
-
   :focus {
     outline: none;
     text-decoration: none;
     color: inherit;
   }
-
   :active {
     text-decoration: none;
     color: inherit;
@@ -323,4 +321,3 @@ const JoinUs = styled(ButtonPrimary)`
   align-self: flex-start;
   display: block;
 `
-
