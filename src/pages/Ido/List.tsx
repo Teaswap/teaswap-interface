@@ -49,6 +49,19 @@ const List = ()=>{
       author: "TSA Metaverse Lot Offering",
       medium: "https://youtu.be/u-R5AwHFkl8",
       info: "TSA Metaverse Park is partnered with iCashRewards VR Center to develop a digital piece of TSA NFT real estate, a total of 200,000 lots will be available. Each lot is a unique (non-fungible) token that functions as your entrance to access TSA Metaverse Park.",
+      joinUs: "tsapenguinpunks",
+      when: "When: 10.22 -12.31 20:00 PST",
+      end:new Date(1640942516),
+      duration:6048000,
+      sign: NewImg
+      
+    },
+    {
+      image: GridImg6,
+      Learn: "https://www.teaswap.live/tsametaverse",
+      author: "TSA Metaverse Lot Offering",
+      medium: "https://youtu.be/u-R5AwHFkl8",
+      info: "TSA Metaverse Park is partnered with iCashRewards VR Center to develop a digital piece of TSA NFT real estate, a total of 200,000 lots will be available. Each lot is a unique (non-fungible) token that functions as your entrance to access TSA Metaverse Park.",
       joinUs: "/iro/bnb/0x1729552618376F8a179c0F61F9FE789C77b230FE/0x1Ef0d833Ad1b1D76da36bb28bEF37Ee86874571E",
       when: "When: 10.22 -12.31 20:00 PST",
       end:new Date(1640942516),
@@ -157,11 +170,21 @@ const List = ()=>{
                   {v.when && (v.when)}
                 </div>
                 {/* <Countdown exactEnd={v.end} rewardsDuration={v.duration?v.duration:1000} /> */}
-                <StyledLink to={v.joinUs}>
-                  <JoinUs>
-                    {t("Join Us")}
-                  </JoinUs>
-                </StyledLink>
+                {v.joinUs !== "tsapenguinpunks" && (
+                  <StyledLink to={v.joinUs}>
+                    <JoinUs>
+                      {t("Join Us")}
+                    </JoinUs>
+                  </StyledLink>
+                )}
+                {v.joinUs === "tsapenguinpunks" && (
+                  <ExternalLink href="https://www.teaswap.live/tsapenguinpunks">
+                    <JoinUs>
+                      {t("Join Us")}
+                    </JoinUs>
+                  </ExternalLink>
+                )}
+
                 <img 
                   style={{
                     position: 'absolute',

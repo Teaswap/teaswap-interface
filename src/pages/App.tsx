@@ -93,19 +93,7 @@ import Ido from './Ido'
 import IdoList from './Ido/List'
 import Mint from './Mint'
 import { MEDIA_QUERY } from '../constants/style'
-// import Farms from './Farms'
-// import { UseWalletProvider } from "use-wallet"
-// import FarmsProvider from '../contexts/Farms/Farms'
-
-// import HomePage from './NFTHomePage';
-// import RegisterPage from './NFTRegisterPage';
-// import LoginPage from './NFTLoginPage';
-// import EntrancePage from './NFTEntrancePage';
-// import AboutUsPage from './NFTAboutUsPage';
-// import FAQPage from './NFTFAQPage';
-// import ContactUsPage from './NFTContactUsPage';
-// import RulesPage from './NFTRulesPage';
-
+import Tsapenguinpunks from './Ido/tsapenguinpunks'
 
 const AppWrapper = styled.div`
   display: flex;
@@ -164,6 +152,7 @@ export default function App() {
           <Web3ReactManager>
             <Routes>
               <Route path="/iro" element={<IdoList />}/>
+              <Route path="/tsapenguinpunks" element={<Tsapenguinpunks />}/>
               <Route path="/drops" element={<Home/>}/>
               <Route path="/swap" element={<Swaping/>}/>
               {/* <Route path="/swaping" element={<Swaping/>}/> */}
