@@ -50,6 +50,7 @@ import styled from 'styled-components'
 import { filterTokens } from '../../components/SearchModal/filtering'
 import { useAllTokens } from '../../hooks/Tokens'
 import { MEDIA_QUERY } from '../../constants/style'
+import { addTSA } from '../../utils/addTokenToWallet'
 
 // import SwapLogo from '../../assets/images/TEAsWAP.jpeg'
 
@@ -400,6 +401,13 @@ export default function Swap() {
               </Card>
             )}
           </AutoColumn>
+          {window.ethereum && (
+            <div style={{cursor: 'pointer'}} onClick={() => {
+              addTSA()
+            }}>
+              Add TSA to Metamask
+            </div>
+          )}
           <BottomGrouping>
             {!account ? (
               <ButtonLight onClick={toggleWalletModal}>{t('connectWallet')}</ButtonLight>
