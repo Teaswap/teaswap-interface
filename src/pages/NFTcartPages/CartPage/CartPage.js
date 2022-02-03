@@ -17,6 +17,9 @@ import { LoopCircleLoading } from "react-loadingg";
 import { getCartItem } from "../../../redux/slices/cartSlice/cartSlice";
 import useCart from "../../../hooks/cartHooks/useCart";
 
+import Modal from "../../../components/Modal";
+
+import { useActiveWeb3React } from "../../../hooks";
 
 export const ThickNavPage = styled.div`
   width: 90%;
@@ -26,8 +29,8 @@ export const ThickNavPage = styled.div`
   margin-top: 50px;
   padding: 20px;
   padding-bottom: 50px;
-  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.1), 0px 4px 8px rgba(0, 0, 0, 0.1), 0px 16px 24px rgba(0, 0, 0, 0.1),
-  0px 24px 32px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.1), 0px 4px 8px rgba(0, 0, 0, 0.1),
+    0px 16px 24px rgba(0, 0, 0, 0.1), 0px 24px 32px rgba(0, 0, 0, 0.1);
   ${MEDIA_QUERY.sm} {
     width: 100%;
     padding: 10px;
@@ -65,7 +68,6 @@ const Wrapper = styled.div`
   width: 99%;
   font-size: 20px;
   font-weight: bold;
-
 `;
 
 const Title = styled.p`
@@ -83,11 +85,9 @@ const LoadingMessage = styled.div`
   z-index: 2;
 `;
 
-
-
-
 const CartPage = () => {
   const dispatch = useDispatch();
+  const { chainId } = useActiveWeb3React();
   const {
     carts,
     isLoading,
@@ -111,24 +111,39 @@ const CartPage = () => {
         </LoadingMessage>
       )}
       <ThickNavPage>
-      <Wrapper>
-        <Title>Bidding Orders</Title>
-        <Container>
-          {carts &&
-            carts.filter((cart) => {
-                switch (filter) {
-                  case "all":
-                    return true;
-                  case "select":
-                    return cart.cartDetail[0].sellerId === isSelect;
-                  default:
-                    return true;
-                }
-              })
-              .map((cart, index) => (
-                <CartItem key={index} cart={cart} />
-              ))}
-        </Container>
+        <Wrapper>
+          {chainId != 56 && (
+            <Modal isOpen={true} onDismiss={() => {}} maxHeight={90}>
+              <p
+                style={{
+                  padding: 20,
+                }}
+              >
+                {" "}
+                Reminder:
+                <br />
+                In order to trade & mint assets, please lock your current wallet
+                and connect with a wallet that supports Binance Smart Chain
+                network.
+              </p>
+            </Modal>
+          )}
+          <Title>Bidding Orders</Title>
+          <Container>
+            {carts &&
+              carts
+                .filter((cart) => {
+                  switch (filter) {
+                    case "all":
+                      return true;
+                    case "select":
+                      return cart.cartDetail[0].sellerId === isSelect;
+                    default:
+                      return true;
+                  }
+                })
+                .map((cart, index) => <CartItem key={index} cart={cart} />)}
+          </Container>
         </Wrapper>
       </ThickNavPage>
     </>
