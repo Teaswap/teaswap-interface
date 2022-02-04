@@ -224,12 +224,12 @@ export const STAKING_REWARDS_INFO: {
       iconUrl: "/TSA-SHIB-TSA.png",
       cate: "TSA",
     },
-    {
-      tokens: [TSA_FLOKI_LP, UNI[ChainId.BSC_MAINNET]],
-      stakingRewardAddress: "0xA9D4b720bD372fA4ea501CC034947791F2EE456D",
-      iconUrl: "/TSA-FLOKI-TSA.png",
-      cate: "TSA",
-    },
+    // {
+    //   tokens: [TSA_FLOKI_LP, UNI[ChainId.BSC_MAINNET]],
+    //   stakingRewardAddress: "0xA9D4b720bD372fA4ea501CC034947791F2EE456D",
+    //   iconUrl: "/TSA-FLOKI-TSA.png",
+    //   cate: "TSA",
+    // },
 
     {
       tokens: [ETH_TSA_LP, UNI[ChainId.BSC_MAINNET]],
@@ -257,6 +257,12 @@ export const STAKING_REWARDS_INFO: {
       tokens: [BTC_TSA_LP, UNI[ChainId.BSC_MAINNET]],
       stakingRewardAddress: "0x00433e18DC3256d2Dd3702F703EA6355a098B571",
       iconUrl: "/BTCTSA.png",
+      cate: "TSA",
+    },
+    {
+      tokens: [TSA_FLOKI_LP, UNI[ChainId.BSC_MAINNET]],
+      stakingRewardAddress: "0xA9D4b720bD372fA4ea501CC034947791F2EE456D",
+      iconUrl: "/TSA-FLOKI-TSA.png",
       cate: "TSA",
     },
     {
