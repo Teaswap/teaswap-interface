@@ -19,7 +19,7 @@ export default function App() {
       content: (
         <Item
           img={process.env.PUBLIC_URL + "/nft/products/06dap.png"}
-          amount="PRESALE 02/10"
+          amount="PRESALE 02/16"
         />
       ),
       link: "https://www.teaswap.art/nft/products/category/1",
@@ -31,7 +31,7 @@ export default function App() {
           img={
             process.env.PUBLIC_URL + "/nft/products/57 scubadiver penguin.png"
           }
-          amount="PRESALE 01/28"
+          amount="PRESALE 02/16"
         />
       ),
       link: "https://www.teaswap.art/nft/products/category/1",
@@ -43,7 +43,7 @@ export default function App() {
           img={
             process.env.PUBLIC_URL + "/nft/products/58 Crustacean Penguin.png"
           }
-          amount="PRESALE 01/28"
+          amount="PRESALE 02/16"
         />
       ),
       link: "https://www.teaswap.art/nft/products/category/1",
@@ -55,7 +55,7 @@ export default function App() {
           img={
             process.env.PUBLIC_URL + "/nft/products/59 Elder God penguin.png"
           }
-          amount="PRESALE 01/28"
+          amount="PRESALE 02/16"
         />
       ),
       link: "https://www.teaswap.art/nft/products/category/1",
@@ -65,7 +65,7 @@ export default function App() {
       content: (
         <Item
           img={process.env.PUBLIC_URL + "/nft/products/60 Poseidon penguin.png"}
-          amount="PRESALE 01/28"
+          amount="PRESALE 02/16"
         />
       ),
       link: "https://www.teaswap.art/nft/products/category/1",
