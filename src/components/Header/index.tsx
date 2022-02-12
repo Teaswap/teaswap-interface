@@ -405,7 +405,7 @@ export default function Header() {
             </StyledNavLink>
             <StyledExternalLink
               id={`Gallery-nav-link`}
-              href={"https://www.teaswap.live/penguinpunks"}
+              href={"https://www.teaswap.live/tsametaplay"}
             >
               {t("MetaPlay")}
             </StyledExternalLink>
