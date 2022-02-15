@@ -101,7 +101,7 @@ export const STAKING_REWARDS_INFO: {
     {
       tokens: [TSANFTMetaverseII, TSALOT],
       stakingRewardAddress: "0x3741356c5f297834134D7249c0e3d588869a1a94",
-      iconUrl: "/metaverse_lot.png",
+      iconUrl: "/metaverse_lot.gif",
       cate: "NFT",
     },
     {
