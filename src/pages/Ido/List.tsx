@@ -45,12 +45,41 @@ const List = () => {
     {
       image: GridImg7,
       Learn: "https://www.teaswap.live/penguinpunks",
+      LearnText: "ETH Mint Learn >",
       author: "Penguin Punks- The Opportunity for Youth NFT Program",
       medium: "https://www.youtube.com/watch?v=Dfgq197zYTo&t=10s",
       info:
         "Located in the TSA MetaPlay Park, you will find 12,888 unique TSA Penguins playing around on the Sandbox TSA Meta & TSA MetaPlay Franchise. The NFTs come in different rarity levels: N (Normal ), R (Rare) & SR ( Super Rare).",
       joinUs: "penguinpunks",
-      when: "When: February 16, 2022",
+      when: "When: February 18, 2022",
+      end: new Date(1640942516),
+      duration: 6048000,
+      sign: NewImg,
+    },
+    {
+      image: GridImg7,
+      Learn: "https://www.teaswap.live/penguinpunks",
+      LearnText: "Polygon Mint Learn >",
+      author: "Penguin Punks- The Opportunity for Youth NFT Program",
+      medium: "https://www.youtube.com/watch?v=Dfgq197zYTo&t=10s",
+      info:
+        "Located in the TSA MetaPlay Park, you will find 12,888 unique TSA Penguins playing around on the Sandbox TSA Meta & TSA MetaPlay Franchise. The NFTs come in different rarity levels: N (Normal ), R (Rare) & SR ( Super Rare).",
+      joinUs: "penguinpunks",
+      when: "When: February 21, 2022",
+      end: new Date(1640942516),
+      duration: 6048000,
+      sign: NewImg,
+    },
+    {
+      image: GridImg7,
+      Learn: "https://www.teaswap.live/penguinpunks",
+      LearnText: "BSC Mint Learn >",
+      author: "Penguin Punks- The Opportunity for Youth NFT Program",
+      medium: "https://www.youtube.com/watch?v=Dfgq197zYTo&t=10s",
+      info:
+        "Located in the TSA MetaPlay Park, you will find 12,888 unique TSA Penguins playing around on the Sandbox TSA Meta & TSA MetaPlay Franchise. The NFTs come in different rarity levels: N (Normal ), R (Rare) & SR ( Super Rare).",
+      joinUs: "penguinpunks",
+      when: "When: February 23, 2022",
       end: new Date(1640942516),
       duration: 6048000,
       sign: NewImg,
@@ -157,7 +186,7 @@ const List = () => {
 
                 <Learn>
                   <ExternalLink href={v.Learn}>
-                    <Learn>{"Learn >"}</Learn>
+                    <Learn>{v.LearnText || "Learn >"}</Learn>
                   </ExternalLink>
                 </Learn>
                 <Read>
