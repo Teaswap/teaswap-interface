@@ -291,7 +291,7 @@ const Grids = styled(ColumnCenter)`
 
 const Grid = styled(ColumnCenter)`
   text-align: center;
-  width: 380px;
+  width: 420px;
   display: flex;
   padding: 15px;
   justify-content: flex-start;
