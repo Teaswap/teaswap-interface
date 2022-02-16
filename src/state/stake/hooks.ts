@@ -117,12 +117,19 @@ export const STAKING_REWARDS_INFO: {
       iconUrl: "/shib_icon.webp",
       cate: "TSA",
     },
+
     {
-      tokens: [TSA_BUSD_LP, UNI[ChainId.BSC_MAINNET]],
-      stakingRewardAddress: "0x57C235425b6A352858cA44103EA685AB208120E4",
-      iconUrl: "/TSA-BUSD-TSA.png",
+      tokens: [USDT_TSA_LP, UNI[ChainId.BSC_MAINNET]],
+      stakingRewardAddress: "0xa8e0A6e980ce25FADC2Dca703a71464Af9320E24",
+      iconUrl: "/TSA-USDT-TSA.png",
       cate: "TSA",
     },
+    // {
+    //   tokens: [TSA_BUSD_LP, UNI[ChainId.BSC_MAINNET]],
+    //   stakingRewardAddress: "0x57C235425b6A352858cA44103EA685AB208120E4",
+    //   iconUrl: "/TSA-BUSD-TSA.png",
+    //   cate: "TSA",
+    // },
 
     {
       tokens: [TSAMetaPlay, TSALOT],
@@ -155,9 +162,27 @@ export const STAKING_REWARDS_INFO: {
       cate: "NFT",
     },
     {
-      tokens: [USDT_TSA_LP, UNI[ChainId.BSC_MAINNET]],
-      stakingRewardAddress: "0xa8e0A6e980ce25FADC2Dca703a71464Af9320E24",
-      iconUrl: "/TSA-USDT-TSA.png",
+      tokens: [TSA_SHIB_LP, UNI[ChainId.BSC_MAINNET]],
+      stakingRewardAddress: "0x9dDD67dE8e42255Ab5547F55Ed0AD6832d5649EE",
+      iconUrl: "/TSA-SHIB-TSA.png",
+      cate: "TSA",
+    },
+    // {
+    //   tokens: [USDT_TSA_LP, UNI[ChainId.BSC_MAINNET]],
+    //   stakingRewardAddress: "0xa8e0A6e980ce25FADC2Dca703a71464Af9320E24",
+    //   iconUrl: "/TSA-USDT-TSA.png",
+    //   cate: "TSA",
+    // },
+    // {
+    //   tokens: [TSA_CAKE_LP, UNI[ChainId.BSC_MAINNET]],
+    //   stakingRewardAddress: "0x4f8659B91fD7A1f928E1F213E1015DCfFf447615",
+    //   iconUrl: "/TSA-CAKE-TSA.png",
+    //   cate: "TSA",
+    // },
+    {
+      tokens: [TSA_DOGE_LP, UNI[ChainId.BSC_MAINNET]],
+      stakingRewardAddress: "0x1d02b6De10984b0503c805C483Fda63c3ef0cd10",
+      iconUrl: "/TSA-DOGE-TSA.png",
       cate: "TSA",
     },
     {
@@ -212,18 +237,40 @@ export const STAKING_REWARDS_INFO: {
       iconUrl: "/TSAICASH.png",
       cate: "ICASH",
     },
+
+    // {
+    //   tokens: [TSA_CAKE_LP, UNI[ChainId.BSC_MAINNET]],
+    //   stakingRewardAddress: "0x4f8659B91fD7A1f928E1F213E1015DCfFf447615",
+    //   iconUrl: "/TSA-CAKE-TSA.png",
+    //   cate: "TSA",
+    // },
+    // {
+    //   tokens: [TSA_DOGE_LP, UNI[ChainId.BSC_MAINNET]],
+    //   stakingRewardAddress: "0x1d02b6De10984b0503c805C483Fda63c3ef0cd10",
+    //   iconUrl: "/TSA-DOGE-TSA.png",
+    //   cate: "TSA",
+    // },
+
+    // {
+    //   tokens: [USDT_TSA_LP, UNI[ChainId.BSC_MAINNET]],
+    //   stakingRewardAddress: "0xa8e0A6e980ce25FADC2Dca703a71464Af9320E24",
+    //   iconUrl: "/TSA-USDT-TSA.png",
+    //   cate: "TSA",
+    // },
+
     {
-      tokens: [TSA_DOGE_LP, UNI[ChainId.BSC_MAINNET]],
-      stakingRewardAddress: "0x1d02b6De10984b0503c805C483Fda63c3ef0cd10",
-      iconUrl: "/TSA-DOGE-TSA.png",
+      tokens: [TSA_BUSD_LP, UNI[ChainId.BSC_MAINNET]],
+      stakingRewardAddress: "0x57C235425b6A352858cA44103EA685AB208120E4",
+      iconUrl: "/TSA-BUSD-TSA.png",
       cate: "TSA",
     },
-    {
-      tokens: [TSA_SHIB_LP, UNI[ChainId.BSC_MAINNET]],
-      stakingRewardAddress: "0x9dDD67dE8e42255Ab5547F55Ed0AD6832d5649EE",
-      iconUrl: "/TSA-SHIB-TSA.png",
-      cate: "TSA",
-    },
+
+    // {
+    //   tokens: [TSA_SHIB_LP, UNI[ChainId.BSC_MAINNET]],
+    //   stakingRewardAddress: "0x9dDD67dE8e42255Ab5547F55Ed0AD6832d5649EE",
+    //   iconUrl: "/TSA-SHIB-TSA.png",
+    //   cate: "TSA",
+    // },
     // {
     //   tokens: [TSA_FLOKI_LP, UNI[ChainId.BSC_MAINNET]],
     //   stakingRewardAddress: "0xA9D4b720bD372fA4ea501CC034947791F2EE456D",
