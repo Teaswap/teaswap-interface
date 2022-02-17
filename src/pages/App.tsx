@@ -94,6 +94,7 @@ import IdoList from './Ido/List'
 import Mint from './Mint'
 import { MEDIA_QUERY } from '../constants/style'
 import Tsapenguinpunks from './Ido/tsapenguinpunks'
+import TSP from './Tsp'
 
 const AppWrapper = styled.div`
   display: flex;
@@ -112,8 +113,9 @@ const HeaderWrapper = styled.div`
 const BodyWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  min-height: calc(100vh - 302px);
   width: 100%;
-  padding-top: 70px;
+  padding-top: 92px;
   align-items: center;
   flex: 1;
   overflow-y: auto;
@@ -122,9 +124,9 @@ const BodyWrapper = styled.div`
 `
 
 const Marginer = styled.div`
-  margin-top: 200px;
+  margin-top: 0px;
   ${MEDIA_QUERY.sm} {
-    margin-top: 150px;
+    margin-top: 0px;
   }
 `
 
@@ -152,6 +154,7 @@ export default function App() {
           <Web3ReactManager>
             <Routes>
               <Route path="/iro" element={<IdoList />}/>
+              <Route path="/tsp" element={<TSP />}/>
               <Route path="/tsapenguinpunks" element={<Tsapenguinpunks />}/>
               <Route path="/drops" element={<Home/>}/>
               <Route path="/swap" element={<Swaping/>}/>

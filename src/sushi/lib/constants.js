@@ -50,6 +50,8 @@ export const contractAddresses = {
   },
 }
 
+export const tspAddr = '0x538dD4eF8E46cEDc59dFEc723879b85a67e9fa56'
+
 /*
 UNI-V2 LP Address on mainnet for reference
 ==========================================

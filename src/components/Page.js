@@ -5,6 +5,7 @@ export const StandardNavPage = styled.div`
   min-height: 50vh;
   width: 100%;
   max-width: 1400px;
+  margin:0 auto;
   position: relative;
   ${MEDIA_QUERY.md} {
     margin: 0 auto;

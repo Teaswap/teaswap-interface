@@ -29,6 +29,9 @@ import { V1_EXCHANGE_ABI, V1_FACTORY_ABI, V1_FACTORY_ADDRESSES } from '../consta
 import { getContract } from '../utils'
 import { useActiveWeb3React } from './index'
 
+import tspAbi from '../constants/abis/tsp.json'
+import { tspAddr } from '../sushi/lib/constants'
+
 // returns null on errors
 function useContract(address: string | undefined, ABI: any, withSignerIfPossible = true): Contract | null {
   const { library, account } = useActiveWeb3React()
@@ -153,4 +156,8 @@ export function useSocksController(): Contract | null {
     UNISOCKS_ABI,
     false
   )
+}
+
+export function useTspContract(): Contract | null {
+  return useContract(tspAddr, tspAbi, true)
 }
