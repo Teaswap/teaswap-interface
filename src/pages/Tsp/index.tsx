@@ -154,32 +154,34 @@ export default () => {
               </Select>
             </FormControl>
           )}
-          <div>
-            {
-              <div style={{ marginTop: 20, marginLeft: -20 }}>
-                <NormalButton
-                  style={{
-                    padding: 0,
-                    backgroundColor: "#09afb6",
-                    color: "#FFFFFF",
-                  }}
-                  children="SMART CONTRACT"
-                />
-              </div>
-            }
-            {
-              <div style={{ marginTop: 20, marginLeft: -20 }}>
-                <NormalButton
-                  style={{
-                    padding: 0,
-                    backgroundColor: "#09afb6",
-                    color: "#FFFFFF",
-                  }}
-                  children="OPENSEA"
-                />
-              </div>
-            }
-          </div>
+          {account && chainId === 1 && (
+            <div>
+              {
+                <div style={{ marginTop: 20, marginLeft: -20 }}>
+                  <NormalButton
+                    style={{
+                      padding: 0,
+                      backgroundColor: "#09afb6",
+                      color: "#FFFFFF",
+                    }}
+                    children="SMART CONTRACT"
+                  />
+                </div>
+              }
+              {
+                <div style={{ marginTop: 20, marginLeft: -20 }}>
+                  <NormalButton
+                    style={{
+                      padding: 0,
+                      backgroundColor: "#09afb6",
+                      color: "#FFFFFF",
+                    }}
+                    children="OPENSEA"
+                  />
+                </div>
+              }
+            </div>
+          )}
 
           {account && chainId != 1 && (
             <div style={{ marginTop: 20, marginLeft: -20 }}>
