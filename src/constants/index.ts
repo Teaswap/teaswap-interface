@@ -182,7 +182,7 @@ export const USDT_TSA_LP = new Token(
   ChainId.BSC_MAINNET,
   "0xcedeebd6127b65bb4b56d86b92eb4dd9bf28988a",
   18,
-  "USDT_TSA BLP",
+  "TSA_USDT BLP",
   "USDT_TSA BakeryLP"
 );
 

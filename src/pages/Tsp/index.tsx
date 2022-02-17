@@ -69,14 +69,20 @@ export default () => {
         <img src='/web60.gif'/>    
       </Left>
       <Right className='panel'>
-        <div>Penguin Punks brothers</div>
-        <div>Mint</div>
-        <div>address: {account}</div>
+        <div style={{
+          marginBottom: '30px',
+          fontSize: 16
+        }}>Penguin Punks brothers</div>
+        <div style={{
+          fontSize: 24,
+          marginBottom: '30px'
+        }}>Mint</div>
+        <div>Address: {account}</div>
         <div>NFTs: {totalSupply}/8888</div>
         <div>Price: {price} ETH</div>
         <div>
           <p>You can now mint up to 3 TSP</p>
-          <p>NFTs minted by you so far: {tspBalance}/3</p>
+          <p># NFTs minted by you so far: {tspBalance}/3</p>
         </div>
         <div>
           {account && chainId == 1 && (
@@ -138,9 +144,9 @@ const Wrapper = styled.div`
   justify-content: space-between;
   width: 100%;
   height: calc(100vh - 394px);
-  background-color: #D4D4D4;
+  background-color: #F2D3F8;
   .panel{
-    width: 50%;
+    width: 80%;
     height: 100%;;
     text-align: center;
     display: flex;

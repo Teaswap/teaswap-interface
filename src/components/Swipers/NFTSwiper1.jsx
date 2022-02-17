@@ -19,7 +19,7 @@ export default function App() {
       content: (
         <Item
           img={process.env.PUBLIC_URL + "/nft/products/06dap.png"}
-          amount="PRESALE 02/16"
+          amount="PRESALE 02/23"
         />
       ),
       link: "https://www.teaswap.art/nft/products/category/1",

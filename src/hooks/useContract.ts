@@ -30,7 +30,7 @@ import { getContract } from '../utils'
 import { useActiveWeb3React } from './index'
 
 import tspAbi from '../constants/abis/tsp.json'
-import { tspAddr } from '../sushi/lib/constants'
+import { tspAddr, tsaAddr } from '../sushi/lib/constants'
 
 // returns null on errors
 function useContract(address: string | undefined, ABI: any, withSignerIfPossible = true): Contract | null {
@@ -160,4 +160,8 @@ export function useSocksController(): Contract | null {
 
 export function useTspContract(): Contract | null {
   return useContract(tspAddr, tspAbi, true)
+}
+
+export function useTsaContract(): Contract | null {
+  return useContract(tsaAddr, tspAbi, true)
 }

@@ -45,12 +45,40 @@ const List = () => {
     {
       image: GridImg7,
       Learn: "https://www.teaswap.live/penguinpunks",
+      LearnText: "Learn > On ETH ",
+      author: "Penguin Punks- The Opportunity for Youth NFT Program",
+      medium: "https://www.youtube.com/watch?v=Dfgq197zYTo&t=10s",
+      info: "Located in the TSA MetaPlay Park, you will find 12,888 unique TSA Penguins playing around on the Sandbox TSA Meta & TSA MetaPlay Franchise. The NFTs come in different rarity levels: N (Normal ), R (Rare) & SR ( Super Rare).",
+      joinUs: "/tsp",
+      when: "When: February 18, 2022",
+      end: new Date(1640942516),
+      duration: 6048000,
+      sign: NewImg,
+    },
+    {
+      image: GridImg7,
+      Learn: "https://alpha.niftykit.com/drops/penguinbrother",
+      LearnText: "Learn > On Polygon",
+      author: "Penguin Punks- The Opportunity for Youth NFT Program",
+      medium: "https://www.youtube.com/watch?v=Dfgq197zYTo&t=10s",
+      info:
+        "A collection of 8,888 unique Penguinbrothers (Normal & Rare) curated by TSA Incubator and living on the Ethereum, Polygon and Binance Smart Chain. Supporting Youth NFT Programs by giving 5% of proceeds received from public sale to the PenguinPunks NFT Staking Pool for learning adoption in DeFi.",
+      joinUs: "Alpha",
+      when: "When: February 22, 2022",
+      end: new Date(1640942516),
+      duration: 6048000,
+      sign: NewImg,
+    },
+    {
+      image: GridImg7,
+      Learn: "https://www.teaswap.art/nft/products/vendor/265609",
+      LearnText: "Learn > On BSC",
       author: "Penguin Punks- The Opportunity for Youth NFT Program",
       medium: "https://www.youtube.com/watch?v=Dfgq197zYTo&t=10s",
       info:
         "Located in the TSA MetaPlay Park, you will find 12,888 unique TSA Penguins playing around on the Sandbox TSA Meta & TSA MetaPlay Franchise. The NFTs come in different rarity levels: N (Normal ), R (Rare) & SR ( Super Rare).",
-      joinUs: "/tsp",
-      when: "When: February 16, 2022",
+      joinUs: "vendor",
+      when: "When: February 25, 2022",
       end: new Date(1640942516),
       duration: 6048000,
       sign: NewImg,
@@ -157,7 +185,7 @@ const List = () => {
 
                 <Learn>
                   <ExternalLink href={v.Learn}>
-                    <Learn>{"Learn >"}</Learn>
+                    <Learn>{v.LearnText || "Learn >"}</Learn>
                   </ExternalLink>
                 </Learn>
                 <Read>
@@ -187,11 +215,24 @@ const List = () => {
                     <JoinUs>{t("Join Us")}</JoinUs>
                   </ExternalLink>
                 )}
-                {v.joinUs !== "penguinpunks" && v.joinUs !== "tsapenguinpunks" && (
-                  <StyledLink to={v.joinUs}>
+                {v.joinUs === "Alpha" && (
+                  <ExternalLink href="https://alpha.niftykit.com/drops/penguinbrother">
                     <JoinUs>{t("Join Us")}</JoinUs>
-                  </StyledLink>
+                  </ExternalLink>
                 )}
+                {v.joinUs === "vendor" && (
+                  <ExternalLink href="https://www.teaswap.art/nft/products/vendor/265609">
+                    <JoinUs>{t("Join Us")}</JoinUs>
+                  </ExternalLink>
+                )}
+                {v.joinUs !== "vendor" &&
+                  v.joinUs !== "Alpha" &&
+                  v.joinUs !== "penguinpunks" &&
+                  v.joinUs !== "tsapenguinpunks" && (
+                    <StyledLink to={v.joinUs}>
+                      <JoinUs>{t("Join Us")}</JoinUs>
+                    </StyledLink>
+                  )}
                 {v.joinUs === "tsapenguinpunks" && (
                   <ExternalLink href="https://www.teaswap.live/tsapenguinpunks">
                     <JoinUs>{t("Join Us")}</JoinUs>
@@ -249,7 +290,7 @@ const Grids = styled(ColumnCenter)`
 
 const Grid = styled(ColumnCenter)`
   text-align: center;
-  width: 380px;
+  width: 420px;
   display: flex;
   padding: 15px;
   justify-content: flex-start;
