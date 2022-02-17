@@ -1,86 +1,125 @@
-import React, { useEffect, useState } from 'react';
-import styled from 'styled-components';
-import { useActiveWeb3React } from '../../hooks'
-import Select from '@mui/material/Select';
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
-import OutlinedInput from '@mui/material/OutlinedInput';
-import {NormalButton} from '../../components/NFTButton';
+import React, { useEffect, useState } from "react";
+import styled from "styled-components";
+import { useActiveWeb3React } from "../../hooks";
+import Select from "@mui/material/Select";
+import MenuItem from "@mui/material/MenuItem";
+import FormControl from "@mui/material/FormControl";
+import OutlinedInput from "@mui/material/OutlinedInput";
+import { NormalButton } from "../../components/NFTButton";
 
-import { useTotalSupply, useTspBalance, useTspPrice } from './hooks';
-import { useETHBalances } from '../../state/wallet/hooks';
-import { BigNumber } from 'ethers';
-import { useTspContract } from '../../hooks/useContract';
-import { JSBI } from '@teaswap/uniswap-sdk';
+import { useTotalSupply, useTspBalance, useTspPrice } from "./hooks";
+import { useETHBalances } from "../../state/wallet/hooks";
+import { BigNumber } from "ethers";
+import { useTspContract } from "../../hooks/useContract";
+import { JSBI } from "@teaswap/uniswap-sdk";
 // import { calculateGasMargin } from '../../utils';
-import { TransactionResponse } from '@ethersproject/abstract-provider';
-import { ExternalLink } from '../../theme';
-import {fromWei, toWei} from 'web3-utils'
+import { TransactionResponse } from "@ethersproject/abstract-provider";
+import { ExternalLink } from "../../theme";
+import { fromWei, toWei } from "web3-utils";
 
-const names = [1, 2, 3]
+const names = [1, 2, 3];
 
 export default () => {
-  const { account, chainId } = useActiveWeb3React()
-  const [tspBalance, setTspBalance] = useState(0)
-  const [totalSupply, setTotalSupply] = useState(0)
-  const [price, setPrice] = useState('0')
-  const balance = useETHBalances(account ? [account] : [])?.[ account ?? "" ];
-  const tspBalanceHook = useTspBalance(account ?? "")
-  const tspTotalSupplyHook = useTotalSupply()
-  const priceHook = useTspPrice()
-  const [amount, setAmount] = useState(0)
-  const [hash, setHash] = useState('')
-  const [msg, setMsg] = useState('')
-  const tspContract = useTspContract()
+  const { account, chainId } = useActiveWeb3React();
+  const [tspBalance, setTspBalance] = useState(0);
+  const [totalSupply, setTotalSupply] = useState(0);
+  const [price, setPrice] = useState("0");
+  const balance = useETHBalances(account ? [account] : [])?.[account ?? ""];
+  const tspBalanceHook = useTspBalance(account ?? "");
+  const tspTotalSupplyHook = useTotalSupply();
+  const priceHook = useTspPrice();
+  const [amount, setAmount] = useState(0);
+  const [hash, setHash] = useState("");
+  const [msg, setMsg] = useState("");
+  const tspContract = useTspContract();
   useEffect(() => {
     tspBalanceHook.then((res: BigNumber) => {
-      setTspBalance(res.toNumber())
-    }) 
+      setTspBalance(res.toNumber());
+    });
     tspTotalSupplyHook.then((res: BigNumber) => {
-      setTotalSupply(res.toNumber())
-    })
+      setTotalSupply(res.toNumber());
+    });
     priceHook.then((res: BigNumber) => {
-      setPrice(fromWei(res.toString(), 'ether'));
-    })
-  })
-  
+      setPrice(fromWei(res.toString(), "ether"));
+    });
+  });
+
   const handleChange = async (e: any) => {
-    setMsg('')
-    setHash('')
-    setAmount(e.target.value)
-    if (!tspContract) return
-    const args = [
-      JSBI.BigInt(e.target.value).toString(),
-    ]
-    tspContract.mint(...args, { gasLimit: 350000, value: toWei(String(e.target.value * parseFloat(price)))})
+    setMsg("");
+    setHash("");
+    setAmount(e.target.value);
+    if (!tspContract) return;
+    const args = [JSBI.BigInt(e.target.value).toString()];
+    tspContract
+      .mint(...args, {
+        gasLimit: 350000,
+        value: toWei(String(e.target.value * parseFloat(price))),
+      })
       .then((response: TransactionResponse) => {
-        console.log('buy: res', {response})
-        setHash(response.hash)
+        console.log("buy: res", { response });
+        setHash(response.hash);
       })
       .catch((error: any) => {
-        console.log( { gasLimit: 350000, value: toWei(String(e.target.value * parseFloat(price)))})
-        setMsg("int error: " + error.mesage)
-      }) 
-  }
-  console.log("tsp: ", {tspBalance, balance})
+        console.log({
+          gasLimit: 350000,
+          value: toWei(String(e.target.value * parseFloat(price))),
+        });
+        setMsg("int error: " + error.mesage);
+      });
+  };
+  console.log("tsp: ", { tspBalance, balance });
   return (
     <Wrapper>
-      <Left className='panel'>
-        <img src='/web60.gif'/>    
+      <Left className="panel">
+        <img src="/web60.gif" />
       </Left>
-      <Right className='panel'>
-        <div style={{
-          marginBottom: '30px',
-          fontSize: 16
-        }}>Penguin Punks brothers</div>
-        <div style={{
-          fontSize: 24,
-          marginBottom: '30px'
-        }}>Mint</div>
-        <div>Address: {account}</div>
-        <div>NFTs: {totalSupply}/8888</div>
-        <div>Price: {price} ETH</div>
-        <div>
+      <Right className="panel">
+        <div
+          style={{
+            marginBottom: "30px",
+            fontSize: "1.25rem",
+          }}
+        >
+          Penguin Punks brothers
+        </div>
+        <div
+          style={{
+            fontSize: "6rem",
+            marginBottom: "30px",
+            // color: "#09afb6",
+          }}
+        >
+          Mint
+        </div>
+        <div
+          style={{
+            fontSize: "2rem",
+            paddingBottom: "15px",
+          }}
+        >
+          Address: {account}
+        </div>
+        <div
+          style={{
+            fontSize: "2rem",
+            paddingBottom: "15px",
+          }}
+        >
+          NFTs: {totalSupply}/8888
+        </div>
+        <div
+          style={{
+            fontSize: "2rem",
+            paddingBottom: "15px",
+          }}
+        >
+          Price: {price} ETH
+        </div>
+        <div
+          style={{
+            fontSize: "1rem",
+          }}
+        >
           <p>You can now mint up to 3 TSP</p>
           <p># NFTs minted by you so far: {tspBalance}/3</p>
         </div>
@@ -89,8 +128,8 @@ export default () => {
             <FormControl>
               {/* <InputLabel id="tsp-mint">Mint</InputLabel> */}
               <Select
-                style={{minWidth: 300}}
-                inputProps={{ 'aria-label': 'Without label' }}
+                style={{ minWidth: 300 }}
+                inputProps={{ "aria-label": "Without label" }}
                 displayEmpty
                 onChange={handleChange}
                 label="Mint"
@@ -100,7 +139,7 @@ export default () => {
                   if (!amount) {
                     return <em>Mint</em>;
                   }
-      
+
                   return amount;
                 }}
               >
@@ -108,19 +147,50 @@ export default () => {
                   <em>Mint</em>
                 </MenuItem>
                 {names.map((name) => (
-                  <MenuItem
-                    key={name}
-                    value={name}
-                  >
+                  <MenuItem key={name} value={name}>
                     {name}
                   </MenuItem>
                 ))}
               </Select>
             </FormControl>
           )}
+          <div>
+            {
+              <div style={{ marginTop: 20, marginLeft: -20 }}>
+                <NormalButton
+                  style={{
+                    padding: 0,
+                    backgroundColor: "#09afb6",
+                    color: "#FFFFFF",
+                  }}
+                  children="SMART CONTRACT"
+                />
+              </div>
+            }
+            {
+              <div style={{ marginTop: 20, marginLeft: -20 }}>
+                <NormalButton
+                  style={{
+                    padding: 0,
+                    backgroundColor: "#09afb6",
+                    color: "#FFFFFF",
+                  }}
+                  children="OPENSEA"
+                />
+              </div>
+            }
+          </div>
+
           {account && chainId != 1 && (
-            <div style={{marginTop: 20}}>
-              <NormalButton style={{padding: 0}} children='Switch to eth mainnet to mint' />
+            <div style={{ marginTop: 20, marginLeft: -20 }}>
+              <NormalButton
+                style={{
+                  padding: 0,
+                  backgroundColor: "#09afb6",
+                  color: "#FFFFFF",
+                }}
+                children="Switch to ETH Mainnet to Mint"
+              />
             </div>
           )}
           {hash && (
@@ -130,9 +200,7 @@ export default () => {
               </ExternalLink>
             </div>
           )}
-          {msg && (
-            <div className='error-msg'>{msg}</div>
-          )}
+          {msg && <div className="error-msg">{msg}</div>}
         </div>
       </Right>
     </Wrapper>
@@ -140,33 +208,35 @@ export default () => {
 };
 
 const Wrapper = styled.div`
+  /* color: #09afb6; */
   display: flex;
   justify-content: space-between;
   width: 100%;
-  height: calc(100vh - 394px);
-  background-color: #F2D3F8;
-  .panel{
+  height: calc(100vh - 50px);
+  background-color: #f2d3f8;
+  .panel {
     width: 50%;
-    height: 100%;;
+    height: 100%;
     text-align: center;
     display: flex;
     justify-content: center;
     align-items: center;
   }
-`
+`;
 
 const Left = styled.div`
   img {
+    padding-top: 10%;
     width: 60%;
   }
-`
+`;
 
 const Right = styled.div`
   flex-direction: column;
   align-items: flex-start;
-  > div{
+  > div {
     width: 80%;
     margin: 0 auto;
     text-align: left;
   }
-`
+`;
