@@ -146,7 +146,7 @@ const Wrapper = styled.div`
   height: calc(100vh - 394px);
   background-color: #F2D3F8;
   .panel{
-    width: 80%;
+    width: 50%;
     height: 100%;;
     text-align: center;
     display: flex;
