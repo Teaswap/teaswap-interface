@@ -195,8 +195,9 @@ export default () => {
                   padding: 0,
                   backgroundColor: "#09afb6",
                   color: "#FFFFFF",
+                  letterSpacing: ".1rem",
                 }}
-                children="Switch  to  ETH  Mainnet  to  Mint"
+                children="Switch to ETH Mainnet  to  Mint"
               />
             </div>
           )}
