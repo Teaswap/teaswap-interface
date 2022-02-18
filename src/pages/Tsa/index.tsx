@@ -125,8 +125,10 @@ export default () => {
             color: "#FFFFFF",
           }}
         >
-          <p>You can now mint up to 3 TSA</p>
-          <p># NFTs minted by you so far: {tsaBalance}/3</p>
+          <p>You can now mint up to 3 TSA.</p>
+          <div style={{ position: "relative", top: "-10px" }}>
+            <p># NFTs minted by you so far: {tsaBalance}/3</p>
+          </div>
         </div>
         <div>
           {account && chainId == 1 && (
@@ -142,14 +144,14 @@ export default () => {
                 input={<OutlinedInput />}
                 renderValue={() => {
                   if (!amount) {
-                    return <em>Mint</em>;
+                    return <span>Mint</span>;
                   }
 
                   return amount;
                 }}
               >
                 <MenuItem disabled value="">
-                  <em>Mint</em>
+                  <span>Mint</span>
                 </MenuItem>
                 {names.map((name) => (
                   <MenuItem key={name} value={name}>
@@ -168,10 +170,12 @@ export default () => {
                       padding: 0,
                       backgroundColor: "#09afb6",
                       color: "#FFFFFF",
-                      cursor: 'pointer'
+                      cursor: "pointer",
                     }}
                     onClick={() => {
-                      window.open("https://etherscan.io/address/0xa788E2bcCeC8D35F116e7a19BF423F2a8EED98F5")
+                      window.open(
+                        "https://etherscan.io/address/0xa788E2bcCeC8D35F116e7a19BF423F2a8EED98F5"
+                      );
                     }}
                     children="SMART CONTRACT"
                   />
@@ -184,10 +188,10 @@ export default () => {
                       padding: 0,
                       backgroundColor: "#09afb6",
                       color: "#FFFFFF",
-                      cursor: 'pointer'
+                      cursor: "pointer",
                     }}
                     onClick={() => {
-                      window.open("https://opensea.io/collection/tsa-penguin")
+                      window.open("https://opensea.io/collection/tsa-penguin");
                     }}
                     children="OPENSEA"
                   />
@@ -229,7 +233,7 @@ const Wrapper = styled.div`
   justify-content: space-between;
   width: 100%;
   height: calc(100vh - 50px);
-  background-color: #df9333;
+  background-color: #4d0896;
   /* #f2d3f8 */
   .panel {
     width: 50%;

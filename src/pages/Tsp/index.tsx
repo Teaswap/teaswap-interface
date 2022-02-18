@@ -71,7 +71,7 @@ export default () => {
   return (
     <Wrapper>
       <Left className="panel">
-        <img src="/web60.gif" />
+        <img src="/brother2.gif" />
       </Left>
       <Right className="panel">
         <div
@@ -126,7 +126,6 @@ export default () => {
           }}
         >
           <p>You can now mint up to 3 TSP.</p>
-
           <div style={{ position: "relative", top: "-10px" }}>
             <p># NFTs minted by you so far: {tspBalance}/3</p>
           </div>
@@ -236,7 +235,7 @@ const Wrapper = styled.div`
   justify-content: space-between;
   width: 100%;
   height: calc(100vh - 50px);
-  background-color: #df9333;
+  background-color: #d6d952;
   /* #f2d3f8 */
   .panel {
     width: 50%;

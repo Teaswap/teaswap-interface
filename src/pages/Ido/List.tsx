@@ -45,9 +45,9 @@ const List = () => {
     {
       image: GridImg7,
       Learn: "https://www.teaswap.live/penguinpunks",
-      LearnText: "Learn > On ETH ",
+      LearnText: "Learn > On ETH",
       author: "Penguin Punks- The Opportunity for Youth NFT Program",
-      medium: "https://www.youtube.com/watch?v=Dfgq197zYTo&t=10s",
+      medium: "https://youtu.be/DUZVbvaa8jM",
       info:
         "Located in the TSA MetaPlay Park, you will find 12,888 unique TSA Penguins playing around on the Sandbox TSA Meta & TSA MetaPlay Franchise. The NFTs come in different rarity levels: N (Normal ), R (Rare) & SR ( Super Rare).",
       joinUs: "/tsa",
@@ -181,7 +181,9 @@ const List = () => {
                   width="100%"
                   src={v.image}
                   onClick={() => {
-                    if (v.image == GridImg7) {
+                    if (v.LearnText == "Learn > On ETH") {
+                      window.open("https://www.teaswap.art/tsa");
+                    } else if (v.LearnText == "Learn > On Polygon") {
                       window.open("https://www.teaswap.art/tsp");
                     } else {
                       window.open(
