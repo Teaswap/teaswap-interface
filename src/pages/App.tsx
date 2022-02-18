@@ -95,6 +95,7 @@ import Mint from './Mint'
 import { MEDIA_QUERY } from '../constants/style'
 import Tsapenguinpunks from './Ido/tsapenguinpunks'
 import TSP from './Tsp'
+import TSA from './Tsa'
 
 const AppWrapper = styled.div`
   display: flex;
@@ -155,6 +156,7 @@ export default function App() {
             <Routes>
               <Route path="/iro" element={<IdoList />}/>
               <Route path="/tsp" element={<TSP />}/>
+              <Route path="/tsa" element={<TSA />}/>
               <Route path="/tsapenguinpunks" element={<Tsapenguinpunks />}/>
               <Route path="/drops" element={<Home/>}/>
               <Route path="/swap" element={<Swaping/>}/>

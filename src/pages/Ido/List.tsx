@@ -50,7 +50,7 @@ const List = () => {
       medium: "https://www.youtube.com/watch?v=Dfgq197zYTo&t=10s",
       info:
         "Located in the TSA MetaPlay Park, you will find 12,888 unique TSA Penguins playing around on the Sandbox TSA Meta & TSA MetaPlay Franchise. The NFTs come in different rarity levels: N (Normal ), R (Rare) & SR ( Super Rare).",
-      joinUs: "/tsp",
+      joinUs: "/tsa",
       when: "When: 19:30 PST February 18, 2022",
       end: new Date(1640942516),
       duration: 6048000,
@@ -64,7 +64,7 @@ const List = () => {
       medium: "https://www.youtube.com/watch?v=Dfgq197zYTo&t=10s",
       info:
         "A collection of 8,888 unique Penguinbrothers (Normal & Rare) curated by TSA Incubator and living on the Ethereum, Polygon and Binance Smart Chain. Supporting Youth NFT Programs by giving 5% of proceeds received from public sale to the PenguinPunks NFT Staking Pool for learning adoption in DeFi.",
-      joinUs: "Alpha",
+      joinUs: "/tsp",
       when: "When: February 22, 2022",
       end: new Date(1640942516),
       duration: 6048000,

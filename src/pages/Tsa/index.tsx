@@ -7,10 +7,10 @@ import FormControl from "@mui/material/FormControl";
 import OutlinedInput from "@mui/material/OutlinedInput";
 import { NormalButton } from "../../components/NFTButton";
 
-import { useTotalSupply, useTspBalance, useTspPrice } from "./hooks";
+import { useTotalSupply, useTsaBalance, useTsaPrice } from "./hooks";
 import { useETHBalances } from "../../state/wallet/hooks";
 import { BigNumber } from "ethers";
-import { useTspContract } from "../../hooks/useContract";
+import { useTsaContract } from "../../hooks/useContract";
 import { JSBI } from "@teaswap/uniswap-sdk";
 // import { calculateGasMargin } from '../../utils';
 import { TransactionResponse } from "@ethersproject/abstract-provider";
@@ -21,20 +21,20 @@ const names = [1, 2, 3];
 
 export default () => {
   const { account, chainId } = useActiveWeb3React();
-  const [tspBalance, setTspBalance] = useState(0);
+  const [tsaBalance, setTsaBalance] = useState(0);
   const [totalSupply, setTotalSupply] = useState(0);
   const [price, setPrice] = useState("0");
   const balance = useETHBalances(account ? [account] : [])?.[account ?? ""];
-  const tspBalanceHook = useTspBalance(account ?? "");
+  const tsaBalanceHook = useTsaBalance(account ?? "");
   const tspTotalSupplyHook = useTotalSupply();
-  const priceHook = useTspPrice();
+  const priceHook = useTsaPrice();
   const [amount, setAmount] = useState(0);
   const [hash, setHash] = useState("");
   const [msg, setMsg] = useState("");
-  const tspContract = useTspContract();
+  const tspContract = useTsaContract();
   useEffect(() => {
-    tspBalanceHook.then((res: BigNumber) => {
-      setTspBalance(res.toNumber());
+    tsaBalanceHook.then((res: BigNumber) => {
+      setTsaBalance(res.toNumber());
     });
     tspTotalSupplyHook.then((res: BigNumber) => {
       setTotalSupply(res.toNumber());
@@ -67,7 +67,7 @@ export default () => {
         setMsg("int error: " + error.mesage);
       });
   };
-  console.log("tsp: ", { tspBalance, balance });
+  console.log("tsp: ", { tsaBalance, balance });
   return (
     <Wrapper>
       <Left className="panel">
@@ -81,7 +81,7 @@ export default () => {
             color: "#FFFFFF",
           }}
         >
-          Penguin Brothers
+          Penguin Punks
         </div>
         <div
           style={{
@@ -125,8 +125,8 @@ export default () => {
             color: "#FFFFFF",
           }}
         >
-          <p>You can now mint up to 3 TSP</p>
-          <p># NFTs minted by you so far: {tspBalance}/3</p>
+          <p>You can now mint up to 3 TSA</p>
+          <p># NFTs minted by you so far: {tsaBalance}/3</p>
         </div>
         <div>
           {account && chainId == 1 && (
@@ -171,7 +171,7 @@ export default () => {
                       cursor: 'pointer'
                     }}
                     onClick={() => {
-                      window.open("https://etherscan.io/address/0x538dD4eF8E46cEDc59dFEc723879b85a67e9fa56")
+                      window.open("https://etherscan.io/address/0xa788E2bcCeC8D35F116e7a19BF423F2a8EED98F5")
                     }}
                     children="SMART CONTRACT"
                   />
@@ -187,7 +187,7 @@ export default () => {
                       cursor: 'pointer'
                     }}
                     onClick={() => {
-                      window.open("https://opensea.io/collection/penguin-brother")
+                      window.open("https://opensea.io/collection/tsa-penguin")
                     }}
                     children="OPENSEA"
                   />
