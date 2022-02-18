@@ -169,7 +169,10 @@ const List = () => {
     <PageWrapper>
       <IncubatorBox />
       <PageWrapper2>
-        <ConTitle con='Initial Art Offering ("IRO")' />
+        <div style={{ marginTop: "75px", position: "relative" }}>
+          <ConTitle con='Initial Art Offering ("IRO")' />
+        </div>
+
         <Grids>
           {products.map((v, i) => {
             return (
@@ -265,7 +268,7 @@ export default List;
 
 const PageWrapper = styled(ColumnCenter)`
   text-align: center;
-  // margin-top: -80px;
+  margin-top: -75px;
   width: 100%;
   ${MEDIA_QUERY.sm} {
     // margin-top: -40px;
@@ -276,6 +279,7 @@ const PageWrapper2 = styled(ColumnCenter)`
   text-align: center;
   width: 100%;
   margin: 0 auto;
+  margin-top: -100px;
   max-width: 1400px;
   padding-top: 30px;
 `;
