@@ -78,39 +78,43 @@ export default () => {
           style={{
             marginBottom: "30px",
             fontSize: "1.25rem",
+            color: "#FFFFFF",
           }}
         >
-          Penguin Punks brothers
+          Penguin Punks
         </div>
         <div
           style={{
             fontSize: "6rem",
             marginBottom: "30px",
-            // color: "#09afb6",
+            color: "#09afb6",
           }}
         >
           Mint
         </div>
         <div
           style={{
-            fontSize: "2rem",
+            fontSize: "1.5rem",
             paddingBottom: "15px",
+            color: "#FFFFFF",
           }}
         >
           Address: {account}
         </div>
         <div
           style={{
-            fontSize: "2rem",
+            fontSize: "1.5rem",
             paddingBottom: "15px",
+            color: "#FFFFFF",
           }}
         >
           NFTs: {totalSupply}/8888
         </div>
         <div
           style={{
-            fontSize: "2rem",
+            fontSize: "1.5rem",
             paddingBottom: "15px",
+            color: "#FFFFFF",
           }}
         >
           Price: {price} ETH
@@ -118,6 +122,7 @@ export default () => {
         <div
           style={{
             fontSize: "1rem",
+            color: "#FFFFFF",
           }}
         >
           <p>You can now mint up to 3 TSP</p>
@@ -191,7 +196,7 @@ export default () => {
                   backgroundColor: "#09afb6",
                   color: "#FFFFFF",
                 }}
-                children="Switch to ETH Mainnet to Mint"
+                children="Switch  to  ETH  Mainnet  to  Mint"
               />
             </div>
           )}
@@ -215,7 +220,8 @@ const Wrapper = styled.div`
   justify-content: space-between;
   width: 100%;
   height: calc(100vh - 50px);
-  background-color: #f2d3f8;
+  background-color: #df9333;
+  /* #f2d3f8 */
   .panel {
     width: 50%;
     height: 100%;
@@ -228,7 +234,7 @@ const Wrapper = styled.div`
 
 const Left = styled.div`
   img {
-    padding-top: 10%;
+    // padding-top: 10%;
     width: 60%;
   }
 `;
