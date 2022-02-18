@@ -108,7 +108,7 @@ export default () => {
             color: "#FFFFFF",
           }}
         >
-          NFTs: {totalSupply}/8888
+          NFTs: {totalSupply}/12888
         </div>
         <div
           style={{
