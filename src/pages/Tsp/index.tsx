@@ -125,8 +125,11 @@ export default () => {
             color: "#FFFFFF",
           }}
         >
-          <p>You can now mint up to 3 TSP</p>
-          <p># NFTs minted by you so far: {tspBalance}/3</p>
+          <p>You can now mint up to 3 TSP.</p>
+
+          <div style={{ position: "relative", top: "-10px" }}>
+            <p># NFTs minted by you so far: {tspBalance}/3</p>
+          </div>
         </div>
         <div>
           {account && chainId == 1 && (
@@ -142,14 +145,14 @@ export default () => {
                 input={<OutlinedInput />}
                 renderValue={() => {
                   if (!amount) {
-                    return <em>Mint</em>;
+                    return <span>Mint</span>;
                   }
 
                   return amount;
                 }}
               >
                 <MenuItem disabled value="">
-                  <em>Mint</em>
+                  <span>Mint</span>
                 </MenuItem>
                 {names.map((name) => (
                   <MenuItem key={name} value={name}>
@@ -168,10 +171,12 @@ export default () => {
                       padding: 0,
                       backgroundColor: "#09afb6",
                       color: "#FFFFFF",
-                      cursor: 'pointer'
+                      cursor: "pointer",
                     }}
                     onClick={() => {
-                      window.open("https://etherscan.io/address/0x538dD4eF8E46cEDc59dFEc723879b85a67e9fa56")
+                      window.open(
+                        "https://etherscan.io/address/0x538dD4eF8E46cEDc59dFEc723879b85a67e9fa56"
+                      );
                     }}
                     children="SMART CONTRACT"
                   />
@@ -184,10 +189,12 @@ export default () => {
                       padding: 0,
                       backgroundColor: "#09afb6",
                       color: "#FFFFFF",
-                      cursor: 'pointer'
+                      cursor: "pointer",
                     }}
                     onClick={() => {
-                      window.open("https://opensea.io/collection/penguin-brother")
+                      window.open(
+                        "https://opensea.io/collection/penguin-brother"
+                      );
                     }}
                     children="OPENSEA"
                   />
