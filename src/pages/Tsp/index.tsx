@@ -16,6 +16,7 @@ import { JSBI } from "@teaswap/uniswap-sdk";
 import { TransactionResponse } from "@ethersproject/abstract-provider";
 import { ExternalLink } from "../../theme";
 import { fromWei, toWei } from "web3-utils";
+import { shortenAddress } from "../../utils";
 
 const names = [1, 2, 3];
 
@@ -99,7 +100,7 @@ export default () => {
             color: "#FFFFFF",
           }}
         >
-          Address: {account}
+          Address: {shortenAddress(account??"")}
         </div>
         <div
           style={{
@@ -236,6 +237,10 @@ const Wrapper = styled.div`
   width: 100%;
   height: calc(100vh - 50px);
   background-color: #d6d952;
+  @media (max-width: 768px) {
+    flex-direction: column;
+    height: auto;
+  }
   /* #f2d3f8 */
   .panel {
     width: 50%;
@@ -244,12 +249,19 @@ const Wrapper = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    @media (max-width: 768px) {
+      width: 100%;
+      height: auto;
+      padding: 20px;
+    }
   }
 `;
 
 const Left = styled.div`
+  @media (max-width: 768px) {
+    margin-top: 30px;
+  }
   img {
-    // padding-top: 10%;
     width: 60%;
   }
 `;
