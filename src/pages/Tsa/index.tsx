@@ -48,7 +48,7 @@ export default () => {
     setMsg("");
     setHash("");
     setAmount(e.target.value);
-    if (!tspContract) return;
+    if (!tspContract || e.target.value == 'Mint') return;
     const args = [JSBI.BigInt(e.target.value).toString()];
     tspContract
       .mint(...args, {
@@ -144,13 +144,13 @@ export default () => {
                 input={<OutlinedInput />}
                 renderValue={() => {
                   if (!amount) {
-                    return <span>Mint</span>;
+                    return <span style={{color: '#fff'}}>Mint</span>;
                   }
 
                   return amount;
                 }}
               >
-                <MenuItem disabled value="">
+                <MenuItem value="Mint">
                   <span>Mint</span>
                 </MenuItem>
                 {names.map((name) => (
