@@ -406,3 +406,6 @@
 .MuiSelect-select{
   color: #fff !important;
 }
+.MuiOutlinedInput-root{
+  border: 1px solid #fff;
+}
