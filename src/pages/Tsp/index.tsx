@@ -171,6 +171,7 @@ export default () => {
                       backgroundColor: "#09afb6",
                       color: "#FFFFFF",
                       cursor: "pointer",
+                      minWidth: "38.5%",
                     }}
                     onClick={() => {
                       window.open(
@@ -189,6 +190,7 @@ export default () => {
                       backgroundColor: "#09afb6",
                       color: "#FFFFFF",
                       cursor: "pointer",
+                      minWidth: "38.5%",
                     }}
                     onClick={() => {
                       window.open(

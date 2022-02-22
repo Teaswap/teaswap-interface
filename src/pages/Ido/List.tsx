@@ -65,7 +65,7 @@ const List = () => {
       info:
         "A collection of 8,888 unique Penguinbrothers (Normal & Rare) curated by TSA Incubator and living on the Ethereum, Polygon and Binance Smart Chain. Supporting Youth NFT Programs by giving 5% of proceeds received from public sale to the PenguinPunks NFT Staking Pool for learning adoption in DeFi.",
       joinUs: "/tsp",
-      when: "When: February 22, 2022",
+      when: "When: March 10, 2022",
       end: new Date(1640942516),
       duration: 6048000,
       sign: NewImg,

@@ -171,6 +171,7 @@ export default () => {
                       backgroundColor: "#09afb6",
                       color: "#FFFFFF",
                       cursor: "pointer",
+                      minWidth: "38.5%",
                     }}
                     onClick={() => {
                       window.open(
@@ -189,6 +190,7 @@ export default () => {
                       backgroundColor: "#09afb6",
                       color: "#FFFFFF",
                       cursor: "pointer",
+                      minWidth: "38.5%",
                     }}
                     onClick={() => {
                       window.open("https://opensea.io/collection/tsa-penguin");
@@ -254,6 +256,7 @@ const Left = styled.div`
 
 const Right = styled.div`
   flex-direction: column;
+  display: flex;
   align-items: flex-start;
   > div {
     width: 80%;
