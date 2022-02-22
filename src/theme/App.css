@@ -403,3 +403,9 @@
 .input-panel .label{
   width: 100px;
 }
+.MuiSelect-select{
+  color: #fff !important;
+}
+.MuiOutlinedInput-root{
+  border: 1px solid #fff;
+}
