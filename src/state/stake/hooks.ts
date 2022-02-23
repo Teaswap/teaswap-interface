@@ -52,7 +52,7 @@ import {
   MATIC_TSA_LP,
   TSAMembership,
   SHIB,
-  PenguinPunksCollection
+  PenguinPunksCollection,
   // GensisNFT
 } from "../../constants";
 import {
@@ -94,17 +94,18 @@ export const STAKING_REWARDS_INFO: {
       cate: "NFT",
     },
     {
-      tokens: [TSAMembership, SHIB],
-      stakingRewardAddress: "0x1B0c0d5B6dA81eeAfeE73F769591fA58525E03C8",
-      iconUrl: "/membership.gif",
-      cate: "NFT",
-    },
-    {
       tokens: [PenguinPunks, UNI[ChainId.BSC_MAINNET]],
       stakingRewardAddress: "0xc4D4D745305696B6F1a11968e1EA64B8EC91099c",
       iconUrl: "/penguin punks.gif",
       cate: "NFT",
     },
+    {
+      tokens: [TSAMembership, SHIB],
+      stakingRewardAddress: "0x1B0c0d5B6dA81eeAfeE73F769591fA58525E03C8",
+      iconUrl: "/membership.gif",
+      cate: "NFT",
+    },
+
     {
       tokens: [TSAMembership, SHIB],
       stakingRewardAddress: "0x1B0c0d5B6dA81eeAfeE73F769591fA58525E03C8",

@@ -138,14 +138,11 @@ const AccountElement = styled.div<{ active: boolean }>`
   width: 100%;
   cursor: pointer;
 
-  color: ${({ theme }) => theme.gray}
+  color: ${({ theme }) => theme.gray};
+
   :focus {
     border: 1px solid blue;
   }
-  /* :hover {
-    background-color: ${({ theme, active }) =>
-      !active ? theme.bg2 : theme.bg4};
-  } */
 `;
 
 const UNIAmount = styled(AccountElement)`
@@ -179,8 +176,8 @@ const NetworkCard = styled.span`
   white-space: nowrap;
   border-radius: 0px;
   padding: 8px 12px;
-  color: ${({ theme }) => theme.gray}
-    ${({ theme }) => theme.mediaWidth.upToSmall`
+  color: ${({ theme }) => theme.gray};
+  ${({ theme }) => theme.mediaWidth.upToSmall`
     margin: 0;
     margin-right: 0.5rem;
     width: initial;

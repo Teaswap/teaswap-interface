@@ -1,12 +1,15 @@
-import React, { useEffect } from 'react'
-import { useDispatch } from 'react-redux'
-import { Navigate } from 'react-router-dom'
-import { AppDispatch } from '../../state'
-import { ApplicationModal, setOpenModal } from '../../state/application/actions'
+import React, { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { Navigate } from "react-router-dom";
+import { AppDispatch } from "../../state";
+import {
+  ApplicationModal,
+  setOpenModal,
+} from "../../state/application/actions";
 
 // Redirects to swap but only replace the pathname
-export const RedirectPathToSwapOnly : React.FC = (): JSX.Element => {
-  return <Navigate to='/swap' />;
+export const RedirectPathToSwapOnly: React.FC = (): JSX.Element => {
+  return <Navigate to="/swap" />;
 };
 
 // ({ location }: useParams) {
@@ -14,14 +17,14 @@ export const RedirectPathToSwapOnly : React.FC = (): JSX.Element => {
 // }
 
 export const RedirectPathToHomeOnly: React.FC = (): JSX.Element => {
-  return <Navigate to='/drops' />;
+  return <Navigate to="/drops" />;
 };
 export const RedirectPathToNftOnly: React.FC = (): JSX.Element => {
-  return <Navigate to='/nft/products/category/1' />;
+  return <Navigate to="/nft/products/category/1" />;
 };
 
 export const RedirectPathToIroOnly: React.FC = (): JSX.Element => {
-  return <Navigate to='/iro' />;
+  return <Navigate to="/iro" />;
 };
 // Redirects from the /swap/:outputCurrency path to the /swap?outputCurrency=:outputCurrency format
 export const RedirectToSwap: React.FC = (): JSX.Element => {
@@ -32,17 +35,17 @@ export const RedirectToSwap: React.FC = (): JSX.Element => {
   //     params: { params }
   //   }
   // } = props
-  return <Navigate to = '/swap'  />;
-}
-  // return (
-  //   <Navigate
-  //     to= '/swap',
-  //       search:
-  //         search && search.length > 1
-  //           ? `${search}&outputCurrency=${outputCurrency}`
-  //           : `?outputCurrency=${outputCurrency}`
-  //     }}
-  //   />
+  return <Navigate to="/swap" />;
+};
+// return (
+//   <Navigate
+//     to= '/swap',
+//       search:
+//         search && search.length > 1
+//           ? `${search}&outputCurrency=${outputCurrency}`
+//           : `?outputCurrency=${outputCurrency}`
+//     }}
+//   />
 //   )
 // }
 
@@ -54,9 +57,9 @@ export const RedirectToSwap: React.FC = (): JSX.Element => {
 //   return <RedirectPathToSwapOnly {...props} />
 // }
 export const OpenClaimAddressModalAndRedirectToSwap: React.FC = (): JSX.Element => {
-  const dispatch = useDispatch<AppDispatch>()
+  const dispatch = useDispatch<AppDispatch>();
   useEffect(() => {
-    dispatch(setOpenModal(ApplicationModal.ADDRESS_CLAIM))
-  }, [dispatch])
-  return <RedirectPathToSwapOnly />
-}
+    dispatch(setOpenModal(ApplicationModal.ADDRESS_CLAIM));
+  }, [dispatch]);
+  return <RedirectPathToSwapOnly />;
+};
