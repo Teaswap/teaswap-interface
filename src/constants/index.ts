@@ -232,7 +232,16 @@ export const TSAMembership = new Token(
   0,
   "TSA Membership NFT",
   "tsamembership30 Collection"
+)
+export const PenguinPunksCollection = new Token(
+  ChainId.BSC_MAINNET,
+  "0x325Cc08b140B643B1e23c50973Cd85f511Cc6D51",
+  0,
+  "PenguinPunks NFT",
+  "PenguinPunks Collection"
 );
+
+;
 
 export const TSAMetaverseAvatar = new Token(
   ChainId.BSC_MAINNET,
