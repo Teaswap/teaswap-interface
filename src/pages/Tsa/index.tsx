@@ -49,7 +49,7 @@ export default () => {
     setMsg("");
     setHash("");
     setAmount(e.target.value);
-    if (!tspContract || e.target.value == 'Mint') return;
+    if (!tspContract || e.target.value == "Mint") return;
     const args = [JSBI.BigInt(e.target.value).toString()];
     tspContract
       .mint(...args, {
@@ -100,7 +100,7 @@ export default () => {
             color: "#FFFFFF",
           }}
         >
-          Address: {shortenAddress(account??"")}
+          Address: {shortenAddress(account ?? "")}
         </div>
         <div
           style={{
@@ -145,7 +145,7 @@ export default () => {
                 input={<OutlinedInput />}
                 renderValue={() => {
                   if (!amount) {
-                    return <span style={{color: '#fff'}}>Mint</span>;
+                    return <span style={{ color: "#fff" }}>Mint</span>;
                   }
 
                   return amount;
@@ -172,6 +172,7 @@ export default () => {
                       backgroundColor: "#09afb6",
                       color: "#FFFFFF",
                       cursor: "pointer",
+                      minWidth: "300px",
                     }}
                     onClick={() => {
                       window.open(
@@ -190,6 +191,7 @@ export default () => {
                       backgroundColor: "#09afb6",
                       color: "#FFFFFF",
                       cursor: "pointer",
+                      minWidth: "300px",
                     }}
                     onClick={() => {
                       window.open("https://opensea.io/collection/tsa-penguin");
@@ -266,6 +268,7 @@ const Left = styled.div`
 
 const Right = styled.div`
   flex-direction: column;
+  display: flex;
   align-items: flex-start;
   > div {
     width: 80%;

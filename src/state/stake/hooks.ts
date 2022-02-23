@@ -106,6 +106,13 @@ export const STAKING_REWARDS_INFO: {
       cate: "NFT",
     },
     {
+      tokens: [TSAMembership, SHIB],
+      stakingRewardAddress: "0x1B0c0d5B6dA81eeAfeE73F769591fA58525E03C8",
+      iconUrl: "/membership.gif",
+      cate: "NFT",
+    },
+
+    {
       tokens: [TSANFTMetaverseII, TSALOT],
       stakingRewardAddress: "0x3741356c5f297834134D7249c0e3d588869a1a94",
       iconUrl: "/metaverse_lot.gif",
