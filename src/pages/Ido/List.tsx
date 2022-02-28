@@ -51,7 +51,7 @@ const List = () => {
       info:
         "Located in the TSA MetaPlay Park, you will find 12,888 unique TSA Penguins playing around on the Sandbox TSA Meta & TSA MetaPlay Franchise. The NFTs come in different rarity levels: N (Normal ), R (Rare) & SR ( Super Rare).",
       joinUs: "/tsa",
-      when: "When: 19:00 UTC & PST February 25, 2022",
+      when: "When: 19:00 UTC & PST March 4, 2022",
       end: new Date(1640942516),
       duration: 6048000,
       sign: NewImg,
