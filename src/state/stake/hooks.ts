@@ -227,15 +227,28 @@ export const STAKING_REWARDS_INFO: {
     },
 
     {
-      tokens: [UNI[ChainId.BSC_MAINNET], CJAI],
-      stakingRewardAddress: "0xBDa42D3D89fA802402f08e8e878AC43D320c03bb",
-      iconUrl: "/TSACJAI.png",
-      cate: "CJAI",
+      tokens: [TSA_BUSD_LP, UNI[ChainId.BSC_MAINNET]],
+      stakingRewardAddress: "0x57C235425b6A352858cA44103EA685AB208120E4",
+      iconUrl: "/TSA-BUSD-TSA.png",
+      cate: "TSA",
     },
+
+    // {
+    //   tokens: [UNI[ChainId.BSC_MAINNET], CJAI],
+    //   stakingRewardAddress: "0xBDa42D3D89fA802402f08e8e878AC43D320c03bb",
+    //   iconUrl: "/TSACJAI.png",
+    //   cate: "CJAI",
+    // },
+    // {
+    //   tokens: [UNI[ChainId.BSC_MAINNET], TSALOT],
+    //   stakingRewardAddress: "0x2A7F95C8a708f88001b3e028310C1678ef5b95a7",
+    //   iconUrl: "/TSA_LOT.png",
+    //   cate: "TSA",
+    // },
     {
-      tokens: [UNI[ChainId.BSC_MAINNET], TSALOT],
-      stakingRewardAddress: "0x2A7F95C8a708f88001b3e028310C1678ef5b95a7",
-      iconUrl: "/TSA_LOT.png",
+      tokens: [TSA_FLOKI_LP, UNI[ChainId.BSC_MAINNET]],
+      stakingRewardAddress: "0xA9D4b720bD372fA4ea501CC034947791F2EE456D",
+      iconUrl: "/TSA-FLOKI-TSA.png",
       cate: "TSA",
     },
     {
@@ -265,11 +278,18 @@ export const STAKING_REWARDS_INFO: {
     //   cate: "TSA",
     // },
 
+    // {
+    //   tokens: [TSA_BUSD_LP, UNI[ChainId.BSC_MAINNET]],
+    //   stakingRewardAddress: "0x57C235425b6A352858cA44103EA685AB208120E4",
+    //   iconUrl: "/TSA-BUSD-TSA.png",
+    //   cate: "TSA",
+    // },
+
     {
-      tokens: [TSA_BUSD_LP, UNI[ChainId.BSC_MAINNET]],
-      stakingRewardAddress: "0x57C235425b6A352858cA44103EA685AB208120E4",
-      iconUrl: "/TSA-BUSD-TSA.png",
-      cate: "TSA",
+      tokens: [UNI[ChainId.BSC_MAINNET], CJAI],
+      stakingRewardAddress: "0xBDa42D3D89fA802402f08e8e878AC43D320c03bb",
+      iconUrl: "/TSACJAI.png",
+      cate: "CJAI",
     },
 
     // {
@@ -313,10 +333,16 @@ export const STAKING_REWARDS_INFO: {
       iconUrl: "/BTCTSA.png",
       cate: "TSA",
     },
+    // {
+    //   tokens: [TSA_FLOKI_LP, UNI[ChainId.BSC_MAINNET]],
+    //   stakingRewardAddress: "0xA9D4b720bD372fA4ea501CC034947791F2EE456D",
+    //   iconUrl: "/TSA-FLOKI-TSA.png",
+    //   cate: "TSA",
+    // },
     {
-      tokens: [TSA_FLOKI_LP, UNI[ChainId.BSC_MAINNET]],
-      stakingRewardAddress: "0xA9D4b720bD372fA4ea501CC034947791F2EE456D",
-      iconUrl: "/TSA-FLOKI-TSA.png",
+      tokens: [UNI[ChainId.BSC_MAINNET], TSALOT],
+      stakingRewardAddress: "0x2A7F95C8a708f88001b3e028310C1678ef5b95a7",
+      iconUrl: "/TSA_LOT.png",
       cate: "TSA",
     },
     {
