@@ -153,7 +153,7 @@ export function useApproveNFTCallback(
   const currentAllowance = useNFTAllowance(tokenAddress,tokenId)
   console.log("currentAllowance:", currentAllowance)
   const pendingApproval = useHasPendingNFTApproval(tokenAddress, to,tokenId)
-  console.log("pendingApproval:", pendingApproval)
+  console.log("pendingApproval:", {pendingApproval, to, currentAllowance, tokenAddress})
 
   // check the current approval status
   const approvalState: ApprovalState = useMemo(() => {
@@ -163,7 +163,7 @@ export function useApproveNFTCallback(
     if (!currentAllowance) return ApprovalState.NOT_APPROVED
 
     // amountToApprove will be defined if currentAllowance is
-    return currentAllowance != to
+    return currentAllowance.toLowerCase() != to.toLowerCase()
         ? pendingApproval
             ? ApprovalState.PENDING
             : ApprovalState.NOT_APPROVED: ApprovalState.APPROVED

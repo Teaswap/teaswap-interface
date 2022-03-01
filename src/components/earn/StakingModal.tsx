@@ -53,17 +53,22 @@ export default function StakingModal({ isOpen, onDismiss, stakingInfo, userLiqui
   const [typedValue, setTypedValue] = useState('')
   const { parsedAmount, error } = useDerivedStakeInfo(typedValue, stakingInfo.stakedAmount.token, userLiquidityUnstaked,isNFT)
   const parsedAmountWrapped = wrappedStakeCurrencyAmount(parsedAmount, chainId)
-  console.log("parseAmount："+parsedAmount?.raw)
-  console.log("parseAmountSymbol："+parsedAmount?.currency.symbol)
   const [approvalSubmitted, setApprovalSubmitted] = useState<boolean>(false)
-
-  console.log('StakingModal, stakingInfo', stakingInfo)
 
   const nftcontract = useERC1155Contract(stakingInfo.tokens[0]?.address, false)
 
   const inputs = useMemo(() => [account??undefined], [account])
   const tokenids = useSingleCallResult(isNFT?nftcontract:undefined, 'tokensOfOwner', inputs).result?.[0]
-  console.log("tokenids:"+JSON.stringify(tokenids))
+
+  const deadline = useTransactionDeadline()
+  const [signatureData, setSignatureData] = useState<{ v: number; r: string; s: string; deadline: number } | null>(null)
+  // const [tokenid, setTokenid] = useState('')
+  const [approval, approveCallback] = useApproveCallback(parsedAmount, stakingInfo.stakingRewardAddress,isNFT,isNFT?typedValue:undefined)
+  const addTransaction = useTransactionAdder()
+  const [attempting, setAttempting] = useState<boolean>(false)
+  const [hash, setHash] = useState<string | undefined>()
+
+  console.log("StakingModal state", {error, approval})
 
   const tokenidarray = useMemo(()=>{
     let array = []
@@ -85,11 +90,7 @@ export default function StakingModal({ isOpen, onDismiss, stakingInfo, userLiqui
       stakingInfo.totalRewardRate
     )
   }
-
   // state for pending and submitted txn views
-  const addTransaction = useTransactionAdder()
-  const [attempting, setAttempting] = useState<boolean>(false)
-  const [hash, setHash] = useState<string | undefined>()
   const wrappedOnDismiss = useCallback(() => {
     setHash(undefined)
     setAttempting(false)
@@ -103,10 +104,6 @@ export default function StakingModal({ isOpen, onDismiss, stakingInfo, userLiqui
   // approval data for stake
   // const stakeTokenContract = useTokenContract(stakingInfo.tokens[0].address)
 
-  const deadline = useTransactionDeadline()
-  const [signatureData, setSignatureData] = useState<{ v: number; r: string; s: string; deadline: number } | null>(null)
-  // const [tokenid, setTokenid] = useState('')
-  const [approval, approveCallback] = useApproveCallback(parsedAmount, stakingInfo.stakingRewardAddress,isNFT,isNFT?typedValue:undefined)
 
   useEffect(() => {
     if (approval === ApprovalState.PENDING) {

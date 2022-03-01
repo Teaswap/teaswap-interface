@@ -139,7 +139,7 @@ function toCallState(
     try {
       result = contractInterface.decodeFunctionResult(fragment, data)
     } catch (error) {
-      console.debug('Result data parsing failed', fragment, data)
+      console.debug('Result data parsing failed', fragment, data, error)
       return {
         valid: true,
         loading: false,
@@ -198,7 +198,7 @@ export function useMultipleContractSingleData(
   options?: ListenerOptions
 ): CallState[] {
   const fragment = useMemo(() => contractInterface.getFunction(methodName), [contractInterface, methodName])
-  console.log("fragment:"+JSON.stringify(fragment))
+  console.log("fragment:", {fragment})
   const callData: string | undefined = useMemo(
     () =>
         addresses && addresses?.length>0 && fragment && isValidMethodArgs(callInputs)
@@ -223,6 +223,7 @@ export function useMultipleContractSingleData(
   )
 
   const results = useCallsData(calls, options)
+  console.log("useCallsdata", {calls, options, results})
 
   const latestBlockNumber = useBlockNumber()
 

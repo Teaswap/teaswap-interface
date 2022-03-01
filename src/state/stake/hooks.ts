@@ -87,12 +87,12 @@ export const STAKING_REWARDS_INFO: {
     //   iconUrl: "/TSAPenguinPunks.png",
     //   cate:"NFT"
     // },
-    {
-      tokens: [PenguinPunksCollection, SHIB],
-      stakingRewardAddress: "0xf29766e4f02947a8588d4ed19d0ea701e50b4bce",
-      iconUrl: "/penguin-punks_2.gif",
-      cate: "NFT",
-    },
+    // {
+    //   tokens: [PenguinPunksCollection, SHIB],
+    //   stakingRewardAddress: "0xF29766e4f02947A8588d4Ed19d0EA701e50b4Bce",
+    //   iconUrl: "/penguin-punks_2.gif",
+    //   cate: "NFT",
+    // },
     {
       tokens: [PenguinPunks, UNI[ChainId.BSC_MAINNET]],
       stakingRewardAddress: "0xc4D4D745305696B6F1a11968e1EA64B8EC91099c",
@@ -859,9 +859,6 @@ export function useAllStakingInfo(): StakingInfo[] {
     [info]
   );
 
-  // console.log("stakingRewardAddressout:"+stakingRewardAddress)
-  // console.log("infoout:"+JSON.stringify(info))
-  // console.log("rewardsAddressesout"+JSON.stringify(rewardsAddresses))
 
   const accountArg = useMemo(() => [account ?? undefined], [account]);
 
@@ -909,6 +906,7 @@ export function useAllStakingInfo(): StakingInfo[] {
     STAKING_REWARDS_INTERFACE,
     "periodFinish"
   );
+  console.log("useAllStakingInfo", {info, stakingRewardAddress, uni, balances, earnedAmounts, unClaimedAmounts, totalSupplies, rewardsDurations, rewardRates, periodFinishes})
 
   return useMemo(() => {
     if (!chainId || !uni) return [];

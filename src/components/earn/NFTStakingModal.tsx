@@ -106,6 +106,8 @@ export default function NFTStakingModal({ isOpen, onDismiss, stakingInfo, userLi
   // const [tokenid, setTokenid] = useState('')
   const [approval, approveCallback] = useApproveNFTCallback(stakingInfo.stakingRewardAddress,Number.parseInt(typedValue),stakingInfo.tokens[0].address,true)
 
+  console.log("NFT StakingModal state",{approval, error, parsedAmount})
+
   useEffect(() => {
     if (approval === ApprovalState.PENDING) {
       setApprovalSubmitted(true)
