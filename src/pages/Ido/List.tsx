@@ -281,10 +281,10 @@ const PageWrapper2 = styled(ColumnCenter)`
   text-align: center;
   width: 100%;
   margin: 0 auto;
-  margin-top: -100px;
+  /* margin-top: -100px; */
+  margin-bottom: 50px;
   max-width: 1400px;
   padding-top: 30px;
-  padding-bottom: 30px;
 `;
 const Grids = styled(ColumnCenter)`
   text-align: center;
