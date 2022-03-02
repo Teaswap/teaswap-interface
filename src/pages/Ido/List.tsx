@@ -284,6 +284,7 @@ const PageWrapper2 = styled(ColumnCenter)`
   margin-top: -100px;
   max-width: 1400px;
   padding-top: 30px;
+  padding-bottom: 30px;
 `;
 const Grids = styled(ColumnCenter)`
   text-align: center;
