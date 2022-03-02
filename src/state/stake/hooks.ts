@@ -87,6 +87,12 @@ export const STAKING_REWARDS_INFO: {
     //   iconUrl: "/TSAPenguinPunks.png",
     //   cate:"NFT"
     // },
+    {
+      tokens: [PenguinPunksCollection, SHIB],
+      stakingRewardAddress: "0xDb5E373C9F1D8afAb067E947AdfEc14D2aF6157A",
+      iconUrl: "/penguin-punks_2.gif",
+      cate: "NFT",
+    },
     // {
     //   tokens: [PenguinPunksCollection, SHIB],
     //   stakingRewardAddress: "0xF29766e4f02947A8588d4Ed19d0EA701e50b4Bce",
