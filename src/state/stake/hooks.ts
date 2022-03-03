@@ -88,6 +88,12 @@ export const STAKING_REWARDS_INFO: {
     //   cate:"NFT"
     // },
     {
+      tokens: [TSALOTNFT, UNI[ChainId.BSC_MAINNET]],
+      stakingRewardAddress: "0x2ff3fcf32caf64bab5dc4e4eb87a27e554b49ec8",
+      iconUrl: "/tsalotnft_0303.gif",
+      cate: "NFT",
+    },
+    {
       tokens: [PenguinPunksCollection, SHIB],
       stakingRewardAddress: "0x7e2ef36d3d6e638bf370792154d2e250486872bd",
       iconUrl: "/penguin-punks_2.gif",
