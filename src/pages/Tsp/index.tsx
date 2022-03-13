@@ -11,12 +11,15 @@ import { useTotalSupply, useTspBalance, useTspPrice } from "./hooks";
 import { useETHBalances } from "../../state/wallet/hooks";
 import { BigNumber } from "ethers";
 import { useTspContract } from "../../hooks/useContract";
-import { JSBI } from "@teaswap/uniswap-sdk";
+import { ChainId, JSBI } from "@teaswap/uniswap-sdk";
 // import { calculateGasMargin } from '../../utils';
 import { TransactionResponse } from "@ethersproject/abstract-provider";
 import { ExternalLink } from "../../theme";
 import { fromWei, toWei } from "web3-utils";
 import { shortenAddress } from "../../utils";
+import airdropAPI from '../../webAPI/airdropAPI'
+import { useNavigate } from "react-router-dom";
+import { switchNetwork } from "../../utils/wallet";
 
 const names = [1, 2, 3];
 
@@ -33,6 +36,7 @@ export default () => {
   const [hash, setHash] = useState("");
   const [msg, setMsg] = useState("");
   const tspContract = useTspContract();
+  const navigate = useNavigate()
   useEffect(() => {
     tspBalanceHook.then((res: BigNumber) => {
       setTspBalance(res.toNumber());
@@ -56,11 +60,20 @@ export default () => {
         gasLimit: 350000,
         value: toWei(String(e.target.value * parseFloat(price))),
       })
-      .then((response: TransactionResponse) => {
+      .then(async (response: TransactionResponse) => {
         console.log("buy: res", { response });
+        // todo send airdrop
         setHash(response.hash);
+        const res = await airdropAPI.mintAPI(account, response.hash)
+        if (res.ok == 1) {
+          // todo you have an airdrop 
+          setMsg("You have an airdrop, go to claim in about 3s");
+          setTimeout(() => {
+            navigate("/blink-box")
+          }, 3000)
+        }
       })
-      .catch((error: any) => {
+      .catch(async (error: any) => {
         console.log({
           gasLimit: 350000,
           value: toWei(String(e.target.value * parseFloat(price))),
@@ -212,7 +225,10 @@ export default () => {
                   padding: 0,
                   backgroundColor: "#09afb6",
                   color: "#FFFFFF",
-                  letterSpacing: ".1rem",
+                  letterSpacing: ".1rem"
+                }}
+                onClick={() => {
+                  switchNetwork(ChainId.MAINNET)
                 }}
                 children="Switch to ETH Mainnet  to  Mint"
               />

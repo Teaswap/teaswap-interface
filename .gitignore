@@ -38,3 +38,7 @@ cypress/fixtures/example.json
 .login
 src/constants/lists.ts
 src/constants/unit.js
+.beta_deploy
+.env.beta
+.env.prod
+env.production

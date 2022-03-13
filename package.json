@@ -102,6 +102,7 @@
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
+    "beta": "sh .beta_deploy",
     "test": "node scripts/test.js --env=jsdom",
     "integration-test": "start-server-and-test 'serve build -l 3000' http://localhost:3000 'cypress run'",
     "lint": "eslint src/**/*.ts src/**/*.tsx"

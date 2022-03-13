@@ -13,6 +13,7 @@ import { useModalOpen, useToggleModal } from "../../state/application/hooks";
 // import { ExternalLink } from '../../theme'
 // import { ButtonPrimary } from '../Button'
 import { useNavigate } from "react-router-dom";
+import airdropAPI from "../../webAPI/airdropAPI";
 
 // const StyledMenuIcon = styled(MenuIcon)`
 //   path {
@@ -108,6 +109,13 @@ export default function Menu() {
   const toggle = useToggleModal(ApplicationModal.MENU);
   useOnClickOutside(node, open ? toggle : undefined);
   const openClaimModal = useToggleModal(ApplicationModal.ADDRESS_CLAIM);
+  const checkBlinkBoxAirdrop = () => {
+    airdropAPI.getCountAPI(account).then((res: any) => {
+      if (res.count > 0) {
+        navigate('/blind-box')
+      }
+    })
+  }
 
   return (
     // https://github.com/DefinitelyTyped/DefinitelyTyped/issues/30451
@@ -178,6 +186,7 @@ export default function Menu() {
                 {t("Referral")}
               </MenuItem>
               <MenuItem onClick={openClaimModal}>{t("Airdrop")}</MenuItem>
+              <MenuItem onClick={checkBlinkBoxAirdrop}>{t("Blind Box Airdrop")}</MenuItem>
               <MenuItem
                 onClick={() =>
                   window.open("https://app.multichain.org/#/router")

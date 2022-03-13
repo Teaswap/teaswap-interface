@@ -30,7 +30,8 @@ import { getContract } from '../utils'
 import { useActiveWeb3React } from './index'
 
 import tspAbi from '../constants/abis/tsp.json'
-import { tspAddr, tsaAddr } from '../sushi/lib/constants'
+import { tspAddr, tsaAddr, blindBoxAddr } from '../sushi/lib/constants'
+import blindBoxAbi from '../constants/abis/blink-box.json'
 
 // returns null on errors
 function useContract(address: string | undefined, ABI: any, withSignerIfPossible = true): Contract | null {
@@ -164,4 +165,8 @@ export function useTspContract(): Contract | null {
 
 export function useTsaContract(): Contract | null {
   return useContract(tsaAddr, tspAbi, true)
+}
+
+export function useBlindBoxContract(): Contract | null {
+  return useContract(blindBoxAddr, blindBoxAbi, true)
 }

@@ -11,12 +11,15 @@ import { useTotalSupply, useTsaBalance, useTsaPrice } from "./hooks";
 import { useETHBalances } from "../../state/wallet/hooks";
 import { BigNumber } from "ethers";
 import { useTsaContract } from "../../hooks/useContract";
-import { JSBI } from "@teaswap/uniswap-sdk";
+import { ChainId, JSBI } from "@teaswap/uniswap-sdk";
 // import { calculateGasMargin } from '../../utils';
 import { TransactionResponse } from "@ethersproject/abstract-provider";
 import { ExternalLink } from "../../theme";
 import { fromWei, toWei } from "web3-utils";
 import { shortenAddress } from "../../utils";
+import airdropAPI from '../../webAPI/airdropAPI'
+import { useNavigate } from "react-router-dom";
+import { switchNetwork } from "../../utils/wallet";
 
 const names = [1, 2, 3];
 
@@ -33,6 +36,7 @@ export default () => {
   const [hash, setHash] = useState("");
   const [msg, setMsg] = useState("");
   const tspContract = useTsaContract();
+  const navigate = useNavigate()
   useEffect(() => {
     tsaBalanceHook.then((res: BigNumber) => {
       setTsaBalance(res.toNumber());
@@ -56,9 +60,17 @@ export default () => {
         gasLimit: 350000,
         value: toWei(String(e.target.value * parseFloat(price))),
       })
-      .then((response: TransactionResponse) => {
+      .then(async (response: TransactionResponse) => {
         console.log("buy: res", { response });
         setHash(response.hash);
+        const res = await airdropAPI.mintAPI(account, response.hash)
+        if (res.ok == 1) {
+          // todo you have an airdrop 
+          setMsg("You have an airdrop, go to claim in about 3s");
+          setTimeout(() => {
+            navigate("/blink-box")
+          }, 3000)
+        }
       })
       .catch((error: any) => {
         console.log({
@@ -211,6 +223,9 @@ export default () => {
                   backgroundColor: "#09afb6",
                   color: "#FFFFFF",
                   letterSpacing: ".1rem",
+                }}
+                onClick={() => {
+                  switchNetwork(ChainId.MAINNET)
                 }}
                 children="Switch to ETH Mainnet  to  Mint"
               />
