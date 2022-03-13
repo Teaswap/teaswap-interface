@@ -38,6 +38,7 @@ export default () => {
   const tspContract = useTsaContract();
   const navigate = useNavigate()
   useEffect(() => {
+    if (!account) return
     tsaBalanceHook.then((res: BigNumber) => {
       setTsaBalance(res.toNumber());
     });

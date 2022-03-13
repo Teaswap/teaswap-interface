@@ -197,7 +197,7 @@ export default () => {
           {hash && (
             <div>
               <ExternalLink href={`https://bscscan.com/tx/${hash}`}>
-                View on Etherscan
+                View on Bscscan
               </ExternalLink>
             </div>
           )}

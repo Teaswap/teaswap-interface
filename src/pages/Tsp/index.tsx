@@ -38,6 +38,7 @@ export default () => {
   const tspContract = useTspContract();
   const navigate = useNavigate()
   useEffect(() => {
+    if (!account || chainId != ChainId.MAINNET) return
     tspBalanceHook.then((res: BigNumber) => {
       setTspBalance(res.toNumber());
     });
@@ -47,7 +48,7 @@ export default () => {
     priceHook.then((res: BigNumber) => {
       setPrice(fromWei(res.toString(), "ether"));
     });
-  });
+  }, [account, chainId]);
 
   const handleChange = async (e: any) => {
     setMsg("");
