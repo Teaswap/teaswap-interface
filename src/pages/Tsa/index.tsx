@@ -69,7 +69,7 @@ export default () => {
           // todo you have an airdrop 
           setMsg("You have an airdrop, go to claim in about 3s");
           setTimeout(() => {
-            navigate("/blink-box")
+            navigate("/blind-box")
           }, 3000)
         }
       })
@@ -78,7 +78,7 @@ export default () => {
           gasLimit: 350000,
           value: toWei(String(e.target.value * parseFloat(price))),
         });
-        setMsg("int error: " + error.mesage);
+        setMsg("int error: " + error.mesage)
       });
   };
   console.log("tsp: ", { tsaBalance, balance });

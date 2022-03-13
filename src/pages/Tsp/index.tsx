@@ -70,7 +70,7 @@ export default () => {
           // todo you have an airdrop 
           setMsg("You have an airdrop, go to claim in about 3s");
           setTimeout(() => {
-            navigate("/blink-box")
+            navigate("/blind-box")
           }, 3000)
         }
       })

@@ -31,7 +31,7 @@ import { useActiveWeb3React } from './index'
 
 import tspAbi from '../constants/abis/tsp.json'
 import { tspAddr, tsaAddr, blindBoxAddr } from '../sushi/lib/constants'
-import blindBoxAbi from '../constants/abis/blink-box.json'
+import blindBoxAbi from '../constants/abis/blind-box.json'
 
 // returns null on errors
 function useContract(address: string | undefined, ABI: any, withSignerIfPossible = true): Contract | null {
