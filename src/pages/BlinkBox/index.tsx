@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { useActiveWeb3React } from "../../hooks";
-import FormControl from "@mui/material/FormControl";
 import { NormalButton } from "../../components/NFTButton";
 
 import { useTotalSupply, useBlindBoxBalance, useBlindBoxPrice } from "./hooks";
@@ -64,8 +63,6 @@ export default () => {
           value: toWei(String(amount * parseFloat(price))),
         });
         setMsg("int error: " + error.mesage);
-        const res = await airdropAPI.mintAPI(account, "asdfsadf")
-        console.log("airdrop res", res)
       });
   };
   console.log("blindBox: ", { blindBoxBalance, balance });
@@ -125,6 +122,7 @@ export default () => {
                   backgroundColor: "#09afb6",
                   color: "#FFFFFF",
                   letterSpacing: ".1rem",
+                  width: 100
                 }}
                 onClick={() => {
                   navigate("/staking")
@@ -163,8 +161,8 @@ export default () => {
           </div> */}
         </div>
         <div>
-          {account && chainId === ChainId.BSC_MAINNET && (
-            <FormControl>
+          {account && chainId === ChainId.BSC_MAINNET && amount > 0 && (
+            <div style={{ marginTop: 20, marginLeft: -18 }}>
               <NormalButton
                 style={{
                   padding: 0,
@@ -175,7 +173,7 @@ export default () => {
                 onClick={onMint}
                 children="Claim"
               />
-            </FormControl>
+            </div>
           )}
 
           {account && chainId !== ChainId.BSC_MAINNET && (
