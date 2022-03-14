@@ -12,30 +12,30 @@ import { TransactionResponse } from "@ethersproject/abstract-provider";
 import { ExternalLink } from "../../theme";
 import { toWei } from "web3-utils";
 import { shortenAddress } from "../../utils";
-import airdropAPI from '../../webAPI/airdropAPI'
+import airdropAPI from "../../webAPI/airdropAPI";
 import { switchNetwork } from "../../utils/wallet";
 import { useNavigate } from "react-router-dom";
 
-const symbol = "BBBPENGUIN"
+const symbol = "BBBPENGUIN";
 
 export default () => {
   const { account, chainId } = useActiveWeb3React();
   const balance = useETHBalances(account ? [account] : [])?.[account ?? ""];
   const [blindBoxBalance] = useBlindBoxBalance(account ?? "");
   const [totalSupply] = useTotalSupply();
-  const [price]= useBlindBoxPrice();
+  const [price] = useBlindBoxPrice();
   const [amount, setAmount] = useState(0);
   const [hash, setHash] = useState("");
   const [msg, setMsg] = useState("");
   const blindBoxContract = useBlindBoxContract();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   useEffect(() => {
     airdropAPI.getCountAPI(account).then((res: any) => {
       if (res.count) {
-        setAmount(res.count)
+        setAmount(res.count);
       }
-    })
-  }, [account])
+    });
+  }, [account]);
 
   const onMint = async () => {
     setMsg("");
@@ -55,7 +55,7 @@ export default () => {
         console.log("buy: res", { response });
         // todo send airdrop
         setHash(response.hash);
-        await airdropAPI.mintedAPI(account)
+        await airdropAPI.mintedAPI(account);
       })
       .catch(async (error: any) => {
         console.log({
@@ -69,7 +69,7 @@ export default () => {
   return (
     <Wrapper>
       <Left className="panel">
-        <img src="/brother2.gif" />
+        <img src="/web2.gif" />
       </Left>
       <Right className="panel">
         <div
@@ -79,7 +79,7 @@ export default () => {
             color: "#FFFFFF",
           }}
         >
-          Blink Box
+          Blind Box
         </div>
         <div
           style={{
@@ -115,20 +115,21 @@ export default () => {
             color: "#FFFFFF",
           }}
         >
-          Balance: {blindBoxBalance} {blindBoxBalance > 0 && (
+          Balance: {blindBoxBalance}{" "}
+          {blindBoxBalance > 0 && (
             <NormalButton
-                style={{
-                  padding: 0,
-                  backgroundColor: "#09afb6",
-                  color: "#FFFFFF",
-                  letterSpacing: ".1rem",
-                  width: 100
-                }}
-                onClick={() => {
-                  navigate("/staking")
-                }}
-                children="Go Stake"
-              />
+              style={{
+                padding: 0,
+                backgroundColor: "#09afb6",
+                color: "#FFFFFF",
+                letterSpacing: ".1rem",
+                width: 100,
+              }}
+              onClick={() => {
+                navigate("/staking");
+              }}
+              children="Go Stake"
+            />
           )}
         </div>
         <div
@@ -155,7 +156,9 @@ export default () => {
             color: "#FFFFFF",
           }}
         >
-          <p>You have {amount} airdrop {symbol}.</p>
+          <p>
+            You have {amount} airdrop {symbol}.
+          </p>
           {/* <div style={{ position: "relative", top: "-10px" }}>
             <p># NFTs minted by you so far: {blindBoxBalance}/3</p>
           </div> */}
@@ -186,7 +189,7 @@ export default () => {
                   letterSpacing: ".1rem",
                 }}
                 onClick={() => {
-                  switchNetwork(ChainId.BSC_MAINNET)
+                  switchNetwork(ChainId.BSC_MAINNET);
                 }}
                 children="Switch to BSC Mainnet  to  Mint"
               />
@@ -212,7 +215,7 @@ const Wrapper = styled.div`
   justify-content: space-between;
   width: 100%;
   height: calc(100vh - 50px);
-  background-color: #d6d952;
+  background-color: #4d0896;
   @media (max-width: 768px) {
     flex-direction: column;
     height: auto;

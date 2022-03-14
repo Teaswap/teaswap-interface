@@ -17,7 +17,7 @@ import { TransactionResponse } from "@ethersproject/abstract-provider";
 import { ExternalLink } from "../../theme";
 import { fromWei, toWei } from "web3-utils";
 import { shortenAddress } from "../../utils";
-import airdropAPI from '../../webAPI/airdropAPI'
+import airdropAPI from "../../webAPI/airdropAPI";
 import { useNavigate } from "react-router-dom";
 import { switchNetwork } from "../../utils/wallet";
 
@@ -36,9 +36,9 @@ export default () => {
   const [hash, setHash] = useState("");
   const [msg, setMsg] = useState("");
   const tspContract = useTsaContract();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   useEffect(() => {
-    if (!account) return
+    if (!account) return;
     tsaBalanceHook.then((res: BigNumber) => {
       setTsaBalance(res.toNumber());
     });
@@ -64,13 +64,13 @@ export default () => {
       .then(async (response: TransactionResponse) => {
         console.log("buy: res", { response });
         setHash(response.hash);
-        const res = await airdropAPI.mintAPI(account, response.hash)
+        const res = await airdropAPI.mintAPI(account, response.hash);
         if (res.ok == 1) {
-          // todo you have an airdrop 
+          // todo you have an airdrop
           setMsg("You have an airdrop, go to claim in about 3s");
           setTimeout(() => {
-            navigate("/blind-box")
-          }, 3000)
+            navigate("/blind-box");
+          }, 3000);
         }
       })
       .catch((error: any) => {
@@ -78,7 +78,7 @@ export default () => {
           gasLimit: 350000,
           value: toWei(String(e.target.value * parseFloat(price))),
         });
-        setMsg("int error: " + error.mesage)
+        setMsg("int error: " + error.mesage);
       });
   };
   console.log("tsp: ", { tsaBalance, balance });
@@ -226,7 +226,7 @@ export default () => {
                   letterSpacing: ".1rem",
                 }}
                 onClick={() => {
-                  switchNetwork(ChainId.MAINNET)
+                  switchNetwork(ChainId.MAINNET);
                 }}
                 children="Switch to ETH Mainnet  to  Mint"
               />
@@ -253,6 +253,13 @@ const Wrapper = styled.div`
   width: 100%;
   height: calc(100vh - 50px);
   background-color: #4d0896;
+  /* position: absolute;
+  bottom: 100px; */
+
+  /* ::before {
+    content: "";
+    display: table;
+  } */
   @media (max-width: 768px) {
     flex-direction: column;
     height: auto;

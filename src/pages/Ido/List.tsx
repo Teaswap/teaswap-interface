@@ -11,6 +11,8 @@ import GridImg1 from "../../assets/images/grid_img1.webp";
 import GridImg3 from "../../assets/images/grid_img3.webp";
 import GridImg6 from "../../assets/images/6.jpg";
 import GridImg7 from "../../assets/images/grid_image7.jpg";
+import GridImg8 from "../../assets/images/penguinbrothers.png";
+import GridImg9 from "../../assets/images/Whostheboss.png";
 import YoutobeImg from "../../assets/images/youtube.png";
 import { ExternalLink } from "../../theme";
 
@@ -57,7 +59,21 @@ const List = () => {
       sign: NewImg,
     },
     {
-      image: GridImg7,
+      image: GridImg9,
+      Learn: "https://www.teaswap.live/tsacollections",
+      LearnText: "Who's the Boss?",
+      author: "The Opportunity for Youth NFT Program",
+      medium: "https://www.youtube.com/watch?v=Dfgq197zYTo&t=10s",
+      info:
+        "A collection of 8888 limited editions of  “Who's the Boss?” curated by TSANFT Incubator (Normal & Rare)  and living on the Polygon, the second market is supported by OpenSea and Rarible, Staking farming is powered by TSANFT Staking. The proceeds from 101 editions will go to the foundation COME BACK ALIVE UA and  support SUPPORT Ukraine",
+      joinUs: "/tsp",
+      when: "When: March 19, 2022",
+      end: new Date(1640942516),
+      duration: 6048000,
+      sign: NewImg,
+    },
+    {
+      image: GridImg8,
       Learn: "https://alpha.niftykit.com/drops/penguinbrother",
       LearnText: "Learn > On Polygon",
       author: "The Opportunity for Youth NFT Program",
@@ -179,12 +195,15 @@ const List = () => {
               <Grid key={i}>
                 <img
                   width="100%"
+                  height="220px"
                   src={v.image}
                   onClick={() => {
                     if (v.LearnText == "Learn > On ETH") {
                       window.open("https://www.teaswap.art/tsa");
                     } else if (v.LearnText == "Learn > On Polygon") {
                       window.open("https://www.teaswap.art/tsp");
+                    } else if (v.LearnText == "Who's the Boss?") {
+                      window.open("https://www.teaswap.live/tsacollections");
                     } else {
                       window.open(
                         "https://www.teaswap.art/nft/products/vendor/263751"
