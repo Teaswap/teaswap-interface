@@ -286,11 +286,15 @@ const List = () => {
                     <JoinUs>{t("Join Us")}</JoinUs>
                   </ExternalLink>
                 )}
-                {v.joinUs == "Boss" && (
-                  <ExternalLink href="https://www.teaswap.live/tsacollections">
-                    <JoinUs>{t("Join Us")}</JoinUs>
-                  </ExternalLink>
-                )}
+                {v.joinUs !== "vendor" &&
+                  v.joinUs !== "Alpha" &&
+                  v.joinUs !== "penguinpunks" &&
+                  v.joinUs !== "tsapenguinpunks" &&
+                  v.joinUs == "Boss" && (
+                    <ExternalLink href="https://www.teaswap.live/tsacollections">
+                      <JoinUs>{t("Join Us")}</JoinUs>
+                    </ExternalLink>
+                  )}
 
                 <img
                   style={{
