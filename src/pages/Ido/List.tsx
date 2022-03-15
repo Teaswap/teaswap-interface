@@ -214,7 +214,10 @@ const List = () => {
                   onClick={() => {
                     if (v.LearnText == "Learn > On ETH") {
                       window.open("https://www.teaswap.art/tsa");
-                    } else if (v.LearnText == "Learn > On Polygon") {
+                    } else if (
+                      v.LearnText == "Learn > On Polygon" &&
+                      v.author !== "Who's the Boss?"
+                    ) {
                       window.open("https://www.teaswap.art/tsp");
                     } else if (v.author == "Who's the Boss?") {
                       window.open("https://www.teaswap.live/tsacollections");
