@@ -13,7 +13,7 @@ import { useModalOpen, useToggleModal } from "../../state/application/hooks";
 // import { ExternalLink } from '../../theme'
 // import { ButtonPrimary } from '../Button'
 import { useNavigate } from "react-router-dom";
-import airdropAPI from "../../webAPI/airdropAPI";
+// import airdropAPI from "../../webAPI/airdropAPI";
 
 // const StyledMenuIcon = styled(MenuIcon)`
 //   path {
@@ -110,11 +110,11 @@ export default function Menu() {
   useOnClickOutside(node, open ? toggle : undefined);
   const openClaimModal = useToggleModal(ApplicationModal.ADDRESS_CLAIM);
   const checkBlinkBoxAirdrop = () => {
-    airdropAPI.getCountAPI(account).then((res: any) => {
-      if (res.count > 0) {
-        navigate('/blind-box')
-      }
-    })
+    navigate('/blind-box')
+    // airdropAPI.getCountAPI(account).then((res: any) => {
+    //   if (res.count > 0) {
+    //   }
+    // })
   }
 
   return (
