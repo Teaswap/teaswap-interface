@@ -219,6 +219,7 @@ const Wrapper = styled.div`
   height: calc(100vh - 50px);
   background-color: #4d0896;
   @media (max-width: 768px) {
+    position: relative;
     flex-direction: column;
     height: auto;
   }
