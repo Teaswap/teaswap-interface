@@ -276,7 +276,8 @@ const List = () => {
                 {v.joinUs !== "vendor" &&
                   v.joinUs !== "Alpha" &&
                   v.joinUs !== "penguinpunks" &&
-                  v.joinUs !== "tsapenguinpunks" && (
+                  v.joinUs !== "tsapenguinpunks" &&
+                  v.joinUs !== "Boss" && (
                     <StyledLink to={v.joinUs}>
                       <JoinUs>{t("Join Us")}</JoinUs>
                     </StyledLink>
