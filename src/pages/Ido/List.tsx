@@ -13,6 +13,7 @@ import GridImg6 from "../../assets/images/6.jpg";
 import GridImg7 from "../../assets/images/grid_image7.jpg";
 import GridImg8 from "../../assets/images/penguinbrothers.png";
 import GridImg9 from "../../assets/images/Whostheboss.png";
+import GridImg10 from "../../assets/images/blindbox.png";
 import YoutobeImg from "../../assets/images/youtube.png";
 import { ExternalLink } from "../../theme";
 
@@ -46,20 +47,6 @@ const List = () => {
   const products = [
     {
       image: GridImg7,
-      Learn: "https://www.teaswap.art/blind-box",
-      LearnText: "Learn > On ETH",
-      author: "Blind Box",
-      medium: "https://youtu.be/DUZVbvaa8jM",
-      info:
-        "A collection of 10000 limited editions of “Blind Box” curated by TSANFT Incubator and living on the Binance Smart Chain, the second market is supported by TSA NFT Marketplace and Treasureland, Staking farming is powered by TSANFT Staking. Unlock the BlindBox will be scheduled upon staking pool is ended or advised by the TSA.",
-      joinUs: "/blind-box",
-      when: "When: March 17, 2022",
-      end: new Date(1640942516),
-      duration: 6048000,
-      sign: NewImg,
-    },
-    {
-      image: GridImg7,
       Learn: "https://www.teaswap.live/penguinpunks",
       LearnText: "Learn > On ETH",
       author: "Your Journey to Digital Sustainability and DeFi",
@@ -68,6 +55,20 @@ const List = () => {
         "Located in the TSA MetaPlay Park, you will find 12,888 unique TSA Penguins playing around on the Sandbox TSA Meta & TSA MetaPlay Franchise. The NFTs come in different rarity levels: N (Normal ), R (Rare) & SR ( Super Rare).",
       joinUs: "/tsa",
       when: "When: 19:00 UTC & PST March 18, 2022",
+      end: new Date(1640942516),
+      duration: 6048000,
+      sign: NewImg,
+    },
+    {
+      image: GridImg10,
+      Learn: "https://www.teaswap.art/blind-box",
+      LearnText: "Learn > On BSC",
+      author: "Blind Box",
+      medium: "https://youtu.be/DUZVbvaa8jM",
+      info:
+        "A collection of 10000 limited editions of “Blind Box” curated by TSANFT Incubator and living on the Binance Smart Chain, the second market is supported by TSA NFT Marketplace and Treasureland, Staking farming is powered by TSANFT Staking. Unlock the BlindBox will be scheduled upon staking pool is ended or advised by the TSA.",
+      joinUs: "/blind-box",
+      when: "When: March 20, 2022",
       end: new Date(1640942516),
       duration: 6048000,
       sign: NewImg,
