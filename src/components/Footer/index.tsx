@@ -7,7 +7,7 @@ import { MEDIA_QUERY } from "../../constants/style";
 
 const Footer: React.FC = () => {
   return (
-    <StyledFooter>
+    <StyledFooter className="real-footer">
       <StyledFooterInner>
         <StyledFooterItemLeft
           style={{ marginBottom: 20, width: "150px", textAlign: "left" }}
@@ -51,6 +51,7 @@ const StyledFooterItemDiv = styled.div`
   }
 `;
 const StyledFooter = styled.footer`
+  z-index: 1;
   align-items: flex-start;
   display: flex;
   flex-direction: column;

@@ -150,7 +150,7 @@ export default function App() {
         <HeaderWrapper>
           <Header />
         </HeaderWrapper>
-        <BodyWrapper>
+        <BodyWrapper className="body-wrapper">
           <Popups />
           <Polling />
           <TopLevelModals />

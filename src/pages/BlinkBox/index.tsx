@@ -210,7 +210,9 @@ export default () => {
 };
 
 const Wrapper = styled.div`
-  /* color: #09afb6; */
+  position: absolute;
+  top: 0;
+  left: 0;
   display: flex;
   justify-content: space-between;
   width: 100%;

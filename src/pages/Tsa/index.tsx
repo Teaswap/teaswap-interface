@@ -248,10 +248,13 @@ export default () => {
 
 const Wrapper = styled.div`
   /* color: #09afb6; */
+  position: absolute;
+  top: 0;
+  left: 0;
   display: flex;
   justify-content: space-between;
   width: 100%;
-  height: calc(100vh - 50px);
+  height: calc(100vh - 150px);
   background-color: #4d0896;
   /* position: absolute;
   bottom: 100px; */
