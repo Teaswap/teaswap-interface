@@ -98,7 +98,7 @@ export default () => {
             color: "#FFFFFF",
           }}
         >
-          Address: {shortenAddress(account ?? "")}
+          Address: {account ? shortenAddress(account) : ""}
         </div>
         <div
           style={{

@@ -30,6 +30,7 @@ export default () => {
   const blindBoxContract = useBlindBoxContract();
   const navigate = useNavigate();
   useEffect(() => {
+    if (!account) return
     airdropAPI.getCountAPI(account).then((res: any) => {
       if (res.count) {
         setAmount(res.count);
@@ -97,7 +98,7 @@ export default () => {
             color: "#FFFFFF",
           }}
         >
-          Address: {shortenAddress(account ?? "")}
+          Address: {account ? shortenAddress(account) : ""}
         </div>
         <div
           style={{
