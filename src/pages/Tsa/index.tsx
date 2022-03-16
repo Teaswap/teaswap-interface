@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { useActiveWeb3React } from "../../hooks";
 import Select from "@mui/material/Select";
@@ -9,13 +9,12 @@ import { NormalButton } from "../../components/NFTButton";
 
 import { useTotalSupply, useTsaBalance, useTsaPrice } from "./hooks";
 import { useETHBalances } from "../../state/wallet/hooks";
-import { BigNumber } from "ethers";
 import { useTsaContract } from "../../hooks/useContract";
 import { ChainId, JSBI } from "@teaswap/uniswap-sdk";
 // import { calculateGasMargin } from '../../utils';
 import { TransactionResponse } from "@ethersproject/abstract-provider";
 import { ExternalLink } from "../../theme";
-import { fromWei, toWei } from "web3-utils";
+import { toWei } from "web3-utils";
 import { shortenAddress } from "../../utils";
 import airdropAPI from "../../webAPI/airdropAPI";
 import { useNavigate } from "react-router-dom";
@@ -25,38 +24,23 @@ const names = [1, 2, 3];
 
 export default () => {
   const { account, chainId } = useActiveWeb3React();
-  const [tsaBalance, setTsaBalance] = useState(0);
-  const [totalSupply, setTotalSupply] = useState(0);
-  const [price, setPrice] = useState("0");
+  const tsaContract = useTsaContract();
   const balance = useETHBalances(account ? [account] : [])?.[account ?? ""];
-  const tsaBalanceHook = useTsaBalance(account ?? "");
-  const tspTotalSupplyHook = useTotalSupply();
-  const priceHook = useTsaPrice();
+  const tsaBalance = useTsaBalance(account ?? "", tsaContract, chainId);
+  const totalSupply = useTotalSupply(tsaContract, chainId);
+  const price = useTsaPrice(tsaContract, chainId);
   const [amount, setAmount] = useState(0);
   const [hash, setHash] = useState("");
   const [msg, setMsg] = useState("");
-  const tspContract = useTsaContract();
   const navigate = useNavigate();
-  useEffect(() => {
-    if (!account) return;
-    tsaBalanceHook.then((res: BigNumber) => {
-      setTsaBalance(res.toNumber());
-    });
-    tspTotalSupplyHook.then((res: BigNumber) => {
-      setTotalSupply(res.toNumber());
-    });
-    priceHook.then((res: BigNumber) => {
-      setPrice(fromWei(res.toString(), "ether"));
-    });
-  });
 
   const handleChange = async (e: any) => {
     setMsg("");
     setHash("");
     setAmount(e.target.value);
-    if (!tspContract || e.target.value == "Mint") return;
+    if (!tsaContract || e.target.value == "Mint") return;
     const args = [JSBI.BigInt(e.target.value).toString()];
-    tspContract
+    tsaContract
       .mint(...args, {
         gasLimit: 350000,
         value: toWei(String(e.target.value * parseFloat(price))),
@@ -247,15 +231,12 @@ export default () => {
 };
 
 const Wrapper = styled.div`
-  /* color: #09afb6; */
-  position: absolute;
-  top: 0;
-  left: 0;
   display: flex;
   justify-content: space-between;
   width: 100%;
-  height: calc(100vh - 150px);
+  min-height: 100vh;
   background-color: #4d0896;
+  padding: 100px 0;
   /* position: absolute;
   bottom: 100px; */
 

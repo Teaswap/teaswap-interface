@@ -118,7 +118,7 @@ const BodyWrapper = styled.div`
   min-height: calc(100vh - 302px);
   width: 100%;
   padding-top: 92px;
-  padding-bottom: 50px;
+  /* padding-bottom: 50px; */
   align-items: center;
   flex: 1;
   overflow-y: auto;

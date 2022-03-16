@@ -210,13 +210,11 @@ export default () => {
 };
 
 const Wrapper = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
   display: flex;
   justify-content: space-between;
   width: 100%;
-  height: calc(100vh - 50px);
+  min-height: 100vh;
+  padding: 100px 0;
   background-color: #4d0896;
   @media (max-width: 768px) {
     flex-direction: column;

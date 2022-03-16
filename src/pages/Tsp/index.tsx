@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { useActiveWeb3React } from "../../hooks";
 import Select from "@mui/material/Select";
@@ -9,13 +9,12 @@ import { NormalButton } from "../../components/NFTButton";
 
 import { useTotalSupply, useTspBalance, useTspPrice } from "./hooks";
 import { useETHBalances } from "../../state/wallet/hooks";
-import { BigNumber } from "ethers";
 import { useTspContract } from "../../hooks/useContract";
 import { ChainId, JSBI } from "@teaswap/uniswap-sdk";
 // import { calculateGasMargin } from '../../utils';
 import { TransactionResponse } from "@ethersproject/abstract-provider";
 import { ExternalLink } from "../../theme";
-import { fromWei, toWei } from "web3-utils";
+import { toWei } from "web3-utils";
 import { shortenAddress } from "../../utils";
 import airdropAPI from '../../webAPI/airdropAPI'
 import { useNavigate } from "react-router-dom";
@@ -24,31 +23,16 @@ import { switchNetwork } from "../../utils/wallet";
 const names = [1, 2, 3];
 
 export default () => {
-  const { account, chainId } = useActiveWeb3React();
-  const [tspBalance, setTspBalance] = useState(0);
-  const [totalSupply, setTotalSupply] = useState(0);
-  const [price, setPrice] = useState("0");
-  const balance = useETHBalances(account ? [account] : [])?.[account ?? ""];
-  const tspBalanceHook = useTspBalance(account ?? "");
-  const tspTotalSupplyHook = useTotalSupply();
-  const priceHook = useTspPrice();
   const [amount, setAmount] = useState(0);
   const [hash, setHash] = useState("");
   const [msg, setMsg] = useState("");
-  const tspContract = useTspContract();
   const navigate = useNavigate()
-  useEffect(() => {
-    if (!account || chainId != ChainId.MAINNET) return
-    tspBalanceHook.then((res: BigNumber) => {
-      setTspBalance(res.toNumber());
-    });
-    tspTotalSupplyHook.then((res: BigNumber) => {
-      setTotalSupply(res.toNumber());
-    });
-    priceHook.then((res: BigNumber) => {
-      setPrice(fromWei(res.toString(), "ether"));
-    });
-  }, [account, chainId]);
+  const tspContract = useTspContract();
+  const { account, chainId } = useActiveWeb3React();
+  const balance = useETHBalances(account ? [account] : [])?.[account ?? ""];
+  const tspBalance = useTspBalance(account, tspContract, chainId);
+  const totalSupply = useTotalSupply(tspContract, chainId);
+  const price = useTspPrice(tspContract, chainId);
 
   const handleChange = async (e: any) => {
     setMsg("");
@@ -250,15 +234,12 @@ export default () => {
 };
 
 const Wrapper = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
   display: flex;
   justify-content: space-between;
   width: 100%;
-  height: calc(100vh - 150px);
+  min-height: 100vh;
+  padding: 100px 0;
   background-color: #d6d952;
-  overflow: hidden ;
   @media (max-width: 768px) {
     flex-direction: column;
     height: auto;

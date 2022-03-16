@@ -4,36 +4,47 @@ import Nav from "./components/Nav";
 import Logo from "../../assets/images/teaswap-logo.png";
 import NavSocial from "./components/NavSocial";
 import { MEDIA_QUERY } from "../../constants/style";
+import { useLocation } from 'react-router-dom'
+
 
 const Footer: React.FC = () => {
+  const location = useLocation()
   return (
-    <StyledFooter className="real-footer">
-      <StyledFooterInner>
-        <StyledFooterItemLeft
-          style={{ marginBottom: 20, width: "150px", textAlign: "left" }}
-        >
-          <img
-            height="40px"
-            style={{ marginTop: -8 }}
-            width=""
-            src={Logo}
-            alt="logo"
-          />
-          <StyledFooterSmallItemTitle>
-            The One Hub for NFT Creators and Influencers.
-          </StyledFooterSmallItemTitle>
-        </StyledFooterItemLeft>
-        <StyledFooterItem>
-          <Nav />
-          <NavSocial />
-        </StyledFooterItem>
-      </StyledFooterInner>
-      <StyledFooterItemDiv>
-        <div>
-          <span>© 2022 TSANFT All rights reserved.</span>
-        </div>
-      </StyledFooterItemDiv>
-    </StyledFooter>
+    <>
+      {!['/tsa', '/tsp', '/blind-box'].includes(location.pathname) && (
+        <div style={{
+          width: '100%',
+          height: '150px'
+        }}></div>
+      )}
+      <StyledFooter className="real-footer">
+        <StyledFooterInner>
+          <StyledFooterItemLeft
+            style={{ marginBottom: 20, width: "150px", textAlign: "left" }}
+          >
+            <img
+              height="40px"
+              style={{ marginTop: -8 }}
+              width=""
+              src={Logo}
+              alt="logo"
+            />
+            <StyledFooterSmallItemTitle>
+              The One Hub for NFT Creators and Influencers.
+            </StyledFooterSmallItemTitle>
+          </StyledFooterItemLeft>
+          <StyledFooterItem>
+            <Nav />
+            <NavSocial />
+          </StyledFooterItem>
+        </StyledFooterInner>
+        <StyledFooterItemDiv>
+          <div>
+            <span>© 2022 TSANFT All rights reserved.</span>
+          </div>
+        </StyledFooterItemDiv>
+      </StyledFooter>
+    </>
   );
 };
 const StyledFooterItemDiv = styled.div`
@@ -56,7 +67,7 @@ const StyledFooter = styled.footer`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-top: 150px;
+  /* margin-top: 150px; */
   width: 100%;
   background: #303030;
   padding: 25px;

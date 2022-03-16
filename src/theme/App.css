@@ -412,3 +412,6 @@
 iframe{
   display: none !important;
 }
+iframe.myiframe {
+  display: block !important;
+}

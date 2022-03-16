@@ -56,7 +56,7 @@ function IframeComponent(props: any) {
   );
 }
 
-// const iframe = '<iframe frameborder="0" allowfullscreen="1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" title="YouTube video player" style="margin-top: 30px; width: 100%; height: 100%; " src="https://www.youtube.com/embed/xMX2oPlPtF8?autoplay=1&amp;mute=0&amp;controls=1&amp;loop=1&ampplaylist=xMX2oPlPtF8;playsinline=1&amp;enablejsapi=1&amp;widgetid=1" id="widget2"></iframe>'; 
+// const iframe = '<iframe  class="myiframe" frameborder="0" allowfullscreen="1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" title="YouTube video player" style="margin-top: 30px; width: 100%; height: 100%; " src="https://www.youtube.com/embed/xMX2oPlPtF8?autoplay=1&amp;mute=0&amp;controls=1&amp;loop=1&ampplaylist=xMX2oPlPtF8;playsinline=1&amp;enablejsapi=1&amp;widgetid=1" id="widget2"></iframe>'; 
 
-const iframe1 = '<iframe width="100%" height="100%" src="https://www.youtube.com/embed/xMX2oPlPtF8?list=TLGG9ReK7COgvPsxNjA2MjAyMQ&autoplay=1&loop=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'
-{/* <iframe width="1400" height="721" src="https://www.youtube.com/embed/xMX2oPlPtF8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> */}
+const iframe1 = '<iframe  class="myiframe" width="100%" height="100%" src="https://www.youtube.com/embed/xMX2oPlPtF8?list=TLGG9ReK7COgvPsxNjA2MjAyMQ&autoplay=1&loop=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'
+{/* <iframe  class="myiframe" width="1400" height="721" src="https://www.youtube.com/embed/xMX2oPlPtF8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> */}
