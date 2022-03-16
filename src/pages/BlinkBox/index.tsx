@@ -30,7 +30,7 @@ export default () => {
   const blindBoxContract = useBlindBoxContract();
   const navigate = useNavigate();
   useEffect(() => {
-    if (!account) return
+    if (!account) return;
     airdropAPI.getCountAPI(account).then((res: any) => {
       if (res.count) {
         setAmount(res.count);
@@ -80,7 +80,7 @@ export default () => {
             color: "#FFFFFF",
           }}
         >
-          Blind Box
+          TSA Magic Box
         </div>
         <div
           style={{

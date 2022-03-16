@@ -63,10 +63,10 @@ const List = () => {
       image: GridImg10,
       Learn: "https://www.teaswap.art/blind-box",
       LearnText: "Learn > On BSC",
-      author: "Blind Box",
+      author: "TSA Magic Box",
       medium: "https://youtu.be/DUZVbvaa8jM",
       info:
-        "A collection of 10000 limited editions of “Blind Box” curated by TSANFT Incubator and living on the Binance Smart Chain, the second market is supported by TSA NFT Marketplace and Treasureland, Staking farming is powered by TSANFT Staking. Unlock the BlindBox will be scheduled upon staking pool is ended or advised by the TSA.",
+        "A collection of 10,000 limited edition TSANFTs are available in the TSA MagicBox.  Holding a TSA Magic Box gives holders access to our discord-based DAO, TSADAO, where we deliver interconnectivity via social programs and rewards to the community, have a say in the future of the TSA NFT Incubator & Marketplace.",
       joinUs: "/blind-box",
       when: "When: March 20, 2022",
       end: new Date(1640942516),
