@@ -217,6 +217,7 @@ const Wrapper = styled.div`
   padding: 100px 0;
   background-color: #4d0896;
   @media (max-width: 768px) {
+    position: relative;
     flex-direction: column;
     height: auto;
   }
