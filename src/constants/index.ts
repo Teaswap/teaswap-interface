@@ -592,6 +592,14 @@ export const T_USDT = new Token(
   "Tether USD"
 );
 
+export const BBBPENGUIN = new Token(
+  ChainId.BSC_MAINNET,
+  "0x68caacEEf02723f5589490128a25f0bDE9cd5b47",
+  0,
+  "BBBPENGUIN",
+  "Binance NFT Blind Box- Penguin"
+);
+
 const WETH_ONLY: ChainTokenList = {
   [ChainId.MAINNET]: [WETH[ChainId.MAINNET]],
   [ChainId.ROPSTEN]: [WETH[ChainId.ROPSTEN]],
