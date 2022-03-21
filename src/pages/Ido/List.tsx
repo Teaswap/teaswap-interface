@@ -82,7 +82,7 @@ const List = () => {
       info:
         "A collection of 300 limited editions of  “Who's the Boss?” curated by TSANFT Incubator (https://www.teaswap.live/tsacollections)  (Normal & Rare)  and living on the Polygon, the second market is supported by OpenSea and Rarible, staking farming is powered by TSANFT Staking ( https://www.teaswap.art/staking ) . The proceeds from 101 editions will go to the foundation COME BACK ALIVE UA and  support SUPPORT Ukraine.",
       joinUs: "Boss",
-      when: "When: March 22, 2022",
+      when: "When: March 25, 2022",
       end: new Date(1640942516),
       duration: 6048000,
       sign: NewImg,
@@ -96,7 +96,7 @@ const List = () => {
       info:
         "A collection of 8,888 unique Penguinbrothers (Normal & Rare) curated by TSA Incubator and living on the Ethereum, Polygon and Binance Smart Chain. Supporting Youth NFT Programs by giving 5% of proceeds received from public sale to the PenguinPunks NFT Staking Pool for learning adoption in DeFi.",
       joinUs: "/tsp",
-      when: "When: March 24, 2022",
+      when: "When: March 25, 2022",
       end: new Date(1640942516),
       duration: 6048000,
       sign: NewImg,
