@@ -24,6 +24,7 @@ import ERC20_ABI from '../constants/abis/erc20.json'
 import { MIGRATOR_ABI, MIGRATOR_ADDRESS } from '../constants/abis/migrator'
 import UNISOCKS_ABI from '../constants/abis/unisocks.json'
 import WETH_ABI from '../constants/abis/weth.json'
+import SimpleNft721ABI from '../constants/abis/SimpleNft721.json'
 import { MULTICALL_ABI, MULTICALL_NETWORKS } from '../constants/multicall'
 import { V1_EXCHANGE_ABI, V1_FACTORY_ABI, V1_FACTORY_ADDRESSES } from '../constants/v1'
 import { getContract } from '../utils'
@@ -143,7 +144,9 @@ export function useNFTFactoryContract(NFTFactoryAddress?: string, withSignerIfPo
 }
 
 export function useERC1155Contract(NFTAddress?: string, withSignerIfPossible?: boolean): Contract | null {
-  return useContract(NFTAddress, ERC1155Collection_ABI, withSignerIfPossible)
+  // note use different api because of 'walletOfOwner' and 'tokensOfOwner'
+  const abi = NFTAddress === '0x68caacEEf02723f5589490128a25f0bDE9cd5b47' ? SimpleNft721ABI : ERC1155Collection_ABI;
+  return useContract(NFTAddress, abi, withSignerIfPossible)
 }
 
 export function useIdoContract(idoAddress?: string, withSignerIfPossible?: boolean): Contract | null {

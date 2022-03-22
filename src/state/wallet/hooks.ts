@@ -202,40 +202,6 @@ export function useUserNFTTokens(
         }
     }
 
-
-
-
-    //
-    // let memo: { [nftaddress:string]: { [tokenId:number]:NFTToken} } = {};
-    // for (let index = 0; index < NFTTokenAddresses.length;index++){
-    //     const addr  = NFTTokenAddresses[index].toString()
-    //     const erc1155Contract = useERC1155Contract(addr)
-    //     const tokenIds = useSingleCallResult(erc1155Contract,'tokensOfOwner',[address]).result?.[0]
-    //     const collectionSymbol = useSingleCallResult(erc1155Contract,'symbol').result?.[0]
-    //     const collectionName = useSingleCallResult(erc1155Contract,'name').result?.[0]
-    //     const collectionUri = useSingleCallResult(erc1155Contract,'uri').result?.[0]
-    //     const creator = useSingleCallResult(erc1155Contract,'getCreator').result?.[0]
-    //     const royalties = useSingleContractMultipleData(erc1155Contract,'getRoyalty',tokenIds)
-    //     const names = useSingleContractMultipleData(erc1155Contract,'tokenName',tokenIds)
-    //     const uris = useSingleContractMultipleData(erc1155Contract,'tokenURI',tokenIds)
-    //     for (let i = 0; i <= (tokenIds.length ?? 0); i++) {
-    //         memo[addr][tokenIds[i]] = {
-    //             chainId:chainid,
-    //             address: addr,
-    //             tokenid: tokenIds[i],
-    //             owner: address,
-    //             collectionSymbol: collectionSymbol,
-    //             collectionName: collectionName,
-    //             collectionUri: collectionUri,
-    //             creator: creator,
-    //             royalty:parseInt(royalties[i]?.result?.[0].toString()),
-    //             name:names[i]?.result?.[0].toString(),
-    //             uri:uris[i]?.result?.[0].toString(),
-    //             amount:1
-    //         }
-    //     }
-    // }
-
     return memo
 }
 

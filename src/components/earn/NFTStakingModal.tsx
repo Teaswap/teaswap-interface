@@ -52,16 +52,15 @@ export default function NFTStakingModal({ isOpen, onDismiss, stakingInfo, userLi
   const [typedValue, setTypedValue] = useState('')
   const { parsedAmount, error } = useDerivedStakeInfo(typedValue, stakingInfo.stakedAmount.token, userLiquidityUnstaked,isNFT)
   const parsedAmountWrapped = wrappedStakeCurrencyAmount(parsedAmount, chainId)
-  console.log("parseAmount："+parsedAmount?.raw)
-  console.log("parseAmountSymbol："+parsedAmount?.currency.symbol)
+  console.log("dddddd parseAmount："+parsedAmount?.raw)
+  console.log("dddddd parseAmountSymbol："+parsedAmount?.currency.symbol)
   const [approvalSubmitted, setApprovalSubmitted] = useState<boolean>(false)
-
 
   const nftcontract = useERC1155Contract(stakingInfo.tokens[0]?.address, false)
 
   const inputs = useMemo(() => [account??undefined], [account])
-  const tokenids = useSingleCallResult(isNFT?nftcontract:undefined, 'tokensOfOwner', inputs).result?.[0]
-  console.log("tokenids:"+JSON.stringify(tokenids))
+  const tokenids = useSingleCallResult(isNFT?nftcontract:undefined,  stakingInfo.tokens[0]?.address === '0x68caacEEf02723f5589490128a25f0bDE9cd5b47' ? 'walletOfOwner' : 'tokensOfOwner', inputs).result?.[0]
+  console.log("dddddd tokenids:"+JSON.stringify(tokenids))
 
   const tokenidarray = useMemo(()=>{
     let array = []

@@ -120,7 +120,7 @@ const Manage = ()=>{
   const { account, chainId } = useActiveWeb3React()
   const { t } = useTranslation()
   const params = useParams()
-  console.log("param:"+JSON.stringify(params))
+  console.log("dddddd param:"+JSON.stringify(params))
   const stakingInfo = useStakingInfo(params.stakingRewardAddress)?.[0]
 
   // get currencies and pair
@@ -135,8 +135,8 @@ const Manage = ()=>{
   const userETHBlance = useETHBalances(account ? [account] : [])?.[account ?? '']
   const userTokenAmount = useTokenBalance(account ?? undefined, stakingInfo?.stakedAmount?.token)
   const userLiquidityUnstaked = currencyA===ETHER? userETHBlance : userTokenAmount
-  console.log("rewardAddress:"+params.stakingRewardAddress)
-  console.log("userTokenAmount:"+userTokenAmount)
+  console.log("dddddd rewardAddress:"+params.stakingRewardAddress)
+  console.log("dddddd userTokenAmount:"+userTokenAmount)
   // detect existing unstaked LP position to show add button if none found
   // const userLiquidityUnstaked = useTokenBalance(account ?? undefined, stakingInfo?.stakedAmount?.token)
   const showAddLiquidityButton = Boolean(stakingInfo?.stakedAmount?.equalTo('0') && userLiquidityUnstaked?.equalTo('0'))
@@ -146,7 +146,7 @@ const Manage = ()=>{
   const [showUnstakingModal, setShowUnstakingModal] = useState<boolean>(false)
   const [showClaimRewardModal, setShowClaimRewardModal] = useState<boolean>(false)
 
-  console.log("stakingInfo:", stakingInfo, showStakingModal, showUnstakingModal, showClaimRewardModal)
+  console.log("dddddd stakingInfo:", stakingInfo, showStakingModal, showUnstakingModal, showClaimRewardModal)
 
   // fade cards if nothing staked or nothing earned yet
   const disableTop = !stakingInfo?.stakedAmount || stakingInfo.stakedAmount.equalTo(JSBI.BigInt(0))
