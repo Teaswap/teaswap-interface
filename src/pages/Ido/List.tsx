@@ -80,7 +80,7 @@ const List = () => {
       author: "Who's the Boss?",
       medium: "https://www.youtube.com/watch?v=Dfgq197zYTo&t=10s",
       info:
-        "A collection of 300 limited editions of  “Who's the Boss?” curated by TSANFT Incubator (https://www.teaswap.live/tsacollections)  (Normal & Rare)  and living on the Polygon, the second market is supported by OpenSea and Rarible, staking farming is powered by TSANFT Staking ( https://www.teaswap.art/staking ) . The proceeds from 101 editions will go to the foundation COME BACK ALIVE UA and  support SUPPORT Ukraine.",
+        "A collection of 300 limited editions of  “Who's the Boss?” curated by TSANFT Incubator  (Normal & Rare)  and living on the Polygon, the second market is supported by OpenSea and Rarible, staking farming is powered by TSANFT Staking.",
       joinUs: "Boss",
       when: "When: March 25, 2022",
       end: new Date(1640942516),
