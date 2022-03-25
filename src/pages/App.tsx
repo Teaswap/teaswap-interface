@@ -97,6 +97,7 @@ import Tsapenguinpunks from "./Ido/tsapenguinpunks";
 import TSP from "./Tsp";
 import TSA from "./Tsa";
 import BlindBox from './BlinkBox'
+import MagicBox from './Magic'
 
 const AppWrapper = styled.div`
   display: flex;
@@ -159,6 +160,7 @@ export default function App() {
               <Route path="/iro" element={<IdoList />} />
               <Route path="/tsp" element={<TSP />} />
               <Route path="/tsa" element={<TSA />} />
+              <Route path="/magic" element={<MagicBox />} />
               <Route path="/blind-box" element={<BlindBox />} />
               <Route path="/tsapenguinpunks" element={<Tsapenguinpunks />} />
               <Route path="/drops" element={<Home />} />

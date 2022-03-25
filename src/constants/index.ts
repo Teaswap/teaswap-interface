@@ -107,6 +107,13 @@ export const PAYABLEETH: { [chainId in ChainId]: Token } = {
     "BNB",
     "BNB"
   ),
+  [ChainId.POLYGON]: new Token(
+    ChainId.POLYGON,
+    ZERO_ADDRESS,
+    18,
+    "MATIC",
+    "MATIC"
+  ),
 };
 // TODO this is only approximate, it's actually based on blocks
 export const PROPOSAL_LENGTH_IN_DAYS = 7;
@@ -148,6 +155,13 @@ export const UNI: { [chainId in ChainId]: Token } = {
   [ChainId.BSC_TESTNET]: new Token(
     ChainId.BSC_TESTNET,
     "0x36eb1b02cB7Be3ffA1eE7Bd2A3c7D036002730F7",
+    18,
+    "BEST",
+    "Bestswap"
+  ),
+  [ChainId.POLYGON]: new Token(
+    ChainId.POLYGON,
+    ZERO_ADDRESS,
     18,
     "BEST",
     "Bestswap"
@@ -608,6 +622,7 @@ const WETH_ONLY: ChainTokenList = {
   [ChainId.KOVAN]: [WETH[ChainId.KOVAN]],
   [ChainId.BSC_MAINNET]: [WETH[ChainId.BSC_MAINNET]],
   [ChainId.BSC_TESTNET]: [WETH[ChainId.BSC_TESTNET]],
+  [ChainId.POLYGON]: [WETH[ChainId.BSC_MAINNET]],
 };
 
 // used to construct intermediary pairs for trading
