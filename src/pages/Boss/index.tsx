@@ -7,9 +7,9 @@ import FormControl from "@mui/material/FormControl";
 import OutlinedInput from "@mui/material/OutlinedInput";
 import { NormalButton } from "../../components/NFTButton";
 
-import { useTotalSupply, useBalance, usePrice, useMagicContract } from "./hooks";
+import { useTotalSupply, useBalance, usePrice, useBossContract, useMaxPerWallert } from "./hooks";
 import { useETHBalances } from "../../state/wallet/hooks";
-import { ChainId, JSBI } from "@teaswap/uniswap-sdk";
+import { JSBI } from "@teaswap/uniswap-sdk";
 // import { calculateGasMargin } from '../../utils';
 import { TransactionResponse } from "@ethersproject/abstract-provider";
 import { ExternalLink } from "../../theme";
@@ -22,24 +22,26 @@ import { switchNetwork } from "../../utils/wallet";
 const names = [1, 2, 3];
 
 export default () => {
+  const { account, chainId } = useActiveWeb3React();
   const [amount, setAmount] = useState(0);
   const [hash, setHash] = useState("");
   const [msg, setMsg] = useState("");
   const navigate = useNavigate()
-  const magicContract = useMagicContract();
-  const { account, chainId } = useActiveWeb3React();
+  const bossContract = useBossContract();
   const balance = useETHBalances(account ? [account] : [])?.[account ?? ""];
-  const magicBalance = useBalance(account, magicContract, chainId);
-  const totalSupply = useTotalSupply(magicContract, chainId);
-  const price = usePrice(magicContract, chainId);
+  const bossBalance = useBalance(account, bossContract, chainId);
+  const totalSupply = useTotalSupply(bossContract, chainId);
+  const price = usePrice(bossContract, chainId);
+  const maxPerWallert = useMaxPerWallert(bossContract, chainId)
+  console.log("boss", {bossContract, account, chainId, balance, bossBalance, totalSupply, price, maxPerWallert})
 
   const handleChange = async (e: any) => {
     setMsg("");
     setHash("");
     setAmount(e.target.value);
-    if (!magicContract || e.target.value == "Mint") return;
+    if (!bossContract || e.target.value == "Mint") return;
     const args = [JSBI.BigInt(e.target.value).toString()];
-    magicContract
+    bossContract
       .mint(...args, {
         gasLimit: 350000,
         value: toWei(String(e.target.value * parseFloat(price))),
@@ -65,7 +67,6 @@ export default () => {
         setMsg("int error: " + error.mesage);
       });
   };
-  console.log("magic: ", { magicBalance, balance });
   return (
     <Wrapper>
       <Left className="panel">
@@ -79,7 +80,7 @@ export default () => {
             color: "#FFFFFF",
           }}
         >
-          Magic Box
+          Boss Box
         </div>
         <div
           style={{
@@ -125,13 +126,13 @@ export default () => {
         >
           <p>You can now mint up to 3 TSP.</p>
           <div style={{ position: "relative", top: "-10px" }}>
-            <p># NFTs minted by you so far: {magicBalance}/3</p>
+            <p># NFTs minted by you so far: {bossBalance}/{maxPerWallert}</p>
           </div>
         </div>
         <div>
           {account && chainId == 137 && (
             <FormControl>
-              {/* <InputLabel id="magic-mint">Mint</InputLabel> */}
+              {/* <InputLabel id="boss-mint">Mint</InputLabel> */}
               <Select
                 style={{ minWidth: 300 }}
                 inputProps={{ "aria-label": "Without label" }}
@@ -212,7 +213,7 @@ export default () => {
                   letterSpacing: ".1rem"
                 }}
                 onClick={() => {
-                  switchNetwork(ChainId.POLYGON)
+                  switchNetwork(137)
                 }}
                 children="Switch to Polygon Mainnet to Mint"
               />
