@@ -75,14 +75,15 @@ const List = () => {
     },
     {
       image: GridImg9,
-      Learn: "https://www.teaswap.live/tsacollections",
+      Learn: "https://www.teaswap.art/boss",
+      // "https://www.teaswap.live/tsacollections",
       LearnText: "Learn > On Polygon",
       author: "Who's the Boss?",
       medium: "https://www.youtube.com/watch?v=Dfgq197zYTo&t=10s",
       info:
         "A collection of 300 limited editions of  “Who's the Boss?” curated by TSANFT Incubator  (Normal & Rare)  and living on the Polygon, the second market is supported by OpenSea and Rarible, staking farming is powered by TSANFT Staking.",
       joinUs: "Boss",
-      when: "When: March 25, 2022",
+      when: "When: March 31, 2022",
       end: new Date(1640942516),
       duration: 6048000,
       sign: NewImg,
@@ -221,7 +222,7 @@ const List = () => {
                     ) {
                       window.open("https://www.teaswap.art/tsp");
                     } else if (v.author == "Who's the Boss?") {
-                      window.open("https://www.teaswap.live/tsacollections");
+                      window.open("https://www.teaswap.art/boss");
                     } else if (v.author == "Blind Box") {
                       window.open("https://www.teaswap.art/blind-box");
                     } else {

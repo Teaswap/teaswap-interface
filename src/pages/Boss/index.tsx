@@ -7,7 +7,13 @@ import FormControl from "@mui/material/FormControl";
 import OutlinedInput from "@mui/material/OutlinedInput";
 import { NormalButton } from "../../components/NFTButton";
 
-import { useTotalSupply, useBalance, usePrice, useBossContract, useMaxPerWallert } from "./hooks";
+import {
+  useTotalSupply,
+  useBalance,
+  usePrice,
+  useBossContract,
+  useMaxPerWallert,
+} from "./hooks";
 import { useETHBalances } from "../../state/wallet/hooks";
 import { JSBI } from "@teaswap/uniswap-sdk";
 // import { calculateGasMargin } from '../../utils';
@@ -15,7 +21,7 @@ import { TransactionResponse } from "@ethersproject/abstract-provider";
 import { ExternalLink } from "../../theme";
 import { toWei } from "web3-utils";
 import { shortenAddress } from "../../utils";
-import airdropAPI from '../../webAPI/airdropAPI'
+import airdropAPI from "../../webAPI/airdropAPI";
 import { useNavigate } from "react-router-dom";
 import { switchNetwork } from "../../utils/wallet";
 
@@ -26,14 +32,23 @@ export default () => {
   const [amount, setAmount] = useState(0);
   const [hash, setHash] = useState("");
   const [msg, setMsg] = useState("");
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const bossContract = useBossContract();
   const balance = useETHBalances(account ? [account] : [])?.[account ?? ""];
   const bossBalance = useBalance(account, bossContract, chainId);
   const totalSupply = useTotalSupply(bossContract, chainId);
   const price = usePrice(bossContract, chainId);
-  const maxPerWallert = useMaxPerWallert(bossContract, chainId)
-  console.log("boss", {bossContract, account, chainId, balance, bossBalance, totalSupply, price, maxPerWallert})
+  const maxPerWallert = useMaxPerWallert(bossContract, chainId);
+  console.log("boss", {
+    bossContract,
+    account,
+    chainId,
+    balance,
+    bossBalance,
+    totalSupply,
+    price,
+    maxPerWallert,
+  });
 
   const handleChange = async (e: any) => {
     setMsg("");
@@ -50,13 +65,13 @@ export default () => {
         console.log("buy: res", { response });
         // todo send airdrop
         setHash(response.hash);
-        const res = await airdropAPI.mintAPI(account, response.hash)
+        const res = await airdropAPI.mintAPI(account, response.hash);
         if (res.ok == 1) {
-          // todo you have an airdrop 
+          // todo you have an airdrop
           setMsg("You have an airdrop, go to claim in about 3s");
           setTimeout(() => {
-            navigate("/blind-box")
-          }, 3000)
+            navigate("/blind-box");
+          }, 3000);
         }
       })
       .catch(async (error: any) => {
@@ -80,7 +95,7 @@ export default () => {
             color: "#FFFFFF",
           }}
         >
-          Boss Box
+          Who's the Boss?
         </div>
         <div
           style={{
@@ -126,7 +141,9 @@ export default () => {
         >
           <p>You can now mint up to 3 TSP.</p>
           <div style={{ position: "relative", top: "-10px" }}>
-            <p># NFTs minted by you so far: {bossBalance}/{maxPerWallert}</p>
+            <p>
+              # NFTs minted by you so far: {bossBalance}/{maxPerWallert}
+            </p>
           </div>
         </div>
         <div>
@@ -210,10 +227,10 @@ export default () => {
                   padding: 0,
                   backgroundColor: "#09afb6",
                   color: "#FFFFFF",
-                  letterSpacing: ".1rem"
+                  letterSpacing: ".1rem",
                 }}
                 onClick={() => {
-                  switchNetwork(137)
+                  switchNetwork(137);
                 }}
                 children="Switch to Polygon Mainnet to Mint"
               />
