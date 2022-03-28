@@ -290,7 +290,7 @@ const List = () => {
                   </ExternalLink>
                 )}
                 {v.joinUs == "Boss" && (
-                  <ExternalLink href="https://www.teaswap.live/tsacollections">
+                  <ExternalLink href="https://www.teaswap.art/boss">
                     <JoinUs>{t("Join Us")}</JoinUs>
                   </ExternalLink>
                 )}
