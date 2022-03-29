@@ -341,6 +341,18 @@ const NETWORK_LABELS: { [chainId in ChainId]?: string } = {
   [ChainId.KOVAN]: "Kovan",
   [ChainId.BSC_MAINNET]: "BSC Mainnet",
   [ChainId.BSC_TESTNET]: "BSC Testnet",
+  [137]: "POLYGON",
+};
+
+const NETWORK_SYMBOLS: { [chainId in ChainId]?: string } = {
+  [ChainId.MAINNET]: "ETH",
+  [ChainId.RINKEBY]: "TETH",
+  [ChainId.ROPSTEN]: "TETH",
+  [ChainId.GÖRLI]: "TETH",
+  [ChainId.KOVAN]: "TETH",
+  [ChainId.BSC_MAINNET]: "BNB",
+  [ChainId.BSC_TESTNET]: "TBNB",
+  [137]: "MATIC",
 };
 
 export default function Header() {
@@ -352,11 +364,7 @@ export default function Header() {
   ];
   const [isDark] = useDarkModeManager();
 
-  // const toggleClaimModal = useToggleSelfClaimModal()
-
   const availableClaim: boolean = useUserHasAvailableClaim(account);
-
-  // const { claimTxn } = useUserHasSubmittedClaim(account ?? undefined)
 
   const aggregateBalance: TokenAmount | undefined = useAggregateUniBalance();
 
@@ -365,7 +373,8 @@ export default function Header() {
 
   const countUpValue = aggregateBalance?.toFixed(0) ?? "0";
   const countUpValuePrevious = usePrevious(countUpValue) ?? "0";
-  // const openClaimModal = useToggleModal(ApplicationModal.ADDRESS_CLAIM)
+
+  console.log("Header: ", {account, chainId, userEthBalance})
 
   return (
     <HeaderRoot id="header-root">
@@ -411,42 +420,6 @@ export default function Header() {
             </StyledNavLink>
             <StyledNavLink to="/mint">{t("Create")}</StyledNavLink>
 
-            {/* <StyledNavLink id={`swap-nav-link`} to={'/swap'}>
-              {t('Swap')}
-            </StyledNavLink> */}
-
-            {/*<StyledNavLink*/}
-            {/*  id={`pool-nav-link`}*/}
-            {/*  to={'/pool'}*/}
-            {/*  // isActive={(match, { pathname }) =>*/}
-            {/*  //   Boolean(match) ||*/}
-            {/*  //   pathname.startsWith('/add') ||*/}
-            {/*  //   pathname.startsWith('/remove') ||*/}
-            {/*  //   pathname.startsWith('/create') ||*/}
-            {/*  //   pathname.startsWith('/find')*/}
-            {/*  // }*/}
-            {/*>*/}
-            {/*  {t('POOL')}*/}
-            {/*</StyledNavLink>*/}
-            {/* <StyledNavLink id={`stake-nav-link`} to={'/best'}>
-              BEST
-            </StyledNavLink>
-            <StyledNavLink id={`stake-nav-link`} to={'/vote'}>
-              Vote
-            </StyledNavLink> */}
-            {/*<StyledExternalLink id={`stake-nav-link`} href={'https://bsc.bestswap.com/staking/'}>*/}
-            {/*  {t('Farm')}*/}
-            {/*  /!* <span>↗</span> *!/*/}
-            {/*</StyledExternalLink>*/}
-
-            {/*<StyledExternalLink id={`stake-nav-link`} href={'https://www.binance.org/en/bridge'}>*/}
-            {/*  {t('BRIDGE')}*/}
-            {/*  /!* <span>↗</span> *!/*/}
-            {/*</StyledExternalLink>*/}
-            {/*<StyledExternalLink id={`stake-nav-link`} href={'https://bsc.bestswap.com/info'}>*/}
-            {/*  {t('INFO')}*/}
-            {/*  /!* <span>↗</span> *!/*/}
-            {/*</StyledExternalLink>*/}
           </HeaderLinks>
         </HeaderRow>
         <HeaderControls style={{ fontSize: "13px" }}>
@@ -545,7 +518,7 @@ export default function Header() {
                   fontWeight={500}
                 >
                   {userEthBalance?.toSignificant(4)}{" "}
-                  {NETWORK_LABELS[chainId] !== "ETH Mainnet" ? "BNB" : "ETH"}
+                  {NETWORK_SYMBOLS[chainId]}
                 </BalanceText>
               ) : null}
               <Web3Status />

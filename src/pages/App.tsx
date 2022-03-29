@@ -165,7 +165,6 @@ export default function App() {
               <Route path="/tsapenguinpunks" element={<Tsapenguinpunks />} />
               <Route path="/drops" element={<Home />} />
               <Route path="/swap" element={<Swaping />} />
-              {/* <Route path="/swaping" element={<Swaping/>}/> */}
               <Route
                 path="/claim"
                 element={<OpenClaimAddressModalAndRedirectToSwap />}
