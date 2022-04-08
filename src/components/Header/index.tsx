@@ -432,15 +432,6 @@ export default function Header() {
               )}
             </HideSmall>
             {availableClaim && !showClaimPopup && (
-              // <UNIWrapper onClick={toggleClaimModal}>
-              //   <UNIAmount active={!!account && !availableClaim} style={{ pointerEvents: 'auto' }}>
-              //     <TYPE.gray padding="0 2px">
-              //       {claimTxn && !claimTxn?.receipt ? <Dots>{t('claiming')} AirDrop</Dots> : `${t('claim')} AirDrop`}
-              //     </TYPE.gray>
-              //   </UNIAmount>
-              //   <CardNoise />
-              // </UNIWrapper>
-
               <UNIWrapper
                 onClick={() => {
                   setShowUniBalanceModal(true);

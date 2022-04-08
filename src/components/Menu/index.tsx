@@ -127,26 +127,6 @@ export default function Menu() {
 
       {open && (
         <MenuFlyout>
-          {/* <MenuItem id="link" href="https://t.me/icashrewards123">
-            <Send size={14} />
-            Telegram
-          </MenuItem>
-          <MenuItem id="link" href="https://www.instagram.com/artteaswap/">
-            <MessageCircle size={14} />
-            Instagram
-          </MenuItem>
-          {/* <MenuItem id="link" href="http://teaswap-art.medium.com/">
-            <BookOpen size={14} />
-            Medium
-          </MenuItem> */}
-          {/* <MenuItem id="link" href="https://twitter.com/ArtTeaswap">
-            <Twitter size={14} />
-            Twitter
-          </MenuItem> */}
-          {/* <MenuItem id="link" href="https://www.teaswap.live/news">
-            <Info size={14} />
-            {t('Announcement')}
-          </MenuItem> */}
           {account && (
             <>
               <MenuItem

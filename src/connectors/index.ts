@@ -36,10 +36,13 @@ export const bsc = new BscConnector({
 })
 
 // mainnet only
+// @ts-ignore
 export const walletconnect = new WalletConnectConnector({
+  supportedChainIds: [1, 3, 4, 5, 42, 56, 97, 137],
   rpc: { 56: 'https://bsc-dataseed.binance.org/' },
   bridge: 'https://bridge.walletconnect.org',
   qrcode: true,
+  // infuraId: '99cf3efcb2684c268f4e9d176a06197b'
   // pollingInterval: 15000
 })
 
