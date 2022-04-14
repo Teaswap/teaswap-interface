@@ -95,7 +95,7 @@ const List = () => {
       author: "The Opportunity for Youth NFT Program",
       medium: "https://www.youtube.com/watch?v=Dfgq197zYTo&t=10s",
       info:
-        "A collection of 8,888 unique Penguinbrothers (Normal & Rare) curated by TSA Incubator and living on the Ethereum, Polygon and Binance Smart Chain. Supporting Youth NFT Programs by giving 5% of proceeds received from public sale to the PenguinPunks NFT Staking Pool for learning adoption in DeFi.",
+        "A collection of 8,888 unique Penguinbrothers (Normal & Rare) curated by TSA Incubator and living on the EThereum, Polygon and Binance Smart Chain. Supporting Youth NFT Programs by giving 5% of proceeds received from public sale to the PenguinPunks NFT Staking Pool for learning adoption in DeFi.",
       joinUs: "/tsp",
       when: "When: March 25, 2022",
       end: new Date(1640942516),
