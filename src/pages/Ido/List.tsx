@@ -91,7 +91,7 @@ const List = () => {
     {
       image: GridImg8,
       Learn: "https://alpha.niftykit.com/drops/penguinbrother",
-      LearnText: "Learn > On Polygon",
+      LearnText: "Learn > On ETH",
       author: "The Opportunity for Youth NFT Program",
       medium: "https://www.youtube.com/watch?v=Dfgq197zYTo&t=10s",
       info:
@@ -119,6 +119,7 @@ const List = () => {
     {
       image: GridImg6,
       Learn: "https://www.teaswap.live/tsametaverse",
+      LearnText: "Learn > On BSC",
       author: "TSA Metaverse Lot Offering",
       medium: "https://youtu.be/u-R5AwHFkl8",
       info:
