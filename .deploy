@@ -1,0 +1,2 @@
+#rsync --exclude-from='./.exclude' -auzve 'ssh -i ~/.ssh/teaswap.pem' * centos@18.144.164.37:/home/centos/uniswap-interface/
+yarn build && rsync -auzve 'ssh -i ~/.ssh/teaswap.pem' build/* centos@18.144.164.37:/data/teaswap.art/
