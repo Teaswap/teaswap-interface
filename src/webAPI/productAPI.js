@@ -259,11 +259,13 @@ const deleteProductAPI = (id) => {
   }).then((res) => res.json());
 };
 
+// todo change this api to upload to pinata
 const postPictureAPI = (formData) => {
-  return fetch('https://api.imgur.com/3/image', {
+  const token = localStorage.getItem('token');
+  return fetch(`${BASE_URL}/products/upload`, {
     method: 'POST',
     headers: {
-      Authorization: 'Client-ID 13c7722407e3240',
+      authorization: `Bearer ${token}`,
     },
     body: formData,
   }).then((res) => res.json());

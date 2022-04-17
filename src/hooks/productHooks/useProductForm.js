@@ -21,7 +21,7 @@ export default function useProductForm(id) {
     'https://i.imgur.com/uqZxFCm.png'
   );
   const [productRoyalty, setProductRoyalty] = useState(0);
-  const [productMediaType, setProductMediaType] = useState('');
+  const [productMediaType, setProductMediaType] = useState('Picture');
   const [productPrice, setProductPrice] = useState(0);
   const [deliveryTime, setDeliveryTime] = useState('');
   const [deliveryLocation, setDeliveryLocation] = useState('');

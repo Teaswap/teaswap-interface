@@ -183,6 +183,26 @@ const Product = ({productCat, product, onLoad, loaded, $width, $height, $margin 
     setSetPriceSubmitted(false)
   }
 
+  const preview = (productPictureUrl, media_type, loaded, onLoad, $width, $height) => {
+    const src = productPictureUrl.startsWith('http') ? productPictureUrl : `https://teaswap.mypinata.cloud/ipfs/${productPictureUrl}`
+    switch(media_type) {
+      case 'Video':
+        return <video style={{width: "100%"}} controls src={src} ></video>
+      case "Audio":
+        return <audio style={{width: "100%"}} controls src={src} ></audio>
+      default:
+        return (
+          <ProductPicture
+            src={src}
+            style={{ opacity: loaded ? 1 : 0 }}
+            onLoad={onLoad}
+            $width={$width}
+            $height={$height}
+          />
+        )
+    }
+  }
+
   return (
     <ProductContainer $width={$width} $height={$height} $margin={$margin}>
       <ButtonContainer>
@@ -223,13 +243,14 @@ const Product = ({productCat, product, onLoad, loaded, $width, $height, $margin 
         
       </ButtonContainer>
       <NavLink style={{marginTop: '20px', display:"block"}} to={`/nft/products/${product.id}`}>
-        <ProductPicture
+        {preview(product.picture_url, product.media_type, loaded, onLoad, $width, $height)}
+        {/* <ProductPicture
           src={product.picture_url}
           style={{ opacity: loaded ? 1 : 0 }}
           onLoad={onLoad}
           $width={$width}
           $height={$height}
-        />
+        /> */}
       </NavLink>
       <ProductName>
         <NavLink className="a-link" to={`/nft/products/${product.id}`}>{product.name}</NavLink>

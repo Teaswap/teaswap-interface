@@ -63,22 +63,33 @@ export function PictureBox({ pictureUrl, handleChange, productMediaType }) {
   const {t} = useTranslation()
   const _productMediaType = productMediaType || 'picture'
   let fileAccept = 'image/jpeg,image/png,image/gif'
-  // switch(_productMediaType) {
-  //   case 'Video':
-  //     fileAccept = 'video/mp4,video/mpeg,video/avi,video/quicktime,video/x-flv,video/x-ms-wmv,video/webm,video/x-msvideo';
-  //     break;
-  //   case 'Audio':
-  //     fileAccept = 'audio/*';
-  //     break;
-  //   case 'Gif':
-  //     fileAccept = 'image/gif';
-  //     break;
-  // }
+  switch(_productMediaType) {
+    case 'Video':
+      fileAccept = 'video/mp4,video/mpeg,video/avi,video/quicktime,video/x-flv,video/x-ms-wmv,video/webm,video/x-msvideo';
+      break;
+    case 'Audio':
+      fileAccept = 'audio/*';
+      break;
+    case 'Gif':
+      fileAccept = 'image/gif';
+      break;
+  }
   console.log('productMediaType', productMediaType, fileAccept)
+  const src = `https://teaswap.mypinata.cloud/ipfs/${pictureUrl}`
+  const preview = (type) => {
+    switch(type) {
+      case 'Video':
+        return <video src={src}></video>
+      case 'Audio':
+        return <video src={src}></video>
+      default:
+        return <img width="100%" src={src} alt='' />
+    } 
+  }
   return (
     <SetPictureContainer>
       <PreviewPicture onClick={() => document.getElementById('upload-file').click()}>
-         <img width="100%" src={pictureUrl} alt='' />
+        {preview(_productMediaType)}
       </PreviewPicture>
       <RightSide>
         <Description>

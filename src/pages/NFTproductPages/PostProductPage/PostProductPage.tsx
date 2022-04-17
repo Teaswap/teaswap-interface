@@ -282,28 +282,8 @@ const PostProductPage = () => {
           value={productMediaType}
         />
 
-        {/* <InputItem
-          title={t('Upload Artwork')}
-          label={t('Upload Artwork')}
-          type={'picture'}
-          errorMessage={t('')}
-          productPictureUrl={productPictureUrl}
-          handleChange={handleChangePicture}
-          isNumber={false}
-          hasValue={false}
-          options={undefined}
-          textareaRows={1}
-          value={productPictureUrl}
-        /> */}
-        {/* <QuestionBox>
-          <PictureBox
-            productMediaType={productMediaType} 
-            pictureUrl={productPictureUrl}
-            handleChange={handleChangePicture}
-          />
-        </QuestionBox> */}
         <QuestionTitle>{t('Upload Artwork')}</QuestionTitle>
-        <SetArtwork productPictureUrl={productPictureUrl} handleChangePicture={handleChangePicture} setProductPictureUrl={setProductPictureUrl}/>
+        <SetArtwork productMediaType={productMediaType} productPictureUrl={productPictureUrl} handleChangePicture={handleChangePicture} setProductPictureUrl={setProductPictureUrl}/>
 
         <InputItem
           title={t('Category')}

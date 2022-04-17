@@ -119,7 +119,7 @@ const LoadingMask = styled.div`
   align-items: center;
 `;
 
-export default function SetArtwork({productPictureUrl, handleChangePicture, setProductPictureUrl}) {
+export default function SetArtwork({productPictureUrl, handleChangePicture, setProductPictureUrl, productMediaType}) {
   const {t} = useTranslation()
 
   const{
@@ -131,17 +131,46 @@ export default function SetArtwork({productPictureUrl, handleChangePicture, setP
     setUploadError
   } = useProductForm()
 
+  const _productMediaType = productMediaType || 'Picture'
+  let fileAccept = 'image/jpeg,image/png,image/gif'
+  switch(_productMediaType) {
+    case 'Video':
+      fileAccept = 'video/mp4,video/webm,video/mp3,video/wav,video/OGG';
+      break;
+    case 'Audio':
+      fileAccept = 'audio/*';
+      break;
+    case 'Gif':
+      fileAccept = 'image/gif';
+      break;
+  }
+  console.log('productMediaType', productMediaType, fileAccept, productPictureUrl)
+  const src = productPictureUrl.startsWith('http') ? productPictureUrl : `https://teaswap.mypinata.cloud/ipfs/${productPictureUrl}`
+  const preview = (type) => {
+    if (productPictureUrl == 'https://i.imgur.com/uqZxFCm.png') {
+      return <PreviewAvatar onClick={() => document.getElementById('uploadArtwork').click()} src={src} alt='' />
+    }
+    switch(type) {
+      case 'Video':
+        return <video controls onClick={() => document.getElementById('uploadArtwork').click()}src={src}></video>
+      case 'Audio':
+        return <audio controls onClick={() => document.getElementById('uploadArtwork').click()}src={src}></audio>
+      default:
+        return <PreviewAvatar onClick={() => document.getElementById('uploadArtwork').click()} src={src} alt='' />
+    } 
+  }
+
   return (
     <SetAvatarContainer>
-      <PreviewAvatar onClick={() => document.getElementById('uploadArtwork').click()} src={productPictureUrl} alt='' />
+      {preview(productMediaType)}
       <RightSide>
         <Description>
-          {"Support： PNG, JPG , GIF, Video and Audio; Suggested ratio 3:4; Size <10MB"}
+          {"Support： PNG, JPG , GIF, Video and Audio; Suggested ratio 3:4; Size <100MB"}
           <br />
           {"Mint an NFT charges 0.01BNB"}
         </Description>
         <Label>
-          <InputFile id="uploadArtwork" type='file'  onChange={(e) => handleChangePicture(e, setProductPictureUrl, setIsCheckImage, setIsLoadingUpload, setUploadError)} />
+          <InputFile id="uploadArtwork" type='file' accept={fileAccept}  onChange={(e) => handleChangePicture(e, setProductPictureUrl, setIsCheckImage, setIsLoadingUpload, setUploadError)} />
           {t("Choose File")}
         </Label>
         {isCheckImage && (

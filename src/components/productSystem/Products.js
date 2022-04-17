@@ -123,6 +123,26 @@ const StyledLink = styled(NavLink)`
 export const Product = ({ product, onLoad, loaded, $width, $height, $margin }) => {
   const {handleTokenSwitch} = useProduct();
   const formatter = new Intl.NumberFormat();
+
+  const preview = (productPictureUrl, media_type, loaded, onLoad, $width, $height) => {
+    const src = productPictureUrl.startsWith('http') ? productPictureUrl : `https://teaswap.mypinata.cloud/ipfs/${productPictureUrl}`
+    switch(media_type) {
+      case 'Video':
+        return <video style={{width: "100%"}} controls src={src} ></video>
+      case "Audio":
+        return <audio style={{width: "100%"}} controls src={src} ></audio>
+      default:
+        return (
+          <ProductPicture
+            src={src}
+            style={{ opacity: loaded ? 1 : 0 }}
+            onLoad={onLoad}
+            $width={$width}
+            $height={$height}
+          />
+        )
+    }
+  }
   return (
     <ProductContainer $width={$width} $height={$height} $margin={$margin}>
       {product.link && (
@@ -138,13 +158,14 @@ export const Product = ({ product, onLoad, loaded, $width, $height, $margin }) =
       )}
       {!product.link && (
         <NavLink to={`/nft/products/${product.id}`}>
-          <ProductPicture
+          {preview(product.picture_url, product.media_typ, loaded, onLoad, $width, $height)}
+          {/* <ProductPicture
             src={product.picture_url}
             style={{ opacity: loaded ? 1 : 0 }}
             onLoad={onLoad}
             $width={$width}
             $height={$height}
-          />
+          /> */}
         </NavLink>
       )}
 

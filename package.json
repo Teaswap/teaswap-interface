@@ -101,6 +101,7 @@
   },
   "scripts": {
     "start": "sh ./hack/hack.sh && node scripts/start.js",
+    "dev": "sh ./hack/hack.sh && node scripts/start.js",
     "build": "sh ./hack/hack.sh && node scripts/build.js",
     "beta": "sh .beta_deploy",
     "test": "node scripts/test.js --env=jsdom",
