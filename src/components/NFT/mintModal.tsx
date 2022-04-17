@@ -102,7 +102,6 @@ export default function MintModal({ isOpen, onDismiss, mintInfo,lastId }: mintMo
     console.log("approval:"+approval)
   useEffect(() => {
     if (approval === ApprovalState.PENDING) {
-      debugger
       setApprovalSubmitted(true)
       handleSubmitProduct(mintInfo,lastId)
     }
@@ -129,128 +128,6 @@ export default function MintModal({ isOpen, onDismiss, mintInfo,lastId }: mintMo
     console.log("error:"+error)
 
 
-
-
-  // const isArgentWallet = useIsArgentWallet()
-  // const NFTFactoryContract = useNFTFactoryContract(NFTFACTORY[ChainId.BSC_MAINNET]);
-  // async function onMint() {
-  //   setAttempting(true)
-  //   if (idoContract && parsedAmount) {
-  //       if (idoInfo.tokens[0].address===ZERO_ADDRESS){
-  //           idoContract.buywithBNB({gasLimit: 350000, value:`0x${parsedAmount.raw.toString(16)}`})
-  //               .then((response: TransactionResponse) => {
-  //                   addTransaction(response, {
-  //                       summary: t('buy')
-  //                   })
-  //                   setHash(response.hash)
-  //               })
-  //               .catch((error: any) => {
-  //                   setAttempting(false)
-  //                   console.log(error)
-  //               })
-  //       }else{
-  //           if (approval === ApprovalState.APPROVED) {
-  //               idoContract.buy(`0x${parsedAmount.raw.toString(16)}`, { gasLimit: 350000 })
-  //                   .then((response: TransactionResponse) => {
-  //                       addTransaction(response, {
-  //                           summary: t('buy')
-  //                       })
-  //                       setHash(response.hash)
-  //                   })
-  //                   .catch((error: any) => {
-  //                       setAttempting(false)
-  //                       console.log(error)
-  //                   })
-  //           }
-  //           else {
-  //               setAttempting(false)
-  //               throw new Error(t('attempting-to-stake-without-approval-or-a-signature-please-contact-support'))
-  //           }
-  //       }
-  //   }
-  // }
-
-
-
-  // async function onAttemptToApprove() {
-  //     if (!stakeTokenContract || !library || !deadline) throw new Error(t('missingDependencies'))
-  //     const liquidityAmount = parsedAmount
-  //     if (!liquidityAmount) throw new Error(t('missingLiquidityAmount'))
-  //
-  //     if (isArgentWallet) {
-  //       return approveCallback()
-  //     }
-  //     stakeTokenContract.approve
-  // }
-
-  // async function onAttemptToApprove() {
-  //   if (!pairContract || !library || !deadline) throw new Error(t('missingDependencies'))
-  //   const liquidityAmount = parsedAmount
-  //   if (!liquidityAmount) throw new Error(t('missingLiquidityAmount'))
-  //
-  //   if (isArgentWallet) {
-  //     return approveCallback()
-  //   }
-  //
-  //   // try to gather a signature for permission
-  //   const nonce = await pairContract.nonces(account)
-  //
-  //   const EIP712Domain = [
-  //     { name: 'name', type: 'string' },
-  //     { name: 'version', type: 'string' },
-  //     { name: 'chainId', type: 'uint256' },
-  //     { name: 'verifyingContract', type: 'address' }
-  //   ]
-  //   const domain = {
-  //     name: 'Stake Token',
-  //     version: '1',
-  //     chainId: chainId,
-  //     verifyingContract: pairContract.address
-  //   }
-  //   const Permit = [
-  //     { name: 'owner', type: 'address' },
-  //     { name: 'spender', type: 'address' },
-  //     { name: 'value', type: 'uint256' },
-  //     { name: 'nonce', type: 'uint256' },
-  //     { name: 'deadline', type: 'uint256' }
-  //   ]
-  //   const message = {
-  //     owner: account,
-  //     spender: stakingInfo.stakingRewardAddress,
-  //     value: liquidityAmount.raw.toString(),
-  //     nonce: nonce.toHexString(),
-  //     deadline: deadline.toNumber()
-  //   }
-  //   const data = JSON.stringify({
-  //     types: {
-  //       EIP712Domain,
-  //       Permit
-  //     },
-  //     domain,
-  //     primaryType: 'Permit',
-  //     message
-  //   })
-  //
-  //   library
-  //     .send('eth_signTypedData_v4', [account, data])
-  //     .then(splitSignature)
-  //     .then(signature => {
-  //       setSignatureData({
-  //         v: signature.v,
-  //         r: signature.r,
-  //         s: signature.s,
-  //         deadline: deadline.toNumber()
-  //       })
-  //     })
-  //     .catch(error => {
-  //       // for all errors other than 4001 (EIP-1193 user rejected request), fall back to manual approve
-  //       if (error?.code !== 4001) {
-  //         approveCallback()
-  //       }
-  //     })
-  // }
-
-
     console.log(approval)
 
   return (
@@ -261,30 +138,6 @@ export default function MintModal({ isOpen, onDismiss, mintInfo,lastId }: mintMo
             <TYPE.mediumHeader>{t('Mint NFT')}</TYPE.mediumHeader>
             <CloseIcon onClick={wrappedOnDismiss} />
           </RowBetween>
-          {/*<CurrencyInputPanel*/}
-          {/*  value={typedValue}*/}
-          {/*  onUserInput={onUserInput}*/}
-          {/*  onMax={handleMax}*/}
-          {/*  showMaxButton={!atMaxAmount}*/}
-          {/*  currency={idoInfo.makeAmount.token}*/}
-          {/*  pair={null}*/}
-          {/*  label={''}*/}
-          {/*  disableCurrencySelect={true}*/}
-          {/*  customBalanceText={'Available to buy: '}*/}
-          {/*  id="stake-liquidity-token"*/}
-          {/*/>*/}
-
-          {/*<HypotheticalRewardRate dim={!hypotheticalRewardRate.greaterThan('0')}>*/}
-          {/*  <div>*/}
-          {/*    <TYPE.black fontWeight={600}>{t('weeklyRewards')}</TYPE.black>*/}
-          {/*  </div>*/}
-
-          {/*  <TYPE.black>*/}
-          {/*    {hypotheticalRewardRate.multiply((60 * 60 * 24 * 7).toString()).toSignificant(4, { groupSeparator: ',' })}{' '}*/}
-          {/*    {stakingInfo.tokens[0].symbol} / week*/}
-          {/*  </TYPE.black>*/}
-          {/*</HypotheticalRewardRate>*/}
-
           <RowBetween>
 
             <ButtonConfirmed
