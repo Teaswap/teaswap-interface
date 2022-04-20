@@ -99,13 +99,38 @@ const EditInfoDiv = styled.div`
 
 export const ProductPicture = ({ product }) => {
   const { loaded, onLoad } = useProduct();
+  const preview = (productPictureUrl, media_type, loaded, onLoad) => {
+    const src = productPictureUrl.startsWith('http') ? productPictureUrl : `https://teaswap.mypinata.cloud/ipfs/${productPictureUrl}`
+    switch(media_type) {
+      case 'Video':
+        return <video style={{width: "80%"}} controls src={src} ></video>
+      case "Audio":
+        return <audio style={{width: "100%"}} controls src={src} ></audio>
+      default:
+        return (
+          <ProductPicture
+            src={src}
+            style={{ opacity: loaded ? 1 : 0 }}
+            onLoad={onLoad}
+          />
+        )
+    }
+  }
+  if (!product || !product.picture_url) {
+    return (
+      <ProductPictureContainer loaded={loaded}>
+        Loading...
+      </ProductPictureContainer>
+    )
+  }
   return (
     <ProductPictureContainer loaded={loaded}>
-      <ProductPictureImg
+      {preview(product.picture_url, product.media_type, loaded, onLoad)}
+      {/* <ProductPictureImg
         src={product.picture_url}
         style={{ opacity: loaded ? 1 : 0 }}
         onLoad={onLoad}
-      />
+      /> */}
     </ProductPictureContainer>
   );
 };

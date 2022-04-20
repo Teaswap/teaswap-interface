@@ -158,7 +158,7 @@ export const Product = ({ product, onLoad, loaded, $width, $height, $margin }) =
       )}
       {!product.link && (
         <NavLink to={`/nft/products/${product.id}`}>
-          {preview(product.picture_url, product.media_typ, loaded, onLoad, $width, $height)}
+          {preview(product.picture_url, product.media_type, loaded, onLoad, $width, $height)}
           {/* <ProductPicture
             src={product.picture_url}
             style={{ opacity: loaded ? 1 : 0 }}
