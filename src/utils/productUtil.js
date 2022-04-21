@@ -4,7 +4,7 @@ export const preview = (productPictureUrl, media_type, loaded, onLoad, $width, $
     const src = productPictureUrl.startsWith('http') ? productPictureUrl : `https://teaswap.mypinata.cloud/ipfs/${productPictureUrl}`
     switch(media_type) {
       case 'Video':
-        return <video controls src={src} ></video>
+        return <video style={{width: '100%'}} controls src={src} ></video>
       case "Audio":
         return <audio controls src={src} ></audio>
       default:

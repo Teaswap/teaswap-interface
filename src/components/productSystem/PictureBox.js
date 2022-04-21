@@ -79,9 +79,9 @@ export function PictureBox({ pictureUrl, handleChange, productMediaType }) {
   const preview = (type) => {
     switch(type) {
       case 'Video':
-        return <video src={src}></video>
+        return <video controls style={{width: '100%'}} src={src}></video>
       case 'Audio':
-        return <video src={src}></video>
+        return <audio controls src={src}></audio>
       default:
         return <img width="100%" src={src} alt='' />
     } 

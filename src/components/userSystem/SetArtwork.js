@@ -152,7 +152,7 @@ export default function SetArtwork({productPictureUrl, handleChangePicture, setP
     }
     switch(type) {
       case 'Video':
-        return <video controls onClick={() => document.getElementById('uploadArtwork').click()}src={src}></video>
+        return <video style={{width: '100%'}} controls onClick={() => document.getElementById('uploadArtwork').click()}src={src}></video>
       case 'Audio':
         return <audio controls onClick={() => document.getElementById('uploadArtwork').click()}src={src}></audio>
       default:
