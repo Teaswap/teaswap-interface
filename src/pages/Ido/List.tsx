@@ -93,7 +93,7 @@ const List = () => {
       Learn: "https://alpha.niftykit.com/drops/penguinbrother",
       LearnText: "Learn > On ETH",
       author: "The Opportunity for Youth NFT Program",
-      medium: "https://www.youtube.com/watch?v=Dfgq197zYTo&t=10s",
+      medium: "https://youtu.be/pdB4u8PXV2c",
       info:
         "A collection of 8,888 unique Penguinbrothers (Normal & Rare) curated by TSA Incubator and living on the EThereum, Polygon and Binance Smart Chain. Supporting Youth NFT Programs by giving 5% of proceeds received from public sale to the PenguinPunks NFT Staking Pool for learning adoption in DeFi.",
       joinUs: "/tsp",
