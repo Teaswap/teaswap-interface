@@ -54,7 +54,7 @@ const List = () => {
       info:
         "Located in the TSA MetaPlay Park, you will find 12,888 unique TSA Penguins playing around on the Sandbox TSA Meta & TSA MetaPlay Franchise. The NFTs come in different rarity levels: N (Normal ), R (Rare) & SR ( Super Rare).",
       joinUs: "/tsa",
-      when: "When: 19:00 UTC & PST March 18, 2022",
+      when: "When: Ongoing",
       end: new Date(1640942516),
       duration: 6048000,
       sign: NewImg,
@@ -64,11 +64,11 @@ const List = () => {
       Learn: "https://www.teaswap.art/blind-box",
       LearnText: "Learn > On BSC",
       author: "TSA Magic Box",
-      medium: "https://youtu.be/DUZVbvaa8jM",
+      medium: "https://www.youtube.com/watch?v=qdFTk2adcHI",
       info:
         "A collection of 10,000 limited edition TSANFTs are available in the TSA MagicBox.  Holding a TSA Magic Box gives holders access to our discord-based DAO, TSADAO, where we deliver interconnectivity via social programs and rewards to the community, have a say in the future of the TSA NFT Incubator & Marketplace.",
       joinUs: "/blind-box",
-      when: "When: March 20, 2022",
+      when: "When: Ongoing [Whitelist Only]",
       end: new Date(1640942516),
       duration: 6048000,
       sign: NewImg,
@@ -79,11 +79,11 @@ const List = () => {
       // "https://www.teaswap.live/tsacollections",
       LearnText: "Learn > On Polygon",
       author: "Who's the Boss?",
-      medium: "https://www.youtube.com/watch?v=Dfgq197zYTo&t=10s",
+      medium: "https://www.youtube.com/watch?v=11q8PEuxnm4&t=1s",
       info:
         "A collection of 300 limited editions of  “Who's the Boss?” curated by TSANFT Incubator  (Normal & Rare)  and living on the Polygon, the second market is supported by OpenSea and Rarible, staking farming is powered by TSANFT Staking.",
       joinUs: "Boss",
-      when: "When: March 31, 2022",
+      when: "When: Ongoing",
       end: new Date(1640942516),
       duration: 6048000,
       sign: NewImg,
@@ -97,7 +97,7 @@ const List = () => {
       info:
         "A collection of 8,888 unique Penguinbrothers (Normal & Rare) curated by TSA Incubator and living on the EThereum, Polygon and Binance Smart Chain. Supporting Youth NFT Programs by giving 5% of proceeds received from public sale to the PenguinPunks NFT Staking Pool for learning adoption in DeFi.",
       joinUs: "/tsp",
-      when: "When: March 25, 2022",
+      when: "When: Ongoing",
       end: new Date(1640942516),
       duration: 6048000,
       sign: NewImg,
@@ -111,7 +111,7 @@ const List = () => {
       info:
         "Located in the TSA MetaPlay Park, you will find 12,888 unique TSA Penguins playing around on the Sandbox TSA Meta & TSA MetaPlay Franchise. The NFTs come in different rarity levels: N (Normal ), R (Rare) & SR ( Super Rare).",
       joinUs: "vendor",
-      when: "When: March 25, 2022",
+      when: "When: Ongoing",
       end: new Date(1640942516),
       duration: 6048000,
       sign: NewImg,
@@ -126,7 +126,7 @@ const List = () => {
         "TSA Metaverse Park is partnered with iCashRewards VR Center to develop a digital piece of TSA NFT real estate, a total of 200,000 lots will be available. Each lot is a unique (non-fungible) token that functions as your entrance to access TSA Metaverse Park.",
       joinUs:
         "/iro/bnb/0x1729552618376F8a179c0F61F9FE789C77b230FE/0x1Ef0d833Ad1b1D76da36bb28bEF37Ee86874571E",
-      when: "When: March 3, 2022",
+      when: "When: Ongoing",
       end: new Date(1640942516),
       duration: 6048000,
       sign: NewImg,
@@ -216,16 +216,21 @@ const List = () => {
                   src={v.image}
                   onClick={() => {
                     if (v.LearnText == "Learn > On ETH") {
-                      window.open("https://www.teaswap.art/tsa");
+                      window.open("https://www.teaswap.live/penguinpunks");
+                    } else if (
+                      v.LearnText == "Learn > On ETH" &&
+                      v.author == "The Opportunity for Youth NFT Program"
+                    ) {
+                      window.open("https://www.teaswap.live/penguinbrother");
                     } else if (
                       v.LearnText == "Learn > On Polygon" &&
                       v.author !== "Who's the Boss?"
                     ) {
                       window.open("https://www.teaswap.art/tsp");
                     } else if (v.author == "Who's the Boss?") {
-                      window.open("https://www.teaswap.art/boss");
-                    } else if (v.author == "Blind Box") {
-                      window.open("https://www.teaswap.art/blind-box");
+                      window.open("https://www.teaswap.live/whostheboss");
+                    } else if (v.author == "TSA Magic Box") {
+                      window.open("https://www.teaswap.live/tsa-magicbox");
                     } else {
                       window.open(
                         "https://www.teaswap.art/nft/products/vendor/263751"
