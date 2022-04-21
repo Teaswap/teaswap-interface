@@ -12,27 +12,12 @@ import ProgressCircles from '../ProgressSteps'
 import {ChainId} from '@teaswap/uniswap-sdk'
 // import { useActiveWeb3React } from '../../hooks'
 import {ApprovalState, useApproveNFTCallback} from '../../hooks/useApproveCallback'
-// import { splitSignature } from 'ethers/lib/utils'
-// import { IdoInfo, useDerivedIdoInfo } from '../../state/stake/hooks'
-// import { wrappedCurrencyAmount } from '../../utils/wrappedCurrency'
-
 import { LoadingView, SubmittedView } from '../ModalViews'
 import {NFTEXCHANGE} from "../../constants";
 import {MintInfoInterface, mintState, useMintCallback} from "../../hooks/useMintCallback";
 import {useActiveWeb3React} from "../../hooks";
 import useProductForm from "../../hooks/productHooks/useProductForm";
-// import {useNFTLastId} from "../../state/wallet/hooks";
-// import useProductForm from "../../hooks/productHooks/useProductForm";
-
-// const HypotheticalRewardRate = styled.div<{ dim: boolean }>`
-//   display: flex;
-//   justify-content: space-between;
-//   padding-right: 20px;
-//   padding-left: 20px;
-//
-//   opacity: ${({ dim }) => (dim ? 0.5 : 1)};
-// `
-
+import { useETHBalances } from '../../state/wallet/hooks'
 const ContentWrapper = styled(AutoColumn)`
   width: 100%;
   padding: 1rem;
@@ -50,16 +35,16 @@ interface mintModalProps {
 export default function MintModal({ isOpen, onDismiss, mintInfo,lastId }: mintModalProps) {
   const {  account } = useActiveWeb3React()
   const { t } = useTranslation()
+  const balance = useETHBalances(account ? [account] : [])?.[account ?? ""];
 
-  console.log('mintInfo', mintInfo)
-
+  console.log('mintInfo', mintInfo, balance)
 
   // track and parse user input
   const [approvalSubmitted, setApprovalSubmitted] = useState<boolean>(false)
-    const [mintSubmitted, setMintSubmitted] = useState<boolean>(false)
-    console.log('approvalSubmitted:'+approvalSubmitted)
-    console.log('mintSubmitted:'+mintSubmitted)
-    const [minted, setMinted] = useState<boolean>(false)
+  const [mintSubmitted, setMintSubmitted] = useState<boolean>(false)
+  console.log('approvalSubmitted:'+approvalSubmitted)
+  console.log('mintSubmitted:'+mintSubmitted)
+  const [minted, setMinted] = useState<boolean>(false)
 
     // state for pending and submitted txn views
   // const addTransaction = useTransactionAdder()
@@ -74,28 +59,8 @@ export default function MintModal({ isOpen, onDismiss, mintInfo,lastId }: mintMo
     onDismiss()
   }, [onDismiss])
 
-  // pair contract for this token to be staked
-  // const dummyPair = new Pair(new TokenAmount(stakingInfo.tokens[0], '0'), new TokenAmount(stakingInfo.tokens[1], '0'))
-  // const pairContract = usePairContract(dummyPair.liquidityToken.address)
-  // const pairContract = useTokenContract(stakingInfo.tokens[0].address)
-  // approval data for stake
-  // const stakeTokenContract = useTokenContract(stakingInfo.tokens[0].address)
- const [mint,mintCallback] = useMintCallback(mintInfo)
-    console.log('mint:'+mint)
- console.log("mintInfo:"+JSON.stringify(mintInfo))
- // const lastIdres = useNFTLastId(mintInfo.delivertyLocation)
- //    console.log("lastIdres:"+lastIdres)
- //
- // const lastId = useMemo(()=>{
- //     if (lastIdres) {
- //         return lastIdres-1
- //     }else{
- //         return undefined
- //     }
- // },[lastIdres])
 
-    console.log("lastId:"+lastId)
-
+  const [mint, mintCallback] = useMintCallback(mintInfo);
 
  const [approval, approveCallback] = useApproveNFTCallback(NFTEXCHANGE[ChainId.BSC_MAINNET], lastId,mintInfo.delivertyLocation)
  const {handleSubmitProduct} = useProductForm()
@@ -123,7 +88,10 @@ export default function MintModal({ isOpen, onDismiss, mintInfo,lastId }: mintMo
       if (!account) {
           return t('connectWallet')
       }
-  },[account])
+      if (!balance || balance.toExact() < '0.01') {
+        return t('Insufficient funds.')
+      }
+  },[account, balance])
 
     console.log("error:"+error)
 

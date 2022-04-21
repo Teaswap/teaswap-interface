@@ -166,7 +166,7 @@ export default function Menu() {
                 {t("Referral")}
               </MenuItem>
               <MenuItem onClick={openClaimModal}>{t("Airdrop")}</MenuItem>
-              <MenuItem onClick={checkBlinkBoxAirdrop}>{t("Blind Box Airdrop")}</MenuItem>
+              <MenuItem onClick={checkBlinkBoxAirdrop}>{t("Magic Box Airdrop")}</MenuItem>
               <MenuItem
                 onClick={() =>
                   window.open("https://app.multichain.org/#/router")
