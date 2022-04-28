@@ -1,6 +1,6 @@
 @media (max-width: 500px){
   .btn-sm-100{
-    width: 100px;
+    width: 100px !important;
   }
   .declare-checkbox > input{
     width: 70px;
