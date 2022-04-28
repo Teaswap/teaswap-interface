@@ -89,7 +89,7 @@ export default function MintModal({ isOpen, onDismiss, mintInfo,lastId }: mintMo
           return t('connectWallet')
       }
       if (!balance || balance.toExact() < '0.01') {
-        return t('Insufficient funds.')
+        return t('Insufficient funds')
       }
   },[account, balance])
 
