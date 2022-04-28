@@ -16,7 +16,7 @@ import { TransactionResponse } from "@ethersproject/abstract-provider";
 import { ExternalLink } from "../../theme";
 import { toWei } from "web3-utils";
 import { shortenAddress } from "../../utils";
-import airdropAPI from '../../webAPI/airdropAPI'
+import airdropAPI from "../../webAPI/airdropAPI";
 import { useNavigate } from "react-router-dom";
 import { switchNetwork } from "../../utils/wallet";
 
@@ -26,7 +26,7 @@ export default () => {
   const [amount, setAmount] = useState(0);
   const [hash, setHash] = useState("");
   const [msg, setMsg] = useState("");
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const tspContract = useTspContract();
   const { account, chainId } = useActiveWeb3React();
   const balance = useETHBalances(account ? [account] : [])?.[account ?? ""];
@@ -49,13 +49,13 @@ export default () => {
         console.log("buy: res", { response });
         // todo send airdrop
         setHash(response.hash);
-        const res = await airdropAPI.mintAPI(account, response.hash)
+        const res = await airdropAPI.mintAPI(account, response.hash);
         if (res.ok == 1) {
-          // todo you have an airdrop 
+          // todo you have an airdrop
           setMsg("You have an airdrop, go to claim in about 3s");
           setTimeout(() => {
-            navigate("/blind-box")
-          }, 3000)
+            navigate("/blind-box");
+          }, 3000);
         }
       })
       .catch(async (error: any) => {
@@ -124,7 +124,7 @@ export default () => {
             color: "#FFFFFF",
           }}
         >
-          <p>You can now mint up to 3 TSP.</p>
+          <p>You can now mint up to 3 WTB.</p>
           <div style={{ position: "relative", top: "-10px" }}>
             <p># NFTs minted by you so far: {tspBalance}/3</p>
           </div>
@@ -210,10 +210,10 @@ export default () => {
                   padding: 0,
                   backgroundColor: "#09afb6",
                   color: "#FFFFFF",
-                  letterSpacing: ".1rem"
+                  letterSpacing: ".1rem",
                 }}
                 onClick={() => {
-                  switchNetwork(ChainId.MAINNET)
+                  switchNetwork(ChainId.MAINNET);
                 }}
                 children="Switch to ETH Mainnet  to  Mint"
               />
