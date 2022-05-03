@@ -98,6 +98,7 @@ import TSP from "./Tsp";
 import TSA from "./Tsa";
 import BlindBox from './BlinkBox'
 import BossBox from './Boss'
+import POAP from './poap'
 
 const AppWrapper = styled.div`
   display: flex;
@@ -159,6 +160,7 @@ export default function App() {
             <Routes>
               <Route path="/iro" element={<IdoList />} />
               <Route path="/tsp" element={<TSP />} />
+              <Route path="/poap" element={<POAP />} />
               <Route path="/tsa" element={<TSA />} />
               <Route path="/boss" element={<BossBox />} />
               <Route path="/blind-box" element={<BlindBox />} />
