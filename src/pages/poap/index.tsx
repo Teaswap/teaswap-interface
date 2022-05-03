@@ -69,7 +69,7 @@ export default () => {
   return (
     <Wrapper>
       <Left className="panel">
-        <img src="/web60.gif" />
+        <img src="/card02.gif" />
       </Left>
       <Right className="panel">
         <div
