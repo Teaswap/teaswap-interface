@@ -14,6 +14,7 @@ import GridImg7 from "../../assets/images/grid_image7.jpg";
 import GridImg8 from "../../assets/images/penguinbrothers.png";
 import GridImg9 from "../../assets/images/Whostheboss.png";
 import GridImg10 from "../../assets/images/blindbox.png";
+import GridImg11 from "../../assets/images/2020.gif";
 import YoutobeImg from "../../assets/images/youtube.png";
 import { ExternalLink } from "../../theme";
 
@@ -69,6 +70,20 @@ const List = () => {
         "A collection of 10,000 limited edition TSANFTs are available in the TSA MagicBox.  Holding a TSA Magic Box gives holders access to our discord-based DAO, TSADAO, where we deliver interconnectivity via social programs and rewards to the community, have a say in the future of the TSA NFT Incubator & Marketplace.",
       joinUs: "/blind-box",
       when: "When: Ongoing [Whitelist Only]",
+      end: new Date(1640942516),
+      duration: 6048000,
+      sign: NewImg,
+    },
+    {
+      image: GridImg11,
+      Learn: "https://www.teaswap.art/poap",
+      LearnText: "Learn > On Polygon",
+      author: "Digital 20/20 POAP",
+      medium: "https://youtu.be/PACwzNMMQgs",
+      info:
+        "POAPs, or Proof of Attendance Protocol, are unique NFT badges given to attendees to prove their attendance at an event. Attendees of the Digital 20/20 Towards Digital World event from June 3, 2022 to July 4, 2022 are eligible to receive a Digital 20/20 POAP NFT to celebrate and record your attendance!",
+      joinUs: "poap",
+      when: "May 20, 2022",
       end: new Date(1640942516),
       duration: 6048000,
       sign: NewImg,
@@ -224,9 +239,12 @@ const List = () => {
                       window.open("https://www.teaswap.live/penguinbrother");
                     } else if (
                       v.LearnText == "Learn > On Polygon" &&
-                      v.author !== "Who's the Boss?"
+                      v.author !== "Who's the Boss?" &&
+                      v.author !== "Digital 20/20 POAP"
                     ) {
                       window.open("https://www.teaswap.art/tsp");
+                    } else if (v.author == "Digital 20/20 POAP") {
+                      window.open("https://www.teaswap.live/poapnft");
                     } else if (v.author == "Who's the Boss?") {
                       window.open("https://www.teaswap.live/whostheboss");
                     } else if (v.author == "TSA Magic Box") {
@@ -285,13 +303,19 @@ const List = () => {
                   v.joinUs !== "Alpha" &&
                   v.joinUs !== "penguinpunks" &&
                   v.joinUs !== "tsapenguinpunks" &&
-                  v.joinUs !== "Boss" && (
+                  v.joinUs !== "Boss" &&
+                  v.joinUs !== "poap" && (
                     <StyledLink to={v.joinUs}>
                       <JoinUs>{t("Join Us")}</JoinUs>
                     </StyledLink>
                   )}
                 {v.joinUs === "tsapenguinpunks" && (
                   <ExternalLink href="https://www.teaswap.live/tsapenguinpunks">
+                    <JoinUs>{t("Join Us")}</JoinUs>
+                  </ExternalLink>
+                )}
+                {v.joinUs == "poap" && (
+                  <ExternalLink href="https://www.teaswap.art/poap">
                     <JoinUs>{t("Join Us")}</JoinUs>
                   </ExternalLink>
                 )}
