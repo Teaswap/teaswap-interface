@@ -191,7 +191,7 @@ export default () => {
                       minWidth: "300px",
                     }}
                     onClick={() => {
-                      window.open("https://opensea.io/collection/poap");
+                      window.open("https://opensea.io/collection/digital2020poap");
                     }}
                     children="OPENSEA"
                   />
@@ -212,14 +212,14 @@ export default () => {
                 onClick={() => {
                   switchNetwork(137);
                 }}
-                children="Switch to ETH Mainnet  to  Mint"
+                children="Switch to Polygon Mainnet  to  Mint"
               />
             </div>
           )}
           {hash && (
             <div>
               <ExternalLink href={`https://polygonscan.com/tx/${hash}`}>
-                View on Etherscan
+                View on Polygon scan
               </ExternalLink>
             </div>
           )}
@@ -235,7 +235,7 @@ const Wrapper = styled.div`
   justify-content: space-between;
   width: 100%;
   min-height: 100vh;
-  background-color: #4d0896;
+  background-color: #085c96;
   padding: 100px 0;
   /* position: absolute;
   bottom: 100px; */

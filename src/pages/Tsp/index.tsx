@@ -124,7 +124,7 @@ export default () => {
             color: "#FFFFFF",
           }}
         >
-          <p>You can now mint up to 3 WTB.</p>
+          <p>You can now mint up to 3 TSP.</p>
           <div style={{ position: "relative", top: "-10px" }}>
             <p># NFTs minted by you so far: {tspBalance}/3</p>
           </div>
