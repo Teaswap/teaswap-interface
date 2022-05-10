@@ -415,3 +415,6 @@ iframe{
 iframe.myiframe {
   display: block !important;
 }
+.mint-msg{
+  color: white;
+}

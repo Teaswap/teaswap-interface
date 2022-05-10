@@ -203,7 +203,7 @@ export default () => {
               </ExternalLink>
             </div>
           )}
-          {msg && <div className="error-msg">{msg}</div>}
+          {msg && <div className="mint-msg">{msg}</div>}
         </div>
       </Right>
     </Wrapper>
