@@ -47,20 +47,6 @@ const List = () => {
   console.log(t("tokensAvailable"), useTranslation());
   const products = [
     {
-      image: GridImg7,
-      Learn: "https://www.teaswap.live/penguinpunks",
-      LearnText: "Learn > On ETH",
-      author: "Your Journey to Digital Sustainability and DeFi",
-      medium: "https://youtu.be/DUZVbvaa8jM",
-      info:
-        "Located in the TSA MetaPlay Park, you will find 12,888 unique TSA Penguins playing around on the Sandbox TSA Meta & TSA MetaPlay Franchise. The NFTs come in different rarity levels: N (Normal ), R (Rare) & SR ( Super Rare).",
-      joinUs: "/tsa",
-      when: "When: Ongoing",
-      end: new Date(1640942516),
-      duration: 6048000,
-      sign: NewImg,
-    },
-    {
       image: GridImg10,
       Learn: "https://www.teaswap.art/blind-box",
       LearnText: "Learn > On BSC",
@@ -89,6 +75,20 @@ const List = () => {
       sign: NewImg,
     },
     {
+      image: GridImg11,
+      Learn: "https://www.teaswap.art/poap2",
+      LearnText: "Learn > On Ethereum Mainnet",
+      author: "Digital 20/20 POAP",
+      medium: "https://www.youtube.com/watch?v=5Fbg1IohSxk",
+      info:
+        "POAPs, or Proof of Attendance Protocol, are unique NFT badges given to attendees to prove their attendance at an event. Attendees of the Digital 20/20 Towards Digital World event from June 3, 2022 to July 4, 2022 are eligible to receive a Digital 20/20 POAP NFT to celebrate and record your attendance!",
+      joinUs: "poap2",
+      when: "May 20, 2022",
+      end: new Date(1640942516),
+      duration: 6048000,
+      sign: NewImg,
+    },
+    {
       image: GridImg9,
       Learn: "https://www.teaswap.art/boss",
       // "https://www.teaswap.live/tsacollections",
@@ -104,9 +104,23 @@ const List = () => {
       sign: NewImg,
     },
     {
+      image: GridImg7,
+      Learn: "https://www.teaswap.live/penguinpunks",
+      LearnText: "Learn > On Ethereum Mainnet",
+      author: "Your Journey to Digital Sustainability and DeFi",
+      medium: "https://youtu.be/DUZVbvaa8jM",
+      info:
+        "Located in the TSA MetaPlay Park, you will find 12,888 unique TSA Penguins playing around on the Sandbox TSA Meta & TSA MetaPlay Franchise. The NFTs come in different rarity levels: N (Normal ), R (Rare) & SR ( Super Rare).",
+      joinUs: "/tsa",
+      when: "When: Ongoing",
+      end: new Date(1640942516),
+      duration: 6048000,
+      sign: NewImg,
+    },
+    {
       image: GridImg8,
       Learn: "https://alpha.niftykit.com/drops/penguinbrother",
-      LearnText: "Learn > On ETH",
+      LearnText: "Learn > On Ethereum Mainnet",
       author: "The Opportunity for Youth NFT Program",
       medium: "https://youtu.be/pdB4u8PXV2c",
       info:
@@ -230,10 +244,10 @@ const List = () => {
                   height="220px"
                   src={v.image}
                   onClick={() => {
-                    if (v.LearnText == "Learn > On ETH") {
+                    if (v.LearnText == "Learn > On Ethereum Mainnet") {
                       window.open("https://www.teaswap.live/penguinpunks");
                     } else if (
-                      v.LearnText == "Learn > On ETH" &&
+                      v.LearnText == "Learn > On Ethereum Mainnet" &&
                       v.author == "The Opportunity for Youth NFT Program"
                     ) {
                       window.open("https://www.teaswap.live/penguinbrother");
@@ -304,7 +318,8 @@ const List = () => {
                   v.joinUs !== "penguinpunks" &&
                   v.joinUs !== "tsapenguinpunks" &&
                   v.joinUs !== "Boss" &&
-                  v.joinUs !== "poap" && (
+                  v.joinUs !== "poap" &&
+                  v.joinUs !== "poap2" && (
                     <StyledLink to={v.joinUs}>
                       <JoinUs>{t("Join Us")}</JoinUs>
                     </StyledLink>
@@ -316,6 +331,11 @@ const List = () => {
                 )}
                 {v.joinUs == "poap" && (
                   <ExternalLink href="https://www.teaswap.art/poap">
+                    <JoinUs>{t("Join Us")}</JoinUs>
+                  </ExternalLink>
+                )}
+                {v.joinUs == "poap2" && (
+                  <ExternalLink href="https://www.teaswap.art/poap2">
                     <JoinUs>{t("Join Us")}</JoinUs>
                   </ExternalLink>
                 )}

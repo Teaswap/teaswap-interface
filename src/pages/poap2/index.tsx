@@ -7,7 +7,12 @@ import FormControl from "@mui/material/FormControl";
 import OutlinedInput from "@mui/material/OutlinedInput";
 import { NormalButton } from "../../components/NFTButton";
 
-import { useTotalSupply, usePoapBalance, usePoapPrice, usePoapContract } from "./hooks";
+import {
+  useTotalSupply,
+  usePoapBalance,
+  usePoapPrice,
+  usePoapContract,
+} from "./hooks";
 // import { useETHBalances } from "../../state/wallet/hooks";
 import { JSBI } from "@teaswap/uniswap-sdk";
 // import { calculateGasMargin } from '../../utils';
@@ -33,7 +38,7 @@ export default () => {
   const [hash, setHash] = useState("");
   const [msg, setMsg] = useState("");
   const navigate = useNavigate();
-  console.log({poapContract})
+  console.log({ poapContract });
 
   const handleChange = async (e: any) => {
     setMsg("");
@@ -97,7 +102,7 @@ export default () => {
             color: "#FFFFFF",
           }}
         >
-          Address: {account ? shortenAddress(account) : ""}        
+          Address: {account ? shortenAddress(account) : ""}
         </div>
         <div
           style={{
@@ -161,11 +166,11 @@ export default () => {
           )}
           {account && chainId == 1 && (
             <CrossmintPayButton
-                collectionTitle="Digital 20/20 's POAP NFTs"
-                collectionDescription="Digital 20/20 's POAP NFTs are powered by TSA NFT Incubator and can be minted on Polygon & Ethereum . They contain an image and information related to the event , POAP NFTs holders can receive exclusive perks & rewards from Digital 20/20. Each POAP badge has a unique token number."
-                collectionPhoto="https://teaswap.mypinata.cloud/ipfs/QmSLaXyBr5DurQ3i5SUR47xBeCqaeVbnBmNRdSLGenGdeH"
-                clientId="1b8ed147-6417-4fc1-a7c8-2e50c6dfc7b7"
-                mintConfig={{"type":"erc-721","price":"0.005"}}
+              collectionTitle="Digital 20/20 's POAP NFTs"
+              collectionDescription="Digital 20/20 's POAP NFTs are powered by TSA NFT Incubator and can be minted on Polygon & Ethereum . They contain an image and information related to the event , POAP NFTs holders can receive exclusive perks & rewards from Digital 20/20. Each POAP badge has a unique token number."
+              collectionPhoto="https://teaswap.mypinata.cloud/ipfs/QmSLaXyBr5DurQ3i5SUR47xBeCqaeVbnBmNRdSLGenGdeH"
+              clientId="1b8ed147-6417-4fc1-a7c8-2e50c6dfc7b7"
+              mintConfig={{ type: "erc-721", price: "0.005" }}
             />
           )}
           {account && chainId === 1 && (
@@ -200,7 +205,9 @@ export default () => {
                       minWidth: "300px",
                     }}
                     onClick={() => {
-                      window.open("https://opensea.io/collection/digital2020poap");
+                      window.open(
+                        "https://opensea.io/collection/digital-2020-spoap"
+                      );
                     }}
                     children="OPENSEA"
                   />
