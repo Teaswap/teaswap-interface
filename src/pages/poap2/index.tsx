@@ -182,7 +182,7 @@ export default () => {
                     }}
                     onClick={() => {
                       window.open(
-                        "https://etherscan.io/address/0xd82C84c487179D4970aB2031fC678CAF8e18a799"
+                        "https://etherscan.io/address/0x0565d665E1C6c07210fc3C9375cC8a97e87E337D"
                       );
                     }}
                     children="SMART CONTRACT"

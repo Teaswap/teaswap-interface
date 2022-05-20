@@ -6,7 +6,7 @@ import { useContract } from '../../hooks/useContract';
 import abi from './abi.json'
 
 export function usePoapContract(): Contract | null {
-  return useContract('0xd82C84c487179D4970aB2031fC678CAF8e18a799', abi, true)
+  return useContract('0x0565d665E1C6c07210fc3C9375cC8a97e87E337D', abi, true)
 }
 
 export function useTotalSupply(contract: Contract | null, chainId: ChainId|undefined) {
