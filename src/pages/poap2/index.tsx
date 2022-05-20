@@ -164,12 +164,16 @@ export default () => {
               </Select>
             </FormControl>
           )}
+          <div style={{
+            marginTop: "10px",
+            marginBottom: "10px"
+          }}> OR </div>
           {account && chainId == 1 && (
             <CrossmintPayButton
               collectionTitle="Digital 20/20 's POAP NFTs"
               collectionDescription="Digital 20/20 's POAP NFTs are powered by TSA NFT Incubator and can be minted on Polygon & Ethereum . They contain an image and information related to the event , POAP NFTs holders can receive exclusive perks & rewards from Digital 20/20. Each POAP badge has a unique token number."
               collectionPhoto="https://teaswap.mypinata.cloud/ipfs/QmSLaXyBr5DurQ3i5SUR47xBeCqaeVbnBmNRdSLGenGdeH"
-              clientId="1b8ed147-6417-4fc1-a7c8-2e50c6dfc7b7"
+              clientId="2aa5f770-63dd-4ff6-a389-45abc90e4055"
               mintConfig={{ type: "erc-721", price: "0.005" }}
             />
           )}
@@ -206,7 +210,7 @@ export default () => {
                     }}
                     onClick={() => {
                       window.open(
-                        "https://opensea.io/collection/digital-2020-spoap"
+                        "https://opensea.io/collection/digital-2020-s-poap"
                       );
                     }}
                     children="OPENSEA"
@@ -228,14 +232,14 @@ export default () => {
                 onClick={() => {
                   switchNetwork(1);
                 }}
-                children="Switch to Polygon Mainnet  to  Mint"
+                children="Switch to ETH Mainnet  to  Mint"
               />
             </div>
           )}
           {hash && (
             <div>
               <ExternalLink href={`https://etherscan.io/tx/${hash}`}>
-                View on Polygon scan
+                View on ethereum scan
               </ExternalLink>
             </div>
           )}
