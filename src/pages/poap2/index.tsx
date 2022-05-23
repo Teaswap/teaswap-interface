@@ -166,9 +166,12 @@ export default () => {
           )}
           <div style={{
             marginTop: "10px",
-            marginBottom: "10px"
+            marginBottom: "10px",
+            color: "#ffffff"
           }}> OR </div>
-          {account && chainId == 1 && (
+          <div style={{
+            textTransform: 'uppercase'
+          }}>
             <CrossmintPayButton
               collectionTitle="Digital 20/20 's POAP NFTs"
               collectionDescription="Digital 20/20 's POAP NFTs are powered by TSA NFT Incubator and can be minted on Polygon & Ethereum . They contain an image and information related to the event , POAP NFTs holders can receive exclusive perks & rewards from Digital 20/20. Each POAP badge has a unique token number."
@@ -176,7 +179,7 @@ export default () => {
               clientId="2aa5f770-63dd-4ff6-a389-45abc90e4055"
               mintConfig={{ type: "erc-721", price: "0.005" }}
             />
-          )}
+          </div>
           {account && chainId === 1 && (
             <div>
               {
