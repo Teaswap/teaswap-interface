@@ -67,7 +67,7 @@ const List = () => {
       author: "Digital 20/20 POAP",
       medium: "https://www.youtube.com/watch?v=5Fbg1IohSxk",
       info:
-        "POAPs, or Proof of Attendance Protocol, are unique NFT badges given to attendees to prove their attendance at an event. Attendees of the Digital 20/20 Towards Digital World event from June 3, 2022 to July 4, 2022 are eligible to receive a Digital 20/20 POAP NFT to celebrate and record your attendance!",
+        "POAPs, or Proof of Attendance Protocol, are unique NFT badges given to attendees to prove their attendance at an event. Attendees of the Digital 20/20 Digital 20/20: Boom Into Web3 Social from June 3, 2022 to July 3, 2022 are eligible to receive a Digital 20/20 POAP NFT to celebrate and record your attendance! Accept Credit Card Payment and $ETH",
       joinUs: "poap2",
       when: "May 20, 2022",
       end: new Date(1640942516),
