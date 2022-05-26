@@ -47,20 +47,6 @@ const List = () => {
   console.log(t("tokensAvailable"), useTranslation());
   const products = [
     {
-      image: GridImg10,
-      Learn: "https://www.teaswap.art/blind-box",
-      LearnText: "Learn > On BSC",
-      author: "TSA Magic Box",
-      medium: "https://www.youtube.com/watch?v=qdFTk2adcHI",
-      info:
-        "A collection of 10,000 limited edition TSANFTs are available in the TSA MagicBox.  Holding a TSA Magic Box gives holders access to our discord-based DAO, TSADAO, where we deliver interconnectivity via social programs and rewards to the community, have a say in the future of the TSA NFT Incubator & Marketplace.",
-      joinUs: "/blind-box",
-      when: "When: Ongoing [Whitelist Only]",
-      end: new Date(1640942516),
-      duration: 6048000,
-      sign: NewImg,
-    },
-    {
       image: GridImg11,
       Learn: "https://www.teaswap.art/poap",
       LearnText: "Learn > On Polygon",
@@ -84,6 +70,20 @@ const List = () => {
         "POAPs, or Proof of Attendance Protocol, are unique NFT badges given to attendees to prove their attendance at an event. Attendees of the Digital 20/20 Towards Digital World event from June 3, 2022 to July 4, 2022 are eligible to receive a Digital 20/20 POAP NFT to celebrate and record your attendance!",
       joinUs: "poap2",
       when: "May 20, 2022",
+      end: new Date(1640942516),
+      duration: 6048000,
+      sign: NewImg,
+    },
+    {
+      image: GridImg10,
+      Learn: "https://www.teaswap.art/blind-box",
+      LearnText: "Learn > On BSC",
+      author: "TSA Magic Box",
+      medium: "https://www.youtube.com/watch?v=qdFTk2adcHI",
+      info:
+        "A collection of 10,000 limited edition TSANFTs are available in the TSA MagicBox.  Holding a TSA Magic Box gives holders access to our discord-based DAO, TSADAO, where we deliver interconnectivity via social programs and rewards to the community, have a say in the future of the TSA NFT Incubator & Marketplace.",
+      joinUs: "/blind-box",
+      when: "When: Ongoing [Whitelist Only]",
       end: new Date(1640942516),
       duration: 6048000,
       sign: NewImg,
