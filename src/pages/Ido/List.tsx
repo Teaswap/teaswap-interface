@@ -15,6 +15,7 @@ import GridImg8 from "../../assets/images/penguinbrothers.png";
 import GridImg9 from "../../assets/images/Whostheboss.png";
 import GridImg10 from "../../assets/images/blindbox.png";
 import GridImg11 from "../../assets/images/2020.gif";
+import GridImg12 from "../../assets/images/TSAWeb3MusicBox.png";
 import YoutobeImg from "../../assets/images/youtube.png";
 import { ExternalLink } from "../../theme";
 
@@ -46,6 +47,20 @@ const List = () => {
   // const durationfake = 3600
   console.log(t("tokensAvailable"), useTranslation());
   const products = [
+    {
+      image: GridImg12,
+      Learn: "https://www.teaswap.live/tsacollections",
+      LearnText: "Learn > On Polygon",
+      author: "TSA NFT Web3 Wearables Dictionary Music Album",
+      medium: "https://www.youtube.com/watch?v=bGykKwJJ6X8",
+      info:
+        "The inspiration from this collection is coming from TSA NFT Web3 Wearables Dictionary 100. The name of TSA Web 3 Wearables music is also the title and topic of Digital 20/20 Boom Into Web 3 Social event  which held at Metaverse Voxels and Connect.Club from June 3 to July 3, 2022  . Singer/Songwriter : Vessy Mink",
+      joinUs: "poap",
+      when: "Jun 16, 2022",
+      end: new Date(1640942516),
+      duration: 6048000,
+      sign: NewImg,
+    },
     {
       image: GridImg11,
       Learn: "https://www.teaswap.art/poap",
