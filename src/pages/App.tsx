@@ -100,6 +100,7 @@ import BlindBox from './BlinkBox'
 import BossBox from './Boss'
 import POAP from './poap'
 import POAP2 from './poap2'
+import TWD from './twd'
 
 const AppWrapper = styled.div`
   display: flex;
@@ -163,6 +164,7 @@ export default function App() {
               <Route path="/tsp" element={<TSP />} />
               <Route path="/poap" element={<POAP />} />
               <Route path="/poap2" element={<POAP2 />} />
+              <Route path="/twd" element={<TWD />} />
               <Route path="/tsa" element={<TSA />} />
               <Route path="/boss" element={<BossBox />} />
               <Route path="/blind-box" element={<BlindBox />} />

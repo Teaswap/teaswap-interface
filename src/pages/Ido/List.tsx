@@ -49,7 +49,7 @@ const List = () => {
   const products = [
     {
       image: GridImg12,
-      Learn: "https://www.teaswap.live/tsacollections",
+      Learn: "https://www.teaswap.art/twd",
       LearnText: "Learn > On Polygon",
       author: "TSA NFT Web3 Wearables Dictionary Music Album",
       medium: "https://www.youtube.com/watch?v=bGykKwJJ6X8",
