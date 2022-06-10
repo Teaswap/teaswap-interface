@@ -12,7 +12,8 @@ import {
   useTwdBalance,
   useTwdPrice,
   useTwdContract,
-  twdChainId
+  twdChainId,
+  contractAddresses
 } from "./hooks";
 // import { useETHBalances } from "../../state/wallet/hooks";
 import { JSBI } from "@teaswap/uniswap-sdk";
@@ -200,7 +201,7 @@ export default () => {
                     }}
                     onClick={() => {
                       window.open(
-                        "https://polygonscan.com/address/0xf584c5af731366073ade6c59c7cd40823c0eb9b5"
+                        "https://polygonscan.com/address/" + contractAddresses
                       );
                     }}
                     children="SMART CONTRACT"

@@ -6,9 +6,10 @@ import { useContract } from '../../hooks/useContract';
 import abi from './abi.json'
 
 export const twdChainId = 137;
+export const contractAddresses = '0x483CA92e2fD68A72B4F68709536F6E47363A2a0a';
 
 export function useTwdContract(): Contract | null {
-  return useContract('0x483CA92e2fD68A72B4F68709536F6E47363A2a0a', abi, true)
+  return useContract(contractAddresses, abi, true)
 }
 
 export function useTotalSupply(contract: Contract | null, chainId: ChainId|undefined) {
