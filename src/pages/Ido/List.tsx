@@ -53,8 +53,7 @@ const List = () => {
       LearnText: "Learn > On Polygon",
       author: "TSA NFT Web3 Wearables Dictionary Music Album",
       medium: "https://www.youtube.com/watch?v=bGykKwJJ6X8",
-      info:
-        "The inspiration from this collection is coming from TSA NFT Web3 Wearables Dictionary 100. The name of TSA Web 3 Wearables music is also the title and topic of Digital 20/20 Boom Into Web 3 Social event  which held at Metaverse Voxels and Connect.Club from June 3 to July 3, 2022  . Singer/Songwriter : Vessy Mink",
+      info: `The inspiration from this music collection of 100 editions (8800 copies) comes from TSA NFT Web3 Wearables Dictionary 100. The name of TSA Web 3 Wearables is also the title and topic of Digital 20/20 Boom Into Web 3 Social event held from June 3 to July 3, 2022 at Metaverse Voxels and Connect.Club.  Music Videos by TSA Web3 Dictionary Album © 2022 Digital One Asset Corp. & Vessy Mink, minted and marketed by TSA NFT Incubator, a division of Digital One Asset Corp. Singer/Songwriter : Vessy Mink (`, 
       joinUs: "poap",
       when: "Jun 16, 2022",
       end: new Date(1640942516),

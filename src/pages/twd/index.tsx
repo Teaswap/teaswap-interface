@@ -81,7 +81,7 @@ export default () => {
   return (
     <Wrapper>
       <Left className="panel">
-        <img src="https://teaswap.mypinata.cloud/ipfs/QmPzc8bT3REhoU2XsyBgywZe4yArdYbZwYBetgkaZzeGfD" />
+        <img src="https://teaswap.mypinata.cloud/ipfs/QmZW99ZD6iJKgqFoyGtjqNKjoavVzse4tBa6Zf9ydiNbYd" />
       </Left>
       <Right className="panel">
         <div
@@ -180,10 +180,10 @@ export default () => {
             textTransform: 'uppercase'
           }}>
             <CrossmintPayButton
-              collectionTitle="TSA Web3 Wearables Dictionary"
+              collectionTitle="TSA Web3 Dictionary Music Mystery Box"
               collectionDescription="Description of TSA Web3 Wearables Dictionary."
               collectionPhoto="https://teaswap.mypinata.cloud/ipfs/QmPzc8bT3REhoU2XsyBgywZe4yArdYbZwYBetgkaZzeGfD"
-              clientId="1a19ec15-4414-4cc2-b2ec-89a66134d5a5"
+              clientId="5aac8c76-13bd-4aff-b274-00da5656ac93"
               mintConfig={{ price: "10", type: "erc-721" }}
             />
           </div>
@@ -220,7 +220,7 @@ export default () => {
                     }}
                     onClick={() => {
                       window.open(
-                        "https://opensea.io/collection/twd"
+                        "https://opensea.io/collection/tsa-web3-wearables-dictionary-1"
                       );
                     }}
                     children="OPENSEA"
