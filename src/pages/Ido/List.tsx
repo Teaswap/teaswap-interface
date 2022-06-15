@@ -15,7 +15,7 @@ import GridImg8 from "../../assets/images/penguinbrothers.png";
 import GridImg9 from "../../assets/images/Whostheboss.png";
 import GridImg10 from "../../assets/images/blindbox.png";
 import GridImg11 from "../../assets/images/2020.gif";
-import GridImg12 from "../../assets/images/TSAWeb3MusicBox.png";
+// import GridImg12 from "../../assets/images/TSAWeb3MusicBox.png";
 import YoutobeImg from "../../assets/images/youtube.png";
 import { ExternalLink } from "../../theme";
 
@@ -48,13 +48,13 @@ const List = () => {
   console.log(t("tokensAvailable"), useTranslation());
   const products = [
     {
-      image: GridImg12,
+      image: 'https://teaswap.mypinata.cloud/ipfs/QmUrHAvEZK6LR9zcVAEWiTp7xgbxCinSh1oMKmE3pRoVy8',
       Learn: "https://www.teaswap.art/twd",
       LearnText: "Learn > On Polygon",
-      author: "TSA NFT Web3 Wearables Dictionary Music Album",
+      author: "TSA Web3 Dictionary Music Mystery Box",
       medium: "https://www.youtube.com/watch?v=bGykKwJJ6X8",
-      info: `The inspiration from this music collection of 100 editions (8800 copies) comes from TSA NFT Web3 Wearables Dictionary 100. The name of TSA Web 3 Wearables is also the title and topic of Digital 20/20 Boom Into Web 3 Social event held from June 3 to July 3, 2022 at Metaverse Voxels and Connect.Club.  Music Videos by TSA Web3 Dictionary Album © 2022 Digital One Asset Corp. & Vessy Mink, minted and marketed by TSA NFT Incubator, a division of Digital One Asset Corp. Singer/Songwriter : Vessy Mink (`, 
-      joinUs: "poap",
+      info: `The inspiration from this collection of 100 editions (8800 copies)  comes from TSA Web3 Dictionary Album 100. The name of TSA Web3 Dictionary Album 100 music is also the title and topic of Digital 20/20 Boom Into Web3 Social event and TSA Web3 Wearables, which is held at Metaverse Voxels and Connect Club from June 3, 2022 to July 3, 2022.`, 
+      joinUs: "twd",
       when: "Jun 30, 2022",
       end: new Date(1655273475719),
       duration: 6048000,
@@ -265,7 +265,9 @@ const List = () => {
                       v.author == "The Opportunity for Youth NFT Program"
                     ) {
                       window.open("https://www.teaswap.live/penguinbrother");
-                    } else if (
+                    } else if (v.author === 'TSA Web3 Dictionary Music Mystery Box') {
+                      window.open("https://www.teaswap.live/tsaweb3music");
+                    }else if (
                       v.LearnText == "Learn > On Polygon" &&
                       v.author !== "Who's the Boss?" &&
                       v.author !== "Digital 20/20 POAP"
@@ -333,6 +335,7 @@ const List = () => {
                   v.joinUs !== "tsapenguinpunks" &&
                   v.joinUs !== "Boss" &&
                   v.joinUs !== "poap" &&
+                  v.joinUs !== "twd" &&
                   v.joinUs !== "poap2" && (
                     <StyledLink to={v.joinUs}>
                       <JoinUs>{t("Join Us")}</JoinUs>
@@ -355,6 +358,11 @@ const List = () => {
                 )}
                 {v.joinUs == "Boss" && (
                   <ExternalLink href="https://www.teaswap.art/boss">
+                    <JoinUs>{t("Join Us")}</JoinUs>
+                  </ExternalLink>
+                )}
+                {v.joinUs == "twd" && (
+                  <ExternalLink href="https://www.teaswap.art/twd">
                     <JoinUs>{t("Join Us")}</JoinUs>
                   </ExternalLink>
                 )}
