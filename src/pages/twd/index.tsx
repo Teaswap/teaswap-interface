@@ -220,7 +220,7 @@ export default () => {
                     }}
                     onClick={() => {
                       window.open(
-                        "https://opensea.io/collection/tsa-web3-wearables-dictionary-1"
+                        "https://opensea.io/collection/tsaweb3dictionarymusic"
                       );
                     }}
                     children="OPENSEA"
