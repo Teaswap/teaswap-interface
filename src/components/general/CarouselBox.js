@@ -34,6 +34,18 @@ const CarouselBox = () => {
     >
       {!isMobile && (
         <img
+          src="https://teaswap.mypinata.cloud/ipfs/QmR5Lv2V2THiR3StsMz3KtzcWgqwPcPGYb5uFf9tnBRxC7/2.png"
+          alt=""
+        />
+      )}
+      {!isMobile && (
+        <img
+          src="https://teaswap.mypinata.cloud/ipfs/QmR5Lv2V2THiR3StsMz3KtzcWgqwPcPGYb5uFf9tnBRxC7/1.png"
+          alt=""
+        />
+      )}
+      {!isMobile && (
+        <img
           src={process.env.PUBLIC_URL + "/PenguinPunksBanner.png"}
           alt=""
           onClick={() => {

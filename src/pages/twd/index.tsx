@@ -25,7 +25,7 @@ import { shortenAddress } from "../../utils";
 import airdropAPI from "../../webAPI/airdropAPI";
 import { useNavigate } from "react-router-dom";
 import { switchNetwork } from "../../utils/wallet";
-// import { CrossmintPayButton } from "@crossmint/client-sdk-react-ui";
+import { CrossmintPayButton } from "@crossmint/client-sdk-react-ui";
 import { BigNumber } from "@ethersproject/bignumber";
 
 const names = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
@@ -171,7 +171,7 @@ export default () => {
               </Select>
             </FormControl>
           )}
-          {/* <div style={{
+          <div style={{
             marginTop: "10px",
             marginBottom: "10px",
             color: "#ffffff"
@@ -184,9 +184,9 @@ export default () => {
               collectionDescription="Description of TSA Web3 Wearables Dictionary."
               collectionPhoto="https://teaswap.mypinata.cloud/ipfs/QmPzc8bT3REhoU2XsyBgywZe4yArdYbZwYBetgkaZzeGfD"
               clientId="5aac8c76-13bd-4aff-b274-00da5656ac93"
-              mintConfig={{ price: "1", _count: 1, _to: account}}
+              mintConfig={{ type:"erc-721", price: "1", _count: "1"}}
             />
-          </div> */}
+          </div>
           {account && chainId === twdChainId && (
             <div>
               {
