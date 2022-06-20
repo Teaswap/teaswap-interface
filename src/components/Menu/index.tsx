@@ -107,6 +107,7 @@ export default function Menu() {
   const node = useRef<HTMLDivElement>();
   const open = useModalOpen(ApplicationModal.MENU);
   const toggle = useToggleModal(ApplicationModal.MENU);
+  const signOut = localStorage.getItem("sign-out")
   useOnClickOutside(node, open ? toggle : undefined);
   const openClaimModal = useToggleModal(ApplicationModal.ADDRESS_CLAIM);
   const checkBlinkBoxAirdrop = () => {
@@ -185,6 +186,17 @@ export default function Menu() {
               >
                 Clear Cache
               </MenuItem>
+
+              {account && !signOut && (
+                <MenuItem
+                  onClick={() => {
+                    localStorage.setItem("sign-out", "1")
+                    window.location.href = window.location.href;
+                  }}
+                >
+                  Log Out
+                </MenuItem>
+              )}
               {/* <MenuItem onClick={() => {
                 navigate('https://www.binance.org/en/bridge')
               }}>

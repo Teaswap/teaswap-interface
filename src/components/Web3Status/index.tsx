@@ -201,15 +201,10 @@ function Web3StatusInner() {
     }
   }, [account]);
 
+  const signOut = localStorage.getItem("sign-out")
 
-    // const user = useMemo(() => {
-  //   handleGetMe().then((result) => {
-  //     if (!result || result.ok === 0 || !result.data) return undefined;
-  //     return result.data.userId
-  //   });
-  // }, []);
 
-  if (account) {
+  if (account && !signOut) {
     return (
       <Web3StatusConnected id="web3-status-connected" onClick={toggleWalletModal}>
         {hasPendingTransactions ? (
@@ -237,7 +232,10 @@ function Web3StatusInner() {
     )
   } else {
     return (
-      <Web3StatusConnect id="connect-wallet" onClick={toggleWalletModal} faded={!account}  >
+      <Web3StatusConnect id="connect-wallet" onClick={() => {
+        localStorage.removeItem("sign-out")
+        toggleWalletModal()
+      }} faded={!account}  >
         <Text style={{color:"#60a7ac"}}  >{t('Log in')}</Text>
       </Web3StatusConnect>
     )
