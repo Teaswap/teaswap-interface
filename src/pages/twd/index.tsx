@@ -183,8 +183,8 @@ export default () => {
               collectionTitle="TSA Web3 Dictionary Music Mystery Box"
               collectionDescription="Description of TSA Web3 Wearables Dictionary."
               collectionPhoto="https://teaswap.mypinata.cloud/ipfs/QmPzc8bT3REhoU2XsyBgywZe4yArdYbZwYBetgkaZzeGfD"
-              clientId="5aac8c76-13bd-4aff-b274-00da5656ac93"
-              mintConfig={{ type:"erc-721", price: "1", _count: "1"}}
+              clientId="9e376348-169f-4ddd-9d92-c8fe662422be"
+              mintConfig={{ type:"erc-721", price: price, _count: "1"}}
             />
           </div>
           {account && chainId === twdChainId && (
@@ -220,7 +220,7 @@ export default () => {
                     }}
                     onClick={() => {
                       window.open(
-                        "https://opensea.io/collection/tsaweb3dictionarymusic"
+                        "https://opensea.io/collection/tsaweb3dictionary"
                       );
                     }}
                     children="OPENSEA"
