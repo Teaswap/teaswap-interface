@@ -55,7 +55,7 @@ const List = () => {
       medium: "https://www.youtube.com/watch?v=bGykKwJJ6X8",
       info: `The inspiration from this collection of 100 editions (8800 copies)  comes from TSA Web3 Dictionary Album 100. The name of TSA Web3 Dictionary Album 100 music is also the title and topic of Digital 20/20 Boom Into Web3 Social event and TSA Web3 Wearables, which is held at Metaverse Voxels and Connect Club from June 3, 2022 to July 3, 2022.`, 
       joinUs: "twd",
-      when: "Jun 30, 2022",
+      when: "July 7, 2022",
       end: new Date(1655273475719),
       duration: 6048000,
       sign: NewImg,
