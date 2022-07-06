@@ -108,7 +108,7 @@ export const ProductPicture = ({ product }) => {
         return <audio style={{width: "100%"}} controls src={src} ></audio>
       default:
         return (
-          <ProductPicture
+          <ProductPictureImg
             src={src}
             style={{ opacity: loaded ? 1 : 0 }}
             onLoad={onLoad}
@@ -120,17 +120,13 @@ export const ProductPicture = ({ product }) => {
     return (
       <ProductPictureContainer loaded={loaded}>
         Loading...
+        {JSON.stringify(product)}
       </ProductPictureContainer>
     )
   }
   return (
     <ProductPictureContainer loaded={loaded}>
       {preview(product.picture_url, product.media_type, loaded, onLoad)}
-      {/* <ProductPictureImg
-        src={product.picture_url}
-        style={{ opacity: loaded ? 1 : 0 }}
-        onLoad={onLoad}
-      /> */}
     </ProductPictureContainer>
   );
 };
