@@ -48,6 +48,19 @@ const List = () => {
   console.log(t("tokensAvailable"), useTranslation());
   const products = [
     {
+      image: 'https://teaswap.mypinata.cloud/ipfs/QmSRysXV7XRAJ3dsZMA3fdSxiUYjVTKhHw1gTM29GsbXmC',
+      Learn: "https://www.teaswap.art/xhb",
+      LearnText: "Learn > On Polygon",
+      author: "Hot Box OG",
+      medium: "https://www.youtube.com/watch?v=bGykKwJJ6X8",
+      info: `Hot Box OG is a mystery airdrop collection for XTincT's upcoming album "Melancholy Dr."  Smoke some Hot Box OG in the metaverse as we cruise thru Melancholy Drive.`, 
+      joinUs: "xhb",
+      when: "Aug 18, 2022",
+      end: new Date(1655273475719),
+      duration: 6048000,
+      sign: NewImg,
+    },
+    {
       image: 'https://teaswap.mypinata.cloud/ipfs/QmUrHAvEZK6LR9zcVAEWiTp7xgbxCinSh1oMKmE3pRoVy8',
       Learn: "https://www.teaswap.art/twd",
       LearnText: "Learn > On Polygon",
@@ -55,7 +68,7 @@ const List = () => {
       medium: "https://www.youtube.com/watch?v=bGykKwJJ6X8",
       info: `The inspiration from this collection of 100 editions (8800 copies)  comes from TSA Web3 Dictionary Album 100. The name of TSA Web3 Dictionary Album 100 music is also the title and topic of Digital 20/20 Boom Into Web3 Social event and TSA Web3 Wearables, which is held at Metaverse Voxels and Connect Club from June 3, 2022 to July 3, 2022.`, 
       joinUs: "twd",
-      when: "July 7, 2022",
+      when: "Aug 18, 2022",
       end: new Date(1655273475719),
       duration: 6048000,
       sign: NewImg,
@@ -336,6 +349,7 @@ const List = () => {
                   v.joinUs !== "Boss" &&
                   v.joinUs !== "poap" &&
                   v.joinUs !== "twd" &&
+                  v.joinUs !== "xhb" &&
                   v.joinUs !== "poap2" && (
                     <StyledLink to={v.joinUs}>
                       <JoinUs>{t("Join Us")}</JoinUs>
@@ -363,6 +377,11 @@ const List = () => {
                 )}
                 {v.joinUs == "twd" && (
                   <ExternalLink href="https://www.teaswap.art/twd">
+                    <JoinUs>{t("Join Us")}</JoinUs>
+                  </ExternalLink>
+                )}
+                {v.joinUs == "xhb" && (
+                  <ExternalLink href="https://www.teaswap.art/xhb">
                     <JoinUs>{t("Join Us")}</JoinUs>
                   </ExternalLink>
                 )}
