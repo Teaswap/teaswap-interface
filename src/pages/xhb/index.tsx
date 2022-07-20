@@ -81,7 +81,7 @@ export default () => {
   return (
     <Wrapper>
       <Left className="panel">
-        <img src="https://teaswap.mypinata.cloud/ipfs/QmSRysXV7XRAJ3dsZMA3fdSxiUYjVTKhHw1gTM29GsbXmC" />
+        {/* <img src="https://teaswap.mypinata.cloud/ipfs/QmSRysXV7XRAJ3dsZMA3fdSxiUYjVTKhHw1gTM29GsbXmC" /> */}
       </Left>
       <Right className="panel">
         <div

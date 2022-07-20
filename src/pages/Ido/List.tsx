@@ -49,19 +49,6 @@ const List = () => {
   console.log(t("tokensAvailable"), useTranslation());
   const products = [
     {
-      image: 'https://teaswap.mypinata.cloud/ipfs/QmSRysXV7XRAJ3dsZMA3fdSxiUYjVTKhHw1gTM29GsbXmC',
-      Learn: "https://www.teaswap.art/xhb",
-      LearnText: "Learn > On Polygon",
-      author: "Hot Box OG",
-      medium: "https://www.youtube.com/watch?v=bGykKwJJ6X8",
-      info: `Hot Box OG is a mystery airdrop collection for XTincT's upcoming album "Melancholy Dr."  Smoke some Hot Box OG in the metaverse as we cruise thru Melancholy Drive.`, 
-      joinUs: "xhb",
-      when: "Aug 18, 2022",
-      end: new Date(1655273475719),
-      duration: 6048000,
-      sign: NewImg,
-    },
-    {
       image: 'https://teaswap.mypinata.cloud/ipfs/QmUrHAvEZK6LR9zcVAEWiTp7xgbxCinSh1oMKmE3pRoVy8',
       Learn: "https://www.teaswap.art/twd",
       LearnText: "Learn > On Polygon",
@@ -76,14 +63,14 @@ const List = () => {
     },
     {
       image: GridImg12,
-      Learn: "https://www.teaswap.art/twd",
-      LearnText: "Learn > On Polygon",
+      Learn: "https://www.teaswap.art/xhb",
+      LearnText: "Learn > On Ethereum",
       author: "Hot Box OG (XHB)",
       medium: "https://youtu.be/_eYr_mTnn_k",
       info:
-        "Hot Box OG is a mystery airdrop collection for XTincT's upcoming album Melancholy Dr.Smoke some Hot Box OG in the metaverse as we cruise thru Melancholy DriveCredit card integration",
-      joinUs: "twd",
-      when: "August 28, 2022",
+        "HotBox OG is a mystery airdrop collection for XTincT's upcoming album Melancholy Dr.Smoke some Hot Box OG in the metaverse as we cruise thru Melancholy DriveCredit card integration",
+      joinUs: "xhb",
+      when: "August 30, 2022",
       end: new Date(1655273475719),
       duration: 6048000,
       sign: NewImg,
