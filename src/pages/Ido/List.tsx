@@ -65,10 +65,9 @@ const List = () => {
       image: GridImg12,
       Learn: "https://www.teaswap.art/xhb",
       LearnText: "Learn > On Ethereum",
-      author: "Hot Box OG (XHB)",
+      author: "HotBox OG (XHB)",
       medium: "https://youtu.be/_eYr_mTnn_k",
-      info:
-        "HotBox OG is a mystery airdrop collection for XTincT's upcoming album Melancholy Dr.Smoke some Hot Box OG in the metaverse as we cruise thru Melancholy DriveCredit card integration",
+      info: `Smoke some "HOTBOX Og" in the metaverse as we cruise through Melancholy Drive. "HOTBOX Og" is a mystery airdrop collection for XTincT’s upcoming album “Melancholy Dr." EP.  HOTBOX Og is a 10 track music NFT Mystery Box, accommodated by utilities, staking, airdrops, metaverse events and more. Each song is inspired by the blockchain and expressed through chill melancholy tones by XTincT.`,
       joinUs: "xhb",
       when: "August 30, 2022",
       end: new Date(1655273475719),
@@ -84,7 +83,7 @@ const List = () => {
       info:
         "POAPs, or Proof of Attendance Protocol, are unique NFT badges given to attendees to prove their attendance at an event. Attendees of the Digital 20/20 Towards Digital World event from June 3, 2022 to July 4, 2022 are eligible to receive a Digital 20/20 POAP NFT to celebrate and record your attendance!",
       joinUs: "poap",
-      when: "May 20, 2022",
+      when: "Ongoing, 2022",
       end: new Date(1640942516),
       duration: 6048000,
       sign: NewImg,
@@ -98,7 +97,7 @@ const List = () => {
       info:
         "POAPs, or Proof of Attendance Protocol, are unique NFT badges given to attendees to prove their attendance at an event. Attendees of the Digital 20/20 Digital 20/20: Boom Into Web3 Social from June 3, 2022 to July 3, 2022 are eligible to receive a Digital 20/20 POAP NFT to celebrate and record your attendance! Accept Credit Card Payment and $ETH",
       joinUs: "poap2",
-      when: "May 20, 2022",
+      when: "Ongoing, 2022",
       end: new Date(1640942516),
       duration: 6048000,
       sign: NewImg,
