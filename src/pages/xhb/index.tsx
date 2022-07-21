@@ -88,10 +88,10 @@ export default () => {
           style={{
             marginBottom: "30px",
             fontSize: "1.25rem",
-            color: "#FFFFFF",
+            color: "#09afb6",
           }}
         >
-          Hot Box OG
+          HotBox Og
         </div>
         <div
           style={{
@@ -106,7 +106,7 @@ export default () => {
           style={{
             fontSize: "1.5rem",
             paddingBottom: "15px",
-            color: "#FFFFFF",
+            color: "#09afb6",
           }}
         >
           Address: {account ? shortenAddress(account) : ""}
@@ -115,7 +115,7 @@ export default () => {
           style={{
             fontSize: "1.5rem",
             paddingBottom: "15px",
-            color: "#FFFFFF",
+            color: "#09afb6",
           }}
         >
           NFTs: {totalSupply}/11100
@@ -124,7 +124,7 @@ export default () => {
           style={{
             fontSize: "1.5rem",
             paddingBottom: "15px",
-            color: "#FFFFFF",
+            color: "#09afb6",
           }}
         >
           Price: {price} ETH
@@ -132,7 +132,7 @@ export default () => {
         <div
           style={{
             fontSize: "1rem",
-            color: "#FFFFFF",
+            color: "#09afb6",
           }}
         >
           <p>You can now mint up to 10 XHB.</p>
@@ -195,7 +195,7 @@ export default () => {
                     style={{
                       padding: 0,
                       backgroundColor: "#09afb6",
-                      color: "#FFFFFF",
+                      color: "#09afb6",
                       cursor: "pointer",
                       minWidth: "300px",
                     }}
@@ -214,7 +214,7 @@ export default () => {
                     style={{
                       padding: 0,
                       backgroundColor: "#09afb6",
-                      color: "#FFFFFF",
+                      color: "#09afb6",
                       cursor: "pointer",
                       minWidth: "300px",
                     }}
@@ -236,7 +236,7 @@ export default () => {
                 style={{
                   padding: 0,
                   backgroundColor: "#09afb6",
-                  color: "#FFFFFF",
+                  color: "#09afb6",
                   letterSpacing: ".1rem",
                 }}
                 onClick={() => {
