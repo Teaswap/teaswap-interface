@@ -49,12 +49,13 @@ const List = () => {
   console.log(t("tokensAvailable"), useTranslation());
   const products = [
     {
-      image: 'https://teaswap.mypinata.cloud/ipfs/QmUrHAvEZK6LR9zcVAEWiTp7xgbxCinSh1oMKmE3pRoVy8',
+      image:
+        "https://teaswap.mypinata.cloud/ipfs/QmUrHAvEZK6LR9zcVAEWiTp7xgbxCinSh1oMKmE3pRoVy8",
       Learn: "https://www.teaswap.art/twd",
       LearnText: "Learn > On Polygon",
-      author: "TSA Web3 Dictionary Music Mystery Box",
+      author: "TSAWeb3 Dictionary Music Mystery Box",
       medium: "https://www.youtube.com/watch?v=bGykKwJJ6X8",
-      info: `The inspiration from this collection of 100 editions (8800 copies)  comes from TSA Web3 Dictionary Album 100. The name of TSA Web3 Dictionary Album 100 music is also the title and topic of Digital 20/20 Boom Into Web3 Social event and TSA Web3 Wearables, which is held at Metaverse Voxels and Connect Club from June 3, 2022 to July 3, 2022.`,
+      info: `The inspiration from this collection of 100 editions (8800 copies)  comes from TSAWeb3 Dictionary Album 100. The name of TSAWeb3 Dictionary Album 100 music is also the title and topic of Digital 20/20 Boom Into Web3 Social event and TSAWeb3 Wearables, which is held at Metaverse Voxels and Connect Club from June 3, 2022 to July 3, 2022.`,
       joinUs: "twd",
       when: "When: Aug 18, 2022",
       end: new Date(1655273475719),
@@ -280,7 +281,7 @@ const List = () => {
                     ) {
                       window.open("https://www.teaswap.live/penguinbrother");
                     } else if (
-                      v.author === "TSA Web3 Dictionary Music Mystery Box"
+                      v.author === "TSAWeb3 Dictionary Music Mystery Box"
                     ) {
                       window.open("https://www.teaswap.live/tsaweb3music");
                     } else if (

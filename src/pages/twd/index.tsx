@@ -13,7 +13,7 @@ import {
   useTwdPrice,
   useTwdContract,
   twdChainId,
-  contractAddresses
+  contractAddresses,
 } from "./hooks";
 // import { useETHBalances } from "../../state/wallet/hooks";
 import { JSBI } from "@teaswap/uniswap-sdk";
@@ -49,10 +49,12 @@ export default () => {
     setAmount(e.target.value);
     if (!twdContract || e.target.value == "Mint") return;
     const args = [JSBI.BigInt(e.target.value).toString()];
-    const estimatedGas = await twdContract.estimateGas.mint(...args).catch(() => {
-      return BigNumber.from(1950000)
-    })
-    console.log("estimatedGas", estimatedGas)
+    const estimatedGas = await twdContract.estimateGas
+      .mint(...args)
+      .catch(() => {
+        return BigNumber.from(1950000);
+      });
+    console.log("estimatedGas", estimatedGas);
     twdContract
       .mint(...args, {
         gasLimit: 1950000,
@@ -91,7 +93,7 @@ export default () => {
             color: "#FFFFFF",
           }}
         >
-          TSA Web3 Dictionary Music Mystery Box
+          TSAWeb3 Dictionary Music Mystery Box
         </div>
         <div
           style={{
@@ -171,20 +173,27 @@ export default () => {
               </Select>
             </FormControl>
           )}
-          <div style={{
-            marginTop: "10px",
-            marginBottom: "10px",
-            color: "#ffffff"
-          }}> OR </div>
-          <div style={{
-            textTransform: 'uppercase'
-          }}>
+          <div
+            style={{
+              marginTop: "10px",
+              marginBottom: "10px",
+              color: "#ffffff",
+            }}
+          >
+            {" "}
+            OR{" "}
+          </div>
+          <div
+            style={{
+              textTransform: "uppercase",
+            }}
+          >
             <CrossmintPayButton
-              collectionTitle="TSA Web3 Dictionary Music Mystery Box"
-              collectionDescription="Description of TSA Web3 Wearables Dictionary."
+              collectionTitle="TSAWeb3 Dictionary Music Mystery Box"
+              collectionDescription="Description of TSAWeb3 Wearables Dictionary."
               collectionPhoto="https://teaswap.mypinata.cloud/ipfs/QmPzc8bT3REhoU2XsyBgywZe4yArdYbZwYBetgkaZzeGfD"
               clientId="9e376348-169f-4ddd-9d92-c8fe662422be"
-              mintConfig={{ type:"erc-721", price: price, _count: "1"}}
+              mintConfig={{ type: "erc-721", price: price, _count: "1" }}
             />
           </div>
           {account && chainId === twdChainId && (
@@ -248,7 +257,9 @@ export default () => {
           )}
           {hash && (
             <div>
-              <ExternalLink href={`https://opensea.io/collection/tsaweb3dictionary`}>
+              <ExternalLink
+                href={`https://opensea.io/collection/tsaweb3dictionary`}
+              >
                 View on OpenSea
               </ExternalLink>
             </div>
