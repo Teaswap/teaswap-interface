@@ -19,19 +19,7 @@ const updateUserAPI = (data) => {
         'content-type': 'application/json',
         authorization: `Bearer ${token}`,
       },
-      body: JSON.stringify({
-        nickname: data.nickname,
-        email: data.email,
-        description: data.description ? data.description : '',
-        portfolio: data.portfolio ? data.portfolio : '',
-        twitter: data.twitter ? data.twitter : '',
-        instagram: data.instagram ? data.instagram : '',
-        profile: data.profile ? data.profile : '',
-        artsNumber: data.artsNumber ? data.artsNumber : '',
-        contact: data.contact ? data.contact : '',
-        other: data.other ? data.other : '',
-        artworksLink: data.artworksLink ? data.artworksLink : '',
-      }),
+      body: JSON.stringify(data),
     }).then((res) => res.json());
   });
 };

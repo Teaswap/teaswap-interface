@@ -87,8 +87,8 @@ import { useAllTokens } from "../../hooks/Tokens";
 import { MEDIA_QUERY } from "../../constants/style";
 import { addTSA } from "../../utils/addTokenToWallet";
 
-import Modal from "../../components/Modal";
 import { useActiveWeb3React } from "../../hooks";
+import WalletSwitch from "../../WalletSwitch";
 
 // import SwapLogo from '../../assets/images/TEAsWAP.jpeg'
 
@@ -390,7 +390,6 @@ export default function Swap() {
   const filteredTokens: Token[] = useMemo(() => {
     return filterTokens(Object.values(allTokens), "TEAsWAP.ART");
   }, [allTokens]);
-  const { chainId } = useActiveWeb3React();
   // set OUTPUT for BEST Token
   useEffect(() => {
     if (filteredTokens.length) {
@@ -417,22 +416,7 @@ export default function Swap() {
         />
         <SwapPoolTabs active={"swap"} />
         <Wrapper id="swap-page">
-          {chainId != 56 && (
-            <Modal isOpen={true} onDismiss={() => {}} maxHeight={90}>
-              <p
-                style={{
-                  padding: 20,
-                }}
-              >
-                {" "}
-                Reminder:
-                <br />
-                In order to trade & mint assets, please lock your current wallet
-                and connect with a wallet that supports Binance Smart Chain
-                network.
-              </p>
-            </Modal>
-          )}
+          <WalletSwitch />
           <ConfirmSwapModal
             isOpen={showConfirm}
             trade={trade}

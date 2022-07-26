@@ -6,8 +6,8 @@ import { NavLink } from 'react-router-dom'
 import useUser from '../../hooks/userHooks/useUser';
 import ConSubTitle from '../../components/Content/SubTitle';
 import { useTranslation } from 'react-i18next';
-import Modal from '../../components/Modal';
 import { useActiveWeb3React } from '../../hooks';
+import WalletSwitch from '../../WalletSwitch';
 
 const List = ()=>{
   const { chainId } = useActiveWeb3React()
@@ -29,13 +29,7 @@ const List = ()=>{
 
   return (
     <PageWrapper >
-      {chainId != 56 && (<Modal isOpen={true} onDismiss={() => {}} maxHeight={90}>
-        <p style={{
-          padding: 20
-        }}> Reminder:<br />
-        In order to trade & mint assets, please lock your current wallet and connect with a wallet that supports Binance Smart Chain network.
-        </p>
-      </Modal>)}
+      <WalletSwitch />
       <img className="page-banner" src={process.env.PUBLIC_URL + '/mint_banner.png'} width="100%" />
       <Title>
         <StyledLink to={mintUrl}>

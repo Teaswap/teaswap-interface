@@ -17,9 +17,8 @@ import { LoopCircleLoading } from "react-loadingg";
 import { getCartItem } from "../../../redux/slices/cartSlice/cartSlice";
 import useCart from "../../../hooks/cartHooks/useCart";
 
-import Modal from "../../../components/Modal";
-
 import { useActiveWeb3React } from "../../../hooks";
+import WalletSwitch from "../../../WalletSwitch";
 
 export const ThickNavPage = styled.div`
   width: 90%;
@@ -112,22 +111,7 @@ const CartPage = () => {
       )}
       <ThickNavPage>
         <Wrapper>
-          {chainId != 56 && (
-            <Modal isOpen={true} onDismiss={() => {}} maxHeight={90}>
-              <p
-                style={{
-                  padding: 20,
-                }}
-              >
-                {" "}
-                Reminder:
-                <br />
-                In order to trade & mint assets, please lock your current wallet
-                and connect with a wallet that supports Binance Smart Chain
-                network.
-              </p>
-            </Modal>
-          )}
+          <WalletSwitch />
           <Title>Bidding Orders</Title>
           <Container>
             {carts &&

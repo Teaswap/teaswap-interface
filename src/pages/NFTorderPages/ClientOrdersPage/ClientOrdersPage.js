@@ -21,7 +21,6 @@ import useProduct from "../../../hooks/productHooks/useProduct";
 import { hideAddr } from "../../../utils/strUtil";
 import { useTranslation } from "react-i18next";
 
-import Modal from "../../../components/Modal";
 import { useActiveWeb3React } from "../../../hooks";
 
 const Wrapper = styled.div`
@@ -146,22 +145,7 @@ const ClientOrdersPage = () => {
     <>
       <ThickNavPage id="client-orders">
         <Wrapper>
-          {chainId != 56 && (
-            <Modal isOpen={true} onDismiss={() => {}} maxHeight={90}>
-              <p
-                style={{
-                  padding: 20,
-                }}
-              >
-                {" "}
-                Reminder:
-                <br />
-                In order to trade & mint assets, please lock your current wallet
-                and connect with a wallet that supports Binance Smart Chain
-                network.
-              </p>
-            </Modal>
-          )}
+          <WalletSwitch />
           <div>
             <Title>History</Title>
             <span

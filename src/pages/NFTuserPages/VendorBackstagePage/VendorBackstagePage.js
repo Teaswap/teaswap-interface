@@ -10,7 +10,6 @@ import { NavLink } from 'react-router-dom';
 import { NormalButton, Nav } from '../../../components/NFTButton';
 import Pagination from '../../../components/Pagination/Index';
 import { useActiveWeb3React } from '../../../hooks'
-import Modal from '../../../components/Modal'
 
 import {
   SellerInfo,
@@ -23,6 +22,8 @@ import {
   setErrorMessage,
 } from '../../../redux/slices/productSlice/productSlice';
 import { useTranslation } from 'react-i18next';
+import WalletSwitch from '../../../WalletSwitch';
+import ProfileMenu from '../../../components/Menu/ProfileMenu';
 
 const SellerProductTitle = styled.div`
   margin: ${DISTANCE.sm} auto;
@@ -110,13 +111,7 @@ const VendorBackstagePage = () => {
 
   return (
     <>
-      {chainId != 56 && (<Modal isOpen={true} onDismiss={() => {}} maxHeight={90}>
-        <p style={{
-          padding: 20
-        }}> Reminder:<br />
-        In order to trade & mint assets, please lock your current wallet and connect with a wallet that supports Binance Smart Chain network.
-        </p>
-      </Modal>)}
+      <WalletSwitch />
       <Banner banner={vendorInfo.banner_url || 'https://i.imgur.com/3zpk96J.jpg'} loaded={loaded} onLoad={onLoad} />
       <StandardNavPage>
         <SellerInfo
@@ -150,12 +145,8 @@ const VendorBackstagePage = () => {
             </span>
           </div>
           <div>
-            <NavLink style={{ minWidth: 'fit-content' }} to={'/nft'}>
-              <NormalButton className="btn-sm-100" >{t('Buy NFT')}</NormalButton>
-            </NavLink>
-            <NavLink style={{ minWidth: 'fit-content' }} to={'/nft/products/post'}>
-              <NormalButton className="btn-sm-100" >{t('Create NFT')}</NormalButton>
-            </NavLink>
+            <ProfileMenu />
+
           </div>
         </SellerProductTitle>
         <Products

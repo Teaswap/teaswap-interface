@@ -54,6 +54,7 @@ export default function VendorInfoForm({ successMode, setSuccessMode, isAdminSta
     portfolio,
     twitter,
     instagram,
+    opensea,
     profile,
     artsNumber,
     contact,
@@ -65,6 +66,7 @@ export default function VendorInfoForm({ successMode, setSuccessMode, isAdminSta
     setPortfolio,
     setTwitter,
     setInstagram,
+    setOpensea,
     setProfile,
     setArtsNumber,
     setContact,
@@ -85,6 +87,7 @@ export default function VendorInfoForm({ successMode, setSuccessMode, isAdminSta
       setPortfolio(user.portfolio ? user.portfolio : '');
       setTwitter(user.twitter ? user.twitter : '');
       setInstagram(user.instagram ? user.instagram : '');
+      setOpensea(user.opensea_link ? user.opensea_link : '');
       setProfile(user.profile ? user.profile : '');
       setArtsNumber(user.artsNumber ? user.artsNumber : '');
       setContact(user.contact ? user.contact : '');
@@ -154,6 +157,15 @@ export default function VendorInfoForm({ successMode, setSuccessMode, isAdminSta
           $margin={0}
           value={instagram}
           onChange={(e) => setInstagram(e.target.value)}
+        />
+        <InputName>{t("Opensea Link")}</InputName>
+        <InputComponent
+          type='text'
+          name='opensea'
+          $size={'sm'}
+          $margin={0}
+          value={opensea}
+          onChange={(e) => setOpensea(e.target.value)}
         />
         <InputName>{t("Your profile link on TeaSwap or the address you minted artworks on TeaSwap")}</InputName>
         <InputComponent

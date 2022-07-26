@@ -11,6 +11,7 @@ export default function useVendorForm() {
   const [portfolio, setPortfolio] = useState('');
   const [twitter, setTwitter] = useState('');
   const [instagram, setInstagram] = useState('');
+  const [opensea, setOpensea] = useState('');
   const [profile, setProfile] = useState('');
   const [artsNumber, setArtsNumber] = useState('');
   const [contact, setContact] = useState('');
@@ -39,6 +40,7 @@ export default function useVendorForm() {
       contact: contact ? contact : '',
       other: other ? other : '',
       artworksLink: artworksLink ? artworksLink : '',
+      opensea_link: opensea ?? ''
     };
     console.log('submit user', data)
     if (isAdminStatus)
@@ -62,6 +64,7 @@ export default function useVendorForm() {
     portfolio,
     twitter,
     instagram,
+    opensea,
     profile,
     artsNumber,
     contact,
@@ -75,6 +78,7 @@ export default function useVendorForm() {
     setPortfolio,
     setTwitter,
     setInstagram,
+    setOpensea,
     setProfile,
     setArtsNumber,
     setContact,
