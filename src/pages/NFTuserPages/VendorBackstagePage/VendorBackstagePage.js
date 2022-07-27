@@ -143,10 +143,9 @@ const VendorBackstagePage = () => {
             <span className={productCat == 'collected' ? 'active-page-tab' : 'page-tab'} onClick={() => changeCat('created')}>
               Created
             </span>
+            <ProfileMenu />
           </div>
           <div>
-            <ProfileMenu />
-
           </div>
         </SellerProductTitle>
         <Products

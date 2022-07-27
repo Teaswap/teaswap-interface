@@ -8,6 +8,7 @@ import { useTranslation } from 'react-i18next'
 import { AiFillTwitterSquare, AiFillEdit, AiFillInstagram } from "react-icons/ai";
 import { NavLink, useNavigate } from 'react-router-dom';
 import { ExternalLink } from '../../theme';
+import Opensea from '../../assets/images/opensea.png'
 
 const InfoBlock = styled.section`
   display: flex;
@@ -125,6 +126,9 @@ const InfoLeft = ({vendorInfo, onLoad, loaded }) => {
             </ExternalLink>
             <ExternalLink className="margin10" href={`${vendorInfo.twitter}`}>
               <AiFillTwitterSquare color="#7a7a7a" title="twitter" size="20"/>
+            </ExternalLink>
+            <ExternalLink className="margin10" href={`${vendorInfo.opensea_link}`}>
+              <img src={Opensea} width="20" height="20" />
             </ExternalLink>
             <NavLink className="margin10" style={{ minWidth: 'fit-content' }} to={`/nft/users/vendor/${vendorInfo.userId}`}>
               <AiFillEdit color="#7a7a7a" title="Edit Contact" size="20"/>

@@ -121,16 +121,16 @@ export default function Menu() {
   return (
     // https://github.com/DefinitelyTyped/DefinitelyTyped/issues/30451
     <StyledMenu ref={node as any}>
-      <StyledMenuButton onClick={toggle}>
+      <StyledMenuButton onMouseEnter={toggle}>
         {/* <img height="30" src={process.env.PUBLIC_URL + '/profile.png'} alt="" /> */}
         {/* <StyledMenuIcon /> */}
       </StyledMenuButton>
 
       {open && (
-        <MenuFlyout>
+        <MenuFlyout onMouseLeave={toggle}>
           {account && (
             <>
-              <MenuItem
+            <MenuItem
                 onClick={() => {
                   navigate("/nft/users/backstage");
                 }}

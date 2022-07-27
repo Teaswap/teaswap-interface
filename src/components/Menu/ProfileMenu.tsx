@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom';
 import { NormalButton } from '../NFTButton';
 import IconButton from '@mui/material/IconButton';
 import { useTranslation } from 'react-i18next';
+import { IoIosMore } from 'react-icons/io'
 
 
 export default function ProfileMenu() {
@@ -27,7 +28,7 @@ export default function ProfileMenu() {
         aria-haspopup="true"
         onClick={handleClick}
       >
-        ...
+        <IoIosMore size="30"/>
       </IconButton>
       <Menu
         id="long-menu"
