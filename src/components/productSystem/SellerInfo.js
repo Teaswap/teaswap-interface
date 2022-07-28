@@ -5,9 +5,10 @@ import { COLOR, FONT, DISTANCE, MEDIA_QUERY } from '../../constants/style';
 import { ActionButton, NormalButton } from '../NFTButton';
 import { VendorContact } from '../../components/productSystem';
 import { useTranslation } from 'react-i18next'
-import { AiFillTwitterSquare, AiFillInstagram, AiFillLike } from "react-icons/ai";
+import { AiFillTwitterSquare, AiFillInstagram, AiFillLike, AiOutlineGlobal } from "react-icons/ai";
 import { NavLink } from 'react-router-dom';
 import { ExternalLink } from '../../theme';
+import Opensea from '../../assets/images/opensea.png'
 
 const InfoBlock = styled.section`
   display: flex;
@@ -151,6 +152,12 @@ const InfoLeft = ({ vendorInfo, onLoad, loaded }) => {
             <span style={{cursor: 'pointer'}} className="margin10">
               <AiFillLike size="20" color="#7a7a7a" title={t("Follow")} />
             </span>
+            <ExternalLink className="margin10" href={`${vendorInfo.opensea_link}`}>
+              <img src={Opensea} width="20" height="20" />
+            </ExternalLink>
+            <ExternalLink className="margin10" href={`${vendorInfo.website}`}>
+              <AiOutlineGlobal color="#7a7a7a" title="website" size="20"/>
+            </ExternalLink>
           </div>
       </InfoContainer>
     </div>

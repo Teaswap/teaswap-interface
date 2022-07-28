@@ -159,24 +159,21 @@ export const Product = ({ product, onLoad, loaded, $width, $height, $margin }) =
       {!product.link && (
         <NavLink to={`/nft/products/${product.id}`}>
           {preview(product.picture_url, product.media_type, loaded, onLoad, $width, $height)}
-          {/* <ProductPicture
-            src={product.picture_url}
-            style={{ opacity: loaded ? 1 : 0 }}
-            onLoad={onLoad}
-            $width={$width}
-            $height={$height}
-          /> */}
         </NavLink>
       )}
 
-      <ProductName>
-        {product.title}
-        {(product.number) && (
-          ' | ' + product.number
-        )}
-      </ProductName>
+      <NavLink to={`/nft/products/${product.id}`}>
+        <ProductName>
+          {product.title}
+          {(product.number) && (
+            ' | ' + product.number
+          )}
+        </ProductName>
+      </NavLink>
       <VendorName>
-        {product.name}
+        <NavLink to={`/nft/products/${product.id}`}>
+          {product.name}
+        </NavLink>
       </VendorName>
       {(product.desc) &&
         (

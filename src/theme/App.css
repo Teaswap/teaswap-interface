@@ -421,3 +421,7 @@ iframe.myiframe {
 .crossmintButton-d2-0-3-6{
   text-transform: uppercase;
 }
+a{
+  color: inherit;
+  text-decoration: none;
+}

@@ -107,12 +107,29 @@ const ProductsItem = ({key, product, setPassedProducts}:productItemProps ) => {
         }
     }
 
+    const preview = (productPictureUrl: string, media_type: string) => {
+      const src = productPictureUrl.startsWith('http') ? productPictureUrl : `https://teaswap.mypinata.cloud/ipfs/${productPictureUrl}`
+      switch(media_type) {
+        case 'Video':
+          return <video style={{width: "100%"}} controls src={src} ></video>
+        case "Audio":
+          return <audio style={{width: "100%"}} controls src={src} ></audio>
+        default:
+          return (
+            <ProductImage
+              src={src}
+              style={{ opacity: 1 }}
+            />
+          )
+      }
+    }
+
 
   return (
     <ProductTr>
       <ProductTd>{product.id}</ProductTd>
       <ProductTd>
-        <ProductImage src={product.picture_url} />
+        {preview(product.picture_url, product.media_type)}
       </ProductTd>
       <ProductTd>{product.name}</ProductTd>
       <ProductTd>{product.Product_category.name}</ProductTd>

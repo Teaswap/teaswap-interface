@@ -20,6 +20,7 @@ import {
 import { useTranslation } from 'react-i18next'
 import { NavLink } from 'react-router-dom';
 import { NormalButton, Nav } from '../../../components/NFTButton';
+import ProfileMenu from '../../../components/Menu/ProfileMenu';
 
 const SellerProductTitle = styled.div`
   margin: ${DISTANCE.sm} auto;
@@ -79,7 +80,7 @@ const VendorShopPage = () => {
     <>
       <StandardNavPage>
         <Banner
-          banner={vendorInfo.banner_url || 'https://i.imgur.com/3zpk96J.jpg'}
+          banner={vendorInfo.banner_url || 'https://teaswap.mypinata.cloud/ipfs/QmeZTUCoNXTxw4K8eX9kWev6jHaCyJuaHSoueJf21DEXnw'}
           loaded={loaded}
           onLoad={onLoad}
         />
@@ -111,10 +112,8 @@ const VendorShopPage = () => {
             <span className={productCat == 'collected' ? 'active-page-tab' : 'page-tab'} onClick={() => changeCat('created')}>
               Created
             </span>
+            <ProfileMenu />
           </div>
-            <NavLink style={{ minWidth: 'fit-content' }} to={'/nft'}>
-              <NormalButton className="btn-sm-100" >{t('Buy NFT')}</NormalButton>
-            </NavLink>
         </SellerProductTitle>
         <Products
           products={products}

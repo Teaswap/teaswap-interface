@@ -112,7 +112,7 @@ const VendorBackstagePage = () => {
   return (
     <>
       <WalletSwitch />
-      <Banner banner={vendorInfo.banner_url || 'https://i.imgur.com/3zpk96J.jpg'} loaded={loaded} onLoad={onLoad} />
+      <Banner banner={vendorInfo.banner_url || 'https://teaswap.mypinata.cloud/ipfs/QmeZTUCoNXTxw4K8eX9kWev6jHaCyJuaHSoueJf21DEXnw'} loaded={loaded} onLoad={onLoad} />
       <StandardNavPage>
         <SellerInfo
           vendorInfo={vendorInfo}
@@ -143,7 +143,7 @@ const VendorBackstagePage = () => {
             <span className={productCat == 'collected' ? 'active-page-tab' : 'page-tab'} onClick={() => changeCat('created')}>
               Created
             </span>
-            <ProfileMenu />
+            <ProfileMenu isVendor />
           </div>
           <div>
           </div>

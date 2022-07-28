@@ -55,6 +55,7 @@ export default function VendorInfoForm({ successMode, setSuccessMode, isAdminSta
     twitter,
     instagram,
     opensea,
+    website,
     profile,
     artsNumber,
     contact,
@@ -67,6 +68,7 @@ export default function VendorInfoForm({ successMode, setSuccessMode, isAdminSta
     setTwitter,
     setInstagram,
     setOpensea,
+    setWebsite,
     setProfile,
     setArtsNumber,
     setContact,
@@ -88,6 +90,7 @@ export default function VendorInfoForm({ successMode, setSuccessMode, isAdminSta
       setTwitter(user.twitter ? user.twitter : '');
       setInstagram(user.instagram ? user.instagram : '');
       setOpensea(user.opensea_link ? user.opensea_link : '');
+      setWebsite(user.website? user.website: '');
       setProfile(user.profile ? user.profile : '');
       setArtsNumber(user.artsNumber ? user.artsNumber : '');
       setContact(user.contact ? user.contact : '');
@@ -157,6 +160,15 @@ export default function VendorInfoForm({ successMode, setSuccessMode, isAdminSta
           $margin={0}
           value={instagram}
           onChange={(e) => setInstagram(e.target.value)}
+        />
+        <InputName>{t("You Website")}</InputName>
+        <InputComponent
+          type='text'
+          name='website'
+          $size={'sm'}
+          $margin={0}
+          value={website}
+          onChange={(e) => setWebsite(e.target.value)}
         />
         <InputName>{t("Opensea Link")}</InputName>
         <InputComponent

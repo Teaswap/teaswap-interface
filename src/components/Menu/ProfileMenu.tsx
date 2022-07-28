@@ -7,7 +7,7 @@ import { useTranslation } from 'react-i18next';
 import { IoIosMore } from 'react-icons/io'
 
 
-export default function ProfileMenu() {
+export default function ProfileMenu({isVendor}: {isVendor?: boolean}) {
   const {t} = useTranslation()
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
@@ -45,20 +45,24 @@ export default function ProfileMenu() {
           },
         }}
       >
-          <NavLink style={{ minWidth: "fit-content", display: 'block' }} to={"#"}>
-            <NormalButton className="btn-sm-100">{t("Buy Token")}</NormalButton>
-          </NavLink>
+          {isVendor && (
+            <NavLink style={{ minWidth: "fit-content", display: 'block' }} to={"#"}>
+              <NormalButton className="btn-sm-100">{t("Buy Token")}</NormalButton>
+            </NavLink>
+          )}
           <NavLink style={{ minWidth: "fit-content", margin: '10px 0', display: 'block' }} to={"/nft"}>
             <NormalButton className="btn-sm-100">{t("Buy NFT")}</NormalButton>
           </NavLink>
-          <NavLink
-            style={{ minWidth: "fit-content", display: 'block' }}
-            to={"/nft/products/post"}
-          >
-            <NormalButton className="btn-sm-100">
-              {t("Create NFT")}
-            </NormalButton>
-          </NavLink>
+          {isVendor && (
+            <NavLink
+              style={{ minWidth: "fit-content", display: 'block' }}
+              to={"/nft/products/post"}
+            >
+              <NormalButton className="btn-sm-100">
+                {t("Create NFT")}
+              </NormalButton>
+            </NavLink>
+          )}
       </Menu>
     </div>
   );
