@@ -9,6 +9,7 @@ import { AiFillTwitterSquare, AiFillInstagram, AiFillLike, AiOutlineGlobal } fro
 import { NavLink } from 'react-router-dom';
 import { ExternalLink } from '../../theme';
 import Opensea from '../../assets/images/opensea.png'
+import TokenIcon from '../../assets/images/token.png'
 
 const InfoBlock = styled.section`
   display: flex;
@@ -143,17 +144,17 @@ const InfoLeft = ({ vendorInfo, onLoad, loaded }) => {
         <SellerName style={{marginLeft: 40}}>{vendorInfo.nickname}</SellerName>
           {/*<ActionButton $margin={20}>+ 加入關注</ActionButton>*/}
           <div className="user-icons">
-            <ExternalLink className="margin10" href={`${vendorInfo.twitter}`}>
+            <ExternalLink className="margin10" href={`${vendorInfo.instagram}`}>
               <AiFillInstagram color="#7a7a7a" title="twitter" size="20"/>
             </ExternalLink>
             <ExternalLink className="margin10" href={`${vendorInfo.twitter}`}>
               <AiFillTwitterSquare color="#7a7a7a" title="twitter" size="20"/>
             </ExternalLink>
-            <span style={{cursor: 'pointer'}} className="margin10">
-              <AiFillLike size="20" color="#7a7a7a" title={t("Follow")} />
-            </span>
+            <ExternalLink className="margin10" href={`${vendorInfo.portfolio??vendorInfo.id}`}>
+              <img src={TokenIcon} title='token' alt='token' width="20" height="20" />
+            </ExternalLink>
             <ExternalLink className="margin10" href={`${vendorInfo.opensea_link}`}>
-              <img src={Opensea} width="20" height="20" />
+              <img src={Opensea} width="20" title="opensea" alt="opensea" height="20" />
             </ExternalLink>
             <ExternalLink className="margin10" href={`${vendorInfo.website}`}>
               <AiOutlineGlobal color="#7a7a7a" title="website" size="20"/>

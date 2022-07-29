@@ -54,7 +54,7 @@ const List = () => {
       Learn: "https://www.teaswap.art/twd",
       LearnText: "Learn > On Polygon",
       author: "TSAWeb3 Dictionary Music Mystery Box",
-      medium: "https://www.youtube.com/watch?v=bGykKwJJ6X8",
+      medium: "https://www.youtube.com/watch?v=IrXHwLUMq-E&t=22s",
       info: `The inspiration from this collection of 100 editions (8800 copies)  comes from TSAWeb3 Dictionary Album 100. The name of TSAWeb3 Dictionary Album 100 music is also the title and topic of Digital 20/20 Boom Into Web3 Social event and TSAWeb3 Wearables, which is held at Metaverse Voxels and Connect Club from June 3, 2022 to July 3, 2022.`,
       joinUs: "twd",
       when: "When: Aug 18, 2022",
@@ -67,7 +67,7 @@ const List = () => {
       Learn: "https://www.teaswap.art/xhb",
       LearnText: "Learn > On Ethereum",
       author: "HotBox Og (XHB)",
-      medium: "https://youtu.be/_eYr_mTnn_k",
+      medium: "https://www.youtube.com/watch?v=ATx9BuRhxUU",
       info: `Smoke some "HOTBOX Og" in the metaverse as we cruise through Melancholy Drive. "HOTBOX Og" is a mystery airdrop collection for XTincT’s upcoming album “Melancholy Dr." EP.  HOTBOX Og is a 10 track music NFT Mystery Box, accommodated by utilities, staking, airdrops, metaverse events and more. Each song is inspired by the blockchain and expressed through chill melancholy tones by XTincT.`,
       joinUs: "xhb",
       when: "When: August 30, 2022",
@@ -296,8 +296,8 @@ const List = () => {
                       window.open("https://www.teaswap.live/whostheboss");
                     } else if (v.author == "TSA Magic Box") {
                       window.open("https://www.teaswap.live/tsa-magicbox");
-                    } else if (v.author == "Hot Box OG (XHB)") {
-                      window.open("https://www. Xtinct.io");
+                    } else if (v.author.startsWith("HotBox")) {
+                      window.open("https://www.Xtinct.io");
                     } else {
                       window.open(
                         "https://www.teaswap.art/nft/products/vendor/263751"

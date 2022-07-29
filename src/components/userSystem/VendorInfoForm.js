@@ -134,7 +134,7 @@ export default function VendorInfoForm({ successMode, setSuccessMode, isAdminSta
           value={description}
           onChange={(e) => setDescription(e.target.value)}
         />
-        <InputName>{t("Website or Digital Portfolio")}</InputName>
+        <InputName>{t("Provide your TSAWeb3 social token buy link")}</InputName>
         <InputComponent
           type='text'
           name='portfolio'

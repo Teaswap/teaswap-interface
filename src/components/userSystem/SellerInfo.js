@@ -5,10 +5,11 @@ import { ActionButton, Nav } from '../NFTButton';
 import useUser from '../../hooks/userHooks/useUser';
 import useProduct from '../../hooks/productHooks/useProduct';
 import { useTranslation } from 'react-i18next'
-import { AiFillTwitterSquare, AiFillEdit, AiFillInstagram, AiOutlineGlobal } from "react-icons/ai";
+import { AiFillTwitterSquare, AiFillEdit, AiFillInstagram, AiOutlineGlobal, AiOutlineShareAlt } from "react-icons/ai";
 import { NavLink, useNavigate } from 'react-router-dom';
 import { ExternalLink } from '../../theme';
 import Opensea from '../../assets/images/opensea.png'
+import TokenIcon from '../../assets/images/token.png'
 
 const InfoBlock = styled.section`
   display: flex;
@@ -128,10 +129,13 @@ const InfoLeft = ({vendorInfo, onLoad, loaded }) => {
               <AiFillTwitterSquare color="#7a7a7a" title="twitter" size="20"/>
             </ExternalLink>
             <ExternalLink className="margin10" href={`${vendorInfo.opensea_link}`}>
-              <img src={Opensea} width="20" height="20" />
+              <img src={Opensea} title='opensea' alt='opensea' width="20" height="20" />
             </ExternalLink>
             <ExternalLink className="margin10" href={`${vendorInfo.website}`}>
               <AiOutlineGlobal color="#7a7a7a" title="website" size="20"/>
+            </ExternalLink>
+            <ExternalLink className="margin10" href={`https://www.twitter.com/intent/tweet?url=${window.location.href + " on TSANFT via @ArtTeaswap "}&text=${"Check out this collection on TSANFT Incubator"}`}>   
+              <AiOutlineShareAlt color="#7a7a7a" title="Share" size="20"/>
             </ExternalLink>
             <NavLink className="margin10" style={{ minWidth: 'fit-content' }} to={`/nft/users/vendor/${vendorInfo.userId}`}>
               <AiFillEdit color="#7a7a7a" title="Edit Contact" size="20"/>

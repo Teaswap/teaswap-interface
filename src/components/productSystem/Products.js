@@ -172,7 +172,7 @@ export const Product = ({ product, onLoad, loaded, $width, $height, $margin }) =
       </NavLink>
       <VendorName>
         <NavLink to={`/nft/products/${product.id}`}>
-          {product.name}
+            {product.name}
         </NavLink>
       </VendorName>
       {(product.desc) &&
