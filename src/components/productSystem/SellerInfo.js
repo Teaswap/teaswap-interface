@@ -5,7 +5,7 @@ import { COLOR, FONT, DISTANCE, MEDIA_QUERY } from '../../constants/style';
 import { ActionButton, NormalButton } from '../NFTButton';
 import { VendorContact } from '../../components/productSystem';
 import { useTranslation } from 'react-i18next'
-import { AiFillTwitterSquare, AiFillInstagram, AiFillLike, AiOutlineGlobal } from "react-icons/ai";
+import { AiFillTwitterSquare, AiFillInstagram, AiFillLike, AiOutlineGlobal, AiOutlineShareAlt} from "react-icons/ai";
 import { NavLink } from 'react-router-dom';
 import { ExternalLink } from '../../theme';
 import Opensea from '../../assets/images/opensea.png'
@@ -145,19 +145,22 @@ const InfoLeft = ({ vendorInfo, onLoad, loaded }) => {
           {/*<ActionButton $margin={20}>+ 加入關注</ActionButton>*/}
           <div className="user-icons">
             <ExternalLink className="margin10" href={`${vendorInfo.instagram}`}>
-              <AiFillInstagram color="#7a7a7a" title="twitter" size="20"/>
+              <AiFillInstagram color="#7a7a7a" title="Instagram" size="20"/>
             </ExternalLink>
             <ExternalLink className="margin10" href={`${vendorInfo.twitter}`}>
-              <AiFillTwitterSquare color="#7a7a7a" title="twitter" size="20"/>
+              <AiFillTwitterSquare color="#7a7a7a" title="Twitter" size="20"/>
             </ExternalLink>
             <ExternalLink className="margin10" href={`${vendorInfo.portfolio??vendorInfo.id}`}>
-              <img src={TokenIcon} title='token' alt='token' width="20" height="20" />
+              <img src={TokenIcon} title='Token' alt='Token' width="20" height="20" />
             </ExternalLink>
             <ExternalLink className="margin10" href={`${vendorInfo.opensea_link}`}>
-              <img src={Opensea} width="20" title="opensea" alt="opensea" height="20" />
+              <img src={Opensea} width="20" title="Opensea" alt="Opensea" height="20" />
             </ExternalLink>
             <ExternalLink className="margin10" href={`${vendorInfo.website}`}>
-              <AiOutlineGlobal color="#7a7a7a" title="website" size="20"/>
+              <AiOutlineGlobal color="#7a7a7a" title="Website" size="20"/>
+            </ExternalLink>
+            <ExternalLink className="margin10" href={`https://www.twitter.com/intent/tweet?url=${window.location.href + " on TSANFT via @ArtTeaswap "}&text=${"Check out this collection on TSANFT Incubator"}`}>   
+              <AiOutlineShareAlt color="#7a7a7a" title="Share" size="20"/>
             </ExternalLink>
           </div>
       </InfoContainer>
