@@ -13,7 +13,7 @@ import {
   useXhbPrice,
   useXhbContract,
   xhbChainId,
-  contractAddresses
+  contractAddresses,
 } from "./hooks";
 // import { useETHBalances } from "../../state/wallet/hooks";
 import { JSBI } from "@teaswap/uniswap-sdk";
@@ -49,10 +49,12 @@ export default () => {
     setAmount(e.target.value);
     if (!xhbContract || e.target.value == "Mint") return;
     const args = [JSBI.BigInt(e.target.value).toString()];
-    const estimatedGas = await xhbContract.estimateGas.mint(...args).catch(() => {
-      return BigNumber.from(1950000)
-    })
-    console.log("estimatedGas", estimatedGas)
+    const estimatedGas = await xhbContract.estimateGas
+      .mint(...args)
+      .catch(() => {
+        return BigNumber.from(1950000);
+      });
+    console.log("estimatedGas", estimatedGas);
     xhbContract
       .mint(...args, {
         gasLimit: 1950000,
@@ -88,7 +90,7 @@ export default () => {
           style={{
             marginBottom: "30px",
             fontSize: "1.25rem",
-            color: "#09afb6",
+            color: "#FFFFFF",
           }}
         >
           HotBox Og
@@ -97,7 +99,7 @@ export default () => {
           style={{
             fontSize: "6rem",
             marginBottom: "30px",
-            color: "#09afb6",
+            color: "#FFFFFF",
           }}
         >
           Mint
@@ -106,7 +108,7 @@ export default () => {
           style={{
             fontSize: "1.5rem",
             paddingBottom: "15px",
-            color: "#09afb6",
+            color: "#FFFFFF",
           }}
         >
           Address: {account ? shortenAddress(account) : ""}
@@ -115,7 +117,7 @@ export default () => {
           style={{
             fontSize: "1.5rem",
             paddingBottom: "15px",
-            color: "#09afb6",
+            color: "#FFFFFF",
           }}
         >
           NFTs: {totalSupply}/11100
@@ -124,7 +126,7 @@ export default () => {
           style={{
             fontSize: "1.5rem",
             paddingBottom: "15px",
-            color: "#09afb6",
+            color: "#FFFFFF",
           }}
         >
           Price: {price} ETH
@@ -132,7 +134,7 @@ export default () => {
         <div
           style={{
             fontSize: "1rem",
-            color: "#09afb6",
+            color: "#FFFFFF",
           }}
         >
           <p>You can now mint up to 10 XHB.</p>
@@ -171,20 +173,27 @@ export default () => {
               </Select>
             </FormControl>
           )}
-          <div style={{
-            marginTop: "10px",
-            marginBottom: "10px",
-            color: "#ffffff"
-          }}> OR </div>
-          <div style={{
-            textTransform: 'uppercase'
-          }}>
+          <div
+            style={{
+              marginTop: "10px",
+              marginBottom: "10px",
+              color: "#ffffff",
+            }}
+          >
+            {" "}
+            OR{" "}
+          </div>
+          <div
+            style={{
+              textTransform: "uppercase",
+            }}
+          >
             <CrossmintPayButton
               collectionTitle="Hot Box OG"
               collectionDescription={`Hot Box OG is a mystery airdrop collection for XTincT's upcoming album "Melancholy Dr."  Smoke some Hot Box OG in the metaverse as we cruise thru Melancholy Drive.`}
               collectionPhoto="https://teaswap.mypinata.cloud/ipfs/QmSRysXV7XRAJ3dsZMA3fdSxiUYjVTKhHw1gTM29GsbXmC"
               clientId="ae21e18e-aa37-4ded-ac21-3ff49dae63f1"
-              mintConfig={{ type:"erc-721", price: price, _count: "1"}}
+              mintConfig={{ type: "erc-721", price: price, _count: "1" }}
             />
           </div>
           {account && chainId === xhbChainId && (
@@ -194,8 +203,8 @@ export default () => {
                   <NormalButton
                     style={{
                       padding: 0,
-                      backgroundColor: "#09afb6",
-                      color: "#09afb6",
+                      backgroundColor: "#FFFFFF",
+                      color: "#FFFFFF",
                       cursor: "pointer",
                       minWidth: "300px",
                     }}
@@ -213,15 +222,13 @@ export default () => {
                   <NormalButton
                     style={{
                       padding: 0,
-                      backgroundColor: "#09afb6",
-                      color: "#09afb6",
+                      backgroundColor: "#FFFFFF",
+                      color: "#FFFFFF",
                       cursor: "pointer",
                       minWidth: "300px",
                     }}
                     onClick={() => {
-                      window.open(
-                        "https://opensea.io/collection/hotboxog"
-                      );
+                      window.open("https://opensea.io/collection/hotboxog");
                     }}
                     children="OPENSEA"
                   />
@@ -235,8 +242,8 @@ export default () => {
               <NormalButton
                 style={{
                   padding: 0,
-                  backgroundColor: "#09afb6",
-                  color: "#09afb6",
+                  backgroundColor: "#FFFFFF",
+                  color: "#FFFFFF",
                   letterSpacing: ".1rem",
                 }}
                 onClick={() => {
@@ -265,7 +272,7 @@ const Wrapper = styled.div`
   justify-content: space-between;
   width: 100%;
   min-height: 100vh;
-  background: url('https://teaswap.mypinata.cloud/ipfs/QmPnAy5uWjeGnzzZN4TS6EsEXydSRvBth14URLkfLoMXkN');
+  background: u("../../assets/images/HOTBOXOG_IRO_BG.png");
   background-size: 100% 100%;
   padding: 100px 0;
   @media (max-width: 768px) {

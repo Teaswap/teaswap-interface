@@ -16,6 +16,7 @@ import GridImg9 from "../../assets/images/Whostheboss.png";
 import GridImg10 from "../../assets/images/blindbox.png";
 import GridImg11 from "../../assets/images/2020.gif";
 import GridImg12 from "../../assets/images/xtinct.png";
+import GridImg13 from "../../assets/images/HOTBOXOG_IROBANNER.png";
 // import GridImg12 from "../../assets/images/TSAWeb3MusicBox.png";
 import YoutobeImg from "../../assets/images/youtube.png";
 import { ExternalLink } from "../../theme";
@@ -63,7 +64,7 @@ const List = () => {
       sign: NewImg,
     },
     {
-      image: GridImg12,
+      image: GridImg13,
       Learn: "https://www.teaswap.art/xhb",
       LearnText: "Learn > On Ethereum",
       author: "HotBox Og (XHB)",
