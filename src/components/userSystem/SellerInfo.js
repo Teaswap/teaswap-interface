@@ -135,11 +135,11 @@ const InfoLeft = ({vendorInfo, onLoad, loaded }) => {
             <ExternalLink className="margin10" href={`${vendorInfo.website}`}>
               <AiOutlineGlobal color="#7a7a7a" title="Website" size="20"/>
             </ExternalLink>
-            <ExternalLink className="margin10" href={`https://www.twitter.com/intent/tweet?url=${HOST_URL + '/nft/products/vendor/'+vendorInfo.userId + " on TSANFT via @ArtTeaswap "}&text=${"Check out this collection on TSANFT Incubator"}`}>   
-              <AiOutlineShareAlt color="#7a7a7a" title="Share" size="20"/>
-            </ExternalLink>
             <ExternalLink className="margin10" href={`${vendorInfo.portfolio??vendorInfo.id}`}>
               <img src={TokenIcon} title='Token' alt='Token' width="20" height="20" />
+            </ExternalLink>
+            <ExternalLink className="margin10" href={`https://www.twitter.com/intent/tweet?url=${HOST_URL + '/nft/products/vendor/'+vendorInfo.userId + " on TSANFT via @ArtTeaswap "}&text=${"Check out this collection on TSANFT Incubator"}`}>   
+              <AiOutlineShareAlt color="#7a7a7a" title="Share" size="20"/>
             </ExternalLink>
             <NavLink className="margin10" style={{ minWidth: 'fit-content' }} to={`/nft/users/vendor/${vendorInfo.userId}`}>
               <AiFillEdit color="#7a7a7a" title="Edit Contact" size="20"/>

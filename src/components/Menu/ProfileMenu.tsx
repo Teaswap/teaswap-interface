@@ -41,7 +41,6 @@ export default function ProfileMenu({isVendor}: {isVendor?: boolean}) {
         PaperProps={{
           style: {
             maxHeight: 300,
-            width: '35ch',
           },
         }}
       >

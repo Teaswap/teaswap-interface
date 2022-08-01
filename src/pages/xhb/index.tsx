@@ -242,7 +242,7 @@ export default () => {
               <NormalButton
                 style={{
                   padding: 0,
-                  backgroundColor: "#FFFFFF",
+                  backgroundColor: "rgb(37, 232, 255)",
                   color: "#FFFFFF",
                   letterSpacing: ".1rem",
                 }}
@@ -272,7 +272,7 @@ const Wrapper = styled.div`
   justify-content: space-between;
   width: 100%;
   min-height: 100vh;
-  background: u("../../assets/images/HOTBOXOG_IRO_BG.png");
+  background: url("https://teaswap.mypinata.cloud/ipfs/QmPYA9QPcMHg1qUYfeBSDtbMT4PjTH2azinpjvN7dYASpF");
   background-size: 100% 100%;
   padding: 100px 0;
   @media (max-width: 768px) {

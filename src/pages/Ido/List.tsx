@@ -15,7 +15,7 @@ import GridImg8 from "../../assets/images/penguinbrothers.png";
 import GridImg9 from "../../assets/images/Whostheboss.png";
 import GridImg10 from "../../assets/images/blindbox.png";
 import GridImg11 from "../../assets/images/2020.gif";
-import GridImg12 from "../../assets/images/xtinct.png";
+// import GridImg12 from "../../assets/images/xtinct.png";
 import GridImg13 from "../../assets/images/HOTBOXOG_IROBANNER.png";
 // import GridImg12 from "../../assets/images/TSAWeb3MusicBox.png";
 import YoutobeImg from "../../assets/images/youtube.png";
@@ -51,7 +51,7 @@ const List = () => {
   const products = [
     {
       image:
-        "https://teaswap.mypinata.cloud/ipfs/QmUrHAvEZK6LR9zcVAEWiTp7xgbxCinSh1oMKmE3pRoVy8",
+        "https://teaswap.mypinata.cloud/ipfs/QmPp1hJzgNLrEdSTyYwKzigq2S2SzonuDYrEBWEvNoqNPx",
       Learn: "https://www.teaswap.art/twd",
       LearnText: "Learn > On Polygon",
       author: "TSAWeb3 Dictionary Music Mystery Box",

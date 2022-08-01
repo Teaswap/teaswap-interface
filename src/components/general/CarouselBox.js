@@ -34,7 +34,7 @@ const CarouselBox = () => {
     >
       {!isMobile && (
         <img
-          src="https://teaswap.mypinata.cloud/ipfs/QmR5Lv2V2THiR3StsMz3KtzcWgqwPcPGYb5uFf9tnBRxC7/1.png"
+          src="https://teaswap.mypinata.cloud/ipfs/QmZa7L1mUcrC6sDjyUJugGZKJo7oY2xuJBBGbkNokwhahq"
           alt=""
           onClick={() => {
             window.open("https://www.teaswap.art/twd");
@@ -43,19 +43,18 @@ const CarouselBox = () => {
       )}
       {!isMobile && (
         <img
-          src="https://teaswap.mypinata.cloud/ipfs/QmR5Lv2V2THiR3StsMz3KtzcWgqwPcPGYb5uFf9tnBRxC7/2.png"
-          alt=""
-          onClick={() => {
-            window.open("https://www.teaswap.art/twd");
-          }}
-        />
-      )}
-      {!isMobile && (
-        <img
-          src={process.env.PUBLIC_URL + "/HOTBOXOG_IRO_BG.png"}
+          src={"https://teaswap.mypinata.cloud/ipfs/QmPYA9QPcMHg1qUYfeBSDtbMT4PjTH2azinpjvN7dYASpF"}
           alt=""
           onClick={() => {
             window.open("https://www.teaswap.art/xhb");
+          }}
+        />
+      )}
+      {!isMobile && (
+        <img
+          src="https://teaswap.mypinata.cloud/ipfs/QmQW3ihbeJW7aN55y1A5DNNARomSMCLurffLycd1rvGiM8"
+          onClick={() => {
+            window.open("https://www.teaswap.art/twd");
           }}
         />
       )}
