@@ -108,7 +108,7 @@ export default () => {
           style={{
             fontSize: "1.5rem",
             paddingBottom: "15px",
-            color: "#FFFFFF",
+            // color: "black",
           }}
         >
           Address: {account ? shortenAddress(account) : ""}
@@ -117,7 +117,7 @@ export default () => {
           style={{
             fontSize: "1.5rem",
             paddingBottom: "15px",
-            color: "#FFFFFF",
+            // color: "rgb(37, 232, 255)",
           }}
         >
           NFTs: {totalSupply}/11100
@@ -126,7 +126,7 @@ export default () => {
           style={{
             fontSize: "1.5rem",
             paddingBottom: "15px",
-            color: "#FFFFFF",
+            // color: "rgb(37, 232, 255)",
           }}
         >
           Price: {price} ETH
@@ -134,7 +134,7 @@ export default () => {
         <div
           style={{
             fontSize: "1rem",
-            color: "#FFFFFF",
+            // color: "rgb(37, 232, 255)",
           }}
         >
           <p>You can now mint up to 10 XHB.</p>
@@ -177,7 +177,7 @@ export default () => {
             style={{
               marginTop: "10px",
               marginBottom: "10px",
-              color: "#ffffff",
+              // color: "rgb(37, 232, 255)",
             }}
           >
             {" "}
@@ -203,7 +203,7 @@ export default () => {
                   <NormalButton
                     style={{
                       padding: 0,
-                      backgroundColor: "#FFFFFF",
+                      backgroundColor: "black",
                       color: "#FFFFFF",
                       cursor: "pointer",
                       minWidth: "300px",
@@ -222,7 +222,7 @@ export default () => {
                   <NormalButton
                     style={{
                       padding: 0,
-                      backgroundColor: "#FFFFFF",
+                      backgroundColor: "black",
                       color: "#FFFFFF",
                       cursor: "pointer",
                       minWidth: "300px",
@@ -242,7 +242,7 @@ export default () => {
               <NormalButton
                 style={{
                   padding: 0,
-                  backgroundColor: "rgb(37, 232, 255)",
+                  backgroundColor: "black",
                   color: "#FFFFFF",
                   letterSpacing: ".1rem",
                 }}
