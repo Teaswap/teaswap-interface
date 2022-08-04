@@ -106,6 +106,24 @@ const CarouselBox = () => {
 
       {isMobile && (
         <img
+          src={'https://teaswap.mypinata.cloud/ipfs/QmSCQa68C11wn8Jj4aLkEkehVYrUwyPBb81tgLAxWmYX5M'}
+          alt=""
+          onClick={() => {
+            window.open("https://www.teaswap.art/iro");
+          }}
+        />
+      )}
+      {isMobile && (
+        <img
+          src={'https://teaswap.mypinata.cloud/ipfs/QmTUatq65jdTePVvfQF1e79osncd6qAzp1Q1ycPaa2iHwW'}
+          alt=""
+          onClick={() => {
+            window.open("https://www.teaswap.art/iro");
+          }}
+        />
+      )}
+      {isMobile && (
+        <img
           src={process.env.PUBLIC_URL + "/Mobile-PenguinPunksBanner.png"}
           alt=""
           onClick={() => {

@@ -123,7 +123,7 @@ const VendorInfoPage = () => {
         <PageBottom>
           <Nav path='/nft/users/backstage' children={t('Back to Account')} />
         </PageBottom>
-        <Title style={{marginTop: '20px', fontSize: 20}}>
+        <Title style={{marginTop: '20px', width: '90%', fontSize: 20}}>
           Note : How to launch your own Web3Social Token ? &nbsp;
           <ExternalLink href={"https://docs.google.com/forms/d/e/1FAIpQLSfA-dOW15tyN6dfyZScvcEmT3lC13K9ThFBTruiFD0wOVsoUQ/viewform"}>
             Apply Now !

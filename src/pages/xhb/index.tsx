@@ -22,8 +22,8 @@ import { TransactionResponse } from "@ethersproject/abstract-provider";
 import { ExternalLink } from "../../theme";
 import { toWei } from "web3-utils";
 import { shortenAddress } from "../../utils";
-import airdropAPI from "../../webAPI/airdropAPI";
-import { useNavigate } from "react-router-dom";
+// import airdropAPI from "../../webAPI/airdropAPI";
+// import { useNavigate } from "react-router-dom";
 import { switchNetwork } from "../../utils/wallet";
 import { CrossmintPayButton } from "@crossmint/client-sdk-react-ui";
 import { BigNumber } from "@ethersproject/bignumber";
@@ -40,7 +40,7 @@ export default () => {
   const [amount, setAmount] = useState(0);
   const [hash, setHash] = useState("");
   const [msg, setMsg] = useState("");
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   console.log({ xhbContract });
 
   const handleChange = async (e: any) => {
@@ -63,14 +63,14 @@ export default () => {
       .then(async (response: TransactionResponse) => {
         console.log("buy: res", { response });
         setHash(response.hash);
-        const res = await airdropAPI.mintAPI(account, response.hash);
-        if (res.ok == 1) {
-          // todo you have an airdrop
-          setMsg("You have an airdrop, go to claim in about 3s");
-          setTimeout(() => {
-            navigate("/blind-box");
-          }, 3000);
-        }
+        // const res = await airdropAPI.mintAPI(account, response.hash);
+        // if (res.ok == 1) {
+        //   // todo you have an airdrop
+        //   setMsg("You have an airdrop, go to claim in about 3s");
+        //   setTimeout(() => {
+        //     navigate("/blind-box");
+        //   }, 3000);
+        // }
       })
       .catch((error: any) => {
         console.log({
@@ -85,7 +85,7 @@ export default () => {
       <Left className="panel">
         {/* <img src="https://teaswap.mypinata.cloud/ipfs/QmSRysXV7XRAJ3dsZMA3fdSxiUYjVTKhHw1gTM29GsbXmC" /> */}
       </Left>
-      <Right className="panel">
+      <Right style={{color: '#ffffff'}} className="panel">
         <div
           style={{
             marginBottom: "30px",
@@ -99,7 +99,7 @@ export default () => {
           style={{
             fontSize: "6rem",
             marginBottom: "30px",
-            color: "#FFFFFF",
+            color: "#FFD014",
           }}
         >
           Mint
@@ -108,7 +108,7 @@ export default () => {
           style={{
             fontSize: "1.5rem",
             paddingBottom: "15px",
-            // color: "black",
+            color: "#ffffff",
           }}
         >
           Address: {account ? shortenAddress(account) : ""}
@@ -203,7 +203,7 @@ export default () => {
                   <NormalButton
                     style={{
                       padding: 0,
-                      backgroundColor: "black",
+                      backgroundColor: "#1e1e1e",
                       color: "#FFFFFF",
                       cursor: "pointer",
                       minWidth: "300px",
@@ -222,7 +222,7 @@ export default () => {
                   <NormalButton
                     style={{
                       padding: 0,
-                      backgroundColor: "black",
+                      backgroundColor: "#1e1e1e",
                       color: "#FFFFFF",
                       cursor: "pointer",
                       minWidth: "300px",
@@ -242,7 +242,7 @@ export default () => {
               <NormalButton
                 style={{
                   padding: 0,
-                  backgroundColor: "black",
+                  backgroundColor: "#1e1e1e",
                   color: "#FFFFFF",
                   letterSpacing: ".1rem",
                 }}
@@ -255,8 +255,8 @@ export default () => {
           )}
           {hash && (
             <div>
-              <ExternalLink href={`https://etherscan.io/tx/${hash}`}>
-                View on ethereum scan
+              <ExternalLink href={`https://opensea.io/collection/hotboxog`}>
+              View on OpenSea
               </ExternalLink>
             </div>
           )}
@@ -272,10 +272,11 @@ const Wrapper = styled.div`
   justify-content: space-between;
   width: 100%;
   min-height: 100vh;
-  background: url("https://teaswap.mypinata.cloud/ipfs/QmPYA9QPcMHg1qUYfeBSDtbMT4PjTH2azinpjvN7dYASpF");
+  background: url("https://teaswap.mypinata.cloud/ipfs/QmeezTah5C9jcdeDzKJ3QYPZegjCmctZa6dysC9iCMzwBk");
   background-size: 100% 100%;
   padding: 100px 0;
   @media (max-width: 768px) {
+    background: url("https://teaswap.mypinata.cloud/ipfs/QmSCQa68C11wn8Jj4aLkEkehVYrUwyPBb81tgLAxWmYX5M");
     flex-direction: column;
     height: auto;
   }
