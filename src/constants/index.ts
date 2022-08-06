@@ -560,6 +560,14 @@ export const ICASH = new Token(
   "iCashToken.io"
 );
 
+export const XCOIN = new Token(
+  ChainId.BSC_MAINNET,
+  "0xA0c9a4ebC96737E8f9f61A88D6361Bb26250a068",
+  18,
+  "XCOIN",
+  "xtinct.io"
+);
+
 export const SATO = new Token(
   ChainId.BSC_MAINNET,
   "0xf6e6892325a74383a70570f1ebea9a476483a611",
@@ -811,6 +819,7 @@ export const tokenOptions = [
   { id: "5", name: "CJAI", value: CJAI.address },
   { id: "7", name: "LOT", value: TSALOT.address },
   { id: "8", name: "ICASH", value: ICASH.address },
+  { id: "9", name: "XCoin", value: XCOIN.address },
 ];
 
 export const NetworkContextName = "NETWORK";
