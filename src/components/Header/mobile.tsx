@@ -334,6 +334,7 @@ const HeaderRoot = styled.div`
   width: 100%;
   position: fixed;
   padding: 10px 2%;
+  height: 80px;
   z-index: 1000;
   background-color: #fff;
 `;
@@ -396,10 +397,14 @@ export default function Header() {
          style={{
             position: 'fixed',
             top: 10,
-            right: 10
+            right: 10,
+            zIndex: 9999,
+            width: 40,
+            height: 48,
+            border: '1px solid grey'
           }}
         onClick={() => setShow(true)}>
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-blue" fill="blue" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
           </svg>
         </Button>
@@ -408,7 +413,7 @@ export default function Header() {
           open={show}
           onClose={() => setShow(false)}
         >
-          <HeaderRow>
+          <HeaderRow id='header-row'>
             <Button
               style={{
                 position: 'fixed',

@@ -102,8 +102,8 @@ import POAP from './poap'
 import POAP2 from './poap2'
 import TWD from './twd'
 import XHB from './xhb'
-import { isMobile } from 'react-device-detect'
-import MobileHeader from "../components/Header/mobile";
+// import { isMobile } from 'react-device-detect'
+// import MobileHeader from "../components/Header/mobile";
 
 const AppWrapper = styled.div`
   display: flex;
@@ -155,7 +155,8 @@ export default function App() {
       <AppWrapper>
         {/* <URLWarning/> */}
         <HeaderWrapper>
-          {isMobile ? <MobileHeader /> : <Header />}
+          {/* {isMobile ? <MobileHeader /> : <Header />} */}
+          <Header />
         </HeaderWrapper>
         <BodyWrapper className="body-wrapper">
           <Popups />

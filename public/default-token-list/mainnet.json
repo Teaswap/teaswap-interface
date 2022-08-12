@@ -772,6 +772,14 @@
       "decimals": 18,
       "chainId": 56,
       "logoURI": "https://www.teaswap.art/default-token-list/images/0x5f99ACF13CAff815DD9cB4A415c0fB34e9F4545b.png"
+    },
+    {
+      "name": "XCOIN.io",
+      "address": "0xA0c9a4ebC96737E8f9f61A88D6361Bb26250a068",
+      "symbol": "XCOIN",
+      "decimals": 18,
+      "chainId": 56,
+      "logoURI": "https://www.teaswap.art/default-token-list/images/0xA0c9a4ebC96737E8f9f61A88D6361Bb26250a068.svg"
     }
   ]
 
