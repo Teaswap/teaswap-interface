@@ -8,7 +8,8 @@ export declare enum ChainId {
     KOVAN = 42,
     BSC_MAINNET = 56,
     BSC_TESTNET = 97,
-    POLYGON = 137
+    POLYGON = 137,
+    OPTIMISM = 10,
 }
 export declare enum TradeType {
     EXACT_INPUT = 0,

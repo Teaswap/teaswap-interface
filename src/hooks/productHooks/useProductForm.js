@@ -186,7 +186,7 @@ export default function useProductForm(id) {
         picture_url: mintInfo.productPictureUrl,
         info: mintInfo.productInfo,
         price: mintInfo.productPrice,
-        quantity: 1,
+        quantity: 1, // todo 1155 多数量
         delivery: mintInfo.delivery, // 出貨方式  0:面交、1:郵寄
         delivery_location: mintInfo.delivertyLocation, // 出貨地點的欄位
         delivery_time: undefined, // 備貨時間的欄位

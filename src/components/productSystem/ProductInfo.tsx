@@ -3,7 +3,7 @@ import React, {useCallback, useEffect, useMemo, useState} from 'react'
 import styled from 'styled-components';
 import { useDispatch } from 'react-redux';
 import useCart from '../../hooks/cartHooks/useCart';
-import { ActionButton } from '../NFTButton';
+import { ActionButton, NormalButton } from '../NFTButton';
 import { IconComponent } from '../../components';
 import { InfoBlock } from '../../components/productSystem';
 import { useTranslation } from 'react-i18next';
@@ -31,6 +31,7 @@ import { LastBid } from '../../utils/strUtil';
 import { AiOutlineEye, AiFillHeart } from "react-icons/ai";
 import { GiShare} from "react-icons/gi";
 import { useActiveWeb3React } from '../../hooks';
+import { switchNetwork } from '../../utils/wallet';
 
 // const Container = styled.li`
 
@@ -465,12 +466,25 @@ export const ProductInfo = ({product,user}:{ product:ProductInterface, user:user
           {chainId !== 56 && (
             <Form>
               <InputName>{t('Please switch to bsc mainnet to bid')}</InputName>
+              <div style={{ marginTop: 20, marginLeft: -20 }}>
+                <NormalButton
+                  style={{
+                    padding: 0,
+                    backgroundColor: "#09afb6",
+                    color: "#FFFFFF",
+                    letterSpacing: ".1rem",
+                  }}
+                  onClick={() => {
+                    switchNetwork(ChainId.BSC_MAINNET);
+                  }}
+                  children="Switch to BSC Mainnet to Mint"
+                />
+              </div>
             </Form>
           )}
           {!attempting && !hash && chainId == 56 && (
               <Form>
                 <IconContainer >{/* onClick={wrappedOnDismiss} */}
-                
                   <IconComponent kind='close-black' margin={0} color={COLOR.dark_gray} onClick={wrappedOnDismiss}/>
                 </IconContainer>
                 <InputName>{t(witch == 1 ? 'Input purchase price' : 'Input bid price')}</InputName>
@@ -486,6 +500,7 @@ export const ProductInfo = ({product,user}:{ product:ProductInterface, user:user
                     onUserInput={(typed) => setBidValue(typed)}
                     customBalanceText={witch == 1 ? 'Available to buy: ' : 'Available to bid: '}
                 />
+                {/*** todo quantity input if protocol === 1155 ***/}
                 <p>
                   Best Offer: {LastBid(productCarts )}
                 </p>

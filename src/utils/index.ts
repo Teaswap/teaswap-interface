@@ -26,7 +26,8 @@ const ETHERSCAN_PREFIXES: { [chainId in ChainId]: string } = {
   42: 'kovan.etherscan.io',
   56: 'bscscan.com',
   97: 'testnet.bscscan.com',
-  137: 'polygonscan.com'
+  137: 'polygonscan.com',
+  10: 'optimism.etherscan.io',
 }
 
 export function getBscScanLink(

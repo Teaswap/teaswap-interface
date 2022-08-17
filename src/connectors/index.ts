@@ -28,7 +28,7 @@ export function getNetworkLibrary(): Web3Provider {
 }
 
 export const injected = new InjectedConnector({
-  supportedChainIds: [1, 3, 4, 5, 42, 56, 97, 137]
+  supportedChainIds: [1, 3, 4, 5, 42, 56, 97, 137, 10]
 })
 
 export const bsc = new BscConnector({
@@ -38,7 +38,7 @@ export const bsc = new BscConnector({
 // mainnet only
 // @ts-ignore
 export const walletconnect = new WalletConnectConnector({
-  supportedChainIds: [1, 3, 4, 5, 42, 56, 97, 137],
+  supportedChainIds: [1, 3, 4, 5, 42, 56, 97, 137, 10],
   rpc: { 56: 'https://bsc-dataseed.binance.org/' },
   bridge: 'https://bridge.walletconnect.org',
   qrcode: true,

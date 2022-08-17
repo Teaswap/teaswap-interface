@@ -9,8 +9,10 @@ import {  WrappedTokenInfo } from '../../state/lists/hooks'
 // import Logo from '../Logo'
 import { HOST_URL } from '../../constants/unit'
 
-const getTokenLogoURL = (address: string) =>
-  `${HOST_URL}/default-token-list/images/${address}.png`
+const getTokenLogoURL = (address: string) => {
+  const format = address === '0xA0c9a4ebC96737E8f9f61A88D6361Bb26250a068' ? 'svg' : 'png'
+  return `${HOST_URL}/default-token-list/images/${address}.${format}`
+}
 
 const StyledEthereumLogo = styled.img<{ size: string }>`
   width: ${({ size }) => size};
