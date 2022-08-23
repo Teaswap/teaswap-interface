@@ -48,7 +48,7 @@ export const useXhbPrice = (contract: Contract|null, chainId: ChainId|undefined)
   const [price, setPrice] = useState("0");
   useEffect(() => {
     if (chainId !== xhbChainId) return
-    contract?.cost().then((res: any) => {
+    contract?.price().then((res: any) => {
       console.log("xhb price", res)
       setPrice(fromWei(res.toString(), "ether"));
     }).catch((err: any) => {
