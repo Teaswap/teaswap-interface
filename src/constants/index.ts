@@ -632,7 +632,7 @@ export const BBBPENGUIN = new Token(
   ChainId.BSC_MAINNET,
   "0x68caacEEf02723f5589490128a25f0bDE9cd5b47",
   0,
-  "HOT BOX",
+  "TSA MAGICBOX",
   "Binance NFT Blind Box- Penguin"
 );
 

@@ -91,7 +91,7 @@ export const STAKING_REWARDS_INFO: {
     {
       tokens: [BBBPENGUIN, UNI[ChainId.BSC_MAINNET]],
       stakingRewardAddress: "0xa450f2170ece8000b2611ef4434b923d66dd6060",
-      iconUrl: "/magicbox.gif",
+      iconUrl: "/images/round.png",
       cate: "NFT",
     },
     {

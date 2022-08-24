@@ -70,7 +70,7 @@ export default () => {
   return (
     <Wrapper>
       <Left className="panel">
-        <img src="/web2.gif" />
+        <img src="/magicbox.png" />
       </Left>
       <Right className="panel">
         <div
@@ -86,7 +86,7 @@ export default () => {
           style={{
             fontSize: "6rem",
             marginBottom: "30px",
-            color: "#09afb6",
+            color: "#ffffff",
           }}
         >
           Mint
@@ -216,7 +216,7 @@ const Wrapper = styled.div`
   width: 100%;
   min-height: 100vh;
   padding: 100px 0;
-  background-color: #4d0896;
+  background-color: rgb(18, 185, 200);
   @media (max-width: 768px) {
     position: relative;
     flex-direction: column;
