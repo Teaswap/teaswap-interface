@@ -99,11 +99,6 @@ export default function Earn() {
   const stakingInfos = useAllStakingInfo();
   const { t } = useTranslation();
 
-  // const DataRow = styled(RowBetween)`
-  //   ${({ theme }) => theme.mediaWidth.upToSmall`
-  //   flex-direction: column;
-  // `};
-  // `
   const [showCat, setShowCat] = useState(0);
 
   function changeCate(cat: any) {

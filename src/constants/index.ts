@@ -636,6 +636,14 @@ export const BBBPENGUIN = new Token(
   "Binance NFT Blind Box- Penguin"
 );
 
+export const MAGIC_BOX_TSA = new Token(
+  ChainId.BSC_MAINNET,
+  "0x68caacEEf02723f5589490128a25f0bDE9cd5b47",
+  0,
+  "MAGICBOX",
+  "Binance NFT Blind Box- Penguin"
+);
+
 const WETH_ONLY: ChainTokenList = {
   [ChainId.MAINNET]: [WETH[ChainId.MAINNET]],
   [ChainId.ROPSTEN]: [WETH[ChainId.ROPSTEN]],

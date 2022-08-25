@@ -54,7 +54,7 @@ import {
   SHIB,
   PenguinPunksCollection,
   // GensisNFT
-  BBBPENGUIN
+  BBBPENGUIN, MAGIC_BOX_TSA, XCOIN
 } from "../../constants";
 import {
   IDO_ABI_INTERFACE,
@@ -88,6 +88,12 @@ export const STAKING_REWARDS_INFO: {
     //   iconUrl: "/TSAPenguinPunks.png",
     //   cate:"NFT"
     // },
+    {
+      tokens: [MAGIC_BOX_TSA, XCOIN],
+      stakingRewardAddress: "0x1709D4ED9F5800C28fe7464ca1fCCF1C1826ee9D",
+      iconUrl: "/images/round.png",
+      cate: "NFT",
+    },
     {
       tokens: [BBBPENGUIN, UNI[ChainId.BSC_MAINNET]],
       stakingRewardAddress: "0xa450f2170ece8000b2611ef4434b923d66dd6060",
