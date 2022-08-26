@@ -193,23 +193,23 @@ export default () => {
                   />
                 </div>
               }
-              {/*{*/}
-              {/*  <div style={{ marginTop: 20, marginLeft: -20 }}>*/}
-              {/*    <NormalButton*/}
-              {/*      style={{*/}
-              {/*        padding: 0,*/}
-              {/*        backgroundColor: "#1e1e1e",*/}
-              {/*        color: "#FFFFFF",*/}
-              {/*        cursor: "pointer",*/}
-              {/*        minWidth: "300px",*/}
-              {/*      }}*/}
-              {/*      onClick={() => {*/}
-              {/*        window.open("https://opensea.io/collection/hotboxog");*/}
-              {/*      }}*/}
-              {/*      children="OPENSEA"*/}
-              {/*    />*/}
-              {/*  </div>*/}
-              {/*}*/}
+              {
+                <div style={{ marginTop: 20, marginLeft: -20 }}>
+                  <NormalButton
+                    style={{
+                      padding: 0,
+                      backgroundColor: "#1e1e1e",
+                      color: "#FFFFFF",
+                      cursor: "pointer",
+                      minWidth: "300px",
+                    }}
+                    onClick={() => {
+                      window.open("https://quixotic.io/collection/xhb");
+                    }}
+                    children="VIEW ON QUIXOTIC"
+                  />
+                </div>
+              }
             </div>
           )}
 

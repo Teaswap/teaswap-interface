@@ -632,7 +632,7 @@ export const BBBPENGUIN = new Token(
   ChainId.BSC_MAINNET,
   "0x68caacEEf02723f5589490128a25f0bDE9cd5b47",
   0,
-  "TSA MAGICBOX",
+  "TSA MAGIC BOX",
   "Binance NFT Blind Box- Penguin"
 );
 
@@ -640,8 +640,16 @@ export const MAGIC_BOX_TSA = new Token(
   ChainId.BSC_MAINNET,
   "0x68caacEEf02723f5589490128a25f0bDE9cd5b47",
   0,
-  "MAGICBOX",
+  "MAGIC BOX II",
   "Binance NFT Blind Box- Penguin"
+);
+
+export const THE_HOT_BOX = new Token(
+  ChainId.BSC_MAINNET,
+  "0xc219122e32e7B84F85741D74dAD3b6F3e41D212F",
+  0,
+  "THB",
+  "The Hot Box"
 );
 
 const WETH_ONLY: ChainTokenList = {

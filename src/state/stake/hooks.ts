@@ -54,7 +54,8 @@ import {
   SHIB,
   PenguinPunksCollection,
   // GensisNFT
-  BBBPENGUIN, MAGIC_BOX_TSA, XCOIN
+  BBBPENGUIN,
+  MAGIC_BOX_TSA, XCOIN, THE_HOT_BOX
 } from "../../constants";
 import {
   IDO_ABI_INTERFACE,
@@ -89,8 +90,14 @@ export const STAKING_REWARDS_INFO: {
     //   cate:"NFT"
     // },
     {
+      tokens: [THE_HOT_BOX, XCOIN],
+      stakingRewardAddress: "0x0236B0284F2b7deD56BD9b3b7DDF2427fBE36617",
+      iconUrl: "/images/the_hot_box.png",
+      cate: "NFT",
+    },
+    {
       tokens: [MAGIC_BOX_TSA, XCOIN],
-      stakingRewardAddress: "0x1709D4ED9F5800C28fe7464ca1fCCF1C1826ee9D",
+      stakingRewardAddress: "0x0236B0284F2b7deD56BD9b3b7DDF2427fBE36617",
       iconUrl: "/images/round.png",
       cate: "NFT",
     },
