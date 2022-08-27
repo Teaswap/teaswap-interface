@@ -92,7 +92,7 @@ export default () => {
             color: "#FFFFFF",
           }}
         >
-          HotBox Og
+          The Hot Box
         </div>
         <div
           style={{
@@ -128,7 +128,7 @@ export default () => {
             // color: "rgb(37, 232, 255)",
           }}
         >
-          Price: {price} ETH
+          Mint Price: {price} BNB
         </div>
         <div
           style={{
@@ -208,7 +208,7 @@ export default () => {
                 onClick={() => {
                   switchNetwork(ChainId);
                 }}
-                children="Switch to Optimism Mainnet  to  Mint"
+                children="Switch to BSC Mainnet  to  Mint"
               />
             </div>
           )}

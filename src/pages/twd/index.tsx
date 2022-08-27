@@ -232,7 +232,7 @@ export default () => {
                         "https://opensea.io/collection/tsaweb3dictionary"
                       );
                     }}
-                    children="OPENSEA"
+                    children="VIEW ON OPENSEA"
                   />
                 </div>
               }
