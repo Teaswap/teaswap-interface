@@ -21,7 +21,7 @@ import { JSBI } from "@teaswap/uniswap-sdk";
 import { TransactionResponse } from "@ethersproject/abstract-provider";
 import { toWei } from "web3-utils";
 import { shortenAddress } from "../../utils";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { switchNetwork } from "../../utils/wallet";
 import { BigNumber } from "@ethersproject/bignumber";
 // import airdropAPI from "../../webAPI/airdropAPI";
@@ -39,7 +39,7 @@ export default () => {
   const [amount, setAmount] = useState(0);
   const [hash, setHash] = useState("");
   const [msg, setMsg] = useState("");
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
   console.log({ Contract });
 
   const handleChange = async (e: any) => {
@@ -136,7 +136,7 @@ export default () => {
             // color: "rgb(37, 232, 255)",
           }}
         >
-          <p>You can now mint up to 10 XHB.</p>
+          <p>You can now mint up to 10 THB.</p>
           <div style={{ position: "relative", top: "-10px" }}>
             <p># NFTs minted by you so far: {Balance}/10</p>
           </div>
@@ -174,25 +174,38 @@ export default () => {
           )}
           {account && chainId === ChainId && (
             <div>
-              {
-                <div style={{ marginTop: 20, marginLeft: -20 }}>
-                  <NormalButton
-                    style={{
-                      padding: 0,
-                      backgroundColor: "#1e1e1e",
-                      color: "#FFFFFF",
-                      cursor: "pointer",
-                      minWidth: "300px",
-                    }}
-                    onClick={() => {
-                      window.open(
-                        "https://optimistic.etherscan.io/token/" + contractAddresses
-                      );
-                    }}
-                    children="SMART CONTRACT"
-                  />
-                </div>
-              }
+              <div style={{ marginTop: 20, marginLeft: -20 }}>
+                <NormalButton
+                  style={{
+                    padding: 0,
+                    backgroundColor: "#1e1e1e",
+                    color: "#FFFFFF",
+                    cursor: "pointer",
+                    minWidth: "300px",
+                  }}
+                  onClick={() => {
+                    window.open(
+                      "https://bscscan.com/token/" + contractAddresses
+                    );
+                  }}
+                  children="SMART CONTRACT"
+                />
+              </div>
+              <div style={{ marginTop: 20, marginLeft: -20 }}>
+                <NormalButton
+                  style={{
+                    padding: 0,
+                    backgroundColor: "#1e1e1e",
+                    color: "#FFFFFF",
+                    cursor: "pointer",
+                    minWidth: "300px",
+                  }}
+                  onClick={() => {
+                    navigate('/staking')
+                  }}
+                  children="Staking"
+                />
+              </div>
             </div>
           )}
 
