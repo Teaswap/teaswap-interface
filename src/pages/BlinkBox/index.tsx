@@ -149,7 +149,7 @@ export default () => {
             color: "#FFFFFF",
           }}
         >
-          Mint fee: 0.01 BNB
+          Mint fee: {price} BNB
         </div>
         <div
           style={{
