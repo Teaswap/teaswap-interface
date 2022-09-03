@@ -91,13 +91,13 @@ export const STAKING_REWARDS_INFO: {
     // },
     {
       tokens: [THE_HOT_BOX, XCOIN],
-      stakingRewardAddress: "0x0236B0284F2b7deD56BD9b3b7DDF2427fBE36617",
+      stakingRewardAddress: "0x1fe2abe958f5f711e9ad19a10ecffab5d2045bd1",
       iconUrl: "/images/the_hot_box.png",
       cate: "NFT",
     },
     {
       tokens: [MAGIC_BOX_TSA, XCOIN],
-      stakingRewardAddress: "0x0236B0284F2b7deD56BD9b3b7DDF2427fBE36617",
+      stakingRewardAddress: "0x6e1e33bc278eb40b546660d9b6af4ff4026a0e2a",
       iconUrl: "/images/round.png",
       cate: "NFT",
     },

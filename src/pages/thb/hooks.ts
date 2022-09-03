@@ -6,7 +6,7 @@ import { useContract } from '../../hooks/useContract';
 import abi from './abi.json'
 
 export const ChainId = 56;
-export const contractAddresses = '0xc219122e32e7B84F85741D74dAD3b6F3e41D212F';
+export const contractAddresses = '0xAa996B345Ce138a5DC68fBE71B9C7B3C01D3dc81';
 
 export function useNFTContract(): Contract | null {
   return useContract(contractAddresses, abi, true)

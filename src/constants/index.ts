@@ -646,7 +646,7 @@ export const MAGIC_BOX_TSA = new Token(
 
 export const THE_HOT_BOX = new Token(
   ChainId.BSC_MAINNET,
-  "0xc219122e32e7B84F85741D74dAD3b6F3e41D212F",
+  "0xAa996B345Ce138a5DC68fBE71B9C7B3C01D3dc81",
   0,
   "THE HOT BOX",
   "The Hot Box"
