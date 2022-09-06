@@ -220,6 +220,7 @@ const Manage = ()=>{
   // hasGetInfo = useMemo(()=>{
   //   if(stakingInfo){ return true}
   //   if(!stakingInfo&&hasGetInfo){return true}
+  //   if(!stakingInfo&&hasGetInfo){return true}
   //   return false
   // },[stakingInfo,hasGetInfo])
 

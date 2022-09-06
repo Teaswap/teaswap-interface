@@ -33,7 +33,8 @@ export interface MintInfoInterface{
     productToken:string,
     productMediaType:string,
     saleCopyright: number,
-    remark:string
+    remark:string,
+    productQuantity: number
 }
 
 // returns a variable indicating the state of the approval and a function which approves if necessary or early returns
@@ -59,7 +60,7 @@ export function useMintCallback(
                 const mintargs = [
                     mintInfo.delivertyLocation,
                     mintInfo.account,
-                    1,
+                    mintInfo.productQuantity,
                     mintInfo.tokenUrl,
                     mintInfo.productName,
                     mintInfo.productRoyalty,

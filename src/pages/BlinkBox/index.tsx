@@ -127,7 +127,7 @@ export default () => {
                 width: 100,
               }}
               onClick={() => {
-                navigate("/staking");
+                navigate("/staking/0x68caacEEf02723f5589490128a25f0bDE9cd5b47/0xA0c9a4ebC96737E8f9f61A88D6361Bb26250a068/0x6e1e33bc278eb40b546660d9b6af4ff4026a0e2a");
               }}
               children="Go Stake"
             />

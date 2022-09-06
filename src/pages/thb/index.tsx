@@ -26,6 +26,7 @@ import { switchNetwork } from "../../utils/wallet";
 import { BigNumber } from "@ethersproject/bignumber";
 // import airdropAPI from "../../webAPI/airdropAPI";
 import {ExternalLink} from "../../theme";
+import addTokenToWallet from "../../utils/addTokenToWallet";
 
 const names = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
@@ -201,9 +202,29 @@ export default () => {
                     minWidth: "300px",
                   }}
                   onClick={() => {
-                    navigate('/staking')
+                    navigate('/staking/0xAa996B345Ce138a5DC68fBE71B9C7B3C01D3dc81/0xA0c9a4ebC96737E8f9f61A88D6361Bb26250a068/0x1fe2abe958f5f711e9ad19a10ecffab5d2045bd1')
                   }}
                   children="Staking"
+                />
+              </div>
+              <div style={{ marginTop: 20, marginLeft: -20 }}>
+                <NormalButton
+                  style={{
+                    padding: 0,
+                    backgroundColor: "#1e1e1e",
+                    color: "#FFFFFF",
+                    cursor: "pointer",
+                    minWidth: "300px",
+                  }}
+                  onClick={async () => {
+                    await addTokenToWallet({
+                      address: contractAddresses,
+                      symbol: 'THB',
+                      decimals: 0,
+                      image: ''
+                    })
+                  }}
+                  children="Import to metamask"
                 />
               </div>
             </div>

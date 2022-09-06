@@ -29,7 +29,7 @@ export default function useProductForm(id) {
   const [saleCopyright, setSaleCopyright] = useState(0);
   const [paymentMethod, setPaymentMethod] = useState('');
   const [remark, setRemark] = useState('');
-  const [productQuantity, setProductQuantity] = useState('');
+  const [productQuantity, setProductQuantity] = useState(1);
   const [isSubmitClicked, setIsSubmitClicked] = useState(false);
 
   const [hasProductName, setHasProductName] = useState('');
@@ -186,7 +186,7 @@ export default function useProductForm(id) {
         picture_url: mintInfo.productPictureUrl,
         info: mintInfo.productInfo,
         price: mintInfo.productPrice,
-        quantity: 1, // todo 1155 多数量
+        quantity: mintInfo.productQuantity, // todo 1155 多数量
         delivery: mintInfo.delivery, // 出貨方式  0:面交、1:郵寄
         delivery_location: mintInfo.delivertyLocation, // 出貨地點的欄位
         delivery_time: undefined, // 備貨時間的欄位

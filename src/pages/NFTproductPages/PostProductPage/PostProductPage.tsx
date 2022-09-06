@@ -137,7 +137,6 @@ const PostProductPage = () => {
     saleCopyright,
     setSaleCopyright,
   } = useProductFrom();
-  // setProductQuantity(1);
 
   const {user} = useUser()
   // const NFTFactoryContract = useNFTFactoryContract(NFTFACTORY[ChainId.BSC_MAINNET]);
@@ -231,6 +230,7 @@ const PostProductPage = () => {
               productToken: productToken,
               productMediaType: productMediaType,
               saleCopyright: saleCopyright,
+              productQuantity: 1,
               remark: remark}}
               lastId = {lastId}
           />
@@ -327,19 +327,19 @@ const PostProductPage = () => {
           value={productPrice}
         />
 
-        {/* <InputItem
-          title={t('Number')}
-          label={t('Number (ERC1155)')}
-          type={'input'}
-          errorMessage={t('Please Input NFT Number')}
-          hasValue={hasProductQuantity}
-          handleChange={handleChange(setProductQuantity)}
-          isNumber={false}
-          options={undefined}
-          productPictureUrl={undefined}
-          textareaRows={1}
-          value={productQuantity}
-        /> */}
+        {/*<InputItem*/}
+        {/*  title={t('Number')}*/}
+        {/*  label={t('Number (ERC1155)')}*/}
+        {/*  type={'input'}*/}
+        {/*  errorMessage={t('Please Input NFT Number')}*/}
+        {/*  hasValue={hasProductQuantity}*/}
+        {/*  handleChange={handleChange(setProductQuantity)}*/}
+        {/*  isNumber={false}*/}
+        {/*  options={undefined}*/}
+        {/*  productPictureUrl={undefined}*/}
+        {/*  textareaRows={1}*/}
+        {/*  value={productQuantity}*/}
+        {/*/>*/}
 
         <InputItem
           label={t('How to buy')}

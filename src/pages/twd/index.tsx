@@ -27,6 +27,7 @@ import { useNavigate } from "react-router-dom";
 import { switchNetwork } from "../../utils/wallet";
 import { CrossmintPayButton } from "@crossmint/client-sdk-react-ui";
 import { BigNumber } from "@ethersproject/bignumber";
+import addTokenToWallet from "../../utils/addTokenToWallet";
 
 const names = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
@@ -236,6 +237,26 @@ export default () => {
                   />
                 </div>
               }
+              <div style={{ marginTop: 20, marginLeft: -20 }}>
+                <NormalButton
+                  style={{
+                    padding: 0,
+                    backgroundColor: "#1e1e1e",
+                    color: "#FFFFFF",
+                    cursor: "pointer",
+                    minWidth: "300px",
+                  }}
+                  onClick={async () => {
+                    await addTokenToWallet({
+                      address: contractAddresses,
+                      symbol: 'TWD',
+                      decimals: 0,
+                      image: ''
+                    })
+                  }}
+                  children="Import to metamask"
+                />
+              </div>
             </div>
           )}
 
