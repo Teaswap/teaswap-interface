@@ -11,7 +11,7 @@ const Footer: React.FC = () => {
   const location = useLocation()
   return (
     <>
-      {!['/tsa', '/tsp', '/blind-box', '/boss', '/poap', '/poap2', '/twd', '/xhb', '/thb'].includes(location.pathname) && (
+      {!['/tsa', '/tsp', '/blind-box', '/boss', '/poap', '/poap2', '/twd', '/xhb', '/xhb2', '/thb'].includes(location.pathname) && (
         <div style={{
           width: '100%',
           height: '150px'

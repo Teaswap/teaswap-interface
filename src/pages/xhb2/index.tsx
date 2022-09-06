@@ -26,6 +26,7 @@ import { useNavigate } from "react-router-dom";
 import { switchNetwork } from "../../utils/wallet";
 import { BigNumber } from "@ethersproject/bignumber";
 import airdropAPI from "../../webAPI/airdropAPI";
+import AddToken from "../../components/AddToken";
 
 const names = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
@@ -210,6 +211,7 @@ export default () => {
                   />
                 </div>
               }
+              <AddToken contractAddress={contractAddresses} symbol={'XHB2'} bgColor='#1e1e1e' />
             </div>
           )}
 

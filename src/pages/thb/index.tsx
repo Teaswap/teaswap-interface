@@ -6,6 +6,7 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import OutlinedInput from "@mui/material/OutlinedInput";
 import { NormalButton } from "../../components/NFTButton";
+import MetamaskIcon from '../../assets/images/metamask.png'
 
 import {
   useTotalSupply,
@@ -224,8 +225,9 @@ export default () => {
                       image: ''
                     })
                   }}
-                  children="Import to metamask"
-                />
+                >
+                  <span>Add Token to Wallet</span> <img style={{marginLeft: 5}} src={MetamaskIcon} width={15} />
+                </NormalButton>
               </div>
             </div>
           )}

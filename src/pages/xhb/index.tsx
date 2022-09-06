@@ -27,6 +27,7 @@ import { shortenAddress } from "../../utils";
 import { switchNetwork } from "../../utils/wallet";
 import { CrossmintPayButton } from "@crossmint/client-sdk-react-ui";
 import { BigNumber } from "@ethersproject/bignumber";
+import AddToken from "../../components/AddToken";
 
 const names = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
@@ -234,6 +235,7 @@ export default () => {
                   />
                 </div>
               }
+              <AddToken contractAddress={contractAddresses} symbol={'XHB'} bgColor='#1e1e1e' />
             </div>
           )}
 
