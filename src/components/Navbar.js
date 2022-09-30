@@ -116,7 +116,7 @@ const H5Cart = styled.span`
   top: 3px;
 `
 
-const Navbar = () => {
+const Navbar = (id) => {
   const location = useLocation();
   const { setWalletUser } = useUser();
   const { walletUser } = useUser();
@@ -258,6 +258,7 @@ const Navbar = () => {
           <div className="nft-category">
             {productCategories.map((category) => (
               <CategoryItemBox
+                activeId={id}
                 text={category.name}
                 id={category.id}
                 key={category.id}

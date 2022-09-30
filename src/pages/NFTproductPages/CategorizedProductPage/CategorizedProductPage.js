@@ -86,11 +86,11 @@ const CategorizedProductPage = () => {
   }, [id, dispatch]);
   return (
     <>
-      {id == 1 && (
-        <NFTSwiper />
-      )}
+      {/*{id == 1 && (*/}
+      {/*  <NFTSwiper />*/}
+      {/*)}*/}
       <NavbarWrapper >
-        <Navbar />
+        <Navbar id={id} />
       </NavbarWrapper>
       <StandardNavPage>
 

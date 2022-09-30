@@ -22,10 +22,10 @@ import { TransactionResponse } from "@ethersproject/abstract-provider";
 import { toWei } from "web3-utils";
 import { shortenAddress } from "../../utils";
 // import airdropAPI from "../../webAPI/airdropAPI";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import { switchNetwork } from "../../utils/wallet";
 import { BigNumber } from "@ethersproject/bignumber";
-import airdropAPI from "../../webAPI/airdropAPI";
+// import airdropAPI from "../../webAPI/airdropAPI";
 import AddToken from "../../components/AddToken";
 
 const names = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
@@ -40,7 +40,7 @@ export default () => {
   const [amount, setAmount] = useState(0);
   const [hash, setHash] = useState("");
   const [msg, setMsg] = useState("");
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   console.log({ xhbContract });
 
   const handleChange = async (e: any) => {
@@ -63,14 +63,14 @@ export default () => {
       .then(async (response: TransactionResponse) => {
         console.log("buy: res", { response });
         setHash(response.hash);
-        const res = await airdropAPI.mintAPI(account, response.hash);
-        if (res.ok == 1) {
-          // todo you have an airdrop
-          setMsg("You have an airdrop, go to claim in about 3s");
-          setTimeout(() => {
-            navigate("/blind-box");
-          }, 3000);
-        }
+        // const res = await airdropAPI.mintAPI(account, response.hash);
+        // if (res.ok == 1) {
+        //   // todo you have an airdrop
+        //   setMsg("You have an airdrop, go to claim in about 3s");
+        //   setTimeout(() => {
+        //     navigate("/blind-box");
+        //   }, 3000);
+        // }
       })
       .catch((error: any) => {
         console.log({

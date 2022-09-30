@@ -411,7 +411,7 @@ export default function Header() {
             </StyledNavLink>
             <StyledExternalLink
               id={`Gallery-nav-link`}
-              href={"https://www.teaswap.live/tsametaplay"}
+              href={"https://www.voxels.com/play?coords=SE@1175E,791N"}
             >
               {t("MetaPlay")}
             </StyledExternalLink>

@@ -2,13 +2,13 @@ import React from "react";
 import { ColumnCenter } from "../../components/Column";
 import styled from "styled-components";
 import ConTitle from "../../components/Content/Title";
-import { MEDIA_QUERY } from "../../constants/style";
+import {COLOR, FONT, MEDIA_QUERY} from "../../constants/style";
 
 import GridImg4 from "../../assets/images/grid_img4.webp";
 import GridImg5 from "../../assets/images/grid_img5.webp";
-import GridImg1 from "../../assets/images/grid_img1.webp";
+// import GridImg1 from "../../assets/images/grid_img1.webp";
 //import GridImg2 from '../../assets/images/grid_img2.webp'
-import GridImg3 from "../../assets/images/grid_img3.webp";
+// import GridImg3 from "../../assets/images/grid_img3.webp";
 import GridImg6 from "../../assets/images/6.jpg";
 import GridImg7 from "../../assets/images/grid_image7.jpg";
 import GridImg8 from "../../assets/images/penguinbrothers.png";
@@ -219,33 +219,33 @@ const List = () => {
       duration: 259200,
       sign: EndedImg,
     },
-    {
-      image: GridImg3,
-      Learn: "https://www.caojunnft.com/",
-      author: "The Art of TEAsWAP",
-      medium: "https://www.youtube.com/watch?v=680CKTlcZjk&t=215s",
-      info: `TSA is where we bring together creators, collectors, curators, influencers, brokers, wallets, auctioneers around the world to the NFT digital space.`,
-      joinUs: "#",
-      info2: `CaoJun limited edition NFT series. The record price for CaoJun  artist at auction is $1,309,063 USD.`,
-      end: undefined,
-      duration: undefined,
-      sign: EndedImg,
-    },
-    {
-      image: GridImg1,
-      Learn: "https://www.caojunnft.com/",
-      author: "iCashRewards",
-      medium: "https://youtu.be/Jkq1PL2j4qg",
-      info: "CaoJunNFT Collectibles",
-      joinUs:
-        "/iro/bnb/0x5f99ACF13CAff815DD9cB4A415c0fB34e9F4545b/0xF72ECaD992CebB0138aC13b616199f131F847b04",
-      // joinUs: "#",
-      info2:
-        "CaoJun limited edition NFT series. The record price for CaoJun  artist at auction is $1,309,063 USD.",
-      end: undefined,
-      duration: 259200,
-      sign: EndedImg,
-    },
+    // {
+    //   image: GridImg3,
+    //   Learn: "https://www.caojunnft.com/",
+    //   author: "The Art of TEAsWAP",
+    //   medium: "https://www.youtube.com/watch?v=680CKTlcZjk&t=215s",
+    //   info: `TSA is where we bring together creators, collectors, curators, influencers, brokers, wallets, auctioneers around the world to the NFT digital space.`,
+    //   joinUs: "#",
+    //   info2: `CaoJun limited edition NFT series. The record price for CaoJun  artist at auction is $1,309,063 USD.`,
+    //   end: undefined,
+    //   duration: undefined,
+    //   sign: EndedImg,
+    // },
+    // {
+    //   image: GridImg1,
+    //   Learn: "https://www.caojunnft.com/",
+    //   author: "iCashRewards",
+    //   medium: "https://youtu.be/Jkq1PL2j4qg",
+    //   info: "CaoJunNFT Collectibles",
+    //   joinUs:
+    //     "/iro/bnb/0x5f99ACF13CAff815DD9cB4A415c0fB34e9F4545b/0xF72ECaD992CebB0138aC13b616199f131F847b04",
+    //   // joinUs: "#",
+    //   info2:
+    //     "CaoJun limited edition NFT series. The record price for CaoJun  artist at auction is $1,309,063 USD.",
+    //   end: undefined,
+    //   duration: 259200,
+    //   sign: EndedImg,
+    // },
     // {
     //   image: GridImg3,
     //   Learn: "/",
@@ -406,6 +406,14 @@ const List = () => {
             );
           })}
         </Grids>
+        <div>
+          <Title style={{marginTop: '20px', width: '90%', fontSize: 20}}>
+            Note : How to launch your own Web3Social Token ? &nbsp;
+            <ExternalLink href={"https://docs.google.com/forms/d/e/1FAIpQLSfA-dOW15tyN6dfyZScvcEmT3lC13K9ThFBTruiFD0wOVsoUQ/viewform"}>
+              Apply Now !
+            </ExternalLink>
+          </Title>
+        </div>
       </PageWrapper2>
     </PageWrapper>
   );
@@ -529,4 +537,9 @@ const JoinUs = styled(ButtonPrimary)`
   line-height: 40px;
   align-self: flex-start;
   display: block;
+`;
+
+const Title = styled.h1`
+  color: ${COLOR.black};
+  font-size: ${FONT.lg};
 `;
