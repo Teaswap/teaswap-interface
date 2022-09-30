@@ -41,8 +41,8 @@ export const useTwdBalance = (account: string|undefined|null, contract: Contract
   }, [account, chainId])
 
   return twdBalance
-
 }
+
 export const useTwdPrice = (contract: Contract|null, chainId: ChainId|undefined) => {
   // todo refactor with hooks and return 0 if chainId != 0
   const [price, setPrice] = useState("0");
@@ -56,4 +56,20 @@ export const useTwdPrice = (contract: Contract|null, chainId: ChainId|undefined)
     })
   }, [chainId])
   return price
+}
+
+export const useOwnerOf = (tokenId: number, contract: Contract | null, chainId: ChainId|undefined) => {
+  // todo refactor with hooks and return 0 if chainId != 0
+  const [address, setAddress] = useState('');
+  useEffect(() => {
+    if (chainId !== twdChainId || !contract) return
+    contract?.ownerOf(tokenId).then((res: any) => {
+      console.log("twd owner of: ", {res})
+      setAddress(res);
+    }).catch((err: any) => {
+      console.log("twd: ", {err})
+    })
+  }, [chainId])
+
+  return address
 }

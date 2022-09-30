@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {useEffect, useMemo, useState} from "react";
 import styled from "styled-components";
 import { useActiveWeb3React } from "../../hooks";
 import Select from "@mui/material/Select";
@@ -81,10 +81,36 @@ export default () => {
         setMsg("int error: " + error.mesage);
       });
   };
+
+  const [tokenIds, setTokenIds] = useState<number[]>([]);
+
+  useEffect(() => {
+    const list = [...tokenIds];
+    for(let i = 0; i < totalSupply; i++) {
+      twdContract?.ownerOf(i).then((res: string) => {
+        if (res === account && !list.includes(i)) {
+          list.push(i);
+          setTokenIds(list);
+          twdContract?.tokenURI(i).then((res: string) => {
+
+          })
+        }
+      });
+    }
+  }, [totalSupply])
+
   return (
     <Wrapper>
       <Left className="panel">
         <img src="https://teaswap.mypinata.cloud/ipfs/QmZW99ZD6iJKgqFoyGtjqNKjoavVzse4tBa6Zf9ydiNbYd" />
+        <div className="">
+          {tokenIds.map((tokenId: number) => {
+            return (
+              <div>
+              </div>
+            )
+          })}
+        </div>
       </Left>
       <Right className="panel">
         <div

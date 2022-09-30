@@ -71,7 +71,7 @@ const List = () => {
       medium: "https://www.youtube.com/watch?v=ATx9BuRhxUU",
       info: `Smoke some "HOTBOX Og" in the metaverse as we cruise through Melancholy Drive. "HOTBOX Og" is a mystery airdrop collection for XTincT’s upcoming album “Melancholy Dr." EP.  HOTBOX Og is a 10 track music NFT Mystery Box, accommodated by utilities, staking, airdrops, metaverse events and more. Each song is inspired by the blockchain and expressed through chill melancholy tones by XTincT.`,
       joinUs: "xhb",
-      when: "When: September 29, 2022",
+      when: "When: October 13, 2022",
       end: new Date(1655273475719),
       duration: 6048000,
       sign: NewImg,
