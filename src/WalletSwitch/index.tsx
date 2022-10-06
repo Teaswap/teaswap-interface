@@ -3,6 +3,7 @@ import Modal from "../components/Modal";
 import { NormalButton } from "../components/NFTButton";
 import { useActiveWeb3React } from "../hooks";
 import { switchNetwork } from "../utils/wallet";
+import {ExternalLink} from "../theme";
 
 export default function WalletSwitch() {
   const { chainId } = useActiveWeb3React();
@@ -33,6 +34,11 @@ export default function WalletSwitch() {
                 }}
                 children="Switch to BSC Mainnet"
               />
+              <div style={{marginTop: 10}}>
+                <ExternalLink href={`https://chainlist.org/`}>
+                  Add NetWork
+                </ExternalLink>
+              </div>
             </div>
           </p>
         </Modal>
