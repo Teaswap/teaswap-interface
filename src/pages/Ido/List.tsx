@@ -263,6 +263,9 @@ const List = () => {
       <PageWrapper2>
         <div style={{ marginTop: "75px", position: "relative" }}>
           <ConTitle con='Initial Art Offering ("IRO")' />
+          <ExternalLink href={'https://www.teaswap.live/info'}>
+            TSA Incubator Dashboard
+          </ExternalLink>
         </div>
 
         <Grids>

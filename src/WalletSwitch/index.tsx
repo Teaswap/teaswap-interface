@@ -36,7 +36,7 @@ export default function WalletSwitch() {
               />
               <div style={{marginTop: 10}}>
                 <ExternalLink href={`https://chainlist.org/`}>
-                  Add NetWork
+                  Add Network
                 </ExternalLink>
               </div>
             </div>
