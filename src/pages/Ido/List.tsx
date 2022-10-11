@@ -16,7 +16,7 @@ import GridImg9 from "../../assets/images/Whostheboss.png";
 import GridImg10 from "../../assets/images/blindbox.png";
 import GridImg11 from "../../assets/images/2020.gif";
 // import GridImg12 from "../../assets/images/xtinct.png";
-import GridImg13 from "../../assets/images/HOTBOXOG_IROBANNER.png";
+// import GridImg13 from "../../assets/images/HOTBOXOG_IROBANNER.png";
 // import GridImg12 from "../../assets/images/TSAWeb3MusicBox.png";
 import YoutobeImg from "../../assets/images/youtube.png";
 import { ExternalLink } from "../../theme";
@@ -64,7 +64,33 @@ const List = () => {
       sign: NewImg,
     },
     {
-      image: GridImg13,
+      image: 'https://teaswap.mypinata.cloud/ipfs/QmQiXeRzxZCUTKjGeiQAFByYeG2JRYGsWk6BWnrrhkfhvr/HOTBOXOG_IRO_BG.jpg',
+      Learn: "https://www.teaswap.art/xhb2",
+      LearnText: "Learn > On Optimism",
+      author: "HotBox Og (XHB)",
+      medium: "https://www.youtube.com/watch?v=ATx9BuRhxUU",
+      info: `Smoke some "HOTBOX Og" in the metaverse as we cruise through Melancholy Drive. "HOTBOX Og" is a mystery airdrop collection for XTincT’s upcoming album “Melancholy Dr." EP. HOTBOX Og is a 10 track music NFT Mystery Box, accommodated by utilities, staking, airdrops, metaverse events and more. Each song is inspired by the blockchain and expressed through chill melancholy tones by XTincT.`,
+      joinUs: "xhb",
+      when: "When: October 13, 2022",
+      end: new Date(1655273475719),
+      duration: 6048000,
+      sign: NewImg,
+    },
+    {
+      image: 'https://teaswap.mypinata.cloud/ipfs/QmQiXeRzxZCUTKjGeiQAFByYeG2JRYGsWk6BWnrrhkfhvr/stake%20the%20hotbox.png',
+      Learn: "",
+      LearnText: "Learn > On BSC",
+      author: "The Hos Box (THB)",
+      medium: "https://www.youtube.com/watch?v=qdFTk2adcHI&t=70s ",
+      info: `A collection of 8,000 limited edition of Virtual cannabis products are available in the The HotBox. Holding a The Hot Box gives holders access to our discord-based DAO, XCoinDAO, where we deliver interconnectivity via social programs and rewards to the community, have a say in the future of the XCoin ecosystem. `,
+      joinUs: "",
+      when: "Ongoing",
+      end: new Date(1655273475719),
+      duration: 6048000,
+      sign: NewImg,
+    },
+    {
+      image: 'https://teaswap.mypinata.cloud/ipfs/QmQiXeRzxZCUTKjGeiQAFByYeG2JRYGsWk6BWnrrhkfhvr/HOTBOXOG_IRO_BG.jpg',
       Learn: "https://www.teaswap.art/xhb",
       LearnText: "Learn > On Ethereum",
       author: "HotBox Og (XHB)",

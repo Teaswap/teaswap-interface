@@ -93,7 +93,9 @@ export default () => {
             color: "#FFFFFF",
           }}
         >
-          HotBox Og
+          <Text>
+            HotBox Og
+          </Text>
         </div>
         <div
           style={{
@@ -102,7 +104,7 @@ export default () => {
             color: "#FFD014",
           }}
         >
-          Mint
+            Mint
         </div>
         <div
           style={{
@@ -111,7 +113,9 @@ export default () => {
             color: "#ffffff",
           }}
         >
-          Address: {account ? shortenAddress(account) : ""}
+          <Text>
+            Address: {account ? shortenAddress(account) : ""}
+          </Text>
         </div>
         <div
           style={{
@@ -120,7 +124,9 @@ export default () => {
             // color: "rgb(37, 232, 255)",
           }}
         >
-          NFTs: {totalSupply}/200
+          <Text>
+            NFTs: {totalSupply}/200
+          </Text>
         </div>
         <div
           style={{
@@ -129,22 +135,36 @@ export default () => {
             // color: "rgb(37, 232, 255)",
           }}
         >
-          Price: {price} ETH
+          <Text>
+            Price: {price} ETH
+          </Text>
         </div>
         <div
           style={{
-            fontSize: "1rem",
+            fontSize: "1rem"
             // color: "rgb(37, 232, 255)",
           }}
         >
-          <p>You can now mint up to 10 XHB.</p>
+          <p>
+            <Text>
+              You can now mint up to 10 XHB.
+            </Text>
+          </p>
           <div style={{ position: "relative", top: "-10px" }}>
-            <p># NFTs minted by you so far: {xhbBalance}/10</p>
+            <p>
+              <Text>
+                # NFTs minted by you so far: {xhbBalance}/10
+              </Text>
+            </p>
           </div>
         </div>
         <div>
           {account && chainId === xhbChainId && (
-            <FormControl>
+            <FormControl
+              style={{
+                backgroundColor: "#000000",
+              }}
+            >
               {/* <InputLabel id="tsp-mint">Mint</InputLabel> */}
               <Select
                 style={{ minWidth: 300 }}
@@ -250,11 +270,11 @@ const Wrapper = styled.div`
   justify-content: space-between;
   width: 100%;
   min-height: 100vh;
-  background: url("https://teaswap.mypinata.cloud/ipfs/QmeezTah5C9jcdeDzKJ3QYPZegjCmctZa6dysC9iCMzwBk");
+  background: url("https://teaswap.mypinata.cloud/ipfs/QmQiXeRzxZCUTKjGeiQAFByYeG2JRYGsWk6BWnrrhkfhvr/hotboxOG_minting%20background_2.jpg.png");
   background-size: 100% 100%;
   padding: 100px 0;
   @media (max-width: 768px) {
-    background: url("https://teaswap.mypinata.cloud/ipfs/QmSCQa68C11wn8Jj4aLkEkehVYrUwyPBb81tgLAxWmYX5M");
+    background: url("https://teaswap.mypinata.cloud/ipfs/QmQiXeRzxZCUTKjGeiQAFByYeG2JRYGsWk6BWnrrhkfhvr/hotboxogWeb3IRO%20mobile%20image.jpg");
     flex-direction: column;
     height: auto;
   }
@@ -282,6 +302,12 @@ const Left = styled.div`
     width: 60%;
   }
 `;
+
+const Text = styled.span`
+  padding: 4px;
+  color: #fff;
+  background-color: black;
+`
 
 const Right = styled.div`
   flex-direction: column;

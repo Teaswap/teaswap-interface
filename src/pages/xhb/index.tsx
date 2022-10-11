@@ -23,7 +23,7 @@ import { ExternalLink } from "../../theme";
 import { toWei } from "web3-utils";
 import { shortenAddress } from "../../utils";
 // import airdropAPI from "../../webAPI/airdropAPI";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { switchNetwork } from "../../utils/wallet";
 import { CrossmintPayButton } from "@crossmint/client-sdk-react-ui";
 import { BigNumber } from "@ethersproject/bignumber";
@@ -41,7 +41,7 @@ export default () => {
   const [amount, setAmount] = useState(0);
   const [hash, setHash] = useState("");
   const [msg, setMsg] = useState("");
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
   console.log({ xhbContract });
 
   const handleChange = async (e: any) => {
@@ -64,6 +64,10 @@ export default () => {
       .then(async (response: TransactionResponse) => {
         console.log("buy: res", { response });
         setHash(response.hash);
+        setMsg("You have an airdrop, go to claim in about 3s");
+        setTimeout(() => {
+          navigate("/thb");
+        }, 3000);
         // const res = await airdropAPI.mintAPI(account, response.hash);
         // if (res.ok == 1) {
         //   // todo you have an airdrop
@@ -94,7 +98,9 @@ export default () => {
             color: "#FFFFFF",
           }}
         >
-          HotBox Og
+          <Text>
+            HotBox Og
+          </Text>
         </div>
         <div
           style={{
@@ -103,7 +109,7 @@ export default () => {
             color: "#FFD014",
           }}
         >
-          Mint
+            Mint
         </div>
         <div
           style={{
@@ -112,7 +118,9 @@ export default () => {
             color: "#ffffff",
           }}
         >
-          Address: {account ? shortenAddress(account) : ""}
+          <Text>
+            Address: {account ? shortenAddress(account) : ""}
+          </Text>
         </div>
         <div
           style={{
@@ -121,7 +129,9 @@ export default () => {
             // color: "rgb(37, 232, 255)",
           }}
         >
-          NFTs: {totalSupply}/11100
+          <Text>
+            NFTs: {totalSupply}/11100
+          </Text>
         </div>
         <div
           style={{
@@ -130,7 +140,9 @@ export default () => {
             // color: "rgb(37, 232, 255)",
           }}
         >
-          Price: {price} ETH
+          <Text>
+            Price: {price} ETH
+          </Text>
         </div>
         <div
           style={{
@@ -138,14 +150,26 @@ export default () => {
             // color: "rgb(37, 232, 255)",
           }}
         >
-          <p>You can now mint up to 10 XHB.</p>
+          <p>
+            <Text>
+              You can now mint up to 10 XHB.
+            </Text>
+          </p>
           <div style={{ position: "relative", top: "-10px" }}>
-            <p># NFTs minted by you so far: {xhbBalance}/10</p>
+            <p>
+              <Text>
+                # NFTs minted by you so far: {xhbBalance}/10
+              </Text>
+            </p>
           </div>
         </div>
         <div>
           {account && chainId === xhbChainId && (
-            <FormControl>
+            <FormControl
+              style={{
+                backgroundColor: "#000000"
+              }}
+            >
               {/* <InputLabel id="tsp-mint">Mint</InputLabel> */}
               <Select
                 style={{ minWidth: 300 }}
@@ -159,7 +183,6 @@ export default () => {
                   if (!amount) {
                     return <span style={{ color: "#fff" }}>Mint</span>;
                   }
-
                   return amount;
                 }}
               >
@@ -274,11 +297,11 @@ const Wrapper = styled.div`
   justify-content: space-between;
   width: 100%;
   min-height: 100vh;
-  background: url("https://teaswap.mypinata.cloud/ipfs/QmeezTah5C9jcdeDzKJ3QYPZegjCmctZa6dysC9iCMzwBk");
+  background: url("https://teaswap.mypinata.cloud/ipfs/QmQiXeRzxZCUTKjGeiQAFByYeG2JRYGsWk6BWnrrhkfhvr/hotboxOG_minting%20background_2.jpg.png");
   background-size: 100% 100%;
   padding: 100px 0;
   @media (max-width: 768px) {
-    background: url("https://teaswap.mypinata.cloud/ipfs/QmSCQa68C11wn8Jj4aLkEkehVYrUwyPBb81tgLAxWmYX5M");
+    background: url("https://teaswap.mypinata.cloud/ipfs/QmQiXeRzxZCUTKjGeiQAFByYeG2JRYGsWk6BWnrrhkfhvr/hotboxogWeb3IRO%20mobile%20image.jpg");
     flex-direction: column;
     height: auto;
   }
@@ -306,6 +329,12 @@ const Left = styled.div`
     width: 60%;
   }
 `;
+
+const Text = styled.span`
+  padding: 4px;
+  color: #fff;
+  background-color: black;
+`
 
 const Right = styled.div`
   flex-direction: column;
