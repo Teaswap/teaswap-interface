@@ -34,7 +34,7 @@ const CarouselBox = () => {
     >
       {!isMobile && (
         <img
-          src="https://teaswap.mypinata.cloud/ipfs/QmZa7L1mUcrC6sDjyUJugGZKJo7oY2xuJBBGbkNokwhahq"
+          src="https://teaswap.mypinata.cloud/ipfs/QmUy3A8F84j6esA1jG5zHNRqQfqXzP1QpuaBM7f5DUyVgo/01%20%284%29.png"
           alt=""
           onClick={() => {
             window.open("https://www.teaswap.art/twd");
@@ -43,7 +43,7 @@ const CarouselBox = () => {
       )}
       {!isMobile && (
         <img
-          src={"https://teaswap.mypinata.cloud/ipfs/QmPYA9QPcMHg1qUYfeBSDtbMT4PjTH2azinpjvN7dYASpF"}
+          src={"https://teaswap.mypinata.cloud/ipfs/QmUy3A8F84j6esA1jG5zHNRqQfqXzP1QpuaBM7f5DUyVgo/HOTBOX_SPOTIFY_BANNER.jpg"}
           alt=""
           onClick={() => {
             window.open("https://www.teaswap.art/xhb");
@@ -52,57 +52,13 @@ const CarouselBox = () => {
       )}
       {!isMobile && (
         <img
-          src="https://teaswap.mypinata.cloud/ipfs/QmQW3ihbeJW7aN55y1A5DNNARomSMCLurffLycd1rvGiM8"
+          src="https://teaswap.mypinata.cloud/ipfs/QmUy3A8F84j6esA1jG5zHNRqQfqXzP1QpuaBM7f5DUyVgo/02%20%284%29.png"
           onClick={() => {
-            window.open("https://www.teaswap.art/twd");
+            window.open("https://twitter.com/ArtTeaswap");
           }}
         />
       )}
-      {!isMobile && (
-        <img
-          src={process.env.PUBLIC_URL + "/PenguinPunksBanner.png"}
-          alt=""
-          onClick={() => {
-            window.open("https://www.teaswap.art/nft/products/category/1");
-          }}
-        />
-      )}
-      {!isMobile && (
-        <img
-          src={process.env.PUBLIC_URL + "/big_banner_TSABanner3.png"}
-          alt=""
-          onClick={() => {
-            window.open("https://www.teaswap.art/nft/products/category/1");
-          }}
-        />
-      )}
-      {!isMobile && (
-        <img
-          src={process.env.PUBLIC_URL + "/3.png"}
-          alt=""
-          onClick={() => {
-            window.open("https://www.teaswap.art/nft/products/category/1");
-          }}
-        />
-      )}
-      {!isMobile && (
-        <img
-          src={process.env.PUBLIC_URL + "/big_banner_TSA.png"}
-          alt=""
-          onClick={() => {
-            window.open("https://www.teaswap.art/nft/products/category/1");
-          }}
-        />
-      )}
-      {!isMobile && (
-        <img
-          src={process.env.PUBLIC_URL + "/big_banner_CJAI.png"}
-          alt=""
-          onClick={() => {
-            window.open("https://www.teaswap.art/nft/products/category/1");
-          }}
-        />
-      )}
+      
 
       {isMobile && (
         <img

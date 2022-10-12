@@ -388,7 +388,7 @@ export default function Header() {
         </Modal>
         <HeaderRow>
           <UniIcon style={{ marginTop: "-6px" }}>
-            <NavLink to={"/drops"}>
+            <NavLink to={"/explore"}>
               <img
                 height="50px"
                 style={{ marginTop: 0 }}
@@ -398,7 +398,7 @@ export default function Header() {
             </NavLink>
           </UniIcon>
           <HeaderLinks style={{ fontSize: "13px" }}>
-            <StyledNavLink id={`swap-nav-link`} to={"/drops"}>
+            <StyledNavLink id={`swap-nav-link`} to={"/explore"}>
               {t("DROPS")}
             </StyledNavLink>
             <StyledNavLink id={`NFT-nav-link`} to={"/nft/products/category/1"}>

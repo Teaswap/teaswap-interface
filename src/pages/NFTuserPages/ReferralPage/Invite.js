@@ -10,7 +10,7 @@ export default () => {
   localStorage.setItem('invite_account', params.account);
   const navigate = useNavigate()
   useEffect(() => {
-    navigate('/drops')
+    navigate('/explore')
   })
 
   return (

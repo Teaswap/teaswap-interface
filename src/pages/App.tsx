@@ -178,6 +178,7 @@ export default function App() {
               <Route path="/boss" element={<BossBox />} />
               <Route path="/blind-box" element={<BlindBox />} />
               <Route path="/tsapenguinpunks" element={<Tsapenguinpunks />} />
+              <Route path="/explore" element={<Home />} />
               <Route path="/drops" element={<Home />} />
               <Route path="/swap" element={<Swaping />} />
               <Route
