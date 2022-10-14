@@ -100,15 +100,9 @@ const HomePage = () => {
           width: '80%',
         }} src={'https://teaswap.mypinata.cloud/ipfs/QmcbAHqakZ3vVz26hBNSB6N9SjPjS45DiAapQbq2r5iD8P'} />
         <span>
-          <a
-            style={{
-              fontSize: 16,
-              color: "#474747",
-              textDecoration: "underline",
-            }}
-            href="/iro">
+          <LearnMore href="/iro">
             LEARN MORE
-          </a>
+          </LearnMore>
         </span>
       </div>
       <div>
@@ -121,13 +115,13 @@ const HomePage = () => {
         >
           <PartImg
             style={{
-              marginRight: 40
+              marginRight: 20
             }}
             onClick={() => navigate('/twd')}
             src={'https://teaswap.mypinata.cloud/ipfs/QmfMdm7oHmBXMS2AEVRe1QvgPnhc2CDCrYMU6173uAAfsP/img1.png'}/>
           <PartImg
             style={{
-              marginRight: 40
+              marginLeft: 20
             }}
             onClick={() => {
               window.open('https://docs.google.com/forms/d/e/1FAIpQLSfA-dOW15tyN6dfyZScvcEmT3lC13K9ThFBTruiFD0wOVsoUQ/viewform ')
@@ -382,6 +376,17 @@ const PartText = styled.div`
 
 const PartText2 = styled(PartText)`
   text-align: right;
+`
+
+const LearnMore = styled.a`
+  font-size: 16px;
+  color: #474747;
+  text-decoration: none;
+  border-bottom: 1px solid #474747;
+  padding-bottom: 2px;
+  @media (max-width: 500px) {
+    font-size: 10px;
+  }
 `
 
 const IframeDiv = styled.div`
