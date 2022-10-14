@@ -44,24 +44,24 @@ export default [
     mediaType: 1,
     id: 5
   },
-  {
-    picture_url: process.env.PUBLIC_URL + '/nft/pro4/6.gif',
-    title: "ShihNFT No.6 Neon",
-    number: "",
-    desc: '',
-    link: 'https://www.teaswap.live/hotbids',
-    mediaType: 1,
-    id: 6
-  },
-  {
-    picture_url: process.env.PUBLIC_URL + '/nft/pro4/7.gif',
-    title: "ShihNFT No.7 Moon Taro -Scientific name Cricetinae -C",
-    number: "",
-    desc: '',
-    link: 'https://www.teaswap.live/hotbids',
-    mediaType: 1,
-    id: 7
-  },
+  // {
+  //   picture_url: process.env.PUBLIC_URL + '/nft/pro4/6.gif',
+  //   title: "ShihNFT No.6 Neon",
+  //   number: "",
+  //   desc: '',
+  //   link: 'https://www.teaswap.live/hotbids',
+  //   mediaType: 1,
+  //   id: 6
+  // },
+  // {
+  //   picture_url: process.env.PUBLIC_URL + '/nft/pro4/7.gif',
+  //   title: "ShihNFT No.7 Moon Taro -Scientific name Cricetinae -C",
+  //   number: "",
+  //   desc: '',
+  //   link: 'https://www.teaswap.live/hotbids',
+  //   mediaType: 1,
+  //   id: 7
+  // },
   // {
   //   picture_url: process.env.PUBLIC_URL + '/nft/pro4/8.gif',
   //   title: "ShihNFT No.8 London Punk Doggie",

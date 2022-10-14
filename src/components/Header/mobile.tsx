@@ -439,7 +439,7 @@ export default function Header() {
               <StyledNavLink
                 onClick={() => setShow(false)}
                id={`swap-nav-link`} to={"/explore"}>
-                {t("DROPS")}
+                {t("EXPLORE")}
               </StyledNavLink>
               <StyledNavLink
                onClick={() => setShow(false)}

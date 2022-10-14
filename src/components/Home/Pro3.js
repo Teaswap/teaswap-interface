@@ -98,33 +98,33 @@ export default [
     mediaType: 1,
     id: 6
   },
-  {
-    picture_url: process.env.PUBLIC_URL + '/nft/pro3/7.jpeg',
-    title: "TSA Broadway No.8 Anomie",
-    number: "",
-    desc: '',
-    link: '/nft/products/category/1',
-    mediaType: 1,
-    id: 7
-  },
-  {
-    picture_url: process.env.PUBLIC_URL + '/nft/pro3/8.jpeg',
-    title: "TSA Broadway No. 9 TV Eyes",
-    number: "",
-    desc: '',
-    link: '/nft/products/category/1',
-    mediaType: 1,
-    id: 8
-  },
-  {
-    picture_url: process.env.PUBLIC_URL + '/nft/pro3/9.gif',
-    title: "TSA Broadway No.10 FU7UR3 Broadway",
-    number: "",
-    desc: '',
-    link: '/nft/products/category/1',
-    mediaType: 1,
-    id: 9
-  },
+  // {
+  //   picture_url: process.env.PUBLIC_URL + '/nft/pro3/7.jpeg',
+  //   title: "TSA Broadway No.8 Anomie",
+  //   number: "",
+  //   desc: '',
+  //   link: '/nft/products/category/1',
+  //   mediaType: 1,
+  //   id: 7
+  // },
+  // {
+  //   picture_url: process.env.PUBLIC_URL + '/nft/pro3/8.jpeg',
+  //   title: "TSA Broadway No. 9 TV Eyes",
+  //   number: "",
+  //   desc: '',
+  //   link: '/nft/products/category/1',
+  //   mediaType: 1,
+  //   id: 8
+  // },
+  // {
+  //   picture_url: process.env.PUBLIC_URL + '/nft/pro3/9.gif',
+  //   title: "TSA Broadway No.10 FU7UR3 Broadway",
+  //   number: "",
+  //   desc: '',
+  //   link: '/nft/products/category/1',
+  //   mediaType: 1,
+  //   id: 9
+  // },
   {
     picture_url: process.env.PUBLIC_URL + '/nft/pro3/10.gif',
     title: "TSA Broadway No.11 Vancouver Broadway City",
@@ -161,22 +161,22 @@ export default [
     mediaType: 1,
     id: 13
   },
-  {
-    picture_url: process.env.PUBLIC_URL + '/nft/pro3/Desire of Return.jpg',
-    title: "Desire of Return",
-    number: "",
-    desc: '',
-    link: '/nft/products/category/1',
-    mediaType: 1,
-    id: 14
-  },
-  {
-    picture_url: process.env.PUBLIC_URL + '/nft/pro3/Resistence.jpg',
-    title: "Resistance",
-    number: "",
-    desc: '',
-    link: '/nft/products/category/1',
-    mediaType: 1,
-    id: 15
-  }
+  // {
+  //   picture_url: process.env.PUBLIC_URL + '/nft/pro3/Desire of Return.jpg',
+  //   title: "Desire of Return",
+  //   number: "",
+  //   desc: '',
+  //   link: '/nft/products/category/1',
+  //   mediaType: 1,
+  //   id: 14
+  // },
+  // {
+  //   picture_url: process.env.PUBLIC_URL + '/nft/pro3/Resistence.jpg',
+  //   title: "Resistance",
+  //   number: "",
+  //   desc: '',
+  //   link: '/nft/products/category/1',
+  //   mediaType: 1,
+  //   id: 15
+  // }
 ]

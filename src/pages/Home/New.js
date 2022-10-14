@@ -92,59 +92,137 @@ const HomePage = () => {
           width: "100%",
           display: "flex",
           justifyContent: "center",
-          backgroundColor: "rgb(224,234,237)",
+          backgroundColor: "rgb(246,245,243)",
           alignItems: "center",
         }}
       >
         <img style={{
           width: '80%',
-        }} src={'https://teaswap.mypinata.cloud/ipfs/QmNzJr5nTHB9sxvioSETTjSyYCdZXeGXe39VWyr32kYtgu/03_3.png'} />
+        }} src={'https://teaswap.mypinata.cloud/ipfs/QmcbAHqakZ3vVz26hBNSB6N9SjPjS45DiAapQbq2r5iD8P'} />
         <span>
           <a
             style={{
-              fontSize: 14,
+              fontSize: 16,
               color: "#474747",
               textDecoration: "underline",
             }}
             href="/iro">
-            Learn More
+            LEARN MORE
           </a>
         </span>
       </div>
+      <div>
+        <Part
+          style={{
+            width: "100%",
+            maxWidth: "1320px",
+            marginTop: 40
+          }}
+        >
+          <PartImg
+            style={{
+              marginRight: 40
+            }}
+            onClick={() => navigate('/twd')}
+            src={'https://teaswap.mypinata.cloud/ipfs/QmfMdm7oHmBXMS2AEVRe1QvgPnhc2CDCrYMU6173uAAfsP/img1.png'}/>
+          <PartImg
+            style={{
+              marginRight: 40
+            }}
+            onClick={() => {
+              window.open('https://docs.google.com/forms/d/e/1FAIpQLSfA-dOW15tyN6dfyZScvcEmT3lC13K9ThFBTruiFD0wOVsoUQ/viewform ')
+            }}
+            src={'https://teaswap.mypinata.cloud/ipfs/QmfMdm7oHmBXMS2AEVRe1QvgPnhc2CDCrYMU6173uAAfsP/img2.png'}/>
+        </Part>
+      </div>
       <TitleSection>
-        <div style={{fontFamily: "Roboto-Thin", marginTop: "120px", color: '#474747', fontSize: '30px', fontWeight: 'bold'}}>Upcoming Drops</div>
+        <div style={{fontFamily: "Roboto-Thin", marginTop: "40px", color: '#474747', fontSize: '30px', fontWeight: 'bold'}}>Upcoming Drops</div>
         <div style={{color: '#696969', fontWeight: 'bold', marginTop: '10px', marginBottom: '100px', fontFamily: "Roboto-Thin", fontSize: '16px'}}>
           A New Way to Own Art !
         </div>
       </TitleSection>
       <Section>
         <HomeProducts products={products1} />
+        {/*<img style={{*/}
+        {/*  width: '100%',*/}
+        {/*  marginTop: '50px',*/}
+        {/*}} src={'https://teaswap.mypinata.cloud/ipfs/QmRhdKj4JTZZ38MwPuNfVuW3oQkxT1HswQ1XMWHC7VVVfF/04%20%281%29.png'}/>*/}
         {/*<p className="products-title">TSA Metaverse Series</p>*/}
         {/*<HomeProducts products={products2} />*/}
-        <p className="products-title">Featured by TSA Broadway</p>
+        <p className="products-title"
+           style={{
+             width: '100%'
+           }}
+        >Featured by TSA Broadway
+          <span onClick={() => navigate('/nft/products/category/3')} style={{
+            marginLeft: "20px",
+            color: "#474747",
+            fontSize: "20px",
+            cursor: "pointer",
+            float: 'right'
+          }}>Learn More</span>
+        </p>
         <HomeProducts products={products3} />
-        <p className="products-title">Charity Event</p>
+        <p className="products-title"
+           style={{
+             width: '100%'
+           }}
+        >Charity Event
+          <span onClick={() => navigate('/nft/products/category/2')} style={{
+            marginLeft: "20px",
+            color: "#474747",
+            fontSize: "20px",
+            cursor: "pointer",
+            float: 'right'
+          }}>Learn More</span>
+        </p>
         <HomeProducts products={products4} />
-        <p className="products-title">Sold
+        <p className="products-title"
+           style={{
+             width: '100%'
+           }}
+        >Sold
           <span onClick={() => navigate('/nft/products/category/0')} style={{
             marginLeft: "20px",
             color: "#474747",
             fontSize: "20px",
             cursor: "pointer",
+            float: 'right'
           }}>View all</span>
         </p>
         <HomeProducts products={products5} />
+
+      </Section>
+      <div
+        style={{
+          backgroundColor: '#f6f5f3',
+          marginTop: 40,
+          padding: '40px 0',
+        }}
+      >
         <Part>
-          <PartImg src={'https://teaswap.mypinata.cloud/ipfs/QmcHUwJNS91c6VoWY9FmHcFocGcNyySGK96iDRzE3B8Eek/TSA%E2%80%99s%20universe%20%20Twitter%20Post%20Spe%2016-31.gif'} />
-          <PartText>
-            <div>
+          <PartText style={{
+            textAlign: "center",
+            width: "100%",
+          }}>
+            <div style={{
+              fontSize: 35,
+              color: "#474747"
+            }}>
               Steeped in our community
+            </div>
+            <div style={{
+              fontSize: 16,
+              marginTop: 20,
+              color: "#696969"
+            }}>
+              Gain access to TSA’s universe in Metaverse
             </div>
           </PartText>
         </Part>
         <Part>
           <PartText2>
-            <div>Out Story</div>
+            <div>Our Story</div>
             <PartButton
               onClick={() => {
                 window.open('https://youtu.be/8RCnsMrIExc')
@@ -153,7 +231,7 @@ const HomePage = () => {
               LEARN MORE
             </PartButton>
           </PartText2>
-          <PartImg src={'https://teaswap.mypinata.cloud/ipfs/QmcHUwJNS91c6VoWY9FmHcFocGcNyySGK96iDRzE3B8Eek/2%20wine%20%20bar.jpg'} />
+          <PartImg src={'https://teaswap.mypinata.cloud/ipfs/QmcHUwJNS91c6VoWY9FmHcFocGcNyySGK96iDRzE3B8Eek/TSA%E2%80%99s%20universe%20%20Twitter%20Post%20Spe%2016-31.gif'} />
         </Part>
         <Part>
           <PartImg src={'https://teaswap.mypinata.cloud/ipfs/QmcHUwJNS91c6VoWY9FmHcFocGcNyySGK96iDRzE3B8Eek/1%20tsa%20%20galeryTwitter%20Post%20-%20Sep%201%20-%2015%20%281%29.gif'} />
@@ -217,12 +295,19 @@ const HomePage = () => {
             <div>
               TSA Broadway
             </div>
+            <div style={{
+              fontSize: 14,
+              color: '#696969',
+              marginTop: 10
+            }}>
+              NFT Gated !
+            </div>
             <PartButton
               onClick={() => {
                 window.open('https://www.voxels.com/play?coords=W@5907W,1688N')
               }}
             >
-              NFT Gated !  Get on OpenSea
+              Get on OpenSea
             </PartButton>
           </PartText>
         </Part>
@@ -236,7 +321,7 @@ const HomePage = () => {
                 window.open('https://shop.ledger.com/pages/ledger-nano-x?r=667b70a9575f')
               }}
             >
-              Get Ledger Wallet!
+              Get Ledger Wallet
             </PartButton>
           </PartText2>
           <PartImg src={'https://teaswap.mypinata.cloud/ipfs/QmcHUwJNS91c6VoWY9FmHcFocGcNyySGK96iDRzE3B8Eek/social%20token%206%20web3%20Twitter%20Post%20-%20Aug%2016%20-%2031.gif'} />
@@ -256,25 +341,25 @@ const HomePage = () => {
             </PartButton>
           </PartText>
         </Part>
-      </Section>
+      </div>
     </Page>
   );
 };
 
 const Part = styled.div`
-  width: 80%;
-  max-width: 900px;
+  width: 90%;
+  max-width: 1320px;
   display: flex;
   margin:0 auto;
-  margin-top: 90px;
+  margin-top: 120px;
   justify-content: center;
 `
 const PartButton = styled.button`
   padding: 10px 25px;
   background-color: transparent;
-  border: 1px solid #000;
+  border: 1px solid #696969;
   font-weight: bold;
-  font-size: 20px;
+  font-size: 18px;
   margin-top: 30px;
   cursor: pointer;
   &:hover {
@@ -285,6 +370,7 @@ const PartButton = styled.button`
 
 const PartImg = styled.img`
   width: 50%;
+  cursor: pointer;
 `
 const PartText = styled.div`
   width: 50%;
