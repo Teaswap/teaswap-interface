@@ -109,7 +109,7 @@ const HomePage = () => {
         <Part
           style={{
             width: "100%",
-            maxWidth: "1320px",
+            maxWidth: "1280px",
             marginTop: 40
           }}
         >
@@ -192,6 +192,7 @@ const HomePage = () => {
           backgroundColor: '#f6f5f3',
           marginTop: 40,
           padding: '40px 0',
+          paddingBottom: '100px'
         }}
       >
         <Part>
@@ -298,7 +299,7 @@ const HomePage = () => {
             </div>
             <PartButton
               onClick={() => {
-                window.open('https://www.voxels.com/play?coords=W@5907W,1688N')
+                window.open('https://opensea.io/collection/tsa-gift-shop')
               }}
             >
               Get on OpenSea
@@ -336,13 +337,17 @@ const HomePage = () => {
           </PartText>
         </Part>
       </div>
+        <img style={{
+          width: '100%',
+          marginTop: 20,
+        }} src={'https://teaswap.mypinata.cloud/ipfs/QmQEG1WJwvTN8kL3iVGM49oriG9AK34r2QYUoBgtF6mHGJ'}/>
     </Page>
   );
 };
 
 const Part = styled.div`
   width: 90%;
-  max-width: 1320px;
+  max-width: 1280px;
   display: flex;
   margin:0 auto;
   margin-top: 120px;
@@ -356,6 +361,7 @@ const PartButton = styled.button`
   font-size: 18px;
   margin-top: 30px;
   cursor: pointer;
+  color: #474747;
   &:hover {
     background-color: #60a7ac;
     color: #FFFFFF;

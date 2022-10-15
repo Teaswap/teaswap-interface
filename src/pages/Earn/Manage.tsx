@@ -224,6 +224,13 @@ const Manage = ()=>{
   //   return false
   // },[stakingInfo,hasGetInfo])
 
+  const getTo = (stakingInfo: any, symbol: string) => {
+    if (symbol.toUpperCase() === 'THB')  {
+      return '/thb'
+    }
+    return stakingInfo?.cate!="NFT" ? currencyA?.symbol?.includes("BLP")?  `/add` : `/swap`:`/nft`
+  }
+
 
   return (
     <PageWrapper gap="lg" justify="center">
@@ -329,7 +336,7 @@ const Manage = ()=>{
                 borderRadius="0px"
                 width={'fit-content'}
                 as={Link}
-                to={stakingInfo?.cate!="NFT" ? currencyA?.symbol?.includes("BLP")?  `/add` : `/swap`:`/nft`}
+                to={getTo(stakingInfo, currencyA?.symbol || '')}
               >
                 {`GET ${currencyA?.symbol}`}
               </ButtonPrimary>

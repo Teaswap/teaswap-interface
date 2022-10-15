@@ -4,7 +4,7 @@ export default [
     title: "HotBoxOg",
     number: "",
     desc: "",
-    link: "https://www.teaswap.art/iro",
+    link: "https://www.xtinct.io/",
     mediaType: 1,
     id: -1,
   },  {
