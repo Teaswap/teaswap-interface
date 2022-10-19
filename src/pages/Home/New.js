@@ -25,10 +25,8 @@ const Page = styled.div`
 
 const Section = styled.div`
   margin: 0 auto;
-  margin-top: 0;
-  padding: 0px 0;
   height: auto;
-  max-width: 1320px;
+  max-width: 1400px;
   padding-bottom: 20px;
 `;
 
@@ -72,7 +70,7 @@ const HomePage = () => {
   const {
   } = useProduct();
   const productErrorMessage = ''
-
+  
   useEffect(() => {
     window.scroll(0, 0);
     return () => {
@@ -80,7 +78,7 @@ const HomePage = () => {
     };
   }, [dispatch]);
   const navigate = useNavigate()
-
+  
   return (
     <Page>
       <CarouselBox />
@@ -185,13 +183,14 @@ const HomePage = () => {
           }}>View all</span>
         </p>
         <HomeProducts products={products5} />
-
+      
       </Section>
       <div
         style={{
           backgroundColor: '#f6f5f3',
           marginTop: 40,
           padding: '40px 0',
+          paddingTop: '20p',
           paddingBottom: '100px'
         }}
       >
@@ -216,22 +215,12 @@ const HomePage = () => {
           </PartText>
         </Part>
         <Part>
-          <PartText2>
-            <div>Our Story</div>
-            <PartButton
-              onClick={() => {
-                window.open('https://youtu.be/8RCnsMrIExc')
-              }}
-            >
-              LEARN MORE
-            </PartButton>
-          </PartText2>
-          <PartImg src={'https://teaswap.mypinata.cloud/ipfs/QmcHUwJNS91c6VoWY9FmHcFocGcNyySGK96iDRzE3B8Eek/TSA%E2%80%99s%20universe%20%20Twitter%20Post%20Spe%2016-31.gif'} />
-        </Part>
-        <Part>
           <PartImg src={'https://teaswap.mypinata.cloud/ipfs/QmcHUwJNS91c6VoWY9FmHcFocGcNyySGK96iDRzE3B8Eek/1%20tsa%20%20galeryTwitter%20Post%20-%20Sep%201%20-%2015%20%281%29.gif'} />
           <PartText>
             <div>TSA Gallery</div>
+            <Text3>
+              A complete experience of metaverse, you can have fun with the entire ambient built by fantastic meta-designers, and dive deep into the music and visual art NFTs created by selected artists.
+            </Text3>
             <PartButton
               onClick={() => {
                 window.open('https://www.voxels.com/play?coords=E@1172E,788N')
@@ -244,6 +233,9 @@ const HomePage = () => {
         <Part>
           <PartText2>
             <div>Wine Tasting Bar</div>
+            <Text3>
+              Join us for our monthly Members’ Wine Tasting! Sample a suite of special wines and enjoy live music. Bring a friend or fly solo and enjoy this wonderful opportunity to meet and mingle with other members and guests.
+            </Text3>
             <PartButton
               onClick={() => {
                 window.open('https://www.voxels.com/play?coords=SE@1186E,801N,10.5U')
@@ -260,6 +252,9 @@ const HomePage = () => {
             <div>
               Campfire party
             </div>
+            <Text3>
+              Bring your clan of monsters - big and small - to the Campfire for some spooky fun! The DJ will be playing great Halloween tunes to wiggle to, and delightful, kid-friendly activities and treats are sure to have the kids screaming with joy!
+            </Text3>
             <PartButton
               onClick={() => {
                 window.open('https://www.voxels.com/play?coords=E@1204E,793N')
@@ -274,6 +269,9 @@ const HomePage = () => {
             <div>
               Theatre
             </div>
+            <Text3>
+              See The Meta Theatre at Voxels in a virtual tour - come and view what goes on behind the scenes at the biggest little theatre on the Architect island!
+            </Text3>
             <PartButton
               onClick={() => {
                 window.open('https://www.voxels.com/play?coords=E@1183E,790N')
@@ -290,6 +288,9 @@ const HomePage = () => {
             <div>
               TSA Broadway
             </div>
+            <Text3>
+              Come take a stroll with me through the metaverse, it’s such an interesting place. You never now what you may find, what a lovely space. Explore the OpenSea and journey with me to TSA Broadway!
+            </Text3>
             <div style={{
               fontSize: 14,
               color: '#696969',
@@ -311,6 +312,9 @@ const HomePage = () => {
             <div>
               Web3 in Your Pocket
             </div>
+            <Text3>
+              What is a Web3 Wallet? – Web3 Wallets Explained by TSA Incubator Web3 Dictionary
+            </Text3>
             <PartButton
               onClick={() => {
                 window.open('https://shop.ledger.com/pages/ledger-nano-x?r=667b70a9575f')
@@ -319,7 +323,10 @@ const HomePage = () => {
               Get Ledger Wallet
             </PartButton>
           </PartText2>
-          <PartImg src={'https://teaswap.mypinata.cloud/ipfs/QmcHUwJNS91c6VoWY9FmHcFocGcNyySGK96iDRzE3B8Eek/social%20token%206%20web3%20Twitter%20Post%20-%20Aug%2016%20-%2031.gif'} />
+          <PartText>
+            <IframeComponent iframe={iframe2} />
+          </PartText>
+          {/*<PartImg src={'https://teaswap.mypinata.cloud/ipfs/QmcHUwJNS91c6VoWY9FmHcFocGcNyySGK96iDRzE3B8Eek/social%20token%206%20web3%20Twitter%20Post%20-%20Aug%2016%20-%2031.gif'} />*/}
         </Part>
         <Part>
           <PartImg src={'https://teaswap.mypinata.cloud/ipfs/QmcHUwJNS91c6VoWY9FmHcFocGcNyySGK96iDRzE3B8Eek/featuring%20in%20metaverse%20TSA%20dreamhome%20collections%20Twitter%20Post%20-%20Sep%201%20-%2015.gif'} />
@@ -327,6 +334,9 @@ const HomePage = () => {
             <div>
               Launching Your NFT & Featuring in Metaverse
             </div>
+            <Text3>
+              We are on Voxels since the beginning of 2022, building and riding on metaverse, with our many teams of meta-riders. Choose a team and come to TSA.
+            </Text3>
             <PartButton
               onClick={() => {
                 window.open('https://www.teaswap.live/post/onboarding-to-dreamhome-club')
@@ -336,11 +346,27 @@ const HomePage = () => {
             </PartButton>
           </PartText>
         </Part>
+        <Part>
+          <PartText2>
+            <div>Our Story</div>
+            <Text3>
+              You will have community experience, beautiful wearable airdrops, community awards, NFT drops, music concerts, art exhibitions; and get in touch with the best art on metaverse.
+            </Text3>
+            <PartButton
+              onClick={() => {
+                window.open('https://youtu.be/8RCnsMrIExc')
+              }}
+            >
+              LEARN MORE
+            </PartButton>
+          </PartText2>
+          <PartImg src={'https://teaswap.mypinata.cloud/ipfs/QmcHUwJNS91c6VoWY9FmHcFocGcNyySGK96iDRzE3B8Eek/TSA%E2%80%99s%20universe%20%20Twitter%20Post%20Spe%2016-31.gif'} />
+        </Part>
       </div>
-        <img style={{
-          width: '100%',
-          marginTop: 20,
-        }} src={'https://teaswap.mypinata.cloud/ipfs/QmQEG1WJwvTN8kL3iVGM49oriG9AK34r2QYUoBgtF6mHGJ'}/>
+      <img style={{
+        width: '100%',
+        marginTop: 20,
+      }} src={'https://teaswap.mypinata.cloud/ipfs/QmQEG1WJwvTN8kL3iVGM49oriG9AK34r2QYUoBgtF6mHGJ'}/>
     </Page>
   );
 };
@@ -350,7 +376,7 @@ const Part = styled.div`
   max-width: 1280px;
   display: flex;
   margin:0 auto;
-  margin-top: 120px;
+  margin-top: 80px;
   justify-content: center;
 `
 const PartButton = styled.button`
@@ -382,6 +408,19 @@ const PartText = styled.div`
 
 const PartText2 = styled(PartText)`
   text-align: right;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+`
+
+const Text3 = styled.div`
+  width: 70%;
+  margin-top: 20px;
+  text-align: left;
+  line-height: 30px;
+  font-size: 16px;
+  font-weight: normal;
+  color: #999999;
 `
 
 const LearnMore = styled.a`
@@ -398,13 +437,12 @@ const LearnMore = styled.a`
 const IframeDiv = styled.div`
   width: 100%;
   max-width: 1274px;
-  width: 100%;
-  height: 782px;
+  height: 333px;
   margin:0 auto;
   @media (max-width: 500px) {
     height: 220px;
     margin-top: 10px;
-  } 
+  }
 `
 function IframeComponent(props) {
   return (
@@ -413,7 +451,10 @@ function IframeComponent(props) {
     />
   );
 }
-const iframe2 = '<iframe  class="myiframe" frameborder="0" allowfullscreen="1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" title="YouTube video player" style="margin-top: 30px; width: 100%; height: 100%; " src="https://www.youtube.com/embed/dg6F4PYSNOg?autoplay=0&amp;mute=0&amp;controls=1&amp;loop=0&amp;origin=https%3A%2F%2Fwww.teaswap.live&amp;playsinline=1&amp;enablejsapi=1&amp;widgetid=1" id="widget2"></iframe>'; 
+const iframe2 = '<iframe  class="myiframe" frameborder="0" allowfullscreen="1" allow="accelerometer; autoplay;' +
+  ' clipboard-write; encrypted-media; gyroscope; picture-in-picture" title="YouTube video player" style="margin-top:' +
+  ' 30px; width: 100%; height: 333px; "' +
+  ' src="https://www.youtube.com/embed/8RCnsMrIExc?t=12s&autoplay=0&mute=0&controls=1&loop=0&origin=https%3A%2F%2Fwww.teaswap.live&playsinline=1&enablejsapi=1&widgetid=1" id="widget2"></iframe>';
 // const iframe2 = '<iframe  class="myiframe" frameborder="0" allowfullscreen="1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" title="YouTube video player" style="margin-top: 30px; width: 100%; height: 100%; " src="https://www.youtube.com/embed/w6WZDiXXJ3Y?autoplay=0&amp;mute=0&amp;controls=1&amp;loop=0&amp;origin=https%3A%2F%2Fwww.teaswap.live&amp;playsinline=1&amp;enablejsapi=1&amp;widgetid=1" id="widget2"></iframe>'; 
 // https://www.youtube.com/embed/ufBw6eDKZRM?autoplay=0&amp;mute=0&amp;controls=1&amp;loop=0&amp;origin=https%3A%2F%2Fwww.teaswap.live&amp;playsinline=1&amp;enablejsapi=1&amp;widgetid=1
 

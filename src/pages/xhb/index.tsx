@@ -29,7 +29,7 @@ import { CrossmintPayButton } from "@crossmint/client-sdk-react-ui";
 import { BigNumber } from "@ethersproject/bignumber";
 import AddToken from "../../components/AddToken";
 
-const names = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const names = [1, 2];
 
 export default () => {
   const { account, chainId } = useActiveWeb3React();
@@ -275,6 +275,24 @@ export default () => {
                   switchNetwork(xhbChainId);
                 }}
                 children="Switch to Eth Mainnet  to  Mint"
+              />
+            </div>
+          )}
+
+          {(
+            <div style={{ marginTop: 40, marginLeft: -20 }}>
+              <NormalButton
+                style={{
+                  padding: 0,
+                  backgroundColor: "#1e1e1e",
+                  color: "#FFFFFF",
+                  letterSpacing: ".1rem",
+                  minWidth: "300px",
+                }}
+                onClick={() => {
+                  window.open('https://forms.gle/icHG6ZtrpAppySV88')
+                }}
+                children="Questions?"
               />
             </div>
           )}

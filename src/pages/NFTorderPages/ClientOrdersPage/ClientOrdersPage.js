@@ -146,7 +146,13 @@ const ClientOrdersPage = () => {
       <ThickNavPage id="client-orders">
         <Wrapper>
           <WalletSwitch />
-          <div>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              width: "100%",
+            }}
+          >
             <Title>History</Title>
             <span
               onClick={() => navigate("/staking")}

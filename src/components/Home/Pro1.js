@@ -1,7 +1,7 @@
 export default [
   {
     picture_url: "https://teaswap.mypinata.cloud/ipfs/QmS3Cgd3VjFbFEJE2ALG8rVySZ4QTgaNWUcJr9hANxP1gZ/hotboxogWeb3IRO%20mobile%20image.jpg",
-    title: "HotBoxOg",
+    title: "HotBoxOg Album",
     number: "",
     desc: "",
     link: "https://www.xtinct.io/",

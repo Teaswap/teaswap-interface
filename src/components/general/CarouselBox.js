@@ -34,7 +34,7 @@ const CarouselBox = () => {
     >
       {!isMobile && (
         <img
-          src={"https://teaswap.mypinata.cloud/ipfs/QmQRnLPGmxmkvznTee5iA8Gti1U4svd2WhsvEAPyhyBEA4/01_2%20%281%29.png"}
+          src={"https://teaswap.mypinata.cloud/ipfs/QmSpVpm3MxUZ4pwrVazX2Pwiog5y7pFME1QFEYrnQUNuHM"}
           alt=""
           onClick={() => {
             window.open("https://www.teaswap.art/twd");
