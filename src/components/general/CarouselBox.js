@@ -65,7 +65,7 @@ const CarouselBox = () => {
           src={'https://teaswap.mypinata.cloud/ipfs/QmaZYABCBpnRZ6a3ZJH48wk5idmLUAzDAUDjVLaw8Gb9A9'}
           alt=""
           onClick={() => {
-            window.open("https://www.teaswap.art/iro");
+            window.open("https://www.teaswap.art/xhb");
           }}
         />
       )}

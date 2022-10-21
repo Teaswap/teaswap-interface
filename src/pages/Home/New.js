@@ -17,53 +17,7 @@ import products4 from '../../components/Home/Pro4'
 import products5 from '../../components/Home/Pro5'
 import {ExternalLink} from "../../theme";
 
-const Page = styled.div`
-  height: fit-content;
-  position: relative;
-  width: 100%;
-`;
 
-const Section = styled.div`
-  margin: 0 auto;
-  height: auto;
-  max-width: 1400px;
-  padding-bottom: 20px;
-`;
-
-const  TitleSection = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 50px;
-  padding: 2px;
-  color: #474747;
-`;
-
-const HomePageProducts = styled.div`
-  margin: 0px 0;
-  width: 100%;
-`;
-
-const Nav = styled.div`
-  width: 100%;
-  max-width: 1320px;
-  margin: 0 auto;
-  text-align: left;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  padding:0 20px;
-`
-
-const NavItem = styled.div`
-  margin-right: 30px;
-  color: #7f7f7f;
-  font-size: 15px;
-  cursor: pointer;
-  :hover {
-    color: #474747;
-  }
-`
 
 const HomePage = () => {
   const dispatch = useDispatch();
@@ -128,62 +82,40 @@ const HomePage = () => {
         </Part>
       </div>
       <TitleSection>
-        <div style={{fontFamily: "Roboto-Thin", marginTop: "40px", color: '#474747', fontSize: '30px', fontWeight: 'bold'}}>Upcoming Drops</div>
-        <div style={{color: '#696969', fontWeight: 'bold', marginTop: '10px', marginBottom: '100px', fontFamily: "Roboto-Thin", fontSize: '16px'}}>
+        <Title>Upcoming Drops</Title>
+        <SubTitle style={{color: '#696969', fontWeight: 'bold', marginTop: '10px', marginBottom: '100px', fontFamily: "Roboto-Thin", fontSize: '16px'}}>
           A New Way to Own Art !
-        </div>
+        </SubTitle>
       </TitleSection>
       <Section>
         <HomeProducts products={products1} />
-        {/*<img style={{*/}
-        {/*  width: '100%',*/}
-        {/*  marginTop: '50px',*/}
-        {/*}} src={'https://teaswap.mypinata.cloud/ipfs/QmRhdKj4JTZZ38MwPuNfVuW3oQkxT1HswQ1XMWHC7VVVfF/04%20%281%29.png'}/>*/}
-        {/*<p className="products-title">TSA Metaverse Series</p>*/}
-        {/*<HomeProducts products={products2} />*/}
-        <p className="products-title"
-           style={{
-             width: '100%'
-           }}
-        >Featured by TSA Broadway
-          <span onClick={() => navigate('/nft/products/category/3')} style={{
-            marginLeft: "20px",
-            color: "#474747",
-            fontSize: "20px",
-            cursor: "pointer",
-            float: 'right'
-          }}>Learn More</span>
-        </p>
+        <TitleSection>
+          <Title>
+            Featured by TSA Broadway
+          </Title>
+            <SubTitle onClick={() => navigate('/nft/products/category/3')} style={{
+              cursor: "pointer",
+            }}>Learn More</SubTitle>
+        </TitleSection>
         <HomeProducts products={products3} />
-        <p className="products-title"
-           style={{
-             width: '100%'
-           }}
-        >Charity Event
-          <span onClick={() => navigate('/nft/products/category/2')} style={{
-            marginLeft: "20px",
-            color: "#474747",
-            fontSize: "20px",
+        <TitleSection>
+          <Title>
+            Charity Event
+          </Title>
+          <SubTitle onClick={() => navigate('/nft/products/category/2')} style={{
             cursor: "pointer",
-            float: 'right'
-          }}>Learn More</span>
-        </p>
+          }}>Learn More</SubTitle>
+        </TitleSection>
         <HomeProducts products={products4} />
-        <p className="products-title"
-           style={{
-             width: '100%'
-           }}
-        >Sold
-          <span onClick={() => navigate('/nft/products/category/0')} style={{
-            marginLeft: "20px",
-            color: "#474747",
-            fontSize: "20px",
+        <TitleSection>
+          <Title>
+            Sold
+          </Title>
+          <SubTitle onClick={() => navigate('/nft/products/category/0')} style={{
             cursor: "pointer",
-            float: 'right'
-          }}>View all</span>
-        </p>
+          }}>View all</SubTitle>
+        </TitleSection>
         <HomeProducts products={products5} />
-      
       </Section>
       <div
         style={{
@@ -214,7 +146,7 @@ const HomePage = () => {
             </div>
           </PartText>
         </Part>
-        <Part>
+        <Part2>
           <PartImg src={'https://teaswap.mypinata.cloud/ipfs/QmcHUwJNS91c6VoWY9FmHcFocGcNyySGK96iDRzE3B8Eek/1%20tsa%20%20galeryTwitter%20Post%20-%20Sep%201%20-%2015%20%281%29.gif'} />
           <PartText>
             <div>TSA Gallery</div>
@@ -229,7 +161,7 @@ const HomePage = () => {
               SIGN GUESTBOOK
             </PartButton>
           </PartText>
-        </Part>
+        </Part2>
         <Part>
           <PartText2>
             <div>Wine Tasting Bar</div>
@@ -246,7 +178,7 @@ const HomePage = () => {
           </PartText2>
           <PartImg src={'https://teaswap.mypinata.cloud/ipfs/QmcHUwJNS91c6VoWY9FmHcFocGcNyySGK96iDRzE3B8Eek/2%20wine%20%20bar.jpg'} />
         </Part>
-        <Part>
+        <Part2>
           <PartImg src={'https://teaswap.mypinata.cloud/ipfs/QmcHUwJNS91c6VoWY9FmHcFocGcNyySGK96iDRzE3B8Eek/3%20Campfire%20partyTwitter%20Post%20Spe%2016-31%20%283%29.gif'} />
           <PartText>
             <div>
@@ -263,7 +195,7 @@ const HomePage = () => {
               REGISTER NOW
             </PartButton>
           </PartText>
-        </Part>
+        </Part2>
         <Part>
           <PartText2>
             <div>
@@ -282,7 +214,7 @@ const HomePage = () => {
           </PartText2>
           <PartImg src={'https://teaswap.mypinata.cloud/ipfs/QmcHUwJNS91c6VoWY9FmHcFocGcNyySGK96iDRzE3B8Eek/4%20theater%20Twitter%20Post%20Spe%2016-31%20%282%29.gif'} />
         </Part>
-        <Part>
+        <Part2>
           <PartImg src={'https://teaswap.mypinata.cloud/ipfs/QmcHUwJNS91c6VoWY9FmHcFocGcNyySGK96iDRzE3B8Eek/5%20TSA%20Giftshop%20Twitter%20Post%20Spe%2016-31%20%281%29.gif'} />
           <PartText>
             <div>
@@ -306,7 +238,7 @@ const HomePage = () => {
               Get on OpenSea
             </PartButton>
           </PartText>
-        </Part>
+        </Part2>
         <Part>
           <PartText2>
             <div>
@@ -326,9 +258,8 @@ const HomePage = () => {
           <PartText>
             <IframeComponent iframe={iframe2} />
           </PartText>
-          {/*<PartImg src={'https://teaswap.mypinata.cloud/ipfs/QmcHUwJNS91c6VoWY9FmHcFocGcNyySGK96iDRzE3B8Eek/social%20token%206%20web3%20Twitter%20Post%20-%20Aug%2016%20-%2031.gif'} />*/}
         </Part>
-        <Part>
+        <Part2>
           <PartImg src={'https://teaswap.mypinata.cloud/ipfs/QmcHUwJNS91c6VoWY9FmHcFocGcNyySGK96iDRzE3B8Eek/featuring%20in%20metaverse%20TSA%20dreamhome%20collections%20Twitter%20Post%20-%20Sep%201%20-%2015.gif'} />
           <PartText>
             <div>
@@ -345,7 +276,7 @@ const HomePage = () => {
               On Boarding Now
             </PartButton>
           </PartText>
-        </Part>
+        </Part2>
         <Part>
           <PartText2>
             <div>Our Story</div>
@@ -371,6 +302,46 @@ const HomePage = () => {
   );
 };
 
+const Page = styled.div`
+  height: fit-content;
+  position: relative;
+  width: 100%;
+`;
+
+const Section = styled.div`
+  margin: 0 auto;
+  height: auto;
+  max-width: 1400px;
+  padding-bottom: 20px;
+`;
+
+const  TitleSection = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+  padding: 2px;
+  color: #474747;
+`;
+
+const Title = styled.div`
+  text-align: center;
+  margin-top: 40px;
+  color: #474747;
+  font-size: 30px;
+  font-weight: bold;
+  width: 100%;
+  @media (max-width: 500px) {
+    width: 90%;
+    font-size: 20px;
+  }
+`
+
+const SubTitle = styled.div`
+  color: #696969;
+  font-size: 16px;
+`
+
 const Part = styled.div`
   width: 90%;
   max-width: 1280px;
@@ -378,7 +349,19 @@ const Part = styled.div`
   margin:0 auto;
   margin-top: 80px;
   justify-content: center;
+  @media (max-width: 500px) {
+    width: 98%;
+    flex-direction: column;
+    margin-top: 20px;
+  }
 `
+
+const Part2 = styled(Part)`
+  @media (max-width: 500px) {
+    flex-direction: column-reverse;
+  }
+`
+
 const PartButton = styled.button`
   padding: 10px 25px;
   background-color: transparent;
@@ -397,13 +380,23 @@ const PartButton = styled.button`
 const PartImg = styled.img`
   width: 50%;
   cursor: pointer;
+  @media (max-width: 500px) {
+    width: 100%;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding: 20px;
+  }
 `
+
 const PartText = styled.div`
   width: 50%;
   padding:0 20px;
   font-size: 20px;
   color: black;
   font-weight: bolder;
+  @media (max-width: 500px) {
+    width: 100%;
+  }
 `
 
 const PartText2 = styled(PartText)`
@@ -440,7 +433,7 @@ const IframeDiv = styled.div`
   height: 333px;
   margin:0 auto;
   @media (max-width: 500px) {
-    height: 220px;
+    height: 333px;
     margin-top: 10px;
   }
 `
