@@ -1,7 +1,7 @@
 import React from "react";
 import { ColumnCenter } from "../../components/Column";
 import styled from "styled-components";
-import ConTitle from "../../components/Content/Title";
+// import ConTitle from "../../components/Content/Title";
 import {COLOR, FONT, MEDIA_QUERY} from "../../constants/style";
 
 import GridImg4 from "../../assets/images/grid_img4.webp";
@@ -69,7 +69,7 @@ const List = () => {
       LearnText: "Learn > On Ethereum",
       author: "HotBox Og (XHB)",
       medium: "https://youtu.be/ZBrlqqftFmE",
-      info: `Smoke some "HOTBOX Og" in the metaverse as we cruise through Melancholy Drive. "HOTBOX Og" is a mystery airdrop collection for XTincT’s upcoming album “Melancholy Dr." EP.  HOTBOX Og is a 10 track music NFT Mystery Box, accommodated by utilities, staking, airdrops, metaverse events and more. Each song is inspired by the blockchain and expressed through chill melancholy tones by XTincT.`,
+      info: `"HOTBOX Og" is a mystery airdrop collection for XTincT’s upcoming album “Melancholy Dr." EP.  HOTBOX Og is a 10 track music NFT Mystery Box, accommodated by utilities, staking, airdrops, metaverse events and more. Each song is inspired by the blockchain and expressed through chill melancholy tones by XTincT.`,
       joinUs: "/xhb",
       when: "When: October 13, 2022",
       end: new Date(1655273475719),
@@ -81,52 +81,50 @@ const List = () => {
       Learn: "",
       LearnText: "Learn > On BSC",
       author: "The Hot Box (THB)",
-      medium: "https://www.youtube.com/watch?v=qdFTk2adcHI&t=70s ",
+      medium: "",
       info: `A collection of 8,000 limited edition of Virtual cannabis products are available in the The HotBox. Holding a The Hot Box gives holders access to our discord-based DAO, XCoinDAO, where we deliver interconnectivity via social programs and rewards to the community, have a say in the future of the XCoin ecosystem. `,
       joinUs: "/thb",
-      when: "Ongoing, 2022",
+      when: "When: Ongoing, 2022",
       end: new Date(1655273475719),
       duration: 6048000,
       sign: NewImg,
     },
     {
-      image: 'https://teaswap.mypinata.cloud/ipfs/QmQiXeRzxZCUTKjGeiQAFByYeG2JRYGsWk6BWnrrhkfhvr/HOTBOXOG_IRO_BG.jpg',
-      Learn: "https://www.teaswap.art/xhb2",
-      LearnText: "Learn > On Optimism",
-      author: "HotBox Og (XHB)",
-      medium: "https://youtu.be/NsAw8Z-lmoA",
-      info: `Smoke some "HOTBOX Og" in the metaverse as we cruise through Melancholy Drive. "HOTBOX Og" is a mystery airdrop collection for XTincT’s upcoming album “Melancholy Dr." EP. HOTBOX Og is a 10 track music NFT Mystery Box, accommodated by utilities, staking, airdrops, metaverse events and more. Each song is inspired by the blockchain and expressed through chill melancholy tones by XTincT.`,
-      joinUs: "/xhb2",
-      when: "When: TBD",
-      end: new Date(1655273475719),
-      duration: 6048000,
-      sign: NewImg,
-    },
-    {
-      image: GridImg11,
-      Learn: "https://www.teaswap.art/poap",
+      image: 'https://teaswap.mypinata.cloud/ipfs/QmQ9JfAQeCZcBABthGEzDqZd4jRiJpaLq6mMLRG6NkGT9K',
+      Learn: "",
       LearnText: "Learn > On Polygon",
-      author: "Digital 20/20 POAP",
-      medium: "https://youtu.be/PACwzNMMQgs",
-      info:
-        "POAPs, or Proof of Attendance Protocol, are unique NFT badges given to attendees to prove their attendance at an event. Attendees of the Digital 20/20 Towards Digital World event from June 3, 2022 to July 4, 2022 are eligible to receive a Digital 20/20 POAP NFT to celebrate and record your attendance!",
-      joinUs: "/poap",
-      when: "When: Ongoing, 2022",
-      end: new Date(1640942516),
+      author: "TSA Gift Shop",
+      medium: "",
+      info: `TSANFT GiftShop is very excited to launch “TSA #Web3 Wearable Dictionary” featuring #TSA 100 unique Wearable Collections. TSA Giftshop is on Metaverse Voxels, Sandbox and Dvision. `,
+      joinUs: "https://opensea.io/collection/tsa-gift-shop",
+      when: "When: Ongoing",
+      end: new Date(1655273475719),
       duration: 6048000,
       sign: NewImg,
     },
     {
-      image: GridImg11,
-      Learn: "https://www.teaswap.art/poap2",
-      LearnText: "Learn > On Ethereum Mainnet",
-      author: "Digital 20/20 POAP",
-      medium: "https://www.youtube.com/watch?v=5Fbg1IohSxk",
-      info:
-        "POAPs, or Proof of Attendance Protocol, are unique NFT badges given to attendees to prove their attendance at an event. Attendees of the Digital 20/20 Digital 20/20: Boom Into Web3 Social from June 3, 2022 to July 3, 2022 are eligible to receive a Digital 20/20 POAP NFT to celebrate and record your attendance! Accept Credit Card Payment and $ETH",
-      joinUs: "/poap2",
-      when: "When: Ongoing, 2022",
-      end: new Date(1640942516),
+      image: 'https://teaswap.mypinata.cloud/ipfs/QmY1RqynAH6W1pxXdds5e5ftgvBx2YbPZpSDjDke4wiwAH',
+      Learn: "",
+      LearnText: "Learn > On Polygon",
+      author: "Digital One Asset ",
+      medium: "",
+      info: `A collection of Digital Assets building on Voxels Architecture Island . Visit Us: https://www.cryptovoxels.com/play?coords=N@1215E,785N `,
+      joinUs: "https://opensea.io/collection/digitaone ",
+      when: "When: Ongoing",
+      end: new Date(1655273475719),
+      duration: 6048000,
+      sign: NewImg,
+    },
+    {
+      image: 'https://teaswap.mypinata.cloud/ipfs/QmaaXRyf27N174h51Za8QzC4p5DaokkF8XYXDcqZnJ4ndN',
+      Learn: "",
+      LearnText: "Learn > On Polygon",
+      author: "TSA Dreamhome Editions",
+      medium: "",
+      info: `TSADreamHome Collection NFT provides access to Meta Journey and is designed to be used in the Metaverse Voxels & Sandbox. Cruise, Car, Piano, Helicopter. Each NFT is GLTF format with unlockable content which would be the vox or vxm model in a dropbox link. `,
+      joinUs: "https://opensea.io/collection/tsadreamhome",
+      when: "When: Ongoing",
+      end: new Date(1655273475719),
       duration: 6048000,
       sign: NewImg,
     },
@@ -145,6 +143,47 @@ const List = () => {
       sign: NewImg,
     },
     {
+      image: GridImg11,
+      Learn: "https://www.teaswap.art/poap",
+      LearnText: "Learn > On Polygon",
+      author: "Digital 20/20 POAP",
+      medium: "https://youtu.be/PACwzNMMQgs",
+      info:
+        "POAPs, or Proof of Attendance Protocol, are unique NFT badges given to attendees to prove their attendance at an event. Attendees from  the Digital 20/20 Towards Digital World event are eligible to receive a Digital 20/20 POAP NFT to celebrate and record your attendance!",
+      joinUs: "/poap",
+      when: "When: Ongoing, 2022",
+      end: new Date(1640942516),
+      duration: 6048000,
+      sign: NewImg,
+    },
+    {
+      image: GridImg11,
+      Learn: "https://www.teaswap.art/poap2",
+      LearnText: "Learn > On Ethereum Mainnet",
+      author: "Digital 20/20 POAP",
+      medium: "https://www.youtube.com/watch?v=5Fbg1IohSxk",
+      info:
+        "POAPs, or Proof of Attendance Protocol, are unique NFT badges given to attendees to prove their attendance at an event. Attendees from  the Digital 20/20 Digital 20/20: Boom Into Web3 Social  are eligible to receive a Digital 20/20 POAP NFT to celebrate and record your attendance! Accept Credit Card Payment and $ETH",
+      joinUs: "/poap2",
+      when: "When: Ongoing, 2022",
+      end: new Date(1640942516),
+      duration: 6048000,
+      sign: NewImg,
+    },
+    {
+      image: 'https://teaswap.mypinata.cloud/ipfs/QmQiXeRzxZCUTKjGeiQAFByYeG2JRYGsWk6BWnrrhkfhvr/HOTBOXOG_IRO_BG.jpg',
+      Learn: "https://www.teaswap.art/xhb2",
+      LearnText: "Learn > On Optimism",
+      author: "HotBox Og (XHB)",
+      medium: "https://youtu.be/NsAw8Z-lmoA",
+      info: `"HOTBOX Og" is a mystery airdrop collection for XTincT’s upcoming album “Melancholy Dr." EP. HOTBOX Og is a 10 track music NFT Mystery Box, accommodated by utilities, staking, airdrops, metaverse events and more. Each song is inspired by the blockchain and expressed through chill melancholy tones by XTincT.`,
+      joinUs: "/xhb2",
+      when: "When: TBD",
+      end: new Date(1655273475719),
+      duration: 6048000,
+      sign: NewImg,
+    },
+    {
       image: GridImg9,
       Learn: "https://www.teaswap.art/boss",
       // "https://www.teaswap.live/tsacollections",
@@ -153,7 +192,7 @@ const List = () => {
       medium: "https://www.youtube.com/watch?v=11q8PEuxnm4&t=1s",
       info:
         "A collection of 300 limited editions of  “Who's the Boss?” curated by TSANFT Incubator  (Normal & Rare)  and living on the Polygon, the second market is supported by OpenSea and Rarible, staking farming is powered by TSANFT Staking.",
-      joinUs: "Boss",
+      joinUs: "/boss",
       when: "When: Ongoing",
       end: new Date(1640942516),
       duration: 6048000,
@@ -195,7 +234,7 @@ const List = () => {
       medium: "https://www.youtube.com/watch?v=Dfgq197zYTo&t=10s",
       info:
         "Located in the TSA MetaPlay Park, you will find 12,888 unique TSA Penguins playing around on the Sandbox TSA Meta & TSA MetaPlay Franchise. The NFTs come in different rarity levels: N (Normal ), R (Rare) & SR ( Super Rare).",
-      joinUs: "vendor",
+      joinUs: "https://www.teaswap.art/nft/products/vendor/265609",
       when: "When: Ongoing",
       end: new Date(1640942516),
       duration: 6048000,
@@ -225,7 +264,6 @@ const List = () => {
       info2: ``,
       joinUs:
         "/iro/bnb/0x5f99ACF13CAff815DD9cB4A415c0fB34e9F4545b/0x887Ed22FAF9C4B985ecB019eA54A5185350AE214",
-      // joinUs: "#",
       when: "When: Ended",
       end: undefined,
       duration: 259200,
@@ -239,61 +277,40 @@ const List = () => {
       info: `CaoJun limited edition NFT series. The record price for CaoJun  artist at auction is $1,309,063 USD.`,
       joinUs:
         "/iro/bnb/0x5f99ACF13CAff815DD9cB4A415c0fB34e9F4545b/0xF72ECaD992CebB0138aC13b616199f131F847b04",
-      // joinUs: "#",
       when: "When: Ended",
       end: undefined,
       duration: 259200,
       sign: EndedImg,
     },
-    // {
-    //   image: GridImg3,
-    //   Learn: "https://www.caojunnft.com/",
-    //   author: "The Art of TEAsWAP",
-    //   medium: "https://www.youtube.com/watch?v=680CKTlcZjk&t=215s",
-    //   info: `TSA is where we bring together creators, collectors, curators, influencers, brokers, wallets, auctioneers around the world to the NFT digital space.`,
-    //   joinUs: "#",
-    //   info2: `CaoJun limited edition NFT series. The record price for CaoJun  artist at auction is $1,309,063 USD.`,
-    //   end: undefined,
-    //   duration: undefined,
-    //   sign: EndedImg,
-    // },
-    // {
-    //   image: GridImg1,
-    //   Learn: "https://www.caojunnft.com/",
-    //   author: "iCashRewards",
-    //   medium: "https://youtu.be/Jkq1PL2j4qg",
-    //   info: "CaoJunNFT Collectibles",
-    //   joinUs:
-    //     "/iro/bnb/0x5f99ACF13CAff815DD9cB4A415c0fB34e9F4545b/0xF72ECaD992CebB0138aC13b616199f131F847b04",
-    //   // joinUs: "#",
-    //   info2:
-    //     "CaoJun limited edition NFT series. The record price for CaoJun  artist at auction is $1,309,063 USD.",
-    //   end: undefined,
-    //   duration: 259200,
-    //   sign: EndedImg,
-    // },
-    // {
-    //   image: GridImg3,
-    //   Learn: "/",
-    //   author: "The Art of TEAsWAP",
-    //   medium: "https://teaswap-art.medium.com/tsa-airdrop-phase-1-f255e5be3f4f",
-    //   info: "TSA is where we bring together creators, collectors, curators, influencers, brokers, wallets, auctioneers around the world to the NFT digital space.",
-    //   joinUs: "#",
-    //   sign: EndedImg
-    // }
   ];
 
   return (
     <PageWrapper>
       <IncubatorBox />
       <PageWrapper2>
-        <div style={{ marginTop: "75px", position: "relative" }}>
-          <ConTitle con='Initial Art Offering ("IRO")' />
-          <ExternalLink href={'https://www.teaswap.live/info'}>
+        <div style={{width: '100%', maxWidth: '1320px', marginTop: "75px", position: "relative", textAlign: 'center' }}>
+          <div
+            style={{
+              width: '100%',
+              fontSize: 19,
+              color: '#474747',
+              marginTop: '20px',
+              fontWeight: 'bold'
+            }}
+            >
+            Initial Art Offering ("IRO")
+          </div>
+          <ExternalLink
+            style={{
+              width: '100%',
+              display: 'block',
+              marginTop: '20px',
+              fontSize: 14,
+            }}
+            href={'https://www.teaswap.live/info'}>
             TSA Incubator Dashboard
           </ExternalLink>
         </div>
-
         <Grids>
           {products.map((v, i) => {
             return (
@@ -363,64 +380,71 @@ const List = () => {
                 </Info>
                 <div style={{ marginTop: "40px" }}>{v.when && v.when}</div>
                 {/* <Countdown exactEnd={v.end} rewardsDuration={v.duration?v.duration:1000} /> */}
-                {v.joinUs === "penguinpunks" && (
-                  <ExternalLink href="https://www.teaswap.live/penguinpunks">
+                {/*{v.joinUs === "penguinpunks" && (*/}
+                {/*  <ExternalLink href="https://www.teaswap.live/penguinpunks">*/}
+                {/*    <JoinUs>{t("Join Us")}</JoinUs>*/}
+                {/*  </ExternalLink>*/}
+                {/*)}*/}
+                {/*{v.joinUs === "Alpha" && (*/}
+                {/*  <ExternalLink href="https://alpha.niftykit.com/drops/penguinbrother">*/}
+                {/*    <JoinUs>{t("Join Us")}</JoinUs>*/}
+                {/*  </ExternalLink>*/}
+                {/*)}*/}
+                {/*{v.joinUs === "vendor" && (*/}
+                {/*  <ExternalLink href="https://www.teaswap.art/nft/products/vendor/265609">*/}
+                {/*    <JoinUs>{t("Join Us")}</JoinUs>*/}
+                {/*  </ExternalLink>*/}
+                {/*)}*/}
+                {v.joinUs.startsWith('http') ? (
+                  <ExternalLink href={v.joinUs}>
                     <JoinUs>{t("Join Us")}</JoinUs>
                   </ExternalLink>
-                )}
-                {v.joinUs === "Alpha" && (
-                  <ExternalLink href="https://alpha.niftykit.com/drops/penguinbrother">
+                ): (
+                  <StyledLink to={v.joinUs}>
                     <JoinUs>{t("Join Us")}</JoinUs>
-                  </ExternalLink>
+                  </StyledLink>
                 )}
-                {v.joinUs === "vendor" && (
-                  <ExternalLink href="https://www.teaswap.art/nft/products/vendor/265609">
-                    <JoinUs>{t("Join Us")}</JoinUs>
-                  </ExternalLink>
-                )}
-                {v.joinUs !== "vendor" &&
-                  v.joinUs !== "Alpha" &&
-                  v.joinUs !== "penguinpunks" &&
-                  v.joinUs !== "tsapenguinpunks" &&
-                  v.joinUs !== "Boss" &&
-                  v.joinUs !== "poap" &&
-                  v.joinUs !== "twd" &&
-                  v.joinUs !== "xhb" &&
-                  v.joinUs !== "poap2" && (
-                    <StyledLink to={v.joinUs}>
-                      <JoinUs>{t("Join Us")}</JoinUs>
-                    </StyledLink>
-                  )}
-                {v.joinUs === "tsapenguinpunks" && (
-                  <ExternalLink href="https://www.teaswap.live/tsapenguinpunks">
-                    <JoinUs>{t("Join Us")}</JoinUs>
-                  </ExternalLink>
-                )}
-                {v.joinUs == "poap" && (
-                  <ExternalLink href="https://www.teaswap.art/poap">
-                    <JoinUs>{t("Join Us")}</JoinUs>
-                  </ExternalLink>
-                )}
-                {v.joinUs == "poap2" && (
-                  <ExternalLink href="https://www.teaswap.art/poap2">
-                    <JoinUs>{t("Join Us")}</JoinUs>
-                  </ExternalLink>
-                )}
-                {v.joinUs == "Boss" && (
-                  <ExternalLink href="https://www.teaswap.art/boss">
-                    <JoinUs>{t("Join Us")}</JoinUs>
-                  </ExternalLink>
-                )}
-                {v.joinUs == "twd" && (
-                  <ExternalLink href="https://www.teaswap.art/twd">
-                    <JoinUs>{t("Join Us")}</JoinUs>
-                  </ExternalLink>
-                )}
-                {v.joinUs == "xhb" && (
-                  <ExternalLink href="https://www.teaswap.art/xhb">
-                    <JoinUs>{t("Join Us")}</JoinUs>
-                  </ExternalLink>
-                )}
+                {/*{v.joinUs !== "vendor" &&*/}
+                {/*  v.joinUs !== "Alpha" &&*/}
+                {/*  v.joinUs !== "penguinpunks" &&*/}
+                {/*  v.joinUs !== "tsapenguinpunks" &&*/}
+                {/*  v.joinUs !== "Boss" &&*/}
+                {/*  v.joinUs !== "poap" &&*/}
+                {/*  v.joinUs !== "twd" &&*/}
+                {/*  v.joinUs !== "xhb" &&*/}
+                {/*  v.joinUs !== "poap2" && (*/}
+                {/*    <StyledLink to={v.joinUs}>*/}
+                {/*      <JoinUs>{t("Join Us")}</JoinUs>*/}
+                {/*    </StyledLink>*/}
+                {/*  )}*/}
+                {/*{v.joinUs === "tsapenguinpunks" && (*/}
+
+                {/*)}*/}
+                {/*{v.joinUs == "poap" && (*/}
+                {/*  <ExternalLink href="https://www.teaswap.art/poap">*/}
+                {/*    <JoinUs>{t("Join Us")}</JoinUs>*/}
+                {/*  </ExternalLink>*/}
+                {/*)}*/}
+                {/*{v.joinUs == "poap2" && (*/}
+                {/*  <ExternalLink href="https://www.teaswap.art/poap2">*/}
+                {/*    <JoinUs>{t("Join Us")}</JoinUs>*/}
+                {/*  </ExternalLink>*/}
+                {/*)}*/}
+                {/*{v.joinUs == "Boss" && (*/}
+                {/*  <ExternalLink href="https://www.teaswap.art/boss">*/}
+                {/*    <JoinUs>{t("Join Us")}</JoinUs>*/}
+                {/*  </ExternalLink>*/}
+                {/*)}*/}
+                {/*{v.joinUs == "twd" && (*/}
+                {/*  <ExternalLink href="https://www.teaswap.art/twd">*/}
+                {/*    <JoinUs>{t("Join Us")}</JoinUs>*/}
+                {/*  </ExternalLink>*/}
+                {/*)}*/}
+                {/*{v.joinUs == "xhb" && (*/}
+                {/*  <ExternalLink href="https://www.teaswap.art/xhb">*/}
+                {/*    <JoinUs>{t("Join Us")}</JoinUs>*/}
+                {/*  </ExternalLink>*/}
+                {/*)}*/}
 
                 <img
                   style={{
@@ -435,8 +459,8 @@ const List = () => {
             );
           })}
         </Grids>
-        <div>
-          <Title style={{marginTop: '20px', width: '90%', fontSize: 20}}>
+        <div style={{width: '100%'}}>
+          <Title style={{marginTop: '50px', width: '100%', fontSize: 20, display: 'flex', justifyContent: 'center'}}>
             Note : How to launch your own Web3Social Token ? &nbsp;
             <ExternalLink href={"https://docs.google.com/forms/d/e/1FAIpQLSfA-dOW15tyN6dfyZScvcEmT3lC13K9ThFBTruiFD0wOVsoUQ/viewform"}>
               Apply Now !

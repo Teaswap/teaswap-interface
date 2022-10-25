@@ -91,7 +91,7 @@ const HomePage = () => {
         <HomeProducts products={products1} />
         <TitleSection>
           <Title>
-            Featured by TSA Broadway
+            Featured by TSA Galley
           </Title>
             <SubTitle onClick={() => navigate('/nft/products/category/3')} style={{
               cursor: "pointer",
@@ -293,6 +293,24 @@ const HomePage = () => {
           </PartText2>
           <PartImg src={'https://teaswap.mypinata.cloud/ipfs/QmcHUwJNS91c6VoWY9FmHcFocGcNyySGK96iDRzE3B8Eek/TSA%E2%80%99s%20universe%20%20Twitter%20Post%20Spe%2016-31.gif'} />
         </Part>
+        <Part2>
+          <PartImg src={`https://teaswap.mypinata.cloud/ipfs/QmQNh7bYx8xztgVY9wSvfyV5d1rcbGeUL8979cRqYBsJfY`} />
+          <PartText>
+            <div>
+              Part of your life , Part of tomorrow.
+            </div>
+            <Text3>
+              Blockchain Technology in retail powered by Digital One Asset,  iCashRewards !  Connecting multiple blockchain networks, transacting cryptocurrency seamlessly and without borders.
+            </Text3>
+            <PartButton
+              onClick={()=>{
+                window.open('https://www.icashrewards.io/product-page/icash-merchant-package')
+              }}
+            >
+              Book Now !
+            </PartButton>
+          </PartText>
+        </Part2>
       </div>
       <img style={{
         width: '100%',
@@ -340,6 +358,7 @@ const Title = styled.div`
 const SubTitle = styled.div`
   color: #696969;
   font-size: 16px;
+  margin: 50px 0;
 `
 
 const Part = styled.div`
