@@ -91,7 +91,7 @@ const HomePage = () => {
         <HomeProducts products={products1} />
         <TitleSection>
           <Title>
-            Featured by TSA Galley
+            Featured by TSA Gallery
           </Title>
             <SubTitle onClick={() => navigate('/nft/products/category/3')} style={{
               cursor: "pointer",

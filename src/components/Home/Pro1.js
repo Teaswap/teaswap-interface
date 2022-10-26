@@ -1,14 +1,14 @@
 export default [
   {
-    picture_url: "https://teaswap.mypinata.cloud/ipfs/QmS3Cgd3VjFbFEJE2ALG8rVySZ4QTgaNWUcJr9hANxP1gZ/hotboxogWeb3IRO%20mobile%20image.jpg",
+    picture_url: "https://teaswap.mypinata.cloud/ipfs/QmS8D7NrBWHLPMioBz6pfo9cLZDAgq2tmu2qkDy93jbo4V",
     title: "HotBoxOg Album",
     number: "",
     desc: "",
     link: "https://www.xtinct.io/",
     mediaType: 1,
-    id: -1,
+    id: -2,
   },  {
-    picture_url: "https://teaswap.mypinata.cloud/ipfs/QmS3Cgd3VjFbFEJE2ALG8rVySZ4QTgaNWUcJr9hANxP1gZ/2.gif",
+    picture_url: "https://teaswap.mypinata.cloud/ipfs/QmcFE9rMcM4LsVXyszCkgDLMc5YXNLjdiwtpw7PQTRDkUq",
     title: "Web3Dictionary Album",
     number: "",
     desc: "",
@@ -17,7 +17,7 @@ export default [
     id: -1,
   },
   {
-    picture_url: "https://teaswap.mypinata.cloud/ipfs/QmS3Cgd3VjFbFEJE2ALG8rVySZ4QTgaNWUcJr9hANxP1gZ/3.gif",
+    picture_url: "https://teaswap.mypinata.cloud/ipfs/QmT4mKuAGiKsG9QitfHxBQXNSct2At2Ez9VETHL1NhUvyg",
     title: "Web3Dictionary Album",
     number: "",
     desc: "",
@@ -25,15 +25,15 @@ export default [
     mediaType: 1,
     id:0
   },
-  {
-    picture_url: "https://teaswap.mypinata.cloud/ipfs/QmS3Cgd3VjFbFEJE2ALG8rVySZ4QTgaNWUcJr9hANxP1gZ/4.gif",
-    title: "Web3Dictionary Album",
-    number: "",
-    desc: "",
-    link: "https://www.teaswap.art/iro",
-    mediaType: 1,
-    id:0
-  },
+  // {
+  //   picture_url: "https://teaswap.mypinata.cloud/ipfs/QmS3Cgd3VjFbFEJE2ALG8rVySZ4QTgaNWUcJr9hANxP1gZ/4.gif",
+  //   title: "Web3Dictionary Album",
+  //   number: "",
+  //   desc: "",
+  //   link: "https://www.teaswap.art/iro",
+  //   mediaType: 1,
+  //   id:0
+  // },
   // {
   //   picture_url: process.env.PUBLIC_URL + "/nft/pro1/w1.png",
   //   title: "Penguin Punk #27",
