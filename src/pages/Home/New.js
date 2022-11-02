@@ -76,7 +76,7 @@ const HomePage = () => {
               marginLeft: 20
             }}
             onClick={() => {
-              window.open('https://docs.google.com/forms/d/e/1FAIpQLSfA-dOW15tyN6dfyZScvcEmT3lC13K9ThFBTruiFD0wOVsoUQ/viewform ')
+              window.open('https://www.teaswap.live/post/web3social-key-powered-by-tsa-incubator')
             }}
             src={'https://teaswap.mypinata.cloud/ipfs/QmfMdm7oHmBXMS2AEVRe1QvgPnhc2CDCrYMU6173uAAfsP/img2.png'}/>
         </Part>

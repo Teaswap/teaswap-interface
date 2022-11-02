@@ -56,7 +56,7 @@ const List = () => {
       LearnText: "Learn > On Polygon",
       author: "TSAWeb3 Dictionary Music Mystery Box",
       medium: "https://www.youtube.com/watch?v=IrXHwLUMq-E&t=22s",
-      info: `The inspiration from this collection of 100 editions (8800 copies)  comes from TSAWeb3 Dictionary Album 100. The name of TSAWeb3 Dictionary Album 100 music is also the title and topic of Digital 20/20 Boom Into Web3 Social event and TSAWeb3 Wearables, which is held at Metaverse Voxels and Connect Club from June 3, 2022 to July 3, 2022.`,
+      info: `Web3 Dictionary Album 100 is designed to provide very basic, simple, clear and easy to understand introductory explanations of new terms and technology surrounding the so called “Web3” as well as the “ Metaverse ”. These include things like blockchain, bitcoin, decentralized finance, NFTs, and more.`,
       joinUs: "/twd",
       when: "When: Aug 18, 2022",
       end: new Date(1655273475719),
@@ -79,7 +79,7 @@ const List = () => {
     {
       image: 'https://teaswap.mypinata.cloud/ipfs/QmQiXeRzxZCUTKjGeiQAFByYeG2JRYGsWk6BWnrrhkfhvr/stake%20the%20hotbox.png',
       Learn: "",
-      LearnText: "Learn > On BSC",
+      LearnText: "Learn > On BNB Chain",
       author: "The Hot Box (THB)",
       medium: "",
       info: `A collection of 8,000 limited edition of Virtual cannabis products are available in the The HotBox. Holding a The Hot Box gives holders access to our discord-based DAO, XCoinDAO, where we deliver interconnectivity via social programs and rewards to the community, have a say in the future of the XCoin ecosystem. `,
@@ -131,7 +131,7 @@ const List = () => {
     {
       image: GridImg10,
       Learn: "https://www.teaswap.art/blind-box",
-      LearnText: "Learn > On BSC",
+      LearnText: "Learn > On BNB Chain",
       author: "TSA Magic Box",
       medium: "https://www.youtube.com/watch?v=qdFTk2adcHI",
       info:
@@ -229,7 +229,7 @@ const List = () => {
     {
       image: GridImg7,
       Learn: "https://www.teaswap.art/nft/products/vendor/265609",
-      LearnText: "Learn > On BSC",
+      LearnText: "Learn > On BNB Chain",
       author: "The Opportunity for Youth NFT Program",
       medium: "https://www.youtube.com/watch?v=Dfgq197zYTo&t=10s",
       info:
@@ -243,7 +243,7 @@ const List = () => {
     {
       image: GridImg6,
       Learn: "https://www.teaswap.live/tsametaverse",
-      LearnText: "Learn > On BSC",
+      LearnText: "Learn > On BNB Chain",
       author: "TSA Metaverse Lot Offering",
       medium: "https://youtu.be/u-R5AwHFkl8",
       info:
@@ -258,6 +258,7 @@ const List = () => {
     {
       image: GridImg4,
       Learn: "https://www.teaswap.live/tsabroadway",
+      LearnText: "Learn > On BNB Chain",
       author: "TSA Broadway Series Collectibles",
       medium: "https://www.youtube.com/watch?v=6OqBxO0xQT0",
       info: t("iroinfo1"),
@@ -272,6 +273,7 @@ const List = () => {
     {
       image: GridImg5,
       Learn: "https://www.caojunnft.com/",
+      LearnText: "Learn > On BNB Chain",
       author: "Cao Jun NFT Collectibles",
       medium: "https://www.youtube.com/watch?v=zjgxziqWj3w",
       info: `CaoJun limited edition NFT series. The record price for CaoJun  artist at auction is $1,309,063 USD.`,
