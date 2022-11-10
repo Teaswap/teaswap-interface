@@ -279,6 +279,14 @@ export const TSAMetaverseAvatar = new Token(
   "TSA Metaverse Avatar Collection"
 );
 
+export const TSAMagicBox3 = new Token(
+  ChainId.BSC_MAINNET,
+  "0x68caacEEf02723f5589490128a25f0bDE9cd5b47",
+  0,
+  "TSA Magic Box III",
+  ""
+);
+
 export const PenguinPunks = new Token(
   ChainId.BSC_MAINNET,
   "0x325Cc08b140B643B1e23c50973Cd85f511Cc6D51",

@@ -57,3 +57,18 @@ export const useXhbPrice = (contract: Contract|null, chainId: ChainId|undefined)
   }, [chainId])
   return price
 }
+
+export function useMaxMintPerAccount(contract: Contract | null, chainId: ChainId|undefined) {
+  // todo refactor with hooks and return 0 if chainId != 0
+  const [totalSupply, setTotalSupply] = useState(0);
+  useEffect(() => {
+    if (chainId !== xhbChainId || !contract) return
+    contract?.maxMintPerAccount().then((res: any) => {
+      console.log("xhb: maxMintPerAccount", { res })
+      setTotalSupply(res.toNumber())
+    }).catch((err: any) => {
+      console.log("xhb: ", { err })
+    })
+  }, [chainId])
+  return totalSupply
+}

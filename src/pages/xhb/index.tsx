@@ -13,7 +13,7 @@ import {
   useXhbPrice,
   useXhbContract,
   xhbChainId,
-  contractAddresses,
+  contractAddresses, useMaxMintPerAccount,
 } from "./hooks";
 // import { useETHBalances } from "../../state/wallet/hooks";
 import { JSBI } from "@teaswap/uniswap-sdk";
@@ -29,14 +29,13 @@ import { CrossmintPayButton } from "@crossmint/client-sdk-react-ui";
 import { BigNumber } from "@ethersproject/bignumber";
 import AddToken from "../../components/AddToken";
 
-const names = [1, 2];
-
 export default () => {
   const { account, chainId } = useActiveWeb3React();
   const xhbContract = useXhbContract();
   // const balance = useETHBalances(account ? [account] : [])?.[account ?? ""];
   const xhbBalance = useXhbBalance(account ?? "", xhbContract, chainId);
   const totalSupply = useTotalSupply(xhbContract, chainId);
+  const maxMintPerAccount = useMaxMintPerAccount(xhbContract, chainId);
   const price = useXhbPrice(xhbContract, chainId);
   const [amount, setAmount] = useState(0);
   const [hash, setHash] = useState("");
@@ -50,11 +49,12 @@ export default () => {
     setAmount(e.target.value);
     if (!xhbContract || e.target.value == "Mint") return;
     const args = [JSBI.BigInt(e.target.value).toString()];
-    const estimatedGas = await xhbContract.estimateGas
-      .mint(...args)
-      .catch(() => {
-        return BigNumber.from(1950000);
-      });
+    // const estimatedGas = await xhbContract.estimateGas
+    //   .mint(...args)
+    //   .catch(() => {
+    //     return BigNumber.from(195000);
+    //   });
+    const estimatedGas = BigNumber.from(355000)
     console.log("estimatedGas", estimatedGas);
     xhbContract
       .mint(...args, {
@@ -67,7 +67,7 @@ export default () => {
         setMsg("You have an airdrop, go to claim in about 3s");
         setTimeout(() => {
           navigate("/thb");
-        }, 3000);
+        }, 10000);
         // const res = await airdropAPI.mintAPI(account, response.hash);
         // if (res.ok == 1) {
         //   // todo you have an airdrop
@@ -152,13 +152,13 @@ export default () => {
         >
           <p>
             <Text>
-              You can now mint up to 10 XHB.
+              You can now mint up to {maxMintPerAccount} XHB.
             </Text>
           </p>
           <div style={{ position: "relative", top: "-10px" }}>
             <p>
               <Text>
-                # NFTs minted by you so far: {xhbBalance}/10
+                # NFTs minted by you so far: {xhbBalance}/{maxMintPerAccount}
               </Text>
             </p>
           </div>
@@ -189,9 +189,9 @@ export default () => {
                 <MenuItem value="Mint">
                   <span>Mint</span>
                 </MenuItem>
-                {names.map((name) => (
-                  <MenuItem key={name} value={name}>
-                    {name}
+                {[...Array(maxMintPerAccount).keys()].map((name) => (
+                  <MenuItem key={name} value={name+1}>
+                    {name+1}
                   </MenuItem>
                 ))}
               </Select>
