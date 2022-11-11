@@ -128,7 +128,7 @@ export const STAKING_REWARDS_INFO: {
     {
       tokens: [TSAMagicBox3, DOGE],
       stakingRewardAddress: "0xedb1b06c4f13626984f4d6ce8521baaba4d1d453",
-      iconUrl: "https://teaswap.mypinata.cloud/ipfs/QmX3ZQk92MGh1WjbWNffDnAqFFe7N7aKoVf6VdYgkdpWjU",
+      iconUrl: "https://teaswap.mypinata.cloud/ipfs/QmSzaVUuiZj6kEvBc7bikYN6C1qU5yuTZAHJit3WDCfsPK",
       cate: "NFT",
     },
     {
