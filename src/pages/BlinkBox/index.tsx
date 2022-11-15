@@ -204,6 +204,22 @@ export default () => {
             </div>
           )}
           {msg && <div className="mint-msg">{msg}</div>}
+          {blindBoxBalance === 0 && (
+            <div style={{ marginTop: 20, marginLeft: -20 }}>
+              <NormalButton
+                style={{
+                  padding: 0,
+                  backgroundColor: "#09afb6",
+                  color: "#FFFFFF",
+                  letterSpacing: ".1rem",
+                }}
+                onClick={() => {
+                  location.href="https://www.teaswap.live/post/how-to-join-the-allowlist-blindbox-tsa-magic-box"
+                }}
+                children="Join Allowlist"
+              />
+            </div>
+          )}
         </div>
       </Right>
     </Wrapper>
