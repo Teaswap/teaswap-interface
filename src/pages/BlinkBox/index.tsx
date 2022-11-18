@@ -7,7 +7,6 @@ import { useTotalSupply, useBlindBoxBalance, useBlindBoxPrice } from "./hooks";
 import { useETHBalances } from "../../state/wallet/hooks";
 import { useBlindBoxContract } from "../../hooks/useContract";
 import { ChainId, JSBI } from "@teaswap/uniswap-sdk";
-// import { calculateGasMargin } from '../../utils';
 import { TransactionResponse } from "@ethersproject/abstract-provider";
 import { ExternalLink } from "../../theme";
 import { toWei } from "web3-utils";
@@ -15,6 +14,9 @@ import { shortenAddress } from "../../utils";
 import airdropAPI from "../../webAPI/airdropAPI";
 import { switchNetwork } from "../../utils/wallet";
 import { useNavigate } from "react-router-dom";
+import addTokenToWallet from "../../utils/addTokenToWallet";
+import MetamaskIcon from "../../assets/images/metamask.png";
+import {blindBoxAddr} from "../../sushi/lib/constants";
 
 const symbol = "BBBPENGUIN";
 
@@ -218,6 +220,28 @@ export default () => {
                 }}
                 children="Join Allowlist"
               />
+            </div>
+          )}
+          {account && chainId === ChainId.BSC_MAINNET && (
+            <div style={{ marginTop: 20, marginLeft: -20 }}>
+              <NormalButton
+                style={{
+                  padding: 0,
+                  backgroundColor: "#09afb6",
+                  color: "#FFFFFF",
+                  letterSpacing: ".1rem",
+                }}
+                onClick={async () => {
+                  await addTokenToWallet({
+                    address: blindBoxAddr,
+                    symbol: 'BBBPENGUIN',
+                    decimals: 0,
+                    image: ''
+                  })
+                }}
+              >
+                <span>Add Token to Wallet</span> <img style={{marginLeft: 5}} src={MetamaskIcon} width={15} />
+              </NormalButton>
             </div>
           )}
         </div>
