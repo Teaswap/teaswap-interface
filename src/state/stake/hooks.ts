@@ -632,6 +632,7 @@ export interface StakingInfo {
     totalRewardRate: TokenAmount
   ) => TokenAmount;
   iconUrl: string;
+  link?: string;
 }
 
 export interface IdoInfo {

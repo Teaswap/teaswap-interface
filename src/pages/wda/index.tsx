@@ -13,9 +13,9 @@ import {
   useXhbPrice,
   useXhbContract,
   xhbChainId,
-  contractAddresses, useMaxMintPerAccount, useMaxSupply,
+  contractAddresses, useMaxMintPerAccount, useMaxSupply, usePreSalePaused,
 } from "./hooks";
-// import { useETHBalances } from "../../state/wallet/hooks";
+import { useETHBalances } from "../../state/wallet/hooks";
 // import { JSBI } from "@teaswap/uniswap-sdk";
 // import { calculateGasMargin } from '../../utils';
 import { TransactionResponse } from "@ethersproject/abstract-provider";
@@ -29,12 +29,13 @@ import { CrossmintPayButton } from "@crossmint/client-sdk-react-ui";
 import { BigNumber } from "@ethersproject/bignumber";
 import AddToken from "../../components/AddToken";
 import whitelistAPI from "../../webAPI/whitelistAPI";
+import Decimal from "decimal.js";
 
 export default () => {
   const { account, chainId } = useActiveWeb3React();
   const [whitelist, setWhitelist] = useState(0);
   const xhbContract = useXhbContract();
-  // const balance = useETHBalances(account ? [account] : [])?.[account ?? ""];
+  const balance = useETHBalances(account ? [account] : [])?.[account ?? ""];
   const xhbBalance = useXhbBalance(account ?? "", xhbContract, chainId);
   const totalSupply = useTotalSupply(xhbContract, chainId);
   const maxSupply = useMaxSupply(xhbContract, chainId);
@@ -43,8 +44,9 @@ export default () => {
   const [amount, setAmount] = useState(0);
   const [hash, setHash] = useState("");
   const [msg, setMsg] = useState("");
+  const preSalePaused = usePreSalePaused(xhbContract, chainId);
   // const navigate = useNavigate();
-  console.log({ xhbContract });
+  console.log({ xhbContract, balance, preSalePaused, price });
 
   useEffect(() => {
     whitelistAPI.getCountAPI(account, contractAddresses, xhbChainId).then((res) => {
@@ -53,7 +55,7 @@ console.log(res);
         setWhitelist(res.data)
       }
     })
-  }, [])
+  }, [account])
 
   const handlePreSale = async (e: any) => {
     setMsg("");
@@ -61,15 +63,20 @@ console.log(res);
     setAmount(e.target.value);
     if (!xhbContract) return;
     if (!whitelist) {
-      setMsg("You have no airdrop");
+      setMsg("Not part of presale list");
+      return;
+    }
+    if (new Decimal(balance?.toFixed(18) ?? 0).toNumber() <= new Decimal(e.target.value).mul(price).toNumber()) {
+      setMsg("Insufficient balance");
       return;
     }
     whitelistAPI.signAPI(account, contractAddresses, xhbChainId, e.target.value).then((res) => {
       console.log(res);
       if (!res.data) {
-        setMsg("You have no airdrop");
+        setMsg("Not part of presale list");
       }else{
         const args = [res.data.amount, res.data.nonce, res.data.hash, res.data.signature];
+        console.log({args})
         xhbContract
           .preSale(...args, {
             gasLimit: calculateGasMargin(BigNumber.from(350000)),
@@ -78,7 +85,10 @@ console.log(res);
           .then(async (response: TransactionResponse) => {
             console.log("buy: res", { response });
             setHash(response.hash);
-          })
+          }).catch((err: any) => {
+            console.log(err);
+            setMsg("Transaction failed");
+        })
       }
     })
   }
@@ -192,7 +202,7 @@ console.log(res);
         >
           <p>
             <Text>
-              You can now mint up to {whitelist} XHB.
+              You can now mint up to {whitelist} TWD.
             </Text>
           </p>
           <div style={{ position: "relative", top: "-10px" }}>
@@ -204,7 +214,13 @@ console.log(res);
           </div>
         </div>
         <div>
-          {account && chainId === xhbChainId && (
+          {msg && <span className="mint-msg">{msg}</span>}
+        </div>
+        <div>
+          {preSalePaused && <Text>pre sale paused</Text>}
+        </div>
+        <div>
+          {account && chainId === xhbChainId && !preSalePaused && (
             <FormControl
               style={{
                 backgroundColor: "#000000"
@@ -216,18 +232,18 @@ console.log(res);
                 inputProps={{ "aria-label": "Without label" }}
                 displayEmpty
                 onChange={handlePreSale}
-                label="Mint"
+                label="preSale"
                 value={amount}
                 input={<OutlinedInput />}
                 renderValue={() => {
                   if (!amount) {
-                    return <span style={{ color: "#fff" }}>Presale</span>;
+                    return <span style={{ color: "#fff", fontFamily: "" }}>Presale</span>;
                   }
                   return amount;
                 }}
               >
-                <MenuItem value="Mint">
-                  <span>Mint</span>
+                <MenuItem value="PreSale">
+                  <span>PreSale</span>
                 </MenuItem>
                 {[...Array(whitelist).keys()].map((name) => (
                   <MenuItem key={name} value={name+1}>
@@ -341,7 +357,8 @@ console.log(res);
               <ExternalLink href={`https://opensea.io/collection/hotboxog`}>
                 <span
                   style={{
-                    padding: 0,
+                    marginTop: 20,
+                    padding: 10,
                     backgroundColor: "#1e1e1e",
                     color: "#FFFFFF",
                     letterSpacing: ".1rem",
@@ -353,7 +370,6 @@ console.log(res);
               </ExternalLink>
             </div>
           )}
-          {msg && <div className="mint-msg">{msg}</div>}
         </div>
       </Right>
     </Wrapper>

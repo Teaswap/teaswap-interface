@@ -5,8 +5,8 @@ import { Contract } from 'ethers';
 import { useContract } from '../../hooks/useContract';
 import abi from './abi.json'
 
-export const xhbChainId = 97;
-export const contractAddresses = '0xeA7fc612898AA15546cED6028734A33dd3036079';
+export const xhbChainId = 1;
+export const contractAddresses = '0xB089fC6858B6f3AeD271018B21FBa2bB54CcA423';
 
 export function useXhbContract(): Contract | null {
   return useContract(contractAddresses, abi, true)
@@ -25,6 +25,33 @@ export function useTotalSupply(contract: Contract | null, chainId: ChainId|undef
     })
   }, [chainId])
   return totalSupply
+}
+
+export function usePreSalePaused(contract: Contract | null, chainId: ChainId|undefined) {
+  const [totalSupply, setTotalSupply] = useState(true);
+  useEffect(() => {
+    if (chainId !== xhbChainId || !contract) return
+    contract?.preSalePaused().then((res: any) => {
+      setTotalSupply(res)
+    }).catch((err: any) => {
+      console.log("read presale paused: ", { err })
+    })
+  }, [chainId])
+  return totalSupply
+}
+
+export function useOwner(contract: Contract | null, chainId: ChainId|undefined) {
+  const [owner, setOwner] = useState('');
+  useEffect(() => {
+    if (chainId !== xhbChainId || !contract) return
+    contract?.owner().then((res: any) => {
+      console.log("xhb: TotalSupply", { res })
+      setOwner(res.toNumber())
+    }).catch((err: any) => {
+      console.log("xhb: ", { err })
+    })
+  }, [chainId])
+  return owner
 }
 
 export function useMaxSupply(contract: Contract | null, chainId: ChainId|undefined) {
