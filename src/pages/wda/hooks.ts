@@ -6,7 +6,7 @@ import { useContract } from '../../hooks/useContract';
 import abi from './abi.json'
 
 export const xhbChainId = 1;
-export const contractAddresses = '0xB089fC6858B6f3AeD271018B21FBa2bB54CcA423';
+export const contractAddresses = '0xBa2f291070Ddd49d005dbd3Ff06Cd1b986B6c542';
 
 export function useXhbContract(): Contract | null {
   return useContract(contractAddresses, abi, true)

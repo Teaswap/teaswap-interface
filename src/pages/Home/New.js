@@ -69,8 +69,10 @@ const HomePage = () => {
             style={{
               marginRight: 20
             }}
-            onClick={() => navigate('/twd')}
-            src={'https://teaswap.mypinata.cloud/ipfs/QmfMdm7oHmBXMS2AEVRe1QvgPnhc2CDCrYMU6173uAAfsP/img1.png'}/>
+            onClick={() => {
+              window.open('https://www.teaswap.live/product')
+            }}
+            src={'https://teaswap.mypinata.cloud/ipfs/Qmdo2hPHeePRiN3456soZ6GgkHuNKxP1QedpyfQJWfA2hq'}/>
           <PartImg
             style={{
               marginLeft: 20

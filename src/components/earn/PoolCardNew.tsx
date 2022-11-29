@@ -173,12 +173,7 @@ export default function PoolCard({ stakingInfo }: { stakingInfo: StakingInfo }) 
     const timeUntilGenesis = begin - time
     const timeUntilEnd = end - time
   const selectLink = useMemo(() => {
-    if (stakingInfo.stakingRewardAddress === '0xedb1b06c4f13626984f4d6ce8521baaba4d1d453') {
-      return '/nft/products/category/6'
-    }
-    if (stakingInfo.stakingRewardAddress === '0x1B0c0d5B6dA81eeAfeE73F769591fA58525E03C8') {
-      return '/blind-box'
-    }
+
     return ((timeUntilGenesis <= 0 && timeUntilEnd > 0) || isStaking||isUnclaim) ? `/staking/${currencyId(currency0)}/${currencyId(currency1)}/${stakingInfo.stakingRewardAddress}`:`#`
   }, [stakingInfo.stakingRewardAddress])
 

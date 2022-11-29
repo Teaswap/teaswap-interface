@@ -29,7 +29,7 @@ import { CrossmintPayButton } from "@crossmint/client-sdk-react-ui";
 import { BigNumber } from "@ethersproject/bignumber";
 import AddToken from "../../components/AddToken";
 import whitelistAPI from "../../webAPI/whitelistAPI";
-import Decimal from "decimal.js";
+// import Decimal from "decimal.js";
 
 export default () => {
   const { account, chainId } = useActiveWeb3React();
@@ -46,7 +46,7 @@ export default () => {
   const [msg, setMsg] = useState("");
   const preSalePaused = usePreSalePaused(xhbContract, chainId);
   // const navigate = useNavigate();
-  console.log({ xhbContract, balance, preSalePaused, price });
+  console.log({ account, balance, preSalePaused, price, chainId });
 
   useEffect(() => {
     whitelistAPI.getCountAPI(account, contractAddresses, xhbChainId).then((res) => {
@@ -66,10 +66,10 @@ console.log(res);
       setMsg("Not part of presale list");
       return;
     }
-    if (new Decimal(balance?.toFixed(18) ?? 0).toNumber() <= new Decimal(e.target.value).mul(price).toNumber()) {
-      setMsg("Insufficient balance");
-      return;
-    }
+    // if (new Decimal(balance?.toFixed(18) ?? 0).toNumber() <= new Decimal(e.target.value).mul(price).toNumber()) {
+    //   setMsg("Insufficient balance");
+    //   return;
+    // }
     whitelistAPI.signAPI(account, contractAddresses, xhbChainId, e.target.value).then((res) => {
       console.log(res);
       if (!res.data) {
@@ -138,7 +138,7 @@ console.log(res);
   return (
     <Wrapper>
       <Left className="panel">
-        {/* <img src="https://teaswap.mypinata.cloud/ipfs/QmSRysXV7XRAJ3dsZMA3fdSxiUYjVTKhHw1gTM29GsbXmC" /> */}
+         <img src="https://teaswap.mypinata.cloud/ipfs/QmbMGnJ61UE3ccbA4uafhwsKbjdhM9HFD4kmXAeRpdQiAw" />
       </Left>
       <Right style={{color: '#ffffff'}} className="panel">
         <div
@@ -269,10 +269,10 @@ console.log(res);
             }}
           >
             <CrossmintPayButton
-              collectionTitle="Hot Box OG"
-              collectionDescription={`Hot Box OG is a mystery airdrop collection for XTincT's upcoming album "Melancholy Dr."  Smoke some Hot Box OG in the metaverse as we cruise thru Melancholy Drive.`}
-              collectionPhoto="https://teaswap.mypinata.cloud/ipfs/QmSRysXV7XRAJ3dsZMA3fdSxiUYjVTKhHw1gTM29GsbXmC"
-              clientId="ae21e18e-aa37-4ded-ac21-3ff49dae63f1"
+              collectionTitle="Web3 Dictionary Album"
+              collectionDescription={`Web3 Dictionary Album 100 is designed to provide very basic, simple, clear and easy to understand introductory explanations of new terms and technology surrounding the so called “Web3” as well as the “ Metaverse ”. These include things like blockchain, bitcoin, decentralized finance, NFTs, and more.`}
+              collectionPhoto="https://teaswap.mypinata.cloud/ipfs/QmbMGnJ61UE3ccbA4uafhwsKbjdhM9HFD4kmXAeRpdQiAw"
+              clientId="078967bf-62a7-4b3e-87e3-652f91aa963a"
               mintConfig={{ type: "erc-721", price: price, _count: "1" }}
             />
           </div>
@@ -308,13 +308,13 @@ console.log(res);
                       minWidth: "300px",
                     }}
                     onClick={() => {
-                      window.open("https://opensea.io/collection/hotboxog");
+                      window.open("https://opensea.io/collection/web3dictionaryalbum");
                     }}
                     children="OPENSEA"
                   />
                 </div>
               }
-              <AddToken contractAddress={contractAddresses} symbol={'XHB'} bgColor='#1e1e1e' />
+              <AddToken contractAddress={contractAddresses} symbol={'TWD'} bgColor='#1e1e1e' />
             </div>
           )}
 
@@ -336,7 +336,7 @@ console.log(res);
           )}
 
           {(
-            <div style={{ marginTop: 40, marginLeft: -20 }}>
+            <div style={{ marginTop: 20, marginLeft: -20 }}>
               <NormalButton
                 style={{
                   padding: 0,
@@ -354,19 +354,21 @@ console.log(res);
           )}
           {hash && (
             <div>
-              <ExternalLink href={`https://opensea.io/collection/hotboxog`}>
-                <span
+              <ExternalLink href={`https://opensea.io/collection/web3dictionaryalbum`}>
+                <div
                   style={{
+                    display: "inline-block",
                     marginTop: 20,
                     padding: 10,
                     backgroundColor: "#1e1e1e",
                     color: "#FFFFFF",
                     letterSpacing: ".1rem",
                     minWidth: "300px",
+                    textAlign: "center",
                   }}
                 >
                   View on OpenSea
-                </span>
+                </div>
               </ExternalLink>
             </div>
           )}

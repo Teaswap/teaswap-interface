@@ -52,6 +52,20 @@ const List = () => {
     {
       image:
         "https://teaswap.mypinata.cloud/ipfs/QmPp1hJzgNLrEdSTyYwKzigq2S2SzonuDYrEBWEvNoqNPx",
+      Learn: "https://www.teaswap.art/wda",
+      LearnText: "Learn > On Ethereum",
+      author: "TSAWeb3 Dictionary Music Mystery Box",
+      medium: "https://www.youtube.com/watch?v=IrXHwLUMq-E&t=22s",
+      info: `Web3 Dictionary Album 100 is designed to provide very basic, simple, clear and easy to understand introductory explanations of new terms and technology surrounding the so called “Web3” as well as the “ Metaverse ”. These include things like blockchain, bitcoin, decentralized finance, NFTs, and more.`,
+      joinUs: "/wda",
+      when: "When: Aug 18, 2022",
+      end: new Date(1655273475719),
+      duration: 6048000,
+      sign: NewImg,
+    },
+    {
+      image:
+        "https://teaswap.mypinata.cloud/ipfs/QmPp1hJzgNLrEdSTyYwKzigq2S2SzonuDYrEBWEvNoqNPx",
       Learn: "https://www.teaswap.art/twd",
       LearnText: "Learn > On Polygon",
       author: "TSAWeb3 Dictionary Music Mystery Box",
@@ -110,7 +124,7 @@ const List = () => {
       author: "Digital One Asset ",
       medium: "",
       info: `A collection of Digital Assets building on Voxels Architecture Island . Visit Us: https://www.cryptovoxels.com/play?coords=N@1215E,785N `,
-      joinUs: "https://opensea.io/collection/digitaone ",
+      joinUs: "https://opensea.io/collection/digitalone",
       when: "When: Ongoing",
       end: new Date(1655273475719),
       duration: 6048000,
