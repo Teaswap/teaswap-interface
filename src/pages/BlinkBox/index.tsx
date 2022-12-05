@@ -244,6 +244,21 @@ export default () => {
               </NormalButton>
             </div>
           )}
+          <div style={{ marginTop: 20, marginLeft: -20 }}>
+            <NormalButton
+              style={{
+                padding: 0,
+                backgroundColor: "#09afb6",
+                color: "#FFFFFF",
+                letterSpacing: ".1rem",
+              }}
+              onClick={async () => {
+                location.href="https://opensea.io/collection/tsamagicbox"
+              }}
+            >
+              View On OpensSea
+            </NormalButton>
+          </div>
         </div>
       </Right>
     </Wrapper>

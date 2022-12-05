@@ -34,6 +34,24 @@ const CarouselBox = () => {
     >
       {!isMobile && (
         <img
+          src={"https://teaswap.mypinata.cloud/ipfs/QmVb6R4wYu1WSw5Xbc1RtVEhWzC9ZaqLFQ8iBRmTvtAVqE"}
+          alt=""
+          onClick={() => {
+            window.open("https://www.teaswap.art/twd");
+          }}
+        />
+      )}
+      {!isMobile && (
+        <img
+          src={"https://teaswap.mypinata.cloud/ipfs/QmRvCVMNAhUKWvfdkZNicc68qXaUjVkDxHWuFpUEM3HFA8"}
+          alt=""
+          onClick={() => {
+            window.open("https://www.teaswap.art/mint");
+          }}
+        />
+      )}
+      {!isMobile && (
+        <img
           src={"https://teaswap.mypinata.cloud/ipfs/QmSpVpm3MxUZ4pwrVazX2Pwiog5y7pFME1QFEYrnQUNuHM"}
           alt=""
           onClick={() => {
@@ -52,7 +70,7 @@ const CarouselBox = () => {
       )}
       {!isMobile && (
         <img
-          src="https://teaswap.mypinata.cloud/ipfs/QmQRnLPGmxmkvznTee5iA8Gti1U4svd2WhsvEAPyhyBEA4/02_2.png"
+          src="https://teaswap.mypinata.cloud/ipfs/Qmc3gvNmgW7RaeXgicgUWndreJxFGa52ApxtqA652XShXy"
           onClick={() => {
             window.open("https://twitter.com/ArtTeaswap");
           }}

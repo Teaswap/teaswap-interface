@@ -49,6 +49,37 @@ const List = () => {
   // const durationfake = 3600
   console.log(t("tokensAvailable"), useTranslation());
   const products = [
+//     {
+//       image:
+//         "https://teaswap.mypinata.cloud/ipfs/QmPp1hJzgNLrEdSTyYwKzigq2S2SzonuDYrEBWEvNoqNPx",
+//       Learn: "https://www.teaswap.art/wda",
+//       LearnText: "Learn > On Ethereum",
+//       author: "TSAWeb3 Dictionary Music Mystery Box",
+//       medium: "https://www.youtube.com/watch?v=IrXHwLUMq-E&t=22s",
+//       info: `Web3Social Key is a No-Code Social Token Launchpad. By using your Web3Social
+// Key powered by TSA NFT, you can unlock features like launching your own social
+// token, starting community funding and fansumers economy, and more. Total 2100
+// keys will be opening to the market with standard and premium features available.v`,
+//       joinUs: "/wsk",
+//       when: "When: December 6, 2022",
+//       end: new Date(1655273475719),
+//       duration: 6048000,
+//       sign: NewImg,
+//     },
+    {
+      image:
+        "https://teaswap.mypinata.cloud/ipfs/QmXhRCWRaAKXjyWzXAwUqE2bPNNEt6yvxRsUwvTQzqdYVK",
+      Learn: "https://www.teaswap.live/web3socialkey",
+      LearnText: "Learn > On Ethereum",
+      author: "Web3Social Key",
+      medium: "https://youtu.be/jEmasPf-KXE",
+      info: `Web3Social Key is a No-Code Social Token Launchpad. With your Web3Social Key, you can unlock features like launching your own customised smart contract, social token, starting community funding and fansumers economy, and more. Total 2100 keys will be released with standard and premium features available.`,
+      joinUs: "/wsk",
+      when: "When: December 15, 2022",
+      end: new Date(1655273475719),
+      duration: 6048000,
+      sign: NewImg,
+    },
     {
       image:
         "https://teaswap.mypinata.cloud/ipfs/QmPp1hJzgNLrEdSTyYwKzigq2S2SzonuDYrEBWEvNoqNPx",
@@ -58,7 +89,7 @@ const List = () => {
       medium: "https://www.youtube.com/watch?v=IrXHwLUMq-E&t=22s",
       info: `Web3 Dictionary Album 100 is designed to provide very basic, simple, clear and easy to understand introductory explanations of new terms and technology surrounding the so called “Web3” as well as the “ Metaverse ”. These include things like blockchain, bitcoin, decentralized finance, NFTs, and more.`,
       joinUs: "/wda",
-      when: "When: Aug 18, 2022",
+      when: "When: December 8, 2022",
       end: new Date(1655273475719),
       duration: 6048000,
       sign: NewImg,
@@ -78,19 +109,6 @@ const List = () => {
       sign: NewImg,
     },
     {
-      image: 'https://teaswap.mypinata.cloud/ipfs/QmQiXeRzxZCUTKjGeiQAFByYeG2JRYGsWk6BWnrrhkfhvr/HOTBOXOG_IRO_BG.jpg',
-      Learn: "https://www.teaswap.art/xhb",
-      LearnText: "Learn > On Ethereum",
-      author: "HotBox Og (XHB)",
-      medium: "https://youtu.be/ZBrlqqftFmE",
-      info: `"HOTBOX Og" is a mystery airdrop collection for XTincT’s upcoming album “Melancholy Dr." EP.  HOTBOX Og is a 10 track music NFT Mystery Box, accommodated by utilities, staking, airdrops, metaverse events and more. Each song is inspired by the blockchain and expressed through chill melancholy tones by XTincT.`,
-      joinUs: "/xhb",
-      when: "When: October 13, 2022",
-      end: new Date(1655273475719),
-      duration: 6048000,
-      sign: NewImg,
-    },
-    {
       image: GridImg10,
       Learn: "https://www.teaswap.art/blind-box",
       LearnText: "Learn > On BNB Chain",
@@ -104,6 +122,20 @@ const List = () => {
       duration: 6048000,
       sign: NewImg,
     },
+    {
+      image: 'https://teaswap.mypinata.cloud/ipfs/QmQiXeRzxZCUTKjGeiQAFByYeG2JRYGsWk6BWnrrhkfhvr/HOTBOXOG_IRO_BG.jpg',
+      Learn: "https://www.teaswap.art/xhb",
+      LearnText: "Learn > On Ethereum",
+      author: "HotBox Og (XHB)",
+      medium: "https://youtu.be/ZBrlqqftFmE",
+      info: `"HOTBOX Og" is a mystery airdrop collection for XTincT’s upcoming album “Melancholy Dr." EP.  HOTBOX Og is a 10 track music NFT Mystery Box, accommodated by utilities, staking, airdrops, metaverse events and more. Each song is inspired by the blockchain and expressed through chill melancholy tones by XTincT.`,
+      joinUs: "/xhb",
+      when: "When: October 13, 2022",
+      end: new Date(1655273475719),
+      duration: 6048000,
+      sign: NewImg,
+    },
+
     {
       image: 'https://teaswap.mypinata.cloud/ipfs/QmQ9JfAQeCZcBABthGEzDqZd4jRiJpaLq6mMLRG6NkGT9K',
       Learn: "",

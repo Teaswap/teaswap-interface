@@ -105,6 +105,7 @@ import XHB from './xhb'
 import XHB2 from './xhb2'
 import THB from './thb'
 import WDA from './wda'
+import WSK from './wsk'
 // import { isMobile } from 'react-device-detect'
 // import MobileHeader from "../components/Header/mobile";
 
@@ -174,6 +175,7 @@ export default function App() {
               <Route path="/thb" element={<THB />} />
               <Route path="/twd" element={<TWD />} />
               <Route path="/wda" element={<WDA />} />
+              <Route path="/wsk" element={<WSK />} />
               <Route path="/xhb" element={<XHB />} />
               <Route path="/xhb2" element={<XHB2 />} />
               <Route path="/tsa" element={<TSA />} />
