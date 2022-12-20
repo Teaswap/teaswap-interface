@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {useEffect, useState} from "react";
 import styled from "styled-components";
 import { useActiveWeb3React } from "../../hooks";
 import Select from "@mui/material/Select";
@@ -13,82 +13,132 @@ import {
   useXhbPrice,
   useXhbContract,
   xhbChainId,
-  contractAddresses, useMaxMintPerAccount,
+  contractAddresses, useMaxMintPerAccount, useMaxSupply, usePreSalePaused,
 } from "./hooks";
-// import { useETHBalances } from "../../state/wallet/hooks";
-import { JSBI } from "@teaswap/uniswap-sdk";
+import { useETHBalances } from "../../state/wallet/hooks";
+// import { JSBI } from "@teaswap/uniswap-sdk";
 // import { calculateGasMargin } from '../../utils';
 import { TransactionResponse } from "@ethersproject/abstract-provider";
 import { ExternalLink } from "../../theme";
 import { toWei } from "web3-utils";
 import {calculateGasMargin, shortenAddress} from "../../utils";
 // import airdropAPI from "../../webAPI/airdropAPI";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import { switchNetwork } from "../../utils/wallet";
 import { CrossmintPayButton } from "@crossmint/client-sdk-react-ui";
 import { BigNumber } from "@ethersproject/bignumber";
 import AddToken from "../../components/AddToken";
+import whitelistAPI from "../../webAPI/whitelistAPI";
+// import Decimal from "decimal.js";
 
 export default () => {
   const { account, chainId } = useActiveWeb3React();
+  const [whitelist, setWhitelist] = useState(0);
   const xhbContract = useXhbContract();
-  // const balance = useETHBalances(account ? [account] : [])?.[account ?? ""];
+  const balance = useETHBalances(account ? [account] : [])?.[account ?? ""];
   const xhbBalance = useXhbBalance(account ?? "", xhbContract, chainId);
   const totalSupply = useTotalSupply(xhbContract, chainId);
+  const maxSupply = useMaxSupply(xhbContract, chainId);
   const maxMintPerAccount = useMaxMintPerAccount(xhbContract, chainId);
   const price = useXhbPrice(xhbContract, chainId);
   const [amount, setAmount] = useState(0);
   const [hash, setHash] = useState("");
   const [msg, setMsg] = useState("");
-  const navigate = useNavigate();
-  console.log({ xhbContract });
+  const preSalePaused = usePreSalePaused(xhbContract, chainId);
+  // const navigate = useNavigate();
+  console.log({ account, balance, preSalePaused, price, chainId });
 
-  const handleChange = async (e: any) => {
+  useEffect(() => {
+    whitelistAPI.getCountAPI(account, contractAddresses, xhbChainId).then((res) => {
+console.log(res);
+      if (res.data > 0) {
+        setWhitelist(res.data)
+      }
+    })
+  }, [account])
+
+  const handlePreSale = async (e: any) => {
     setMsg("");
     setHash("");
     setAmount(e.target.value);
-    if (!xhbContract || e.target.value == "Mint") return;
-    const args = [JSBI.BigInt(e.target.value).toString()];
-    // const estimatedGas = await xhbContract.estimateGas
-    //   .mint(...args)
-    //   .catch(() => {
-    //     return BigNumber.from(195000);
-    //   });
-    const estimatedGas = BigNumber.from(355000)
-    console.log("estimatedGas", estimatedGas);
-    xhbContract
-      .mint(...args, {
-        gasLimit: calculateGasMargin(estimatedGas),
-        value: toWei(String(e.target.value * parseFloat(price))),
-      })
-      .then(async (response: TransactionResponse) => {
-        console.log("buy: res", { response });
-        setHash(response.hash);
-        setMsg("You have an airdrop, go to claim in about 3s");
-        setTimeout(() => {
-          navigate("/thb");
-        }, 10000);
-        // const res = await airdropAPI.mintAPI(account, response.hash);
-        // if (res.ok == 1) {
-        //   // todo you have an airdrop
-        //   setMsg("You have an airdrop, go to claim in about 3s");
-        //   setTimeout(() => {
-        //     navigate("/blind-box");
-        //   }, 3000);
-        // }
-      })
-      .catch((error: any) => {
-        console.log({
-          gasLimit: 350000,
-          value: toWei(String(e.target.value * parseFloat(price))),
-        });
-        setMsg("int error: " + error.mesage);
-      });
-  };
+    if (!xhbContract) return;
+    if (!whitelist) {
+      setMsg("Not part of presale list");
+      return;
+    }
+    // if (new Decimal(balance?.toFixed(18) ?? 0).toNumber() <= new Decimal(e.target.value).mul(price).toNumber()) {
+    //   setMsg("Insufficient balance");
+    //   return;
+    // }
+    whitelistAPI.signAPI(account, contractAddresses, xhbChainId, e.target.value).then((res) => {
+      console.log(res);
+      if (!res.data) {
+        setMsg("Not part of presale list");
+      }else{
+        const args = [res.data.amount, res.data.nonce, res.data.hash, res.data.signature];
+        console.log({args})
+        xhbContract
+          .preSale(...args, {
+            gasLimit: calculateGasMargin(BigNumber.from(350000)),
+            value: toWei(String(res.data.amount * parseFloat(price))),
+          })
+          .then(async (response: TransactionResponse) => {
+            console.log("buy: res", { response });
+            setHash(response.hash);
+          }).catch((err: any) => {
+            console.log(err);
+            setMsg("Transaction failed");
+        })
+      }
+    })
+  }
+
+  // const handleChange = async (e: any) => {
+  //   setMsg("");
+  //   setHash("");
+  //   setAmount(e.target.value);
+  //   if (!xhbContract || e.target.value == "Mint") return;
+  //   const args = [JSBI.BigInt(e.target.value).toString()];
+  //   // const estimatedGas = await xhbContract.estimateGas
+  //   //   .mint(...args)
+  //   //   .catch(() => {
+  //   //     return BigNumber.from(195000);
+  //   //   });
+  //   const estimatedGas = BigNumber.from(355000)
+  //   console.log("estimatedGas", estimatedGas);
+  //   xhbContract
+  //     .mint(...args, {
+  //       gasLimit: calculateGasMargin(estimatedGas),
+  //       value: toWei(String(e.target.value * parseFloat(price))),
+  //     })
+  //     .then(async (response: TransactionResponse) => {
+  //       console.log("buy: res", { response });
+  //       setHash(response.hash);
+  //       setMsg("You have an airdrop, go to claim in about 3s");
+  //       setTimeout(() => {
+  //         navigate("/thb");
+  //       }, 10000);
+  //       // const res = await airdropAPI.mintAPI(account, response.hash);
+  //       // if (res.ok == 1) {
+  //       //   // todo you have an airdrop
+  //       //   setMsg("You have an airdrop, go to claim in about 3s");
+  //       //   setTimeout(() => {
+  //       //     navigate("/blind-box");
+  //       //   }, 3000);
+  //       // }
+  //     })
+  //     .catch((error: any) => {
+  //       console.log({
+  //         gasLimit: 350000,
+  //         value: toWei(String(e.target.value * parseFloat(price))),
+  //       });
+  //       setMsg("int error: " + error.mesage);
+  //     });
+  // };
   return (
     <Wrapper>
       <Left className="panel">
-        {/* <img src="https://teaswap.mypinata.cloud/ipfs/QmSRysXV7XRAJ3dsZMA3fdSxiUYjVTKhHw1gTM29GsbXmC" /> */}
+         <img src="https://teaswap.mypinata.cloud/ipfs/QmbMGnJ61UE3ccbA4uafhwsKbjdhM9HFD4kmXAeRpdQiAw" />
       </Left>
       <Right style={{color: '#ffffff'}} className="panel">
         <div
@@ -99,7 +149,7 @@ export default () => {
           }}
         >
           <Text>
-            HotBox Og
+            WEB3 Dictionary Album
           </Text>
         </div>
         <div
@@ -130,7 +180,7 @@ export default () => {
           }}
         >
           <Text>
-            NFTs: {totalSupply}/11100
+            NFTs: {totalSupply}/{maxSupply}
           </Text>
         </div>
         <div
@@ -152,7 +202,7 @@ export default () => {
         >
           <p>
             <Text>
-              You can now mint up to {maxMintPerAccount} XHB.
+              You can now mint up to {whitelist} TWD.
             </Text>
           </p>
           <div style={{ position: "relative", top: "-10px" }}>
@@ -164,32 +214,38 @@ export default () => {
           </div>
         </div>
         <div>
-          {account && chainId === xhbChainId && (
+          {msg && <span className="mint-msg">{msg}</span>}
+        </div>
+        <div>
+          {preSalePaused && <Text>pre sale paused</Text>}
+        </div>
+        <div>
+          {account && chainId === xhbChainId && !preSalePaused && (
             <FormControl
               style={{
                 backgroundColor: "#000000"
               }}
             >
-              {/* <InputLabel id="tsp-mint">Mint</InputLabel> */}
+              {/* <InputLabel id="tsp-mint"></InputLabel> */}
               <Select
                 style={{ minWidth: 300 }}
                 inputProps={{ "aria-label": "Without label" }}
                 displayEmpty
-                onChange={handleChange}
-                label="Mint"
+                onChange={handlePreSale}
+                label="preSale"
                 value={amount}
                 input={<OutlinedInput />}
                 renderValue={() => {
                   if (!amount) {
-                    return <span style={{ color: "#fff" }}>Mint</span>;
+                    return <span style={{ color: "#fff", fontFamily: "" }}>Presale</span>;
                   }
                   return amount;
                 }}
               >
-                <MenuItem value="Mint">
-                  <span>Mint</span>
+                <MenuItem value="PreSale">
+                  <span>PreSale</span>
                 </MenuItem>
-                {[...Array(maxMintPerAccount).keys()].map((name) => (
+                {[...Array(whitelist).keys()].map((name) => (
                   <MenuItem key={name} value={name+1}>
                     {name+1}
                   </MenuItem>
@@ -213,10 +269,10 @@ export default () => {
             }}
           >
             <CrossmintPayButton
-              collectionTitle="Hot Box OG"
-              collectionDescription={`Hot Box OG is a mystery airdrop collection for XTincT's upcoming album "Melancholy Dr."  Smoke some Hot Box OG in the metaverse as we cruise thru Melancholy Drive.`}
-              collectionPhoto="https://teaswap.mypinata.cloud/ipfs/QmSRysXV7XRAJ3dsZMA3fdSxiUYjVTKhHw1gTM29GsbXmC"
-              clientId="ae21e18e-aa37-4ded-ac21-3ff49dae63f1"
+              collectionTitle="Web3 Dictionary Album"
+              collectionDescription={`Web3 Dictionary Album 100 is designed to provide very basic, simple, clear and easy to understand introductory explanations of new terms and technology surrounding the so called “Web3” as well as the “ Metaverse ”. These include things like blockchain, bitcoin, decentralized finance, NFTs, and more.`}
+              collectionPhoto="https://teaswap.mypinata.cloud/ipfs/QmbMGnJ61UE3ccbA4uafhwsKbjdhM9HFD4kmXAeRpdQiAw"
+              clientId="078967bf-62a7-4b3e-87e3-652f91aa963a"
               mintConfig={{ type: "erc-721", price: price, _count: "1" }}
             />
           </div>
@@ -252,13 +308,13 @@ export default () => {
                       minWidth: "300px",
                     }}
                     onClick={() => {
-                      window.open("https://opensea.io/collection/hotboxog");
+                      window.open("https://opensea.io/collection/web3dictionaryalbum");
                     }}
                     children="OPENSEA"
                   />
                 </div>
               }
-              <AddToken contractAddress={contractAddresses} symbol={'XHB'} bgColor='#1e1e1e' />
+              <AddToken contractAddress={contractAddresses} symbol={'TWD'} bgColor='#1e1e1e' />
             </div>
           )}
 
@@ -280,7 +336,7 @@ export default () => {
           )}
 
           {(
-            <div style={{ marginTop: 40, marginLeft: -20 }}>
+            <div style={{ marginTop: 20, marginLeft: -20 }}>
               <NormalButton
                 style={{
                   padding: 0,
@@ -298,12 +354,24 @@ export default () => {
           )}
           {hash && (
             <div>
-              <ExternalLink href={`https://opensea.io/collection/hotboxog`}>
-              View on OpenSea
+              <ExternalLink href={`https://opensea.io/collection/web3dictionaryalbum`}>
+                <div
+                  style={{
+                    display: "inline-block",
+                    marginTop: 20,
+                    padding: 10,
+                    backgroundColor: "#1e1e1e",
+                    color: "#FFFFFF",
+                    letterSpacing: ".1rem",
+                    minWidth: "300px",
+                    textAlign: "center",
+                  }}
+                >
+                  View on OpenSea
+                </div>
               </ExternalLink>
             </div>
           )}
-          {msg && <div className="mint-msg">{msg}</div>}
         </div>
       </Right>
     </Wrapper>
@@ -315,11 +383,10 @@ const Wrapper = styled.div`
   justify-content: space-between;
   width: 100%;
   min-height: 100vh;
-  background: url("https://teaswap.mypinata.cloud/ipfs/QmQiXeRzxZCUTKjGeiQAFByYeG2JRYGsWk6BWnrrhkfhvr/hotboxOG_minting%20background_2.jpg.png");
+  background-color: #60a7ac;
   background-size: 100% 100%;
   padding: 100px 0;
   @media (max-width: 768px) {
-    background: url("https://teaswap.mypinata.cloud/ipfs/QmQiXeRzxZCUTKjGeiQAFByYeG2JRYGsWk6BWnrrhkfhvr/hotboxogWeb3IRO%20mobile%20image.jpg");
     flex-direction: column;
     height: auto;
   }

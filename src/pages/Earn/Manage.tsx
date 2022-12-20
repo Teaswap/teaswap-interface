@@ -224,6 +224,19 @@ const Manage = ()=>{
   //   return false
   // },[stakingInfo,hasGetInfo])
 
+  const getTo = (stakingInfo: any, symbol: string) => {
+    if (symbol.toUpperCase() === 'THB')  {
+      return '/thb'
+    }
+    if (stakingInfo.stakingRewardAddress === '0xedb1b06c4f13626984f4d6ce8521baaba4d1d453') {
+      return '/blind-box'
+    }
+    if (stakingInfo.stakingRewardAddress === '0x1B0c0d5B6dA81eeAfeE73F769591fA58525E03C8') {
+      return '/nft/products/category/6'
+    }
+    return stakingInfo?.cate!="NFT" ? currencyA?.symbol?.includes("BLP")?  `/add` : `/swap`:`/nft`
+  }
+
 
   return (
     <PageWrapper gap="lg" justify="center">
@@ -329,7 +342,7 @@ const Manage = ()=>{
                 borderRadius="0px"
                 width={'fit-content'}
                 as={Link}
-                to={stakingInfo?.cate!="NFT" ? currencyA?.symbol?.includes("BLP")?  `/add` : `/swap`:`/nft`}
+                to={getTo(stakingInfo, currencyA?.symbol || '')}
               >
                 {`GET ${currencyA?.symbol}`}
               </ButtonPrimary>

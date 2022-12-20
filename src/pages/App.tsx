@@ -104,6 +104,8 @@ import TWD from './twd'
 import XHB from './xhb'
 import XHB2 from './xhb2'
 import THB from './thb'
+import WDA from './wda'
+import WSK from './wsk'
 // import { isMobile } from 'react-device-detect'
 // import MobileHeader from "../components/Header/mobile";
 
@@ -172,12 +174,15 @@ export default function App() {
               <Route path="/poap2" element={<POAP2 />} />
               <Route path="/thb" element={<THB />} />
               <Route path="/twd" element={<TWD />} />
+              <Route path="/wda" element={<WDA />} />
+              <Route path="/wsk" element={<WSK />} />
               <Route path="/xhb" element={<XHB />} />
               <Route path="/xhb2" element={<XHB2 />} />
               <Route path="/tsa" element={<TSA />} />
               <Route path="/boss" element={<BossBox />} />
               <Route path="/blind-box" element={<BlindBox />} />
               <Route path="/tsapenguinpunks" element={<Tsapenguinpunks />} />
+              <Route path="/explore" element={<Home />} />
               <Route path="/drops" element={<Home />} />
               <Route path="/swap" element={<Swaping />} />
               <Route

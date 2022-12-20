@@ -77,7 +77,7 @@ export default function CustomizedTabs({tabs, value, handleChange}: Params) {
 							label: v,
 							value: v
 						}
-          	return <AntTab {...tabProps} />
+          	return <AntTab key={i} {...tabProps} />
 					})}
         </AntTabs>
         <Typography className={classes.padding} />

@@ -58,12 +58,11 @@ const Container = styled.div`
 //   align-items: center;
 // `;
 const Wrapper = styled.div`
-  width: 50vw;
   margin: 0 auto;
   padding: 10px 0;
   display: flex;
   flex-direction: column;
-  align-items: left;
+  align-items: flex-start;
   width: 99%;
   font-size: 20px;
   font-weight: bold;

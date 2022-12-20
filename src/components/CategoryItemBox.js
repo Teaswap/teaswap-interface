@@ -53,13 +53,18 @@ const ProductCategoryItem = styled.li`
   }
 `;
 
-const CategoryItemBox = ({ text, id }) => {
+const CategoryItemBox = ({ text, id, activeId }) => {
   const navigate = useNavigate();
   const handleGetProductFromCategory = (id) => {
     navigate(`/nft/products/category/${id}`);
   };
+  console.log({ activeId,id });
   return (
-    <ProductCategoryItem onClick={() => handleGetProductFromCategory(id)}>
+    <ProductCategoryItem
+      style={{
+        color: parseInt(activeId.id) === id ? COLOR.text_3 : COLOR.gray,
+      }}
+      onClick={() => handleGetProductFromCategory(id)}>
       <p>{text}</p>
     </ProductCategoryItem>
   );

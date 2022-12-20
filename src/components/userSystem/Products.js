@@ -274,9 +274,9 @@ const Product = ({productCat, product, onLoad, loaded, $width, $height, $margin 
           )}
         </span>
     </ProductPrice>
-    <ProductPrice>
-      quantity: {product.quantity}
-    </ProductPrice>
+    {/*<ProductPrice>*/}
+    {/*  quantity: {product.quantity}*/}
+    {/*</ProductPrice>*/}
     <Modal isOpen={isProof} onDismiss={dismissPrice} maxHeight={90}>
       <div className="new-modal">
         <p>{t('Put On Sale')}</p>

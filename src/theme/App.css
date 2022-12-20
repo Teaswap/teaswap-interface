@@ -416,7 +416,11 @@ iframe.myiframe {
   display: block !important;
 }
 .mint-msg{
-  color: white;
+  display: inline-block;
+  padding: 10px 20px;
+  background: white;
+  color: red;
+  margin: 10px 0;
 }
 .crossmintButton-d2-0-3-6{
   text-transform: uppercase;

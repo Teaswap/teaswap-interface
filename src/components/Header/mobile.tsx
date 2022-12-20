@@ -343,7 +343,7 @@ const NETWORK_LABELS: { [chainId in ChainId]?: string } = {
   [ChainId.MAINNET]: "ETH Mainnet",
   [ChainId.RINKEBY]: "Rinkeby",
   [ChainId.ROPSTEN]: "Ropsten",
-  [ChainId.GÖRLI]: "Görli",
+  [ChainId.GOERLI]: "Goerli",
   [ChainId.KOVAN]: "Kovan",
   [ChainId.BSC_MAINNET]: "BSC Mainnet",
   [ChainId.BSC_TESTNET]: "BSC Testnet",
@@ -354,7 +354,7 @@ const NETWORK_SYMBOLS: { [chainId in ChainId]?: string } = {
   [ChainId.MAINNET]: "ETH",
   [ChainId.RINKEBY]: "TETH",
   [ChainId.ROPSTEN]: "TETH",
-  [ChainId.GÖRLI]: "TETH",
+  [ChainId.GOERLI]: "TETH",
   [ChainId.KOVAN]: "TETH",
   [ChainId.BSC_MAINNET]: "BNB",
   [ChainId.BSC_TESTNET]: "TBNB",
@@ -426,7 +426,7 @@ export default function Header() {
               </svg>
             </Button>
             <UniIcon style={{ marginTop: "-6px" }}>
-              <NavLink to={"/drops"}>
+              <NavLink to={"/explore"}>
                 <img
                   height="50px"
                   style={{ marginTop: 0 }}
@@ -438,8 +438,8 @@ export default function Header() {
             <HeaderLinks style={{ fontSize: "13px" }}>
               <StyledNavLink
                 onClick={() => setShow(false)}
-               id={`swap-nav-link`} to={"/drops"}>
-                {t("DROPS")}
+               id={`swap-nav-link`} to={"/explore"}>
+                {t("EXPLORE")}
               </StyledNavLink>
               <StyledNavLink
                onClick={() => setShow(false)}

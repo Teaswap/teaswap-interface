@@ -6,7 +6,7 @@ import { useContract } from '../../hooks/useContract';
 import abi from './abi.json'
 
 export const xhbChainId = 1;
-export const contractAddresses = '0x5e653c288a119dc428f411ac48806eecc7a50703';
+export const contractAddresses = '0x2a9941aa88EA762987265b860eAa2540C74fDD04';
 
 export function useXhbContract(): Contract | null {
   return useContract(contractAddresses, abi, true)
@@ -19,6 +19,48 @@ export function useTotalSupply(contract: Contract | null, chainId: ChainId|undef
     if (chainId !== xhbChainId || !contract) return
     contract?.totalSupply().then((res: any) => {
       console.log("xhb: TotalSupply", { res })
+      setTotalSupply(res.toNumber())
+    }).catch((err: any) => {
+      console.log("xhb: ", { err })
+    })
+  }, [chainId])
+  return totalSupply
+}
+
+export function usePreSalePaused(contract: Contract | null, chainId: ChainId|undefined) {
+  const [totalSupply, setTotalSupply] = useState(true);
+  useEffect(() => {
+    if (chainId !== xhbChainId || !contract) return
+    contract?.preSalePaused().then((res: any) => {
+      setTotalSupply(res)
+    }).catch((err: any) => {
+      console.log("read presale paused: ", { err })
+    })
+  }, [chainId])
+  return totalSupply
+}
+
+export function useOwner(contract: Contract | null, chainId: ChainId|undefined) {
+  const [owner, setOwner] = useState('');
+  useEffect(() => {
+    if (chainId !== xhbChainId || !contract) return
+    contract?.owner().then((res: any) => {
+      console.log("xhb: TotalSupply", { res })
+      setOwner(res.toNumber())
+    }).catch((err: any) => {
+      console.log("xhb: ", { err })
+    })
+  }, [chainId])
+  return owner
+}
+
+export function useMaxSupply(contract: Contract | null, chainId: ChainId|undefined) {
+  // todo refactor with hooks and return 0 if chainId != 0
+  const [totalSupply, setTotalSupply] = useState(0);
+  useEffect(() => {
+    if (chainId !== xhbChainId || !contract) return
+    contract?.maxSupply().then((res: any) => {
+      console.log("xhb: MaxSupply", { res })
       setTotalSupply(res.toNumber())
     }).catch((err: any) => {
       console.log("xhb: ", { err })

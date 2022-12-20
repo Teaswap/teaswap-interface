@@ -1,4 +1,4 @@
-export default [ 
+export default [
   {
     picture_url: process.env.PUBLIC_URL + '/nft/pro3/25.gif',
     title: "TSA Broadway #100 TSA Collectors Club",
@@ -7,6 +7,24 @@ export default [
     link: '/nft/products/category/1',
     mediaType: 1,
     id: 25
+  },
+  {
+    picture_url: 'https://teaswap.mypinata.cloud/ipfs/QmPHmNWHPmuo372T1SgwX3QwsBZfF5g5XczSvc1w485gTh',
+    title: "As senhoritas de Avingnon",
+    number: "",
+    desc: '',
+    link: '/nft/products/category/1',
+    mediaType: 1,
+    id: 13
+  },
+  {
+    picture_url: 'https://teaswap.mypinata.cloud/ipfs/QmYwGmmesYCCQxrsLbJZ84tShEZ99EMoa4ist4c3EUND63',
+    title: "O Sonho - Lucas Almajíd, 2021",
+    number: "",
+    desc: '',
+    link: '/nft/products/category/1',
+    mediaType: 1,
+    id: 14
   },
   {
     picture_url: process.env.PUBLIC_URL + '/nft/pro3/24.jpeg',
@@ -99,33 +117,6 @@ export default [
     id: 6
   },
   {
-    picture_url: process.env.PUBLIC_URL + '/nft/pro3/7.jpeg',
-    title: "TSA Broadway No.8 Anomie",
-    number: "",
-    desc: '',
-    link: '/nft/products/category/1',
-    mediaType: 1,
-    id: 7
-  },
-  {
-    picture_url: process.env.PUBLIC_URL + '/nft/pro3/8.jpeg',
-    title: "TSA Broadway No. 9 TV Eyes",
-    number: "",
-    desc: '',
-    link: '/nft/products/category/1',
-    mediaType: 1,
-    id: 8
-  },
-  {
-    picture_url: process.env.PUBLIC_URL + '/nft/pro3/9.gif',
-    title: "TSA Broadway No.10 FU7UR3 Broadway",
-    number: "",
-    desc: '',
-    link: '/nft/products/category/1',
-    mediaType: 1,
-    id: 9
-  },
-  {
     picture_url: process.env.PUBLIC_URL + '/nft/pro3/10.gif',
     title: "TSA Broadway No.11 Vancouver Broadway City",
     number: "",
@@ -152,31 +143,5 @@ export default [
     mediaType: 1,
     id: 12
   },
-  {
-    picture_url: process.env.PUBLIC_URL + '/nft/pro3/13.gif',
-    title: "TSA Broadway No.14 Persistence of Humanity Fractured-Gem",
-    number: "",
-    desc: '',
-    link: '/nft/products/category/1',
-    mediaType: 1,
-    id: 13
-  },
-  {
-    picture_url: process.env.PUBLIC_URL + '/nft/pro3/Desire of Return.jpg',
-    title: "Desire of Return",
-    number: "",
-    desc: '',
-    link: '/nft/products/category/1',
-    mediaType: 1,
-    id: 14
-  },
-  {
-    picture_url: process.env.PUBLIC_URL + '/nft/pro3/Resistence.jpg',
-    title: "Resistance",
-    number: "",
-    desc: '',
-    link: '/nft/products/category/1',
-    mediaType: 1,
-    id: 15
-  }
+
 ]

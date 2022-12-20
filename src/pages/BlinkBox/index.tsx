@@ -7,7 +7,6 @@ import { useTotalSupply, useBlindBoxBalance, useBlindBoxPrice } from "./hooks";
 import { useETHBalances } from "../../state/wallet/hooks";
 import { useBlindBoxContract } from "../../hooks/useContract";
 import { ChainId, JSBI } from "@teaswap/uniswap-sdk";
-// import { calculateGasMargin } from '../../utils';
 import { TransactionResponse } from "@ethersproject/abstract-provider";
 import { ExternalLink } from "../../theme";
 import { toWei } from "web3-utils";
@@ -15,6 +14,9 @@ import { shortenAddress } from "../../utils";
 import airdropAPI from "../../webAPI/airdropAPI";
 import { switchNetwork } from "../../utils/wallet";
 import { useNavigate } from "react-router-dom";
+import addTokenToWallet from "../../utils/addTokenToWallet";
+import MetamaskIcon from "../../assets/images/metamask.png";
+import {blindBoxAddr} from "../../sushi/lib/constants";
 
 const symbol = "BBBPENGUIN";
 
@@ -127,7 +129,7 @@ export default () => {
                 width: 100,
               }}
               onClick={() => {
-                navigate("/staking/0x68caacEEf02723f5589490128a25f0bDE9cd5b47/0xA0c9a4ebC96737E8f9f61A88D6361Bb26250a068/0x6e1e33bc278eb40b546660d9b6af4ff4026a0e2a");
+                navigate("/staking/0x68caacEEf02723f5589490128a25f0bDE9cd5b47/0xbA2aE42[…]32edC70B295c744C43/0xedb1b06c4f13626984f4d6ce8521baaba4d1d453");
               }}
               children="Go Stake"
             />
@@ -204,6 +206,59 @@ export default () => {
             </div>
           )}
           {msg && <div className="mint-msg">{msg}</div>}
+          {blindBoxBalance === 0 && (
+            <div style={{ marginTop: 20, marginLeft: -20 }}>
+              <NormalButton
+                style={{
+                  padding: 0,
+                  backgroundColor: "#09afb6",
+                  color: "#FFFFFF",
+                  letterSpacing: ".1rem",
+                }}
+                onClick={() => {
+                  location.href="https://www.teaswap.live/post/how-to-join-the-allowlist-blindbox-tsa-magic-box"
+                }}
+                children="Join Allowlist"
+              />
+            </div>
+          )}
+          {account && chainId === ChainId.BSC_MAINNET && (
+            <div style={{ marginTop: 20, marginLeft: -20 }}>
+              <NormalButton
+                style={{
+                  padding: 0,
+                  backgroundColor: "#09afb6",
+                  color: "#FFFFFF",
+                  letterSpacing: ".1rem",
+                }}
+                onClick={async () => {
+                  await addTokenToWallet({
+                    address: blindBoxAddr,
+                    symbol: 'BBBPENGUIN',
+                    decimals: 0,
+                    image: ''
+                  })
+                }}
+              >
+                <span>Add Token to Wallet</span> <img style={{marginLeft: 5}} src={MetamaskIcon} width={15} />
+              </NormalButton>
+            </div>
+          )}
+          <div style={{ marginTop: 20, marginLeft: -20 }}>
+            <NormalButton
+              style={{
+                padding: 0,
+                backgroundColor: "#09afb6",
+                color: "#FFFFFF",
+                letterSpacing: ".1rem",
+              }}
+              onClick={async () => {
+                location.href="https://opensea.io/collection/tsamagicbox"
+              }}
+            >
+              View On OpensSea
+            </NormalButton>
+          </div>
         </div>
       </Right>
     </Wrapper>

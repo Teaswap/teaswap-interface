@@ -172,17 +172,10 @@ export default function PoolCard({ stakingInfo }: { stakingInfo: StakingInfo }) 
 
     const timeUntilGenesis = begin - time
     const timeUntilEnd = end - time
+  const selectLink = useMemo(() => {
 
-    // if(currency0.symbol===currency1.symbol){
-    //
-    //     console.log(begin)
-    //     console.log(duration)
-    //     console.log(end)
-    //     console.log(time)
-    //     console.log(timeUntilGenesis)
-    //     console.log(timeUntilGenesis)
-    // }
-
+    return ((timeUntilGenesis <= 0 && timeUntilEnd > 0) || isStaking||isUnclaim) ? `/staking/${currencyId(currency0)}/${currencyId(currency1)}/${stakingInfo.stakingRewardAddress}`:`#`
+  }, [stakingInfo.stakingRewardAddress])
 
     // let returnOverMonth: Percent = new Percent('0')
   let valueOfTotalStakedAmountInWETH: TokenAmount | undefined
@@ -243,7 +236,7 @@ export default function PoolCard({ stakingInfo }: { stakingInfo: StakingInfo }) 
             <Countdown exactEnd={stakingInfo?.periodFinish} rewardsDuration={stakingInfo?.rewardsDuration} />
         </RowBetween>
 
-        <StyledLink href={((timeUntilGenesis <= 0 && timeUntilEnd > 0) || isStaking||isUnclaim) ? `/staking/${currencyId(currency0)}/${currencyId(currency1)}/${stakingInfo.stakingRewardAddress}`:`#`} >
+      <StyledLink href={selectLink} >
         <SelectBtn>
           {(isStaking||isUnclaim) ? t('manage') : t('select')}
         </SelectBtn>

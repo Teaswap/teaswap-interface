@@ -17,7 +17,7 @@ export const RedirectPathToSwapOnly: React.FC = (): JSX.Element => {
 // }
 
 export const RedirectPathToHomeOnly: React.FC = (): JSX.Element => {
-  return <Navigate to="/drops" />;
+  return <Navigate to="/explore" />;
 };
 export const RedirectPathToNftOnly: React.FC = (): JSX.Element => {
   return <Navigate to="/nft/products/category/1" />;

@@ -21,7 +21,7 @@ import { JSBI } from "@teaswap/uniswap-sdk";
 import { TransactionResponse } from "@ethersproject/abstract-provider";
 import { ExternalLink } from "../../theme";
 import { toWei } from "web3-utils";
-import { shortenAddress } from "../../utils";
+import {calculateGasMargin, shortenAddress} from "../../utils";
 import airdropAPI from "../../webAPI/airdropAPI";
 import { useNavigate } from "react-router-dom";
 import { switchNetwork } from "../../utils/wallet";
@@ -58,7 +58,7 @@ export default () => {
     console.log("estimatedGas", estimatedGas);
     twdContract
       .mint(...args, {
-        gasLimit: 1950000,
+        gasLimit: calculateGasMargin(estimatedGas),
         value: toWei(String(e.target.value * parseFloat(price))),
       })
       .then(async (response: TransactionResponse) => {

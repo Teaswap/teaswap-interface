@@ -36,7 +36,7 @@ const EMPTY_LIST: TokenAddressMap = {
   [ChainId.KOVAN]: {},
   [ChainId.RINKEBY]: {},
   [ChainId.ROPSTEN]: {},
-  [ChainId.GÖRLI]: {},
+  [ChainId.GOERLI]: {},
   [ChainId.MAINNET]: {},
   [ChainId.BSC_MAINNET]: {},
   [ChainId.BSC_TESTNET]: {},

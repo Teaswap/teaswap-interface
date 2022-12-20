@@ -74,7 +74,7 @@ const MenuFlyout = styled.span`
   align-items: center;
   background-color: #ffffff;
   ${({ theme }) => theme.mediaWidth.upToMedium`
-    top: -17.25rem;
+    top: -27.25rem;
   `};
 `;
 
@@ -144,6 +144,23 @@ export default function Menu() {
               >
                 {t("History")}
               </MenuItem>
+              <MenuItem onClick={openClaimModal}>{t("Airdrop")}</MenuItem>
+              <MenuItem
+                onClick={() => {
+                  navigate("/thb");
+                }}
+              >
+                {t("The Hot Box")}
+              </MenuItem>
+              <MenuItem onClick={checkBlinkBoxAirdrop}>{t("Magic Box Airdrop")}</MenuItem>
+              {/*<MenuItem*/}
+              {/*  onClick={() => {*/}
+              {/*    navigate("/staking");*/}
+              {/*  }}*/}
+              {/*>*/}
+              {/*  {t("Staking")}*/}
+              {/*</MenuItem>*/}
+
               <MenuItem
                 onClick={() => {
                   navigate("/swap");
@@ -152,13 +169,12 @@ export default function Menu() {
                 {t("Swap TSA")}
               </MenuItem>
               <MenuItem
-                onClick={() => {
-                  navigate("/staking");
-                }}
+                onClick={() =>
+                  window.open("https://app.multichain.org/#/router")
+                }
               >
-                {t("Staking")}
+                Bridge TSA
               </MenuItem>
-
               <MenuItem
                 onClick={() => {
                   navigate("/nft/users/referral");
@@ -166,18 +182,6 @@ export default function Menu() {
               >
                 {t("Referral")}
               </MenuItem>
-              <MenuItem onClick={openClaimModal}>{t("Airdrop")}</MenuItem>
-              <MenuItem onClick={checkBlinkBoxAirdrop}>{t("Magic Box Airdrop")}</MenuItem>
-              <MenuItem
-                onClick={() =>
-                  window.open("https://app.multichain.org/#/router")
-                }
-              >
-                {/* https://www.binance.org/en/bridge */}
-                Bridge TSA
-                {/* Bridge to Ethereum */}
-              </MenuItem>
-
               <MenuItem
                 onClick={() => {
                   localStorage.clear();

@@ -337,7 +337,7 @@ const NETWORK_LABELS: { [chainId in ChainId]?: string } = {
   [ChainId.MAINNET]: "ETH Mainnet",
   [ChainId.RINKEBY]: "Rinkeby",
   [ChainId.ROPSTEN]: "Ropsten",
-  [ChainId.GÖRLI]: "Görli",
+  [ChainId.GOERLI]: "Goerli",
   [ChainId.KOVAN]: "Kovan",
   [ChainId.BSC_MAINNET]: "BSC Mainnet",
   [ChainId.BSC_TESTNET]: "BSC Testnet",
@@ -348,7 +348,7 @@ const NETWORK_SYMBOLS: { [chainId in ChainId]?: string } = {
   [ChainId.MAINNET]: "ETH",
   [ChainId.RINKEBY]: "TETH",
   [ChainId.ROPSTEN]: "TETH",
-  [ChainId.GÖRLI]: "TETH",
+  [ChainId.GOERLI]: "TETH",
   [ChainId.KOVAN]: "TETH",
   [ChainId.BSC_MAINNET]: "BNB",
   [ChainId.BSC_TESTNET]: "TBNB",
@@ -388,7 +388,7 @@ export default function Header() {
         </Modal>
         <HeaderRow>
           <UniIcon style={{ marginTop: "-6px" }}>
-            <NavLink to={"/drops"}>
+            <NavLink to={"/explore"}>
               <img
                 height="50px"
                 style={{ marginTop: 0 }}
@@ -398,8 +398,8 @@ export default function Header() {
             </NavLink>
           </UniIcon>
           <HeaderLinks style={{ fontSize: "13px" }}>
-            <StyledNavLink id={`swap-nav-link`} to={"/drops"}>
-              {t("DROPS")}
+            <StyledNavLink id={`swap-nav-link`} to={"/explore"}>
+              {t("EXPLORE")}
             </StyledNavLink>
             <StyledNavLink id={`NFT-nav-link`} to={"/nft/products/category/1"}>
               {t("NFT")}
@@ -411,7 +411,7 @@ export default function Header() {
             </StyledNavLink>
             <StyledExternalLink
               id={`Gallery-nav-link`}
-              href={"https://www.teaswap.live/tsametaplay"}
+              href={"https://www.teaswap.live/product"}
             >
               {t("MetaPlay")}
             </StyledExternalLink>

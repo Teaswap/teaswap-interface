@@ -41,3 +41,4 @@ src/constants/unit.js
 .env.beta
 .env.prod
 env.production
+.deploy

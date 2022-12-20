@@ -22,14 +22,14 @@ import { hideAddr } from "../../../utils/strUtil";
 import { useTranslation } from "react-i18next";
 
 import { useActiveWeb3React } from "../../../hooks";
+import WalletSwitch from "../../../WalletSwitch";
 
 const Wrapper = styled.div`
-  width: 50vw;
   margin: 0 auto;
   padding: 10px 0;
   display: flex;
   flex-direction: column;
-  align-items: left;
+  align-items: flex-start;
   width: 99%;
   font-size: 20px;
   font-weight: bold;
@@ -146,7 +146,13 @@ const ClientOrdersPage = () => {
       <ThickNavPage id="client-orders">
         <Wrapper>
           <WalletSwitch />
-          <div>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              width: "100%",
+            }}
+          >
             <Title>History</Title>
             <span
               onClick={() => navigate("/staking")}

@@ -91,7 +91,7 @@ export const PAYABLEETH: { [chainId in ChainId]: Token } = {
     "ETH",
     "Ether"
   ),
-  [ChainId.GÖRLI]: new Token(ChainId.GÖRLI, ZERO_ADDRESS, 18, "ETH", "Ether"),
+  [ChainId.GOERLI]: new Token(ChainId.GOERLI, ZERO_ADDRESS, 18, "ETH", "Ether"),
   [ChainId.KOVAN]: new Token(ChainId.KOVAN, ZERO_ADDRESS, 18, "ETH", "Ether"),
   [ChainId.BSC_MAINNET]: new Token(
     ChainId.BSC_MAINNET,
@@ -150,7 +150,7 @@ export const UNI: { [chainId in ChainId]: Token } = {
     "UNI",
     "Uniswap"
   ),
-  [ChainId.GÖRLI]: new Token(ChainId.GÖRLI, UNI_ADDRESS, 18, "UNI", "Uniswap"),
+  [ChainId.GOERLI]: new Token(ChainId.GOERLI, UNI_ADDRESS, 18, "UNI", "Uniswap"),
   [ChainId.KOVAN]: new Token(ChainId.KOVAN, UNI_ADDRESS, 18, "UNI", "Uniswap"),
   [ChainId.BSC_MAINNET]: new Token(
     ChainId.BSC_MAINNET,
@@ -277,6 +277,14 @@ export const TSAMetaverseAvatar = new Token(
   0,
   "TSANFT Avatar",
   "TSA Metaverse Avatar Collection"
+);
+
+export const TSAMagicBox3 = new Token(
+  ChainId.BSC_MAINNET,
+  "0x68caacEEf02723f5589490128a25f0bDE9cd5b47",
+  0,
+  "TSA Magic Box III",
+  ""
 );
 
 export const PenguinPunks = new Token(
@@ -656,7 +664,7 @@ const WETH_ONLY: ChainTokenList = {
   [ChainId.MAINNET]: [WETH[ChainId.MAINNET]],
   [ChainId.ROPSTEN]: [WETH[ChainId.ROPSTEN]],
   [ChainId.RINKEBY]: [WETH[ChainId.RINKEBY]],
-  [ChainId.GÖRLI]: [WETH[ChainId.GÖRLI]],
+  [ChainId.GOERLI]: [WETH[ChainId.GOERLI]],
   [ChainId.KOVAN]: [WETH[ChainId.KOVAN]],
   [ChainId.BSC_MAINNET]: [WETH[ChainId.BSC_MAINNET]],
   [ChainId.BSC_TESTNET]: [WETH[ChainId.BSC_TESTNET]],

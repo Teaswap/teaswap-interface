@@ -23,6 +23,7 @@ import {
   FreightIntro,
 } from '../../../components/productSystem'
 import { useTranslation } from 'react-i18next';
+import MetaTags from 'react-meta-tags';
 
 const ProductInfoContainer = styled.section`
   margin-top: 20px;
@@ -109,6 +110,13 @@ const ProductPage = () => {
 
   return (
     <>
+      <MetaTags>
+        <meta name="twitter:title" content="TSANFT, One Hub for DeFi and Staking" />
+        <meta name="twitter:description" content={product.info} />
+        <meta name="twitter:site" content="@ArtTeaswap" />
+        <meta name="og:image" content={product.picture_url} />
+        <meta name="og:image:secure_url" content={product.picture_url} />
+      </MetaTags>
       <NavbarWrapper >
         <Navbar />
       </NavbarWrapper>
