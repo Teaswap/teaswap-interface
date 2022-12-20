@@ -13,7 +13,7 @@ import GridImg6 from "../../assets/images/6.jpg";
 import GridImg7 from "../../assets/images/grid_image7.jpg";
 import GridImg8 from "../../assets/images/penguinbrothers.png";
 import GridImg9 from "../../assets/images/Whostheboss.png";
-import GridImg10 from "../../assets/images/blindbox.png";
+// import GridImg10 from "../../assets/images/blindbox.png";
 import GridImg11 from "../../assets/images/2020.gif";
 // import GridImg12 from "../../assets/images/xtinct.png";
 // import GridImg13 from "../../assets/images/HOTBOXOG_IROBANNER.png";
@@ -81,6 +81,20 @@ const List = () => {
       sign: NewImg,
     },
     {
+      image: 'https://teaswap.mypinata.cloud/ipfs/QmRHs1qFsnyEZvzdxWmoZHei4dkBmPo7r7KM6uMDq2pnWy',
+      Learn: "https://www.teaswap.art/blind-box",
+      LearnText: "Learn > On BNB Chain",
+      author: "TSA Magic Box",
+      medium: "https://www.youtube.com/watch?v=qdFTk2adcHI",
+      info:
+        "A collection of 10,000 limited edition TSANFTs are available in the TSA MagicBox.  Holding a TSA Magic Box gives holders access to our discord-based DAO, TSADAO, where we deliver interconnectivity via social programs and rewards to the community, have a say in the future of the TSA NFT Incubator & Marketplace.",
+      joinUs: "/blind-box",
+      when: "When: Ongoing [Whitelist Only]",
+      end: new Date(1640942516),
+      duration: 6048000,
+      sign: NewImg,
+    },
+    {
       image:
         "https://teaswap.mypinata.cloud/ipfs/QmPp1hJzgNLrEdSTyYwKzigq2S2SzonuDYrEBWEvNoqNPx",
       Learn: "https://www.teaswap.art/wda",
@@ -108,20 +122,7 @@ const List = () => {
       duration: 6048000,
       sign: NewImg,
     },
-    {
-      image: GridImg10,
-      Learn: "https://www.teaswap.art/blind-box",
-      LearnText: "Learn > On BNB Chain",
-      author: "TSA Magic Box",
-      medium: "https://www.youtube.com/watch?v=qdFTk2adcHI",
-      info:
-        "A collection of 10,000 limited edition TSANFTs are available in the TSA MagicBox.  Holding a TSA Magic Box gives holders access to our discord-based DAO, TSADAO, where we deliver interconnectivity via social programs and rewards to the community, have a say in the future of the TSA NFT Incubator & Marketplace.",
-      joinUs: "/blind-box",
-      when: "When: Ongoing [Whitelist Only]",
-      end: new Date(1640942516),
-      duration: 6048000,
-      sign: NewImg,
-    },
+
     {
       image: 'https://teaswap.mypinata.cloud/ipfs/QmQiXeRzxZCUTKjGeiQAFByYeG2JRYGsWk6BWnrrhkfhvr/HOTBOXOG_IRO_BG.jpg',
       Learn: "https://www.teaswap.art/xhb",

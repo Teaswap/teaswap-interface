@@ -236,7 +236,7 @@ export default function PoolCard({ stakingInfo }: { stakingInfo: StakingInfo }) 
             <Countdown exactEnd={stakingInfo?.periodFinish} rewardsDuration={stakingInfo?.rewardsDuration} />
         </RowBetween>
 
-        <StyledLink href={selectLink} >
+      <StyledLink href={selectLink} >
         <SelectBtn>
           {(isStaking||isUnclaim) ? t('manage') : t('select')}
         </SelectBtn>
