@@ -1,4 +1,4 @@
-import React, {useEffect, useMemo, useState} from "react";
+import React, {useEffect, useState} from "react";
 import styled from "styled-components";
 import { useActiveWeb3React } from "../../hooks";
 import Select from "@mui/material/Select";
@@ -13,7 +13,7 @@ import {
   useTwdPrice,
   useTwdContract,
   twdChainId,
-  contractAddresses,
+  contractAddresses
 } from "./hooks";
 // import { useETHBalances } from "../../state/wallet/hooks";
 import { JSBI } from "@teaswap/uniswap-sdk";
@@ -83,21 +83,45 @@ export default () => {
   };
 
   const [tokenIds, setTokenIds] = useState<number[]>([]);
+  const [tokenURIs, setTokenURIS] = useState<string[]>([]);
+  const [nfts, setNfts] = useState<any[]>([]);
 
-  useEffect(() => {
+  const getNFTs = async () => {
     const list = [...tokenIds];
+    const list2 = [...tokenURIs];
+    const nftList = [...nfts];
     for(let i = 0; i < totalSupply; i++) {
-      twdContract?.ownerOf(i).then((res: string) => {
-        if (res === account && !list.includes(i)) {
+      try{
+        const tokenIdOwner = await twdContract?.ownerOf(i);
+        console.log({tokenIdOwner, i});
+        if (tokenIdOwner === account && !list.includes(i)) {
           list.push(i);
           setTokenIds(list);
-          twdContract?.tokenURI(i).then((res: string) => {
-
-          })
+          const tokenURI = await twdContract?.tokenURI(i);
+          if (!list2.includes(tokenURI)) {
+              list2.push(tokenURI);
+              setTokenURIS(list2);
+              const res = await fetch(tokenURI);
+              const data = await res.json();
+              nftList.push(data);
+              setNfts(nftList);
+            }
         }
-      });
+      }catch (e) {
+        console.log(e);
+      }
+    }
+  }
+
+  useEffect(() => {
+    if (account) {
+      getNFTs().catch((err: any) => {
+        console.error(err)
+      })
     }
   }, [totalSupply])
+
+  console.log({ tokenIds, tokenURIs, nfts });
 
   return (
     <Wrapper>
@@ -298,6 +322,33 @@ export default () => {
             </div>
           )}
           {msg && <div className="mint-msg">{msg}</div>}
+        </div>
+        <div style={{
+          marginTop: "20px",
+          marginBottom: "20px",
+          display: "flex",
+        }}>
+          {nfts.map((nft, k) => {
+            return (
+              <div
+                key={k}
+                style={{
+                  marginRight: "20px",
+                  textAlign: 'center',
+                }}>
+                <img height={100} src={nft.image} />
+                <div
+                  style={{
+                    cursor: "pointer",
+                  }}
+                >
+                  <a href={nft.animation_url??nft.image} download>
+                    Download
+                  </a>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </Right>
     </Wrapper>
