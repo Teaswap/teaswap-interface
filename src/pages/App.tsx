@@ -106,6 +106,8 @@ import XHB2 from './xhb2'
 import THB from './thb'
 import WDA from './wda'
 import WSK from './wsk'
+import Ramp from './Ramp'
+import Transak from './Transak'
 // import { isMobile } from 'react-device-detect'
 // import MobileHeader from "../components/Header/mobile";
 
@@ -168,6 +170,8 @@ export default function App() {
           <TopLevelModals />
           <Web3ReactManager>
             <Routes>
+              <Route path="/ramp" element={<Ramp />} />
+              <Route path="/transak" element={<Transak />} />
               <Route path="/iro" element={<IdoList />} />
               <Route path="/tsp" element={<TSP />} />
               <Route path="/poap" element={<POAP />} />

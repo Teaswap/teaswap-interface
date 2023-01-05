@@ -313,6 +313,24 @@ const HomePage = () => {
             </PartButton>
           </PartText>
         </Part2>
+        <Part>
+          <PartText2>
+            <div>
+              Do Digital Rewards Right
+            </div>
+            <Text3>
+              Earn $TSA when you shop your favorite brands , TSA can be exchanged with USDT , BUSD, ETH, Matic, BNB, BTC, DogeCoin and more...
+            </Text3>
+            <PartButton
+              onClick={()=>{
+                window.open('https://www.icashrewards.io/')
+              }}
+            >
+              Shop Now !
+            </PartButton>
+          </PartText2>
+          <PartImg src={`https://teaswap.mypinata.cloud/ipfs/QmXP15qDxGdTpdb7FkrvYnCpuz32SgkXsEcFRnsjjx7efj`} />
+        </Part>
       </div>
       <img style={{
         width: '100%',

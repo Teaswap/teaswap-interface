@@ -147,10 +147,10 @@ export default function Menu() {
               <MenuItem onClick={openClaimModal}>{t("Airdrop")}</MenuItem>
               <MenuItem
                 onClick={() => {
-                  navigate("/thb");
+                  navigate("/swap");
                 }}
               >
-                {t("The Hot Box")}
+                {t("Buy Crypto")}
               </MenuItem>
               <MenuItem onClick={checkBlinkBoxAirdrop}>{t("Magic Box Airdrop")}</MenuItem>
               {/*<MenuItem*/}

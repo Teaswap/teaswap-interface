@@ -202,7 +202,7 @@ console.log(res);
         >
           <p>
             <Text>
-              You can now mint up to {whitelist} TWD.
+              You can now mint up to {whitelist} WSK.
             </Text>
           </p>
           <div style={{ position: "relative", top: "-10px" }}>
@@ -314,7 +314,7 @@ console.log(res);
                   />
                 </div>
               }
-              <AddToken contractAddress={contractAddresses} symbol={'TWD'} bgColor='#1e1e1e' />
+              <AddToken contractAddress={contractAddresses} symbol={'WSK'} bgColor='#1e1e1e' />
             </div>
           )}
 
