@@ -13,6 +13,7 @@ export default () => {
       hostLogoUrl: 'https://rampnetwork.github.io/assets/misc/test-logo.png',
       hostApiKey: 'ehu6k8ujqcgn5vxp3rhg2b5oggr64uxtgvy2rzvw',
       variant: 'embedded-desktop',
+      url: 'https://ri-widget-staging.firebaseapp.com',
       // @ts-ignore
       containerNode: document.getElementById('ramp-container') ?? null,
     }).show();

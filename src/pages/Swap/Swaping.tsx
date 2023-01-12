@@ -11,6 +11,7 @@ import ReactGA from "react-ga";
 import { Text } from "rebass";
 import { ThemeContext } from "styled-components";
 import { useTranslation } from "react-i18next";
+import EthereumLogo from '../../assets/images/bnb.svg'
 
 import AddressInputPanel from "../../components/AddressInputPanel";
 import {
@@ -89,12 +90,14 @@ import { addTSA } from "../../utils/addTokenToWallet";
 
 import { useActiveWeb3React } from "../../hooks";
 import WalletSwitch from "../../WalletSwitch";
+import {useNavigate} from "react-router";
 
 // import SwapLogo from '../../assets/images/TEAsWAP.jpeg'
 
 export default function Swap() {
   const loadedUrlParams = useDefaultsFromURLSearch();
   const { t } = useTranslation();
+  const navigate = useNavigate()
 
   // token warning stuff
   const [loadedInputCurrency, loadedOutputCurrency] = [
@@ -404,10 +407,9 @@ export default function Swap() {
         tokens={urlLoadedTokens}
         onConfirm={handleConfirmTokenWarning}
       />
-      <Banner className="page-banner">
-        <img width="100%" src={process.env.PUBLIC_URL + "/swap_banner.png"} />
-      </Banner>
-
+      {/*<Banner className="page-banner">*/}
+      {/*  <img width="100%" src={process.env.PUBLIC_URL + "/swap_banner.png"} />*/}
+      {/*</Banner>*/}
       <BodyWrapper>
         <img
           width="131"
@@ -686,8 +688,62 @@ export default function Swap() {
               <DefaultVersionLink />
             ) : null}
           </BottomGrouping>
+
         </Wrapper>
       </BodyWrapper>
+      <BottomBtn
+        onClick={() => {
+          window.open("https://app.1inch.io/#/42161/unified/swap")
+        }}
+      >
+        <div>
+          <img width="32" src={EthereumLogo} alt="ethereum logo" />
+        </div>
+        <div
+          style={{
+            marginLeft: "20px",
+            display: "flex",
+            flexDirection: "column",
+          }}
+        >
+          <span>
+            BNB token bridge
+          </span>
+          <span style={{
+            fontSize: "12px",
+          }}>
+            Deposit tokens to the BNB Chain
+          </span>
+        </div>
+      </BottomBtn>
+      <BottomBtn
+        onClick={() => {
+          navigate('/ramp')
+        }}
+      >
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+          }}
+        >
+          <svg
+            style={{
+              width: "32px",
+              marginLeft: 1
+            }}
+            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 8.25h19.5M2.25 9h19.5m-16.5 5.25h6m-6 2.25h3m-3.75 3h15a2.25 2.25 0 002.25-2.25V6.75A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25v10.5A2.25 2.25 0 004.5 19.5z" />
+          </svg>
+        </div>
+        <div
+          style={{
+            marginLeft: "20px",
+          }}
+        >
+          Buy crypto
+        </div>
+      </BottomBtn>
       <AdvancedSwapDetailsDropdown trade={trade} />
     </>
   );
@@ -715,3 +771,22 @@ export const Banner = styled.div`
   ${MEDIA_QUERY.sm} {
   }
 `;
+
+export const BottomBtn = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;  
+  align-items: center;
+  border: 1px solid #EDEDED;
+  background: radial-gradient(182.71% 205.59% at 2.81% 7.69%, rgba(112, 175, 180, 0.2) 0%, rgba(213, 229, 232, 0.2) 100%);
+  max-width: 450px;
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 20px;
+  padding: 10px;
+  border-radius: 20px;
+  cursor: pointer;
+  color: #60a7ac;
+  font-weight: 600;
+  font-size: 16px;
+`

@@ -75,7 +75,7 @@ const List = () => {
       medium: "https://youtu.be/jEmasPf-KXE",
       info: `Web3Social Key is a No-Code Social Token Launchpad. With your Web3Social Key, you can unlock features like launching your own customised smart contract, social token, starting community funding and fansumers economy, and more. Total 2100 keys will be released with standard and premium features available.`,
       joinUs: "/wsk",
-      when: "When: December 15, 2022",
+      when: "When: Jan 18, 2023",
       end: new Date(1655273475719),
       duration: 6048000,
       sign: NewImg,
