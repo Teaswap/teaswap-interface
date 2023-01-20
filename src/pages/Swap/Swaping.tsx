@@ -698,7 +698,7 @@ export default function Swap() {
           window.open("https://app.multichain.org/#/router ")
         }}
       >
-        <img src={BNBBridge} />
+        <img src={BuyCryptoImg} />
         {/*<div>*/}
         {/*  <img width="32" src={EthereumLogo} alt="ethereum logo" />*/}
         {/*</div>*/}
@@ -724,7 +724,7 @@ export default function Swap() {
           navigate('/ramp')
         }}
       >
-        <img src={BuyCryptoImg} />
+        <img src={BNBBridge} />
         {/*<div*/}
         {/*  style={{*/}
         {/*    display: "flex",*/}

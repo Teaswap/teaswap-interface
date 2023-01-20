@@ -55,7 +55,7 @@ import {
   PenguinPunksCollection,
   // GensisNFT
   BBBPENGUIN,
-  MAGIC_BOX_TSA, XCOIN, THE_HOT_BOX, TSAMagicBox3
+  MAGIC_BOX_TSA, XCOIN, THE_HOT_BOX, TSAMagicBox3, LTC
 } from "../../constants";
 import {
   IDO_ABI_INTERFACE,
@@ -89,6 +89,18 @@ export const STAKING_REWARDS_INFO: {
     //   iconUrl: "/TSAPenguinPunks.png",
     //   cate:"NFT"
     // },
+    {
+      tokens: [BBBPENGUIN, DOGE],
+      stakingRewardAddress: "0x7d4034784c0b3cdbdc124a52d3dcae8db5176c4e",
+      iconUrl: "https://teaswap.mypinata.cloud/ipfs/QmSzaVUuiZj6kEvBc7bikYN6C1qU5yuTZAHJit3WDCfsPK",
+      cate: "NFT",
+    },
+    {
+      tokens: [BBBPENGUIN, LTC],
+      stakingRewardAddress: "0x7ab90dd4a71ae3c261e207968093d7445f8e14f3",
+      iconUrl: "https://teaswap.mypinata.cloud/ipfs/QmWYg5Euida6Tz8CiSCXPRCjc34Q6LXbrA5nSEYHsPFsrC",
+      cate: "NFT",
+    },
     {
       tokens: [THE_HOT_BOX, XCOIN],
       stakingRewardAddress: "0x1fe2abe958f5f711e9ad19a10ecffab5d2045bd1",

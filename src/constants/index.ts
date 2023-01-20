@@ -524,6 +524,14 @@ export const DOGE = new Token(
   8,
   "DOGE",
   "Binance-Peg Dogecoin"
+)
+
+export const LTC = new Token(
+  ChainId.BSC_MAINNET,
+  "0x4338665cbb7b2485a8855a139b75d5e34ab0db94",
+  18,
+  "LTC",
+  "Binance-Peg Litecoin Token"
 );
 
 export const SHIB = new Token(
