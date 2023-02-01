@@ -67,6 +67,21 @@ const List = () => {
 //       sign: NewImg,
 //     },
     {
+      image: "https://teaswap.mypinata.cloud/ipfs/QmSs8X1xn1W7icwzQnpUM3UcCaPq2bVmpiYMiyaLmyFTPw",
+      Learn: "https://www.teaswap.live/tsabroadway",
+      LearnText: "Learn > On BNB Chain",
+      author: "TSA Broadway Series Collectibles",
+      medium: "https://www.youtube.com/watch?v=6OqBxO0xQT0",
+      info: t("iroinfo1"),
+      info2: ``,
+      joinUs:
+        "/iro/bnb/0x5f99ACF13CAff815DD9cB4A415c0fB34e9F4545b/0x624b680136AA1Dd629F8F832a8044c1dF6C33BE9",
+      when: "When: Feb 8, 2023",
+      end: new Date(1684454400000),
+      duration: 8640000,
+      sign: NewImg,
+    },
+    {
       image:
         "https://teaswap.mypinata.cloud/ipfs/QmXhRCWRaAKXjyWzXAwUqE2bPNNEt6yvxRsUwvTQzqdYVK",
       Learn: "https://www.teaswap.live/web3socialkey",

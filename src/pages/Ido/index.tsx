@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom'
 import Index2 from './index2'
 import Index4 from './index4'
 import Index3 from './index3'
+import Index5 from './index5'
 
 const Index = ()=>{
 
@@ -23,6 +24,9 @@ const Index = ()=>{
       )}
       {params.idoAddress == '0x887Ed22FAF9C4B985ecB019eA54A5185350AE214' && (
         <Index3 params={p} />
+      )}
+      {params.idoAddress == '0x624b680136AA1Dd629F8F832a8044c1dF6C33BE9' && (
+        <Index5 params={p} />
       )}
     </>
   )

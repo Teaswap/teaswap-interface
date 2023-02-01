@@ -230,7 +230,7 @@ export default function PoolCard({ stakingInfo }: { stakingInfo: StakingInfo }) 
         <TYPE.black fontWeight='bolder'>
           {`${stakingInfo.totalRewardRate
           ?.multiply(`${60 * 60 * 24 * 7}`)
-          ?.toFixed(0, { groupSeparator: ',' })} ${token1.symbol} / week`}</TYPE.black>
+          ?.toFixed(2, { groupSeparator: ',' })} ${token1.symbol} / week`}</TYPE.black>
       </RowBetween>
         <RowBetween style={{width: '299px', marginTop: '24px'}}>
             <Countdown exactEnd={stakingInfo?.periodFinish} rewardsDuration={stakingInfo?.rewardsDuration} />
