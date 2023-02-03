@@ -147,7 +147,7 @@ export default function Menu() {
               <MenuItem onClick={openClaimModal}>{t("Airdrop")}</MenuItem>
               <MenuItem
                 onClick={() => {
-                  navigate("/swap");
+                  navigate("/buycrypto");
                 }}
               >
                 {t("Buy Crypto")}

@@ -129,7 +129,7 @@ export default () => {
                 width: 100,
               }}
               onClick={() => {
-                navigate("/staking/0x68caacEEf02723f5589490128a25f0bDE9cd5b47/0xbA2aE42[…]32edC70B295c744C43/0xedb1b06c4f13626984f4d6ce8521baaba4d1d453");
+                navigate("/staking/0x68caacEEf02723f5589490128a25f0bDE9cd5b47/0xbA2aE424d960c26247Dd6c32edC70B295c744C43/0x7d4034784c0b3cdbdc124a52d3dcae8db5176c4e");
               }}
               children="Go Stake"
             />

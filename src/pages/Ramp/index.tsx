@@ -10,10 +10,10 @@ export default () => {
   useEffect(() => {
     new RampInstantSDK({
       hostAppName: 'TEASWAP',
-      hostLogoUrl: 'https://rampnetwork.github.io/assets/misc/test-logo.png',
-      hostApiKey: 'ehu6k8ujqcgn5vxp3rhg2b5oggr64uxtgvy2rzvw',
+      hostLogoUrl: 'https://teaswap.mypinata.cloud/ipfs/QmbJg3Hz3Hy8jt5kVAL8MsfCoJuM22LoYsruj6ufk5UUG7',
+      hostApiKey: 'o2csrvcve7xt6vjd935rm6b2tm6owrz28c8sx2ht',
       variant: 'embedded-desktop',
-      url: 'https://ri-widget-staging.firebaseapp.com',
+      // url: 'https://ri-widget-staging.firebaseapp.com',
       // @ts-ignore
       containerNode: document.getElementById('ramp-container') ?? null,
     }).show();

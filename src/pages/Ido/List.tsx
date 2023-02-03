@@ -68,15 +68,22 @@ const List = () => {
 //     },
     {
       image: "https://teaswap.mypinata.cloud/ipfs/QmSs8X1xn1W7icwzQnpUM3UcCaPq2bVmpiYMiyaLmyFTPw",
-      Learn: "https://www.teaswap.live/tsabroadway",
+      Learn: "https://www.teaswap.live/web3socialkey",
       LearnText: "Learn > On BNB Chain",
       author: "TSA Broadway Series Collectibles",
-      medium: "https://www.youtube.com/watch?v=6OqBxO0xQT0",
-      info: t("iroinfo1"),
+      medium: "https://youtu.be/8RCnsMrIExc",
+      info: `Come take a stroll with me through the metaverse,
+      it’s such an interesting place. You never now what 
+      you may find, what a lovely space. You will have 
+      community experience, beautiful wearable 
+      airdrops, community awards, NFT drops, music 
+      concerts, art exhibitions; and get in touch with the 
+      best art on metaverse. Start your journey with me 
+      to TSA Broadway!`,
       info2: ``,
       joinUs:
         "/iro/bnb/0x5f99ACF13CAff815DD9cB4A415c0fB34e9F4545b/0x624b680136AA1Dd629F8F832a8044c1dF6C33BE9",
-      when: "When: Feb 8, 2023",
+      when: "When: 02.8 21:30 EST",
       end: new Date(1684454400000),
       duration: 8640000,
       sign: NewImg,

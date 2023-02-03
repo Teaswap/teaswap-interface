@@ -721,7 +721,7 @@ export default function Swap() {
       </BottomBtn>
       <BottomBtn
         onClick={() => {
-          navigate('/ramp')
+          navigate('/buycrypto')
         }}
       >
         <img src={BNBBridge} />

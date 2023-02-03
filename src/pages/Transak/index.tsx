@@ -15,11 +15,21 @@ export default () => {
         style={{
           minWidth: '1000px',
           minHeight: '600px',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center'
         }}
         id={'ramp-container'}>
         <iframe height="625" title="Transak On/Off Ramp Widget"
                 src="https://global-stg.transak.com?apiKey=0dbb0def-af72-4b20-84b8-1deec1c0ecae"
                 frameBorder="no"
+                className={'myiframe'}
+                style={{
+                  display: "block",
+                  width: "100%",
+                  maxHeight: "625px",
+                  maxWidth: "500px"
+                }}
                 >
         </iframe>
       </div>

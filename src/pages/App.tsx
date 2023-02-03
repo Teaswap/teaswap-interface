@@ -170,7 +170,7 @@ export default function App() {
           <TopLevelModals />
           <Web3ReactManager>
             <Routes>
-              <Route path="/ramp" element={<Ramp />} />
+              <Route path="/buycrypto" element={<Ramp />} />
               <Route path="/transak" element={<Transak />} />
               <Route path="/iro" element={<IdoList />} />
               <Route path="/tsp" element={<TSP />} />

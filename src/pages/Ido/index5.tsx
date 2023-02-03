@@ -8,7 +8,7 @@ import { ETHER, JSBI } from "@teaswap/uniswap-sdk";
 // import DoubleCurrencyLogo from '../../components/DoubleLogo'
 import { useCurrency } from "../../hooks/Tokens";
 import { useWalletModalToggle } from "../../state/application/hooks";
-import { ExternalLink, TYPE } from "../../theme";
+import { TYPE } from "../../theme";
 
 import { RowBetween } from "../../components/Row";
 import {
@@ -45,13 +45,14 @@ const PageWrapper = styled.div`
 `;
 
 const AuthorInfo = styled(ColumnCenter)`
-  max-width: 1000px;
+  max-width: 1100px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   flex-wrap: wrap;
   margin: 0 auto;
   margin-top: 80px;
+  min-height: 800px;
   align-items: flex-start;
   ${MEDIA_QUERY.sm} {
     flex-direction: column-reverse;
@@ -284,7 +285,7 @@ const Index = ({ params }: Props) => {
             TSA Web3 Social Key Collectibles
           </div>
           <div className="iro-title1">
-            Key terms for TSA  Web3 Social Key Collectibles & Initial Art Offering ("IRO"):{" "}
+          Key terms for TSA  Web3 Social Key Collectibles & Initial Art Offering ("IRO"):{" "}
           </div>
           <ol
             style={{
@@ -293,28 +294,49 @@ const Index = ({ params }: Props) => {
               lineHeight: "28px",
             }}
           >
-            <li>Total Editions of TSA Web3 Social Series NFT Collectibles released: 2100  ("TSA Web3 Social Collectible")</li>
+            <li>Total Editions of TSA Web3 Social Series NFT Collectibles released: 2100  ("TSA Web3 
+Social Collectible")</li>
             <li>Total TSA released for TSA Web3Social Key IRO: 21,000,000</li>
             <li>
-              $TSA offering price: $0.03
+            $TSA offering price: 8620.68 TSA for 1 BNB
             </li>
             <li>
-              The TSA Web3 Social key Collectibles will be available at the TSA Metaverse at Voxels TSA NFT marketplace and Opensea,  and can only be purchased with $TSA at TSA Marketplace  right after IRO. TSA allows NFT collectors to yield farm, stake, or resell to the market.
+            You will receive a random TSA Web3 Social key Collectible which can be traded at the 
+TSA Metaverse at Voxels TSA NFT marketplace and Opensea,  and it also can be 
+purchased with $TSA at TSA Marketplace right after IRO. TSA allows TSA Web3 Social key
+NFT holders to yield farm, stake to earn $TSA, Doge and more coins in 5 different staking 
+reward pool, or resell to the market. Sign guestbook for airdrop: 
+https://www.voxels.com/play?coords=E@1172E,788N
             </li>
             <li>
-              TSA Token is listed on TeaSwap, BakerySwap and Hotbit for trading and liquidity farming;
+            TSA Token is listed on TeaSwap, BakerySwap and Hotbit for trading and liquidity 
+farming;
             </li>
             <li>
-              Able to Deposit TSA-BNB BLP to earn TSA, Deposit TSA-BUSD to earn TSA, and Deposit TSA-USDT BLP to earn TSA.
+            Able to Deposit TSA-BNB to earn TSA, Deposit TSA-Matic to earn TSA, and Deposit 
+TSA-USDT to earn TSA.
             </li>
             <li>
-              Holders with a Minimum 125,000 $TSA which can be exchanged with 1 TSA Web3Social key collectible. $TSA will be burned afterward.
-            </li>
-            <li style={{color: 'red'}}>
-              Each user can buy fractions of $TSA Offering. No Minimum. Maximum is 200,000 $TSA.
+            Holders with a Minimum 100,000 $TSA which can be exchanged with 1 TSA Web3Social
+key collectible. $TSA will be burned afterward. Learn more: 
+<a href="https://www.voxels.com/collections/polygon/0xD0e6b8D92132A2fF447376cBbCf389Fa543">
+  https://www.voxels.com/collections/polygon/0xD0e6b8D92132A2fF447376cBbCf389Fa543
+</a>
+A8354
             </li>
             <li>
-              TSA users who own TSA Web3social key will be receiving Web3social key premium features and 3 years free access to the facility at TSA metaverse, including hosting events, VIP shopping, meetings and more.
+            Each user can buy fractions of $TSA Offering. No Minimum. Maximum is 200,000 $TSA.
+            </li>
+            <li>
+            TSA users who own TSA Web3social key will receive aWeb3social key premium feature 
+and 1 year free access to the facility at TSA metaverse, including hosting events, VIP 
+shopping, airdrops, meetings and more. Learn metaverse airdrops: 
+<a href="https://www.voxels.com/collections/polygon/0x825B176819d99B0c3b128b7561E68108790694Fa">
+https://www.voxels.com/collections/polygon/0x825B176819d99B0c3b128b7561E68108790694Fa
+</a>
+            </li>
+            <li>
+            TSA Web3Social Key is used for  a NFT gated access to TSA Metaverse in Voxels.
             </li>
           </ol>
           {/*<div style={{ lineHeight: "30px", fontSize: "15px" }}>*/}
@@ -561,89 +583,7 @@ const Index = ({ params }: Props) => {
           </PositionInfo>
         </Box>
       </AuthorInfo>
-
-      {params.idoAddress == "0xF72ECaD992CebB0138aC13b616199f131F847b04" && (
-        <IframeComponent iframe={iframe} />
-      )}
-      {params.idoAddress == "0x887Ed22FAF9C4B985ecB019eA54A5185350AE214" && (
-        <div
-          style={{
-            width: "90%",
-            maxWidth: "1000px",
-            textAlign: "left",
-            margin: "0 auto",
-          }}
-        >
-          <p>Details :</p>
-          <p>
-            English：{" "}
-            <ExternalLink href="https://www.teaswap.live/tsabroadway">
-              https://www.teaswap.live/tsabroadway
-            </ExternalLink>
-          </p>
-          <p>
-            中文信息：{" "}
-            <ExternalLink href="https://zh.teaswap.live/tsabroadway">
-              https://zh.teaswap.live/tsabroadway
-            </ExternalLink>
-          </p>
-        </div>
-      )}
-      {params.idoAddress == "0x887Ed22FAF9C4B985ecB019eA54A5185350AE214" && (
-        <IframeComponent iframe={iframe2} />
-      )}
-      {params.idoAddress == "0xF72ECaD992CebB0138aC13b616199f131F847b04" && (
-        <div
-          style={{
-            color: "#474747",
-            marginTop: "50px",
-          }}
-        >
-          ** Converting into one exclusive CaoJun NFT limited edition of digital
-          collectible  or original collectibles ?
-          <ExternalLink
-            href={
-              "https://docs.google.com/forms/d/e/1FAIpQLSfKQ5ESZ_843cjHGBwKuObT79bfjUPQ3XHOJpy9vw2VFbAZVA/viewform"
-            }
-          >
-            Submit Now .
-          </ExternalLink>
-        </div>
-      )}
-      {params.idoAddress == "0x887Ed22FAF9C4B985ecB019eA54A5185350AE214" && (
-        <div
-          style={{
-            maxWidth: "849px",
-            width: "100%",
-            margin: "0 auto",
-            marginTop: "60px",
-            display: "flex",
-            justifyContent: "flex-end",
-            paddingBottom: "60px",
-          }}
-        >
-          <span
-            className="link-btn"
-            style={{
-              display: "block",
-              alignSelf: "right",
-              width: "256px",
-              height: "40px",
-              lineHeight: "40px",
-              color: "#333333",
-              backgroundColor: "#DBDBDB",
-              cursor: "pointer",
-            }}
-            onClick={() => {
-              window.open(
-                "https://docs.google.com/forms/d/e/1FAIpQLSfIocxm-bnEI3CvQF0caJDjIp0Kz-BDbIRig_kC7vBo0L7p3Q/viewform"
-              );
-            }}
-          >
-            Redeem NFT
-          </span>
-        </div>
-      )}
+      <IframeComponent iframe={iframe} />
     </PageWrapper>
   );
 };
@@ -670,8 +610,6 @@ function IframeComponent(props: any) {
 }
 
 const iframe =
-  '<iframe  class="myiframe" frameborder="0" allowfullscreen="1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" title="YouTube video player" style="margin-top: 30px; width: 100%; height: 100%; " src="https://www.youtube.com/embed/xa8OBoVx2yk?autoplay=0&amp;mute=0&amp;controls=1&amp;loop=0&amp;origin=https%3A%2F%2Fwww.teaswap.live&amp;playsinline=1&amp;enablejsapi=1&amp;widgetid=1" id="widget2"></iframe>';
-const iframe2 =
-  '<iframe  class="myiframe" frameborder="0" allowfullscreen="1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" title="YouTube video player" style="margin-top: 30px; width: 100%; height: 100%; " src="https://www.youtube.com/embed/QVuiElOqJ5Y?autoplay=0&amp;mute=0&amp;controls=1&amp;loop=0&amp;origin=https%3A%2F%2Fwww.teaswap.live&amp;playsinline=1&amp;enablejsapi=1&amp;widgetid=1" id="widget2"></iframe>';
+  '<iframe  class="myiframe" frameborder="0" allowfullscreen="1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" title="YouTube video player" style="margin-top: 30px; width: 100%; height: 100%; " src="https://www.youtube.com/embed/ZWRtdUmQqw4?autoplay=0&amp;mute=0&amp;controls=1&amp;loop=0&amp;origin=https%3A%2F%2Fwww.teaswap.live&amp;playsinline=1&amp;enablejsapi=1&amp;widgetid=1" id="widget2"></iframe>';
 
 export default Index;
