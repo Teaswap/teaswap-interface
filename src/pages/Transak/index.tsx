@@ -28,7 +28,8 @@ export default () => {
                   display: "block",
                   width: "100%",
                   maxHeight: "625px",
-                  maxWidth: "500px"
+                  maxWidth: "500px",
+                  padding: "0 60px"
                 }}
                 >
         </iframe>

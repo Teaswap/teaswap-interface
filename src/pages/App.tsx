@@ -171,7 +171,7 @@ export default function App() {
           <Web3ReactManager>
             <Routes>
               <Route path="/buycrypto" element={<Ramp />} />
-              <Route path="/transak" element={<Transak />} />
+              <Route path="/buybitcoin" element={<Transak />} />
               <Route path="/iro" element={<IdoList />} />
               <Route path="/tsp" element={<TSP />} />
               <Route path="/poap" element={<POAP />} />
