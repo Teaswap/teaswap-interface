@@ -2,9 +2,12 @@ import React, {useEffect} from "react";
 import styled from "styled-components";
 import {RampInstantSDK} from "@ramp-network/ramp-instant-sdk";
 // import { useActiveWeb3React } from "../../hooks";
+import { isMobile } from 'react-device-detect'
 
 
 export default () => {
+
+  console.log('isMobile', isMobile)
 
   // const { account, chainId } = useActiveWeb3React();
   useEffect(() => {
@@ -12,7 +15,7 @@ export default () => {
       hostAppName: 'TEASWAP',
       hostLogoUrl: 'https://teaswap.mypinata.cloud/ipfs/QmbJg3Hz3Hy8jt5kVAL8MsfCoJuM22LoYsruj6ufk5UUG7',
       hostApiKey: 'o2csrvcve7xt6vjd935rm6b2tm6owrz28c8sx2ht',
-      variant: 'embedded-desktop',
+      variant: isMobile ? 'auto' : 'embedded-desktop',
       // url: 'https://ri-widget-staging.firebaseapp.com',
       // @ts-ignore
       containerNode: document.getElementById('ramp-container') ?? null,
@@ -23,7 +26,7 @@ export default () => {
       <div
         style={{
           minWidth: '1000px',
-          minHeight: '600px',
+          minHeight: '667px',
         }}
         id={'ramp-container'}>
       </div>

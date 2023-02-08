@@ -1,4 +1,5 @@
 import React, {useEffect} from "react";
+import { isMobile } from "react-device-detect";
 import styled from "styled-components";
 // import { useActiveWeb3React } from "../../hooks";
 
@@ -13,8 +14,8 @@ export default () => {
     <Wrapper>
       <div
         style={{
-          minWidth: '1000px',
-          minHeight: '600px',
+          minWidth: isMobile ? '400px' : '1000px',
+          minHeight: isMobile ? '500px' : '600px',
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center'

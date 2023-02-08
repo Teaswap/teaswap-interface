@@ -292,6 +292,8 @@ const Index = ({ params }: Props) => {
               fontSize: "15px",
               textAlign: "left",
               lineHeight: "28px",
+              width: '90%',
+              wordBreak: 'break-all'
             }}
           >
             <li>Total Editions of TSA Web3 Social Series NFT Collectibles released: 2100  ("TSA Web3 
