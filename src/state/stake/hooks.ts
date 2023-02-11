@@ -90,6 +90,12 @@ export const STAKING_REWARDS_INFO: {
     //   cate:"NFT"
     // },
     {
+      tokens: [BBBPENGUIN, UNI[ChainId.BSC_MAINNET]],
+      stakingRewardAddress: "0xbdd8aa04e7112295b0e78e3d474ddd74b10f2ecb",
+      iconUrl: "https://teaswap.mypinata.cloud/ipfs/QmWdfEXMWpdNDmU4tzCxDVjVErhFpZssLZB9B2dUFvLZ3B",
+      cate: "NFT",
+    },
+    {
       tokens: [BBBPENGUIN, DOGE],
       stakingRewardAddress: "0x7d4034784c0b3cdbdc124a52d3dcae8db5176c4e",
       iconUrl: "https://teaswap.mypinata.cloud/ipfs/QmSzaVUuiZj6kEvBc7bikYN6C1qU5yuTZAHJit3WDCfsPK",
