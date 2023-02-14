@@ -260,6 +260,11 @@ export default () => {
             </NormalButton>
           </div>
         </div>
+        <div style={{marginTop: 20, color: 'white'}}>
+          <a href="https://www.teaswap.art/buycrypto">
+            ** Need BNB for gas? 
+          </a>
+        </div>
       </Right>
     </Wrapper>
   );

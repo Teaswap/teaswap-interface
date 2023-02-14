@@ -373,6 +373,11 @@ console.log(res);
             </div>
           )}
         </div>
+        <div style={{marginTop: 20}}>
+          <a href="https://www.teaswap.art/buycrypto">
+            ** Need ETH for gas? 
+          </a>
+        </div>
       </Right>
     </Wrapper>
   );

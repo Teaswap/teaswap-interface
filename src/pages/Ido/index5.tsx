@@ -281,64 +281,69 @@ const Index = ({ params }: Props) => {
           {/*  width="150"*/}
           {/*  style={{ marginBottom: "0px" }}*/}
           {/*/>*/}
-          <div className="iro-title">
-            TSA Web3 Social Key Collectibles
-          </div>
+          <div className="iro-title">TSA Web3 Social Key Collectibles</div>
           <div className="iro-title1">
-          Key terms for TSA  Web3 Social Key Collectibles & Initial Art Offering ("IRO"):{" "}
+            Key terms for TSA Web3 Social Key Collectibles & Initial Art
+            Offering ("IRO"):{" "}
           </div>
           <ol
             style={{
               fontSize: "15px",
               textAlign: "left",
               lineHeight: "28px",
-              width: '90%',
-              wordBreak: 'break-all'
+              width: "90%",
+              wordBreak: "break-all",
             }}
           >
-            <li>Total Editions of TSA Web3 Social Series NFT Collectibles released: 2100  ("TSA Web3 
-Social Collectible")</li>
+            <li>
+              Total Editions of TSA Web3 Social Series NFT Collectibles
+              released: 2100 ("TSA Web3 Social Collectible")
+            </li>
             <li>Total TSA released for TSA Web3Social Key IRO: 21,000,000</li>
+            <li>$TSA offering price: 8620.68 TSA for 1 BNB</li>
             <li>
-            $TSA offering price: 8620.68 TSA for 1 BNB
+              You will receive a random TSA Web3 Social key Collectible which
+              can be traded at the TSA Metaverse at Voxels TSA NFT marketplace
+              and Opensea, and it also can be purchased with $TSA at TSA
+              Marketplace right after IRO. TSA allows TSA Web3 Social key NFT
+              holders to yield farm, stake to earn $TSA, Doge and more coins in
+              5 different staking reward pool, or resell to the market. Sign
+              guestbook for airdrop:
+              https://www.voxels.com/play?coords=E@1172E,788N
             </li>
             <li>
-            You will receive a random TSA Web3 Social key Collectible which can be traded at the 
-TSA Metaverse at Voxels TSA NFT marketplace and Opensea,  and it also can be 
-purchased with $TSA at TSA Marketplace right after IRO. TSA allows TSA Web3 Social key
-NFT holders to yield farm, stake to earn $TSA, Doge and more coins in 5 different staking 
-reward pool, or resell to the market. Sign guestbook for airdrop: 
-https://www.voxels.com/play?coords=E@1172E,788N
+              TSA Token is listed on TeaSwap, BakerySwap and Hotbit for trading
+              and liquidity farming;
             </li>
             <li>
-            TSA Token is listed on TeaSwap, BakerySwap and Hotbit for trading and liquidity 
-farming;
+              Able to Deposit TSA-BNB to earn TSA, Deposit TSA-Matic to earn
+              TSA, and Deposit TSA-USDT to earn TSA.
             </li>
             <li>
-            Able to Deposit TSA-BNB to earn TSA, Deposit TSA-Matic to earn TSA, and Deposit 
-TSA-USDT to earn TSA.
+              Holders with a Minimum 100,000 $TSA which can be exchanged with 1
+              TSA Web3Social key collectible. $TSA will be burned afterward.
+              Learn more:
+              <a href="https://www.voxels.com/collections/polygon/0xD0e6b8D92132A2fF447376cBbCf389Fa543">
+                https://www.voxels.com/collections/polygon/0xD0e6b8D92132A2fF447376cBbCf389Fa543
+              </a>
+              A8354
             </li>
             <li>
-            Holders with a Minimum 100,000 $TSA which can be exchanged with 1 TSA Web3Social
-key collectible. $TSA will be burned afterward. Learn more: 
-<a href="https://www.voxels.com/collections/polygon/0xD0e6b8D92132A2fF447376cBbCf389Fa543">
-  https://www.voxels.com/collections/polygon/0xD0e6b8D92132A2fF447376cBbCf389Fa543
-</a>
-A8354
+              Each user can buy fractions of $TSA Offering. No Minimum. Maximum
+              is 200,000 $TSA.
             </li>
             <li>
-            Each user can buy fractions of $TSA Offering. No Minimum. Maximum is 200,000 $TSA.
+              TSA users who own TSA Web3social key will receive aWeb3social key
+              premium feature and 1 year free access to the facility at TSA
+              metaverse, including hosting events, VIP shopping, airdrops,
+              meetings and more. Learn metaverse airdrops:
+              <a href="https://www.voxels.com/collections/polygon/0x825B176819d99B0c3b128b7561E68108790694Fa">
+                https://www.voxels.com/collections/polygon/0x825B176819d99B0c3b128b7561E68108790694Fa
+              </a>
             </li>
             <li>
-            TSA users who own TSA Web3social key will receive aWeb3social key premium feature 
-and 1 year free access to the facility at TSA metaverse, including hosting events, VIP 
-shopping, airdrops, meetings and more. Learn metaverse airdrops: 
-<a href="https://www.voxels.com/collections/polygon/0x825B176819d99B0c3b128b7561E68108790694Fa">
-https://www.voxels.com/collections/polygon/0x825B176819d99B0c3b128b7561E68108790694Fa
-</a>
-            </li>
-            <li>
-            TSA Web3Social Key is used for  a NFT gated access to TSA Metaverse in Voxels.
+              TSA Web3Social Key is used for a NFT gated access to TSA Metaverse
+              in Voxels.
             </li>
           </ol>
           {/*<div style={{ lineHeight: "30px", fontSize: "15px" }}>*/}
@@ -348,6 +353,7 @@ https://www.voxels.com/collections/polygon/0x825B176819d99B0c3b128b7561E68108790
           {/*    https://www.caojunnft.com*/}
           {/*  </ExternalLink>*/}
           {/*</div>*/}
+          
         </Author>
         <Box>
           <PoolData>
@@ -583,6 +589,9 @@ https://www.voxels.com/collections/polygon/0x825B176819d99B0c3b128b7561E68108790
               </TYPE.main>
             )}
           </PositionInfo>
+          <div>
+            <a href="https://www.teaswap.art/buycrypto"> ** Need BNB for gas?</a>
+          </div>
         </Box>
       </AuthorInfo>
       <IframeComponent iframe={iframe} />
