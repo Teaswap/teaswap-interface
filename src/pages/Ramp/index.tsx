@@ -30,12 +30,24 @@ export default () => {
         }}
         id={'ramp-container'}>
       </div>
+      <div
+        style={{
+          display: 'flex',
+          flexWrap: 'wrap',
+        }}
+      >
+        <Icon src="https://teaswap.mypinata.cloud/ipfs/QmVxHN9RY96qQTgCWHKQq4VCxevifpp9hYvXTLQTo85tXC/Visa_Inc._logo.svg" />
+        <Icon src="https://teaswap.mypinata.cloud/ipfs/QmVxHN9RY96qQTgCWHKQq4VCxevifpp9hYvXTLQTo85tXC/Mastercard-logo.svg" />
+        <Icon src="https://teaswap.mypinata.cloud/ipfs/QmVxHN9RY96qQTgCWHKQq4VCxevifpp9hYvXTLQTo85tXC/Apple_Pay_logo.svg" />
+        <Icon src="https://teaswap.mypinata.cloud/ipfs/QmVxHN9RY96qQTgCWHKQq4VCxevifpp9hYvXTLQTo85tXC/Google_Pay_Logo.svg" />
+      </div>
     </Wrapper>
   );
 };
 
 const Wrapper = styled.div`
   display: flex;
+  flex-direction: column ;
   justify-content: center;
   align-items: center;
   width: 100%;
@@ -47,6 +59,11 @@ const Wrapper = styled.div`
     flex-direction: column;
     height: auto;
   }
+`;
 
+const Icon = styled.img`
+  width: 100px;
+  height: 50px;
+  margin: 10px;
 `;
 

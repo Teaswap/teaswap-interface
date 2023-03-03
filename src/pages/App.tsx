@@ -108,6 +108,7 @@ import WDA from './wda'
 import WSK from './wsk'
 import Ramp from './Ramp'
 import Transak from './Transak'
+import Mercurypo from "./mercurypo";
 // import { isMobile } from 'react-device-detect'
 // import MobileHeader from "../components/Header/mobile";
 
@@ -172,6 +173,7 @@ export default function App() {
             <Routes>
               <Route path="/buycrypto" element={<Ramp />} />
               <Route path="/buybitcoin" element={<Transak />} />
+              <Route path="/mecurypo" element={<Mercurypo />} />
               <Route path="/iro" element={<IdoList />} />
               <Route path="/tsp" element={<TSP />} />
               <Route path="/poap" element={<POAP />} />

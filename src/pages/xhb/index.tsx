@@ -22,7 +22,7 @@ import { TransactionResponse } from "@ethersproject/abstract-provider";
 import { ExternalLink } from "../../theme";
 import { toWei } from "web3-utils";
 import {calculateGasMargin, shortenAddress} from "../../utils";
-// import airdropAPI from "../../webAPI/airdropAPI";
+import airdropAPI from "../../webAPI/airdropAPI";
 import { useNavigate } from "react-router-dom";
 import { switchNetwork } from "../../utils/wallet";
 import { CrossmintPayButton } from "@crossmint/client-sdk-react-ui";
@@ -68,14 +68,14 @@ export default () => {
         setTimeout(() => {
           navigate("/thb");
         }, 10000);
-        // const res = await airdropAPI.mintAPI(account, response.hash);
-        // if (res.ok == 1) {
-        //   // todo you have an airdrop
-        //   setMsg("You have an airdrop, go to claim in about 3s");
-        //   setTimeout(() => {
-        //     navigate("/blind-box");
-        //   }, 3000);
-        // }
+        const res = await airdropAPI.mintAPI(account, response.hash);
+        if (res.ok == 1) {
+          // todo you have an airdrop
+          setMsg("You have an airdrop, go to claim in about 5s");
+          setTimeout(() => {
+            navigate("/blind-box");
+          }, 5000);
+        }
       })
       .catch((error: any) => {
         console.log({

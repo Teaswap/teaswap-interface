@@ -414,6 +414,7 @@ iframe{
 }
 iframe.myiframe {
   display: block !important;
+  border: none;
 }
 .mint-msg{
   display: inline-block;

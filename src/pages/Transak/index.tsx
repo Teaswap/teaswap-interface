@@ -1,8 +1,6 @@
 import React, {useEffect} from "react";
 import { isMobile } from "react-device-detect";
 import styled from "styled-components";
-// import { useActiveWeb3React } from "../../hooks";
-
 
 export default () => {
 
@@ -22,7 +20,7 @@ export default () => {
         }}
         id={'ramp-container'}>
         <iframe height="625" title="Transak On/Off Ramp Widget"
-                src="https://global-stg.transak.com?apiKey=0dbb0def-af72-4b20-84b8-1deec1c0ecae"
+                src="https://global.transak.com?apiKey=ce629f20-0557-479a-8745-2fafa7da89bc"
                 frameBorder="no"
                 className={'myiframe'}
                 style={{
