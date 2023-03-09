@@ -40,6 +40,19 @@ export function usePreSalePaused(contract: Contract | null, chainId: ChainId|und
   return totalSupply
 }
 
+export function usePaused(contract: Contract | null, chainId: ChainId|undefined) {
+  const [totalSupply, setTotalSupply] = useState(true);
+  useEffect(() => {
+    if (chainId !== xhbChainId || !contract) return
+    contract?.paused().then((res: any) => {
+      setTotalSupply(res)
+    }).catch((err: any) => {
+      console.log("read paused: ", { err })
+    })
+  }, [chainId])
+  return totalSupply
+}
+
 export function useOwner(contract: Contract | null, chainId: ChainId|undefined) {
   const [owner, setOwner] = useState('');
   useEffect(() => {

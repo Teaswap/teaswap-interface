@@ -1,0 +1,1 @@
+- [ ] https://www.smartcontracts.tools/token-generator/bsc/

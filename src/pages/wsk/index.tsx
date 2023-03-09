@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, {useState} from "react";
 import styled from "styled-components";
 import { useActiveWeb3React } from "../../hooks";
 import Select from "@mui/material/Select";
@@ -13,7 +13,9 @@ import {
   useXhbPrice,
   useXhbContract,
   xhbChainId,
-  contractAddresses, useMaxMintPerAccount, useMaxSupply, usePreSalePaused,
+  contractAddresses, useMaxMintPerAccount, useMaxSupply, 
+  usePaused,
+  // usePreSalePaused,
 } from "./hooks";
 import { useETHBalances } from "../../state/wallet/hooks";
 // import { JSBI } from "@teaswap/uniswap-sdk";
@@ -28,12 +30,13 @@ import { switchNetwork } from "../../utils/wallet";
 import { CrossmintPayButton } from "@crossmint/client-sdk-react-ui";
 import { BigNumber } from "@ethersproject/bignumber";
 import AddToken from "../../components/AddToken";
-import whitelistAPI from "../../webAPI/whitelistAPI";
+// import whitelistAPI from "../../webAPI/whitelistAPI";
+import { JSBI } from "@teaswap/uniswap-sdk";
 // import Decimal from "decimal.js";
 
 export default () => {
   const { account, chainId } = useActiveWeb3React();
-  const [whitelist, setWhitelist] = useState(0);
+  // const [whitelist, setWhitelist] = useState(0);
   const xhbContract = useXhbContract();
   const balance = useETHBalances(account ? [account] : [])?.[account ?? ""];
   const xhbBalance = useXhbBalance(account ?? "", xhbContract, chainId);
@@ -44,97 +47,98 @@ export default () => {
   const [amount, setAmount] = useState(0);
   const [hash, setHash] = useState("");
   const [msg, setMsg] = useState("");
-  const preSalePaused = usePreSalePaused(xhbContract, chainId);
+  const paused = usePaused(xhbContract, chainId);
+  // const preSalePaused = usePreSalePaused(xhbContract, chainId);
   // const navigate = useNavigate();
-  console.log({ account, balance, preSalePaused, price, chainId });
+  console.log({ account, balance,  price, chainId });
 
-  useEffect(() => {
-    whitelistAPI.getCountAPI(account, contractAddresses, xhbChainId).then((res) => {
-console.log(res);
-      if (res.data > 0) {
-        setWhitelist(res.data)
-      }
-    })
-  }, [account])
+//   useEffect(() => {
+//     whitelistAPI.getCountAPI(account, contractAddresses, xhbChainId).then((res) => {
+// console.log(res);
+//       if (res.data > 0) {
+//         setWhitelist(res.data)
+//       }
+//     })
+//   }, [account])
 
-  const handlePreSale = async (e: any) => {
-    setMsg("");
-    setHash("");
-    setAmount(e.target.value);
-    if (!xhbContract) return;
-    if (!whitelist) {
-      setMsg("Not part of presale list");
-      return;
-    }
+  // const handlePreSale = async (e: any) => {
+  //   setMsg("");
+  //   setHash("");
+  //   setAmount(e.target.value);
+  //   if (!xhbContract) return;
+  //   if (!whitelist) {
+  //     setMsg("Not part of presale list");
+  //     return;
+  //   }
     // if (new Decimal(balance?.toFixed(18) ?? 0).toNumber() <= new Decimal(e.target.value).mul(price).toNumber()) {
     //   setMsg("Insufficient balance");
     //   return;
     // }
-    whitelistAPI.signAPI(account, contractAddresses, xhbChainId, e.target.value).then((res) => {
-      console.log(res);
-      if (!res.data) {
-        setMsg("Not part of presale list");
-      }else{
-        const args = [res.data.amount, res.data.nonce, res.data.hash, res.data.signature];
-        console.log({args})
-        xhbContract
-          .preSale(...args, {
-            gasLimit: calculateGasMargin(BigNumber.from(350000)),
-            value: toWei(String(res.data.amount * parseFloat(price))),
-          })
-          .then(async (response: TransactionResponse) => {
-            console.log("buy: res", { response });
-            setHash(response.hash);
-          }).catch((err: any) => {
-            console.log(err);
-            setMsg("Transaction failed");
-        })
-      }
-    })
-  }
+  //   whitelistAPI.signAPI(account, contractAddresses, xhbChainId, e.target.value).then((res) => {
+  //     console.log(res);
+  //     if (!res.data) {
+  //       setMsg("Not part of presale list");
+  //     }else{
+  //       const args = [res.data.amount, res.data.nonce, res.data.hash, res.data.signature];
+  //       console.log({args})
+  //       xhbContract
+  //         .preSale(...args, {
+  //           gasLimit: calculateGasMargin(BigNumber.from(350000)),
+  //           value: toWei(String(res.data.amount * parseFloat(price))),
+  //         })
+  //         .then(async (response: TransactionResponse) => {
+  //           console.log("buy: res", { response });
+  //           setHash(response.hash);
+  //         }).catch((err: any) => {
+  //           console.log(err);
+  //           setMsg("Transaction failed");
+  //       })
+  //     }
+  //   })
+  // }
 
-  // const handleChange = async (e: any) => {
-  //   setMsg("");
-  //   setHash("");
-  //   setAmount(e.target.value);
-  //   if (!xhbContract || e.target.value == "Mint") return;
-  //   const args = [JSBI.BigInt(e.target.value).toString()];
-  //   // const estimatedGas = await xhbContract.estimateGas
-  //   //   .mint(...args)
-  //   //   .catch(() => {
-  //   //     return BigNumber.from(195000);
-  //   //   });
-  //   const estimatedGas = BigNumber.from(355000)
-  //   console.log("estimatedGas", estimatedGas);
-  //   xhbContract
-  //     .mint(...args, {
-  //       gasLimit: calculateGasMargin(estimatedGas),
-  //       value: toWei(String(e.target.value * parseFloat(price))),
-  //     })
-  //     .then(async (response: TransactionResponse) => {
-  //       console.log("buy: res", { response });
-  //       setHash(response.hash);
-  //       setMsg("You have an airdrop, go to claim in about 3s");
-  //       setTimeout(() => {
-  //         navigate("/thb");
-  //       }, 10000);
-  //       // const res = await airdropAPI.mintAPI(account, response.hash);
-  //       // if (res.ok == 1) {
-  //       //   // todo you have an airdrop
-  //       //   setMsg("You have an airdrop, go to claim in about 3s");
-  //       //   setTimeout(() => {
-  //       //     navigate("/blind-box");
-  //       //   }, 3000);
-  //       // }
-  //     })
-  //     .catch((error: any) => {
-  //       console.log({
-  //         gasLimit: 350000,
-  //         value: toWei(String(e.target.value * parseFloat(price))),
-  //       });
-  //       setMsg("int error: " + error.mesage);
-  //     });
-  // };
+  const handleChange = async (e: any) => {
+    setMsg("");
+    setHash("");
+    setAmount(e.target.value);
+    if (!xhbContract || e.target.value == "Mint") return;
+    const args = [JSBI.BigInt(e.target.value).toString()];
+    // const estimatedGas = await xhbContract.estimateGas
+    //   .mint(...args)
+    //   .catch(() => {
+    //     return BigNumber.from(195000);
+    //   });
+    const estimatedGas = BigNumber.from(355000)
+    console.log("estimatedGas", estimatedGas);
+    xhbContract
+      .mint(...args, {
+        gasLimit: calculateGasMargin(estimatedGas),
+        value: toWei(String(e.target.value * parseFloat(price))),
+      })
+      .then(async (response: TransactionResponse) => {
+        console.log("buy: res", { response });
+        setHash(response.hash);
+        // setMsg("You have an airdrop, go to claim in about 3s");
+        // setTimeout(() => {
+        //   navigate("/thb");
+        // }, 10000);
+        // const res = await airdropAPI.mintAPI(account, response.hash);
+        // if (res.ok == 1) {
+        //   // todo you have an airdrop
+        //   setMsg("You have an airdrop, go to claim in about 3s");
+        //   setTimeout(() => {
+        //     navigate("/blind-box");
+        //   }, 3000);
+        // }
+      })
+      .catch((error: any) => {
+        console.log({
+          gasLimit: 350000,
+          value: toWei(String(e.target.value * parseFloat(price))),
+        });
+        setMsg("int error: " + error.message);
+      });
+  };
   return (
     <Wrapper>
       <Left className="panel">
@@ -202,7 +206,7 @@ console.log(res);
         >
           <p>
             <Text>
-              You can now mint up to {whitelist} WSK.
+              {/* You can now mint up to {whitelist} WSK. */}
             </Text>
           </p>
           <div style={{ position: "relative", top: "-10px" }}>
@@ -217,10 +221,10 @@ console.log(res);
           {msg && <span className="mint-msg">{msg}</span>}
         </div>
         <div>
-          {preSalePaused && <Text>pre sale paused</Text>}
+          {paused && <Text>public sale paused</Text>}
         </div>
         <div>
-          {account && chainId === xhbChainId && !preSalePaused && (
+          {account && chainId === xhbChainId && !paused && (
             <FormControl
               style={{
                 backgroundColor: "#000000"
@@ -231,21 +235,21 @@ console.log(res);
                 style={{ minWidth: 300 }}
                 inputProps={{ "aria-label": "Without label" }}
                 displayEmpty
-                onChange={handlePreSale}
+                onChange={handleChange}
                 label="preSale"
                 value={amount}
                 input={<OutlinedInput />}
                 renderValue={() => {
                   if (!amount) {
-                    return <span style={{ color: "#fff", fontFamily: "" }}>Presale</span>;
+                    return <span style={{ color: "#fff", fontFamily: "" }}>Mint</span>;
                   }
                   return amount;
                 }}
               >
                 <MenuItem value="PreSale">
-                  <span>PreSale</span>
+                  <span>Mint</span>
                 </MenuItem>
-                {[...Array(whitelist).keys()].map((name) => (
+                {[...Array(10).keys()].map((name) => (
                   <MenuItem key={name} value={name+1}>
                     {name+1}
                   </MenuItem>

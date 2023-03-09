@@ -111,7 +111,7 @@ const ProductPage = () => {
   return (
     <>
       <MetaTags>
-        <meta name="twitter:title" content="TSANFT, One Hub for DeFi and Staking" />
+        <meta name="twitter:title" content="TSANFT, One Hub for Web3 and DeFi" />
         <meta name="twitter:description" content={product.info} />
         <meta name="twitter:site" content="@ArtTeaswap" />
         <meta name="og:image" content={product.picture_url} />
