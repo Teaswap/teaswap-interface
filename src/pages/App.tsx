@@ -111,6 +111,7 @@ import Transak from './Transak'
 import Mercurypo from "./mercurypo";
 // import { isMobile } from 'react-device-detect'
 // import MobileHeader from "../components/Header/mobile";
+import TokenGenerator from "./TokenGenerator";
 
 const AppWrapper = styled.div`
   display: flex;
@@ -171,6 +172,7 @@ export default function App() {
           <TopLevelModals />
           <Web3ReactManager>
             <Routes>
+              <Route path="/token-generator" element={<TokenGenerator />} />
               <Route path="/buycrypto" element={<Ramp />} />
               <Route path="/buybitcoin" element={<Transak />} />
               <Route path="/mecurypo" element={<Mercurypo />} />

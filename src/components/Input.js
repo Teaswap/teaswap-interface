@@ -20,7 +20,7 @@ padding-left: .75rem;
 `;
 
 export const InputComponent = styled.input`
-  height: 30px;
+  height: 50px; 
   width: calc(100% - 10px);
   max-width: 600px;
   //  border-width: 1px;

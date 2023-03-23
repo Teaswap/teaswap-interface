@@ -25,5 +25,5 @@
     "types": ["react-spring", "jest"]
   },
   "exclude": ["node_modules", "cypress"],
-  "include": ["./src/**/*.ts", "./src/**/*.tsx", "src/components/Confetti/index.js", "src/pages/Home/New.js", "src/components/Swipers/NFTSwiper1.jsx", "src/components/Swipers/NFTSwiper.jsx", "src/components/Swipers/NFTSwiper."]
+  "include": ["./src/**/*.ts", "./src/**/*.tsx", "src/components/Confetti/index.js", "src/pages/Home/New.js", "src/components/Swipers/NFTSwiper1.jsx", "src/components/Swipers/NFTSwiper.jsx", "src/components/Swipers/NFTSwiper.", "src/components/productSystem/InputItem.js"]
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { COLOR, FONT, MEDIA_QUERY } from '../../constants/style';
-import { InputComponent, TextAreaComponent } from '../../components/Input';
+import { InputComponent, TextAreaComponent } from '../Input';
 import { RadioBox } from './RadioBox';
 import { SelectBox } from './SelectBox';
 import { PictureBox } from './PictureBox';
@@ -29,15 +29,17 @@ const ErrorMessage = styled.div`
 
 export const InputItem = ({
   title,
-  type=null,
+  type,
   label,
   isNumber,
   errorMessage,
   hasValue,
   handleChange,
+  placeholder=null,
   options,
   productPictureUrl,
   textareaRows,
+  disabled = false,
   value,
 }) => {
   return (
@@ -49,13 +51,9 @@ export const InputItem = ({
           value={value}
           $margin={0}
           $size={title === '商品名稱' && 'lg'}
-          placeholder={
-            (title === '價格' && '價格需小於 NTD 50,000 元') ||
-            (title === '數量' && '數量需小於 1,000 個且不可為零') ||
-            (title === '備貨天數' && '備貨天數最長不能超過 30 天') ||
-            null
-          }
+          placeholder={placeholder}
           onChange={handleChange}
+          disabled={disabled}
         />
       )}
 

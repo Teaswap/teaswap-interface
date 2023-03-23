@@ -26,7 +26,7 @@ const md5 = require('js-md5');
 
 const Wrapper = styled.div`
   width: 100%;
-  max-width: 820px
+  max-width: 820px;
   margin: 0 auto;
   padding: 20px;
   display: flex;
@@ -34,6 +34,7 @@ const Wrapper = styled.div`
   align-items: center;
   padding-bottom: 50px;
   margin-top: 50px;
+  margin-bottom: 50px;
   box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.1), 0px 4px 8px rgba(0, 0, 0, 0.1), 0px 16px 24px rgba(0, 0, 0, 0.1),
     0px 24px 32px rgba(0, 0, 0, 0.1);
   ${MEDIA_QUERY.sm} {

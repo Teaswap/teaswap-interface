@@ -27,10 +27,10 @@ const mobileBanners = [
     src: 'https://teaswap.mypinata.cloud/ipfs/QmThKVLfhqtA8gB9ph23wUGu9P8vG2vkiUTpVmuvg3G8Ck',
     link: 'https://www.teaswap.art/nft/products/category/1'
   },
-  {
-    src: 'https://teaswap.mypinata.cloud/ipfs/QmcGndg2SD1g4PzN2tUFgNYrg5FZJY2M6VexLVANy9GAi3',
-    link: 'https://www.teaswap.art/nft/products/category/1'
-  },
+  // {
+  //   src: 'https://teaswap.mypinata.cloud/ipfs/QmcGndg2SD1g4PzN2tUFgNYrg5FZJY2M6VexLVANy9GAi3',
+  //   link: 'https://www.teaswap.art/xhb'
+  // },
   {
     src: '',
     link: ''
@@ -84,7 +84,7 @@ const CarouselBox = () => {
           }}
         />
       )}
-      {!isMobile && (
+      {/* {!isMobile && (
         <img
           src="https://teaswap.mypinata.cloud/ipfs/QmUy3A8F84j6esA1jG5zHNRqQfqXzP1QpuaBM7f5DUyVgo/HOTBOX_SPOTIFY_BANNER.jpg"
           alt=""
@@ -92,7 +92,7 @@ const CarouselBox = () => {
             window.open("https://www.teaswap.art/xhb");
           }}
         />
-      )}
+      )} */}
       {!isMobile && (
         <img
           src="https://teaswap.mypinata.cloud/ipfs/Qmc3gvNmgW7RaeXgicgUWndreJxFGa52ApxtqA652XShXy"

@@ -3,8 +3,8 @@ import styled from 'styled-components';
 import { EFFECT } from '../../constants/style';
 
 const Select = styled.select`
-  height: 30px;
-  width: 100px;
+  height: 50px;
+  width: 100%;
   box-shadow: ${EFFECT.shadowInput};
   border-radius: 0px;
   outline: none;
