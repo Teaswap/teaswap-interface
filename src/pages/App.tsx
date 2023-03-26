@@ -112,6 +112,7 @@ import Mercurypo from "./mercurypo";
 // import { isMobile } from 'react-device-detect'
 // import MobileHeader from "../components/Header/mobile";
 import TokenGenerator from "./TokenGenerator";
+import Bep20Tokens from "./TokenGenerator/tokens"
 
 const AppWrapper = styled.div`
   display: flex;
@@ -173,6 +174,7 @@ export default function App() {
           <Web3ReactManager>
             <Routes>
               <Route path="/token-generator" element={<TokenGenerator />} />
+              <Route path="/mybep20tokens" element={<Bep20Tokens />} />
               <Route path="/buycrypto" element={<Ramp />} />
               <Route path="/buybitcoin" element={<Transak />} />
               <Route path="/mecurypo" element={<Mercurypo />} />

@@ -9,7 +9,7 @@ export default function WalletSwitch() {
   const { chainId } = useActiveWeb3React();
   return (
     <div>
-      {chainId != 56 && (
+      {chainId != 56 && chainId != 97 && (
         <Modal isOpen={true} onDismiss={() => {}} maxHeight={90}>
           <p
             style={{
