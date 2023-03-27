@@ -147,6 +147,13 @@ export default function Menu() {
               <MenuItem onClick={openClaimModal}>{t("Airdrop")}</MenuItem>
               <MenuItem
                 onClick={() => {
+                  navigate("/mybep20tokens");
+                }}
+              >
+                {t("BEP 20 Tokens")}
+              </MenuItem>
+              <MenuItem
+                onClick={() => {
                   navigate("/buycrypto");
                 }}
               >

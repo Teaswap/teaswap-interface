@@ -8,6 +8,7 @@ import { useTheContract, useGetContractsForWallet } from "./hooks";
 import { fromWei } from "web3-utils";
 import addTokenToWallet from "../../utils/addTokenToWallet";
 import { shortenAddress } from "../../utils";
+import CopyHelper from "../../components/AccountDetails/Copy";
 
 function TokenInfo({ c }: any) {
 
@@ -23,6 +24,7 @@ function TokenInfo({ c }: any) {
           <a href={`https://testnet.bscscan.com/token/${c.address}#balances`}>
             {shortenAddress(c.address)}
           </a>
+          <CopyHelper toCopy={c.address} />
           <Button onClick={() => {
             addTokenToWallet({
               address: c.address,

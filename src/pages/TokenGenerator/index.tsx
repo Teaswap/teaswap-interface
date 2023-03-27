@@ -235,7 +235,16 @@ export default () => {
           <ErrorMessageContainer>{msg}</ErrorMessageContainer>
         )}
         {hash && (
-          <ErrorMessageContainer>{hash}</ErrorMessageContainer>
+          <HashContainer>
+            <a
+
+              href={`https://testnet.bscscan.com/tx/${hash}`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {t('View on BscScan')}  
+            </a>
+          </HashContainer>
         )}
       </FormWrap>
     </Wrapper>
@@ -308,4 +317,16 @@ const ErrorMessageContainer = styled.div`
   font-weight: bold;
   color: ${COLOR.text_alert};
   line-height: 1.5;
+`;
+
+const HashContainer = styled.div`
+  margin-left: ${DISTANCE.lg};
+  font-size: ${FONT.lg};
+  font-weight: bold;
+  color: ${COLOR.text_alert};
+  line-height: 1.5;
+  a { 
+    color: ${COLOR.text_alert};
+    text-decoration: underline;
+  } 
 `;
