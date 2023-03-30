@@ -405,10 +405,10 @@ export default function Header() {
               {t("NFT")}
               {/* <span>↗</span> */}
             </StyledNavLink>
-            <StyledNavLink id={`NFT-nav-link`} to={"/staking"}>
+            {/* <StyledNavLink id={`NFT-nav-link`} to={"/staking"}>
               {t("Stake")}
               {/* <span>↗</span> */}
-            </StyledNavLink>
+            {/* </StyledNavLink> */}
             <StyledExternalLink
               id={`Gallery-nav-link`}
               href={"https://www.teaswap.live/product"}

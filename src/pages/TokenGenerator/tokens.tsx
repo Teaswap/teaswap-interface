@@ -65,7 +65,10 @@ export default () => {
   return (
     <Wrapper>
       <FormWrap>  
-        <Title>{t('My BEP20 Tokens')}</Title>
+        <Title>
+          {t('My BEP20 Tokens')}
+          <a href="https://www.teaswap.art/token-generator"> (Create BEP20 Token) </a>
+        </Title>
         {contracts.map((c: any, index: number) => {
           return (
             <div style={{width: '90%'}} key={index}>

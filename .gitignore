@@ -42,3 +42,5 @@ src/constants/unit.js
 .env.prod
 env.production
 .deploy
+.yarn/
+.yarnrc.yml

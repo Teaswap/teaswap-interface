@@ -111,7 +111,8 @@
   "eslintConfig": {
     "extends": "react-app",
     "ignorePatterns": [
-      "node_modules"
+      "node_modules",
+      "*"
     ]
   },
   "browserslist": {

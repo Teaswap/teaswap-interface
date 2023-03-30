@@ -246,6 +246,9 @@ export default () => {
             </a>
           </HashContainer>
         )}
+         <div>
+            <a href="https://www.teaswap.art/buycrypto"> ** Need BNB for gas?</a>
+          </div>
       </FormWrap>
     </Wrapper>
   );
