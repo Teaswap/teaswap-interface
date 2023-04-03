@@ -7,8 +7,8 @@ import abi from './abi.json'
 import bep20Abi from './bep20.json'
 import { getContract } from '../../utils';
 
-export const theChainId = ChainId.BSC_TESTNET;
-export const contractAddresses = '0x5fE96A4301C07A6ED416B2359cf18228d506aBf4';
+export const theChainId = ChainId.BSC_MAINNET;
+export const contractAddresses = '0x76C176d498b5A3Aa0DEE63cC85c1776c380e3daB';
 
 export function useTheContract(): Contract | null {
   return useContract(contractAddresses, abi, true)
