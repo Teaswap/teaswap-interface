@@ -30,9 +30,10 @@ export default () => {
   const tokens = [
     'SimpleToken', 'BurnableToken', 'MintableToken', 'PauseableToken',
     'BurnableMintableToken', 'BurnablePauseableToken', 'MintablePauseableToken',
-    'PowerfulToken '
+    'PowerfulToken'
   ];
   useEffect(() => {
+    debugger
     switch (tokenType) {
       case 'SimpleToken':
         setTotalPrice(price * 0);
@@ -177,7 +178,11 @@ export default () => {
           productPictureUrl = {undefined}
         />  
 
-        
+        <div style={{
+          maxWidth: "600px"
+        }}>
+        Note:  For example, If you mint 10 token and choose 18 as Token Decimals, then your  Token Max Supply Supply shall be 10000000000000000000
+        </div>
         <InputItem
           title={t('Token Initial Supply')}
           label={t('Token Initial Supply')}
